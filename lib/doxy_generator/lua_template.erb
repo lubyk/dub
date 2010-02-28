@@ -1,0 +1,27 @@
+template<class T>
+void lua_pushclass(lua_State *L, T &val, const char *type_name) {
+  
+}
+
+
+static bool is_userdata(lua_State *L, int index, const char *tname) {
+  void *p = lua_touserdata(L, index);
+  if (p != NULL) {  /* value is a userdata? */
+    if (lua_getmetatable(L, index)) {  /* does it have a metatable? */
+      lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
+      if (lua_rawequal(L, -1, -2)) {  /* does it have the correct mt? */
+        lua_pop(L, 2);  /* remove both metatables */
+        // type match
+        return true;
+      }
+    }
+  }
+  // type does not match
+  return false;
+}
+
+
+const char cv_Mat[] = "Comeau C++";
+<%= @custom_types %>
+
+<%= @bindings %>

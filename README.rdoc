@@ -1,0 +1,6 @@
+= DoxyGenerator
+
+This is a tool to ease the creation of Lua bindings for a C++ library. It is currently
+developed to let me use OpenCV with Lua in Rubyk (http://rubyk.org).
+
+The generator uses the xml output from Doxygen to avoid parsing C++ code by itself.
