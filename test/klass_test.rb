@@ -26,8 +26,12 @@ class KlassTest < Test::Unit::TestCase
       assert_equal 'doxy_Matrix', @class.lib_name
     end
 
+    should 'combine prefix and name in id_name' do
+      assert_equal 'doxy.Matrix', @class.id_name
+    end
+
     should 'return file and line on source' do
-      assert_equal 'app/include/matrix.h:33', @class.source
+      assert_equal 'app/include/matrix.h:38', @class.source
     end
 
     should 'return a list of class methods' do
@@ -52,11 +56,15 @@ class KlassTest < Test::Unit::TestCase
     end
 
     should 'respond to constructor.method_name' do
-      assert_equal 'doxy_Matrix_constructor', @class.constructor.method_name(0)
+      assert_equal 'Matrix_Matrix', @class.constructor.method_name(0)
     end
 
     should 'find method with array index' do
-      assert_kind_of DoxyGenerator::Function, @class[:row]
+      assert_kind_of DoxyGenerator::Function, @class[:rows]
+    end
+
+    should 'return header name on header' do
+      assert_equal 'matrix.h', @class.header
     end
 
     context 'bound to a generator' do
@@ -74,10 +82,21 @@ class KlassTest < Test::Unit::TestCase
 
       should 'build constructor' do
         result = @class.to_s
-        puts result
         assert_match %r{static int Matrix_Matrix1\s*\(}, result
         assert_match %r{static int Matrix_Matrix2\s*\(}, result
         assert_match %r{static int Matrix_Matrix\s*\(},  result
+      end
+
+      should 'include class header' do
+        assert_match %r{#include\s+"matrix.h"}, @class.to_s
+      end
+
+      should 'include helper header' do
+        assert_match %r{#include\s+"lua_doxy_helper.h"}, @class.to_s
+      end
+
+      should 'create Lua metatable with class name' do
+        assert_match %r{luaL_newmetatable\(L,\s*"doxy.Matrix"\)}, @class.to_s
       end
     end
   end

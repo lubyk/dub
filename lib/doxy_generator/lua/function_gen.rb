@@ -85,7 +85,7 @@ module DoxyGenerator
 
         if func.member_method? && !func.constructor?
           klass = func.parent
-          res << "%-20s = luaL_checkudata (L, 1, \"%s\");" % ["#{klass.name} *self__", "#{klass.prefix}.#{klass.name}"]
+          res << "%-20s = *((#{klass.name}**)luaL_checkudata(L, 1, \"%s\"));" % ["#{klass.name} *self__", "#{klass.id_name}"]
           res << "lua_remove(L, 1);"
         end
 
@@ -179,7 +179,7 @@ module DoxyGenerator
             end
           end
         else
-          "%-20s = luaL_checkudata (L, %i, \"%s\");" % [type_def, stack_pos, "#{arg.function.prefix}.#{arg.type}"]
+          "%-20s = (#{arg.create_type})luaL_checkudata(L, %i, \"%s\");" % [type_def, stack_pos, "#{arg.function.prefix}.#{arg.type}"]
         end
       end
 

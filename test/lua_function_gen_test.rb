@@ -40,7 +40,7 @@ class LuaFunctionGenTest < Test::Unit::TestCase
       end
 
       should 'insert code to check for an arguments on get_arg' do
-        assert_match /Mat.*\*\s*src\s*=\s*luaL_checkudata\s*\(L,\s*1,\s*\"cv\.Mat\"\s*\)\s*;/,
+        assert_match /Mat.*\*\s*src\s*=\s*\(const\s+Mat\s+\*\)\s*luaL_checkudata\s*\(L,\s*1,\s*\"cv\.Mat\"\s*\)\s*;/,
                      @generator.get_arg(@function.arguments.first, 1) # 1 = first argument in Lua stack
       end
 
@@ -122,16 +122,16 @@ class LuaFunctionGenTest < Test::Unit::TestCase
 
   context 'A member function bound to a Lua generator' do
     setup do
-      @member = namespacedoxy_xml[:doxy][:Matrix][:row]
+      @member = namespacedoxy_xml[:doxy][:Matrix][:rows]
       DoxyGenerator::Lua.bind(@member)
     end
 
     should 'start by getting self' do
-      assert_match %r{self__\s*=\s*luaL_checkudata}, @member.to_s
+      assert_match %r{self__\s*=\s*\*\(\(Matrix\*\*\)luaL_checkudata}, @member.to_s
     end
 
     should 'prefix call with self' do
-      assert_match %r{self__->row\(}, @member.to_s
+      assert_match %r{self__->rows\(}, @member.to_s
     end
   end
 

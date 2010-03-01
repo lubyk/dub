@@ -2,12 +2,14 @@
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.6.3">
   <compound refid="classdoxy_1_1_matrix" kind="class"><name>doxy::Matrix</name>
     <member refid="classdoxy_1_1_matrix_1ad3b98ead6ead86336ab71aaced4b0d82" kind="variable"><name>data</name></member>
+    <member refid="classdoxy_1_1_matrix_1a995cf6a60d6a9dd2a4d3b7ddbae1daa0" kind="variable"><name>rows_</name></member>
+    <member refid="classdoxy_1_1_matrix_1ad484084b190da0557446a216c168b105" kind="variable"><name>cols_</name></member>
     <member refid="classdoxy_1_1_matrix_1a2b31fe700dfbb676c91c71185670e74a" kind="function"><name>Matrix</name></member>
-    <member refid="classdoxy_1_1_matrix_1a2eb10e81427c09332064d987c8a8d894" kind="function"><name>Matrix</name></member>
+    <member refid="classdoxy_1_1_matrix_1a0a6c6725d3ff1b7a96f82f82fb2c2ec4" kind="function"><name>Matrix</name></member>
     <member refid="classdoxy_1_1_matrix_1ad91e2dc77802fa72169d0322738ddefa" kind="function"><name>~Matrix</name></member>
     <member refid="classdoxy_1_1_matrix_1a5c99d104b8324bad1778cbc08a20c2b8" kind="function"><name>size</name></member>
-    <member refid="classdoxy_1_1_matrix_1a4c3781bacdf8010688d08a05795464f7" kind="function"><name>col</name></member>
-    <member refid="classdoxy_1_1_matrix_1a5a88fa91bf13c0e2208a7ce05486afb7" kind="function"><name>row</name></member>
+    <member refid="classdoxy_1_1_matrix_1a8730befde2e159954c481e2bcc037c9e" kind="function"><name>cols</name></member>
+    <member refid="classdoxy_1_1_matrix_1accbda980fda0f6bc21422e47bf1a1792" kind="function"><name>rows</name></member>
   </compound>
   <compound refid="namespacedoxy" kind="namespace"><name>doxy</name>
   </compound>

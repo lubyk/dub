@@ -41,8 +41,16 @@ module DoxyGenerator
       "#{loc['file'].split('/')[-3..-1].join('/')}:#{loc['line']}"
     end
 
+    def header
+      (@xml/'location').first.attributes['file'].split('/').last
+    end
+
     def lib_name
       "#{prefix}_#{name}"
+    end
+
+    def id_name
+      "#{prefix}.#{name}"
     end
 
     def destructor_name

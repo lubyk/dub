@@ -1,15 +1,19 @@
 #ifndef DOXY_GENERATOR_TEST_FIXTURES_APP_MATRIX_H_
 #define DOXY_GENERATOR_TEST_FIXTURES_APP_MATRIX_H_
 
+#include <cstring>
+#include <stdlib.h> // malloc
+
+
 /** @file */
 
 namespace doxy {
 
 class Matrix {
 public:
-  Matrix() : col_(0), row_(0) {}
+  Matrix() : rows_(0), cols_(0) {}
 
-  Matrix(int col, int row) : col_(col), row_(row) {
+  Matrix(int rows, int cols) : rows_(rows), cols_(cols) {
     data = (double*)malloc(size() * sizeof(double));
   }
 
@@ -19,19 +23,21 @@ public:
 
   /** Return size of matrix (rows * cols). */
   size_t size() {
-    return col_ * row_;
+    return rows_ * cols_;
   }
 
-  double col() {
-    return col_;
+  double cols() {
+    return cols_;
   }
 
-  double row() {
-    return row_;
+  double rows() {
+    return rows_;
   }
 
 private:
   double *data;
+  size_t rows_;
+  size_t cols_;
 };
 
 
