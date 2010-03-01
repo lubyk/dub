@@ -4,3 +4,8 @@ This is a tool to ease the creation of Lua bindings for a C++ library. It is cur
 developed to let me use OpenCV with Lua in Rubyk (http://rubyk.org).
 
 The generator uses the xml output from Doxygen to avoid parsing C++ code by itself.
+
+= Lua Generator
+
+Since this generator uses C++ code and memory allocation, you *MUST* compile Lua as C++ code
+to avoid memory leaks (error handling should use exceptions instead of longjmp).

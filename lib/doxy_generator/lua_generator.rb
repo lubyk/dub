@@ -117,16 +117,28 @@ module DoxyGenerator
     def get_arg(arg, stack_pos)
       type_def = "#{arg.create_type}#{arg.name}"
       if arg.is_native?
-        if FLOAT_TYPES.include?(arg.type)
-          "%-20s = #{insert_default(arg, stack_pos)}luaL_checknumber(L, %i);" % [type_def, stack_pos]
-        elsif INT_TYPES.include?(arg.type)
-          if arg.has_default?
-            "%-20s = #{insert_default(arg, stack_pos)}luaL_checkint(L, %i);" % [type_def, stack_pos]
+        if arg.is_pointer?
+          if arg.type == 'char'
+            type_def = "const #{type_def}" unless arg.is_const?
+            "%-20s = #{insert_default(arg, stack_pos)}luaL_checkstring(L, %i);" % [type_def, stack_pos]
           else
-            "%-20s = luaL_checkint   (L, %i);" % [type_def, stack_pos]
+            # retrieve by using a table accessor
+            # TODO: we should have a hint on required sizes !
+            "\nDoxyGeneratorArgPointer<#{arg.type}> ptr_#{arg.name};\n" +
+            "%-20s = #{insert_default(arg, stack_pos)}ptr_#{arg.name}(L, %i);" % [type_def, stack_pos]
           end
         else
-          raise "Unsuported type: #{arg.type}"
+          if FLOAT_TYPES.include?(arg.type)
+            "%-20s = #{insert_default(arg, stack_pos)}luaL_checknumber(L, %i);" % [type_def, stack_pos]
+          elsif INT_TYPES.include?(arg.type)
+            if arg.has_default?
+              "%-20s = #{insert_default(arg, stack_pos)}luaL_checkint(L, %i);" % [type_def, stack_pos]
+            else
+              "%-20s = luaL_checkint   (L, %i);" % [type_def, stack_pos]
+            end
+          else
+            raise "Unsuported type: #{arg.type}"
+          end
         end
       else
         "%-20s = luaL_checkudata (L, %i, \"%s\");" % [type_def, stack_pos, "#{arg.function.prefix}.#{arg.type}"]

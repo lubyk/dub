@@ -3,7 +3,7 @@ require 'doxy_generator/entities_unescape'
 module DoxyGenerator
   class Argument
     include DoxyGenerator::EntitiesUnescape
-    attr_reader :type, :name, :default, :function
+    attr_reader :type, :name, :default, :function, :xml
 
     NUMBER_TYPES = [
       'float',
@@ -26,15 +26,16 @@ module DoxyGenerator
     class << self
 
       # This is used to resolve overloaded functions
-      def type_group(a, prefix = nil)
+      def type_group(a, is_pointer = false, prefix = nil)
         # exact same type
         if NATIVE_C_TYPES.include?(a)
           if NUMBER_TYPES.include?(a)
             # number synonym
-            :number
+            is_pointer ? :number_ptr : :number
           else
             # string synonym
-            :string
+            raise "Not implemented yet"
+            # :string
           end
         else
           # custom class / type
@@ -55,7 +56,7 @@ module DoxyGenerator
       # index to filter
       def insert_by_type(hash, function, index = 0)
         arg = function.arguments[index]
-        arg = arg ? type_group(arg.type, function.prefix) : nil
+        arg = arg ? type_group(arg.type, arg.is_pointer?, function.prefix) : nil
         slot = hash[arg]
         if slot.nil?
           hash[arg] = function
@@ -86,6 +87,10 @@ module DoxyGenerator
       @ref
     end
 
+    def is_pointer?
+      !@pointer.nil?
+    end
+
     def is_const?
       @const
     end
@@ -99,11 +104,12 @@ module DoxyGenerator
     end
 
     def create_type
-      is_native? ? "#{type} " : "#{type} *"
+      (is_const? ? 'const ' : '') +
+      ((is_native? && !is_pointer?) ? "#{type} " : "#{type} *")
     end
-    
+
     def in_call_type
-      is_native? ? name : "*#{name}"
+      (is_native? || is_pointer?) ? name : "*#{name}"
     end
 
     private
@@ -115,8 +121,15 @@ module DoxyGenerator
           @ref   = $3
         end
 
-        if @type =~ /^\s*<[^>]+>(.*?)</
+        if @type =~ /^\s*<[^>]+>(.*?)<.*>(.*)$/
           @type = $1
+
+          if $2 != ''
+            @pointer = $2
+          end
+        elsif @type =~ /(.*?)\s*(\*+)$/
+          @type = $1
+          @pointer = $2
         end
 
         @name = unescape((@xml/'declname').innerHTML)

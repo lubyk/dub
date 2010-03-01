@@ -30,7 +30,7 @@ class LuaGeneratorTest < Test::Unit::TestCase
           # int interpolation    = top__ < 6 ? INTER_LINEAR : luaL_checkint(L, 6);
           assert_match /top__\s*<\s*6\s*\?/, @generator.get_arg(@function.arguments[5], 6)
         end
-        
+
         should 'use default if stack is too small' do
           assert_match /\?\s*INTER_LINEAR/, @generator.get_arg(@function.arguments[5], 6)
         end
@@ -67,7 +67,21 @@ class LuaGeneratorTest < Test::Unit::TestCase
       end
 
       should 'call template push method' do
+      puts @generator.bind(@function)
         assert_match %r{lua_pushclass<Mat>\(\s*L\s*,\s*retval__\s*,\s*"cv.Mat"\s*\)}, @generator.bind(@function)
+      end
+    end
+
+    context 'with pointer parameters' do
+      setup do
+        @function = namespacecv_xml[:cv][:calcHist][0]
+      end
+
+      should 'use a DoxyGeneratorArgPointer with the given type' do
+        assert_match %r{DoxyGeneratorArgPointer<int>}, @generator.bind(@function)
+      end
+
+      should 'free pointer data' do
       end
     end
   end

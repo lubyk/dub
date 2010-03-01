@@ -15,7 +15,7 @@ class ArgumentTest < Test::Unit::TestCase
       assert_equal 'src', @argument.name
     end
 
-    should 'return true if argument is const' do
+    should 'know if argument is const' do
       assert @argument.is_const?
     end
 
@@ -23,12 +23,16 @@ class ArgumentTest < Test::Unit::TestCase
       assert @argument.is_ref?
     end
 
+    should 'know that it is a pointer' do
+      assert !@argument.is_pointer?
+    end
+
     should 'know if argument type is a native type' do
       assert !@argument.is_native?
     end
 
-    should 'return a pointer on create_type' do
-      assert_equal 'Mat *', @argument.create_type
+    should 'create a pointer' do
+      assert_equal 'const Mat *', @argument.create_type
     end
 
     should 'keep a link to the function' do
@@ -62,12 +66,16 @@ class ArgumentTest < Test::Unit::TestCase
       assert_equal 'fx', @argument.name
     end
 
-    should 'return true if argument is const' do
+    should 'know if argument is const' do
       assert !@argument.is_const?
     end
 
     should 'know if argument is passed by ref' do
       assert !@argument.is_ref?
+    end
+
+    should 'know that it is a pointer' do
+      assert !@argument.is_pointer?
     end
 
     should 'know if argument type is a native type' do
@@ -101,7 +109,7 @@ class ArgumentTest < Test::Unit::TestCase
       assert_equal 'INTER_LINEAR', @argument.default
     end
 
-    should 'return true on has_default' do
+    should 'know if it has a default value' do
       assert @argument.has_default?
     end
   end
@@ -121,57 +129,127 @@ class ArgumentTest < Test::Unit::TestCase
     end
   end
 
-  context 'An int type' do
+  context 'An int argument' do
     should 'belong to the :number group' do
       assert_equal :number, DoxyGenerator::Argument.type_group('int')
     end
   end
 
-  context 'A float type' do
+  context 'A float argument' do
     should 'belong to the :number group' do
       assert_equal :number, DoxyGenerator::Argument.type_group('float')
     end
   end
 
-  context 'A double type' do
+  context 'A double argument' do
     setup do
-      @type = namespacecv_xml[:cv][:resize].arguments[3]
+      @argument = namespacecv_xml[:cv][:resize].arguments[3]
     end
 
     should 'belong to the :number group' do
       assert_equal :number, DoxyGenerator::Argument.type_group('double')
     end
 
+    should 'create double type' do
+      assert_equal 'double ', @argument.create_type
+    end
+
     should 'pass by value in call' do
-      assert_equal 'fx', @type.in_call_type
+      assert_equal 'fx', @argument.in_call_type
     end
   end
 
   context 'A custom class by ref' do
     setup do
-      @type = namespacecv_xml[:cv][:resize].arguments[0]
+      @argument = namespacecv_xml[:cv][:resize].arguments[0]
     end
 
     should 'belong to its own group' do
       assert_equal 'Mat', DoxyGenerator::Argument.type_group('Mat')
     end
 
+    should 'create a const pointer' do
+      assert_equal 'const Mat *', @argument.create_type
+    end
+
     should 'pass by ref in call' do
-      assert_equal '*src', @type.in_call_type
+      assert_equal '*src', @argument.in_call_type
+    end
+
+    should 'know if argument is const' do
+      assert @argument.is_const?
+    end
+
+    should 'know if argument is passed by ref' do
+      assert @argument.is_ref?
+    end
+
+    should 'know that it is a pointer' do
+      assert !@argument.is_pointer?
     end
   end
 
   context 'A pointer to a class' do
     setup do
-      @type = namespacecv_xml[:cv][:resize].arguments[0]
+      @argument = namespacecv_xml[:cv][:calcHist][0].arguments[0]
     end
 
     should 'belong to its own group' do
       assert_equal 'Mat', DoxyGenerator::Argument.type_group('Mat')
     end
 
-    should 'pass by ref in call' do
-      assert_equal '*src', @type.in_call_type
+    should 'pass by value in call' do
+      assert_equal 'images', @argument.in_call_type
+    end
+
+    should 'know if argument is const' do
+      assert @argument.is_const?
+    end
+
+    should 'know if argument is passed by ref' do
+      assert !@argument.is_ref?
+    end
+
+    should 'know that it is a pointer' do
+      assert @argument.is_pointer?
+    end
+
+    should 'create a pointer' do
+      assert_equal 'const Mat *', @argument.create_type
+    end
+  end
+
+  context 'A pointer to a native type' do
+    setup do
+      @argument = namespacecv_xml[:cv][:calcHist][0].arguments[2]
+    end
+
+    should 'belong to the number_pointer group' do
+      assert_equal :number_ptr, DoxyGenerator::Argument.type_group('int', true)
+    end
+
+    should 'pass by value in call' do
+      assert_equal 'channels', @argument.in_call_type
+    end
+
+    should 'know if argument is const' do
+      assert @argument.is_const?
+    end
+
+    should 'know if argument is passed by ref' do
+      assert !@argument.is_ref?
+    end
+
+    should 'know that it is a pointer' do
+      assert @argument.is_pointer?
+    end
+
+    should 'return the type without star' do
+      assert_equal 'int', @argument.type
+    end
+
+    should 'create a native type' do
+      assert_equal 'const int *', @argument.create_type
     end
   end
 end
