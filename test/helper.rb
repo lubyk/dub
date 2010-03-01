@@ -12,13 +12,17 @@ class Test::Unit::TestCase
     File.join(File.dirname(__FILE__), 'fixtures', path)
   end
 
-  @@namespacecv_xml = DoxyGenerator.parse(fixture('namespacecv.xml'))
+  @@namespacecv_xml = nil
 
   def fixture(path)
-    self.fixture(path)
+    self.class.fixture(path)
   end
 
   def namespacecv_xml
-    @@namespacecv_xml
+    @@namespacecv_xml ||= DoxyGenerator.parse(fixture('namespacecv.xml'))
+  end
+
+  def namespacedoxy_xml
+    @@namespacedoxy_xml ||= DoxyGenerator.parse(fixture('app/xml/namespacedoxy.xml'))
   end
 end

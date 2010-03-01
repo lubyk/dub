@@ -1,20 +1,34 @@
-require 'doxy_generator/function'
+require 'doxy_generator/member_extraction'
 
 module DoxyGenerator
-  class Namespace
-    attr_reader :name
 
-    def initialize(name, xml)
-      @name, @xml = name, xml
+  class Namespace
+    include MemberExtraction
+
+    attr_reader :name
+    attr_accessor :gen
+
+    def initialize(name, xml, current_dir)
+      @name, @xml, @current_dir = name, xml, current_dir
       parse_xml
     end
 
-    def [](name)
-      get_member(name.to_s)
+    def bind(generator)
+      @gen = generator
     end
 
-    def member(name)
-      get_member(name.to_s)
+    def generator
+      @gen || @parent.generator.class_generator
+    end
+
+    alias gen generator
+
+    def to_s
+      @gen.namespace(self)
+    end
+
+    def [](name)
+      get_member(name.to_s) || klass(name)
     end
 
     def function(name)
@@ -22,47 +36,48 @@ module DoxyGenerator
       member.kind_of?(Function) ? member : nil
     end
 
+    def klass(name)
+      get_class(name.to_s)
+    end
+
+    def classes
+      @classes ||= begin
+        list = []
+        @classes_hash.each do |name, member|
+          list << get_class(name)
+        end
+        list.compact!
+        list.sort
+      end
+    end
+
     private
       def parse_xml
-        @members   = {}
-        (@xml/'memberdef').each do |member|
-          name = (member/"name").innerHTML
-          if @members[name].kind_of?(Array)
-            @members[name] << member
-          elsif first_member = @members[name]
-            @members[name] = [first_member, member]
+        parse_members
+
+        @classes_hash = {}
+        (@xml/'innerclass').each do |klass|
+          name = klass.innerHTML
+          if name =~ /^#{@name}::(.+)$/
+            name = $1
+          end
+          filename = klass.attributes['refid']
+          filepath = File.join(@current_dir, "#{filename}.xml")
+          if File.exist?(filepath)
+            @classes_hash[name] = (Hpricot::XML(File.read(filepath))/'compounddef').first
           else
-            @members[name] = member
+            @classes_hash[name] = "Could not open #{filepath}"
           end
         end
       end
 
-      # Lazy construction of members
-      def get_member(name)
-        if member_or_group = @members[name]
-          if member_or_group.kind_of?(Array)
-            if member_or_group.first.kind_of?(Hpricot::Elem)
-              list = []
-              member_or_group.each_with_index do |m,i|
-                list << make_member(name, m, i + 1)
-              end
-              member_or_group = list
-            end
-          elsif member_or_group.kind_of?(Hpricot::Elem)
-            @members[name] = member_or_group = make_member(name, member_or_group)
+      def get_class(name)
+        if klass = @classes_hash[name]
+          if klass.kind_of?(Hpricot::Elem)
+            klass = @classes_hash[name] = make_member(name, klass)
           end
         end
-        member_or_group
-      end
-
-      def make_member(name, member, overloaded_index = nil)
-        case member[:kind]
-        when 'function'
-          Function.new(name, member, @name, overloaded_index)
-        else
-          # not supported: ignore
-          nil
-        end
+        klass
       end
   end
 end # Namespace

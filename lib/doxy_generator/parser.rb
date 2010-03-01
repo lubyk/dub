@@ -5,6 +5,7 @@ require 'doxy_generator/namespace'
 module DoxyGenerator
   class Parser
     def initialize(filepath)
+      @current_dir = File.dirname(filepath)
       @xml = Hpricot::XML(File.read(filepath))
     end
 
@@ -21,7 +22,7 @@ module DoxyGenerator
         ns = {}
         (@xml/'compounddef[@kind=namespace]').each do |namespace|
           name = (namespace/"compoundname").innerHTML
-          ns[name] = DoxyGenerator::Namespace.new(name, namespace)
+          ns[name] = DoxyGenerator::Namespace.new(name, namespace, @current_dir)
         end
         ns
       end

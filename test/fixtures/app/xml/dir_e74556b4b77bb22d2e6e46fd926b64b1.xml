@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="dir_e74556b4b77bb22d2e6e46fd926b64b1" kind="dir">
+    <compoundname>include/</compoundname>
+    <innerfile refid="matrix_8h">matrix.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/doxy_gen/test/fixtures/app/include/"/>
+  </compounddef>
+</doxygen>

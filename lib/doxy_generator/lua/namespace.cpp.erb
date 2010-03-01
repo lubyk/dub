@@ -1,0 +1,16 @@
+
+
+using namespace <%= @namespace.name %>;
+
+<% @namespace.classes.each do |klass| %>
+
+/*==========================================================*/
+/*  <%= "%-27s" % klass.name %>                             */
+/* =========================================================*/
+
+<%= klass %>
+
+<% end %>
+
+
+// Register namespace

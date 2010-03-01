@@ -1,4 +1,5 @@
 require 'helper'
+require 'doxy_generator/lua'
 
 class NamespaceTest < Test::Unit::TestCase
   context 'A Namespace' do
@@ -20,13 +21,26 @@ class NamespaceTest < Test::Unit::TestCase
     end
 
 
+    context 'when bound' do
+      setup do
+        @generator = DoxyGenerator::Lua.namespace_generator
+      end
+
+      should 'contain generator' do
+        res = DoxyGenerator::Lua.bind(@namespace)
+        assert_equal res, @namespace
+        assert_equal @generator, @namespace.gen
+      end
+
+    end
+
     context 'with overloaded functions' do
       setup do
         @function = namespacecv_xml[:cv][:divide]
       end
 
-      should 'find an array' do
-        assert_kind_of Array, @function
+      should 'find a DoxyGenerator::Group' do
+        assert_kind_of DoxyGenerator::Group, @function
       end
 
       should 'find a group of functions' do
@@ -43,6 +57,25 @@ class NamespaceTest < Test::Unit::TestCase
         assert_equal 1, @function[0].overloaded_index
         assert_equal 2, @function[1].overloaded_index
       end
+    end
+  end
+
+  context 'A namespace with class definitions' do
+    setup do
+      @namespace = DoxyGenerator.parse(fixture('app/xml/namespacedoxy.xml'))[:doxy]
+    end
+
+    should 'find classes by array index' do
+      assert_kind_of DoxyGenerator::Klass, @namespace[:Matrix]
+    end
+
+    should 'find classes with klass' do
+      assert_kind_of DoxyGenerator::Klass, @namespace.klass('Matrix')
+    end
+    
+    should 'return a list of classes with classes' do
+      assert_kind_of Array, @namespace.classes
+      assert_kind_of DoxyGenerator::Klass, @namespace.classes.first
     end
   end
 end

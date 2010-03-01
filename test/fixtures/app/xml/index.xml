@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.6.3">
+  <compound refid="classdoxy_1_1_matrix" kind="class"><name>doxy::Matrix</name>
+    <member refid="classdoxy_1_1_matrix_1ad3b98ead6ead86336ab71aaced4b0d82" kind="variable"><name>data</name></member>
+    <member refid="classdoxy_1_1_matrix_1a2b31fe700dfbb676c91c71185670e74a" kind="function"><name>Matrix</name></member>
+    <member refid="classdoxy_1_1_matrix_1a2eb10e81427c09332064d987c8a8d894" kind="function"><name>Matrix</name></member>
+    <member refid="classdoxy_1_1_matrix_1ad91e2dc77802fa72169d0322738ddefa" kind="function"><name>~Matrix</name></member>
+    <member refid="classdoxy_1_1_matrix_1a5c99d104b8324bad1778cbc08a20c2b8" kind="function"><name>size</name></member>
+    <member refid="classdoxy_1_1_matrix_1a4c3781bacdf8010688d08a05795464f7" kind="function"><name>col</name></member>
+    <member refid="classdoxy_1_1_matrix_1a5a88fa91bf13c0e2208a7ce05486afb7" kind="function"><name>row</name></member>
+  </compound>
+  <compound refid="namespacedoxy" kind="namespace"><name>doxy</name>
+  </compound>
+  <compound refid="matrix_8h" kind="file"><name>matrix.h</name>
+  </compound>
+  <compound refid="dir_e74556b4b77bb22d2e6e46fd926b64b1" kind="dir"><name>include/</name>
+  </compound>
+</doxygenindex>

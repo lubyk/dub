@@ -1,0 +1,51 @@
+/* ============================ Constructors     ====================== */
+
+<%= @class.constructor %>
+
+/* ============================ Destructor       ====================== */
+
+template<class T>
+static int <%= @class.destructor_name %>(lua_State *L) {
+  T **userdata = (T**)luaL_checkudata(L, 1, type_name);
+  if (*userdata) delete *userdata;
+  *userdata = NULL;
+  return 0;
+}
+
+/* ============================ Member Methods   ====================== */
+
+<% @class.members.each do |function| %>
+<%= function %>
+
+<% end %>
+
+
+/* ============================ Lua Registration ====================== */
+
+static const struct luaL_Reg <%= @class.lib_name %>_member_methods[] = {
+<%= indent(method_registration, 2) %>,
+  {NULL, NULL},
+}
+
+static const struct luaL_Reg <%= @class.lib_name %>_class_methods[] = {
+<%= indent(class_method_registration, 2) %>,
+  {NULL, NULL},
+}
+
+template<class T>
+static void luaopen_<%= @class.lib_name %>(lua_State *L) {
+  // Create the metatable which will contain all the member methods
+  luaL_newmetatable(L, <%= @class.name.inspect %>); // "cv.Mat"
+
+  // metatable.__index = metatable (find methods in the table itself)
+  lua_pushvalue(L, -1);
+  lua_setfield(L, -2, "__index");
+
+  // register member methods
+  luaL_register(L, NULL, <%= @class.lib_name %>_member_methods);  // cv_Mat_member_methods
+
+  // register class methods in a global table "cv_Mat"
+  // FIXME: insert into namespace...
+  luaL_register(L, <%= @class.lib_name %>, <%= @class.lib_name %>_class_methods); // cv_Mat_class_methods
+  return 1;
+}

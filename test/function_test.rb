@@ -59,4 +59,46 @@ class FunctionTest < Test::Unit::TestCase
       end
     end
   end
+
+  context 'A method' do
+    setup do
+      # namespacecv_xml = DoxyGenerator.parse(fixture('app/xml/namespacedoxy.xml'))
+      @method = namespacedoxy_xml[:doxy][:Matrix][:size]
+    end
+
+    should 'know that it belongs to a class' do
+      assert @method.member_method?
+    end
+
+    should 'know if it is a constructor' do
+      assert !@method.constructor?
+    end
+
+    should 'return klass on klass' do
+      assert_kind_of DoxyGenerator::Klass, @method.klass
+    end
+  end
+
+  context 'A constructor' do
+    setup do
+      # namespacecv_xml = DoxyGenerator.parse(fixture('app/xml/namespacedoxy.xml'))
+      @method = namespacedoxy_xml[:doxy][:Matrix][:Matrix].first
+    end
+
+    should 'know that it belongs to a class' do
+      assert @method.member_method?
+    end
+
+    should 'know if it is a constructor' do
+      assert @method.constructor?
+    end
+
+    should 'return class name on return_type_no_ptr' do
+      assert_equal 'Matrix', @method.return_type_no_ptr
+    end
+
+    should 'return class name pointer on return_type' do
+      assert_equal 'Matrix *', @method.return_type
+    end
+  end
 end
