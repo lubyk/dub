@@ -91,4 +91,30 @@ static bool is_userdata(lua_State *L, int index, const char *tname) {
   return false;
 }
 
+/** ======================================== register_constants */
+
+
+typedef struct lua_constants_Reg {
+  const char *name;
+  double constant;
+} luaL_Reg;
+
+LUALIB_API void register_constants(lua_State *L, const char *name_space, const lua_constants_Reg *l) {
+  if (name_space) {
+    int size = libsize(l);
+      /* try global variable (and create one if it does not exist) */
+      if (luaL_findtable(L, LUA_GLOBALSINDEX, name_space, size) != NULL)
+        luaL_error(L, "name conflict for module " LUA_QS, name_space);
+      /* found name_space in global index */
+    }
+  }
+  for (; l->name; l++) {
+    /* push each constant into the name_space */
+    lua_pushnumber(L, l->constant);
+    lua_setfield(L, l->name);
+  }
+  /* pop name_space */
+  lua_pop(L, 1);
+}
+
 #endif // DOXY_GENERATOR_LIB_DOXY_GENERATOR_INCLUDE_LUA_DOXY_HELPER_H_

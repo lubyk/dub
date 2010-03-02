@@ -35,6 +35,12 @@ module Dub
         end.join(",\n")
       end
 
+      def class_enums_registration(klass = @class)
+        klass.enums.map do |name|
+          "{%-20s, #{klass.full_type}::#{name}}" % name.inspect
+        end.join(",\n")
+      end
+
       def members_list(all_members)
         list = all_members.map do |member_or_group|
           if member_or_group.kind_of?(Array)
@@ -51,11 +57,16 @@ module Dub
       end
 
       def ignore_member?(member)
-        member.name =~ /^~/           || # do not build constructor
-        member.name =~ /^operator/    || # no conversion operators
-        member.return_type =~ />$/    || # no complex return types
-        member.return_type_is_native_pointer ||
-        member.original_signature =~ />/ # no complex types in signature
+        if member.name =~ /^~/           || # do not build constructor
+           member.name =~ /^operator/    || # no conversion operators
+           member.original_signature =~ />/ # no complex types in signature
+          true # ignore
+        elsif return_type = member.return_type
+          return_type.type =~ />$/    || # no complex return types
+          return_type.is_native? && member.return_type.is_pointer?
+        else
+          false # ok, do not ignore
+        end
       end
     end
   end

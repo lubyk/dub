@@ -16,6 +16,12 @@ module Dub
       def class_generator
         Lua.class_generator
       end
+
+      def enums_registration(namespace = @namespace)
+        namespace.enums.map do |name|
+          "{%-32s, #{namespace.full_type}::#{name}}" % name.inspect
+        end.join(",\n")
+      end
     end
   end
 end

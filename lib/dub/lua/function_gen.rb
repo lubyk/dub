@@ -130,7 +130,7 @@ module Dub
         end
         res = []
         if return_type = func.return_type
-          res << "%-20s = #{call_string}" % "#{return_type} retval__"
+          res << "%-20s = #{call_string}" % "#{return_type.create_type} retval__"
           case Argument.type_group(return_type)
           when :number
             res << "lua_pushnumber(L, retval__);"
@@ -142,7 +142,7 @@ module Dub
             else
               prefix = func.prefix
             end
-            res << "lua_pushclass<#{func.return_type_no_ptr}>(L, retval__, \"#{prefix}.#{func.return_type_no_ptr}\");"
+            res << "lua_pushclass<#{return_type.type}>(L, retval__, \"#{prefix}.#{return_type.type}\");"
           end
           res << "return 1;"
         else
@@ -181,7 +181,7 @@ module Dub
             end
           end
         else
-          "%-20s = (#{arg.create_type})luaL_checkudata(L, %i, \"%s\");" % [type_def, stack_pos, "#{arg.function.prefix}.#{arg.type}"]
+          "%-20s = (#{arg.create_type})luaL_checkudata(L, %i, \"%s\");" % [type_def, stack_pos, "#{arg.id_name}"]
         end
       end
 

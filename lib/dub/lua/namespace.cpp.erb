@@ -1,16 +1,24 @@
+#include "<%= @namespace.header %>"
 
+#include "lua_dub_helper.h"
 
 using namespace <%= @namespace.name %>;
 
-<% @namespace.classes.each do |klass| %>
+// Register namespace
 
-/*==========================================================*/
-/*  <%= "%-27s" % klass.name %>                             */
-/* =========================================================*/
-
-<%= klass %>
-
+<% if @namespace.has_enums? %>
+static const struct lua_constants_Reg <%= @namespace.name %>_namespace_constants[] = {
+<%= indent(enums_registration, 2) %>,
+  {NULL, NULL},
+};
 <% end %>
 
+void luaopen_<%= @namespace.lib_name %>(lua_State *L) {
+  // register member methods (functions)
+  //luaL_register(L, NULL, <%= @namespace.name %>_member_methods);
 
-// Register namespace
+<% if @namespace.has_enums? %>
+  // register namespace enums
+  register_constants(L, <%= @namespace.id_name.inspect %>, <%= @namespace.name %>_namespace_constants);
+<% end %>
+}

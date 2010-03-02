@@ -8,6 +8,7 @@ module Dub
   class Klass
     include MemberExtraction
     attr_reader :name, :xml, :prefix, :constructor, :alias_names, :enums, :parent
+    attr_accessor :header
 
     def initialize(parent, name, xml, prefix = '')
       @parent, @name, @xml, @prefix = parent, name, xml, prefix
@@ -67,6 +68,10 @@ module Dub
       !@template_params.nil?
     end
 
+    def has_enums?
+      !@enums.empty?
+    end
+
     def template_params
       @template_params
     end
@@ -77,7 +82,7 @@ module Dub
     end
 
     def header
-      (@xml/'location').first.attributes['file'].split('/').last
+      @header ||= (@xml/'location').first.attributes['file'].split('/').last
     end
 
     def full_type
@@ -133,7 +138,11 @@ module Dub
 
       def parse_alias_names
         (@xml/'aliases/name').each do |name|
-          @alias_names << name.innerHTML
+          name = name.innerHTML
+          @alias_names << name
+          if @parent
+            @parent.register_alias(name, self)
+          end
         end
       end
 

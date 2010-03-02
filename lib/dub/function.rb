@@ -13,7 +13,7 @@ module Dub
       parse_xml
 
       if constructor?
-        @return_type = "#{name} *"
+        @return_type = Argument.new(self, (Hpricot::XML("<type>#{name} *</type>")/''))
       end
     end
 
@@ -39,14 +39,6 @@ module Dub
 
     def constructor?
       @name == @parent.name
-    end
-
-    def return_type_no_ptr
-      @return_type ? @return_type.gsub(/\s+\*$/,'') : nil
-    end
-
-    def return_type_is_native_pointer
-      Argument::NATIVE_C_TYPES.include?(return_type_no_ptr) && @return_type =~ /\*$/
     end
 
     alias gen generator
@@ -90,18 +82,11 @@ module Dub
           @arguments << Argument.new(self, arg)
         end
 
-        @return_type = (@xml/'/type').innerHTML
-        if @return_type
-          if @return_type =~ /\s+.*>(.+)<[^>]+>(.*)$/
-            @return_type = unescape($1 + $2)
-            if @return_type =~ /(.*?)\s*&$/
-              # return by ref
-              # we need to put a real value as lvalue
-              @return_type = $1
-            end
-          elsif @return_type =~ /void$/ || @return_type.strip == ''
-            @return_type = nil
-          end
+        raw_type = (@xml/'/type').innerHTML
+        if raw_type =~ /void/ || raw_type.strip == ''
+          # no return type
+        else
+          @return_type = Argument.new(self, (@xml/'/type'))
         end
       end
   end

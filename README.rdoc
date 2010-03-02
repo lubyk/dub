@@ -5,7 +5,20 @@ It is currently developed to crete the OpenCV bindings for Lua in Rubyk (http://
 
 The generator uses the xml output from Doxygen to avoid parsing C++ code by itself.
 
-= Lua Generator
+= Features
+
+Currently, the parser supports:
+
+* class methods
+* overloaded class constructors
+* overloaded class methods
+* class instantiation from templates through typedefs
+* class alias through typedefs
+* class enums
+* namespace enums
+* well tested
+
+=== Lua Generator
 
 Since this generator uses C++ code and memory allocation, you *MUST* compile Lua as C++ code
 to avoid memory leaks (error handling should use exceptions instead of longjmp).

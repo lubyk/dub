@@ -184,15 +184,39 @@ class ArgumentTest < Test::Unit::TestCase
     end
   end
 
+  context 'A group of overloaded member methods' do
+    setup do
+      @group = namespacecv_xml[:cv][:Mat][:zeros]
+    end
+
+    should 'be ordered into a decision tree' do
+      f1 = @group.detect {|f| f.arguments[0].type == 'Size'}
+      f2 = @group.detect {|f| f.arguments[0].type == 'int'}
+      hash = {'cv.Size'=>f1, :number=> f2}
+      assert_equal hash, Dub::Argument.decision_tree(@group)
+    end
+  end
+
+  class MockArgument
+    attr_reader :type, :full_type
+    def initialize(type, full_type=nil, is_pointer=false)
+      @type = type
+      @full_type = full_type || type
+      @is_pointer = is_pointer
+    end
+    def is_pointer?
+      @is_pointer
+    end
+  end
   context 'An int argument' do
     should 'belong to the :number group' do
-      assert_equal :number, Dub::Argument.type_group('int')
+      assert_equal :number, Dub::Argument.type_group(MockArgument.new('int'))
     end
   end
 
   context 'A float argument' do
     should 'belong to the :number group' do
-      assert_equal :number, Dub::Argument.type_group('float')
+      assert_equal :number, Dub::Argument.type_group(MockArgument.new('float'))
     end
   end
 
@@ -202,7 +226,7 @@ class ArgumentTest < Test::Unit::TestCase
     end
 
     should 'belong to the :number group' do
-      assert_equal :number, Dub::Argument.type_group('double')
+      assert_equal :number, Dub::Argument.type_group(MockArgument.new('double'))
     end
 
     should 'create double type' do
@@ -220,7 +244,7 @@ class ArgumentTest < Test::Unit::TestCase
     end
 
     should 'belong to its own group' do
-      assert_equal 'Mat', Dub::Argument.type_group('Mat')
+      assert_equal 'cv.Mat', Dub::Argument.type_group(@argument)
     end
 
     should 'create a const pointer' do
@@ -250,7 +274,11 @@ class ArgumentTest < Test::Unit::TestCase
     end
 
     should 'belong to its own group' do
-      assert_equal 'Mat', Dub::Argument.type_group('Mat')
+      assert_equal 'cv.Mat', Dub::Argument.type_group(@argument)
+    end
+
+    should 'return type with namespace on id_name' do
+      assert_equal 'cv.Mat', @argument.id_name
     end
 
     should 'pass by value in call' do
@@ -280,7 +308,7 @@ class ArgumentTest < Test::Unit::TestCase
     end
 
     should 'belong to the number_pointer group' do
-      assert_equal :number_ptr, Dub::Argument.type_group('int', true)
+      assert_equal :number_ptr, Dub::Argument.type_group(MockArgument.new('int', 'int', true))
     end
 
     should 'pass by value in call' do

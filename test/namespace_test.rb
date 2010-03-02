@@ -20,6 +20,25 @@ class NamespaceTest < Test::Unit::TestCase
       assert_equal 'cv', @namespace.name
     end
 
+    should 'respond to lib_name' do
+      # nested namespace could be cv_more
+      assert_equal 'cv', @namespace.lib_name
+    end
+
+    should 'respond to id_name' do
+      # nested namespace could be cv.more
+      assert_equal 'cv', @namespace.id_name
+    end
+
+    should 'return header name on header' do
+      assert_equal 'cv.hpp', @namespace.header
+    end
+
+    should 'return defined header if changed' do
+      namespace = Dub.parse(fixture('namespacecv.xml'))[:cv]
+      namespace.header = 'opencv/cv.h'
+      assert_equal 'opencv/cv.h', namespace.header
+    end
 
     context 'when bound' do
       setup do
@@ -62,7 +81,7 @@ class NamespaceTest < Test::Unit::TestCase
 
   context 'A namespace with class definitions' do
     setup do
-      @namespace = Dub.parse(fixture('app/xml/namespacedub.xml'))[:dub]
+      @namespace = namespacedub_xml[:dub]
     end
 
     should 'find classes by array index' do
@@ -81,7 +100,7 @@ class NamespaceTest < Test::Unit::TestCase
 
   context 'A namespace with template class definitions' do
     setup do
-      @namespace = Dub.parse(fixture('app/xml/namespacedub.xml'))[:dub]
+      @namespace = namespacedub_xml[:dub]
     end
 
     should 'ignore template classes in class list' do
@@ -104,6 +123,32 @@ class NamespaceTest < Test::Unit::TestCase
       should 'generate a valid class' do
         # TODO: rerun all tests for lua class generation
         assert_match %r{luaL_register\(L,\s*"dub".*FloatMat}, @namespace[:FloatMat].to_s
+      end
+    end
+  end
+
+  context 'A namespace with enums' do
+    setup do
+      @namespace = namespacecv_xml[:cv]
+    end
+
+    should 'respond true to has_enums' do
+      assert @namespace.has_enums?
+    end
+
+    should 'produce namespaced declarations' do
+      assert_match %r{\{"INTER_LINEAR"\s*,\s*cv::INTER_LINEAR\}}, Dub::Lua.namespace_generator.enums_registration(@namespace)
+    end
+
+    context 'bound to a generator' do
+      setup do
+        Dub::Lua.bind(@namespace)
+      end
+
+      should 'produce enums registration' do
+        result = @namespace.to_s
+        assert_match %r{\{"INTER_LINEAR"\s*,\s*cv::INTER_LINEAR\}}, result
+        assert_match %r{register_constants\(L,\s*"cv",\s*cv_namespace_constants\)}, result
       end
     end
   end

@@ -54,6 +54,17 @@ class LuaFunctionGenTest < Test::Unit::TestCase
           assert_match /\?\s*cv::INTER_LINEAR/, @generator.get_arg(@function.arguments[5], 6)
         end
       end
+
+      context 'in a class with a class as parameter' do
+        setup do
+          @function = namespacecv_xml[:cv][:Mat][:locateROI]
+        end
+
+        should 'use parameter class identifier' do
+          assert_match /luaL_checkudata\s*\(L,\s*1,\s*\"cv\.Size\"\s*\)\s*;/,
+                       @generator.get_arg(@function.arguments.first, 1) # 1 = first argument in Lua stack
+        end
+      end
     end
   end
 

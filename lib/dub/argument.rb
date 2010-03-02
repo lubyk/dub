@@ -28,12 +28,12 @@ module Dub
     class << self
 
       # This is used to resolve overloaded functions
-      def type_group(a, is_pointer = false, prefix = nil)
+      def type_group(arg)
         # exact same type
-        if NATIVE_C_TYPES.include?(a)
-          if NUMBER_TYPES.include?(a)
+        if NATIVE_C_TYPES.include?(arg.type)
+          if NUMBER_TYPES.include?(arg.type)
             # number synonym
-            is_pointer ? :number_ptr : :number
+            arg.is_pointer? ? :number_ptr : :number
           else
             # string synonym
             raise "Not implemented yet"
@@ -41,7 +41,7 @@ module Dub
           end
         else
           # custom class / type
-          prefix ? "#{prefix}.#{a}" : a
+          arg.id_name
         end
       end
 
@@ -57,14 +57,14 @@ module Dub
       # Insert a function into the hash, using the argument at the given
       # index to filter
       def insert_by_type(hash, function, index = 0)
-        arg = function.arguments[index]
-        arg = arg ? type_group(arg.type, arg.is_pointer?, function.prefix) : nil
-        slot = hash[arg]
+        arg  = function.arguments[index]
+        type = arg ? type_group(arg) : nil
+        slot = hash[type]
         if slot.nil?
-          hash[arg] = function
+          hash[type] = function
         elsif slot.kind_of?(Hash)
           insert_by_type(slot, function, index + 1)
-        elsif arg.nil?
+        elsif type.nil?
           # ignore
 
           # TODO: log level
@@ -73,7 +73,7 @@ module Dub
           h = {}
           insert_by_type(h, slot, index + 1)
           insert_by_type(h, function, index + 1)
-          hash[arg] = h
+          hash[type] = h
         end
       end
     end
@@ -85,6 +85,18 @@ module Dub
 
     def signature
       "#{is_const? ? 'const ' : ''}#{type}#{is_ref? ? '&' : ''}"
+    end
+
+    def full_type
+      container = function.parent
+      if container.kind_of?(Klass)
+        container = container.parent
+      end
+      container ? "#{container.name}::#{type}" : type
+    end
+
+    def id_name
+      full_type.gsub('::', '.')
     end
 
     alias inspect signature
@@ -105,13 +117,21 @@ module Dub
       !@default.nil?
     end
 
+    def is_return_value?
+      @is_return_value
+    end
+
     def is_native?
       NATIVE_C_TYPES.include?(type)
     end
 
     def create_type
       (is_const? ? 'const ' : '') +
-      ((is_native? && !is_pointer?) ? "#{type} " : "#{type} *")
+      if (is_return_value? && is_ref?) || (is_native? && !is_pointer?)
+        "#{type} "
+      else
+        "#{type} *"
+      end
     end
 
     def in_call_type
@@ -120,28 +140,40 @@ module Dub
 
     private
       def parse_xml
-        @type = (@xml/'type').innerHTML
-        if @type =~ /^(const\s+|)(.*?)\s*(\&amp;)?$/
+        if type = (@xml/'type').first
+          # param
+          set_type(type)
+
+          @name = unescape((@xml/'declname').innerHTML)
+          @default = (@xml/'defval') ? unescape((@xml/'defval').innerHTML) : nil
+          @default = nil if @default == ''
+          expand_default_type if @default
+        else
+          # return value
+          @is_return_value = true
+          set_type(@xml/'')
+        end
+      end
+
+      def set_type(type)
+        type = type.innerHTML
+        if type =~ /^(const\s+|)(.*?)\s*(\&amp;)?$/
           @const = $1 != ''
-          @type  = $2
+          type  = $2
           @ref   = $3
         end
 
-        if @type =~ /^\s*<[^>]+>(.*?)<.*>(.*)$/
-          @type = $1
+        if type =~ /<[^>]+>(.*?)<.*>(.*)$/
+          type = $1
 
           if $2 != ''
             @pointer = $2
           end
-        elsif @type =~ /(.*?)\s*(\*+)$/
-          @type = $1
+        elsif type =~ /(.*?)\s*(\*+)$/
+          type = $1
           @pointer = $2
         end
-
-        @name = unescape((@xml/'declname').innerHTML)
-        @default = (@xml/'defval') ? unescape((@xml/'defval').innerHTML) : nil
-        @default = nil if @default == ''
-        expand_default_type if @default
+        @type = type
       end
 
       # Replace something like AUTO_STEP by cv::Mat::AUTO_STEP

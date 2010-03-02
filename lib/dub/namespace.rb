@@ -6,10 +6,12 @@ module Dub
     include MemberExtraction
 
     attr_reader :name
-    attr_accessor :gen, :xml, :enums, :parent
+    attr_accessor :gen, :xml, :enums, :parent, :header, :prefix
 
     def initialize(name, xml, current_dir)
       @name, @xml, @current_dir = name, xml, current_dir
+      @class_alias = {}
+      @alias_names = []
       parse_xml
     end
 
@@ -39,6 +41,18 @@ module Dub
       @parent ? "#{@parent.full_type}::#{name}" : name
     end
 
+    def lib_name
+      prefix ? "#{prefix}_#{name}" : name
+    end
+
+    def id_name(name = self.name)
+      prefix ? "#{prefix}.#{name}" : name
+    end
+
+    def header
+      @header ||= (@xml/'location').first.attributes['file'].split('/').last
+    end
+
     def [](name)
       get_member(name.to_s) || klass(name.to_s)
     end
@@ -49,7 +63,7 @@ module Dub
     end
 
     def klass(name)
-      get_class(name.to_s, @classes_hash)
+      get_class(name.to_s, @classes_hash) || get_alias(name.to_s)
     end
 
     def template_class(name)
@@ -65,6 +79,14 @@ module Dub
         list.compact!
         list.sort
       end
+    end
+
+    def has_enums?
+      !@enums.empty?
+    end
+
+    def register_alias(name, klass)
+      @class_alias[name] = klass
     end
 
     private
@@ -153,6 +175,7 @@ module Dub
               # alias
               original_name = (typedef_xml/'/type/ref').innerHTML
               if class_xml = @classes_hash[original_name]
+                @alias_names << new_name
                 if (class_xml/'/aliases').first
                   (class_xml/'/aliases').append("<name>#{new_name}</name>")
                 else
@@ -177,6 +200,19 @@ module Dub
           end
         end
         klass
+      end
+
+      def get_alias(name)
+        if klass = @class_alias[name]
+          return klass
+        elsif @classes || !@alias_names.include?(name)
+          # classes parsed, alias does not exist
+          nil
+        else
+          # we need to parse all classes so they register the alias
+          self.classes
+          @class_alias[name]
+        end
       end
   end
 end # Namespace
