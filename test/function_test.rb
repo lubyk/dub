@@ -58,6 +58,20 @@ class FunctionTest < Test::Unit::TestCase
         assert_equal 'Mat', @function.return_type
       end
     end
+    
+    context 'with a pointer to native type return value' do
+      setup do
+        @function = namespacecv_xml[:cv][:Mat][:ptr].first
+      end
+      
+      should 'know the type of the returned value' do
+        assert_equal 'uchar *', @function.return_type
+      end
+      
+      should 'know that the type is a native pointer' do
+        assert @function.return_type_is_native_pointer
+      end
+    end
   end
 
   context 'A method' do

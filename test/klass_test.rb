@@ -39,7 +39,7 @@ class KlassTest < Test::Unit::TestCase
     end
 
     should 'return file and line on source' do
-      assert_equal 'app/include/matrix.h:57', @class.source
+      assert_match %r{app/include/matrix\.h:\d+}, @class.source
     end
 
     should 'return a list of class methods' do
@@ -72,6 +72,10 @@ class KlassTest < Test::Unit::TestCase
 
       should 'ignore operator methods in member list' do
         assert !@list.include?("operator size_t")
+      end
+
+      should 'ignore members returning native pointers' do
+        assert !@list.include?("ptr")
       end
     end
 
@@ -201,7 +205,7 @@ class KlassTest < Test::Unit::TestCase
       end
 
       should 'list all members on members' do
-        assert_equal %w{addref adjustROI assignTo channels clone col colRange convertTo copyTo create cross depth diag dot elemSize elemSize1 empty eye isContinuous locateROI ones ptr release reshape row rowRange setTo size step1 type zeros}, @class.members.map {|m| m.name}
+        assert_equal %w{addref adjustROI assignTo channels clone col colRange convertTo copyTo create cross depth diag dot elemSize elemSize1 empty eye isContinuous locateROI ones release reshape row rowRange setTo size step1 type zeros}, @class.members.map {|m| m.name}
       end
     end
   end

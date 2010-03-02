@@ -73,5 +73,22 @@ private:
   T *data;
 };
 
+/** ======================================== is_userdata */
+
+static bool is_userdata(lua_State *L, int index, const char *tname) {
+  void *p = lua_touserdata(L, index);
+  if (p != NULL) {  /* value is a userdata? */
+    if (lua_getmetatable(L, index)) {  /* does it have a metatable? */
+      lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
+      if (lua_rawequal(L, -1, -2)) {  /* does it have the correct mt? */
+        lua_pop(L, 2);  /* remove both metatables */
+        // type match
+        return true;
+      }
+    }
+  }
+  // type does not match
+  return false;
+}
 
 #endif // DOXY_GENERATOR_LIB_DOXY_GENERATOR_INCLUDE_LUA_DOXY_HELPER_H_

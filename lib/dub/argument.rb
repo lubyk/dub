@@ -15,7 +15,8 @@ module Dub
       'size_t',
       'unsigned int',
       'uint',
-      'bool'
+      'bool',
+      'uchar'
     ]
 
     STRING_TYPES = [

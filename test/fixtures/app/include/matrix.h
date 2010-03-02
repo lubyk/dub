@@ -53,6 +53,10 @@ public:
 
   }
 
+  int *ptr() {
+    // dummy
+  }
+
 private:
   double *data_;
   size_t rows_;

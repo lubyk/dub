@@ -54,6 +54,7 @@ module Dub
         member.name =~ /^~/           || # do not build constructor
         member.name =~ /^operator/    || # no conversion operators
         member.return_type =~ />$/    || # no complex return types
+        member.return_type_is_native_pointer ||
         member.original_signature =~ />/ # no complex types in signature
       end
     end

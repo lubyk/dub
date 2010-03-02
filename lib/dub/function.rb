@@ -42,7 +42,11 @@ module Dub
     end
 
     def return_type_no_ptr
-      return_type.gsub(/\s+\*$/,'')
+      @return_type ? @return_type.gsub(/\s+\*$/,'') : nil
+    end
+
+    def return_type_is_native_pointer
+      Argument::NATIVE_C_TYPES.include?(return_type_no_ptr) && @return_type =~ /\*$/
     end
 
     alias gen generator
@@ -88,8 +92,8 @@ module Dub
 
         @return_type = (@xml/'/type').innerHTML
         if @return_type
-          if @return_type =~ /\s+.*>(.+)</
-            @return_type = $1
+          if @return_type =~ /\s+.*>(.+)<[^>]+>(.*)$/
+            @return_type = $1 + $2
           elsif @return_type =~ /void$/ || @return_type.strip == ''
             @return_type = nil
           end

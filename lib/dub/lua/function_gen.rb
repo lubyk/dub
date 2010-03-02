@@ -18,6 +18,7 @@ module Dub
         'unsigned int',
         'uint',
         'bool',
+        'uchar'
       ]
 
       def initialize
@@ -59,7 +60,7 @@ module Dub
             when nil
               res << "#{else_prefix}if (type__ == LUA_TNONE) {"
             else
-              res << "#{else_prefix}if (type__ == LUA_TUSERDATA && is_userdata(L, #{depth}, \"#{type}\") {"
+              res << "#{else_prefix}if (type__ == LUA_TUSERDATA && is_userdata(L, #{depth}, \"#{type}\")) {"
             end
 
             res << indent(switch(sub_group, depth + 1), 2)
