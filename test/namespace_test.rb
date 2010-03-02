@@ -87,7 +87,7 @@ class NamespaceTest < Test::Unit::TestCase
     should 'ignore template classes in class list' do
       assert !@namespace.classes.map{|m| m.name}.include?("TMat")
     end
-    
+
     should 'return template class with template_class' do
       assert_kind_of Dub::Klass, @namespace.template_class('TMat')
     end
@@ -95,14 +95,15 @@ class NamespaceTest < Test::Unit::TestCase
     should 'build a full classes for template typedefs' do
       assert_kind_of Dub::Klass, @namespace.klass(:FloatMat)
     end
-    
+
     context 'bound to a generator' do
       setup do
         Dub::Lua.bind(@namespace)
       end
-      
+
       should 'generate a valid class' do
-        puts @namespace['FloatMat']
+        # TODO: rerun all tests for lua class generation
+        assert_match %r{luaL_register\(L,\s*"doxy.FloatMat"}, @namespace[:FloatMat].to_s
       end
     end
   end

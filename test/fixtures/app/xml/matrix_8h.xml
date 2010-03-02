@@ -113,10 +113,11 @@
 <codeline lineno="89"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"></highlight></codeline>
 <codeline lineno="93"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>TMat&lt;float&gt;<sp/>FloatMat;</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>doxy</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>DOXY_GENERATOR_TEST_FIXTURES_APP_MATRIX_H_</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>FloatMat<sp/>FMatrix;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>doxy</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>DOXY_GENERATOR_TEST_FIXTURES_APP_MATRIX_H_</highlight></codeline>
     </programlisting>
     <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h"/>
   </compounddef>

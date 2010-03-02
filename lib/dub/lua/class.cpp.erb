@@ -52,4 +52,7 @@ static void luaopen_<%= @class.lib_name %>(lua_State *L) {
 
   // register class methods in a global table like "doxy.Matrix"
   luaL_register(L, <%= @class.id_name.inspect %>, <%= @class.lib_name %>_class_methods); // doxy_Matrix_class_methods
+<% @class.alias_names.each do |name| %>
+  luaL_register(L, <%= @class.id_name(name).inspect %>, <%= @class.lib_name %>_class_methods); // typedef
+<% end %>
 }

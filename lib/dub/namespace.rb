@@ -59,9 +59,9 @@ module Dub
       def parse_xml
         parse_members
 
-        @classes_hash     = {}
-        @t_classes_hash   = {}
-        @t_classes_by_ref = {}
+        @classes_hash   = {}
+        @t_classes_hash = {}
+        @classes_by_ref = {}
         (@xml/'innerclass').each do |klass|
           name = klass.innerHTML
           if name =~ /^#{@name}::(.+)$/
@@ -73,10 +73,10 @@ module Dub
             class_xml = (Hpricot::XML(File.read(filepath))/'compounddef').first
             if (class_xml/'/templateparamlist/param').innerHTML != ''
               @t_classes_hash[name] = class_xml
-              @t_classes_by_ref[class_xml[:id]] = class_xml
             else
               @classes_hash[name] = class_xml
             end
+            @classes_by_ref[class_xml[:id]] = class_xml
           else
             @classes_hash[name] = "Could not open #{filepath}"
           end
@@ -90,39 +90,62 @@ module Dub
           if id = (typedef_xml/'/type/ref').first
             id = id[:refid]
           end
-          if tclass_xml = @t_classes_by_ref[id]
-            # replace class name
-            old_name = (tclass_xml/'/compoundname').first.innerHTML.gsub(/^.*::/,'')
-            new_name = (typedef_xml/'definition').innerHTML.gsub(/^.*::/,'')
-            class_def = tclass_xml.to_s.gsub(/#{old_name}&lt;.*?&gt;::/,"#{new_name}::")
-            class_def = class_def.gsub(/#{old_name}/, new_name)
 
-            # replace template types
-            # get template parameters
-            ttypes = (tclass_xml/'/templateparamlist/param/type').map do |type|
-              type.innerHTML.gsub(/^\s*(typename|class)\s+/,'')
-            end
+          new_name = (typedef_xml/'name').innerHTML
 
-            types_map = {}
-            (typedef_xml/'/type').innerHTML[/&lt;\s*(.*)\s*&gt;$/,1].split(',').map(&:strip).each_with_index do |type, i|
-              types_map[ttypes[i]] = type
-            end
+          if ref_class = @classes_by_ref[id]
+            if (typedef_xml/'/type').innerHTML =~ /&gt;$/
+              # template typedef
+              old_name = (ref_class/'/compoundname').first.innerHTML.gsub(/^.*::/,'')
 
-            class_xml = (Hpricot::XML(class_def)/'compounddef').first
+              # replace class name
+              class_def = ref_class.to_s.gsub(/#{old_name}&lt;.*?&gt;::/,"#{new_name}::")
+              class_def = class_def.gsub(/#{old_name}/, new_name)
 
-            (class_xml/'*[@prot=private]').remove
-            (class_xml/'templateparamlist').remove
+              # replace template types
+              # get template parameters
+              ttypes = (ref_class/'/templateparamlist/param/type').map do |type|
+                type.innerHTML.gsub(/^\s*(typename|class)\s+/,'')
+              end
+
+              types_map = {}
+
+              (typedef_xml/'/type').innerHTML[/&lt;\s*(.*)\s*&gt;$/,1].split(',').map(&:strip).each_with_index do |type, i|
+                types_map[ttypes[i]] = type
+              end
+
+              class_xml = (Hpricot::XML(class_def)/'compounddef').first
+
+              (class_xml/'*[@prot=private]').remove
+              (class_xml/'templateparamlist').remove
 
 
-            types_map.each do |template_type, real_type|
-              (class_xml/'type').each do |t|
-                if t.innerHTML == template_type
-                  t.swap("<type>#{real_type}</type>")
+              types_map.each do |template_type, real_type|
+                (class_xml/'type').each do |t|
+                  if t.innerHTML == template_type
+                    t.swap("<type>#{real_type}</type>")
+                  end
                 end
               end
-            end
 
-            @classes_hash[new_name] = class_xml
+              @classes_hash[new_name] = class_xml
+            else
+              # alias
+              original_name = (typedef_xml/'/type/ref').innerHTML
+              if class_xml = @classes_hash[original_name]
+                if (class_xml/'/aliases').first
+                  (class_xml/'/aliases').append("<name>#{new_name}</name>")
+                else
+                  (class_xml/'').append("<aliases><name>#{new_name}</name></aliases>")
+                end
+              else
+                # TODO: enable log levels
+                # puts "Could not find original class #{original_name}"
+              end
+            end
+          else
+            # TODO: enable log levels
+            # puts "Could not find reference class #{id}"
           end
         end
       end

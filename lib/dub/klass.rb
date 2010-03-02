@@ -7,10 +7,12 @@ require 'dub/member_extraction'
 module Dub
   class Klass
     include MemberExtraction
-    attr_reader :name, :xml, :prefix, :constructor
+    attr_reader :name, :xml, :prefix, :constructor, :alias_names
 
     def initialize(parent, name, xml, prefix = '')
       @parent, @name, @xml, @prefix = parent, name, xml, prefix
+
+      @alias_names = []
       parse_xml
     end
 
@@ -61,7 +63,7 @@ module Dub
       "#{prefix}_#{name}"
     end
 
-    def id_name
+    def id_name(name = self.name)
       "#{prefix}.#{name}"
     end
 
@@ -82,11 +84,22 @@ module Dub
     private
       def parse_xml
         parse_members
+        parse_template_params
+        parse_alias_names
+      end
+
+      def parse_template_params
         template_params = (@xml/'/templateparamlist/param')
         if !template_params.empty?
           @template_params = template_params.map do |param|
             (param/'/type').innerHTML.gsub(/^\s*(typename|class)\s+/,'')
           end
+        end
+      end
+
+      def parse_alias_names
+        (@xml/'aliases/name').each do |name|
+          @alias_names << name.innerHTML
         end
       end
 

@@ -27,6 +27,7 @@
   </compound>
   <compound refid="namespacedoxy" kind="namespace"><name>doxy</name>
     <member refid="namespacedoxy_1a46499c427c7f98e65588f7e9cd134f7d" kind="typedef"><name>FloatMat</name></member>
+    <member refid="namespacedoxy_1a1532f7c9c57a6957c8b63f57ab5da062" kind="typedef"><name>FMatrix</name></member>
   </compound>
   <compound refid="matrix_8h" kind="file"><name>matrix.h</name>
   </compound>

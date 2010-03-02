@@ -91,6 +91,7 @@ private:
 /** @var FloatMat
  */
 typedef TMat<float> FloatMat;
+typedef FloatMat FMatrix;
 
 } // doxy
 

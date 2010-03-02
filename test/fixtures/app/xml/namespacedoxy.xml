@@ -18,6 +18,19 @@
         </inbodydescription>
         <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="93" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="93" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="typedef" id="namespacedoxy_1a1532f7c9c57a6957c8b63f57ab5da062" prot="public" static="no">
+        <type><ref refid="classdoxy_1_1_t_mat" kindref="compound">FloatMat</ref></type>
+        <definition>typedef FloatMat doxy::FMatrix</definition>
+        <argsstring></argsstring>
+        <name>FMatrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="94" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>

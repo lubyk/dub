@@ -30,6 +30,10 @@ class KlassTest < Test::Unit::TestCase
       assert_equal 'doxy.Matrix', @class.id_name
     end
 
+    should 'combine prefix and provided name in id_name' do
+      assert_equal 'doxy.Foobar', @class.id_name('Foobar')
+    end
+
     should 'return file and line on source' do
       assert_equal 'app/include/matrix.h:45', @class.source
     end
@@ -45,7 +49,7 @@ class KlassTest < Test::Unit::TestCase
     should 'remove constructor from member list' do
       assert !@class.members.map{|m| m.name}.include?("Matrix")
     end
-    
+
     should 'ignore template methods in member list' do
       assert !@class.members.map{|m| m.name}.include?("give_me_tea")
     end
@@ -106,7 +110,7 @@ class KlassTest < Test::Unit::TestCase
       should 'create Lua metatable with class name' do
         assert_match %r{luaL_newmetatable\(L,\s*"doxy.Matrix"\)}, @class.to_s
       end
-      
+
       should 'not build template methods' do
         assert_no_match %r{give_me_tea}, @class.to_s
       end
@@ -125,6 +129,27 @@ class KlassTest < Test::Unit::TestCase
 
     should 'return template parameters' do
       assert_equal ['T'], @class.template_params
+    end
+  end
+
+  context 'A class with alias names' do
+    setup do
+      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedoxy.xml'))
+      @class = namespacedoxy_xml[:doxy][:FloatMat]
+    end
+
+    should 'return a list of these alias on alias_names' do
+      assert_equal ['FMatrix'], @class.alias_names
+    end
+
+    context 'bound to a generator' do
+      setup do
+        Dub::Lua.bind(@class)
+      end
+
+      should 'register all alias_names' do
+        assert_match %r{luaL_register\(L,\s*"doxy.FMatrix"}, @class.to_s
+      end
     end
   end
 end

@@ -123,6 +123,7 @@ static void luaopen_doxy_Matrix(lua_State *L) {
 
   // register class methods in a global table like "doxy.Matrix"
   luaL_register(L, "doxy.Matrix", doxy_Matrix_class_methods); // doxy_Matrix_class_methods
+
 }
 #include "matrix.h"
 
@@ -277,4 +278,7 @@ static void luaopen_doxy_FloatMat(lua_State *L) {
 
   // register class methods in a global table like "doxy.Matrix"
   luaL_register(L, "doxy.FloatMat", doxy_FloatMat_class_methods); // doxy_Matrix_class_methods
+
+  luaL_register(L, "doxy.FMatrix", doxy_FloatMat_class_methods); // typedef
+
 }
