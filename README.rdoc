@@ -1,7 +1,7 @@
-= DoxyGenerator
+= Dub (Doxygen based Ubiquitous Binder)
 
-This is a tool to ease the creation of Lua bindings for a C++ library. It is currently
-developed to let me use OpenCV with Lua in Rubyk (http://rubyk.org).
+This is a tool to ease the creation of scripting language bindings for a C++ library.
+It is currently developed to crete the OpenCV bindings for Lua in Rubyk (http://rubyk.org).
 
 The generator uses the xml output from Doxygen to avoid parsing C++ code by itself.
 

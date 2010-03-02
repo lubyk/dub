@@ -1,8 +1,8 @@
 require 'rubygems'
 require 'hpricot'
-require 'doxy_generator/namespace'
+require 'dub/namespace'
 
-module DoxyGenerator
+module Dub
   class Parser
     def initialize(filepath)
       @current_dir = File.dirname(filepath)
@@ -22,7 +22,7 @@ module DoxyGenerator
         ns = {}
         (@xml/'compounddef[@kind=namespace]').each do |namespace|
           name = (namespace/"compoundname").innerHTML
-          ns[name] = DoxyGenerator::Namespace.new(name, namespace, @current_dir)
+          ns[name] = Dub::Namespace.new(name, namespace, @current_dir)
         end
         ns
       end

@@ -3,7 +3,7 @@ require 'helper'
 class ArgumentTest < Test::Unit::TestCase
   context 'An const ref argument' do
     setup do
-      # namespacecv_xml = DoxyGenerator.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
       @argument = namespacecv_xml[:cv][:resize].arguments.first
     end
 
@@ -36,7 +36,7 @@ class ArgumentTest < Test::Unit::TestCase
     end
 
     should 'keep a link to the function' do
-      assert_kind_of DoxyGenerator::Function, @argument.function
+      assert_kind_of Dub::Function, @argument.function
     end
 
     should 'not return true on has_default if it does not have a default value' do
@@ -54,7 +54,7 @@ class ArgumentTest < Test::Unit::TestCase
 
   context 'A double argument' do
     setup do
-      # namespacecv_xml = DoxyGenerator.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
       @argument = namespacecv_xml[:cv][:resize].arguments[3]
     end
 
@@ -93,7 +93,7 @@ class ArgumentTest < Test::Unit::TestCase
 
   context 'An argument with a default value' do
     setup do
-      # namespacecv_xml = DoxyGenerator.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
       @argument = namespacecv_xml[:cv][:resize].arguments[5]
     end
 
@@ -125,19 +125,19 @@ class ArgumentTest < Test::Unit::TestCase
       f3 = @group.detect {|f| f.arguments[0].type == 'double' && f.arguments[1].type == 'Mat'}
       f4 = @group.detect {|f| f.arguments[0].type == 'double' && f.arguments[1].type == 'MatND'}
       hash = {'cv.Mat'=>f1, 'cv.MatND'=>f2, :number=> {'cv.Mat' => f3, 'cv.MatND' => f4}}
-      assert_equal hash, DoxyGenerator::Argument.decision_tree(@group)
+      assert_equal hash, Dub::Argument.decision_tree(@group)
     end
   end
 
   context 'An int argument' do
     should 'belong to the :number group' do
-      assert_equal :number, DoxyGenerator::Argument.type_group('int')
+      assert_equal :number, Dub::Argument.type_group('int')
     end
   end
 
   context 'A float argument' do
     should 'belong to the :number group' do
-      assert_equal :number, DoxyGenerator::Argument.type_group('float')
+      assert_equal :number, Dub::Argument.type_group('float')
     end
   end
 
@@ -147,7 +147,7 @@ class ArgumentTest < Test::Unit::TestCase
     end
 
     should 'belong to the :number group' do
-      assert_equal :number, DoxyGenerator::Argument.type_group('double')
+      assert_equal :number, Dub::Argument.type_group('double')
     end
 
     should 'create double type' do
@@ -165,7 +165,7 @@ class ArgumentTest < Test::Unit::TestCase
     end
 
     should 'belong to its own group' do
-      assert_equal 'Mat', DoxyGenerator::Argument.type_group('Mat')
+      assert_equal 'Mat', Dub::Argument.type_group('Mat')
     end
 
     should 'create a const pointer' do
@@ -195,7 +195,7 @@ class ArgumentTest < Test::Unit::TestCase
     end
 
     should 'belong to its own group' do
-      assert_equal 'Mat', DoxyGenerator::Argument.type_group('Mat')
+      assert_equal 'Mat', Dub::Argument.type_group('Mat')
     end
 
     should 'pass by value in call' do
@@ -225,7 +225,7 @@ class ArgumentTest < Test::Unit::TestCase
     end
 
     should 'belong to the number_pointer group' do
-      assert_equal :number_ptr, DoxyGenerator::Argument.type_group('int', true)
+      assert_equal :number_ptr, Dub::Argument.type_group('int', true)
     end
 
     should 'pass by value in call' do

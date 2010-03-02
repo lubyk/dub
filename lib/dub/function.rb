@@ -1,9 +1,9 @@
-require 'doxy_generator/argument'
-require 'doxy_generator/entities_unescape'
+require 'dub/argument'
+require 'dub/entities_unescape'
 
-module DoxyGenerator
+module Dub
   class Function
-    include DoxyGenerator::EntitiesUnescape
+    include Dub::EntitiesUnescape
     attr_reader :name, :arguments, :prefix, :overloaded_index, :return_type, :xml, :parent
     attr_accessor :gen
 

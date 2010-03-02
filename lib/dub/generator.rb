@@ -1,6 +1,6 @@
-require 'doxy_generator/function'
+require 'dub/function'
 
-module DoxyGenerator
+module Dub
   class Generator
 
     def comment(func)
@@ -12,4 +12,4 @@ module DoxyGenerator
         str.gsub(/^/, ' ' * indent)
       end
   end # Generator
-end # DoxyGenerator
+end # Dub

@@ -4,13 +4,13 @@ class FunctionTest < Test::Unit::TestCase
 
   context 'A Function' do
     setup do
-      # namespacecv_xml = DoxyGenerator.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
       @function = namespacecv_xml[:cv][:resize]
     end
 
     should 'return a list of Arguments with arguments' do
       assert_kind_of Array, @function.arguments
-      assert_kind_of DoxyGenerator::Argument, @function.arguments.first
+      assert_kind_of Dub::Argument, @function.arguments.first
     end
 
     should 'return name with name' do
@@ -62,7 +62,7 @@ class FunctionTest < Test::Unit::TestCase
 
   context 'A method' do
     setup do
-      # namespacecv_xml = DoxyGenerator.parse(fixture('app/xml/namespacedoxy.xml'))
+      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedoxy.xml'))
       @method = namespacedoxy_xml[:doxy][:Matrix][:size]
     end
 
@@ -75,13 +75,13 @@ class FunctionTest < Test::Unit::TestCase
     end
 
     should 'return klass on klass' do
-      assert_kind_of DoxyGenerator::Klass, @method.klass
+      assert_kind_of Dub::Klass, @method.klass
     end
   end
 
   context 'A constructor' do
     setup do
-      # namespacecv_xml = DoxyGenerator.parse(fixture('app/xml/namespacedoxy.xml'))
+      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedoxy.xml'))
       @method = namespacedoxy_xml[:doxy][:Matrix][:Matrix].first
     end
 

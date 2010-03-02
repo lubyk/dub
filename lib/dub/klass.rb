@@ -1,10 +1,10 @@
-module DoxyGenerator
+module Dub
   module MemberExtraction
   end
 end
-require 'doxy_generator/member_extraction'
+require 'dub/member_extraction'
 
-module DoxyGenerator
+module Dub
   class Klass
     include MemberExtraction
     attr_reader :name, :xml, :prefix, :constructor
@@ -81,7 +81,7 @@ module DoxyGenerator
           if @constructor.kind_of?(Group)
             @constructor << super
           elsif @constructor
-            list = DoxyGenerator::Group.new(self)
+            list = Dub::Group.new(self)
             list << @constructor
             list << super
             @constructor = list

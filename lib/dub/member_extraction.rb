@@ -1,8 +1,8 @@
-require 'doxy_generator/function'
-require 'doxy_generator/group'
-require 'doxy_generator/klass'
+require 'dub/function'
+require 'dub/group'
+require 'dub/klass'
 
-module DoxyGenerator
+module Dub
   class Klass
   end
 
@@ -46,7 +46,7 @@ module DoxyGenerator
       if member_or_group = @members_hash[name]
         if member_or_group.kind_of?(Array)
           if member_or_group.first.kind_of?(Hpricot::Elem)
-            list = DoxyGenerator::Group.new(self)
+            list = Dub::Group.new(self)
             member_or_group.each_with_index do |m,i|
               list << make_member(name, m, i + 1)
             end
@@ -72,4 +72,4 @@ module DoxyGenerator
       end
     end
   end
-end # DoxyGenerator
+end # Dub

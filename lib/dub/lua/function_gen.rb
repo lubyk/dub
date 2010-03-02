@@ -1,9 +1,9 @@
-require 'doxy_generator/generator'
+require 'dub/generator'
 require 'erb'
 
-module DoxyGenerator
+module Dub
   module Lua
-    class FunctionGen < DoxyGenerator::Generator
+    class FunctionGen < Dub::Generator
       FLOAT_TYPES = [
         'float',
         'double',
@@ -162,7 +162,7 @@ module DoxyGenerator
             else
               # retrieve by using a table accessor
               # TODO: we should have a hint on required sizes !
-              "\nDoxyGeneratorArgPointer<#{arg.type}> ptr_#{arg.name};\n" +
+              "\nDubArgPointer<#{arg.type}> ptr_#{arg.name};\n" +
               "%-20s = #{insert_default(arg, stack_pos)}ptr_#{arg.name}(L, %i);" % [type_def, stack_pos]
             end
           else
@@ -194,4 +194,4 @@ module DoxyGenerator
 
     end # FunctionGen
   end # Lua
-end # DoxyGenerator
+end # Dub

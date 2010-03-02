@@ -1,10 +1,10 @@
 
-require 'doxy_generator/generator'
+require 'dub/generator'
 require 'erb'
 
-module DoxyGenerator
+module Dub
   module Lua
-    class ClassGen < DoxyGenerator::Generator
+    class ClassGen < Dub::Generator
       def initialize
         @class_template = ::ERB.new(File.read(File.join(File.dirname(__FILE__), 'class.cpp.erb')))
       end

@@ -36,14 +36,14 @@ void lua_pushclass(lua_State *L, T &val, const char *type_name) {
   lua_pushclass<T>(L, val_ptr, type_name);
 }
 
-/** ======================================== DoxyGeneratorArgPointer */
+/** ======================================== DubArgPointer */
 
 template<class T>
-class DoxyGeneratorArgPointer {
+class DubArgPointer {
 public:
-  DoxyGeneratorArgPointer() : data(NULL) {}
+  DubArgPointer() : data(NULL) {}
 
-  ~DoxyGeneratorArgPointer() {
+  ~DubArgPointer() {
     if (data) free(data);
   }
 

@@ -4,7 +4,7 @@ require 'shoulda'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'doxy_generator'
+require 'dub'
 
 class Test::Unit::TestCase
 
@@ -19,10 +19,10 @@ class Test::Unit::TestCase
   end
 
   def namespacecv_xml
-    @@namespacecv_xml ||= DoxyGenerator.parse(fixture('namespacecv.xml'))
+    @@namespacecv_xml ||= Dub.parse(fixture('namespacecv.xml'))
   end
 
   def namespacedoxy_xml
-    @@namespacedoxy_xml ||= DoxyGenerator.parse(fixture('app/xml/namespacedoxy.xml'))
+    @@namespacedoxy_xml ||= Dub.parse(fixture('app/xml/namespacedoxy.xml'))
   end
 end

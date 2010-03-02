@@ -1,4 +1,4 @@
-module DoxyGenerator
+module Dub
   class Group < Array
     def initialize(parent)
       @parent = parent

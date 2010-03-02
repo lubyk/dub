@@ -1,6 +1,6 @@
-require 'doxy_generator/member_extraction'
+require 'dub/member_extraction'
 
-module DoxyGenerator
+module Dub
 
   class Namespace
     include MemberExtraction

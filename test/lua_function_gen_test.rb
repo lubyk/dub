@@ -1,20 +1,20 @@
 require 'helper'
-require 'doxy_generator/lua'
+require 'dub/lua'
 
 class LuaFunctionGenTest < Test::Unit::TestCase
   context 'A Lua generator' do
     setup do
-      @generator = DoxyGenerator::Lua
+      @generator = Dub::Lua
     end
 
     context 'with a function' do
       setup do
-        # namespacecv_xml = DoxyGenerator.parse('fixtures/namespacecv.xml')
+        # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
         @function = namespacecv_xml[:cv][:resize]
       end
 
       should 'return Function on bind' do
-        assert_kind_of DoxyGenerator::Function, @generator.bind(@function)
+        assert_kind_of Dub::Function, @generator.bind(@function)
       end
     end
   end
@@ -26,8 +26,8 @@ class LuaFunctionGenTest < Test::Unit::TestCase
 
     context 'bound to a Lua generator' do
       setup do
-        DoxyGenerator::Lua.bind(@function)
-        @generator = DoxyGenerator::Lua.function_generator
+        Dub::Lua.bind(@function)
+        @generator = Dub::Lua.function_generator
       end
 
 
@@ -59,13 +59,13 @@ class LuaFunctionGenTest < Test::Unit::TestCase
 
   context 'A group of overloaded functions' do
     setup do
-      # namespacecv_xml = DoxyGenerator.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
       @group = namespacecv_xml[:cv][:divide]
     end
 
     context 'bound to a Lua generator' do
       setup do
-        DoxyGenerator::Lua.bind(@group)
+        Dub::Lua.bind(@group)
       end
 
       should 'return string content on to_s' do
@@ -88,13 +88,13 @@ class LuaFunctionGenTest < Test::Unit::TestCase
 
   context 'A function with a custom class return value' do
     setup do
-      # namespacecv_xml = DoxyGenerator.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
       @function = namespacecv_xml[:cv][:getRotationMatrix2D]
     end
 
     context 'bound to a Lua generator' do
       setup do
-        DoxyGenerator::Lua.bind(@function)
+        Dub::Lua.bind(@function)
       end
 
       should 'call template push method' do
@@ -105,17 +105,17 @@ class LuaFunctionGenTest < Test::Unit::TestCase
 
   context 'A function with pointer parameters' do
     setup do
-      # namespacecv_xml = DoxyGenerator.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
       @function = namespacecv_xml[:cv][:calcHist][0]
     end
 
     context 'bound to a Lua generator' do
       setup do
-        DoxyGenerator::Lua.bind(@function)
+        Dub::Lua.bind(@function)
       end
 
-      should 'use a DoxyGeneratorArgPointer with the given type' do
-        assert_match %r{DoxyGeneratorArgPointer<int>}, @function.to_s
+      should 'use a DubArgPointer with the given type' do
+        assert_match %r{DubArgPointer<int>}, @function.to_s
       end
     end
   end
@@ -123,7 +123,7 @@ class LuaFunctionGenTest < Test::Unit::TestCase
   context 'A member function bound to a Lua generator' do
     setup do
       @member = namespacedoxy_xml[:doxy][:Matrix][:rows]
-      DoxyGenerator::Lua.bind(@member)
+      Dub::Lua.bind(@member)
     end
 
     should 'start by getting self' do
@@ -138,7 +138,7 @@ class LuaFunctionGenTest < Test::Unit::TestCase
   context 'A constructor bound to a Lua generator' do
     setup do
       @constructor = namespacedoxy_xml[:doxy][:Matrix][:Matrix].first
-      DoxyGenerator::Lua.bind(@constructor)
+      Dub::Lua.bind(@constructor)
     end
 
     should 'use pushclass in constructor' do

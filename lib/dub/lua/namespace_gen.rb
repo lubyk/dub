@@ -1,9 +1,9 @@
-require 'doxy_generator/generator'
+require 'dub/generator'
 require 'erb'
 
-module DoxyGenerator
+module Dub
   module Lua
-    class NamespaceGen < DoxyGenerator::Generator
+    class NamespaceGen < Dub::Generator
       def initialize
         @namespace_template = ::ERB.new(File.read(File.join(File.dirname(__FILE__), 'namespace.cpp.erb')))
       end

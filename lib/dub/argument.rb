@@ -1,8 +1,8 @@
-require 'doxy_generator/entities_unescape'
+require 'dub/entities_unescape'
 
-module DoxyGenerator
+module Dub
   class Argument
-    include DoxyGenerator::EntitiesUnescape
+    include Dub::EntitiesUnescape
     attr_reader :type, :name, :default, :function, :xml
 
     NUMBER_TYPES = [

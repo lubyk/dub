@@ -1,4 +1,4 @@
-module DoxyGenerator
+module Dub
   module EntitiesUnescape
     ENTITIES = {
       '&amp;' => '&',

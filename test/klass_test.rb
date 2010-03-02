@@ -1,17 +1,17 @@
 require 'helper'
-require 'doxy_generator/lua'
+require 'dub/lua'
 
 class KlassTest < Test::Unit::TestCase
 
   context 'A Klass' do
     setup do
-      # namespacecv_xml = DoxyGenerator.parse(fixture('app/xml/namespacedoxy.xml'))
+      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedoxy.xml'))
       @class = namespacedoxy_xml[:doxy][:Matrix]
     end
 
     should 'return a list of Functions with members' do
       assert_kind_of Array, @class.members
-      assert_kind_of DoxyGenerator::Function, @class.members.first
+      assert_kind_of Dub::Function, @class.members.first
     end
 
     should 'return name with name' do
@@ -48,7 +48,7 @@ class KlassTest < Test::Unit::TestCase
 
     should 'return constructor with constructor' do
       const = @class.constructor
-      assert_kind_of DoxyGenerator::Function, const.first
+      assert_kind_of Dub::Function, const.first
     end
 
     should 'respond to destructor_name' do
@@ -60,7 +60,7 @@ class KlassTest < Test::Unit::TestCase
     end
 
     should 'find method with array index' do
-      assert_kind_of DoxyGenerator::Function, @class[:rows]
+      assert_kind_of Dub::Function, @class[:rows]
     end
 
     should 'return header name on header' do
@@ -69,11 +69,11 @@ class KlassTest < Test::Unit::TestCase
 
     context 'bound to a generator' do
       setup do
-        DoxyGenerator::Lua.bind(@class)
+        Dub::Lua.bind(@class)
       end
 
       should 'bind each member' do
-        assert_equal DoxyGenerator::Lua.function_generator, @class.members.first.gen
+        assert_equal Dub::Lua.function_generator, @class.members.first.gen
       end
 
       should 'register constructor' do

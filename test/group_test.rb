@@ -4,7 +4,7 @@ class GroupTest < Test::Unit::TestCase
 
   context 'A Group' do
     setup do
-      # namespacecv_xml = DoxyGenerator.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
       @group = namespacecv_xml[:cv][:divide]
     end
 
