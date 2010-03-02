@@ -93,7 +93,12 @@ module Dub
         @return_type = (@xml/'/type').innerHTML
         if @return_type
           if @return_type =~ /\s+.*>(.+)<[^>]+>(.*)$/
-            @return_type = $1 + $2
+            @return_type = unescape($1 + $2)
+            if @return_type =~ /(.*?)\s*&$/
+              # return by ref
+              # we need to put a real value as lvalue
+              @return_type = $1
+            end
           elsif @return_type =~ /void$/ || @return_type.strip == ''
             @return_type = nil
           end
