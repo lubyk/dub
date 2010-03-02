@@ -103,13 +103,13 @@ class KlassTest < Test::Unit::TestCase
     should 'return header name on header' do
       assert_equal 'matrix.h', @class.header
     end
-    
+
     should 'return defined header if changed' do
       klass = Dub.parse(fixture('app/xml/namespacedub.xml'))[:dub][:Matrix]
       klass.header = 'opencv/cv.h'
       assert_equal 'opencv/cv.h', klass.header
     end
-    
+
     should 'know that it is not a template' do
       assert !@class.template?
     end
@@ -184,7 +184,7 @@ class KlassTest < Test::Unit::TestCase
     should 'return a list of these alias on alias_names' do
       assert_equal ['FMatrix'], @class.alias_names
     end
-    
+
     should 'find class from alias in namespace' do
       assert_equal @class, namespacedub_xml[:dub][:FMatrix]
     end
@@ -247,7 +247,7 @@ class KlassTest < Test::Unit::TestCase
     end
 
     should 'produce namespaced declarations' do
-      assert_match %r{\{"AUTO_STEP"\s*,\s*cv::Mat::AUTO_STEP\}}, Dub::Lua.class_generator.class_enums_registration(@class)
+      assert_match %r{\{"AUTO_STEP"\s*,\s*cv::Mat::AUTO_STEP\}}, Dub::Lua.class_generator.constants_registration(@class)
     end
 
     should 'find a list of enums' do

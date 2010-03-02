@@ -35,7 +35,7 @@ module Dub
         end.join(",\n")
       end
 
-      def class_enums_registration(klass = @class)
+      def constants_registration(klass = @class)
         klass.enums.map do |name|
           "{%-20s, #{klass.full_type}::#{name}}" % name.inspect
         end.join(",\n")

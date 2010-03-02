@@ -49,7 +49,7 @@ static const struct luaL_Reg <%= @class.name %>_namespace_methods[] = {
 
 <% if @class.has_constants? %>
 static const struct lua_constants_Reg <%= @class.name %>_namespace_constants[] = {
-<%= indent(class_enums_registration, 2) %>,
+<%= indent(constants_registration, 2) %>,
   {NULL, NULL},
 };
 <% end %>
@@ -70,6 +70,6 @@ void luaopen_<%= @class.lib_name %>(lua_State *L) {
 
 <% if @class.has_constants? %>
   // register class enums
-  register_constants(L, <%= @class.id_name.inspect %>, <%= @class.name %>_namespace_constants);
+  register_constants(L, <%= (@class.id_name + '_const').inspect %>, <%= @class.name %>_namespace_constants);
 <% end %>
 }

@@ -36,7 +36,7 @@ module Dub
           # Should never happen (not sure if it would compile ok in the first place)
           puts "Warning: the following are present both as enum and define: #{same.inspect}"
         end
-        res.join("\n\n")
+        res.join(",\n\n")
       end
     end
   end

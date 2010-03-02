@@ -70,6 +70,10 @@ module Dub
     end
 
     def has_constants?
+      has_enums?
+    end
+
+    def has_enums?
       !@enums.empty?
     end
 
