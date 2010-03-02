@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classdub_1_1_t_mat" kind="class" prot="public">
+    <compoundname>dub::TMat</compoundname>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdub_1_1_t_mat_1a43e8b36fc73e89ebdd680a4aca413333" prot="private" static="no" mutable="no">
+        <type>T *</type>
+        <definition>T* dub::TMat&lt; T &gt;::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="86" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdub_1_1_t_mat_1af4189290104841dd5a9a6f02bf83a7d8" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t dub::TMat&lt; T &gt;::rows_</definition>
+        <argsstring></argsstring>
+        <name>rows_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="87" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdub_1_1_t_mat_1ae61dde1ed3a5f0a50cedef0fdbc79a06" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t dub::TMat&lt; T &gt;::cols_</definition>
+        <argsstring></argsstring>
+        <name>cols_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="88" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdub_1_1_t_mat_1a17f92585b0e8c55527b08bbf5649b614" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dub::TMat&lt; T &gt;::TMat</definition>
+        <argsstring>()</argsstring>
+        <name>TMat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="54" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classdub_1_1_t_mat_1afdc6150359c9b1914cd5af9e273757be" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dub::TMat&lt; T &gt;::TMat</definition>
+        <argsstring>(int rows, int cols)</argsstring>
+        <name>TMat</name>
+        <param>
+          <type>int</type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cols</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="56" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="56" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classdub_1_1_t_mat_1aa2f979b486bd17cf3a840976983d7ebb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dub::TMat&lt; T &gt;::~TMat</definition>
+        <argsstring>()</argsstring>
+        <name>~TMat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="60" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="60" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classdub_1_1_t_mat_1affa049645f25277333d2d000051c762f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t dub::TMat&lt; T &gt;::size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return size of matrix (rows * cols). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="65" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="65" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classdub_1_1_t_mat_1a1fac3175ad4602f3212c08e41f4383bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t dub::TMat&lt; T &gt;::cols</definition>
+        <argsstring>()</argsstring>
+        <name>cols</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="69" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="69" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classdub_1_1_t_mat_1ac66d2c59eba113fd4416c24460b04582" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t dub::TMat&lt; T &gt;::rows</definition>
+        <argsstring>()</argsstring>
+        <name>rows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="73" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="73" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classdub_1_1_t_mat_1a2a28668935a895001309f6ab05922a9c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dub::TMat&lt; T &gt;::fill</definition>
+        <argsstring>(T value)</argsstring>
+        <name>fill</name>
+        <param>
+          <type>T</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="77" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="77" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classdub_1_1_t_mat_1ad5daa1d61af70c79402f4cb3acd770b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T dub::TMat&lt; T &gt;::get</definition>
+        <argsstring>(size_t row, size_t col)</argsstring>
+        <name>get</name>
+        <param>
+          <type>size_t</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>col</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="81" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="81" bodyend="83"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="52" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="52" bodyend="89"/>
+    <listofallmembers>
+      <member refid="classdub_1_1_t_mat_1a1fac3175ad4602f3212c08e41f4383bb" prot="public" virt="non-virtual"><scope>dub::TMat</scope><name>cols</name></member>
+      <member refid="classdub_1_1_t_mat_1ae61dde1ed3a5f0a50cedef0fdbc79a06" prot="private" virt="non-virtual"><scope>dub::TMat</scope><name>cols_</name></member>
+      <member refid="classdub_1_1_t_mat_1a43e8b36fc73e89ebdd680a4aca413333" prot="private" virt="non-virtual"><scope>dub::TMat</scope><name>data</name></member>
+      <member refid="classdub_1_1_t_mat_1a2a28668935a895001309f6ab05922a9c" prot="public" virt="non-virtual"><scope>dub::TMat</scope><name>fill</name></member>
+      <member refid="classdub_1_1_t_mat_1ad5daa1d61af70c79402f4cb3acd770b3" prot="public" virt="non-virtual"><scope>dub::TMat</scope><name>get</name></member>
+      <member refid="classdub_1_1_t_mat_1ac66d2c59eba113fd4416c24460b04582" prot="public" virt="non-virtual"><scope>dub::TMat</scope><name>rows</name></member>
+      <member refid="classdub_1_1_t_mat_1af4189290104841dd5a9a6f02bf83a7d8" prot="private" virt="non-virtual"><scope>dub::TMat</scope><name>rows_</name></member>
+      <member refid="classdub_1_1_t_mat_1affa049645f25277333d2d000051c762f" prot="public" virt="non-virtual"><scope>dub::TMat</scope><name>size</name></member>
+      <member refid="classdub_1_1_t_mat_1a17f92585b0e8c55527b08bbf5649b614" prot="public" virt="non-virtual"><scope>dub::TMat</scope><name>TMat</name></member>
+      <member refid="classdub_1_1_t_mat_1afdc6150359c9b1914cd5af9e273757be" prot="public" virt="non-virtual"><scope>dub::TMat</scope><name>TMat</name></member>
+      <member refid="classdub_1_1_t_mat_1aa2f979b486bd17cf3a840976983d7ebb" prot="public" virt="non-virtual"><scope>dub::TMat</scope><name>~TMat</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

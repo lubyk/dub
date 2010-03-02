@@ -62,8 +62,8 @@ class FunctionTest < Test::Unit::TestCase
 
   context 'A method' do
     setup do
-      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedoxy.xml'))
-      @method = namespacedoxy_xml[:doxy][:Matrix][:size]
+      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedub.xml'))
+      @method = namespacedub_xml[:dub][:Matrix][:size]
     end
 
     should 'know that it belongs to a class' do
@@ -81,8 +81,8 @@ class FunctionTest < Test::Unit::TestCase
 
   context 'A constructor' do
     setup do
-      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedoxy.xml'))
-      @method = namespacedoxy_xml[:doxy][:Matrix][:Matrix].first
+      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedub.xml'))
+      @method = namespacedub_xml[:dub][:Matrix][:Matrix].first
     end
 
     should 'know that it belongs to a class' do

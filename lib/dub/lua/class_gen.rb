@@ -23,6 +23,7 @@ module Dub
           "{%-20s, #{method.method_name}}" % method.name.inspect
         end
 
+        member_methods << "{%-20s, #{@class.tostring_name}}" % "__tostring".inspect
         member_methods << "{%-20s, #{@class.destructor_name}}" % "__gc".inspect
 
         member_methods.join(",\n")

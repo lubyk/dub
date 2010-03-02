@@ -22,7 +22,7 @@ class Test::Unit::TestCase
     @@namespacecv_xml ||= Dub.parse(fixture('namespacecv.xml'))
   end
 
-  def namespacedoxy_xml
-    @@namespacedoxy_xml ||= Dub.parse(fixture('app/xml/namespacedoxy.xml'))
+  def namespacedub_xml
+    @@namespacedub_xml ||= Dub.parse(fixture('app/xml/namespacedub.xml'))
   end
 end

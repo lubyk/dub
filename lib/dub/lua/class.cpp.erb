@@ -1,6 +1,6 @@
 #include "<%= @class.header %>"
 
-#include "lua_doxy_helper.h"
+#include "lua_dub_helper.h"
 
 <% if @class.prefix %>
 using namespace <%= @class.prefix %>;
@@ -17,6 +17,14 @@ static int <%= @class.destructor_name %>(lua_State *L) {
   if (*userdata) delete *userdata;
   *userdata = NULL;
   return 0;
+}
+
+/* ============================ tostring         ====================== */
+
+static int <%= @class.tostring_name %>(lua_State *L) {
+  <%= @class.name %> **userdata = (<%= @class.name %>**)luaL_checkudata(L, 1, <%= @class.id_name.inspect %>);
+  lua_pushfstring(L, "<%= @class.id_name %>: %p", *userdata);
+  return 1;
 }
 
 /* ============================ Member Methods   ====================== */
@@ -41,17 +49,17 @@ static const struct luaL_Reg <%= @class.lib_name %>_class_methods[] = {
 
 static void luaopen_<%= @class.lib_name %>(lua_State *L) {
   // Create the metatable which will contain all the member methods
-  luaL_newmetatable(L, <%= @class.id_name.inspect %>); // "doxy.Matrix"
+  luaL_newmetatable(L, <%= @class.id_name.inspect %>); // "dub.Matrix"
 
   // metatable.__index = metatable (find methods in the table itself)
   lua_pushvalue(L, -1);
   lua_setfield(L, -2, "__index");
 
   // register member methods
-  luaL_register(L, NULL, <%= @class.lib_name %>_member_methods);  // doxy_Matrix_member_methods
+  luaL_register(L, NULL, <%= @class.lib_name %>_member_methods);  // dub_Matrix_member_methods
 
-  // register class methods in a global table like "doxy.Matrix"
-  luaL_register(L, <%= @class.id_name.inspect %>, <%= @class.lib_name %>_class_methods); // doxy_Matrix_class_methods
+  // register class methods in a global table like "dub.Matrix"
+  luaL_register(L, <%= @class.id_name.inspect %>, <%= @class.lib_name %>_class_methods); // dub_Matrix_class_methods
 <% @class.alias_names.each do |name| %>
   luaL_register(L, <%= @class.id_name(name).inspect %>, <%= @class.lib_name %>_class_methods); // typedef
 <% end %>

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="namespacedub" kind="namespace">
+    <compoundname>dub</compoundname>
+    <innerclass refid="classdub_1_1_matrix" prot="public">dub::Matrix</innerclass>
+    <innerclass refid="classdub_1_1_t_mat" prot="public">dub::TMat</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespacedub_1aac039a028aeb9a3b3d0b3f52036e4a1f" prot="public" static="no">
+        <type><ref refid="classdub_1_1_t_mat" kindref="compound">TMat</ref>&lt; float &gt;</type>
+        <definition>dub::FloatMat</definition>
+        <argsstring></argsstring>
+        <name>FloatMat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="93" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacedub_1a1f14f9a863b395dbbc9cdbf168855673" prot="public" static="no">
+        <type><ref refid="classdub_1_1_t_mat" kindref="compound">FloatMat</ref></type>
+        <definition>typedef FloatMat dub::FMatrix</definition>
+        <argsstring></argsstring>
+        <name>FMatrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="94" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="10"/>
+  </compounddef>
+</doxygen>

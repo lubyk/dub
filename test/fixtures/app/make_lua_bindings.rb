@@ -2,12 +2,12 @@ require 'dub'
 require 'dub/lua'
 require 'pathname'
 
-doxy = Dub.parse(Pathname(__FILE__).dirname + 'xml/namespacedoxy.xml')[:doxy]
+dub = Dub.parse(Pathname(__FILE__).dirname + 'xml/namespacedub.xml')[:dub]
 
-Dub::Lua.bind(doxy)
+Dub::Lua.bind(dub)
 
 File.open(Pathname(__FILE__).dirname + "bindings/all_lua.cpp", 'wb') do |f|
   %w{Matrix FloatMat}.each do |name|
-    f.puts doxy[name]
+    f.puts dub[name]
   end
 end

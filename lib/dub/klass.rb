@@ -71,6 +71,10 @@ module Dub
       "#{name}_destructor"
     end
 
+    def tostring_name
+      "#{name}__tostring"
+    end
+
     def constructor
       if defined?(@constructor)
         @constructor

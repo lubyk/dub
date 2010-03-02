@@ -5,8 +5,8 @@ class KlassTest < Test::Unit::TestCase
 
   context 'A Klass' do
     setup do
-      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedoxy.xml'))
-      @class = namespacedoxy_xml[:doxy][:Matrix]
+      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedub.xml'))
+      @class = namespacedub_xml[:dub][:Matrix]
     end
 
     should 'return a list of Functions with members' do
@@ -19,19 +19,19 @@ class KlassTest < Test::Unit::TestCase
     end
 
     should 'have namespace prefix' do
-      assert_equal 'doxy', @class.prefix
+      assert_equal 'dub', @class.prefix
     end
 
     should 'combine prefix and name in lib_name' do
-      assert_equal 'doxy_Matrix', @class.lib_name
+      assert_equal 'dub_Matrix', @class.lib_name
     end
 
     should 'combine prefix and name in id_name' do
-      assert_equal 'doxy.Matrix', @class.id_name
+      assert_equal 'dub.Matrix', @class.id_name
     end
 
     should 'combine prefix and provided name in id_name' do
-      assert_equal 'doxy.Foobar', @class.id_name('Foobar')
+      assert_equal 'dub.Foobar', @class.id_name('Foobar')
     end
 
     should 'return file and line on source' do
@@ -61,6 +61,10 @@ class KlassTest < Test::Unit::TestCase
 
     should 'respond to destructor_name' do
       assert_equal 'Matrix_destructor', @class.destructor_name
+    end
+
+    should 'respond to tostring_name' do
+      assert_equal 'Matrix__tostring', @class.tostring_name
     end
 
     should 'respond to constructor.method_name' do
@@ -104,23 +108,31 @@ class KlassTest < Test::Unit::TestCase
       end
 
       should 'include helper header' do
-        assert_match %r{#include\s+"lua_doxy_helper.h"}, @class.to_s
+        assert_match %r{#include\s+"lua_dub_helper.h"}, @class.to_s
       end
 
       should 'create Lua metatable with class name' do
-        assert_match %r{luaL_newmetatable\(L,\s*"doxy.Matrix"\)}, @class.to_s
+        assert_match %r{luaL_newmetatable\(L,\s*"dub.Matrix"\)}, @class.to_s
       end
 
       should 'not build template methods' do
         assert_no_match %r{give_me_tea}, @class.to_s
+      end
+      
+      should 'declare tostring' do
+        assert_match %r{__tostring}, @class.to_s
+      end
+      
+      should 'implement tostring' do
+        assert_match %r{Matrix__tostring\(lua_State}, @class.to_s
       end
     end
   end
 
   context 'A template class' do
     setup do
-      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedoxy.xml'))
-      @class = namespacedoxy_xml[:doxy].template_class(:TMat)
+      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedub.xml'))
+      @class = namespacedub_xml[:dub].template_class(:TMat)
     end
 
     should 'know that it is a template' do
@@ -134,8 +146,8 @@ class KlassTest < Test::Unit::TestCase
 
   context 'A class with alias names' do
     setup do
-      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedoxy.xml'))
-      @class = namespacedoxy_xml[:doxy][:FloatMat]
+      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedub.xml'))
+      @class = namespacedub_xml[:dub][:FloatMat]
     end
 
     should 'return a list of these alias on alias_names' do
@@ -148,7 +160,7 @@ class KlassTest < Test::Unit::TestCase
       end
 
       should 'register all alias_names' do
-        assert_match %r{luaL_register\(L,\s*"doxy.FMatrix"}, @class.to_s
+        assert_match %r{luaL_register\(L,\s*"dub.FMatrix"}, @class.to_s
       end
     end
   end

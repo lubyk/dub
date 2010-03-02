@@ -62,7 +62,7 @@ class NamespaceTest < Test::Unit::TestCase
 
   context 'A namespace with class definitions' do
     setup do
-      @namespace = Dub.parse(fixture('app/xml/namespacedoxy.xml'))[:doxy]
+      @namespace = Dub.parse(fixture('app/xml/namespacedub.xml'))[:dub]
     end
 
     should 'find classes by array index' do
@@ -81,7 +81,7 @@ class NamespaceTest < Test::Unit::TestCase
 
   context 'A namespace with template class definitions' do
     setup do
-      @namespace = Dub.parse(fixture('app/xml/namespacedoxy.xml'))[:doxy]
+      @namespace = Dub.parse(fixture('app/xml/namespacedub.xml'))[:dub]
     end
 
     should 'ignore template classes in class list' do
@@ -103,7 +103,7 @@ class NamespaceTest < Test::Unit::TestCase
 
       should 'generate a valid class' do
         # TODO: rerun all tests for lua class generation
-        assert_match %r{luaL_register\(L,\s*"doxy.FloatMat"}, @namespace[:FloatMat].to_s
+        assert_match %r{luaL_register\(L,\s*"dub.FloatMat"}, @namespace[:FloatMat].to_s
       end
     end
   end

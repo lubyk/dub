@@ -122,7 +122,7 @@ class LuaFunctionGenTest < Test::Unit::TestCase
 
   context 'A member function bound to a Lua generator' do
     setup do
-      @member = namespacedoxy_xml[:doxy][:Matrix][:rows]
+      @member = namespacedub_xml[:dub][:Matrix][:rows]
       Dub::Lua.bind(@member)
     end
 
@@ -137,13 +137,13 @@ class LuaFunctionGenTest < Test::Unit::TestCase
 
   context 'A constructor bound to a Lua generator' do
     setup do
-      @constructor = namespacedoxy_xml[:doxy][:Matrix][:Matrix].first
+      @constructor = namespacedub_xml[:dub][:Matrix][:Matrix].first
       Dub::Lua.bind(@constructor)
     end
 
     should 'use pushclass in constructor' do
       result = @constructor.to_s
-      assert_match %r{lua_pushclass<Matrix>\s*\(L, retval__, \"doxy.Matrix\"\s*\)}, result
+      assert_match %r{lua_pushclass<Matrix>\s*\(L, retval__, \"dub.Matrix\"\s*\)}, result
     end
   end
 end

@@ -3,4 +3,6 @@
 *.a
 *.so
 build
-fixtures/app/vendor/lua/lua
+test/fixtures/app/vendor/lua/lua
+*.gem
+test/fixtures/app/html
