@@ -10,11 +10,26 @@
     <member refid="classdoxy_1_1_matrix_1a5c99d104b8324bad1778cbc08a20c2b8" kind="function"><name>size</name></member>
     <member refid="classdoxy_1_1_matrix_1a8730befde2e159954c481e2bcc037c9e" kind="function"><name>cols</name></member>
     <member refid="classdoxy_1_1_matrix_1accbda980fda0f6bc21422e47bf1a1792" kind="function"><name>rows</name></member>
+    <member refid="classdoxy_1_1_matrix_1ab2c066009bf3d1dcd65af423b5825288" kind="function"><name>give_me_tea</name></member>
+  </compound>
+  <compound refid="classdoxy_1_1_t_mat" kind="class"><name>doxy::TMat</name>
+    <member refid="classdoxy_1_1_t_mat_1aabdaa71370566172b594f28dfb086c9d" kind="variable"><name>data</name></member>
+    <member refid="classdoxy_1_1_t_mat_1af242de4508ce2c75e9bea1f79574e756" kind="variable"><name>rows_</name></member>
+    <member refid="classdoxy_1_1_t_mat_1a168d55f819795bd2ff780e0ab4a44c45" kind="variable"><name>cols_</name></member>
+    <member refid="classdoxy_1_1_t_mat_1a01c544a3c287af29f8c9354a1af3d471" kind="function"><name>TMat</name></member>
+    <member refid="classdoxy_1_1_t_mat_1a63df606d3068a54fef1ea60136744d71" kind="function"><name>TMat</name></member>
+    <member refid="classdoxy_1_1_t_mat_1abbed0568e27d176baebe375a8a6fa64d" kind="function"><name>~TMat</name></member>
+    <member refid="classdoxy_1_1_t_mat_1a092e13d1272e206ab0584ecf24b429f0" kind="function"><name>size</name></member>
+    <member refid="classdoxy_1_1_t_mat_1a49fcd454b17c3a5d37c9ba834337a25f" kind="function"><name>cols</name></member>
+    <member refid="classdoxy_1_1_t_mat_1a67e16aaca179138e35d86d58d5f180a5" kind="function"><name>rows</name></member>
+    <member refid="classdoxy_1_1_t_mat_1ac10b21f837c26a6b6207bf2df16fb2b8" kind="function"><name>fill</name></member>
+    <member refid="classdoxy_1_1_t_mat_1a0316bb0ec2e4d605c26363697c372ffd" kind="function"><name>get</name></member>
   </compound>
   <compound refid="namespacedoxy" kind="namespace"><name>doxy</name>
+    <member refid="namespacedoxy_1a46499c427c7f98e65588f7e9cd134f7d" kind="typedef"><name>FloatMat</name></member>
   </compound>
   <compound refid="matrix_8h" kind="file"><name>matrix.h</name>
   </compound>
-  <compound refid="dir_e74556b4b77bb22d2e6e46fd926b64b1" kind="dir"><name>include/</name>
+  <compound refid="dir_53661a2bdeb1d55e60581a7e15deb763" kind="dir"><name>include/</name>
   </compound>
 </doxygenindex>

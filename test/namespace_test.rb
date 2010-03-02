@@ -72,10 +72,38 @@ class NamespaceTest < Test::Unit::TestCase
     should 'find classes with klass' do
       assert_kind_of Dub::Klass, @namespace.klass('Matrix')
     end
-    
+
     should 'return a list of classes with classes' do
       assert_kind_of Array, @namespace.classes
       assert_kind_of Dub::Klass, @namespace.classes.first
+    end
+  end
+
+  context 'A namespace with template class definitions' do
+    setup do
+      @namespace = Dub.parse(fixture('app/xml/namespacedoxy.xml'))[:doxy]
+    end
+
+    should 'ignore template classes in class list' do
+      assert !@namespace.classes.map{|m| m.name}.include?("TMat")
+    end
+    
+    should 'return template class with template_class' do
+      assert_kind_of Dub::Klass, @namespace.template_class('TMat')
+    end
+
+    should 'build a full classes for template typedefs' do
+      assert_kind_of Dub::Klass, @namespace.klass(:FloatMat)
+    end
+    
+    context 'bound to a generator' do
+      setup do
+        Dub::Lua.bind(@namespace)
+      end
+      
+      should 'generate a valid class' do
+        puts @namespace['FloatMat']
+      end
     end
   end
 end

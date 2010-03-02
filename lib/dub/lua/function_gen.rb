@@ -186,7 +186,7 @@ module Dub
       def flatten_hash(hash)
         hash.each do |k, v|
           if v.kind_of?(Hash)
-            hash[k] = flatten(v)
+            hash[k] = flatten_hash(v)
           end
         end
         hash.to_a.flatten

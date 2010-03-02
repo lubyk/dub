@@ -63,7 +63,7 @@ module Dub
         elsif slot.kind_of?(Hash)
           insert_by_type(slot, function, index + 1)
         else
-          raise "Cannot filter functions" if arg.nil?
+          raise "Cannot filter functions #{function.source}" if arg.nil?
           h = {}
           insert_by_type(h, slot, index + 1)
           insert_by_type(h, function, index + 1)

@@ -6,6 +6,8 @@ doxy = Dub.parse(Pathname(__FILE__).dirname + 'xml/namespacedoxy.xml')[:doxy]
 
 Dub::Lua.bind(doxy)
 
-File.open(Pathname(__FILE__).dirname + 'bindings/Matrix_lua.cpp', 'wb') do |f|
-  f.puts doxy[:Matrix].to_s
+File.open(Pathname(__FILE__).dirname + "bindings/all_lua.cpp", 'wb') do |f|
+  %w{Matrix FloatMat}.each do |name|
+    f.puts doxy[name]
+  end
 end

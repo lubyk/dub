@@ -3,10 +3,26 @@
   <compounddef id="namespacedoxy" kind="namespace">
     <compoundname>doxy</compoundname>
     <innerclass refid="classdoxy_1_1_matrix" prot="public">doxy::Matrix</innerclass>
+    <innerclass refid="classdoxy_1_1_t_mat" prot="public">doxy::TMat</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespacedoxy_1a46499c427c7f98e65588f7e9cd134f7d" prot="public" static="no">
+        <type><ref refid="classdoxy_1_1_t_mat" kindref="compound">TMat</ref>&lt; float &gt;</type>
+        <definition>doxy::FloatMat</definition>
+        <argsstring></argsstring>
+        <name>FloatMat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="93" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/Users/gaspard/git/doxy_gen/test/fixtures/app/include/matrix.h" line="10"/>
+    <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="10"/>
   </compounddef>
 </doxygen>

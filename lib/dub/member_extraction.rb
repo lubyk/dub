@@ -14,15 +14,25 @@ module Dub
 
     def parse_members
       @members_hash   = {}
+      @t_members_hash = {}
+      # TODO: template functions
       (@xml/'memberdef').each do |member|
         name = (member/"name").innerHTML
-        if @members_hash[name].kind_of?(Array)
-          @members_hash[name] << member
-        elsif first_member = @members_hash[name]
-          @members_hash[name] = [first_member, member]
+        if (member/'templateparamlist').first
+          insert_member(member, name, @t_members_hash)
         else
-          @members_hash[name] = member
+          insert_member(member, name, @members_hash)
         end
+      end
+    end
+
+    def insert_member(member, name, destination)
+      if destination[name].kind_of?(Array)
+        destination[name] << member
+      elsif first_member = destination[name]
+        destination[name] = [first_member, member]
+      else
+        destination[name] = member
       end
     end
 

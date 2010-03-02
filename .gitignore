@@ -3,3 +3,4 @@
 *.a
 *.so
 build
+fixtures/app/vendor/lua/lua

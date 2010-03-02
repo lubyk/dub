@@ -31,7 +31,7 @@ class KlassTest < Test::Unit::TestCase
     end
 
     should 'return file and line on source' do
-      assert_equal 'app/include/matrix.h:38', @class.source
+      assert_equal 'app/include/matrix.h:45', @class.source
     end
 
     should 'return a list of class methods' do
@@ -44,6 +44,10 @@ class KlassTest < Test::Unit::TestCase
 
     should 'remove constructor from member list' do
       assert !@class.members.map{|m| m.name}.include?("Matrix")
+    end
+    
+    should 'ignore template methods in member list' do
+      assert !@class.members.map{|m| m.name}.include?("give_me_tea")
     end
 
     should 'return constructor with constructor' do
@@ -65,6 +69,10 @@ class KlassTest < Test::Unit::TestCase
 
     should 'return header name on header' do
       assert_equal 'matrix.h', @class.header
+    end
+
+    should 'know that it is not a template' do
+      assert !@class.template?
     end
 
     context 'bound to a generator' do
@@ -98,6 +106,25 @@ class KlassTest < Test::Unit::TestCase
       should 'create Lua metatable with class name' do
         assert_match %r{luaL_newmetatable\(L,\s*"doxy.Matrix"\)}, @class.to_s
       end
+      
+      should 'not build template methods' do
+        assert_no_match %r{give_me_tea}, @class.to_s
+      end
+    end
+  end
+
+  context 'A template class' do
+    setup do
+      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedoxy.xml'))
+      @class = namespacedoxy_xml[:doxy].template_class(:TMat)
+    end
+
+    should 'know that it is a template' do
+      assert @class.template?
+    end
+
+    should 'return template parameters' do
+      assert_equal ['T'], @class.template_params
     end
   end
 end

@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classdoxy_1_1_t_mat" kind="class" prot="public">
+    <compoundname>doxy::TMat</compoundname>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdoxy_1_1_t_mat_1aabdaa71370566172b594f28dfb086c9d" prot="private" static="no" mutable="no">
+        <type>T *</type>
+        <definition>T* doxy::TMat&lt; T &gt;::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="86" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdoxy_1_1_t_mat_1af242de4508ce2c75e9bea1f79574e756" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t doxy::TMat&lt; T &gt;::rows_</definition>
+        <argsstring></argsstring>
+        <name>rows_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="87" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdoxy_1_1_t_mat_1a168d55f819795bd2ff780e0ab4a44c45" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t doxy::TMat&lt; T &gt;::cols_</definition>
+        <argsstring></argsstring>
+        <name>cols_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="88" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdoxy_1_1_t_mat_1a01c544a3c287af29f8c9354a1af3d471" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>doxy::TMat&lt; T &gt;::TMat</definition>
+        <argsstring>()</argsstring>
+        <name>TMat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="54" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classdoxy_1_1_t_mat_1a63df606d3068a54fef1ea60136744d71" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>doxy::TMat&lt; T &gt;::TMat</definition>
+        <argsstring>(int rows, int cols)</argsstring>
+        <name>TMat</name>
+        <param>
+          <type>int</type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cols</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="56" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="56" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classdoxy_1_1_t_mat_1abbed0568e27d176baebe375a8a6fa64d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>doxy::TMat&lt; T &gt;::~TMat</definition>
+        <argsstring>()</argsstring>
+        <name>~TMat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="60" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="60" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classdoxy_1_1_t_mat_1a092e13d1272e206ab0584ecf24b429f0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t doxy::TMat&lt; T &gt;::size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return size of matrix (rows * cols). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="65" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="65" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classdoxy_1_1_t_mat_1a49fcd454b17c3a5d37c9ba834337a25f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t doxy::TMat&lt; T &gt;::cols</definition>
+        <argsstring>()</argsstring>
+        <name>cols</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="69" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="69" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classdoxy_1_1_t_mat_1a67e16aaca179138e35d86d58d5f180a5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t doxy::TMat&lt; T &gt;::rows</definition>
+        <argsstring>()</argsstring>
+        <name>rows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="73" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="73" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classdoxy_1_1_t_mat_1ac10b21f837c26a6b6207bf2df16fb2b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void doxy::TMat&lt; T &gt;::fill</definition>
+        <argsstring>(T value)</argsstring>
+        <name>fill</name>
+        <param>
+          <type>T</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="77" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="77" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classdoxy_1_1_t_mat_1a0316bb0ec2e4d605c26363697c372ffd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T doxy::TMat&lt; T &gt;::get</definition>
+        <argsstring>(size_t row, size_t col)</argsstring>
+        <name>get</name>
+        <param>
+          <type>size_t</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>col</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="81" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="81" bodyend="83"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="52" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="52" bodyend="89"/>
+    <listofallmembers>
+      <member refid="classdoxy_1_1_t_mat_1a49fcd454b17c3a5d37c9ba834337a25f" prot="public" virt="non-virtual"><scope>doxy::TMat</scope><name>cols</name></member>
+      <member refid="classdoxy_1_1_t_mat_1a168d55f819795bd2ff780e0ab4a44c45" prot="private" virt="non-virtual"><scope>doxy::TMat</scope><name>cols_</name></member>
+      <member refid="classdoxy_1_1_t_mat_1aabdaa71370566172b594f28dfb086c9d" prot="private" virt="non-virtual"><scope>doxy::TMat</scope><name>data</name></member>
+      <member refid="classdoxy_1_1_t_mat_1ac10b21f837c26a6b6207bf2df16fb2b8" prot="public" virt="non-virtual"><scope>doxy::TMat</scope><name>fill</name></member>
+      <member refid="classdoxy_1_1_t_mat_1a0316bb0ec2e4d605c26363697c372ffd" prot="public" virt="non-virtual"><scope>doxy::TMat</scope><name>get</name></member>
+      <member refid="classdoxy_1_1_t_mat_1a67e16aaca179138e35d86d58d5f180a5" prot="public" virt="non-virtual"><scope>doxy::TMat</scope><name>rows</name></member>
+      <member refid="classdoxy_1_1_t_mat_1af242de4508ce2c75e9bea1f79574e756" prot="private" virt="non-virtual"><scope>doxy::TMat</scope><name>rows_</name></member>
+      <member refid="classdoxy_1_1_t_mat_1a092e13d1272e206ab0584ecf24b429f0" prot="public" virt="non-virtual"><scope>doxy::TMat</scope><name>size</name></member>
+      <member refid="classdoxy_1_1_t_mat_1a01c544a3c287af29f8c9354a1af3d471" prot="public" virt="non-virtual"><scope>doxy::TMat</scope><name>TMat</name></member>
+      <member refid="classdoxy_1_1_t_mat_1a63df606d3068a54fef1ea60136744d71" prot="public" virt="non-virtual"><scope>doxy::TMat</scope><name>TMat</name></member>
+      <member refid="classdoxy_1_1_t_mat_1abbed0568e27d176baebe375a8a6fa64d" prot="public" virt="non-virtual"><scope>doxy::TMat</scope><name>~TMat</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

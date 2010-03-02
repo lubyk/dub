@@ -28,12 +28,24 @@ module Dub
 
     alias gen generator
 
+    def <=>(other)
+      name <=> other.name
+    end
+
     def [](name)
       name.to_s == @name ? constructor : get_member(name.to_s)
     end
 
     def class_methods
       []
+    end
+
+    def template?
+      !@template_params.nil?
+    end
+
+    def template_params
+      @template_params
     end
 
     def source
@@ -70,6 +82,12 @@ module Dub
     private
       def parse_xml
         parse_members
+        template_params = (@xml/'/templateparamlist/param')
+        if !template_params.empty?
+          @template_params = template_params.map do |param|
+            (param/'/type').innerHTML.gsub(/^\s*(typename|class)\s+/,'')
+          end
+        end
       end
 
       def make_member(name, member, overloaded_index = nil)
