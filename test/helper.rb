@@ -25,4 +25,8 @@ class Test::Unit::TestCase
   def namespacedub_xml
     @@namespacedub_xml ||= Dub.parse(fixture('app/xml/namespacedub.xml'))
   end
+
+  def groupmagic_xml
+    @@groupmagic_xml ||= Dub.parse(fixture('group___magic_type.xml'))
+  end
 end

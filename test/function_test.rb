@@ -4,7 +4,7 @@ class FunctionTest < Test::Unit::TestCase
 
   context 'A Function' do
     setup do
-      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse(fixture('namespacecv.xml'))
       @function = namespacecv_xml[:cv][:resize]
     end
 
@@ -45,7 +45,7 @@ class FunctionTest < Test::Unit::TestCase
 
     context 'without a return value' do
       should 'know the type of a returned value' do
-        assert_equal nil, @function.return_type
+        assert_equal nil, @function.return_value
       end
     end
 
@@ -54,12 +54,16 @@ class FunctionTest < Test::Unit::TestCase
         @function = namespacecv_xml[:cv][:getRotationMatrix2D]
       end
 
-      should 'return an Argument on return_type' do
-        assert_kind_of Dub::Argument, @function.return_type
+      should 'return an Argument on return_value' do
+        assert_kind_of Dub::Argument, @function.return_value
       end
 
       should 'know the type of a returned value' do
-        assert_equal 'Mat', @function.return_type.type
+        assert_equal 'Mat', @function.return_value.type
+      end
+
+      should 'not use a pointer for create_type' do
+        assert_equal 'Mat ', @function.return_value.create_type
       end
     end
 
@@ -69,11 +73,11 @@ class FunctionTest < Test::Unit::TestCase
       end
 
       should 'know the type of the returned value' do
-        assert_equal 'uchar *', @function.return_type.create_type
+        assert_equal 'uchar *', @function.return_value.create_type
       end
 
       should 'know that the type is a native pointer' do
-        assert @function.return_type.is_pointer?
+        assert @function.return_value.is_pointer?
       end
     end
 
@@ -83,11 +87,11 @@ class FunctionTest < Test::Unit::TestCase
       end
 
       should 'strip ref in the create type' do
-        assert_equal 'Mat ', @function.return_type.create_type
+        assert_equal 'Mat ', @function.return_value.create_type
       end
 
       should 'know that the type is a not native pointer' do
-        assert !@function.return_type.is_pointer?
+        assert !@function.return_value.is_pointer?
       end
     end
   end
@@ -125,12 +129,12 @@ class FunctionTest < Test::Unit::TestCase
       assert @method.constructor?
     end
 
-    should 'return class name on return_type create_type' do
-      assert_equal 'Matrix', @method.return_type.type
+    should 'return class name on return_value create_type' do
+      assert_equal 'Matrix', @method.return_value.type
     end
 
-    should 'return class name pointer on return_type create_type' do
-      assert_equal 'Matrix *', @method.return_type.create_type
+    should 'return class name pointer on return_value create_type' do
+      assert_equal 'Matrix *', @method.return_value.create_type
     end
   end
 end

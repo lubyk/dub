@@ -4,9 +4,16 @@
 
 #include <stdlib.h> // malloc
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+// We need C linkage because lua lib is compiled as C code
 #include "lua.h"
 #include "lauxlib.h"
 
+#ifdef __cplusplus
+}
+#endif
 /** ======================================== lua_pushclass          */
 
 /** Push a custom type on the stack.
@@ -97,24 +104,33 @@ static bool is_userdata(lua_State *L, int index, const char *tname) {
 typedef struct lua_constants_Reg {
   const char *name;
   double constant;
-} luaL_Reg;
+} lua_constants_Reg;
+
+static int libsize (const lua_constants_Reg *l) {
+  int size = 0;
+  for (; l->name; l++) size++;
+  return size;
+}
 
 LUALIB_API void register_constants(lua_State *L, const char *name_space, const lua_constants_Reg *l) {
   if (name_space) {
+    /* compute size hint for new table. */
     int size = libsize(l);
-      /* try global variable (and create one if it does not exist) */
-      if (luaL_findtable(L, LUA_GLOBALSINDEX, name_space, size) != NULL)
-        luaL_error(L, "name conflict for module " LUA_QS, name_space);
-      /* found name_space in global index */
-    }
+
+    /* try global variable (and create one if it does not exist) */
+    if (luaL_findtable(L, LUA_GLOBALSINDEX, name_space, size) != NULL)
+      luaL_error(L, "name conflict for module " LUA_QS, name_space);
+
+    /* found name_space in global index ==> stack -1 */
   }
   for (; l->name; l++) {
-    /* push each constant into the name_space */
+    /* push each constant into the name_space (stack position = -1)*/
     lua_pushnumber(L, l->constant);
-    lua_setfield(L, l->name);
+    lua_setfield(L, -2, l->name);
   }
   /* pop name_space */
   lua_pop(L, 1);
 }
+
 
 #endif // DOXY_GENERATOR_LIB_DOXY_GENERATOR_INCLUDE_LUA_DOXY_HELPER_H_

@@ -16,6 +16,7 @@ Currently, the parser supports:
 * class alias through typedefs
 * class enums
 * namespace enums
+* group constant defines
 * well tested
 
 === Lua Generator

@@ -129,9 +129,9 @@ module Dub
           call_string = "self__->#{call_string}"
         end
         res = []
-        if return_type = func.return_type
-          res << "%-20s = #{call_string}" % "#{return_type.create_type} retval__"
-          case Argument.type_group(return_type)
+        if return_value = func.return_value
+          res << "%-20s = #{call_string}" % "#{return_value.create_type} retval__"
+          case Argument.type_group(return_value)
           when :number
             res << "lua_pushnumber(L, retval__);"
           when :string
@@ -142,7 +142,7 @@ module Dub
             else
               prefix = func.prefix
             end
-            res << "lua_pushclass<#{return_type.type}>(L, retval__, \"#{prefix}.#{return_type.type}\");"
+            res << "lua_pushclass<#{return_value.type}>(L, retval__, \"#{prefix}.#{return_value.type}\");"
           end
           res << "return 1;"
         else

@@ -4,7 +4,7 @@ require 'dub/lua'
 class NamespaceTest < Test::Unit::TestCase
   context 'A Namespace' do
     setup do
-      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse(fixture('namespacecv.xml'))
       @namespace = namespacecv_xml[:cv]
     end
 
@@ -58,8 +58,8 @@ class NamespaceTest < Test::Unit::TestCase
         @function = namespacecv_xml[:cv][:divide]
       end
 
-      should 'find a Dub::Group' do
-        assert_kind_of Dub::Group, @function
+      should 'find a Dub::FunctionGroup' do
+        assert_kind_of Dub::FunctionGroup, @function
       end
 
       should 'find a group of functions' do
@@ -133,11 +133,11 @@ class NamespaceTest < Test::Unit::TestCase
     end
 
     should 'respond true to has_enums' do
-      assert @namespace.has_enums?
+      assert @namespace.has_constants?
     end
 
     should 'produce namespaced declarations' do
-      assert_match %r{\{"INTER_LINEAR"\s*,\s*cv::INTER_LINEAR\}}, Dub::Lua.namespace_generator.enums_registration(@namespace)
+      assert_match %r{\{"INTER_LINEAR"\s*,\s*cv::INTER_LINEAR\}}, Dub::Lua.namespace_generator.constants_registration(@namespace)
     end
 
     context 'bound to a generator' do
@@ -148,6 +148,51 @@ class NamespaceTest < Test::Unit::TestCase
       should 'produce enums registration' do
         result = @namespace.to_s
         assert_match %r{\{"INTER_LINEAR"\s*,\s*cv::INTER_LINEAR\}}, result
+        assert_match %r{register_constants\(L,\s*"cv",\s*cv_namespace_constants\)}, result
+      end
+    end
+
+    context 'On merge with a group' do
+      setup do
+        @namespace = Dub.parse(fixture('namespacecv.xml'))[:cv]
+        group = Dub.parse(fixture('group___magic_type.xml'))[:MagicType]
+        @namespace.merge!(group)
+        Dub::Lua.bind(@namespace)
+      end
+
+      should 'produce enums and defines registration' do
+        result = @namespace.to_s
+        assert_match %r{\{"INTER_LINEAR"\s*,\s*cv::INTER_LINEAR\}}, result
+        assert_match %r{register_constants\(L,\s*"cv",\s*cv_namespace_constants\)}, result
+        assert_match %r{\{"CV_32FC1"\s*,\s*CV_32FC1\}}, result
+        assert_match %r{register_constants\(L,\s*"cv",\s*cv_namespace_constants\)}, result
+      end
+    end
+  end
+
+  context 'A Group with defines' do
+    setup do
+      # groupmagic_xml = Dub.parse(fixture('group___magic_type.xml'))
+      @group = groupmagic_xml[:MagicType]
+    end
+
+    should 'parse defines' do
+      assert @group.defines.include?("CV_32FC1")
+    end
+
+    should 'ignore defines with parameters' do
+      assert !@group.defines.include?("CV_8UC")
+    end
+
+    context 'bound to a generator' do
+      setup do
+        Dub::Lua.bind(@group)
+        @group.name = 'cv'
+      end
+
+      should 'produce defines registration' do
+        result = @group.to_s
+        assert_match %r{\{"CV_32FC1"\s*,\s*CV_32FC1\}}, result
         assert_match %r{register_constants\(L,\s*"cv",\s*cv_namespace_constants\)}, result
       end
     end

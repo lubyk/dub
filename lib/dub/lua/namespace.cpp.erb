@@ -6,9 +6,9 @@ using namespace <%= @namespace.name %>;
 
 // Register namespace
 
-<% if @namespace.has_enums? %>
+<% if @namespace.has_constants? %>
 static const struct lua_constants_Reg <%= @namespace.name %>_namespace_constants[] = {
-<%= indent(enums_registration, 2) %>,
+<%= indent(constants_registration, 2) %>,
   {NULL, NULL},
 };
 <% end %>
@@ -17,7 +17,7 @@ void luaopen_<%= @namespace.lib_name %>(lua_State *L) {
   // register member methods (functions)
   //luaL_register(L, NULL, <%= @namespace.name %>_member_methods);
 
-<% if @namespace.has_enums? %>
+<% if @namespace.has_constants? %>
   // register namespace enums
   register_constants(L, <%= @namespace.id_name.inspect %>, <%= @namespace.name %>_namespace_constants);
 <% end %>

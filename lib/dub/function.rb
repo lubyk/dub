@@ -4,7 +4,7 @@ require 'dub/entities_unescape'
 module Dub
   class Function
     include Dub::EntitiesUnescape
-    attr_reader :name, :arguments, :prefix, :overloaded_index, :return_type, :xml, :parent
+    attr_reader :name, :arguments, :prefix, :overloaded_index, :return_value, :xml, :parent
     attr_accessor :gen
 
     def initialize(parent, name, xml, prefix = '', overloaded_index = nil)
@@ -13,7 +13,7 @@ module Dub
       parse_xml
 
       if constructor?
-        @return_type = Argument.new(self, (Hpricot::XML("<type>#{name} *</type>")/''))
+        @return_value = Argument.new(self, (Hpricot::XML("<type>#{name} *</type>")/''))
       end
     end
 
@@ -86,7 +86,7 @@ module Dub
         if raw_type =~ /void/ || raw_type.strip == ''
           # no return type
         else
-          @return_type = Argument.new(self, (@xml/'/type'))
+          @return_value = Argument.new(self, (@xml/'/type'))
         end
       end
   end

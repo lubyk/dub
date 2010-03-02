@@ -127,7 +127,7 @@ module Dub
 
     def create_type
       (is_const? ? 'const ' : '') +
-      if (is_return_value? && is_ref?) || (is_native? && !is_pointer?)
+      if (is_return_value? && !is_pointer?) || (is_native? && !is_pointer?)
         "#{type} "
       else
         "#{type} *"

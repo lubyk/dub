@@ -4,14 +4,14 @@ module Dub
 
   class Namespace
     include MemberExtraction
-
-    attr_reader :name
-    attr_accessor :gen, :xml, :enums, :parent, :header, :prefix
+    attr_accessor :name, :gen, :xml, :enums, :parent, :header, :prefix, :defines
 
     def initialize(name, xml, current_dir)
       @name, @xml, @current_dir = name, xml, current_dir
       @class_alias = {}
       @alias_names = []
+      @enums   = []
+      @defines = []
       parse_xml
     end
 
@@ -35,6 +35,14 @@ module Dub
 
     def to_s
       @gen.namespace(self)
+    end
+
+    def merge!(group)
+      raise "Can only merge with a Group" unless group.kind_of?(Group)
+      @defines += group.defines
+      @enums   += group.enums
+
+      # TODO: do we need to merge classes and members ? I don't think so (they should be in namespace).
     end
 
     def full_type
@@ -81,8 +89,16 @@ module Dub
       end
     end
 
+    def has_constants?
+      has_enums? || has_defines?
+    end
+
     def has_enums?
       !@enums.empty?
+    end
+
+    def has_defines?
+      !@defines.empty?
     end
 
     def register_alias(name, klass)
@@ -98,6 +114,18 @@ module Dub
 
       def parse_enums
         @enums = (@xml/"enumvalue/name").map{|e| e.innerHTML}
+      end
+
+      # We do not run this by default but use groups to make sure we do
+      # not cluter namespace
+      def parse_defines
+        @defines = (@xml/"memberdef[@kind=define]").map do |e|
+          if (e/'param').first
+            nil
+          else
+            (e/'name').innerHTML
+          end
+        end.compact
       end
 
       def parse_classes

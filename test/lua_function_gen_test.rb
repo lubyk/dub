@@ -9,7 +9,7 @@ class LuaFunctionGenTest < Test::Unit::TestCase
 
     context 'with a function' do
       setup do
-        # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
+        # namespacecv_xml = Dub.parse(fixture('namespacecv.xml'))
         @function = namespacecv_xml[:cv][:resize]
       end
 
@@ -70,7 +70,7 @@ class LuaFunctionGenTest < Test::Unit::TestCase
 
   context 'A group of overloaded functions' do
     setup do
-      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse(fixture('namespacecv.xml'))
       @group = namespacecv_xml[:cv][:divide]
     end
 
@@ -103,7 +103,7 @@ class LuaFunctionGenTest < Test::Unit::TestCase
 
   context 'A function with a custom class return value' do
     setup do
-      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse(fixture('namespacecv.xml'))
       @function = namespacecv_xml[:cv][:getRotationMatrix2D]
     end
 
@@ -120,7 +120,7 @@ class LuaFunctionGenTest < Test::Unit::TestCase
 
   context 'A function with pointer parameters' do
     setup do
-      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse(fixture('namespacecv.xml'))
       @function = namespacecv_xml[:cv][:calcHist][0]
     end
 

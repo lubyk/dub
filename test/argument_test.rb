@@ -3,7 +3,7 @@ require 'helper'
 class ArgumentTest < Test::Unit::TestCase
   context 'An const ref argument' do
     setup do
-      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse(fixture('namespacecv.xml'))
       @argument = namespacecv_xml[:cv][:resize].arguments.first
     end
 
@@ -54,7 +54,7 @@ class ArgumentTest < Test::Unit::TestCase
 
   context 'A double argument' do
     setup do
-      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse(fixture('namespacecv.xml'))
       @argument = namespacecv_xml[:cv][:resize].arguments[3]
     end
 
@@ -94,7 +94,7 @@ class ArgumentTest < Test::Unit::TestCase
 
   context 'A bool argument' do
     setup do
-      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse(fixture('namespacecv.xml'))
       @argument = namespacedub_xml[:dub][:Matrix][:do_something].arguments[1]
     end
 
@@ -138,7 +138,7 @@ class ArgumentTest < Test::Unit::TestCase
 
   context 'An argument with a default value' do
     setup do
-      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
+      # namespacecv_xml = Dub.parse(fixture('namespacecv.xml'))
       @argument = namespacecv_xml[:cv][:resize].arguments[5]
     end
 

@@ -243,7 +243,7 @@ class KlassTest < Test::Unit::TestCase
     end
 
     should 'respond true to has_enums' do
-      assert @class.has_enums?
+      assert @class.has_constants?
     end
 
     should 'produce namespaced declarations' do

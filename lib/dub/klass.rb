@@ -14,6 +14,7 @@ module Dub
       @parent, @name, @xml, @prefix = parent, name, xml, prefix
 
       @alias_names = []
+      @enums       = []
       parse_xml
     end
 
@@ -68,7 +69,7 @@ module Dub
       !@template_params.nil?
     end
 
-    def has_enums?
+    def has_constants?
       !@enums.empty?
     end
 
@@ -149,10 +150,10 @@ module Dub
       def make_member(name, member, overloaded_index = nil)
         if name == @name
           # keep constructors out of members list
-          if @constructor.kind_of?(Group)
+          if @constructor.kind_of?(FunctionGroup)
             @constructor << super
           elsif @constructor
-            list = Dub::Group.new(self)
+            list = Dub::FunctionGroup.new(self)
             list << @constructor
             list << super
             @constructor = list

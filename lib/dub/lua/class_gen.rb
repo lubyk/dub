@@ -61,9 +61,9 @@ module Dub
            member.name =~ /^operator/    || # no conversion operators
            member.original_signature =~ />/ # no complex types in signature
           true # ignore
-        elsif return_type = member.return_type
-          return_type.type =~ />$/    || # no complex return types
-          return_type.is_native? && member.return_type.is_pointer?
+        elsif return_value = member.return_value
+          return_value.type =~ />$/    || # no complex return types
+          return_value.is_native? && member.return_value.is_pointer?
         else
           false # ok, do not ignore
         end

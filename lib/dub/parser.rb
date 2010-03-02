@@ -10,11 +10,15 @@ module Dub
     end
 
     def [](name)
-      namespaces[name.to_s]
+      namespaces[name.to_s] || groups[name.to_s]
     end
 
     def namespace(name)
       namespaces[name.to_s]
+    end
+
+    def group(name)
+      groups[name.to_s]
     end
 
     def namespaces
@@ -25,6 +29,17 @@ module Dub
           ns[name] = Dub::Namespace.new(name, namespace, @current_dir)
         end
         ns
+      end
+    end
+
+    def groups
+      @groups ||= begin
+        groups = {}
+        (@xml/'compounddef[@kind=group]').each do |namespace|
+          name = (namespace/"compoundname").innerHTML
+          groups[name] = Dub::Group.new(name, namespace, @current_dir)
+        end
+        groups
       end
     end
   end # Parser

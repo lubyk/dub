@@ -1,5 +1,5 @@
 require 'dub/function'
-require 'dub/group'
+require 'dub/function_group'
 require 'dub/klass'
 
 module Dub
@@ -56,7 +56,7 @@ module Dub
       if member_or_group = @members_hash[name]
         if member_or_group.kind_of?(Array)
           if member_or_group.first.kind_of?(Hpricot::Elem)
-            list = Dub::Group.new(self)
+            list = Dub::FunctionGroup.new(self)
             member_or_group.each_with_index do |m,i|
               list << make_member(name, m, i + 1)
             end
