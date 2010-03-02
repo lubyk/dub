@@ -18,7 +18,7 @@ module Dub
     end
 
     def bind(generator)
-      @gen = generator
+      @gen = generator.function_generator
     end
 
     def to_s
@@ -26,7 +26,7 @@ module Dub
     end
 
     def generator
-      @gen || @parent.generator.function_generator
+      @gen || (@parent && @parent.function_generator)
     end
 
     def klass

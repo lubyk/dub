@@ -51,7 +51,7 @@ class LuaFunctionGenTest < Test::Unit::TestCase
         end
 
         should 'use default if stack is too small' do
-          assert_match /\?\s*INTER_LINEAR/, @generator.get_arg(@function.arguments[5], 6)
+          assert_match /\?\s*cv::INTER_LINEAR/, @generator.get_arg(@function.arguments[5], 6)
         end
       end
     end

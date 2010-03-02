@@ -49,6 +49,10 @@ public:
     // dummy
   }
 
+  void do_something(int i, bool fast=false) {
+
+  }
+
 private:
   double *data_;
   size_t rows_;

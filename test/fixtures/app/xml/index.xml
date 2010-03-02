@@ -13,6 +13,7 @@
     <member refid="classdub_1_1_matrix_1a7a47bc085de140093ba358d345d58df7" kind="function"><name>give_me_tea</name></member>
     <member refid="classdub_1_1_matrix_1a27fea405cf08ac087a11eefbaf4a342f" kind="function"><name>operator size_t</name></member>
     <member refid="classdub_1_1_matrix_1ac159906fa5480fdc9539a7be1e1825ed" kind="function"><name>mul</name></member>
+    <member refid="classdub_1_1_matrix_1a5bf5b5aee77c4e4a4cf906ce785fe37b" kind="function"><name>do_something</name></member>
   </compound>
   <compound refid="classdub_1_1_t_mat" kind="class"><name>dub::TMat</name>
     <member refid="classdub_1_1_t_mat_1a325c9dcebf13b0804997d014e7287606" kind="variable"><name>data_</name></member>

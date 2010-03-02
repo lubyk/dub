@@ -34,8 +34,12 @@ class KlassTest < Test::Unit::TestCase
       assert_equal 'dub.Foobar', @class.id_name('Foobar')
     end
 
+    should 'use parent namespace in full_type' do
+      assert_equal 'dub::Matrix', @class.full_type
+    end
+
     should 'return file and line on source' do
-      assert_equal 'app/include/matrix.h:53', @class.source
+      assert_equal 'app/include/matrix.h:57', @class.source
     end
 
     should 'return a list of class methods' do
@@ -199,6 +203,17 @@ class KlassTest < Test::Unit::TestCase
       should 'list all members on members' do
         assert_equal %w{addref adjustROI assignTo channels clone col colRange convertTo copyTo create cross depth diag dot elemSize elemSize1 empty eye isContinuous locateROI ones ptr release reshape row rowRange setTo size step1 type zeros}, @class.members.map {|m| m.name}
       end
+    end
+  end
+
+  context 'A class with enums' do
+    setup do
+      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedub.xml'))
+      @class = namespacecv_xml[:cv][:Mat]
+    end
+
+    should 'find a list of enums' do
+      assert_equal %w{MAGIC_VAL AUTO_STEP CONTINUOUS_FLAG}, @class.enums
     end
   end
 end

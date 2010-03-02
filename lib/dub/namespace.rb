@@ -6,7 +6,7 @@ module Dub
     include MemberExtraction
 
     attr_reader :name
-    attr_accessor :gen
+    attr_accessor :gen, :xml, :enums, :parent
 
     def initialize(name, xml, current_dir)
       @name, @xml, @current_dir = name, xml, current_dir
@@ -14,7 +14,7 @@ module Dub
     end
 
     def bind(generator)
-      @gen = generator
+      @gen = generator.namespace_generator
     end
 
     def generator
@@ -25,10 +25,18 @@ module Dub
       @gen && @gen.class_generator
     end
 
+    def function_generator
+      @gen && @gen.function_generator
+    end
+
     alias gen generator
 
     def to_s
       @gen.namespace(self)
+    end
+
+    def full_type
+      @parent ? "#{@parent.full_type}::#{name}" : name
     end
 
     def [](name)
@@ -61,8 +69,16 @@ module Dub
 
     private
       def parse_xml
+        parse_enums
         parse_members
+        parse_classes
+      end
 
+      def parse_enums
+        @enums = (@xml/"enumvalue/name").map{|e| e.innerHTML}
+      end
+
+      def parse_classes
         @classes_hash   = {}
         @t_classes_hash = {}
         @classes_by_ref = {}

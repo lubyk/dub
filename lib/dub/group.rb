@@ -1,7 +1,7 @@
 module Dub
   class Group < Array
-    def initialize(parent)
-      @parent = parent
+    def initialize(parent, gen = nil)
+      @parent, @gen = parent, gen
     end
 
     def bind(generator)
@@ -9,7 +9,7 @@ module Dub
     end
 
     def generator
-      @gen || @parent.generator.function_generator
+      @gen || (@parent && @parent.function_generator)
     end
 
     alias gen generator
@@ -27,7 +27,7 @@ module Dub
     end
 
     def map(&block)
-      list = self.class.new(@parent)
+      list = self.class.new(@parent, @gen)
       super(&block).each do |e|
         list << e
       end
@@ -35,7 +35,7 @@ module Dub
     end
 
     def compact
-      list = self.class.new(@parent)
+      list = self.class.new(@parent, @gen)
       super.each do |e|
         list << e
       end

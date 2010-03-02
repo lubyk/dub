@@ -17,6 +17,7 @@ module Dub
         'size_t',
         'unsigned int',
         'uint',
+        'bool',
       ]
 
       def initialize

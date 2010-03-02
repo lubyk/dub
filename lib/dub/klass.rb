@@ -7,7 +7,7 @@ require 'dub/member_extraction'
 module Dub
   class Klass
     include MemberExtraction
-    attr_reader :name, :xml, :prefix, :constructor, :alias_names
+    attr_reader :name, :xml, :prefix, :constructor, :alias_names, :enums, :parent
 
     def initialize(parent, name, xml, prefix = '')
       @parent, @name, @xml, @prefix = parent, name, xml, prefix
@@ -17,7 +17,7 @@ module Dub
     end
 
     def bind(generator)
-      self.gen = generator
+      self.gen = generator.class_generator
     end
 
     def gen=(generator)
@@ -31,6 +31,14 @@ module Dub
 
     def generator
       @gen || (@parent && @parent.class_generator)
+    end
+
+    def function_generator
+      if generator = self.generator
+        generator.function_generator
+      else
+        nil
+      end
     end
 
     alias gen generator
@@ -72,6 +80,10 @@ module Dub
       (@xml/'location').first.attributes['file'].split('/').last
     end
 
+    def full_type
+      @parent ? "#{@parent.full_type}::#{name}" : name
+    end
+
     def lib_name
       "#{prefix}_#{name}"
     end
@@ -100,9 +112,14 @@ module Dub
 
     private
       def parse_xml
+        parse_enums
         parse_members
         parse_template_params
         parse_alias_names
+      end
+
+      def parse_enums
+        @enums = (@xml/"enumvalue/name").map{|e| e.innerHTML}
       end
 
       def parse_template_params

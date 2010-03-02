@@ -15,6 +15,7 @@ module Dub
       'size_t',
       'unsigned int',
       'uint',
+      'bool'
     ]
 
     STRING_TYPES = [
@@ -139,6 +140,17 @@ module Dub
         @name = unescape((@xml/'declname').innerHTML)
         @default = (@xml/'defval') ? unescape((@xml/'defval').innerHTML) : nil
         @default = nil if @default == ''
+        expand_default_type if @default
+      end
+
+      # Replace something like AUTO_STEP by cv::Mat::AUTO_STEP
+      def expand_default_type
+        container = @function.parent
+        if container && container.enums.include?(@default)
+          @default = "#{container.full_type}::#{@default}"
+        elsif container = container.parent && container.enums.include?(@default)
+          @default = "#{container.full_type}::#{@default}"
+        end
       end
   end
 end # Namespace

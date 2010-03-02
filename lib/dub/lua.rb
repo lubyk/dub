@@ -17,19 +17,7 @@ module Dub
     end
 
     def self.bind(object)
-      if object.kind_of?(Dub::Namespace)
-        object.bind(namespace_generator)
-      #when Dub::Class
-      #  object.bind(class_generator)
-      elsif object.kind_of?(Dub::Function) || object.kind_of?(Dub::Group)
-        object.bind(function_generator)
-      elsif object.kind_of?(Dub::Namespace)
-        object.bind(namespace_generator)
-      elsif object.kind_of?(Dub::Klass)
-        object.bind(class_generator)
-      else
-        raise "Unsupported type #{object.class} for Lua Generator"
-      end
+      object.bind(self)
       object
     end
   end # Lua

@@ -91,6 +91,51 @@ class ArgumentTest < Test::Unit::TestCase
     end
   end
 
+
+  context 'A bool argument' do
+    setup do
+      # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
+      @argument = namespacedub_xml[:dub][:Matrix][:do_something].arguments[1]
+    end
+
+    should 'return type with type' do
+      assert_equal 'bool', @argument.type
+    end
+
+    should 'return name with name' do
+      assert_equal 'fast', @argument.name
+    end
+
+    should 'know if argument is const' do
+      assert !@argument.is_const?
+    end
+
+    should 'know if argument is passed by ref' do
+      assert !@argument.is_ref?
+    end
+
+    should 'know that it is a pointer' do
+      assert !@argument.is_pointer?
+    end
+
+    should 'know if argument type is a native type' do
+      assert @argument.is_native?
+    end
+
+    should 'return bool on create_type' do
+      assert_equal 'bool ', @argument.create_type
+    end
+
+    should 'return signature' do
+      assert_equal 'bool', @argument.signature
+    end
+
+    should 'return default value if it has one' do
+      assert_equal 'false', @argument.default
+    end
+  end
+
+
   context 'An argument with a default value' do
     setup do
       # namespacecv_xml = Dub.parse('fixtures/namespacecv.xml')
@@ -106,11 +151,21 @@ class ArgumentTest < Test::Unit::TestCase
     end
 
     should 'return default value' do
-      assert_equal 'INTER_LINEAR', @argument.default
+      assert_equal 'cv::INTER_LINEAR', @argument.default
     end
 
     should 'know if it has a default value' do
       assert @argument.has_default?
+    end
+
+    context 'that is an enum' do
+      setup do
+        @argument = namespacecv_xml[:cv][:Mat].constructor[6].arguments[4]
+      end
+
+      should 'use full namespace signature if default is an enum' do
+        assert_equal 'cv::Mat::AUTO_STEP', @argument.default
+      end
     end
   end
 
