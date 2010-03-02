@@ -18,13 +18,13 @@ module Dub
         Lua.function_generator
       end
 
-      def method_registration
-        member_methods = @class.members.map do |method|
-          "{%-20s, #{method.method_name}}" % method.name.inspect
+      def method_registration(klass = @class)
+        member_methods = klass.members.map do |method|
+          "{%-20s, #{method.method_name(0)}}" % method.name.inspect
         end
 
-        member_methods << "{%-20s, #{@class.tostring_name}}" % "__tostring".inspect
-        member_methods << "{%-20s, #{@class.destructor_name}}" % "__gc".inspect
+        member_methods << "{%-20s, #{klass.tostring_name}}" % "__tostring".inspect
+        member_methods << "{%-20s, #{klass.destructor_name}}" % "__gc".inspect
 
         member_methods.join(",\n")
       end

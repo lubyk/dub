@@ -193,6 +193,22 @@ class KlassTest < Test::Unit::TestCase
     end
   end
 
+
+
+  context 'A class with overloaded methods' do
+    setup do
+      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedub.xml'))
+      @class = namespacecv_xml[:cv][:Mat]
+      Dub::Lua.bind(@class)
+    end
+
+    should 'declare chooser' do
+      result = @class.gen.method_registration(@class)
+      assert_match %r{"zeros"\s*,\s*Mat_zeros\}}, result
+      assert_no_match %r{zeros1}, result
+    end
+  end
+
   context 'A complex class' do
     setup do
       # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedub.xml'))

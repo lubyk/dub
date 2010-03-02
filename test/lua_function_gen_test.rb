@@ -83,6 +83,10 @@ class LuaFunctionGenTest < Test::Unit::TestCase
         assert_match %r{static int cv_divide3}, bindings
         assert_match %r{static int cv_divide4}, bindings
       end
+
+      # should 'declare chooser' do
+      #   assert_match %r{"divide",\s*cv_divide\}}, @group.to_s
+      # end
     end
   end
 
