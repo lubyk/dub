@@ -372,7 +372,6 @@ static int pmain (lua_State *L) {
 // ======================================================================================================================
 // ======================================================================================================================
 
-
 #include "matrix.h"
 
 #include "lua_dub_helper.h"
@@ -412,7 +411,7 @@ static int Matrix_Matrix(lua_State *L) {
   int type__ = lua_type(L, 1);
   if (type__ == LUA_TNUMBER) {
     return Matrix_Matrix2(L);
-  } else if (type__ == LUA_TNIL) {
+  } else if (type__ == LUA_TNONE) {
     return Matrix_Matrix1(L);
   } else {
     // use any to raise errors
@@ -480,7 +479,7 @@ static int Matrix_size(lua_State *L) {
 
 /* ============================ Lua Registration ====================== */
 
-static const struct luaL_Reg dub_Matrix_member_methods[] = {
+static const struct luaL_Reg Matrix_member_methods[] = {
   {"cols"              , Matrix_cols},
   {"rows"              , Matrix_rows},
   {"size"              , Matrix_size},
@@ -489,8 +488,8 @@ static const struct luaL_Reg dub_Matrix_member_methods[] = {
   {NULL, NULL},
 };
 
-static const struct luaL_Reg dub_Matrix_class_methods[] = {
-  {"new"               , Matrix_Matrix},
+static const struct luaL_Reg Matrix_namespace_methods[] = {
+  {"Matrix"            , Matrix_Matrix},
   {NULL, NULL},
 };
 
@@ -503,11 +502,10 @@ static void luaopen_dub_Matrix(lua_State *L) {
   lua_setfield(L, -2, "__index");
 
   // register member methods
-  luaL_register(L, NULL, dub_Matrix_member_methods);  // dub_Matrix_member_methods
+  luaL_register(L, NULL, Matrix_member_methods);  // dub_Matrix_member_methods
 
   // register class methods in a global table like "dub.Matrix"
-  luaL_register(L, "dub.Matrix", dub_Matrix_class_methods); // dub_Matrix_class_methods
-
+  luaL_register(L, "dub", Matrix_namespace_methods); // dub_Matrix_class_methods
 }
 #include "matrix.h"
 
@@ -521,7 +519,7 @@ using namespace dub;
 
 
 /** dub::FloatMat::FloatMat()
- * app/include/matrix.h:54
+ * app/include/matrix.h:62
  */
 static int FloatMat_FloatMat1(lua_State *L) {
   FloatMat * retval__  = new FloatMat();
@@ -531,7 +529,7 @@ static int FloatMat_FloatMat1(lua_State *L) {
 
 
 /** dub::FloatMat::FloatMat(int rows, int cols)
- * app/include/matrix.h:56
+ * app/include/matrix.h:64
  */
 static int FloatMat_FloatMat2(lua_State *L) {
   int rows             = luaL_checkint   (L, 1);
@@ -548,7 +546,7 @@ static int FloatMat_FloatMat(lua_State *L) {
   int type__ = lua_type(L, 1);
   if (type__ == LUA_TNUMBER) {
     return FloatMat_FloatMat2(L);
-  } else if (type__ == LUA_TNIL) {
+  } else if (type__ == LUA_TNONE) {
     return FloatMat_FloatMat1(L);
   } else {
     // use any to raise errors
@@ -577,7 +575,7 @@ static int FloatMat__tostring(lua_State *L) {
 
 
 /** size_t dub::FloatMat::cols()
- * app/include/matrix.h:69
+ * app/include/matrix.h:77
  */
 static int FloatMat_cols(lua_State *L) {
   FloatMat *self__     = *((FloatMat**)luaL_checkudata(L, 1, "dub.FloatMat"));
@@ -589,7 +587,7 @@ static int FloatMat_cols(lua_State *L) {
 
 
 /** void dub::FloatMat::fill(T value)
- * app/include/matrix.h:77
+ * app/include/matrix.h:85
  */
 static int FloatMat_fill(lua_State *L) {
   FloatMat *self__     = *((FloatMat**)luaL_checkudata(L, 1, "dub.FloatMat"));
@@ -601,7 +599,7 @@ static int FloatMat_fill(lua_State *L) {
 
 
 /** T dub::FloatMat::get(size_t row, size_t col)
- * app/include/matrix.h:81
+ * app/include/matrix.h:89
  */
 static int FloatMat_get(lua_State *L) {
   FloatMat *self__     = *((FloatMat**)luaL_checkudata(L, 1, "dub.FloatMat"));
@@ -615,7 +613,7 @@ static int FloatMat_get(lua_State *L) {
 
 
 /** size_t dub::FloatMat::rows()
- * app/include/matrix.h:73
+ * app/include/matrix.h:81
  */
 static int FloatMat_rows(lua_State *L) {
   FloatMat *self__     = *((FloatMat**)luaL_checkudata(L, 1, "dub.FloatMat"));
@@ -627,7 +625,7 @@ static int FloatMat_rows(lua_State *L) {
 
 
 /** size_t dub::FloatMat::size()
- * app/include/matrix.h:65
+ * app/include/matrix.h:73
  */
 static int FloatMat_size(lua_State *L) {
   FloatMat *self__     = *((FloatMat**)luaL_checkudata(L, 1, "dub.FloatMat"));
@@ -642,7 +640,7 @@ static int FloatMat_size(lua_State *L) {
 
 /* ============================ Lua Registration ====================== */
 
-static const struct luaL_Reg dub_FloatMat_member_methods[] = {
+static const struct luaL_Reg FloatMat_member_methods[] = {
   {"cols"              , FloatMat_cols},
   {"fill"              , FloatMat_fill},
   {"get"               , FloatMat_get},
@@ -653,8 +651,9 @@ static const struct luaL_Reg dub_FloatMat_member_methods[] = {
   {NULL, NULL},
 };
 
-static const struct luaL_Reg dub_FloatMat_class_methods[] = {
-  {"new"               , FloatMat_FloatMat},
+static const struct luaL_Reg FloatMat_namespace_methods[] = {
+  {"FloatMat"          , FloatMat_FloatMat},
+  {"FMatrix"           , FloatMat_FloatMat},
   {NULL, NULL},
 };
 
@@ -667,15 +666,11 @@ static void luaopen_dub_FloatMat(lua_State *L) {
   lua_setfield(L, -2, "__index");
 
   // register member methods
-  luaL_register(L, NULL, dub_FloatMat_member_methods);  // dub_Matrix_member_methods
+  luaL_register(L, NULL, FloatMat_member_methods);  // dub_Matrix_member_methods
 
   // register class methods in a global table like "dub.Matrix"
-  luaL_register(L, "dub.FloatMat", dub_FloatMat_class_methods); // dub_Matrix_class_methods
-
-  luaL_register(L, "dub.FMatrix", dub_FloatMat_class_methods); // typedef
-
+  luaL_register(L, "dub", FloatMat_namespace_methods); // dub_Matrix_class_methods
 }
-
 
 
 // ======================================================================================================================

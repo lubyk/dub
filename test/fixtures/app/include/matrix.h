@@ -11,14 +11,14 @@ namespace dub {
 
 class Matrix {
 public:
-  Matrix() : rows_(0), cols_(0) {}
+  Matrix() : data_(NULL), rows_(0), cols_(0) {}
 
   Matrix(int rows, int cols) : rows_(rows), cols_(cols) {
-    data = (double*)malloc(size() * sizeof(double));
+    data_ = (double*)malloc(size() * sizeof(double));
   }
 
   ~Matrix() {
-    if (data) free(data);
+    if (data_) free(data_);
   }
 
   /** Return size of matrix (rows * cols). */
@@ -41,8 +41,16 @@ public:
     return new T();
   }
 
+  operator size_t() {
+    return size();
+  }
+
+  void mul(TMat<int> other) {
+    // dummy
+  }
+
 private:
-  double *data;
+  double *data_;
   size_t rows_;
   size_t cols_;
 };
@@ -51,14 +59,14 @@ private:
 template<class T>
 class TMat {
 public:
-  TMat() : rows_(0), cols_(0) {}
+  TMat() : data_(NULL), rows_(0), cols_(0) {}
 
   TMat(int rows, int cols) : rows_(rows), cols_(cols) {
-    data = (T*)malloc(size() * sizeof(T));
+    data_ = (T*)malloc(size() * sizeof(T));
   }
 
   ~TMat() {
-    if (data) free(data);
+    if (data_) free(data_);
   }
 
   /** Return size of matrix (rows * cols). */
@@ -79,11 +87,11 @@ public:
   }
 
   T get(size_t row, size_t col) {
-    return data[row * cols_ + col];
+    return data_[row * cols_ + col];
   }
 
 private:
-  T *data;
+  T *data_;
   size_t rows_;
   size_t cols_;
 };

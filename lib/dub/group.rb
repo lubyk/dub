@@ -26,6 +26,22 @@ module Dub
       first.method_name(overloaded_index)
     end
 
+    def map(&block)
+      list = self.class.new(@parent)
+      super(&block).each do |e|
+        list << e
+      end
+      list
+    end
+
+    def compact
+      list = self.class.new(@parent)
+      super.each do |e|
+        list << e
+      end
+      list
+    end
+
     def overloaded_index
       nil
     end

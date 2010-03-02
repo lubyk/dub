@@ -35,23 +35,40 @@ class KlassTest < Test::Unit::TestCase
     end
 
     should 'return file and line on source' do
-      assert_equal 'app/include/matrix.h:45', @class.source
+      assert_equal 'app/include/matrix.h:53', @class.source
     end
 
     should 'return a list of class methods' do
       assert_kind_of Array, @class.class_methods
     end
 
-    should 'remove destructor from member list' do
-      assert !@class.members.map{|m| m.name}.include?("~Matrix")
-    end
+    context 'bound member list' do
+      setup do
+        Dub::Lua.bind(@class)
+        @list = @class.members.map {|m| m.name}
+      end
 
-    should 'remove constructor from member list' do
-      assert !@class.members.map{|m| m.name}.include?("Matrix")
-    end
+      should 'remove destructor from member list' do
+        assert !@list.include?("~Matrix")
+      end
 
-    should 'ignore template methods in member list' do
-      assert !@class.members.map{|m| m.name}.include?("give_me_tea")
+      should 'remove constructor from member list' do
+        assert !@list.include?("Matrix")
+      end
+
+      should 'ignore template methods in member list' do
+        assert !@list.include?("give_me_tea")
+      end
+
+      should 'ignore members with templated arguments' do
+        # at least for now
+        assert !@list.include?("mul")
+        assert_no_match %r{Matrix_mul}, @class.to_s
+      end
+
+      should 'ignore operator methods in member list' do
+        assert !@list.include?("operator size_t")
+      end
     end
 
     should 'return constructor with constructor' do
@@ -93,7 +110,7 @@ class KlassTest < Test::Unit::TestCase
       end
 
       should 'register constructor' do
-        assert_match %r{\{\s*\"new\"\s*,\s*Matrix_Matrix\s*\}}, @class.to_s
+        assert_match %r{\{\s*\"Matrix\"\s*,\s*Matrix_Matrix\s*\}}, @class.to_s
       end
 
       should 'build constructor' do
@@ -118,11 +135,11 @@ class KlassTest < Test::Unit::TestCase
       should 'not build template methods' do
         assert_no_match %r{give_me_tea}, @class.to_s
       end
-      
+
       should 'declare tostring' do
         assert_match %r{__tostring}, @class.to_s
       end
-      
+
       should 'implement tostring' do
         assert_match %r{Matrix__tostring\(lua_State}, @class.to_s
       end
@@ -160,7 +177,27 @@ class KlassTest < Test::Unit::TestCase
       end
 
       should 'register all alias_names' do
-        assert_match %r{luaL_register\(L,\s*"dub.FMatrix"}, @class.to_s
+        result = @class.to_s
+        assert_match %r{"FloatMat"\s*,\s*FloatMat_FloatMat}, result
+        assert_match %r{"FMatrix"\s*,\s*FloatMat_FloatMat}, result
+        assert_match %r{luaL_register\(L,\s*"dub".*FloatMat_namespace_methods}, result
+      end
+    end
+  end
+
+  context 'A complex class' do
+    setup do
+      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedub.xml'))
+      @class = namespacecv_xml[:cv][:Mat]
+    end
+
+    context 'bound to a generator' do
+      setup do
+        Dub::Lua.bind(@class)
+      end
+
+      should 'list all members on members' do
+        assert_equal %w{addref adjustROI assignTo channels clone col colRange convertTo copyTo create cross depth diag dot elemSize elemSize1 empty eye isContinuous locateROI ones ptr release reshape row rowRange setTo size step1 type zeros}, @class.members.map {|m| m.name}
       end
     end
   end

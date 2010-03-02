@@ -103,7 +103,7 @@ class NamespaceTest < Test::Unit::TestCase
 
       should 'generate a valid class' do
         # TODO: rerun all tests for lua class generation
-        assert_match %r{luaL_register\(L,\s*"dub.FloatMat"}, @namespace[:FloatMat].to_s
+        assert_match %r{luaL_register\(L,\s*"dub".*FloatMat}, @namespace[:FloatMat].to_s
       end
     end
   end

@@ -29,8 +29,32 @@ module Dub
         member_methods.join(",\n")
       end
 
-      def class_method_registration
-        "{%-20s, #{@class.constructor.method_name(0)}}" % "new".inspect
+      def namespace_methods_registration
+        ([@class.name] + @class.alias_names).map do |name|
+          "{%-20s, #{@class.constructor.method_name(0)}}" % name.inspect
+        end.join(",\n")
+      end
+
+      def members_list(all_members)
+        list = all_members.map do |member_or_group|
+          if member_or_group.kind_of?(Array)
+            members_list(member_or_group)
+          elsif ignore_member?(member_or_group)
+            nil
+          else
+            member_or_group
+          end
+        end
+
+        list.compact!
+        list == [] ? nil : list
+      end
+
+      def ignore_member?(member)
+        member.name =~ /^~/           || # do not build constructor
+        member.name =~ /^operator/    || # no conversion operators
+        member.return_type =~ />$/    || # no complex return types
+        member.original_signature =~ />/ # no complex types in signature
       end
     end
   end

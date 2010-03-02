@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.6.3">
   <compound refid="classdub_1_1_matrix" kind="class"><name>dub::Matrix</name>
-    <member refid="classdub_1_1_matrix_1a992fc663fc830fad6abce02b933f131e" kind="variable"><name>data</name></member>
+    <member refid="classdub_1_1_matrix_1a134af4a94d273c34cc99e7645fb97917" kind="variable"><name>data_</name></member>
     <member refid="classdub_1_1_matrix_1afbb3dac9aac8db0e6feffb8c61954065" kind="variable"><name>rows_</name></member>
     <member refid="classdub_1_1_matrix_1a9820706da6cb36cf14dfefbb4eabc92d" kind="variable"><name>cols_</name></member>
     <member refid="classdub_1_1_matrix_1a2d7bfdf38d81c5ec81dff23030d2b569" kind="function"><name>Matrix</name></member>
@@ -11,9 +11,11 @@
     <member refid="classdub_1_1_matrix_1ac13eec5120f1be537122fc2b9a35d12e" kind="function"><name>cols</name></member>
     <member refid="classdub_1_1_matrix_1aad380f21efca0eb8d076fa7801efe903" kind="function"><name>rows</name></member>
     <member refid="classdub_1_1_matrix_1a7a47bc085de140093ba358d345d58df7" kind="function"><name>give_me_tea</name></member>
+    <member refid="classdub_1_1_matrix_1a27fea405cf08ac087a11eefbaf4a342f" kind="function"><name>operator size_t</name></member>
+    <member refid="classdub_1_1_matrix_1ac159906fa5480fdc9539a7be1e1825ed" kind="function"><name>mul</name></member>
   </compound>
   <compound refid="classdub_1_1_t_mat" kind="class"><name>dub::TMat</name>
-    <member refid="classdub_1_1_t_mat_1a43e8b36fc73e89ebdd680a4aca413333" kind="variable"><name>data</name></member>
+    <member refid="classdub_1_1_t_mat_1a325c9dcebf13b0804997d014e7287606" kind="variable"><name>data_</name></member>
     <member refid="classdub_1_1_t_mat_1af4189290104841dd5a9a6f02bf83a7d8" kind="variable"><name>rows_</name></member>
     <member refid="classdub_1_1_t_mat_1ae61dde1ed3a5f0a50cedef0fdbc79a06" kind="variable"><name>cols_</name></member>
     <member refid="classdub_1_1_t_mat_1a17f92585b0e8c55527b08bbf5649b614" kind="function"><name>TMat</name></member>

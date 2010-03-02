@@ -18,7 +18,11 @@ module Dub
     end
 
     def generator
-      @gen || @parent.generator.class_generator
+      @gen
+    end
+
+    def class_generator
+      @gen && @gen.class_generator
     end
 
     alias gen generator

@@ -17,7 +17,12 @@ module Dub
     end
 
     def bind(generator)
+      self.gen = generator
+    end
+
+    def gen=(generator)
       @gen = generator
+      @gen_members = nil
     end
 
     def to_s
@@ -25,10 +30,18 @@ module Dub
     end
 
     def generator
-      @gen || @parent.generator.class_generator
+      @gen || (@parent && @parent.class_generator)
     end
 
     alias gen generator
+
+    def members
+      if self.generator
+        @gen_members ||= self.generator.members_list(super)
+      else
+        super
+      end
+    end
 
     def <=>(other)
       name <=> other.name
@@ -108,10 +121,7 @@ module Dub
       end
 
       def make_member(name, member, overloaded_index = nil)
-        if name =~ /^~/
-          # do not build constructor
-          return nil
-        elsif name == @name
+        if name == @name
           # keep constructors out of members list
           if @constructor.kind_of?(Group)
             @constructor << super
@@ -123,10 +133,10 @@ module Dub
           else
             @constructor = super
           end
-          return nil
+          nil
+        else
+          super
         end
-
-        super
       end
   end
 end
