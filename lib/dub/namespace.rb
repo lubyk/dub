@@ -148,7 +148,9 @@ module Dub
             end
             @classes_by_ref[class_xml[:id]] = class_xml
           else
-            @classes_hash[name] = "Could not open #{filepath}"
+            # TODO: log level
+            # puts "Could not open #{filepath}"
+            nil
           end
         end
         parse_template_class_typedefs
@@ -174,8 +176,12 @@ module Dub
 
               # replace template types
               # get template parameters
-              ttypes = (ref_class/'/templateparamlist/param/type').map do |type|
-                type.innerHTML.gsub(/^\s*(typename|class)\s+/,'')
+              ttypes = (ref_class/'/templateparamlist/param').map do |param|
+                if type = (param/'declname').first
+                  type.innerHTML
+                else
+                  (param/'type').innerHTML.gsub(/^\s*(typename|class)\s+/,'')
+                end
               end
 
               types_map = {}

@@ -354,7 +354,7 @@
     </xsd:sequence>
   </xsd:complexType>
  
-  <xsd:group name="docTitleCmdFunctionGroup">
+  <xsd:group name="docTitleCmdGroup">
     <xsd:choice>
       <xsd:element name="ulink" type="docURLLink" />
       <xsd:element name="bold" type="docMarkupType" />
@@ -393,12 +393,12 @@
   </xsd:group>
 
   <xsd:complexType name="docTitleType" mixed="true">
-    <xsd:group ref="docTitleCmdFunctionGroup" minOccurs="0" maxOccurs="unbounded" />
+    <xsd:group ref="docTitleCmdGroup" minOccurs="0" maxOccurs="unbounded" />
   </xsd:complexType>
 
-  <xsd:group name="docCmdFunctionGroup">
+  <xsd:group name="docCmdGroup">
     <xsd:choice>
-      <xsd:group ref="docTitleCmdFunctionGroup"/>
+      <xsd:group ref="docTitleCmdGroup"/>
       <xsd:element name="linebreak" type="docEmptyType" />
       <xsd:element name="hruler" type="docEmptyType" />
       <xsd:element name="preformatted" type="docMarkupType" />
@@ -423,15 +423,15 @@
   </xsd:group>
 
   <xsd:complexType name="docParaType" mixed="true">
-    <xsd:group ref="docCmdFunctionGroup" minOccurs="0" maxOccurs="unbounded" />
+    <xsd:group ref="docCmdGroup" minOccurs="0" maxOccurs="unbounded" />
   </xsd:complexType>
 
   <xsd:complexType name="docMarkupType" mixed="true">
-    <xsd:group ref="docCmdFunctionGroup" minOccurs="0" maxOccurs="unbounded" />
+    <xsd:group ref="docCmdGroup" minOccurs="0" maxOccurs="unbounded" />
   </xsd:complexType>
 
   <xsd:complexType name="docURLLink" mixed="true">
-    <xsd:group ref="docTitleCmdFunctionGroup" minOccurs="0" maxOccurs="unbounded" />
+    <xsd:group ref="docTitleCmdGroup" minOccurs="0" maxOccurs="unbounded" />
     <xsd:attribute name="url" type="xsd:string" />
   </xsd:complexType>
 
@@ -479,7 +479,7 @@
     </xsd:sequence>
   </xsd:complexType>
 
-  <xsd:group name="docVariableListFunctionGroup">
+  <xsd:group name="docVariableListGroup">
     <xsd:sequence>
       <xsd:element name="varlistentry" type="docVarListEntryType" />
       <xsd:element name="listitem" type="docListItemType" />
@@ -488,12 +488,12 @@
 
   <xsd:complexType name="docVariableListType">
     <xsd:sequence>
-      <xsd:group ref="docVariableListFunctionGroup" maxOccurs="unbounded" />
+      <xsd:group ref="docVariableListGroup" maxOccurs="unbounded" />
     </xsd:sequence>
   </xsd:complexType>
 
   <xsd:complexType name="docRefTextType" mixed="true">
-    <xsd:group ref="docTitleCmdFunctionGroup" minOccurs="0" maxOccurs="unbounded" />
+    <xsd:group ref="docTitleCmdGroup" minOccurs="0" maxOccurs="unbounded" />
     <xsd:attribute name="refid" type="xsd:string" />
     <xsd:attribute name="kindref" type="DoxRefKind" />
     <xsd:attribute name="external" type="xsd:string" />
@@ -522,16 +522,16 @@
   </xsd:complexType>
 
   <xsd:complexType name="docCaptionType" mixed="true">
-    <xsd:group ref="docTitleCmdFunctionGroup" minOccurs="0" maxOccurs="unbounded" />
+    <xsd:group ref="docTitleCmdGroup" minOccurs="0" maxOccurs="unbounded" />
   </xsd:complexType>
 
   <xsd:complexType name="docHeadingType" mixed="true">
-    <xsd:group ref="docTitleCmdFunctionGroup" minOccurs="0" maxOccurs="unbounded" />
+    <xsd:group ref="docTitleCmdGroup" minOccurs="0" maxOccurs="unbounded" />
     <xsd:attribute name="level" type="xsd:integer" /> <!-- todo: range 1-6 -->
   </xsd:complexType>
 
   <xsd:complexType name="docImageType" mixed="true">
-    <xsd:group ref="docTitleCmdFunctionGroup" minOccurs="0" maxOccurs="unbounded" />
+    <xsd:group ref="docTitleCmdGroup" minOccurs="0" maxOccurs="unbounded" />
     <xsd:attribute name="type" type="DoxImageKind" /> 
     <xsd:attribute name="name" type="xsd:string" /> 
     <xsd:attribute name="width" type="xsd:string" /> 
@@ -539,12 +539,12 @@
   </xsd:complexType>
 
   <xsd:complexType name="docDotFileType" mixed="true">
-    <xsd:group ref="docTitleCmdFunctionGroup" minOccurs="0" maxOccurs="unbounded" />
+    <xsd:group ref="docTitleCmdGroup" minOccurs="0" maxOccurs="unbounded" />
     <xsd:attribute name="name" type="xsd:string" /> 
   </xsd:complexType>
 
   <xsd:complexType name="docTocItemType" mixed="true">
-    <xsd:group ref="docTitleCmdFunctionGroup" minOccurs="0" maxOccurs="unbounded" />
+    <xsd:group ref="docTitleCmdGroup" minOccurs="0" maxOccurs="unbounded" />
     <xsd:attribute name="id" type="xsd:string" /> 
   </xsd:complexType>
 

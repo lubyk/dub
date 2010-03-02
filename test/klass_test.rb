@@ -175,6 +175,17 @@ class KlassTest < Test::Unit::TestCase
     end
   end
 
+  context 'A class defined from a template' do
+    setup do
+      @class = namespacecv_xml[:cv][:Size]
+    end
+
+    should 'replace template parameter in method arguments' do
+      Dub::Lua.bind(@class)
+      assert_match %r{int *_width}, @class.to_s
+    end
+  end
+
   context 'A class with alias names' do
     setup do
       # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedub.xml'))

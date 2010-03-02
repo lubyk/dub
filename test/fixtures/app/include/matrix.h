@@ -73,6 +73,11 @@ public:
     data_ = (T*)malloc(size() * sizeof(T));
   }
 
+  // test constructor with T parameter
+  TMat(T dummy) {
+
+  }
+
   ~TMat() {
     if (data_) free(data_);
   }
