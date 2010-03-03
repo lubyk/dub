@@ -110,6 +110,17 @@ class FunctionTest < Test::Unit::TestCase
         assert Dub::Lua.namespace_generator.ignore_member?(@function)
       end
     end
+
+    context 'with a class return value' do
+      setup do
+        @function = namespacecv_xml[:cv][:Mat][:row]
+      end
+
+      should 'return new objects in constructors' do
+        Dub::Lua.bind(@function)
+        assert_match %r{lua_pushclass<Mat>.*"cv.Mat"}, @function.to_s
+      end
+    end
   end
 
   context 'A vararg method' do

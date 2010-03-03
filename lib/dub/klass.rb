@@ -15,6 +15,7 @@ module Dub
 
       @alias_names = []
       @enums       = []
+      @ignores     = []
       @instanciations = {}
       parse_xml
     end
@@ -46,9 +47,16 @@ module Dub
 
     alias gen generator
 
+    def ignore(list)
+      list = [list].flatten
+      @ignores += list
+      @ignores.uniq!
+      @gen_members = nil
+    end
+
     def members
       if self.generator
-        @gen_members ||= self.generator.members_list(super)
+        @gen_members ||= self.generator.members_list(super, @ignores)
       else
         super
       end

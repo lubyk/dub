@@ -12,6 +12,7 @@ module Dub
       @alias_names = []
       @enums   = []
       @defines = []
+      @ignores = []
       parse_xml
     end
 
@@ -48,6 +49,14 @@ module Dub
       @enums   += group.enums
 
       # TODO: do we need to merge classes and members ? I don't think so (they should be in namespace).
+    end
+
+    def ignore(list)
+      list = [list].flatten
+      @ignores += list
+      self.classes.reject! {|k| list.include?(k.name) }
+      @ignores.uniq!
+      @gen_members = nil
     end
 
     def full_type
@@ -96,7 +105,7 @@ module Dub
 
     def members
       if self.generator
-        @gen_members ||= self.generator.members_list(super)
+        @gen_members ||= self.generator.members_list(super, @ignores)
       else
         super
       end
@@ -147,6 +156,7 @@ module Dub
         @classes_by_ref = {}
         (@xml/'innerclass').each do |klass|
           name = klass.innerHTML
+          Dub.logger.info "Parsing #{name}"
           if name =~ /^#{@name}::(.+)$/
             name = $1
           end

@@ -40,6 +40,12 @@ class NamespaceTest < Test::Unit::TestCase
       assert_equal 'opencv/cv.h', namespace.header
     end
 
+    should 'remove members on minus equal operator when bound' do
+      namespace = Dub.parse(fixture('app/xml/namespacedub.xml'))[:dub]
+      namespace.ignore 'FMatrix'
+      assert_equal %w{Matrix}, namespace.classes.map{|k| k.name}
+    end
+
     context 'when bound' do
       setup do
         @generator = Dub::Lua.namespace_generator

@@ -49,9 +49,11 @@ module Dub
         res.join(",\n\n")
       end
 
-      def members_list(all_members)
+      def members_list(all_members, ignore_list = [])
         list = all_members.map do |member_or_group|
-          if member_or_group.kind_of?(Array)
+          if ignore_list.include?(member_or_group.name)
+            nil
+          elsif member_or_group.kind_of?(Array)
             members_list(member_or_group)
           elsif ignore_member?(member_or_group)
             nil

@@ -374,7 +374,7 @@ static int pmain (lua_State *L) {
 
 #include "matrix.h"
 
-#include "lua_dub_helper.h"
+#include "lua_cpp_helper.h"
 
 
 using namespace dub;
@@ -509,7 +509,7 @@ static void luaopen_dub_Matrix(lua_State *L) {
 }
 #include "matrix.h"
 
-#include "lua_dub_helper.h"
+#include "lua_cpp_helper.h"
 
 
 using namespace dub;

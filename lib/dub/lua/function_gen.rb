@@ -171,7 +171,7 @@ module Dub
             else
               prefix = func.prefix
             end
-            res << "lua_pushclass<#{return_value.type}>(L, retval__, \"#{prefix}.#{return_value.type}\");"
+            res << "lua_pushclass<#{return_value.type}>(L, retval__, \"#{return_value.id_name}\");"
           end
           res << "return 1;"
         else

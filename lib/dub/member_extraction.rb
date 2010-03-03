@@ -17,6 +17,7 @@ module Dub
       @t_members_hash = {}
       # TODO: template functions
       (@xml/'memberdef').each do |member|
+        Dub.logger.info "Parsing #{member.name}"
         name = (member/"name").innerHTML
         if (member/'templateparamlist').first
           insert_member(member, name, @t_members_hash)

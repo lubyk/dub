@@ -134,12 +134,18 @@ class KlassTest < Test::Unit::TestCase
         assert_match %r{static int Matrix_Matrix\s*\(},  result
       end
 
+      should 'return new objects in constructors' do
+        @class = namespacecv_xml[:cv][:Mat]
+        Dub::Lua.bind(@class)
+        assert_match %r{lua_pushclass<Mat>.*"cv.Mat"}, @class.constructor.first.to_s
+      end
+
       should 'include class header' do
         assert_match %r{#include\s+"matrix.h"}, @class.to_s
       end
 
       should 'include helper header' do
-        assert_match %r{#include\s+"lua_dub_helper.h"}, @class.to_s
+        assert_match %r{#include\s+"lua_cpp_helper.h"}, @class.to_s
       end
 
       should 'create Lua metatable with class name' do

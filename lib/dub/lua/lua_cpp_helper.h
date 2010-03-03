@@ -70,7 +70,9 @@ public:
     for(size_t i=0; i < size; ++i) {
       data[i] = get_value_at(L, index, i+1);
     }
+    return data;
   }
+
 private:
   T get_value_at(lua_State *L, int table_index, int index) {
     lua_pushinteger(L, index + 1);
@@ -85,7 +87,7 @@ private:
 
 /** ======================================== is_userdata */
 
-staticbool is_userdata(lua_State *L, int index, const char *tname) {
+inline bool is_userdata(lua_State *L, int index, const char *tname) {
   void *p = lua_touserdata(L, index);
   if (p != NULL) {  /* value is a userdata? */
     if (lua_getmetatable(L, index)) {  /* does it have a metatable? */
@@ -109,13 +111,13 @@ typedef struct lua_constants_Reg {
   double constant;
 } lua_constants_Reg;
 
-static int libsize (const lua_constants_Reg *l) {
+inline int libsize (const lua_constants_Reg *l) {
   int size = 0;
   for (; l->name; l++) size++;
   return size;
 }
 
-static void register_constants(lua_State *L, const char *name_space, const lua_constants_Reg *l) {
+inline void register_constants(lua_State *L, const char *name_space, const lua_constants_Reg *l) {
   if (name_space) {
     /* compute size hint for new table. */
     int size = libsize(l);
