@@ -160,7 +160,7 @@ class FunctionTest < Test::Unit::TestCase
     should 'be ignored by generator' do
       assert Dub::Lua.namespace_generator.ignore_member?(@function)
     end
-    
+
     should 'be removed from members list' do
       Dub::Lua.bind(namespacecv_xml[:cv])
       assert !namespacecv_xml[:cv].members.include?(@function)
@@ -221,6 +221,21 @@ class FunctionTest < Test::Unit::TestCase
 
     should 'return class name pointer on return_value create_type' do
       assert_equal 'Matrix *', @method.return_value.create_type
+    end
+
+    context 'from a typedef bound to a generator' do
+      setup do
+        @method = namespacecv_xml[:cv][:Size].constructor.first
+        Dub::Lua.bind(@method)
+      end
+
+      should 'know that it is a constructor' do
+        assert @method.constructor?
+      end
+
+      should 'push new userdata on new' do
+        assert_match %r{lua_pushclass<Size>.*"cv.Size".*return 1}m, @method.generator.return_value(@method)
+      end
     end
   end
 end

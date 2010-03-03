@@ -3,7 +3,8 @@ require 'dub/entities_unescape'
 module Dub
   class Argument
     include Dub::EntitiesUnescape
-    attr_reader :type, :name, :default, :function, :xml
+    attr_reader :name, :default, :function, :xml
+    attr_accessor :type
 
     NUMBER_TYPES = [
       'float',

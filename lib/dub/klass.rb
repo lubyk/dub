@@ -188,16 +188,19 @@ module Dub
           if @constructor.kind_of?(FunctionGroup)
             constr = super
             constr.name = @name # force key name
+            constr.set_as_constructor
             @constructor << constr
           elsif @constructor
             constr = super
             constr.name = @name
+            constr.set_as_constructor
             list = Dub::FunctionGroup.new(self)
             list << @constructor
             list << constr
             @constructor = list
           else
             @constructor = super
+            @constructor.set_as_constructor
             @constructor.name = @name
           end
           nil

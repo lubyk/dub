@@ -5,18 +5,19 @@ module Dub
   class Function
     include Dub::EntitiesUnescape
     attr_reader :arguments, :prefix, :overloaded_index, :return_value, :xml, :parent
-    attr_accessor :gen, :name
+    attr_accessor :gen, :name, :is_constructor
 
     def initialize(parent, name, xml, prefix = '', overloaded_index = nil)
       @parent, @name = parent, name
       @xml, @prefix, @overloaded_index = xml, prefix, overloaded_index
       parse_xml
-
-      if constructor?
-        @return_value = Argument.new(self, (Hpricot::XML("<type>#{name} *</type>")/''))
-      end
     end
-
+    
+    def set_as_constructor
+      @return_value = Argument.new(self, (Hpricot::XML("<type>#{name} *</type>")/''))
+      @is_constructor = true
+    end
+    
     def bind(generator)
       @gen = generator.function_generator
     end
@@ -38,10 +39,17 @@ module Dub
     end
 
     def constructor?
-      @name == @parent.name
+      @is_constructor
     end
 
     alias gen generator
+
+    def name=(n)
+      @name = n
+      if constructor?
+        @return_value.type = n
+      end
+    end
 
     def source
       loc = (@xml/'location').first.attributes
