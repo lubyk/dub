@@ -181,7 +181,7 @@ module Dub
             end
           end
         else
-          "%-20s = (#{arg.create_type})luaL_checkudata(L, %i, \"%s\");" % [type_def, stack_pos, "#{arg.id_name}"]
+          "%-20s = *((#{arg.create_type}*)luaL_checkudata(L, %i, \"%s\"));" % [type_def, stack_pos, "#{arg.id_name}"]
         end
       end
 

@@ -40,7 +40,7 @@ class LuaFunctionGenTest < Test::Unit::TestCase
       end
 
       should 'insert code to check for an arguments on get_arg' do
-        assert_match /Mat.*\*\s*src\s*=\s*\(const\s+Mat\s+\*\)\s*luaL_checkudata\s*\(L,\s*1,\s*\"cv\.Mat\"\s*\)\s*;/,
+        assert_match /Mat.*\*\s*src\s*=\s*\*\(\(const\s+Mat\s+\*\*\)\s*luaL_checkudata\s*\(L,\s*1,\s*\"cv\.Mat\"\s*\)\)\s*;/,
                      @generator.get_arg(@function.arguments.first, 1) # 1 = first argument in Lua stack
       end
 
@@ -61,7 +61,7 @@ class LuaFunctionGenTest < Test::Unit::TestCase
         end
 
         should 'use parameter class identifier' do
-          assert_match /luaL_checkudata\s*\(L,\s*1,\s*\"cv\.Size\"\s*\)\s*;/,
+          assert_match /Size\s*\*\*\)luaL_checkudata\s*\(L,\s*1,\s*\"cv\.Size\"\s*\)\)\s*;/,
                        @generator.get_arg(@function.arguments.first, 1) # 1 = first argument in Lua stack
         end
       end

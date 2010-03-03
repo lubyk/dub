@@ -148,8 +148,7 @@ module Dub
             end
             @classes_by_ref[class_xml[:id]] = class_xml
           else
-            # TODO: log level
-            # puts "Could not open #{filepath}"
+            Dub.logger.warn "Could not open #{filepath}"
             nil
           end
         end
@@ -216,13 +215,11 @@ module Dub
                   (class_xml/'').append("<aliases><name>#{new_name}</name></aliases>")
                 end
               else
-                # TODO: enable log levels
-                # puts "Could not find original class #{original_name}"
+                Dub.logger.warn "Could not find original class #{original_name}"
               end
             end
           else
-            # TODO: enable log levels
-            # puts "Could not find reference class #{id}"
+            Dub.logger.warn "Could not find reference class #{id}"
           end
         end
       end

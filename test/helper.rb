@@ -14,6 +14,8 @@ class Test::Unit::TestCase
 
   @@namespacecv_xml = nil
 
+  Dub.logger.level = Logger::FATAL
+
   def fixture(path)
     self.class.fixture(path)
   end

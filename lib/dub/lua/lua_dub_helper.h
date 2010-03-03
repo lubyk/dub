@@ -82,7 +82,7 @@ private:
 
 /** ======================================== is_userdata */
 
-static bool is_userdata(lua_State *L, int index, const char *tname) {
+staticbool is_userdata(lua_State *L, int index, const char *tname) {
   void *p = lua_touserdata(L, index);
   if (p != NULL) {  /* value is a userdata? */
     if (lua_getmetatable(L, index)) {  /* does it have a metatable? */
@@ -112,7 +112,7 @@ static int libsize (const lua_constants_Reg *l) {
   return size;
 }
 
-LUALIB_API void register_constants(lua_State *L, const char *name_space, const lua_constants_Reg *l) {
+static void register_constants(lua_State *L, const char *name_space, const lua_constants_Reg *l) {
   if (name_space) {
     /* compute size hint for new table. */
     int size = libsize(l);

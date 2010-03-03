@@ -73,8 +73,10 @@ module Dub
     def make_member(name, member, overloaded_index = nil)
       case member[:kind]
       when 'function'
+        Dub.logger.info "Building #{members_prefix}::#{name}"
         Function.new(self, name, member, members_prefix, overloaded_index)
       when 'class'
+        Dub.logger.info "Building #{members_prefix}::#{name}"
         Klass.new(self, name, member, members_prefix)
       else
         # not supported: ignore
