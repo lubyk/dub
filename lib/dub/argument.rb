@@ -16,7 +16,9 @@ module Dub
       'unsigned int',
       'uint',
       'bool',
-      'uchar'
+      'uchar',
+      'void',
+      'int64'
     ]
 
     STRING_TYPES = [
@@ -78,8 +80,8 @@ module Dub
       end
     end
 
-    def initialize(function, xml)
-      @function, @xml = function, xml
+    def initialize(function, xml, arg_pos = nil)
+      @function, @xml, @argument_position = function, xml, arg_pos
       parse_xml
     end
 
@@ -130,6 +132,10 @@ module Dub
       @type
     end
 
+    def vararg?
+      @type == '...'
+    end
+
     def create_type
       resolve_type if @template_params
       (is_const? ? 'const ' : '') +
@@ -138,6 +144,12 @@ module Dub
       else
         "#{type} *"
       end
+    end
+
+    # this is for the cases where we have signatures like
+    # HuMoments(double moments[7])
+    def array_suffix
+      @array_suffix
     end
 
     def in_call_type
@@ -151,6 +163,15 @@ module Dub
           set_type(type)
 
           @name = unescape((@xml/'declname').innerHTML)
+          if @name == ''
+            @name = "arg#{@argument_position}"
+          elsif @name == @function.name
+            @name = "arg_#{@name}"
+          end
+
+          if ref = (@xml/'defval/ref').first
+            ref.swap(ref.innerHTML)
+          end
           @default = (@xml/'defval') ? unescape((@xml/'defval').innerHTML) : nil
           @default = nil if @default == ''
           expand_default_type if @default
@@ -158,6 +179,10 @@ module Dub
           # return value
           @is_return_value = true
           set_type(@xml/'')
+        end
+
+        if array = (@xml/'array').first
+          @array_suffix = array.innerHTML
         end
       end
 
@@ -171,7 +196,7 @@ module Dub
         type = type.innerHTML
 
         # Strip CV_EXPORT .....
-        if type =~ /^([^ ]+)\s+([a-zA-Z_]+)$/
+        if type =~ /^([^ ]+)\s+([a-zA-Z_]+.*)$/
           if $1 == 'const'
             @const = true
           end
@@ -215,14 +240,19 @@ module Dub
       end
 
       def resolve_type
-        if tclass = @function.parent.parent.template_class(@type)
-          if instanciation = tclass.instanciations[@template_params]
-            @type = instanciation.name
-          else
-            Dub.logger.warn "Could not resolve templated type #{@type}<#{@template_params.join(', ')}>"
+        if container = @function.parent
+          if container.kind_of?(Klass)
+            container = container.parent
           end
-        else
-          Dub.logger.warn "Could not find class for type #{@type}<#{@template_params.join(', ')}>"
+          if container && tclass = container.template_class(@type)
+            if instanciation = tclass.instanciations[@template_params]
+              @type = instanciation.name
+            else
+              Dub.logger.warn "Could not resolve templated type #{@type}<#{@template_params.join(', ')}>"
+            end
+          else
+            Dub.logger.warn "Could not find class for type #{@type}<#{@template_params.join(', ')}>"
+          end
         end
         @template_params = nil
       end

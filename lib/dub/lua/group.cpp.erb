@@ -1,4 +1,4 @@
-<% @group.each do |f| %>
+<% @group.members.each do |f| %>
 <%= function(f) %>
 
 <% end %>
@@ -6,5 +6,5 @@
 /** Overloaded function chooser for <%= @group.name %>(...) */
 <%= signature(@group.first, 0) %> {
   int type__ = lua_type(L, 1);
-<%= indent(switch(Argument.decision_tree(@group)), 2) %>
+<%= indent(switch(Argument.decision_tree(@group.members)), 2) %>
 }

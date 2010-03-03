@@ -1,4 +1,5 @@
 require 'helper'
+require 'dub/lua'
 
 class FunctionTest < Test::Unit::TestCase
 
@@ -93,6 +94,91 @@ class FunctionTest < Test::Unit::TestCase
       should 'know that the type is a not native pointer' do
         assert !@function.return_value.is_pointer?
       end
+    end
+
+    context 'with a void pointer return value' do
+      setup do
+        @function = namespacecv_xml[:cv][:fastMalloc]
+        #Dub::Lua.bind(@function)
+      end
+
+      should 'strip ref in the create type' do
+        assert_equal 'void *', @function.return_value.create_type
+      end
+
+      should 'be ignored by generator' do
+        assert Dub::Lua.namespace_generator.ignore_member?(@function)
+      end
+    end
+  end
+
+  context 'A vararg method' do
+    setup do
+      @function = namespacecv_xml[:cv][:format]
+    end
+
+    should 'know it is a vararg' do
+      assert @function.vararg?
+    end
+
+    should 'be ignored by generator' do
+      assert Dub::Lua.namespace_generator.ignore_member?(@function)
+    end
+  end
+
+  context 'A constructor with void pointer argument' do
+    setup do
+      @function = namespacecv_xml[:cv][:Mat].constructor[6]
+    end
+
+    should 'be ignored by generator' do
+      assert Dub::Lua.class_generator.ignore_member?(@function)
+    end
+
+    should 'not have array arguments' do
+      assert !namespacecv_xml[:cv][:Mat].constructor[2].has_array_arguments?
+    end
+
+    should 'not be listed in group members if bound' do
+      klass = namespacecv_xml[:cv][:Mat]
+      Dub::Lua.bind(klass)
+      assert !klass.constructor.members.include?(@function)
+    end
+
+    should 'be removed from group list on to_s' do
+      klass = namespacecv_xml[:cv][:Mat]
+      Dub::Lua.bind(klass)
+      assert_no_match %r{void\s*\*_data,\s*size_t}, klass.constructor.to_s
+    end
+  end
+
+  context 'A function with void pointer argument' do
+    setup do
+      @function = namespacecv_xml[:cv][:fastFree]
+    end
+
+    should 'be ignored by generator' do
+      assert Dub::Lua.namespace_generator.ignore_member?(@function)
+    end
+    
+    should 'be removed from members list' do
+      Dub::Lua.bind(namespacecv_xml[:cv])
+      assert !namespacecv_xml[:cv].members.include?(@function)
+    end
+  end
+
+  context 'A method without arguments' do
+    setup do
+      @function = namespacecv_xml[:cv][:getCPUTickCount]
+    end
+
+    should 'parse return value' do
+      assert_equal 'int64', @function.return_value.type
+    end
+
+    should 'produce a one liner to call function' do
+      Dub::Lua.bind(@function)
+      assert_match %r{int64\s*retval__\s*=\s*getCPUTickCount\(\);}, @function.to_s
     end
   end
 

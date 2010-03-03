@@ -1,4 +1,5 @@
 require 'helper'
+require 'dub/lua'
 
 class ArgumentTest < Test::Unit::TestCase
   context 'An const ref argument' do
@@ -91,6 +92,25 @@ class ArgumentTest < Test::Unit::TestCase
     end
   end
 
+  context 'An argument without name' do
+    setup do
+      @argument = namespacecv_xml[:cv][:fastMalloc].arguments.first
+    end
+
+    should 'choose a name from its position' do
+      assert_equal 'arg1', @argument.name
+    end
+  end
+
+  context 'A vararg argument' do
+    setup do
+      @argument = namespacecv_xml[:cv][:format].arguments[1]
+    end
+
+    should 'know it is a vararg' do
+      assert @argument.vararg?
+    end
+  end
 
   context 'A bool argument' do
     setup do
@@ -135,6 +155,16 @@ class ArgumentTest < Test::Unit::TestCase
     end
   end
 
+  context 'An argument with the same name as the function' do
+    setup do
+      @function = namespacecv_xml[:cv][:magnitude]
+      @argument = @function.arguments[2]
+    end
+
+    should 'be prefixed with arg_' do
+      assert_equal 'arg_magnitude', @argument.name
+    end
+  end
 
   context 'An argument with a default value' do
     setup do
@@ -165,6 +195,32 @@ class ArgumentTest < Test::Unit::TestCase
 
       should 'use full namespace signature if default is an enum' do
         assert_equal 'cv::Mat::AUTO_STEP', @argument.default
+      end
+    end
+
+    context 'that is a class' do
+      setup do
+        @method = namespacecv_xml[:cv][:accumulate]
+        @argument = @method.arguments[2]
+      end
+
+      should 'know that it has a default value' do
+        assert @argument.has_default?
+      end
+
+      should 'return default value' do
+        assert_equal 'Mat()', @argument.default
+      end
+
+      context 'bound to a generator' do
+        setup do
+          Dub::Lua.bind(@method)
+        end
+
+        should 'use if then else for default' do
+          assert_match %r{if\s*\(top__ < 3\) \{\s*accumulate\(\*src, \*dst\);}m,
+                       @method.to_s
+        end
       end
     end
   end
@@ -235,6 +291,35 @@ class ArgumentTest < Test::Unit::TestCase
 
     should 'pass by value in call' do
       assert_equal 'fx', @argument.in_call_type
+    end
+  end
+
+  context 'An array of C types' do
+    setup do
+      @argument = namespacedub_xml[:dub][:FMatrix][:FunkyThing].arguments.first
+    end
+
+    should 'return array count on array_count' do
+      assert_equal '[7]', @argument.array_suffix
+    end
+
+    should 'be passed as is' do
+      assert_equal 'v', @argument.name
+    end
+
+    should 'respond true to has_array_argumetns in method' do
+      assert namespacedub_xml[:dub][:FMatrix][:FunkyThing].has_array_arguments?
+    end
+
+    context 'bound to a generator' do
+      setup do
+        @method = namespacedub_xml[:dub][:FMatrix][:FunkyThing]
+        Dub::Lua.bind(@method)
+      end
+
+      should 'append array when creating receiver' do
+        assert_match %r{double\s+v\[7\]}, @method.to_s
+      end
     end
   end
 

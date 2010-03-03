@@ -57,6 +57,15 @@ module Dub
       @has_defaults = !@arguments.detect {|a| a.has_default? }.nil?
     end
 
+    def has_array_arguments?
+      return @has_array_arguments if defined?(@has_array_arguments)
+      @has_array_arguments = !@arguments.detect {|a| a.array_suffix }.nil?
+    end
+
+    def vararg?
+      @arguments.last && @arguments.last.vararg?
+    end
+
     def inspect
       "#<Function #{@prefix}_#{@name}(#{@arguments.inspect[1..-2]})>"
     end
@@ -78,15 +87,16 @@ module Dub
       def parse_xml
         @arguments = []
 
-        (@xml/'param').each do |arg|
-          @arguments << Argument.new(self, arg)
+        (@xml/'param').each_with_index do |arg, i|
+          @arguments << Argument.new(self, arg, i + 1)
         end
 
         raw_type = (@xml/'/type').innerHTML
-        if raw_type =~ /void/ || raw_type.strip == ''
+        if raw_type.strip == ''
           # no return type
         else
-          @return_value = Argument.new(self, (@xml/'/type'))
+          arg = Argument.new(self, (@xml/'/type'))
+          @return_value = arg unless arg.create_type =~ /void\s*$/
         end
       end
   end

@@ -15,6 +15,7 @@ Currently, the parser supports:
  * class instantiation from templates through typedefs
  * class alias through typedefs
  * automatic resolution of template parameters
+ * automatic handling of default values
  * class enums
  * namespace enums
  * group constant defines

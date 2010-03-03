@@ -98,6 +98,10 @@ public:
   void fill(T value) {
     // dummy
   }
+  
+  FunkyThing(double v[7]) {
+    
+  }
 
   T get(size_t row, size_t col) {
     return data_[row * cols_ + col];

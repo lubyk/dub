@@ -29,10 +29,10 @@ static int <%= @class.tostring_name %>(lua_State *L) {
 
 /* ============================ Member Methods   ====================== */
 
-<% @class.members.each do |function| %>
+<% if @class.members; @class.members.each do |function| %>
 <%= function %>
 
-<% end %>
+<% end; end %>
 
 
 /* ============================ Lua Registration ====================== */

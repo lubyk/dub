@@ -41,6 +41,10 @@ module Dub
         self
       end
 
+      def namespace_generator
+        Dub::Lua.namespace_generator
+      end
+
       # Create a switch to choose the correct method from argument types (overloaded functions)
       def switch(hash_or_function, depth = 1)
         if hash_or_function.kind_of?(Function)
@@ -87,28 +91,35 @@ module Dub
 
         if func.member_method? && !func.constructor?
           klass = func.parent
-          res << "%-20s = *((#{klass.name}**)luaL_checkudata(L, 1, \"%s\"));" % ["#{klass.name} *self__", "#{klass.id_name}"]
+          res << "#{klass.name} *self__ = *((#{klass.name}**)luaL_checkudata(L, 1, #{klass.id_name.inspect}));"
           res << "lua_remove(L, 1);"
         end
 
         if func.has_default_arguments?
-          res << "int top__            = lua_gettop(L);"
+          res << "int top__ = lua_gettop(L);"
+          if return_value = func.return_value
+            res << "#{return_value.create_type} retval__;"
+          end
         end
 
+        if_indent = 0
         func.arguments.each_with_index do |arg, i|
-          res << get_arg(arg, i + 1)
+          if arg.has_default?
+            res << indent("if (top__ < #{i+1}) {",     if_indent)
+            res << indent("  #{call_string(func, i)}", if_indent)
+            res << indent("} else {", if_indent)
+            if_indent += 2
+          end
+          res << indent(get_arg(arg, i + 1), if_indent)
+        end
+        res << indent(call_string(func, func.arguments.count), if_indent)
+        while if_indent > 0
+          if_indent -= 2
+          res << indent("}", if_indent)
         end
 
-        res << function_call(func)
+        res << return_value(func)
         res.join("\n")
-      end
-
-      def insert_default(arg, stack_pos)
-        if arg.has_default?
-          "top__ < #{stack_pos} ? #{arg.default} : "
-        else
-          ''
-        end
       end
 
       def method_name(func, overloaded_index = nil)
@@ -121,16 +132,34 @@ module Dub
         "return #{method_name(func)}(L);"
       end
 
-      def function_call(func)
-        call_string = "#{func.name}(#{func.arguments.map{|arg| arg.in_call_type}.join(', ')});"
+      def call_string(func, upto_arg)
+        if upto_arg == 0
+          call_string = "#{func.name}();"
+        else
+          call_string = "#{func.name}(#{func.arguments[0..(upto_arg-1)].map{|arg| arg.in_call_type}.join(', ')});"
+        end
+
         if func.constructor?
           call_string = "new #{call_string}"
         elsif func.member_method?
           call_string = "self__->#{call_string}"
         end
+
+
+        if return_value = func.return_value
+          if func.has_default_arguments?
+            "retval__ = #{call_string}"
+          else
+            "#{return_value.create_type} retval__ = #{call_string}"
+          end
+        else
+          call_string
+        end
+      end
+
+      def return_value(func)
         res = []
         if return_value = func.return_value
-          res << "%-20s = #{call_string}" % "#{return_value.create_type} retval__"
           case Argument.type_group(return_value)
           when :number
             res << "lua_pushnumber(L, retval__);"
@@ -146,7 +175,6 @@ module Dub
           end
           res << "return 1;"
         else
-          res << call_string
           res << "return 0;"
         end
         res.join("\n")
@@ -155,33 +183,29 @@ module Dub
       # Get argument and verify type
       # // luaL_argcheck could be better to report errors like "expected Mat"
       def get_arg(arg, stack_pos)
-        type_def = "#{arg.create_type}#{arg.name}"
+        type_def = "#{arg.create_type}#{arg.name}#{arg.array_suffix}"
         if arg.is_native?
           if arg.is_pointer?
             if arg.type == 'char'
               type_def = "const #{type_def}" unless arg.is_const?
-              "%-20s = #{insert_default(arg, stack_pos)}luaL_checkstring(L, %i);" % [type_def, stack_pos]
+              "#{type_def} = luaL_checkstring(L, #{stack_pos});"
             else
               # retrieve by using a table accessor
               # TODO: we should have a hint on required sizes !
               "\nDubArgPointer<#{arg.type}> ptr_#{arg.name};\n" +
-              "%-20s = #{insert_default(arg, stack_pos)}ptr_#{arg.name}(L, %i);" % [type_def, stack_pos]
+              "#{type_def} = ptr_#{arg.name}(L, #{stack_pos});"
             end
           else
             if FLOAT_TYPES.include?(arg.type)
-              "%-20s = #{insert_default(arg, stack_pos)}luaL_checknumber(L, %i);" % [type_def, stack_pos]
+              "#{type_def} = luaL_checknumber(L, #{stack_pos});"
             elsif INT_TYPES.include?(arg.type)
-              if arg.has_default?
-                "%-20s = #{insert_default(arg, stack_pos)}luaL_checkint(L, %i);" % [type_def, stack_pos]
-              else
-                "%-20s = luaL_checkint   (L, %i);" % [type_def, stack_pos]
-              end
+              "#{type_def} = luaL_checkint(L, #{stack_pos});"
             else
               raise "Unsuported type: #{arg.type}"
             end
           end
         else
-          "%-20s = *((#{arg.create_type}*)luaL_checkudata(L, %i, \"%s\"));" % [type_def, stack_pos, "#{arg.id_name}"]
+          "#{type_def} = *((#{arg.create_type}*)luaL_checkudata(L, #{stack_pos}, #{arg.id_name.inspect}));"
         end
       end
 

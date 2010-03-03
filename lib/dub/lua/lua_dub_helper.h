@@ -45,6 +45,9 @@ void lua_pushclass(lua_State *L, T &val, const char *type_name) {
 
 /** ======================================== DubArgPointer */
 
+/** This class is a helper to provide pointer to data from
+ * Lua to C (but maybe it's not a good idea).
+ */
 template<class T>
 class DubArgPointer {
 public:

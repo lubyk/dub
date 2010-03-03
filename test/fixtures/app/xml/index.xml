@@ -1,3 +1,42 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.6.3">
+  <compound refid="classdub_1_1_matrix" kind="class"><name>dub::Matrix</name>
+    <member refid="classdub_1_1_matrix_1a134af4a94d273c34cc99e7645fb97917" kind="variable"><name>data_</name></member>
+    <member refid="classdub_1_1_matrix_1afbb3dac9aac8db0e6feffb8c61954065" kind="variable"><name>rows_</name></member>
+    <member refid="classdub_1_1_matrix_1a9820706da6cb36cf14dfefbb4eabc92d" kind="variable"><name>cols_</name></member>
+    <member refid="classdub_1_1_matrix_1a2d7bfdf38d81c5ec81dff23030d2b569" kind="function"><name>Matrix</name></member>
+    <member refid="classdub_1_1_matrix_1a87d276a9bfb52dbe228a19c2eae63b4b" kind="function"><name>Matrix</name></member>
+    <member refid="classdub_1_1_matrix_1a7bbf87936b3a48a69fcc1a74038bdd25" kind="function"><name>~Matrix</name></member>
+    <member refid="classdub_1_1_matrix_1a91cd7ece7296a2f2b37f2b629dc66fed" kind="function"><name>size</name></member>
+    <member refid="classdub_1_1_matrix_1ac13eec5120f1be537122fc2b9a35d12e" kind="function"><name>cols</name></member>
+    <member refid="classdub_1_1_matrix_1aad380f21efca0eb8d076fa7801efe903" kind="function"><name>rows</name></member>
+    <member refid="classdub_1_1_matrix_1a7a47bc085de140093ba358d345d58df7" kind="function"><name>give_me_tea</name></member>
+    <member refid="classdub_1_1_matrix_1a27fea405cf08ac087a11eefbaf4a342f" kind="function"><name>operator size_t</name></member>
+    <member refid="classdub_1_1_matrix_1ac159906fa5480fdc9539a7be1e1825ed" kind="function"><name>mul</name></member>
+    <member refid="classdub_1_1_matrix_1a5bf5b5aee77c4e4a4cf906ce785fe37b" kind="function"><name>do_something</name></member>
+    <member refid="classdub_1_1_matrix_1a90798c27b8b4017a939f804481eb50ad" kind="function"><name>ptr</name></member>
+  </compound>
+  <compound refid="classdub_1_1_t_mat" kind="class"><name>dub::TMat</name>
+    <member refid="classdub_1_1_t_mat_1a325c9dcebf13b0804997d014e7287606" kind="variable"><name>data_</name></member>
+    <member refid="classdub_1_1_t_mat_1af4189290104841dd5a9a6f02bf83a7d8" kind="variable"><name>rows_</name></member>
+    <member refid="classdub_1_1_t_mat_1ae61dde1ed3a5f0a50cedef0fdbc79a06" kind="variable"><name>cols_</name></member>
+    <member refid="classdub_1_1_t_mat_1a17f92585b0e8c55527b08bbf5649b614" kind="function"><name>TMat</name></member>
+    <member refid="classdub_1_1_t_mat_1afdc6150359c9b1914cd5af9e273757be" kind="function"><name>TMat</name></member>
+    <member refid="classdub_1_1_t_mat_1ad6fe3f080e15ae4f7cf0b55abc64469e" kind="function"><name>TMat</name></member>
+    <member refid="classdub_1_1_t_mat_1aa2f979b486bd17cf3a840976983d7ebb" kind="function"><name>~TMat</name></member>
+    <member refid="classdub_1_1_t_mat_1affa049645f25277333d2d000051c762f" kind="function"><name>size</name></member>
+    <member refid="classdub_1_1_t_mat_1a1fac3175ad4602f3212c08e41f4383bb" kind="function"><name>cols</name></member>
+    <member refid="classdub_1_1_t_mat_1ac66d2c59eba113fd4416c24460b04582" kind="function"><name>rows</name></member>
+    <member refid="classdub_1_1_t_mat_1a2a28668935a895001309f6ab05922a9c" kind="function"><name>fill</name></member>
+    <member refid="classdub_1_1_t_mat_1a9051bdd635c65f18aa3938caa4f5b106" kind="function"><name>FunkyThing</name></member>
+    <member refid="classdub_1_1_t_mat_1ad5daa1d61af70c79402f4cb3acd770b3" kind="function"><name>get</name></member>
+  </compound>
+  <compound refid="namespacedub" kind="namespace"><name>dub</name>
+    <member refid="namespacedub_1aac039a028aeb9a3b3d0b3f52036e4a1f" kind="typedef"><name>FloatMat</name></member>
+    <member refid="namespacedub_1a1f14f9a863b395dbbc9cdbf168855673" kind="typedef"><name>FMatrix</name></member>
+  </compound>
+  <compound refid="matrix_8h" kind="file"><name>matrix.h</name>
+  </compound>
+  <compound refid="dir_53661a2bdeb1d55e60581a7e15deb763" kind="dir"><name>include/</name>
+  </compound>
 </doxygenindex>

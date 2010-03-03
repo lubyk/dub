@@ -46,12 +46,7 @@ class LuaFunctionGenTest < Test::Unit::TestCase
 
       context 'with default values' do
         should 'verify stack size' do
-          # int interpolation    = top__ < 6 ? INTER_LINEAR : luaL_checkint(L, 6);
-          assert_match /top__\s*<\s*6\s*\?/, @generator.get_arg(@function.arguments[5], 6)
-        end
-
-        should 'use default if stack is too small' do
-          assert_match /\?\s*cv::INTER_LINEAR/, @generator.get_arg(@function.arguments[5], 6)
+          assert_match /top__\s*<\s*6/, @generator.function(@function)
         end
       end
 
@@ -71,24 +66,24 @@ class LuaFunctionGenTest < Test::Unit::TestCase
   context 'A group of overloaded functions' do
     setup do
       # namespacecv_xml = Dub.parse(fixture('namespacecv.xml'))
-      @group = namespacecv_xml[:cv][:divide]
+      @function_group = namespacecv_xml[:cv][:divide]
     end
 
     context 'bound to a Lua generator' do
       setup do
-        Dub::Lua.bind(@group)
+        Dub::Lua.bind(@function_group)
       end
 
       should 'return string content on to_s' do
-        assert_kind_of String, @group.to_s
+        assert_kind_of String, @function_group.to_s
       end
 
       should 'generate a static function returning an int' do
-        assert_match %r{static int cv_divide}, @group.to_s
+        assert_match %r{static int cv_divide}, @function_group.to_s
       end
 
       should 'generate a static function returning an int for each overloaded function' do
-        bindings = @group.to_s
+        bindings = @function_group.to_s
         assert_match %r{static int cv_divide1}, bindings
         assert_match %r{static int cv_divide2}, bindings
         assert_match %r{static int cv_divide3}, bindings
@@ -159,6 +154,22 @@ class LuaFunctionGenTest < Test::Unit::TestCase
     should 'use pushclass in constructor' do
       result = @constructor.to_s
       assert_match %r{lua_pushclass<Matrix>\s*\(L, retval__, \"dub.Matrix\"\s*\)}, result
+    end
+  end
+
+  context 'A function without return value' do
+    setup do
+      @function = namespacecv_xml[:cv][:blur]
+    end
+
+    context 'bound to a Lua generator' do
+      setup do
+        Dub::Lua.bind(@function)
+      end
+
+      should 'return 0' do
+        assert_match %r{return\s+0}, @function.to_s
+      end
     end
   end
 end
