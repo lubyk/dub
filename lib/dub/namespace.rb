@@ -16,7 +16,12 @@ module Dub
     end
 
     def bind(generator)
-      @gen = generator.namespace_generator
+      self.gen = generator.namespace_generator
+    end
+
+    def gen=(generator)
+      @gen = generator
+      @gen_members = nil
     end
 
     def generator
@@ -86,6 +91,14 @@ module Dub
         end
         list.compact!
         list.sort
+      end
+    end
+
+    def members
+      if self.generator
+        @gen_members ||= self.generator.members_list(super)
+      else
+        super
       end
     end
 
@@ -184,8 +197,9 @@ module Dub
               end
 
               types_map = {}
-
+              instanciations_params = []
               (typedef_xml/'/type').innerHTML[/&lt;\s*(.*)\s*&gt;$/,1].split(',').map(&:strip).each_with_index do |type, i|
+                instanciations_params << type
                 types_map[ttypes[i]] = type
               end
 
@@ -193,7 +207,8 @@ module Dub
 
               (class_xml/'*[@prot=private]').remove
               (class_xml/'templateparamlist').remove
-
+              (class_xml/'').append("<originaltemplate>#{old_name}</originaltemplate>")
+              (ref_class/'').append("<instanciation><name>#{new_name}</name><param>#{instanciations_params.join('</param><param>')}</param></instanciation>")
 
               types_map.each do |template_type, real_type|
                 (class_xml/'type').each do |t|

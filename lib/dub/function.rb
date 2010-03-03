@@ -4,8 +4,8 @@ require 'dub/entities_unescape'
 module Dub
   class Function
     include Dub::EntitiesUnescape
-    attr_reader :name, :arguments, :prefix, :overloaded_index, :return_value, :xml, :parent
-    attr_accessor :gen
+    attr_reader :arguments, :prefix, :overloaded_index, :return_value, :xml, :parent
+    attr_accessor :gen, :name
 
     def initialize(parent, name, xml, prefix = '', overloaded_index = nil)
       @parent, @name = parent, name

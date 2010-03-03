@@ -4,7 +4,19 @@
 
 using namespace <%= @namespace.name %>;
 
+<% if @namespace.members; @namespace.members.each do |function| %>
+
+<%= function %>
+
+<% end; end %>
+
 // Register namespace
+
+
+static const struct luaL_Reg <%= @namespace.name %>_functions[] = {
+<%= indent(functions_registration, 2) %>,
+  {NULL, NULL},
+};
 
 <% if @namespace.has_constants? %>
 static const struct lua_constants_Reg <%= @namespace.name %>_namespace_constants[] = {
@@ -14,9 +26,8 @@ static const struct lua_constants_Reg <%= @namespace.name %>_namespace_constants
 <% end %>
 
 void luaopen_<%= @namespace.lib_name %>(lua_State *L) {
-  // register member methods (functions)
-  //luaL_register(L, NULL, <%= @namespace.name %>_member_methods);
-
+  // register functions
+  luaL_register(L, <%= @namespace.name.inspect %>, <%= @namespace.name %>_functions);
 <% if @namespace.has_constants? %>
   // register namespace enums
   register_constants(L, <%= @namespace.id_name.inspect %>, <%= @namespace.name %>_namespace_constants);

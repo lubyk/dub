@@ -30,7 +30,7 @@ module Dub
       end
 
       def namespace_methods_registration
-        ([@class.name] + @class.alias_names).map do |name|
+        @class.names.map do |name|
           "{%-20s, #{@class.constructor.method_name(0)}}" % name.inspect
         end.join(",\n")
       end

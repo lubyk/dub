@@ -122,7 +122,7 @@ class NamespaceTest < Test::Unit::TestCase
 
       should 'generate a valid class' do
         # TODO: rerun all tests for lua class generation
-        assert_match %r{luaL_register\(L,\s*"dub".*FloatMat}, @namespace[:FloatMat].to_s
+        assert_match %r{luaL_register\(L,\s*"dub".*FMatrix}, @namespace[:FloatMat].to_s
       end
     end
   end
@@ -197,4 +197,18 @@ class NamespaceTest < Test::Unit::TestCase
       end
     end
   end
+
+  context 'A namespace bound to a generator' do
+    setup do
+      @namespace = namespacecv_xml[:cv]
+      Dub::Lua.bind(@namespace)
+    end
+
+    should 'produce methods registration' do
+      result = @namespace.to_s
+      assert_match %r{\{"resize"\s*,\s*cv_resize\},}, result
+      assert_match %r{luaL_register\(L,\s*"cv".*cv_functions}, result
+    end
+  end
+
 end

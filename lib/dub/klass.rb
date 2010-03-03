@@ -7,7 +7,7 @@ require 'dub/member_extraction'
 module Dub
   class Klass
     include MemberExtraction
-    attr_reader :name, :xml, :prefix, :constructor, :alias_names, :enums, :parent
+    attr_reader :name, :xml, :prefix, :constructor, :alias_names, :enums, :parent, :instanciations
     attr_accessor :header
 
     def initialize(parent, name, xml, prefix = '')
@@ -15,6 +15,7 @@ module Dub
 
       @alias_names = []
       @enums       = []
+      @instanciations = {}
       parse_xml
     end
 
@@ -81,6 +82,14 @@ module Dub
       @template_params
     end
 
+    def class_with_params(template_params)
+      @instanciations[template_params]
+    end
+
+    def register_instanciation(template_params, klass)
+      @instanciations[template_params] = klass
+    end
+
     def source
       loc = (@xml/'location').first.attributes
       "#{loc['file'].split('/')[-3..-1].join('/')}:#{loc['line']}"
@@ -120,11 +129,16 @@ module Dub
       @constructor
     end
 
+    def names
+      [@name] + @alias_names
+    end
+
     private
       def parse_xml
         parse_enums
         parse_members
         parse_template_params
+        parse_instanciations
         parse_alias_names
       end
 
@@ -141,10 +155,27 @@ module Dub
         end
       end
 
+      def parse_instanciations
+        (@xml/'instanciation').each do |klass|
+          name   = (klass/'name').innerHTML
+          params = (klass/'param').map do |p|
+            p.innerHTML
+          end
+
+          @instanciations[params] = @parent[name]
+        end
+      end
+
       def parse_alias_names
         (@xml/'aliases/name').each do |name|
           name = name.innerHTML
-          @alias_names << name
+          if name.size < @name.size
+            @alias_names << @name
+            change_name(name)
+          else
+            @alias_names << name
+          end
+
           if @parent
             @parent.register_alias(name, self)
           end
@@ -152,21 +183,37 @@ module Dub
       end
 
       def make_member(name, member, overloaded_index = nil)
-        if name == @name
+        if names.include?(name)
           # keep constructors out of members list
           if @constructor.kind_of?(FunctionGroup)
-            @constructor << super
+            constr = super
+            constr.name = @name # force key name
+            @constructor << constr
           elsif @constructor
+            constr = super
+            constr.name = @name
             list = Dub::FunctionGroup.new(self)
             list << @constructor
-            list << super
+            list << constr
             @constructor = list
           else
             @constructor = super
+            @constructor.name = @name
           end
           nil
         else
           super
+        end
+      end
+
+      def change_name(new_name)
+        @name = new_name
+        if @constructor.kind_of?(Array)
+          @constructor.each do |c|
+            c.name = new_name
+          end
+        elsif @constructor
+          @constructor.name = new_name
         end
       end
   end

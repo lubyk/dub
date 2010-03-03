@@ -184,6 +184,11 @@ class KlassTest < Test::Unit::TestCase
       Dub::Lua.bind(@class)
       assert_match %r{int *_width}, @class.to_s
     end
+
+    should 'register in the template for these types' do
+      @tclass = namespacecv_xml[:cv].template_class(:Size_)
+      assert_equal @class, @tclass.instanciations[['int']]
+    end
   end
 
   context 'A class with alias names' do
@@ -193,11 +198,20 @@ class KlassTest < Test::Unit::TestCase
     end
 
     should 'return a list of these alias on alias_names' do
-      assert_equal ['FMatrix'], @class.alias_names
+      assert_equal ['FloatMat'], @class.alias_names
+      assert_equal 'FMatrix', @class.name
     end
 
     should 'find class from alias in namespace' do
       assert_equal @class, namespacedub_xml[:dub][:FMatrix]
+    end
+
+    should 'use the shortest alias as main name' do
+      assert_equal 'Size', namespacecv_xml[:cv][:Size2i].name
+    end
+
+    should 'rename constructors to shortest name' do
+      assert_equal 'Size', namespacecv_xml[:cv][:Size].constructor.name
     end
 
     context 'bound to a generator' do
@@ -207,14 +221,16 @@ class KlassTest < Test::Unit::TestCase
 
       should 'register all alias_names' do
         result = @class.to_s
-        assert_match %r{"FloatMat"\s*,\s*FloatMat_FloatMat}, result
-        assert_match %r{"FMatrix"\s*,\s*FloatMat_FloatMat}, result
-        assert_match %r{luaL_register\(L,\s*"dub".*FloatMat_namespace_methods}, result
+        assert_match %r{"FloatMat"\s*,\s*FMatrix_FMatrix}, result
+        assert_match %r{"FMatrix"\s*,\s*FMatrix_FMatrix}, result
+        assert_match %r{luaL_register\(L,\s*"dub".*FMatrix_namespace_methods}, result
+      end
+
+      should 'use the smallest name in method definition' do
+        assert_match %r{int FMatrix_FMatrix}, @class.to_s
       end
     end
   end
-
-
 
   context 'A class with overloaded methods' do
     setup do
@@ -265,4 +281,5 @@ class KlassTest < Test::Unit::TestCase
       assert_equal %w{MAGIC_VAL AUTO_STEP CONTINUOUS_FLAG}, @class.enums
     end
   end
+
 end
