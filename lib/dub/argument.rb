@@ -125,7 +125,13 @@ module Dub
       NATIVE_C_TYPES.include?(type)
     end
 
+    def type
+      resolve_type if @template_params
+      @type
+    end
+
     def create_type
+      resolve_type if @template_params
       (is_const? ? 'const ' : '') +
       if (is_return_value? && !is_pointer?) || (is_native? && !is_pointer?)
         "#{type} "
@@ -156,22 +162,44 @@ module Dub
       end
 
       def set_type(type)
-        type = type.innerHTML
-        if type =~ /^(const\s+|)(.*?)\s*(\&amp;)?$/
-          @const = $1 != ''
-          type  = $2
-          @ref   = $3
+        # <type>const <ref refid="classcv_1_1_point__" kindref="compound">Point_</ref>&lt; int &gt; &amp;</type>
+        if ref = (type/'ref').first
+          @refid = ref[:refid]
+          ref.swap(ref.innerHTML)
         end
 
-        if type =~ /<[^>]+>(.*?)<.*>(.*)$/
-          type = $1
+        type = type.innerHTML
 
-          if $2 != ''
-            @pointer = $2
+        # Strip CV_EXPORT .....
+        if type =~ /^([^ ]+)\s+([a-zA-Z_]+)$/
+          if $1 == 'const'
+            @const = true
           end
-        elsif type =~ /(.*?)\s*(\*+)$/
-          type = $1
+          type = $2
+        end
+
+        # Strip const .....
+        if type =~ /^const\s+(.+)$/
+          type  = $1.strip
+          @const = true
+        end
+
+        # Strip ..... &
+        if type =~ /^(.+)&amp;$/
+          type = $1.strip
+          @ref = true
+        end
+
+        # Strip ..... *
+        if type =~ /^(.+)(\*+)\s*$/
+          type = $1.strip
           @pointer = $2
+        end
+
+        # Strip .....< ... >
+        if type =~ /^(.+)\s*&lt;\s*(.+)\s*&gt;/
+          type = $1.strip
+          @template_params = $2.split(',').map(&:strip)
         end
         @type = type
       end
@@ -184,6 +212,19 @@ module Dub
         elsif container = container.parent && container.enums.include?(@default)
           @default = "#{container.full_type}::#{@default}"
         end
+      end
+
+      def resolve_type
+        if tclass = @function.parent.parent.template_class(@type)
+          if instanciation = tclass.instanciations[@template_params]
+            @type = instanciation.name
+          else
+            Dub.logger.warn "Could not resolve templated type #{@type}<#{@template_params.join(', ')}>"
+          end
+        else
+          Dub.logger.warn "Could not find class for type #{@type}<#{@template_params.join(', ')}>"
+        end
+        @template_params = nil
       end
   end
 end # Namespace

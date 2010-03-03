@@ -179,6 +179,10 @@ module Dub
 
           if ref_class = @classes_by_ref[id]
             if (typedef_xml/'/type').innerHTML =~ /&gt;$/
+
+              # nested template types, too hard for us, ignore
+              next if (typedef_xml/'/type').innerHTML =~ /&gt;\s+&gt;/
+
               # template typedef
               old_name = (ref_class/'/compoundname').first.innerHTML.gsub(/^.*::/,'')
 
@@ -198,7 +202,7 @@ module Dub
 
               types_map = {}
               instanciations_params = []
-              (typedef_xml/'/type').innerHTML[/&lt;\s*(.*)\s*&gt;$/,1].split(',').map(&:strip).each_with_index do |type, i|
+               (typedef_xml/'/type').innerHTML[/&lt;\s*(.+?)\s*&gt;$/,1].split(',').map(&:strip).each_with_index do |type, i|
                 instanciations_params << type
                 types_map[ttypes[i]] = type
               end
@@ -212,9 +216,7 @@ module Dub
 
               types_map.each do |template_type, real_type|
                 (class_xml/'type').each do |t|
-                  if t.innerHTML == template_type
-                    t.swap("<type>#{real_type}</type>")
-                  end
+                  t.swap(t.to_s.gsub(template_type, real_type))
                 end
               end
 

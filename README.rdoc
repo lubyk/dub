@@ -9,15 +9,42 @@ The generator uses the xml output from Doxygen to avoid parsing C++ code by itse
 
 Currently, the parser supports:
 
-* class methods
-* overloaded class constructors
-* overloaded class methods
-* class instantiation from templates through typedefs
-* class alias through typedefs
-* class enums
-* namespace enums
-* group constant defines
-* well tested
+ * class methods
+ * overloaded class constructors
+ * overloaded class methods
+ * class instantiation from templates through typedefs
+ * class alias through typedefs
+ * automatic resolution of template parameters
+ * class enums
+ * namespace enums
+ * group constant defines
+ * well tested
+
+If you are not good at reading lists, here is an example of the kind of tricks Dub plays with types:
+
+  template<class T>
+  class Point_ {
+    ...
+  };
+
+  template<class T>
+  class Size_ {
+    Size_(const Point_<T>);
+  };
+  typedef Size_<int> Size2i;
+  typedef Size2i Size;
+
+  typedef Point_<int> Point2i;
+  typedef Point2i Point;
+
+
+All these typedefs and templates will generate two class bindings with some aliases:
+
+ * <tt>Size</tt>, aliased as <tt>Size2i</tt>
+ * <tt>Point</tt>, aliased as <tt>Point2i</tt>
+
+And what's really good is that in the definition for the <tt>Size</tt> constructor, <tt>Point_<T></tt> is
+recognized as <tt>Point</tt> !
 
 === Lua Generator
 

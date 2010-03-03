@@ -214,6 +214,12 @@ class KlassTest < Test::Unit::TestCase
       assert_equal 'Size', namespacecv_xml[:cv][:Size].constructor.name
     end
 
+    should 'parse arguments and evaluate types by resolving template params' do
+      size_class = namespacecv_xml[:cv][:Size]
+      Dub::Lua.bind(size_class)
+      assert_match %r{const Point \*pt}, size_class.constructor[5].to_s
+    end
+
     context 'bound to a generator' do
       setup do
         Dub::Lua.bind(@class)
