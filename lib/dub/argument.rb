@@ -91,11 +91,15 @@ module Dub
     end
 
     def full_type
-      container = function.parent
-      if container.kind_of?(Klass)
-        container = container.parent
+      if type =~ /::/
+        type
+      else
+        container = function.parent
+        if container.kind_of?(Klass)
+          container = container.parent
+        end
+        container ? "#{container.name}::#{type}" : type
       end
-      container ? "#{container.name}::#{type}" : type
     end
 
     def id_name

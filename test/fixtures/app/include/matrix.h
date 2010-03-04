@@ -53,6 +53,10 @@ public:
 
   }
 
+  void use_other_lib(const std::string &name) {
+    // dummy
+  }
+
   int *ptr() {
     // dummy
   }
@@ -98,9 +102,9 @@ public:
   void fill(T value) {
     // dummy
   }
-  
+
   FunkyThing(double v[7]) {
-    
+
   }
 
   T get(size_t row, size_t col) {

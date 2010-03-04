@@ -165,6 +165,27 @@ class ArgumentTest < Test::Unit::TestCase
       assert_equal 'arg_magnitude', @argument.name
     end
   end
+  
+  context 'An argument with a type from another namespace' do
+    setup do
+      @function = namespacedub_xml[:dub][:Matrix][:use_other_lib]
+      @argument = @function.arguments.first
+    end
+    
+    should 'not nest own namespace in id_name' do
+      assert_equal "std.string", @argument.id_name
+    end
+    
+    context 'bound to a generator' do
+      setup do
+        Dub::Lua.bind(@function)
+      end
+      
+      should 'not nest own namespace in type' do
+        assert_match %r{luaL_checkudata\(L,\s*1,\s*\"std\.string\"}, @function.to_s
+      end
+    end
+  end
 
   context 'An argument with a default value' do
     setup do

@@ -14,6 +14,7 @@
     <member refid="classdub_1_1_matrix_1a27fea405cf08ac087a11eefbaf4a342f" kind="function"><name>operator size_t</name></member>
     <member refid="classdub_1_1_matrix_1ac159906fa5480fdc9539a7be1e1825ed" kind="function"><name>mul</name></member>
     <member refid="classdub_1_1_matrix_1a5bf5b5aee77c4e4a4cf906ce785fe37b" kind="function"><name>do_something</name></member>
+    <member refid="classdub_1_1_matrix_1a5d8ae4699d499cb9e4292c2ff765d3a1" kind="function"><name>use_other_lib</name></member>
     <member refid="classdub_1_1_matrix_1a90798c27b8b4017a939f804481eb50ad" kind="function"><name>ptr</name></member>
   </compound>
   <compound refid="classdub_1_1_t_mat" kind="class"><name>dub::TMat</name>
