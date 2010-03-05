@@ -1,7 +1,8 @@
-== 0.5.1
+== 0.5.1 2010-03-05
 
-* 1 minor enhancement
+* 2 minor enhancements
   * if an argument is fully specified, should not append namespace
+  * better handling of boolean values
 
 == 0.5.0 2010-03-03
 

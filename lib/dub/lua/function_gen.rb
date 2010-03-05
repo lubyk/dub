@@ -7,9 +7,6 @@ module Dub
       FLOAT_TYPES = [
         'float',
         'double',
-        'size_t',
-        'unsigned int',
-        'uint',
       ]
 
       INT_TYPES = [
@@ -17,8 +14,11 @@ module Dub
         'size_t',
         'unsigned int',
         'uint',
+        'uchar',
+      ]
+
+      BOOL_TYPES = [
         'bool',
-        'uchar'
       ]
 
       def initialize
@@ -163,6 +163,8 @@ module Dub
           case Argument.type_group(return_value)
           when :number
             res << "lua_pushnumber(L, retval__);"
+          when :boolean
+            res << "lua_pushboolean(L, retval__);"
           when :string
             raise "Not supported yet"
           else
@@ -198,6 +200,8 @@ module Dub
           else
             if FLOAT_TYPES.include?(arg.type)
               "#{type_def} = luaL_checknumber(L, #{stack_pos});"
+            elsif BOOL_TYPES.include?(arg.type)
+              "#{type_def} = lua_toboolean(L, #{stack_pos});"
             elsif INT_TYPES.include?(arg.type)
               "#{type_def} = luaL_checkint(L, #{stack_pos});"
             else
