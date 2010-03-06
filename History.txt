@@ -1,3 +1,8 @@
+== 0.5.2
+
+* 1 minor enhancement
+  * added support for custom tostring methods for classes
+
 == 0.5.1 2010-03-05
 
 * 2 minor enhancements

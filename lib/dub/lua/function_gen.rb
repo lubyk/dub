@@ -62,7 +62,7 @@ module Dub
             when :string
               res << "#{else_prefix}if (type__ == LUA_TSTRING) {"
             when nil
-              res << "#{else_prefix}if (type__ == LUA_TNONE) {"
+              res << "#{else_prefix}if (top__ < #{depth}) {"
             else
               res << "#{else_prefix}if (type__ == LUA_TUSERDATA && is_userdata(L, #{depth}, \"#{type}\")) {"
             end

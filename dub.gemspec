@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gaspard Bucher"]
-  s.date = %q{2010-03-05}
+  s.date = %q{2010-03-06}
   s.description = %q{This is a tool to ease the creation of scripting language bindings for a C++ library.
     It is currently developed to crete the OpenCV bindings for Lua in Rubyk (http://rubyk.org). The generator uses the xml output from Doxygen to avoid parsing C++ code by itself.}
   s.email = %q{gaspard@teti.ch}
@@ -148,6 +148,7 @@ Gem::Specification.new do |s|
      "test/fixtures/app/xml/namespacedub.xml",
      "test/fixtures/classcv_1_1_mat.xml",
      "test/fixtures/classcv_1_1_point__.xml",
+     "test/fixtures/classcv_1_1_scalar__.xml",
      "test/fixtures/classcv_1_1_size__.xml",
      "test/fixtures/group___magic_type.xml",
      "test/fixtures/namespacecv.xml",

@@ -6,5 +6,6 @@
 /** Overloaded function chooser for <%= @group.name %>(...) */
 <%= signature(@group.first, 0) %> {
   int type__ = lua_type(L, 1);
+  int top__  = lua_gettop(L);
 <%= indent(switch(Argument.decision_tree(@group.members)), 2) %>
 }

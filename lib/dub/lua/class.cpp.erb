@@ -23,7 +23,11 @@ static int <%= @class.destructor_name %>(lua_State *L) {
 
 static int <%= @class.tostring_name %>(lua_State *L) {
   <%= @class.name %> **userdata = (<%= @class.name %>**)luaL_checkudata(L, 1, <%= @class.id_name.inspect %>);
-  lua_pushfstring(L, "<%= @class.id_name %>: %p", *userdata);
+  <% if @class.string_format %>
+  lua_pushfstring(L, "<<%= @class.id_name %>: %p <%= @class.string_format %>>", *userdata, <%= @class.string_args %>);
+  <% else %>
+  lua_pushfstring(L, "<<%= @class.id_name %>: %p>", *userdata);
+  <% end %>
   return 1;
 }
 
@@ -56,7 +60,7 @@ static const struct lua_constants_Reg <%= @class.name %>_namespace_constants[] =
 
 void luaopen_<%= @class.lib_name %>(lua_State *L) {
   // Create the metatable which will contain all the member methods
-  luaL_newmetatable(L, <%= @class.id_name.inspect %>); // "dub.Matrix"
+  luaL_newmetatable(L, <%= @class.id_name.inspect %>);
 
   // metatable.__index = metatable (find methods in the table itself)
   lua_pushvalue(L, -1);

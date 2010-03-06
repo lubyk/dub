@@ -8,7 +8,7 @@ module Dub
   class Klass
     include MemberExtraction
     attr_reader :name, :xml, :prefix, :constructor, :alias_names, :enums, :parent, :instanciations
-    attr_accessor :header
+    attr_accessor :header, :string_format, :string_args
 
     def initialize(parent, name, xml, prefix = '')
       @parent, @name, @xml, @prefix = parent, name, xml, prefix
@@ -63,7 +63,7 @@ module Dub
     end
 
     def <=>(other)
-      name <=> other.name
+      (name || "") <=> (other.name || "")
     end
 
     def [](name)

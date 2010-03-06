@@ -160,6 +160,15 @@ class KlassTest < Test::Unit::TestCase
         assert_match %r{__tostring}, @class.to_s
       end
 
+      should 'use custom format if provided for tostring' do
+        @class.to_string = "%dx%d"
+        @class.string_args = "*userdata->rows, *userdata->cols"
+        assert_match %r{\*userdata->rows, \*userdata->cols}, @class.to_s
+      end
+
+      should 'use a default method for tostring if none provided' do
+      end
+
       should 'implement tostring' do
         assert_match %r{Matrix__tostring\(lua_State}, @class.to_s
       end
@@ -194,6 +203,12 @@ class KlassTest < Test::Unit::TestCase
     should 'register in the template for these types' do
       @tclass = namespacecv_xml[:cv].template_class(:Size_)
       assert_equal @class, @tclass.instanciations[['int']]
+    end
+
+    should 'not use gt in create_type' do
+      @method = namespacecv_xml[:cv][:Scalar][:all]
+      Dub::Lua.bind(@method)
+      assert_match %r{double retval_}, @method.to_s
     end
   end
 
