@@ -45,6 +45,17 @@ module Dub
         Dub::Lua.namespace_generator
       end
 
+      def chooser_body(group = @group)
+        decision_tree = Argument.decision_tree(group.members)
+        res = []
+        res << "int type__ = lua_type(L, 1);"
+        if flatten_hash(decision_tree).include?(nil)
+          res << "int top__  = lua_gettop(L);"
+        end
+        res << switch(decision_tree)
+        res.join("\n")
+      end
+
       # Create a switch to choose the correct method from argument types (overloaded functions)
       def switch(hash_or_function, depth = 1)
         if hash_or_function.kind_of?(Function)
@@ -214,12 +225,15 @@ module Dub
       end
 
       def flatten_hash(hash)
+        list = []
         hash.each do |k, v|
           if v.kind_of?(Hash)
-            hash[k] = flatten_hash(v)
+            list << [k, flatten_hash(v)]
+          else
+            list << [k, v]
           end
         end
-        hash.to_a.flatten
+        list.flatten
       end
 
     end # FunctionGen

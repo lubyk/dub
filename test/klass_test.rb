@@ -161,12 +161,14 @@ class KlassTest < Test::Unit::TestCase
       end
 
       should 'use custom format if provided for tostring' do
-        @class.to_string = "%dx%d"
-        @class.string_args = "*userdata->rows, *userdata->cols"
-        assert_match %r{\*userdata->rows, \*userdata->cols}, @class.to_s
+        @class.string_format = "%dx%d"
+        @class.string_args   = "*userdata->rows, *userdata->cols"
+        assert_match %r{\(\*userdata\)->rows, \(\*userdata\)->cols}, @class.to_s
       end
 
-      should 'use a default method for tostring if none provided' do
+      should 'use a default method for tostring if no custom string_format is provided' do
+        @class.string_format = nil
+        assert_match %r{<dub.Matrix: %p>}, @class.to_s
       end
 
       should 'implement tostring' do
