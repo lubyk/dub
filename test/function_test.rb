@@ -266,6 +266,16 @@ class FunctionTest < Test::Unit::TestCase
       should 'not try to find self' do
         assert_no_match %r{self__}, @method.to_s
       end
+
+      should 'insert the function into the namespace' do
+        @class = namespacedub_xml[:dub][:Matrix]
+        Dub::Lua.bind(@class)
+        result = @class.to_s
+        member_methods_registration = result[/Matrix_member_methods([^;]*);/,1]
+        namespace_methods_registration = result[/Matrix_namespace_methods([^;]*);/,1]
+        assert_no_match %r{Matrix_MakeMatrix}, member_methods_registration
+        assert_match %r{Matrix_MakeMatrix.*Matrix_MakeMatrix}, namespace_methods_registration
+      end
     end
   end
 end

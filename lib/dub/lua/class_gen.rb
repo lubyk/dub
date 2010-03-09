@@ -20,6 +20,7 @@ module Dub
 
       def method_registration(klass = @class)
         member_methods = (klass.members || []).map do |method|
+          next if method.static?
           "{%-20s, #{method.method_name(0)}}" % method.name.inspect
         end
 
@@ -29,10 +30,17 @@ module Dub
         member_methods.join(",\n")
       end
 
-      def namespace_methods_registration
-        @class.names.map do |name|
-          "{%-20s, #{@class.constructor.method_name(0)}}" % name.inspect
-        end.join(",\n")
+      def namespace_methods_registration(klass = @class)
+        global_methods = klass.names.map do |name|
+          "{%-20s, #{klass.constructor.method_name(0)}}" % name.inspect
+        end
+
+        (klass.members || []).map do |method|
+          next unless method.static?
+          global_methods << "{%-20s, #{method.method_name(0)}}" % "#{klass.name}_#{method.name}".inspect
+        end
+
+        global_methods.join(",\n")
       end
 
       def constants_registration(klass = @class)
