@@ -4,9 +4,10 @@ require 'erb'
 module Dub
   module Lua
     class FunctionGen < Dub::Generator
-      FLOAT_TYPES = [
+      NUMBER_TYPES = [
         'float',
         'double',
+        'time_t',
       ]
 
       INT_TYPES = [
@@ -100,7 +101,7 @@ module Dub
       def body(func)
         res = []
 
-        if func.member_method? && !func.constructor?
+        if func.member_method? && !func.constructor? && !func.static?
           klass = func.parent
           res << "#{klass.name} *self__ = *((#{klass.name}**)luaL_checkudata(L, 1, #{klass.id_name.inspect}));"
           res << "lua_remove(L, 1);"
@@ -152,7 +153,7 @@ module Dub
 
         if func.constructor?
           call_string = "new #{call_string}"
-        elsif func.member_method?
+        elsif func.member_method? && !func.static?
           call_string = "self__->#{call_string}"
         end
 
@@ -209,7 +210,7 @@ module Dub
               "#{type_def} = ptr_#{arg.name}(L, #{stack_pos});"
             end
           else
-            if FLOAT_TYPES.include?(arg.type)
+            if NUMBER_TYPES.include?(arg.type)
               "#{type_def} = luaL_checknumber(L, #{stack_pos});"
             elsif BOOL_TYPES.include?(arg.type)
               "#{type_def} = lua_toboolean(L, #{stack_pos});"

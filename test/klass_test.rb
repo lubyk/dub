@@ -100,6 +100,10 @@ class KlassTest < Test::Unit::TestCase
       assert_kind_of Dub::Function, @class[:rows]
     end
 
+    should 'find static methods with array index' do
+      assert_kind_of Dub::Function, @class[:MakeMatrix]
+    end
+
     should 'return header name on header' do
       assert_equal 'matrix.h', @class.header
     end
@@ -205,12 +209,6 @@ class KlassTest < Test::Unit::TestCase
     should 'register in the template for these types' do
       @tclass = namespacecv_xml[:cv].template_class(:Size_)
       assert_equal @class, @tclass.instanciations[['int']]
-    end
-
-    should 'not use gt in create_type' do
-      @method = namespacecv_xml[:cv][:Scalar][:all]
-      Dub::Lua.bind(@method)
-      assert_match %r{double retval_}, @method.to_s
     end
   end
 

@@ -214,7 +214,6 @@ class FunctionTest < Test::Unit::TestCase
 
   context 'A constructor' do
     setup do
-      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedub.xml'))
       @method = namespacedub_xml[:dub][:Matrix][:Matrix].first
     end
 
@@ -246,6 +245,26 @@ class FunctionTest < Test::Unit::TestCase
 
       should 'push new userdata on new' do
         assert_match %r{lua_pushclass<Size>.*"cv.Size".*return 1}m, @method.generator.return_value(@method)
+      end
+    end
+  end
+
+  context 'A static method in a class' do
+    setup do
+      @method = namespacedub_xml[:dub][:Matrix][:MakeMatrix]
+    end
+
+    should 'know it is static' do
+      assert @method.static?
+    end
+
+    context 'bound to a generator' do
+      setup do
+        Dub::Lua.bind(@method)
+      end
+
+      should 'not try to find self' do
+        assert_no_match %r{self__}, @method.to_s
       end
     end
   end

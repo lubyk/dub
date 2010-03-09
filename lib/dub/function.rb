@@ -12,12 +12,12 @@ module Dub
       @xml, @prefix, @overloaded_index = xml, prefix, overloaded_index
       parse_xml
     end
-    
+
     def set_as_constructor
       @return_value = Argument.new(self, (Hpricot::XML("<type>#{name} *</type>")/''))
       @is_constructor = true
     end
-    
+
     def bind(generator)
       @gen = generator.function_generator
     end
@@ -40,6 +40,10 @@ module Dub
 
     def constructor?
       @is_constructor
+    end
+
+    def static?
+      @is_static
     end
 
     alias gen generator
@@ -106,6 +110,8 @@ module Dub
           arg = Argument.new(self, (@xml/'/type'))
           @return_value = arg unless arg.create_type =~ /void\s*$/
         end
+
+        @is_static = @xml[:static] == 'yes'
       end
   end
 end # Namespace

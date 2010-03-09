@@ -61,6 +61,12 @@ public:
     // dummy
   }
 
+  /** Named constructor.
+   */
+  static *Matrix MakeMatrix(int rows, int cols) {
+    return new *Matrix(rows, cols);
+  }
+
 private:
   double *data_;
   size_t rows_;

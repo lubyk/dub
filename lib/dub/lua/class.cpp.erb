@@ -69,7 +69,7 @@ void luaopen_<%= @class.lib_name %>(lua_State *L) {
   // register member methods
   luaL_register(L, NULL, <%= @class.name %>_member_methods);
 
-  // register class methods in a global table like "dub"
+  // register class methods in a global namespace table
   luaL_register(L, <%= @class.prefix.inspect %>, <%= @class.name %>_namespace_methods);
 
 <% if @class.has_constants? %>
