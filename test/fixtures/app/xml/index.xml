@@ -16,7 +16,7 @@
     <member refid="classdub_1_1_matrix_1a5bf5b5aee77c4e4a4cf906ce785fe37b" kind="function"><name>do_something</name></member>
     <member refid="classdub_1_1_matrix_1a5d8ae4699d499cb9e4292c2ff765d3a1" kind="function"><name>use_other_lib</name></member>
     <member refid="classdub_1_1_matrix_1a90798c27b8b4017a939f804481eb50ad" kind="function"><name>ptr</name></member>
-    <member refid="classdub_1_1_matrix_1a07ca5e960cc5a770aa3c313187d58a80" kind="function"><name>MakeMatrix</name></member>
+    <member refid="classdub_1_1_matrix_1ad21255c4a1457c9969b6092ee40e0870" kind="function"><name>MakeMatrix</name></member>
   </compound>
   <compound refid="classdub_1_1_t_mat" kind="class"><name>dub::TMat</name>
     <member refid="classdub_1_1_t_mat_1a325c9dcebf13b0804997d014e7287606" kind="variable"><name>data_</name></member>

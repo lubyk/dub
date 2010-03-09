@@ -63,8 +63,8 @@ public:
 
   /** Named constructor.
    */
-  static *Matrix MakeMatrix(int rows, int cols) {
-    return new *Matrix(rows, cols);
+  static Matrix *MakeMatrix(int rows, int cols) {
+    return new Matrix(rows, cols);
   }
 
 private:

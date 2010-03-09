@@ -166,7 +166,7 @@ class KlassTest < Test::Unit::TestCase
 
       should 'use custom format if provided for tostring' do
         @class.string_format = "%dx%d"
-        @class.string_args   = "*userdata->rows, *userdata->cols"
+        @class.string_args   = "(*userdata)->rows, (*userdata)->cols"
         assert_match %r{\(\*userdata\)->rows, \(\*userdata\)->cols}, @class.to_s
       end
 
@@ -268,7 +268,21 @@ class KlassTest < Test::Unit::TestCase
 
     should 'declare chooser' do
       result = @class.gen.method_registration(@class)
-      assert_match %r{"zeros"\s*,\s*Mat_zeros\}}, result
+      assert_match %r{"diag"\s*,\s*Mat_diag\}}, result
+      assert_no_match %r{diag1}, result
+    end
+  end
+
+  context 'A class with overloaded static methods' do
+    setup do
+      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedub.xml'))
+      @class = namespacecv_xml[:cv][:Mat]
+      Dub::Lua.bind(@class)
+    end
+
+    should 'declare chooser' do
+      result = @class.gen.namespace_methods_registration(@class)
+      assert_match %r{"Mat_zeros"\s*,\s*Mat_zeros\}}, result
       assert_no_match %r{zeros1}, result
     end
   end

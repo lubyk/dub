@@ -2,6 +2,50 @@ require 'helper'
 require 'dub/lua'
 
 class ArgumentTest < Test::Unit::TestCase
+  context 'An Argument' do
+    context 'parsing types' do
+      {
+        "CV_EXPORT const Foo"                  => ["CV_EXPORT ", "const ", "Foo", "", nil, ""],
+        "CV_EXPORT const Foo<blah, blah>"      => ["CV_EXPORT ", "const ", "Foo", "", nil, ""],
+        "CV_EXPORT Foo"                        => ["CV_EXPORT ", ""      , "Foo", "", nil, ""],
+        "const Foo"                            => ["const "    , ""      , "Foo", "", nil, ""],
+        "Foo"                                  => [""          , ""      , "Foo", "", nil, ""],
+        "CV_EXPORT const Foo &"                => ["CV_EXPORT ", "const ", "Foo", "", nil, " &"],
+        "CV_EXPORT const Foo&"                 => ["CV_EXPORT ", "const ", "Foo", "", nil, "&"],
+        "CV_EXPORT Foo &"                      => ["CV_EXPORT ", ""      , "Foo", "", nil, " &"],
+        "const Foo &"                          => ["const "    , ""      , "Foo", "", nil, " &"],
+        "Foo &"                                => [""          , ""      , "Foo", "", nil, " &"],
+        "CV_EXPORT const Foo *"                => ["CV_EXPORT ", "const ", "Foo", "", nil, " *"],
+        "CV_EXPORT const Foo*"                 => ["CV_EXPORT ", "const ", "Foo", "", nil, "*"],
+        "CV_EXPORT Foo *"                      => ["CV_EXPORT ", ""      , "Foo", "", nil, " *"],
+        "const Foo *"                          => ["const "    , ""      , "Foo", "", nil, " *"],
+        "Foo *"                                => [""          , ""      , "Foo", "", nil, " *"],
+        "..."                                  => [""          , ""      , "...", "", nil, ""],
+
+        "CV_EXPORT const Foo < blah, blah >"   => ["CV_EXPORT ", "const ", "Foo", " < blah, blah >", " blah, blah ", ""],
+        "CV_EXPORT const Foo<blah, blah>"      => ["CV_EXPORT ", "const ", "Foo", "<blah, blah>"   , "blah, blah"  , ""],
+        "CV_EXPORT Foo < blah, blah >"         => ["CV_EXPORT ", ""      , "Foo", " < blah, blah >", " blah, blah ", ""],
+        "const Foo < blah, blah >"             => ["const "    , ""      , "Foo", " < blah, blah >", " blah, blah ", ""],
+        "Foo < blah, blah >"                   => [""          , ""      , "Foo", " < blah, blah >", " blah, blah ", ""],
+        "CV_EXPORT const Foo < blah, blah > &" => ["CV_EXPORT ", "const ", "Foo", " < blah, blah >", " blah, blah ", " &"],
+        "CV_EXPORT const Foo<blah, blah> &"    => ["CV_EXPORT ", "const ", "Foo", "<blah, blah>"   , "blah, blah"  , " &"],
+        "CV_EXPORT Foo < blah, blah > &"       => ["CV_EXPORT ", ""      , "Foo", " < blah, blah >", " blah, blah ", " &"],
+        "const Foo < blah, blah > &"           => ["const "    , ""      , "Foo", " < blah, blah >", " blah, blah ", " &"],
+        "Foo < blah, blah > &"                 => [""          , ""      , "Foo", " < blah, blah >", " blah, blah ", " &"],
+        "CV_EXPORT const Foo < blah, blah > *" => ["CV_EXPORT ", "const ", "Foo", " < blah, blah >", " blah, blah ", " *"],
+        "CV_EXPORT const Foo<blah, blah> *"    => ["CV_EXPORT ", "const ", "Foo", "<blah, blah>"   , "blah, blah"  , " *"],
+        "CV_EXPORT Foo < blah, blah > *"       => ["CV_EXPORT ", ""      , "Foo", " < blah, blah >", " blah, blah ", " *"],
+        "const Foo < blah, blah > *"           => ["const "    , ""      , "Foo", " < blah, blah >", " blah, blah ", " *"],
+        "Foo < blah, blah > *"                 => [""          , ""      , "Foo", " < blah, blah >", " blah, blah ", " *"],
+      }.each do |type, result|
+        should "parse #{type}" do
+          type =~ Dub::Argument::TYPE_REGEXP
+          assert_equal result, $~.to_a[1..-1]
+        end
+      end
+    end
+  end
+
   context 'An const ref argument' do
     setup do
       # namespacecv_xml = Dub.parse(fixture('namespacecv.xml'))
@@ -165,22 +209,22 @@ class ArgumentTest < Test::Unit::TestCase
       assert_equal 'arg_magnitude', @argument.name
     end
   end
-  
+
   context 'An argument with a type from another namespace' do
     setup do
       @function = namespacedub_xml[:dub][:Matrix][:use_other_lib]
       @argument = @function.arguments.first
     end
-    
+
     should 'not nest own namespace in id_name' do
       assert_equal "std.string", @argument.id_name
     end
-    
+
     context 'bound to a generator' do
       setup do
         Dub::Lua.bind(@function)
       end
-      
+
       should 'not nest own namespace in type' do
         assert_match %r{luaL_checkudata\(L,\s*1,\s*\"std\.string\"}, @function.to_s
       end
@@ -439,6 +483,32 @@ class ArgumentTest < Test::Unit::TestCase
 
     should 'create a native type' do
       assert_equal 'const int *', @argument.create_type
+    end
+  end
+
+  context 'In a class defined from a template' do
+    setup do
+      @class = namespacecv_xml[:cv][:Scalar]
+    end
+
+    context 'an argument in a constructor' do
+      setup do
+        @argument = @class[:Scalar][3].arguments.first
+      end
+
+      should 'replace template params' do
+        assert_equal 'double', @argument.type
+      end
+    end
+
+    context 'a return value' do
+      setup do
+        @argument = @class[:all].return_value
+      end
+
+      should 'replace template params and resolve' do
+        assert_equal 'Scalar', @argument.type
+      end
     end
   end
 end

@@ -104,6 +104,7 @@ module Dub
         end
 
         raw_type = (@xml/'/type').innerHTML
+
         if raw_type.strip == ''
           # no return type
         else

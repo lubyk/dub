@@ -5,7 +5,7 @@ module Dub
     include Dub::EntitiesUnescape
     attr_reader :name, :default, :function, :xml
     attr_accessor :type
-
+    TYPE_REGEXP = %r{^\s*(\w+\s+|)(const\s+|)([\w\:]+|\.\.\.)(\s*<(.+)>|)(\s*\*+|\s*&|)$}
     NUMBER_TYPES = [
       'float',
       'double',
@@ -14,6 +14,7 @@ module Dub
       'uint',
       'int',
       'size_t',
+      'time_t',
       'unsigned int',
       'uint',
       'bool',
@@ -199,39 +200,31 @@ module Dub
         end
 
         type = type.innerHTML
+        type = unescape(type).strip
 
-        # Strip CV_EXPORT .....
-        if type =~ /^([^ ]+)\s+([a-zA-Z_]+.*)$/
-          if $1 == 'const'
-            @const = true
+        if type =~ TYPE_REGEXP
+          res = $~.to_a
+          if res[1].strip == 'const'
+            res[2] = res[1]
+            res[1] = ""
           end
-          type = $2
-        end
 
-        # Strip const .....
-        if type =~ /^const\s+(.+)$/
-          type  = $1.strip
-          @const = true
-        end
+          @const = res[2].strip == 'const'
+          @type = res[3]
 
-        # Strip ..... &
-        if type =~ /^(.+)&amp;$/
-          type = $1.strip
-          @ref = true
-        end
+          if res[6] == ''
+            @pointer = nil
+            @res = nil
+          elsif res[6] =~ /^\s*(\*+)\s*$/
+            @pointer = $1
+          else
+            @ref = res[6].strip
+          end
 
-        # Strip ..... *
-        if type =~ /^(.+)(\*+)\s*$/
-          type = $1.strip
-          @pointer = $2
+          @template_params = res[5] ? res[5].split(',').map(&:strip) : nil
+        else
+          # ERROR
         end
-
-        # Strip .....< ... >
-        if type =~ /^(.+)\s*&lt;\s*(.+)\s*&gt;/
-          type = $1.strip
-          @template_params = $2.split(',').map(&:strip)
-        end
-        @type = type
       end
 
       # Replace something like AUTO_STEP by cv::Mat::AUTO_STEP

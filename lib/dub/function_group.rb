@@ -35,10 +35,6 @@ module Dub
       generator.group(self)
     end
 
-    def name
-      first.name
-    end
-
     def method_name(overloaded_index = nil)
       first.method_name(overloaded_index)
     end
@@ -63,12 +59,14 @@ module Dub
       nil
     end
 
-    def prefix
-      first.prefix
-    end
-
     def <=>(other)
       name <=> other.name
     end
+
+    private
+      def method_missing(method, *args)
+        first.send(method, *args)
+      end
+
   end
 end

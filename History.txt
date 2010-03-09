@@ -1,7 +1,9 @@
 == 0.5.2
 
-* 1 minor enhancement
+* 3 enhancements
   * added support for custom tostring methods for classes
+  * fixed parsing of templated return types
+  * static class methods are now registered in the namespace as Klass_method
 
 == 0.5.1 2010-03-05
 

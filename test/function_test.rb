@@ -258,6 +258,10 @@ class FunctionTest < Test::Unit::TestCase
       assert @method.static?
     end
 
+    should 'parse return type' do
+      assert_equal 'Matrix', @method.return_value.type
+    end
+
     context 'bound to a generator' do
       setup do
         Dub::Lua.bind(@method)
