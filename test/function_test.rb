@@ -178,6 +178,38 @@ class FunctionTest < Test::Unit::TestCase
     end
   end
 
+  context 'A function with list arguments' do
+    setup do
+      @namespace = namespacecv_xml[:cv]
+      Dub::Lua.bind(@namespace)
+      @group = @namespace[:calcHist]
+      @function = @group[1]
+    end
+
+    # should 'mark argument as list on arg_is_list' do
+    #   @function.arg_is_list(0, 1)
+    #   assert @function.arguments[0].is_list?
+    #   assert !@function.arguments[0].is_list_count?
+    #   assert @function.arguments[1].is_list_count?
+    # end
+
+    should 'respond true to has_class_pointer_arguments' do
+      assert @function.has_class_pointer_arguments?
+    end
+
+    should 'be removed from group list' do
+      assert_nil @group.members
+    end
+
+    should 'remove group from member declaration' do
+      assert_no_match %r{cv_calcHist}, @namespace.gen.functions_registration(@namespace)
+    end
+
+    should 'not be instanciated' do
+      assert_equal '', @group.to_s
+    end
+  end
+
   context 'A method without arguments' do
     setup do
       @function = namespacecv_xml[:cv][:getCPUTickCount]

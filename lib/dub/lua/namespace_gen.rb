@@ -50,7 +50,7 @@ module Dub
       end
 
       def members_list(all_members, ignore_list = [])
-        list = all_members.map do |member_or_group|
+        list = (all_members || []).map do |member_or_group|
           if ignore_list.include?(member_or_group.name)
             nil
           elsif member_or_group.kind_of?(Array)
@@ -72,7 +72,9 @@ module Dub
            member.original_signature =~ />/ || # no complex types in signature
            member.has_array_arguments? ||
            member.vararg? ||
-            member.original_signature =~ /void\s+\*/
+           member.original_signature =~ /void\s+\*/ ||
+           member.has_class_pointer_arguments?
+
           true # ignore
         elsif return_value = member.return_value
           return_value.type =~ />$/    || # no complex return types

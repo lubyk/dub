@@ -4,7 +4,7 @@ module Dub
   class Argument
     include Dub::EntitiesUnescape
     attr_reader :name, :default, :function, :xml
-    attr_accessor :type
+    attr_accessor :type, :is_list, :is_list_count
     TYPE_REGEXP = %r{^\s*(\w+\s+|)(const\s+|)([\w\:]+|\.\.\.)(\s*<(.+)>|)(\s*\*+|\s*&|)$}
     NUMBER_TYPES = [
       'float',
@@ -140,6 +140,14 @@ module Dub
 
     def vararg?
       @type == '...'
+    end
+
+    def is_list?
+      @is_list
+    end
+
+    def is_list_count?
+      @is_list_count
     end
 
     def create_type

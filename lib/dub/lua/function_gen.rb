@@ -30,7 +30,11 @@ module Dub
       # Produce bindings for a group of overloaded functions
       def group(group)
         @group = group
-        @group_template.result(binding)
+        if @group.members
+          @group_template.result(binding)
+        else
+          ''
+        end
       end
 
       def function(function)

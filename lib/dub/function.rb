@@ -74,8 +74,18 @@ module Dub
       @has_array_arguments = !@arguments.detect {|a| a.array_suffix }.nil?
     end
 
+    def has_class_pointer_arguments?
+      return @has_class_pointer_arguments if defined?(@has_class_pointer_arguments)
+      @has_class_pointer_arguments = !@arguments.detect {|a| !a.is_native? && a.is_pointer? }.nil?
+    end
+
     def vararg?
       @arguments.last && @arguments.last.vararg?
+    end
+
+    def arg_is_list(list_position, count_position)
+      @arguments[list_position ].is_list       = true
+      @arguments[count_position].is_list_count = true
     end
 
     def inspect
