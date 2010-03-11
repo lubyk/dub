@@ -88,6 +88,11 @@ module Dub
       @has_class_pointer_arguments = !@arguments.detect {|a| !a.is_native? && a.is_pointer? }.nil?
     end
 
+    def has_complex_arguments?
+      return @has_complex_arguments if defined?(@has_complex_arguments)
+      @has_complex_arguments = !(@arguments + [@return_value]).compact.detect {|a| a.complex? }.nil?
+    end
+
     def vararg?
       @arguments.last && @arguments.last.vararg?
     end

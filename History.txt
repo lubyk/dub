@@ -1,10 +1,11 @@
-== 0.6.0
+== 0.6.0 2010-03-11
 
 * 4 enhancements
   * added support for custom tostring methods for classes
   * fixed parsing of templated return types
   * static class methods are now registered in the namespace as Klass_method
   * removing functions and methods with class pointer arguments (could use lists later on)
+  * better parsing of complex types (including nested template arguments)
 
 == 0.5.1 2010-03-05
 

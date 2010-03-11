@@ -197,7 +197,8 @@ module Dub
               old_name = (ref_class/'/compoundname').first.innerHTML.gsub(/^.*::/,'')
 
               # replace class name
-              class_def = ref_class.to_s.gsub(/#{old_name}&lt;.*?&gt;::/,"#{new_name}::")
+              # <type><ref refid="classcv_1_1_scalar__" kindref="compound">Scalar_</ref>&lt; _Tp &gt;</type>
+              class_def = ref_class.to_s.gsub(/<ref .*>#{old_name}<\/ref>&lt;.*?&gt;/, new_name)
               class_def = class_def.gsub(/#{old_name}/, new_name)
 
               # replace template types

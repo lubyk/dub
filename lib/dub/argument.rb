@@ -142,6 +142,10 @@ module Dub
       @type == '...'
     end
 
+    def complex?
+      @is_complex
+    end
+
     def is_list?
       @is_list
     end
@@ -212,6 +216,7 @@ module Dub
 
         if type =~ TYPE_REGEXP
           res = $~.to_a
+
           if res[1].strip == 'const'
             res[2] = res[1]
             res[1] = ""
@@ -246,21 +251,23 @@ module Dub
       end
 
       def resolve_type
+        params = @template_params
+        @template_params = nil
         if container = @function.parent
           if container.kind_of?(Klass)
             container = container.parent
           end
           if container && tclass = container.template_class(@type)
-            if instanciation = tclass.instanciations[@template_params]
+            if instanciation = tclass.instanciations[params]
               @type = instanciation.name
-            else
-              Dub.logger.warn "Could not resolve templated type #{@type}<#{@template_params.join(', ')}>"
+              return
             end
-          else
-            Dub.logger.warn "Could not find class for type #{@type}<#{@template_params.join(', ')}>"
           end
         end
-        @template_params = nil
+
+        @type = "#{@type}< #{params.join(', ')} >"
+        Dub.logger.warn "Could not resolve templated type #{@type}"
+        @is_complex = true
       end
   end
 end # Namespace

@@ -227,7 +227,6 @@ class KlassTest < Test::Unit::TestCase
       end
 
       should 'ignore template methods in method istanciation' do
-        puts @class.to_s
         assert_no_match %r{give_me_tea}, @class.to_s
       end
     end
@@ -254,7 +253,6 @@ class KlassTest < Test::Unit::TestCase
       end
 
       should 'ignore template methods in method istanciation' do
-        puts @class.to_s
         assert_no_match %r{convertTo}, @class.to_s
       end
     end

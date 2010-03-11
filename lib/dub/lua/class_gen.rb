@@ -69,6 +69,7 @@ module Dub
       def ignore_member?(member)
         if member.name =~ /^~/           || # do not build constructor
            member.name =~ /^operator/    || # no conversion operators
+           member.has_complex_arguments? || # no complex arguments or return values
            member.has_array_arguments? ||
            member.vararg? ||
            member.original_signature =~ /void\s+\*/ # used to detect return value and parameters

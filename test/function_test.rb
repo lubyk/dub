@@ -353,10 +353,15 @@ class FunctionTest < Test::Unit::TestCase
 
     should 'resolve its arguments' do
       assert_equal 'double', @method.arguments[0].type
+      assert_equal 'Scalar', @method.return_value.type
     end
 
     should 'not be seen as a template' do
       assert !@method.template?
+    end
+
+    should 'not be seen as having complex types' do
+      assert !@method.has_complex_arguments?
     end
 
     context 'bound to a generator' do

@@ -27,7 +27,6 @@ class ArgumentTest < Test::Unit::TestCase
         "CV_EXPORT const Foo<blah, blah>"      => ["CV_EXPORT ", "const ", "Foo", "<blah, blah>"   , "blah, blah"  , ""],
         "CV_EXPORT Foo < blah, blah >"         => ["CV_EXPORT ", ""      , "Foo", " < blah, blah >", " blah, blah ", ""],
         "const Foo < blah, blah >"             => ["const "    , ""      , "Foo", " < blah, blah >", " blah, blah ", ""],
-        "Foo < blah, blah >"                   => [""          , ""      , "Foo", " < blah, blah >", " blah, blah ", ""],
         "CV_EXPORT const Foo < blah, blah > &" => ["CV_EXPORT ", "const ", "Foo", " < blah, blah >", " blah, blah ", " &"],
         "CV_EXPORT const Foo<blah, blah> &"    => ["CV_EXPORT ", "const ", "Foo", "<blah, blah>"   , "blah, blah"  , " &"],
         "CV_EXPORT Foo < blah, blah > &"       => ["CV_EXPORT ", ""      , "Foo", " < blah, blah >", " blah, blah ", " &"],
@@ -38,6 +37,9 @@ class ArgumentTest < Test::Unit::TestCase
         "CV_EXPORT Foo < blah, blah > *"       => ["CV_EXPORT ", ""      , "Foo", " < blah, blah >", " blah, blah ", " *"],
         "const Foo < blah, blah > *"           => ["const "    , ""      , "Foo", " < blah, blah >", " blah, blah ", " *"],
         "Foo < blah, blah > *"                 => [""          , ""      , "Foo", " < blah, blah >", " blah, blah ", " *"],
+
+        "MatExpr_<MatExpr_Op2_<Mat, int, Mat, MatOp_Inv_<Mat> >, Mat>" =>
+                                                  [""          ,""       ,"MatExpr_","<MatExpr_Op2_<Mat, int, Mat, MatOp_Inv_<Mat> >, Mat>","MatExpr_Op2_<Mat, int, Mat, MatOp_Inv_<Mat> >, Mat", ""],
       }.each do |type, result|
         should "parse #{type}" do
           type =~ Dub::Argument::TYPE_REGEXP
@@ -500,6 +502,10 @@ class ArgumentTest < Test::Unit::TestCase
       should 'replace template params' do
         assert_equal 'double', @argument.type
       end
+
+      should 'not be marked as complex if template params are replaced' do
+        assert !@argument.complex?
+      end
     end
 
     context 'a return value' do
@@ -510,6 +516,32 @@ class ArgumentTest < Test::Unit::TestCase
       should 'replace template params and resolve' do
         assert_equal 'Scalar', @argument.type
       end
+    end
+  end
+
+  context 'An argument with template params' do
+    setup do
+      @method = namespacecv_xml[:cv][:Mat][:inv]
+      @argument = @method.return_value
+    end
+
+    should 'know it is a complexe type' do
+      assert @argument.complex?
+    end
+
+    should 'mark the method as having complexe arguments' do
+      assert @method.has_complex_arguments?
+    end
+  end
+
+  context 'An argument with resolved template params' do
+    setup do
+      @method = namespacecv_xml[:cv][:Scalar][:mul]
+      @argument = @method.return_value
+    end
+
+    should 'not be marked as a complexe type' do
+      assert !@argument.complex?
     end
   end
 end
