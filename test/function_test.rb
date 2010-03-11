@@ -322,4 +322,53 @@ class FunctionTest < Test::Unit::TestCase
       end
     end
   end
+
+  # This is something like template<typename T2> foo() inside a templated class
+  context 'A template method' do
+    setup do
+      @class = namespacecv_xml[:cv][:Scalar]
+      @method = @class.template_method(:convertTo)
+    end
+
+    should 'know it is a template' do
+      assert @method.template?
+    end
+
+    context 'bound to a generator' do
+      setup do
+        Dub::Lua.bind(@class)
+      end
+
+      should 'be ignored in class members' do
+        assert !@class.members.include?(@method)
+      end
+    end
+  end
+
+  context 'A method in a class defined from a template' do
+    setup do
+      @class = namespacecv_xml[:cv][:Scalar]
+      @method = @class[:all]
+    end
+
+    should 'resolve its arguments' do
+      assert_equal 'double', @method.arguments[0].type
+    end
+
+    should 'not be seen as a template' do
+      assert !@method.template?
+    end
+
+    context 'bound to a generator' do
+      setup do
+        Dub::Lua.bind(@class)
+      end
+
+      should 'not be ignored in class members' do
+        assert @class.members.include?(@method)
+      end
+    end
+  end
+
+
 end

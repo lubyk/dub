@@ -20,6 +20,7 @@ class ArgumentTest < Test::Unit::TestCase
         "CV_EXPORT Foo *"                      => ["CV_EXPORT ", ""      , "Foo", "", nil, " *"],
         "const Foo *"                          => ["const "    , ""      , "Foo", "", nil, " *"],
         "Foo *"                                => [""          , ""      , "Foo", "", nil, " *"],
+        "void *"                               => [""          , ""      , "void","", nil, " *"],
         "..."                                  => [""          , ""      , "...", "", nil, ""],
 
         "CV_EXPORT const Foo < blah, blah >"   => ["CV_EXPORT ", "const ", "Foo", " < blah, blah >", " blah, blah ", ""],

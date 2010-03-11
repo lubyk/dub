@@ -92,6 +92,13 @@ public:
     if (data_) free(data_);
   }
 
+  /** Dummy template based class method.
+   */
+  template<class T2>
+  T2 *give_me_tea() {
+    return new T2();
+  }
+
   /** Return size of matrix (rows * cols). */
   size_t size() {
     return rows_ * cols_;
@@ -109,7 +116,7 @@ public:
     // dummy
   }
 
-  FunkyThing(double v[7]) {
+  void FunkyThing(double v[7]) {
 
   }
 

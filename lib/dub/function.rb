@@ -11,6 +11,7 @@ module Dub
       @parent, @name = parent, name
       @xml, @prefix, @overloaded_index = xml, prefix, overloaded_index
       parse_xml
+      parse_template_params
     end
 
     def set_as_constructor
@@ -96,6 +97,14 @@ module Dub
       @arguments[count_position].is_list_count = true
     end
 
+    def template?
+      !@template_params.nil?
+    end
+
+    def template_params
+      @template_params
+    end
+
     def inspect
       "#<Function #{@prefix}_#{@name}(#{@arguments.inspect[1..-2]})>"
     end
@@ -131,6 +140,15 @@ module Dub
         end
 
         @is_static = @xml[:static] == 'yes'
+      end
+
+      def parse_template_params
+        template_params = (@xml/'/templateparamlist/param')
+        if !template_params.empty?
+          @template_params = template_params.map do |param|
+            (param/'/type').innerHTML.gsub(/^\s*(typename|class)\s+/,'')
+          end
+        end
       end
   end
 end # Namespace

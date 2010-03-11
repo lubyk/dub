@@ -38,7 +38,7 @@ module Dub
     end
 
     def member(name)
-      get_member(name.to_s)
+      get_member(name.to_s, @members_hash)
     end
 
     def members
@@ -52,9 +52,13 @@ module Dub
       end
     end
 
+    def template_method(name)
+      get_member(name.to_s, @t_members_hash)
+    end
+
     # Lazy construction of members
-    def get_member(name)
-      if member_or_group = @members_hash[name]
+    def get_member(name, source = @members_hash)
+      if member_or_group = source[name]
         if member_or_group.kind_of?(Array)
           if member_or_group.first.kind_of?(Hpricot::Elem)
             list = Dub::FunctionGroup.new(self)
@@ -65,7 +69,7 @@ module Dub
             member_or_group = nil if member_or_group == []
           end
         elsif member_or_group.kind_of?(Hpricot::Elem)
-          @members_hash[name] = member_or_group = make_member(name, member_or_group)
+          source[name] = member_or_group = make_member(name, member_or_group)
         end
       end
       member_or_group

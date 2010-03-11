@@ -220,7 +220,7 @@ module Dub
               class_xml = (Hpricot::XML(class_def)/'compounddef').first
 
               (class_xml/'*[@prot=private]').remove
-              (class_xml/'templateparamlist').remove
+              (class_xml/'/templateparamlist').remove
               (class_xml/'').append("<originaltemplate>#{old_name}</originaltemplate>")
               (ref_class/'').append("<instanciation><name>#{new_name}</name><param>#{instanciations_params.join('</param><param>')}</param></instanciation>")
 

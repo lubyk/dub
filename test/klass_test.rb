@@ -46,7 +46,7 @@ class KlassTest < Test::Unit::TestCase
       assert_kind_of Array, @class.class_methods
     end
 
-    context 'bound member list' do
+    context 'with a bound member list' do
       setup do
         Dub::Lua.bind(@class)
         @list = @class.members.map {|m| m.name}
@@ -209,6 +209,54 @@ class KlassTest < Test::Unit::TestCase
     should 'register in the template for these types' do
       @tclass = namespacecv_xml[:cv].template_class(:Size_)
       assert_equal @class, @tclass.instanciations[['int']]
+    end
+
+    context 'with a bound member list' do
+      setup do
+        @class = namespacedub_xml[:dub][:FMatrix]
+        Dub::Lua.bind(@class)
+        @list = @class.members.map {|m| m.name}
+      end
+
+      should 'ignore template methods in member list' do
+        assert !@list.include?("give_me_tea")
+      end
+
+      should 'ignore template methods in member registration' do
+        assert_no_match %r{give_me_tea}, @class.gen.method_registration(@class)
+      end
+
+      should 'ignore template methods in method istanciation' do
+        puts @class.to_s
+        assert_no_match %r{give_me_tea}, @class.to_s
+      end
+    end
+  end
+
+  # strangely, the bug does not show up with "FMatrix"
+  context 'Another class defined from a template' do
+    setup do
+      @class = namespacecv_xml[:cv][:Scalar]
+    end
+
+    context 'with a bound member list' do
+      setup do
+        Dub::Lua.bind(@class)
+        @list = @class.members.map {|m| m.name}
+      end
+
+      should 'ignore template methods in member list' do
+        assert !@list.include?("convertTo")
+      end
+
+      should 'ignore template methods in member registration' do
+        assert_no_match %r{convertTo}, @class.gen.method_registration(@class)
+      end
+
+      should 'ignore template methods in method istanciation' do
+        puts @class.to_s
+        assert_no_match %r{convertTo}, @class.to_s
+      end
     end
   end
 
