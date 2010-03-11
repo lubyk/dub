@@ -1,4 +1,4 @@
-== 0.5.2
+== 0.6.0
 
 * 4 enhancements
   * added support for custom tostring methods for classes

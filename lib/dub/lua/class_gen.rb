@@ -22,7 +22,7 @@ module Dub
         member_methods = (klass.members || []).map do |method|
           next if method.static?
           "{%-20s, #{method.method_name(0)}}" % method.name.inspect
-        end
+        end.compact
 
         member_methods << "{%-20s, #{klass.tostring_name}}" % "__tostring".inspect
         member_methods << "{%-20s, #{klass.destructor_name}}" % "__gc".inspect

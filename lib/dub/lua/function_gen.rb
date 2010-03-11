@@ -148,11 +148,12 @@ module Dub
         "return #{method_name(func)}(L);"
       end
 
-      def call_string(func, upto_arg)
+      def call_string(func, upto_arg = nil)
+        upto_arg ||= func.arguments.count
         if upto_arg == 0
-          call_string = "#{func.name}();"
+          call_string = "#{func.call_name}();"
         else
-          call_string = "#{func.name}(#{func.arguments[0..(upto_arg-1)].map{|arg| arg.in_call_type}.join(', ')});"
+          call_string = "#{func.call_name}(#{func.arguments[0..(upto_arg-1)].map{|arg| arg.in_call_type}.join(', ')});"
         end
 
         if func.constructor?

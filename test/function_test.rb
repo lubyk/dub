@@ -290,6 +290,10 @@ class FunctionTest < Test::Unit::TestCase
       assert @method.static?
     end
 
+    should 'append class in call_name' do
+      assert_equal 'Matrix::MakeMatrix', @method.call_name
+    end
+
     should 'parse return type' do
       assert_equal 'Matrix', @method.return_value.type
     end
@@ -311,6 +315,10 @@ class FunctionTest < Test::Unit::TestCase
         namespace_methods_registration = result[/Matrix_namespace_methods([^;]*);/,1]
         assert_no_match %r{Matrix_MakeMatrix}, member_methods_registration
         assert_match %r{Matrix_MakeMatrix.*Matrix_MakeMatrix}, namespace_methods_registration
+      end
+
+      should 'use class name in call' do
+        assert_match %r{Matrix::MakeMatrix\(}, @method.gen.call_string(@method)
       end
     end
   end

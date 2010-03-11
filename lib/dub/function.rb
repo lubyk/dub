@@ -55,6 +55,14 @@ module Dub
       end
     end
 
+    def call_name
+      if klass
+        static? ? "#{klass.name}::#{name}" : name
+      else
+        name
+      end
+    end
+
     def source
       loc = (@xml/'location').first.attributes
       "#{loc['file'].split('/')[-3..-1].join('/')}:#{loc['line']}"
