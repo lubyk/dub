@@ -58,7 +58,11 @@ static const struct lua_constants_Reg <%= @class.name %>_namespace_constants[] =
 };
 <% end %>
 
-void luaopen_<%= @class.lib_name %>(lua_State *L) {
+#ifdef DUB_LUA_NO_OPEN
+int luaload_<%= @class.lib_name %>(lua_State *L) {
+#else
+extern "C" int luaopen_<%= @class.lib_name %>(lua_State *L) {
+#endif
   // Create the metatable which will contain all the member methods
   luaL_newmetatable(L, <%= @class.id_name.inspect %>);
 

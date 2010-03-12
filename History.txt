@@ -1,3 +1,8 @@
+== 0.6.2
+
+* 1 enhancement
+  * Added an option define (DUB_LUA_NO_OPEN) to prevent replaxe luaopen_xx by luaload_xx
+
 == 0.6.1 2010-03-12
 
 * 2 enhancements
