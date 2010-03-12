@@ -1,7 +1,7 @@
-== 0.6.1
+== 0.6.1 2010-03-12
 
 * 2 enhancements
-  * Wrapping all function call in a try.. catch block
+  * Wrapping all function calls in try.. catch blocks
   * Added support for custome templates (customize exception handling for example)
 
 == 0.6.0 2010-03-11
