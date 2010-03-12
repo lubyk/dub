@@ -22,6 +22,10 @@ class FunctionTest < Test::Unit::TestCase
       assert_equal 'cv', @function.prefix
     end
 
+    should 'use prefix in id_name' do
+      assert_equal 'cv.resize', @function.id_name
+    end
+
     should 'display original_signature' do
       assert_equal 'CV_EXPORTS void cv::resize(const Mat &src, Mat &dst, Size dsize, double fx=0, double fy=0, int interpolation=INTER_LINEAR)', @function.original_signature
     end
@@ -241,6 +245,10 @@ class FunctionTest < Test::Unit::TestCase
 
     should 'return klass on klass' do
       assert_kind_of Dub::Klass, @method.klass
+    end
+    
+    should 'use class id_name in id_name' do
+      assert_equal 'dub.Matrix.size', @method.id_name
     end
   end
 

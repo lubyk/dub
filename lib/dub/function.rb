@@ -64,6 +64,10 @@ module Dub
       end
     end
 
+    def id_name
+      @parent ? "#{@parent.id_name}.#{name}" : name
+    end
+
     def source
       loc = (@xml/'location').first.attributes
       "#{loc['file'].split('/')[-3..-1].join('/')}:#{loc['line']}"
