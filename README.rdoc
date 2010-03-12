@@ -46,8 +46,3 @@ All these typedefs and templates will generate two class bindings with some alia
 
 And what's really good is that in the definition for the <tt>Size</tt> constructor, <tt>Point_<T></tt> is
 recognized as <tt>Point</tt> !
-
-=== Lua Generator
-
-Since this generator uses C++ code and memory allocation, you *MUST* compile Lua as C++ code
-to avoid memory leaks (error handling should use exceptions instead of longjmp).
