@@ -143,6 +143,7 @@ module Dub
     end
 
     def complex?
+      resolve_type if @template_params
       @is_complex
     end
 

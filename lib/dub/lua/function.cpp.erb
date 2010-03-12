@@ -1,4 +1,18 @@
 <%= comment(@function) %>
 <%= signature(@function) %> {
-<%= indent(body(@function), 2) %>
+  try {
+<%= indent(body(@function), 4) %>
+  } catch (std::exception &e) {
+    std::string *s = new std::string("<%= @function.id_name %>: ");
+    s->append(e.what());
+    lua_pushstring(L, s->c_str());
+    delete s;
+    lua_error(L);
+    // never reached
+    return 0;
+  } catch (...) {
+    lua_pushstring(L, "<%= @function.id_name %>: Unknown exception");
+    lua_error(L);
+    return 0;
+  }
 }

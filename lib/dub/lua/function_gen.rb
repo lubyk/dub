@@ -4,6 +4,8 @@ require 'erb'
 module Dub
   module Lua
     class FunctionGen < Dub::Generator
+      attr_accessor :template_path
+
       NUMBER_TYPES = [
         'float',
         'double',
@@ -23,10 +25,14 @@ module Dub
       ]
 
       def initialize
-        @function_template = ::ERB.new(File.read(File.join(File.dirname(__FILE__), 'function.cpp.erb')))
-        @group_template    = ::ERB.new(File.read(File.join(File.dirname(__FILE__), 'group.cpp.erb')))
+        load_erb
       end
-
+      
+      def template_path=(template_path)
+        @template_path = template_path
+        load_erb
+      end
+      
       # Produce bindings for a group of overloaded functions
       def group(group)
         @group = group
@@ -241,7 +247,11 @@ module Dub
         end
         list.flatten
       end
-
+      
+      def load_erb
+        @function_template = ::ERB.new(File.read(@template_path ||File.join(File.dirname(__FILE__), 'function.cpp.erb')))
+        @group_template    = ::ERB.new(File.read(File.join(File.dirname(__FILE__), 'group.cpp.erb')))
+      end
     end # FunctionGen
   end # Lua
 end # Dub

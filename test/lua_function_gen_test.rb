@@ -60,6 +60,20 @@ class LuaFunctionGenTest < Test::Unit::TestCase
                        @generator.get_arg(@function.arguments.first, 1) # 1 = first argument in Lua stack
         end
       end
+
+      context 'using a custom template' do
+        setup do
+          @generator.template_path = fixture('dummy_function.cpp.erb')
+        end
+
+        teardown do
+          @generator.template_path = nil
+        end
+
+        should 'use custom template to render function' do
+          assert_equal 'DUMMY: resize', @generator.function(@function)
+        end
+      end
     end
   end
 
@@ -172,6 +186,8 @@ class LuaFunctionGenTest < Test::Unit::TestCase
       end
     end
   end
+
+
 end
 
 

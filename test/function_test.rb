@@ -246,7 +246,7 @@ class FunctionTest < Test::Unit::TestCase
     should 'return klass on klass' do
       assert_kind_of Dub::Klass, @method.klass
     end
-    
+
     should 'use class id_name in id_name' do
       assert_equal 'dub.Matrix.size', @method.id_name
     end
@@ -383,5 +383,13 @@ class FunctionTest < Test::Unit::TestCase
     end
   end
 
+  context 'A method in a class with templated arguments' do
+    setup do
+      @method = namespacedub_xml[:dub][:Matrix][:mul]
+    end
 
+    should 'respond true to has_complex_arguments' do
+      assert @method.has_complex_arguments?
+    end
+  end
 end

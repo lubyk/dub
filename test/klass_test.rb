@@ -66,6 +66,7 @@ class KlassTest < Test::Unit::TestCase
 
       should 'ignore members with templated arguments' do
         # at least for now
+        assert @class[:mul].has_complex_arguments?
         assert !@list.include?("mul")
         assert_no_match %r{Matrix_mul}, @class.to_s
       end
@@ -177,6 +178,20 @@ class KlassTest < Test::Unit::TestCase
 
       should 'implement tostring' do
         assert_match %r{Matrix__tostring\(lua_State}, @class.to_s
+      end
+
+      context 'using a custom template' do
+        setup do
+          @class.gen.template_path = fixture('dummy_class.cpp.erb')
+        end
+
+        teardown do
+          @class.gen.template_path = nil
+        end
+
+        should 'use custom template to render function' do
+          assert_equal 'CLASS: Matrix', @class.to_s
+        end
       end
     end
   end

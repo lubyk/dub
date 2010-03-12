@@ -5,8 +5,15 @@ require 'erb'
 module Dub
   module Lua
     class ClassGen < Dub::Generator
+      attr_accessor :template_path
+
       def initialize
-        @class_template = ::ERB.new(File.read(File.join(File.dirname(__FILE__), 'class.cpp.erb')))
+        load_erb
+      end
+
+      def template_path=(template_path)
+        @template_path = template_path
+        load_erb
       end
 
       def klass(klass)
@@ -80,6 +87,10 @@ module Dub
         else
           false # ok, do not ignore
         end
+      end
+
+      def load_erb
+        @class_template = ::ERB.new(File.read(@template_path || File.join(File.dirname(__FILE__), 'class.cpp.erb')))
       end
     end
   end
