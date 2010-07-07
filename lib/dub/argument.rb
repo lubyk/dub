@@ -19,6 +19,7 @@ module Dub
       'uint',
       'bool',
       'uchar',
+      'char',
       'void',
       'int64'
     ]
