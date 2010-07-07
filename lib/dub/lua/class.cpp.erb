@@ -80,4 +80,5 @@ extern "C" int luaopen_<%= @class.lib_name %>(lua_State *L) {
   // register class enums
   register_constants(L, <%= (@class.id_name + '_const').inspect %>, <%= @class.name %>_namespace_constants);
 <% end %>
+	return 1;
 }
