@@ -68,6 +68,19 @@ public:
   }
 
 private:
+
+  int private_method() {
+    // should not be implemented
+    return 0;
+  }
+
+protected:
+
+  int protected_method() {
+    // should not be implemented
+    return 0;
+  }
+
   double *data_;
   size_t rows_;
   size_t cols_;

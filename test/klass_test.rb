@@ -71,6 +71,14 @@ class KlassTest < Test::Unit::TestCase
         assert_no_match %r{Matrix_mul}, @class.to_s
       end
 
+      should 'ignore private members' do
+        assert !@list.include?("private_method")
+      end
+
+      should 'ignore protected members' do
+        assert !@list.include?("protected_method")
+      end
+
       should 'ignore operator methods in member list' do
         assert !@list.include?("operator size_t")
       end

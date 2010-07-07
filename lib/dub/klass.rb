@@ -191,6 +191,7 @@ module Dub
       end
 
       def make_member(name, member, overloaded_index = nil)
+        return nil unless member[:prot] == 'public'
         if names.include?(name)
           # keep constructors out of members list
           if @constructor.kind_of?(FunctionGroup)

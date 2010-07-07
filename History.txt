@@ -1,3 +1,8 @@
+== 0.6.3 2010-07-07
+
+* 1 enhancement
+  * Should ignore non-public member methods.
+
 == 0.6.2 2010-07-07
 
 * 1 enhancement
