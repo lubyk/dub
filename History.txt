@@ -1,3 +1,8 @@
+== 0.6.4 2010-07-14
+
+* 1 enhancement
+  * Fixed homepage link in gem and documentation.
+
 == 0.6.3 2010-07-07
 
 * 1 enhancement
@@ -6,7 +11,7 @@
 == 0.6.2 2010-07-07
 
 * 1 enhancement
-  * Added an option define (DUB_LUA_NO_OPEN) to prevent replaxe luaopen_xx by luaload_xx
+  * Added an option define (DUB_LUA_NO_OPEN) to replace luaopen_xx by luaload_xx
   * Added char in the list of 'int' types.
 
 == 0.6.1 2010-03-12

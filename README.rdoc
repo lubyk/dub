@@ -5,6 +5,8 @@ It is currently developed to crete the OpenCV bindings for Lua in Rubyk (http://
 
 The generator uses the xml output from Doxygen to avoid parsing C++ code by itself.
 
+Homepage: http://rubyk.org/en/project311.html
+
 = Features
 
 Currently, the parser supports:
