@@ -215,7 +215,9 @@ module Dub
       # // luaL_argcheck could be better to report errors like "expected Mat"
       def get_arg(arg, stack_pos)
         type_def = "#{arg.create_type}#{arg.name}#{arg.array_suffix}"
-        if arg.is_native?
+        if custom_type = @custom_types.detect {|reg,proc| type_def =~ reg}
+          custom_type[1].call(type_def, arg, stack_pos)
+        elsif arg.is_native?
           if arg.is_pointer?
             if arg.type == 'char'
               type_def = "const #{type_def}" unless arg.is_const?
@@ -237,8 +239,6 @@ module Dub
               raise "Unsuported type: #{arg.type}"
             end
           end
-        elsif custom_type = @custom_types.detect {|reg,proc| type_def =~ reg}
-          custom_type[1].call(type_def, arg, stack_pos)
         else
           "#{type_def} = *((#{arg.create_type}*)luaL_checkudata(L, #{stack_pos}, #{arg.id_name.inspect}));"
         end

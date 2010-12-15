@@ -8,7 +8,7 @@ module Dub
   class Klass
     include MemberExtraction
     attr_reader :name, :xml, :prefix, :constructor, :alias_names, :enums, :parent, :instanciations
-    attr_accessor :header, :string_format, :string_args
+    attr_accessor :opts
 
     def initialize(parent, name, xml, prefix = '')
       @parent, @name, @xml, @prefix = parent, name, xml, prefix
@@ -17,6 +17,7 @@ module Dub
       @enums       = []
       @ignores     = []
       @instanciations = {}
+      @opts        = {}
       parse_xml
     end
 
@@ -104,7 +105,7 @@ module Dub
     end
 
     def header
-      @header ||= (@xml/'location').first.attributes['file'].split('/').last
+      @opts[:header] ||= (@xml/'location').first.attributes['file'].split('/').last
     end
 
     def full_type
@@ -112,7 +113,7 @@ module Dub
     end
 
     def lib_name
-      "#{prefix}_#{name}"
+      @opts[:lib_name] || name
     end
 
     def id_name(name = self.name)
@@ -228,5 +229,16 @@ module Dub
           @constructor.name = new_name
         end
       end
+
+      def method_missing(met, *args)
+        if args.empty? && @opts.has_key?(met.to_sym)
+          @opts[met.to_sym]
+        elsif args.size == 1 && met.to_s =~ /^(.+)=$/
+          @opts[$1.to_sym] = args.first
+        else
+          super
+        end
+      end
+
   end
 end

@@ -23,7 +23,7 @@ static int <%= @class.destructor_name %>(lua_State *L) {
 
 static int <%= @class.tostring_name %>(lua_State *L) {
   <%= @class.name %> **userdata = (<%= @class.name %>**)luaL_checkudata(L, 1, <%= @class.id_name.inspect %>);
-  <% if @class.string_format %>
+  <% if @class.opts[:string_format] %>
   lua_pushfstring(L, "<<%= @class.id_name %>: %p <%= @class.string_format %>>", *userdata, <%= @class.string_args %>);
   <% else %>
   lua_pushfstring(L, "<<%= @class.id_name %>: %p>", *userdata);
@@ -59,9 +59,9 @@ static const struct lua_constants_Reg <%= @class.name %>_namespace_constants[] =
 <% end %>
 
 #ifdef DUB_LUA_NO_OPEN
-int luaload_<%= @class.lib_name %>(lua_State *L) {
+int luaload_<%= @class.prefix %>_<%= @class.lib_name %>(lua_State *L) {
 #else
-extern "C" int luaopen_<%= @class.lib_name %>(lua_State *L) {
+extern "C" int luaopen_<%= @class.prefix %>_<%= @class.lib_name %>(lua_State *L) {
 #endif
   // Create the metatable which will contain all the member methods
   luaL_newmetatable(L, <%= @class.id_name.inspect %>);
