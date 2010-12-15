@@ -27,11 +27,16 @@ module Dub
 
       def initialize
         load_erb
+        @custom_types = []
       end
 
       def template_path=(template_path)
         @template_path = template_path
         load_erb
+      end
+
+      def custom_type(regexp, &block)
+        @custom_types << [regexp, block]
       end
 
       # Produce bindings for a group of overloaded functions
@@ -232,6 +237,8 @@ module Dub
               raise "Unsuported type: #{arg.type}"
             end
           end
+        elsif custom_type = @custom_types.detect {|reg,proc| type_def =~ reg}
+          custom_type[1].call(type_def, arg, stack_pos)
         else
           "#{type_def} = *((#{arg.create_type}*)luaL_checkudata(L, #{stack_pos}, #{arg.id_name.inspect}));"
         end

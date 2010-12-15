@@ -61,6 +61,10 @@ public:
     // dummy
   }
 
+  int *lua_thing(int a, lua_State *L, int b) {
+    // dummy
+  }
+
   /** Named constructor.
    */
   static Matrix *MakeMatrix(int rows, int cols) {
