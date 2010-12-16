@@ -21,30 +21,36 @@ class KlassTest < Test::Unit::TestCase
     should 'have namespace prefix' do
       assert_equal 'dub', @class.prefix
     end
-    
+
     should 'accept any attribute' do
       assert_nothing_raised do
         @class.foo = 'bar'
       end
     end
-    
+
     should 'store special attributes in opts' do
       @class.foo = 'bar'
       assert_equal 'bar', @class.opts[:foo]
     end
-    
+
     should 'return value from opts on method missing' do
       @class.foo = 'bar'
       assert_equal 'bar', @class.foo
     end
-    
+
     should 'use name as default in lib_name' do
+      @class.opts.delete(:lib_name)
       assert_equal 'Matrix', @class.lib_name
     end
-    
+
     should 'use lib_name if set in lib_name' do
       @class.opts[:lib_name] = "dooMat"
       assert_equal 'dooMat', @class.lib_name
+    end
+
+    should 'get @dub options from header' do
+      assert_equal 'dummy value', @class.var_from_dub
+      assert_equal 'some other value', @class.other_from_dub
     end
 
     should 'combine prefix and name in id_name' do

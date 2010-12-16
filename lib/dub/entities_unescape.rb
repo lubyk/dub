@@ -1,16 +1,9 @@
+require 'htmlentities'
 module Dub
   module EntitiesUnescape
-    ENTITIES = {
-      '&amp;' => '&',
-      '&lt;'  => '<',
-      '&gt;'  => '>'
-    }
-
+    Decoder = HTMLEntities.new
     def unescape(str)
-      ENTITIES.each do |k,v|
-        str.gsub!(k, v)
-      end
-      str
+      Decoder.decode(str)
     end
   end
 end

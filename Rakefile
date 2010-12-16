@@ -15,6 +15,7 @@ begin
     gem.email = "gaspard@teti.ch"
     gem.homepage = "http://rubyk.org/en/project311.html"
     gem.authors = ["Gaspard Bucher"]
+    gem.add_dependency "hpricot"
     gem.add_development_dependency "shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end

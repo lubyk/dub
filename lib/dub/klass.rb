@@ -144,11 +144,22 @@ module Dub
 
     private
       def parse_xml
+        parse_opts_hash
         parse_enums
         parse_members
         parse_template_params
         parse_instanciations
         parse_alias_names
+      end
+
+      def parse_opts_hash
+        if hash = Dub::OptsParser.extract_hash(@xml)
+          if hash.kind_of?(Hash)
+            @opts.merge!(hash)
+          else
+            raise "Could not parse @dub parameters #{hash.inspect}"
+          end
+        end
       end
 
       def parse_enums

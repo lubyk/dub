@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
   <compounddef id="classdub_1_1_matrix" kind="class" prot="public">
     <compoundname>dub::Matrix</compoundname>
+    <includes refid="matrix_8h" local="no">matrix.h</includes>
       <sectiondef kind="protected-attrib">
       <memberdef kind="variable" id="classdub_1_1_matrix_1a134af4a94d273c34cc99e7645fb97917" prot="protected" static="no" mutable="no">
         <type>double *</type>
@@ -14,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="88" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="88" bodyend="-1"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="93" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classdub_1_1_matrix_1afbb3dac9aac8db0e6feffb8c61954065" prot="protected" static="no" mutable="no">
         <type>size_t</type>
@@ -27,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="89" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="89" bodyend="-1"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="94" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="94" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classdub_1_1_matrix_1a9820706da6cb36cf14dfefbb4eabc92d" prot="protected" static="no" mutable="no">
         <type>size_t</type>
@@ -40,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="90" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="90" bodyend="-1"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="95" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="95" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -55,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="14" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="14" bodyend="14"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="19" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="19" bodyend="19"/>
       </memberdef>
       <memberdef kind="function" id="classdub_1_1_matrix_1a87d276a9bfb52dbe228a19c2eae63b4b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -76,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="16" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="16" bodyend="18"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="21" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="21" bodyend="23"/>
       </memberdef>
       <memberdef kind="function" id="classdub_1_1_matrix_1a7bbf87936b3a48a69fcc1a74038bdd25" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -89,7 +90,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="20" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="20" bodyend="22"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="25" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="25" bodyend="27"/>
       </memberdef>
       <memberdef kind="function" id="classdub_1_1_matrix_1a91cd7ece7296a2f2b37f2b629dc66fed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>size_t</type>
@@ -102,7 +103,7 @@
 <para>Return size of matrix (rows * cols). </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="25" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="25" bodyend="27"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="30" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="30" bodyend="32"/>
       </memberdef>
       <memberdef kind="function" id="classdub_1_1_matrix_1ac13eec5120f1be537122fc2b9a35d12e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -115,7 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="29" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="29" bodyend="31"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="34" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="34" bodyend="36"/>
       </memberdef>
       <memberdef kind="function" id="classdub_1_1_matrix_1aad380f21efca0eb8d076fa7801efe903" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -128,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="33" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="33" bodyend="35"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="38" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="38" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="classdub_1_1_matrix_1a7a47bc085de140093ba358d345d58df7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -146,7 +147,7 @@
 <para>Dummy template based class method. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="40" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="40" bodyend="42"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="45" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="45" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="classdub_1_1_matrix_1a27fea405cf08ac087a11eefbaf4a342f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -159,7 +160,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="44" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="44" bodyend="46"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="49" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="49" bodyend="51"/>
       </memberdef>
       <memberdef kind="function" id="classdub_1_1_matrix_1ac159906fa5480fdc9539a7be1e1825ed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -176,7 +177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="48" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="48" bodyend="50"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="53" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="53" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="classdub_1_1_matrix_1a5bf5b5aee77c4e4a4cf906ce785fe37b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -198,7 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="52" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="52" bodyend="54"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="57" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="57" bodyend="59"/>
       </memberdef>
       <memberdef kind="function" id="classdub_1_1_matrix_1a5d8ae4699d499cb9e4292c2ff765d3a1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -215,7 +216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="56" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="56" bodyend="58"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="61" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="61" bodyend="63"/>
       </memberdef>
       <memberdef kind="function" id="classdub_1_1_matrix_1a90798c27b8b4017a939f804481eb50ad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>int *</type>
@@ -228,7 +229,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="60" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="60" bodyend="62"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="65" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="65" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="classdub_1_1_matrix_1af64ee96907ba127c876b9ebb9a65cc72" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>int *</type>
@@ -253,7 +254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="64" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="64" bodyend="66"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="69" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="69" bodyend="71"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -276,7 +277,7 @@
 <para>Named constructor. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="70" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="70" bodyend="72"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="75" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="75" bodyend="77"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -291,7 +292,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="76" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="76" bodyend="79"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="81" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="81" bodyend="84"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
@@ -306,14 +307,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="83" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="83" bodyend="86"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="88" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="88" bodyend="91"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-    </detaileddescription>
-    <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="12" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="12" bodyend="91"/>
+<para><ref refid="classdub_1_1_matrix" kindref="compound">Matrix</ref> class.</para><para><simplesect kind="par"><title>Bindings info:</title><para>var_from_dub:&apos;dummy value&apos; other_from_dub: &quot;some other value&quot; </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="17" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="17" bodyend="96"/>
     <listofallmembers>
       <member refid="classdub_1_1_matrix_1ac13eec5120f1be537122fc2b9a35d12e" prot="public" virt="non-virtual"><scope>dub::Matrix</scope><name>cols</name></member>
       <member refid="classdub_1_1_matrix_1a9820706da6cb36cf14dfefbb4eabc92d" prot="protected" virt="non-virtual"><scope>dub::Matrix</scope><name>cols_</name></member>

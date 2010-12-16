@@ -9,6 +9,11 @@
 
 namespace dub {
 
+/** Matrix class.
+ *
+ * @dub var_from_dub:'dummy value'
+ *      other_from_dub: "some other value"
+ */
 class Matrix {
 public:
   Matrix() : data_(NULL), rows_(0), cols_(0) {}

@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dub}
-  s.version = "0.6.5"
+  s.version = "0.6.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gaspard Bucher"]
-  s.date = %q{2010-12-15}
+  s.date = %q{2010-12-16}
   s.description = %q{This is a tool to ease the creation of scripting language bindings for a C++ library.
     It is currently developed to crete the OpenCV bindings for Lua in Rubyk (http://rubyk.org). The generator uses the xml output from Doxygen to avoid parsing C++ code by itself.}
   s.email = %q{gaspard@teti.ch}
@@ -43,6 +43,7 @@ Gem::Specification.new do |s|
      "lib/dub/lua/namespace_gen.rb",
      "lib/dub/member_extraction.rb",
      "lib/dub/namespace.rb",
+     "lib/dub/opts_parser.rb",
      "lib/dub/parser.rb",
      "lib/dub/templates/lua_template.erb",
      "lib/dub/version.rb",
@@ -186,11 +187,14 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<hpricot>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
     else
+      s.add_dependency(%q<hpricot>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
     end
   else
+    s.add_dependency(%q<hpricot>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
   end
 end

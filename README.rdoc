@@ -48,3 +48,20 @@ All these typedefs and templates will generate two class bindings with some alia
 
 And what's really good is that in the definition for the <tt>Size</tt> constructor, <tt>Point_<T></tt> is
 recognized as <tt>Point</tt> !
+
+= Using @dub
+
+If you want to set class options inside the sources with the @dub tag, you need to set the ALIASES as follows
+in the Doxyfile:
+
+  ALIASES                = "dub=\par Bindings info:\n"
+
+Then you can write settings in the class documentation:
+
+  /** Some class.
+   *
+   * @dub string_format:'%%f'
+   *      string_args:'(*userdata)->interval()'
+   */
+
+Note that for some strange reason, you have to use a double '%' to get one.

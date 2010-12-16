@@ -6,6 +6,7 @@ require 'dub/klass'
 require 'dub/function'
 require 'dub/argument'
 require 'logger'
+require 'dub/opts_parser'
 
 module Dub
   def self.logger=(logger)
