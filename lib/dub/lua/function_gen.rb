@@ -189,6 +189,9 @@ module Dub
       def return_value(func)
         res = []
         if return_value = func.return_value
+          if return_value.create_type == 'LuaStackSize '
+            return "return retval__;"
+          end
           case Argument.type_group(return_value)
           when :number
             res << "lua_pushnumber(L, retval__);"

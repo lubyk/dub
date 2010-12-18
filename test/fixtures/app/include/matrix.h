@@ -6,6 +6,7 @@
 
 
 /** @file */
+typedef int LuaStackSize;
 
 namespace dub {
 
@@ -68,6 +69,11 @@ public:
 
   int *lua_thing(int a, lua_State *L, int b) {
     // dummy
+  }
+
+  LuaStackSize work_with_lua(int a, int b) {
+    // method that directly pushes lua values on the stack
+    return 2;
   }
 
   /** Named constructor.

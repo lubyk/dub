@@ -74,7 +74,7 @@ class LuaFunctionGenTest < Test::Unit::TestCase
           assert_equal 'DUMMY: resize', @generator.function(@function)
         end
       end
-      
+
       context 'using a custom type' do
         setup do
           @generator.custom_type(/lua_State /) do |type_def, arg, stack_pos|
@@ -85,13 +85,21 @@ class LuaFunctionGenTest < Test::Unit::TestCase
             end
           end
         end
-        
+
         should 'use custom block to get arg type' do
           method = @generator.function(namespacedub_xml[:dub][:Matrix][:lua_thing])
           assert_match %r{int a = luaL_checkint\(L, 1\)}, method
           assert_no_match %r{L\s*=}, method
           assert_match %r{int b = luaL_checkint\(L, 3\)}, method
           assert_match %r{lua_thing\(a, L, b\)}, method
+        end
+      end
+
+      context 'using LuaStackSize return value' do
+        should 'return call result as stack size' do
+          method = @generator.function(namespacedub_xml[:dub][:Matrix][:work_with_lua])
+          assert_match %r{return retval__}, method
+          assert_no_match %r{lua_pushclass}, method
         end
       end
     end
