@@ -64,7 +64,12 @@ module Dub
     end
 
     def lib_name
-      prefix ? "#{prefix}_#{name}" : name
+      @lib_name || (prefix ? "#{prefix}_#{name}" : name)
+    end
+
+    # FIXME: test
+    def lib_name=(name)
+      @lib_name = name
     end
 
     def id_name(name = self.name)
@@ -104,15 +109,21 @@ module Dub
     end
 
     def members
+      list = super(@ignores)
       if self.generator
-        @gen_members ||= self.generator.members_list(super, @ignores)
+        @gen_members ||= self.generator.members_list(list)
       else
-        super
+        list
       end
     end
 
     def has_constants?
       has_enums? || has_defines?
+    end
+
+    # FIXME: test
+    def has_functions?
+      members && members != []
     end
 
     def has_enums?

@@ -65,3 +65,7 @@ Then you can write settings in the class documentation:
    */
 
 Note that for some strange reason, you have to use a double '%' to get one.
+
+== constants
+
+The easiest way to deal with constants is through documented enums (if this is possible) or defines with @defgroup.

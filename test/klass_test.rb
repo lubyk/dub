@@ -53,6 +53,11 @@ class KlassTest < Test::Unit::TestCase
       assert_equal 'some other value', @class.other_from_dub
     end
 
+    should 'use ignore @dub option from header' do
+      list = @class.members.map(&:name)
+      assert !list.include?('bad_method')
+    end
+
     should 'combine prefix and name in id_name' do
       assert_equal 'dub.Matrix', @class.id_name
     end

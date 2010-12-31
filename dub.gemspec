@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dub}
-  s.version = "0.6.6"
+  s.version = "0.6.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gaspard Bucher"]
-  s.date = %q{2010-12-16}
+  s.date = %q{2010-12-31}
   s.description = %q{This is a tool to ease the creation of scripting language bindings for a C++ library.
     It is currently developed to crete the OpenCV bindings for Lua in Rubyk (http://rubyk.org). The generator uses the xml output from Doxygen to avoid parsing C++ code by itself.}
   s.email = %q{gaspard@teti.ch}

@@ -2,6 +2,8 @@
 
 * Major enhancements
   * Added support for LuaStackSize pseudo return value (enables direct stack manipulation).
+  * Added support for Qt 'public slot:' declarations.
+  * Added support for 'ignore' @dub setting.
 
 == 0.6.6 2010-12-16
 

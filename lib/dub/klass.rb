@@ -56,10 +56,11 @@ module Dub
     end
 
     def members
+      list = super(@ignores)
       if self.generator
-        @gen_members ||= self.generator.members_list(super, @ignores)
+        @gen_members ||= self.generator.members_list(list)
       else
-        super
+        list
       end
     end
 
@@ -155,6 +156,9 @@ module Dub
       def parse_opts_hash
         if hash = Dub::OptsParser.extract_hash(@xml)
           if hash.kind_of?(Hash)
+            if ignore = hash[:ignore]
+              self.ignore(ignore.split(',').map(&:strip))
+            end
             @opts.merge!(hash)
           else
             raise "Could not parse @dub parameters #{hash.inspect}"

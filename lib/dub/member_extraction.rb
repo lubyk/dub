@@ -41,10 +41,11 @@ module Dub
       get_member(name.to_s, @members_hash)
     end
 
-    def members
+    def members(ignore_list = [])
       @members ||= begin
         list = []
         @members_hash.each do |name, member|
+          next if ignore_list.include?(name)
           list << get_member(name)
         end
         list.compact!
@@ -77,7 +78,7 @@ module Dub
 
     def make_member(name, member, overloaded_index = nil)
       case member[:kind]
-      when 'function'
+      when 'function', 'slot'
         Dub.logger.info "Building #{members_prefix}::#{name}"
         Function.new(self, name, member, members_prefix, overloaded_index)
       when 'class'

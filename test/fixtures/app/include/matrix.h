@@ -14,6 +14,7 @@ namespace dub {
  *
  * @dub var_from_dub:'dummy value'
  *      other_from_dub: "some other value"
+ *      ignore: 'bad_method'
  */
 class Matrix {
 public:
@@ -57,6 +58,10 @@ public:
 
   void do_something(int i, bool fast=false) {
 
+  }
+
+  void bad_method(int i) {
+    // method should not exist in bindings
   }
 
   void use_other_lib(const std::string &name) {
