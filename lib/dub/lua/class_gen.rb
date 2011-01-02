@@ -57,37 +57,19 @@ module Dub
       end
 
       def members_list(all_members)
-        list = all_members.map do |member_or_group|
-          if member_or_group.kind_of?(Array)
-            members_list(member_or_group)
-          elsif  ignore_member?(member_or_group)
-            nil
-          else
-            member_or_group
-          end
-        end
-
-        list.compact!
-        list == [] ? nil : list
-      end
-
-      def ignore_member?(member)
-        if member.name =~ /^~/           || # do not build constructor
-           member.name =~ /^operator/    || # no conversion operators
-           member.has_complex_arguments? || # no complex arguments or return values
-           member.has_array_arguments? ||
-           member.vararg? ||
-           member.original_signature =~ /void\s+\*/ # used to detect return value and parameters
-          true # ignore
-        elsif return_value = member.return_value
-          if return_value.create_type == 'const char *'
-            return false # do not ignore
-          end
-          return_value.type =~ />$/    || # no complex return types
-          (return_value.is_native? && member.return_value.is_pointer?)
-        else
-          false # ok, do not ignore
-        end
+        all_members
+        #list = all_members.map do |member_or_group|
+        #  if member_or_group.kind_of?(Array)
+        #    members_list(member_or_group)
+        #  elsif ignore_member?(member_or_group)
+        #    nil
+        #  else
+        #    member_or_group
+        #  end
+        #end
+        #
+        #list.compact!
+        #list == [] ? nil : list
       end
 
       def load_erb

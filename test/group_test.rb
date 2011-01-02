@@ -77,6 +77,41 @@ class GroupTest < Test::Unit::TestCase
         assert_equal 2, @function[1].overloaded_index
       end
     end
+
+    context 'with overloaded members' do
+      setup do
+        @function = namespacedub_xml[:dub][:Matrix][:do_something]
+      end
+
+      should 'find a Dub::FunctionGroup' do
+        assert_kind_of Dub::FunctionGroup, @function
+      end
+
+      should 'find a group of functions' do
+        assert_kind_of Dub::Function, @function[0]
+        assert_kind_of Dub::Function, @function[1]
+      end
+
+      should 'group functions by name' do
+        assert_equal 'do_something', @function[0].name
+        assert_equal 'do_something', @function[1].name
+      end
+
+      should 'assign an overloaded_index to grouped functions' do
+        assert_equal 1, @function[0].overloaded_index
+        assert_equal 2, @function[1].overloaded_index
+      end
+    end
+
+    context 'with overloaded containing private members' do
+      setup do
+        @function = namespacedub_xml[:dub][:PrivateConstr][:PrivateConstr]
+      end
+
+      should 'find a Dub::FunctionGroup' do
+        assert_kind_of Dub::Function, @function
+      end
+    end
   end
 
   context 'A namespace with class definitions' do

@@ -63,23 +63,28 @@ module Dub
       end
 
       def chooser_body(group = @group)
+        if group.first.member_method?
+          delta_depth = 1
+        else
+          delta_depth = 0
+        end
         decision_tree = Argument.decision_tree(group.members)
         res = []
-        res << "int type__ = lua_type(L, 1);"
+        res << "int type__ = lua_type(L, #{1 + delta_depth});"
         if flatten_hash(decision_tree).include?(nil)
           res << "int top__  = lua_gettop(L);"
         end
-        res << switch(decision_tree)
+        res << switch(decision_tree, delta_depth + 1, true)
         res.join("\n")
       end
 
       # Create a switch to choose the correct method from argument types (overloaded functions)
-      def switch(hash_or_function, depth = 1)
+      def switch(hash_or_function, depth = 1, start = false)
         if hash_or_function.kind_of?(Function)
           method_call(hash_or_function)
         else
           res = []
-          res << "type__ = lua_type(L, #{depth});" unless depth == 1
+          res << "type__ = lua_type(L, #{depth});" unless start
           else_prefix = ''
           default_sub_group = nil
           hash_or_function.each do |type, sub_group|

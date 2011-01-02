@@ -48,6 +48,16 @@ class FunctionTest < Test::Unit::TestCase
       end
     end
 
+    context 'not public' do
+      setup do
+        @function = namespacedub_xml[:dub][:Matrix][:protected_method]
+      end
+
+      should 'not be found' do
+        assert_nil @function
+      end
+    end
+
     context 'without a return value' do
       should 'know the type of a returned value' do
         assert_equal nil, @function.return_value

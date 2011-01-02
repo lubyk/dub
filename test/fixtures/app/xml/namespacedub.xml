@@ -3,6 +3,7 @@
   <compounddef id="namespacedub" kind="namespace">
     <compoundname>dub</compoundname>
     <innerclass refid="classdub_1_1_matrix" prot="public">dub::Matrix</innerclass>
+    <innerclass refid="classdub_1_1_private_constr" prot="public">dub::PrivateConstr</innerclass>
     <innerclass refid="classdub_1_1_t_mat" prot="public">dub::TMat</innerclass>
       <sectiondef kind="typedef">
       <memberdef kind="typedef" id="namespacedub_1aac039a028aeb9a3b3d0b3f52036e4a1f" prot="public" static="no">
@@ -16,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="172" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="172" bodyend="-1"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="193" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="193" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacedub_1a1f14f9a863b395dbbc9cdbf168855673" prot="public" static="no">
         <type><ref refid="classdub_1_1_t_mat" kindref="compound">FloatMat</ref></type>
@@ -29,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="173" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="173" bodyend="-1"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" line="194" bodyfile="/Users/gaspard/git/dub/test/fixtures/app/include/matrix.h" bodystart="194" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

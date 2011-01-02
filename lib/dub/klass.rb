@@ -206,26 +206,27 @@ module Dub
         end
       end
 
-      def make_member(name, member, overloaded_index = nil)
-        return nil unless member[:prot] == 'public'
+      def make_member(name, xml, overloaded_index = nil)
         if names.include?(name)
           # keep constructors out of members list
           if @constructor.kind_of?(FunctionGroup)
-            # TODO: filter out private constr
-            constr = super
-            constr.name = @name # force key name
-            constr.set_as_constructor
-            @constructor << constr
+            member = super
+            return nil unless member
+            member.name = @name # force key name
+            member.set_as_constructor
+            @constructor << member
           elsif @constructor
-            constr = super
-            constr.name = @name
-            constr.set_as_constructor
+            member = super
+            return nil unless member
+            member.name = @name
+            member.set_as_constructor
             list = Dub::FunctionGroup.new(self)
             list << @constructor
-            list << constr
+            list << member
             @constructor = list
           else
             @constructor = super
+            return nil unless @constructor
             @constructor.set_as_constructor
             @constructor.name = @name
           end

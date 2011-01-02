@@ -60,6 +60,10 @@ public:
 
   }
 
+  void do_something(int i, const char *baz) {
+    // overloaded member method
+  }
+
   void bad_method(int i) {
     // method should not exist in bindings
   }
@@ -92,6 +96,9 @@ public:
   }
 
 private:
+  Matrix(int x) {
+    // private constructor
+  }
 
   int private_method() {
     // should not be implemented
@@ -110,6 +117,20 @@ protected:
   size_t cols_;
 };
 
+
+/** Test that private constructors are not used.
+ */
+class PrivateConstr {
+public:
+
+  PrivateConstr(int x) {}
+
+  ~PrivateConstr() {}
+
+private:
+  // should not be used to build a FunctionGroup
+  PrivateConstr(const char *name) {}
+};
 
 template<class T>
 class TMat {

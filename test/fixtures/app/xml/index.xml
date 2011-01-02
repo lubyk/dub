@@ -14,6 +14,7 @@
     <member refid="classdub_1_1_matrix_1a27fea405cf08ac087a11eefbaf4a342f" kind="function"><name>operator size_t</name></member>
     <member refid="classdub_1_1_matrix_1ac159906fa5480fdc9539a7be1e1825ed" kind="function"><name>mul</name></member>
     <member refid="classdub_1_1_matrix_1a5bf5b5aee77c4e4a4cf906ce785fe37b" kind="function"><name>do_something</name></member>
+    <member refid="classdub_1_1_matrix_1addb1193bb535468279ac84be43a1c3c2" kind="function"><name>do_something</name></member>
     <member refid="classdub_1_1_matrix_1a1a23761eddbbe7d2c12b58570a089abb" kind="function"><name>bad_method</name></member>
     <member refid="classdub_1_1_matrix_1a5d8ae4699d499cb9e4292c2ff765d3a1" kind="function"><name>use_other_lib</name></member>
     <member refid="classdub_1_1_matrix_1a90798c27b8b4017a939f804481eb50ad" kind="function"><name>ptr</name></member>
@@ -21,8 +22,14 @@
     <member refid="classdub_1_1_matrix_1af64ee96907ba127c876b9ebb9a65cc72" kind="function"><name>lua_thing</name></member>
     <member refid="classdub_1_1_matrix_1aec9687539871e56fc39348fc7f2ef2ef" kind="function"><name>work_with_lua</name></member>
     <member refid="classdub_1_1_matrix_1ad21255c4a1457c9969b6092ee40e0870" kind="function"><name>MakeMatrix</name></member>
+    <member refid="classdub_1_1_matrix_1a36d6f79e7453eac381e2bdb858e26552" kind="function"><name>Matrix</name></member>
     <member refid="classdub_1_1_matrix_1a068b8c574a47b79df894bf1f4b3e1946" kind="function"><name>private_method</name></member>
     <member refid="classdub_1_1_matrix_1aea9c51add856fe990e6474410849f8e3" kind="function"><name>protected_method</name></member>
+  </compound>
+  <compound refid="classdub_1_1_private_constr" kind="class"><name>dub::PrivateConstr</name>
+    <member refid="classdub_1_1_private_constr_1a3babb1efc05711cabd5d134808122de0" kind="function"><name>PrivateConstr</name></member>
+    <member refid="classdub_1_1_private_constr_1a174cf284ec0da84991abb013d7b498a7" kind="function"><name>~PrivateConstr</name></member>
+    <member refid="classdub_1_1_private_constr_1ad75c5206e443c41ec74a9d273db8a733" kind="function"><name>PrivateConstr</name></member>
   </compound>
   <compound refid="classdub_1_1_t_mat" kind="class"><name>dub::TMat</name>
     <member refid="classdub_1_1_t_mat_1a325c9dcebf13b0804997d014e7287606" kind="variable"><name>data_</name></member>

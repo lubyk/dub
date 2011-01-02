@@ -77,7 +77,7 @@ module Dub
     end
 
     def make_member(name, member, overloaded_index = nil)
-      case member[:kind]
+      member = case member[:kind]
       when 'function', 'slot'
         Dub.logger.info "Building #{members_prefix}::#{name}"
         Function.new(self, name, member, members_prefix, overloaded_index)
@@ -86,7 +86,31 @@ module Dub
         Klass.new(self, name, member, members_prefix)
       else
         # not supported: ignore
-        nil
+        return nil
+      end
+
+      ignore_member?(member) ? nil : member
+    end
+
+    def ignore_member?(member)
+      return false if member.kind_of?(Klass)
+
+      if !member.public? ||
+         member.name =~ /^~/           || # do not build constructor
+         member.name =~ /^operator/    || # no conversion operators
+         member.has_complex_arguments? || # no complex arguments or return values
+         member.has_array_arguments? ||
+         member.vararg? ||
+         member.original_signature =~ /void\s+\*/ # used to detect return value and parameters
+        true # ignore
+      elsif return_value = member.return_value
+        if return_value.create_type == 'const char *'
+          return false # do not ignore
+        end
+        return_value.type =~ />$/    || # no complex return types
+        (return_value.is_native? && member.return_value.is_pointer?)
+      else
+        false # ok, do not ignore
       end
     end
   end

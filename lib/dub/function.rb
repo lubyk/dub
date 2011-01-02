@@ -110,6 +110,10 @@ module Dub
       !@template_params.nil?
     end
 
+    def public?
+      @xml[:prot] == 'public'
+    end
+
     def template_params
       @template_params
     end
