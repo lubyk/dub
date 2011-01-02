@@ -211,6 +211,7 @@ module Dub
         if names.include?(name)
           # keep constructors out of members list
           if @constructor.kind_of?(FunctionGroup)
+            # TODO: filter out private constr
             constr = super
             constr.name = @name # force key name
             constr.set_as_constructor

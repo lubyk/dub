@@ -229,7 +229,7 @@ class ArgumentTest < Test::Unit::TestCase
       end
 
       should 'not nest own namespace in type' do
-        assert_match %r{luaL_checkudata\(L,\s*1,\s*\"std\.string\"}, @function.to_s
+        assert_match %r{luaL_checkudata\(L,\s*\d,\s*\"std\.string\"}, @function.to_s
       end
     end
   end
@@ -486,6 +486,36 @@ class ArgumentTest < Test::Unit::TestCase
 
     should 'create a native type' do
       assert_equal 'const int *', @argument.create_type
+    end
+  end
+
+  context 'A pointer to a const char' do
+    setup do
+      @argument = namespacedub_xml[:dub][:Matrix][:name].return_value
+    end
+
+    should 'belong to the string group' do
+      assert_equal :string, Dub::Argument.type_group(MockArgument.new('char', 'char', true))
+    end
+
+    should 'know if argument is const' do
+      assert @argument.is_const?
+    end
+
+    should 'know if argument is passed by ref' do
+      assert !@argument.is_ref?
+    end
+
+    should 'know that it is a pointer' do
+      assert @argument.is_pointer?
+    end
+
+    should 'return the type without star' do
+      assert_equal 'char', @argument.type
+    end
+
+    should 'create a native type' do
+      assert_equal 'const char *', @argument.create_type
     end
   end
 

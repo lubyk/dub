@@ -116,11 +116,11 @@ module Dub
 
       def body(func)
         res = []
-
+        delta_top = 0
         if func.member_method? && !func.constructor? && !func.static?
           klass = func.parent
           res << "#{klass.name} *self__ = *((#{klass.name}**)luaL_checkudata(L, 1, #{klass.id_name.inspect}));"
-          res << "lua_remove(L, 1);"
+          delta_top = 1
         end
 
         if func.has_default_arguments?
@@ -133,12 +133,12 @@ module Dub
         if_indent = 0
         func.arguments.each_with_index do |arg, i|
           if arg.has_default?
-            res << indent("if (top__ < #{i+1}) {",     if_indent)
+            res << indent("if (top__ < #{i+1+delta_top}) {",     if_indent)
             res << indent("  #{call_string(func, i)}", if_indent)
             res << indent("} else {", if_indent)
             if_indent += 2
           end
-          res << indent(get_arg(arg, i + 1), if_indent)
+          res << indent(get_arg(arg, i + 1 + delta_top), if_indent)
         end
         res << indent(call_string(func, func.arguments.count), if_indent)
         while if_indent > 0
@@ -198,7 +198,7 @@ module Dub
           when :boolean
             res << "lua_pushboolean(L, retval__);"
           when :string
-            raise "Not supported yet"
+            res << "lua_pushstring(L, retval__);"
           else
             if func.constructor?
               prefix = func.klass.prefix

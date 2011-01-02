@@ -118,6 +118,10 @@ class KlassTest < Test::Unit::TestCase
       should 'ignore members returning native pointers' do
         assert !@list.include?("ptr")
       end
+
+      should 'accept members returning const char pointers' do
+        assert @list.include?("name")
+      end
     end
 
     should 'return constructor with constructor' do

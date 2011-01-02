@@ -72,6 +72,10 @@ public:
     // dummy
   }
 
+  const char *name() {
+    // should make method return string
+  }
+
   int *lua_thing(int a, lua_State *L, int b) {
     // dummy
   }

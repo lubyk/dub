@@ -19,9 +19,8 @@ module Dub
       'uint',
       'bool',
       'uchar',
-      'char',
       'void',
-      'int64'
+      'int64',
     ]
 
     STRING_TYPES = [
@@ -36,13 +35,11 @@ module Dub
       def type_group(arg)
         # exact same type
         if NATIVE_C_TYPES.include?(arg.type)
-          if NUMBER_TYPES.include?(arg.type)
+          if STRING_TYPES.include?(arg.type) && arg.is_pointer?
+            :string
+          else
             # number synonym
             arg.is_pointer? ? :number_ptr : :number
-          else
-            # string synonym
-            raise "Not implemented yet"
-            # :string
           end
         else
           # custom class / type

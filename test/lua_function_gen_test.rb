@@ -88,9 +88,9 @@ class LuaFunctionGenTest < Test::Unit::TestCase
 
         should 'use custom block to get arg type' do
           method = @generator.function(namespacedub_xml[:dub][:Matrix][:lua_thing])
-          assert_match %r{int a = luaL_checkint\(L, 1\)}, method
+          assert_match %r{int a = luaL_checkint\(L, 2\)}, method
           assert_no_match %r{L\s*=}, method
-          assert_match %r{int b = luaL_checkint\(L, 3\)}, method
+          assert_match %r{int b = luaL_checkint\(L, 4\)}, method
           assert_match %r{lua_thing\(a, L, b\)}, method
         end
       end
@@ -100,6 +100,13 @@ class LuaFunctionGenTest < Test::Unit::TestCase
           method = @generator.function(namespacedub_xml[:dub][:Matrix][:work_with_lua])
           assert_match %r{return retval__}, method
           assert_no_match %r{lua_pushclass}, method
+        end
+      end
+      
+      context 'using const char * return value' do
+        should 'pushstring' do
+          method = @generator.function(namespacedub_xml[:dub][:Matrix][:name])
+          assert_match %r{lua_pushstring\(L, retval__\);}, method
         end
       end
     end
