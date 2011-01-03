@@ -63,11 +63,18 @@ module Dub
         if member_or_group.kind_of?(Array)
           if member_or_group.first.kind_of?(Hpricot::Elem)
             list = Dub::FunctionGroup.new(self)
-            member_or_group.each_with_index do |m,i|
-              list << make_member(name, m, i + 1)
+            member_or_group.each do |m|
+              list << make_member(name, m)
             end
             member_or_group = list.compact
-            member_or_group = nil if member_or_group == []
+            if member_or_group == []
+              member_or_group = nil
+            elsif member_or_group.size > 1
+              # set overloaded_index
+              member_or_group.each_with_index do |m, i|
+                m.overloaded_index = i + 1
+              end
+            end
           end
         elsif member_or_group.kind_of?(Hpricot::Elem)
           source[name] = member_or_group = make_member(name, member_or_group)
@@ -76,11 +83,11 @@ module Dub
       member_or_group
     end
 
-    def make_member(name, member, overloaded_index = nil)
+    def make_member(name, member)
       member = case member[:kind]
       when 'function', 'slot'
         Dub.logger.info "Building #{members_prefix}::#{name}"
-        Function.new(self, name, member, members_prefix, overloaded_index)
+        Function.new(self, name, member, members_prefix)
       when 'class'
         Dub.logger.info "Building #{members_prefix}::#{name}"
         Klass.new(self, name, member, members_prefix)

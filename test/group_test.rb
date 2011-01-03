@@ -54,62 +54,108 @@ class GroupTest < Test::Unit::TestCase
     end
 
     context 'with overloaded functions' do
-      setup do
-        @function = namespacecv_xml[:cv][:divide]
+      subject do
+        namespacecv_xml[:cv][:divide]
       end
 
       should 'find a Dub::FunctionGroup' do
-        assert_kind_of Dub::FunctionGroup, @function
+        assert_kind_of Dub::FunctionGroup, subject
       end
 
       should 'find a group of functions' do
-        assert_kind_of Dub::Function, @function[0]
-        assert_kind_of Dub::Function, @function[1]
+        assert_kind_of Dub::Function, subject[0]
+        assert_kind_of Dub::Function, subject[1]
       end
 
       should 'group functions by name' do
-        assert_equal 'divide', @function[0].name
-        assert_equal 'divide', @function[1].name
+        assert_equal 'divide', subject[0].name
+        assert_equal 'divide', subject[1].name
       end
 
       should 'assign an overloaded_index to grouped functions' do
-        assert_equal 1, @function[0].overloaded_index
-        assert_equal 2, @function[1].overloaded_index
+        assert_equal 1, subject[0].overloaded_index
+        assert_equal 2, subject[1].overloaded_index
+      end
+
+      should 'build chooser body' do
+        Dub::Lua.bind(subject)
+        assert_match %r{cv_divide1.*cv_divide2.*cv_divide3.*cv_divide\(}m, subject.to_s
       end
     end
 
     context 'with overloaded members' do
-      setup do
-        @function = namespacedub_xml[:dub][:Matrix][:do_something]
+      subject do
+        namespacedub_xml[:dub][:Matrix][:do_something]
       end
 
       should 'find a Dub::FunctionGroup' do
-        assert_kind_of Dub::FunctionGroup, @function
+        assert_kind_of Dub::FunctionGroup, subject
       end
 
       should 'find a group of functions' do
-        assert_kind_of Dub::Function, @function[0]
-        assert_kind_of Dub::Function, @function[1]
+        assert_kind_of Dub::Function, subject[0]
+        assert_kind_of Dub::Function, subject[1]
       end
 
       should 'group functions by name' do
-        assert_equal 'do_something', @function[0].name
-        assert_equal 'do_something', @function[1].name
+        assert_equal 'do_something', subject[0].name
+        assert_equal 'do_something', subject[1].name
       end
 
       should 'assign an overloaded_index to grouped functions' do
-        assert_equal 1, @function[0].overloaded_index
-        assert_equal 2, @function[1].overloaded_index
+        assert_equal 1, subject[0].overloaded_index
+        assert_equal 2, subject[1].overloaded_index
+      end
+
+      should 'build chooser body' do
+        Dub::Lua.bind(subject)
+        assert_match %r{Matrix_do_something1.*Matrix_do_something2.*Matrix_do_something\(}m, subject.to_s
+      end
+    end
+
+    context 'with overloaded constructors' do
+      subject do
+        namespacedub_xml[:dub][:Matrix][:Matrix]
+      end
+
+      should 'find a Dub::FunctionGroup' do
+        assert_kind_of Dub::FunctionGroup, subject
+      end
+
+      should 'find a group of functions' do
+        assert_kind_of Dub::Function, subject[0]
+        assert_kind_of Dub::Function, subject[1]
+      end
+
+      should 'group functions by name' do
+        assert_equal 'Matrix', subject[0].name
+        assert_equal 'Matrix', subject[1].name
+      end
+
+      should 'assign an overloaded_index to grouped functions' do
+        assert_equal 1, subject[0].overloaded_index
+        assert_equal 2, subject[1].overloaded_index
+      end
+
+      should 'build chooser body' do
+        Dub::Lua.bind(subject)
+        assert_match %r{Matrix_Matrix1.*Matrix_Matrix2.*Matrix_Matrix\(}m, subject.to_s
       end
     end
 
     context 'with overloaded containing private members' do
-      setup do
-        @function = namespacedub_xml[:dub][:PrivateConstr][:PrivateConstr]
+      subject do
+        namespacedub_xml[:dub][:PrivateConstr][:PrivateConstr]
       end
 
-      should 'find a Dub::FunctionGroup' do
-        assert_kind_of Dub::Function, @function
+      should 'find a Dub::Function' do
+        assert_kind_of Dub::Function, subject
+      end
+
+      should 'not set overloaded_index' do
+        assert_nil subject.overloaded_index
+        Dub::Lua.bind(subject)
+        assert_no_match %r{PrivateConstr_PrivateConstr1}, subject.to_s
       end
     end
   end

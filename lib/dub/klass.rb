@@ -58,7 +58,7 @@ module Dub
     def members
       list = super(@ignores)
       if self.generator
-        @gen_members ||= self.generator.members_list(list)
+        @gen_members ||= self.generator.members_list(list.reject {|m| m.constructor?})
       else
         list
       end
@@ -206,34 +206,28 @@ module Dub
         end
       end
 
-      def make_member(name, xml, overloaded_index = nil)
-        if names.include?(name)
-          # keep constructors out of members list
+      def make_member(name, xml)
+        member = super
+        return nil unless member
+        
+        if names.include?(name)          
+          member.name = @name # force key name
+          member.set_as_constructor
+          
+          # special handling of constructors
           if @constructor.kind_of?(FunctionGroup)
-            member = super
-            return nil unless member
-            member.name = @name # force key name
-            member.set_as_constructor
             @constructor << member
           elsif @constructor
-            member = super
-            return nil unless member
-            member.name = @name
-            member.set_as_constructor
             list = Dub::FunctionGroup.new(self)
             list << @constructor
             list << member
             @constructor = list
           else
-            @constructor = super
-            return nil unless @constructor
-            @constructor.set_as_constructor
-            @constructor.name = @name
+            @constructor = member
           end
-          nil
-        else
-          super
         end
+        
+        member
       end
 
       def change_name(new_name)

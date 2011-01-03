@@ -4,12 +4,12 @@ require 'dub/entities_unescape'
 module Dub
   class Function
     include Dub::EntitiesUnescape
-    attr_reader :arguments, :prefix, :overloaded_index, :return_value, :xml, :parent
-    attr_accessor :gen, :name, :is_constructor
+    attr_reader :arguments, :prefix, :return_value, :xml, :parent
+    attr_accessor :gen, :name, :is_constructor, :overloaded_index
 
-    def initialize(parent, name, xml, prefix = '', overloaded_index = nil)
+    def initialize(parent, name, xml, prefix = '')
       @parent, @name = parent, name
-      @xml, @prefix, @overloaded_index = xml, prefix, overloaded_index
+      @xml, @prefix = xml, prefix
       parse_xml
       parse_template_params
     end
