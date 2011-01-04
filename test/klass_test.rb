@@ -98,13 +98,21 @@ class KlassTest < Test::Unit::TestCase
 
       should 'ignore members with templated arguments' do
         # at least for now
-        assert @class[:mul].has_complex_arguments?
+        assert_nil @class[:mul]
         assert !@list.include?("mul")
         assert_no_match %r{Matrix_mul}, @class.to_s
       end
 
       should 'ignore private members' do
         assert !@list.include?("private_method")
+      end
+
+      should 'ignore property members' do
+        assert !@list.include?("foo_prop")
+      end
+
+      should 'not count property with same name as overloaded functions' do
+        assert_kind_of Dub::Function, @class[:size]
       end
 
       should 'ignore protected members' do

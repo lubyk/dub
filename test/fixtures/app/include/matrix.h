@@ -17,6 +17,9 @@ namespace dub {
  *      ignore: 'bad_method'
  */
 class Matrix {
+
+  Q_PROPERTY(size_t foo_prop READ size)
+  Q_PROPERTY(size_t size READ size WRITE setSize)
 public:
   Matrix() : data_(NULL), rows_(0), cols_(0) {}
 

@@ -62,17 +62,21 @@ module Dub
       if member_or_group = source[name]
         if member_or_group.kind_of?(Array)
           if member_or_group.first.kind_of?(Hpricot::Elem)
-            list = Dub::FunctionGroup.new(self)
+            list = []
             member_or_group.each do |m|
               list << make_member(name, m)
             end
-            member_or_group = list.compact
-            if member_or_group == []
+            list.compact!
+            if list == []
               member_or_group = nil
-            elsif member_or_group.size > 1
+            elsif list.size == 1
+              member_or_group = list.first
+            else
+              member_or_group = Dub::FunctionGroup.new(self)
               # set overloaded_index
-              member_or_group.each_with_index do |m, i|
+              list.each_with_index do |m, i|
                 m.overloaded_index = i + 1
+                member_or_group << m
               end
             end
           end

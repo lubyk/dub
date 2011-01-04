@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.6.3">
   <compound refid="classdub_1_1_matrix" kind="class"><name>dub::Matrix</name>
+    <member refid="classdub_1_1_matrix_1aa2925235ace4c72c9cf8e5509c8fea9f" kind="property"><name>foo_prop</name></member>
+    <member refid="classdub_1_1_matrix_1a8dda311ed155077c59d2dd9a1bb8d4d4" kind="property"><name>size</name></member>
     <member refid="classdub_1_1_matrix_1a134af4a94d273c34cc99e7645fb97917" kind="variable"><name>data_</name></member>
     <member refid="classdub_1_1_matrix_1afbb3dac9aac8db0e6feffb8c61954065" kind="variable"><name>rows_</name></member>
     <member refid="classdub_1_1_matrix_1a9820706da6cb36cf14dfefbb4eabc92d" kind="variable"><name>cols_</name></member>
