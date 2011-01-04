@@ -102,11 +102,18 @@ class LuaFunctionGenTest < Test::Unit::TestCase
           assert_no_match %r{lua_pushclass}, method
         end
       end
-      
+
       context 'using const char * return value' do
         should 'pushstring' do
           method = @generator.function(namespacedub_xml[:dub][:Matrix][:name])
           assert_match %r{lua_pushstring\(L, retval__\);}, method
+        end
+      end
+
+      context 'using bool return value' do
+        should 'pushbool' do
+          method = @generator.function(namespacedub_xml[:dub][:Matrix][:true])
+          assert_match %r{lua_pushboolean\(L, retval__\);}, method
         end
       end
     end

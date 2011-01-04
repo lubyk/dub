@@ -27,7 +27,11 @@ module Dub
       'char',
     ]
 
-    NATIVE_C_TYPES = NUMBER_TYPES + STRING_TYPES
+    BOOL_TYPES = [
+      'bool',
+    ]
+
+    NATIVE_C_TYPES = NUMBER_TYPES + STRING_TYPES + BOOL_TYPES
 
     class << self
 
@@ -35,7 +39,9 @@ module Dub
       def type_group(arg)
         # exact same type
         if NATIVE_C_TYPES.include?(arg.type)
-          if STRING_TYPES.include?(arg.type) && arg.is_pointer?
+          if BOOL_TYPES.include?(arg.type)
+            :boolean
+          elsif STRING_TYPES.include?(arg.type) && arg.is_pointer?
             :string
           else
             # number synonym

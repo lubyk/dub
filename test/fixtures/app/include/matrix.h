@@ -76,6 +76,11 @@ public:
     // dummy
   }
 
+  bool true() {
+    // dummy
+    return true;
+  }
+
   const char *name() {
     // should make method return string
   }

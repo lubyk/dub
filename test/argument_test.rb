@@ -160,45 +160,49 @@ class ArgumentTest < Test::Unit::TestCase
   end
 
   context 'A bool argument' do
-    setup do
+    subject do
       # namespacecv_xml = Dub.parse(fixture('namespacecv.xml'))
-      @argument = namespacedub_xml[:dub][:Matrix][:do_something].arguments[1]
+      namespacedub_xml[:dub][:Matrix][:do_something].arguments[1]
+    end
+    
+    should 'belong to the :boolean group' do
+      assert_equal :boolean, Dub::Argument.type_group(MockArgument.new('bool'))
     end
 
     should 'return type with type' do
-      assert_equal 'bool', @argument.type
+      assert_equal 'bool', subject.type
     end
 
     should 'return name with name' do
-      assert_equal 'fast', @argument.name
+      assert_equal 'fast', subject.name
     end
 
     should 'know if argument is const' do
-      assert !@argument.is_const?
+      assert !subject.is_const?
     end
 
     should 'know if argument is passed by ref' do
-      assert !@argument.is_ref?
+      assert !subject.is_ref?
     end
 
     should 'know that it is a pointer' do
-      assert !@argument.is_pointer?
+      assert !subject.is_pointer?
     end
 
     should 'know if argument type is a native type' do
-      assert @argument.is_native?
+      assert subject.is_native?
     end
 
     should 'return bool on create_type' do
-      assert_equal 'bool ', @argument.create_type
+      assert_equal 'bool ', subject.create_type
     end
 
     should 'return signature' do
-      assert_equal 'bool', @argument.signature
+      assert_equal 'bool', subject.signature
     end
 
     should 'return default value if it has one' do
-      assert_equal 'false', @argument.default
+      assert_equal 'false', subject.default
     end
   end
 
