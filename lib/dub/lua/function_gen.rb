@@ -63,7 +63,7 @@ module Dub
       end
 
       def chooser_body(group = @group)
-        if group.first.member_method?
+        if group.first.member_method? && !group.first.constructor?
           delta_depth = 1
         else
           delta_depth = 0

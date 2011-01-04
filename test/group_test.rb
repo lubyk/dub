@@ -141,6 +141,11 @@ class GroupTest < Test::Unit::TestCase
         Dub::Lua.bind(subject)
         assert_match %r{Matrix_Matrix1.*Matrix_Matrix2.*Matrix_Matrix\(}m, subject.to_s
       end
+      
+      should 'choose without self delta index' do
+        Dub::Lua.bind(subject)
+        assert_match %r{top__ < 1}m, subject.generator.chooser_body(subject)
+      end
     end
 
     context 'with overloaded containing private members' do
