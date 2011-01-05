@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.6.3">
+  <compound refid="classdub_1_1_custom_destructor" kind="class"><name>dub::CustomDestructor</name>
+    <member refid="classdub_1_1_custom_destructor_1a3d7ad33377ffbaabc015e9edf817cbef" kind="function"><name>CustomDestructor</name></member>
+    <member refid="classdub_1_1_custom_destructor_1acf4d9fd787b873c8eef16b824bd4cff1" kind="function"><name>~CustomDestructor</name></member>
+    <member refid="classdub_1_1_custom_destructor_1a43d35f2bff2e39aea509f0d4c5ba2d06" kind="function"><name>foobar</name></member>
+  </compound>
   <compound refid="classdub_1_1_matrix" kind="class"><name>dub::Matrix</name>
     <member refid="classdub_1_1_matrix_1aa2925235ace4c72c9cf8e5509c8fea9f" kind="property"><name>foo_prop</name></member>
     <member refid="classdub_1_1_matrix_1a8dda311ed155077c59d2dd9a1bb8d4d4" kind="property"><name>size</name></member>
@@ -28,6 +33,10 @@
     <member refid="classdub_1_1_matrix_1a36d6f79e7453eac381e2bdb858e26552" kind="function"><name>Matrix</name></member>
     <member refid="classdub_1_1_matrix_1a068b8c574a47b79df894bf1f4b3e1946" kind="function"><name>private_method</name></member>
     <member refid="classdub_1_1_matrix_1aea9c51add856fe990e6474410849f8e3" kind="function"><name>protected_method</name></member>
+  </compound>
+  <compound refid="classdub_1_1_no_destructor" kind="class"><name>dub::NoDestructor</name>
+    <member refid="classdub_1_1_no_destructor_1a34f8ca50e4b2b7aec9d0f03418234853" kind="function"><name>NoDestructor</name></member>
+    <member refid="classdub_1_1_no_destructor_1a452392aa6c5e8197fc488819bef9f82c" kind="function"><name>~NoDestructor</name></member>
   </compound>
   <compound refid="classdub_1_1_private_constr" kind="class"><name>dub::PrivateConstr</name>
     <member refid="classdub_1_1_private_constr_1a3babb1efc05711cabd5d134808122de0" kind="function"><name>PrivateConstr</name></member>

@@ -191,12 +191,45 @@ class KlassTest < Test::Unit::TestCase
         assert_match %r{static int Matrix_Matrix\s*\(},  result
       end
 
+      should 'build destructor' do
+        result = @class.to_s
+        assert_match %r{static int Matrix_Matrix1\s*\(}, result
+        assert_match %r{static int Matrix_Matrix2\s*\(}, result
+        assert_match %r{static int Matrix_Matrix\s*\(},  result
+          assert_match %r{if \(\*userdata\) delete \*userdata;}, result
+      end
+      
+      context 'with a custom destructor' do
+        subject do
+          klass = namespacedub_xml[:dub][:CustomDestructor]
+          Dub::Lua.bind(klass)
+          klass.to_s
+        end
+
+        should 'use custom destructor' do
+          assert_match %r{if \(\*userdata\) \(\*userdata\)->foobar\(\);}, subject
+        end
+      end # with a custom destructor
+
+      context 'with a custom destructor set to nothing' do
+        subject do
+          klass = namespacedub_xml[:dub][:NoDestructor]
+          Dub::Lua.bind(klass)
+          klass.to_s
+        end
+
+        should 'noop in destructor' do
+          assert_match %r{// do not destroy}, subject
+          assert_no_match %r{delete\s+\*userdata}, subject
+        end
+      end # with a custom destructor
+
       should 'return new objects in constructors' do
         @class = namespacecv_xml[:cv][:Mat]
         Dub::Lua.bind(@class)
         assert_match %r{lua_pushclass<Mat>.*"cv.Mat"}, @class.constructor.first.to_s
       end
-
+      
       should 'include class header' do
         assert_match %r{#include\s+"matrix.h"}, @class.to_s
       end

@@ -14,7 +14,14 @@ using namespace <%= @class.prefix %>;
 
 static int <%= @class.destructor_name %>(lua_State *L) {
   <%= @class.name %> **userdata = (<%= @class.name %>**)luaL_checkudata(L, 1, <%= @class.id_name.inspect %>);
+  <% if @class.opts[:destructor] == '' %>
+  // do not destroy
+  <% elsif @class.opts[:destructor] %>
+  // custom destructor
+  if (*userdata) (*userdata)-><%= @class.opts[:destructor] %>();
+  <% else %>
   if (*userdata) delete *userdata;
+  <% end %>
   *userdata = NULL;
   return 0;
 }

@@ -1,6 +1,6 @@
 module Dub
   module OptsParser
-
+    ENTRY_REGEXP = %r{^\s*([^:]+):\s*('[^']*'|"[^"]*")\s*,?\s*}m
     def self.extract_hash(xml)
       (xml/'simplesect').each do |x|
         if (x/'title').inner_html == 'Bindings info:'
@@ -17,8 +17,8 @@ module Dub
 
     def self.parse(src)
       res = {}
-      while !src.empty?
-        src = src.sub(/^\s*([^:]+):\s*('[^']+'|"[^"]+")\s*,?\s*/m) do
+      while !src.empty? && src =~ ENTRY_REGEXP
+        src = src.sub(ENTRY_REGEXP) do
           res[$1.to_sym] = $2[1..-2]
           ''
         end

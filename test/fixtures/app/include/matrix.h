@@ -140,6 +140,34 @@ private:
   PrivateConstr(const char *name) {}
 };
 
+/** Test that custom destructors are used.
+ *
+ * @dub destructor: 'foobar'
+ */
+class CustomDestructor {
+public:
+
+  CustomDestructor(int x) {}
+
+  ~CustomDestructor() {}
+
+  void foobar() {
+    delete this;
+  }
+};
+
+/** Test that no destructor option is used.
+ *
+ * @dub destructor: ''
+ */
+class NoDestructor {
+public:
+
+  NoDestructor(int x) {}
+
+  ~NoDestructor() {}
+};
+
 template<class T>
 class TMat {
 public:
