@@ -168,6 +168,23 @@ public:
   ~NoDestructor() {}
 };
 
+/** Test that we can use a static constructor.
+ * @dub constructor: 'MakeStaticConstr'
+ */
+class StaticConstr {
+public:
+
+  StaticConstr(int x) {}
+
+  ~StaticConstr() {}
+
+  // We usually want to push the userdata ourself in
+  // such cases.
+  static LuaStackSize MakeStaticConstr(lua_State *L) {
+    return 0; // fake error (nil return)
+  }
+};
+
 template<class T>
 class TMat {
 public:

@@ -9,6 +9,7 @@
   * Added support for const char * return type.
   * Added support for delete in C++ and/or Lua (DeletableOutOfLua class).
   * Added 'deleted' method when the class can be destroyed out of Lua.
+  * Added support for custom constructors.
 
 == 0.6.6 2010-12-16
 

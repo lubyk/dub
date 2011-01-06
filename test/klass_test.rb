@@ -267,6 +267,30 @@ class KlassTest < Test::Unit::TestCase
         assert_match %r{lua_pushclass<Mat>.*"cv.Mat"}, @class.constructor.first.to_s
       end
 
+      context 'with a custom constructor' do
+        subject do
+          @klass = namespacedub_xml[:dub][:StaticConstr]
+          Dub::Lua.bind(@klass)
+          @klass
+        end
+
+        should 'respond true to custom_constructor?' do
+          assert subject.custom_constructor?
+        end
+
+        should 'not create normal constructor' do
+          assert_no_match %r{StaticConstr_StaticConstr}, subject.to_s
+        end
+
+        should 'declare static method as constructor' do
+          assert_match %r{\{"StaticConstr"\s*,\s*StaticConstr_MakeStaticConstr\},}, subject.to_s
+        end
+
+        should 'not declare static method as method' do
+          assert_no_match %r{\{"StaticConstr_MakeStaticConstr",\s+StaticConstr_MakeStaticConstr\},}, subject.to_s
+        end
+      end # with a custom destructor
+
       should 'include class header' do
         assert_match %r{#include\s+"matrix.h"}, @class.to_s
       end

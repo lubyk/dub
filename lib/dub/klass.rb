@@ -96,6 +96,11 @@ module Dub
       @opts[:destructor]
     end
 
+    # Use a static method as constructor.
+    def custom_constructor?
+      @opts[:constructor]
+    end
+
     def template_params
       @template_params
     end
@@ -142,6 +147,11 @@ module Dub
     end
 
     def constructor
+      if custom_constructor?
+        # Using a static member built with member list
+        return nil
+      end
+      
       if defined?(@constructor)
         @constructor
       else
@@ -266,6 +276,11 @@ module Dub
       def ignore_member?(member)
         if custom_destructor?
           if member.name == opts[:destructor] || member.name == 'set_userdata_ptr'
+            return true
+          end
+        end
+        if custom_constructor?
+          if member.constructor?
             return true
           end
         end

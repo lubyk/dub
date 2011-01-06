@@ -43,6 +43,11 @@
     <member refid="classdub_1_1_private_constr_1a174cf284ec0da84991abb013d7b498a7" kind="function"><name>~PrivateConstr</name></member>
     <member refid="classdub_1_1_private_constr_1ad75c5206e443c41ec74a9d273db8a733" kind="function"><name>PrivateConstr</name></member>
   </compound>
+  <compound refid="classdub_1_1_static_constr" kind="class"><name>dub::StaticConstr</name>
+    <member refid="classdub_1_1_static_constr_1abf9020105a36eb99e7346a45625a7e2c" kind="function"><name>StaticConstr</name></member>
+    <member refid="classdub_1_1_static_constr_1aaf9d50d7ddca927965d3832f355bd6ac" kind="function"><name>~StaticConstr</name></member>
+    <member refid="classdub_1_1_static_constr_1a56ca6344b17c8ff3df132c6100b53882" kind="function"><name>MakeStaticConstr</name></member>
+  </compound>
   <compound refid="classdub_1_1_t_mat" kind="class"><name>dub::TMat</name>
     <member refid="classdub_1_1_t_mat_1a325c9dcebf13b0804997d014e7287606" kind="variable"><name>data_</name></member>
     <member refid="classdub_1_1_t_mat_1af4189290104841dd5a9a6f02bf83a7d8" kind="variable"><name>rows_</name></member>

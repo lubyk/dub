@@ -25,9 +25,19 @@ module Dub
         'bool',
       ]
 
+      DEFAULT_CUSTOM_TYPES = [
+        [/lua_State /, Proc.new do |type_def, arg, stack_pos|
+          if type_def =~ /lua_State\s*\*\s*L/
+            ""
+          else
+            "#{type_def} = L;"
+          end
+        end]
+      ]
+
       def initialize
         load_erb
-        @custom_types = []
+        @custom_types = DEFAULT_CUSTOM_TYPES.dup
       end
 
       def template_path=(template_path)

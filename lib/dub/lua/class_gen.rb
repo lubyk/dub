@@ -43,12 +43,23 @@ module Dub
       end
 
       def namespace_methods_registration(klass = @class)
-        global_methods = klass.names.map do |name|
-          "{%-20s, #{klass.constructor.method_name(0)}}" % name.inspect
+        if custom_ctor = klass.opts[:constructor]
+          ctor = klass[custom_ctor.to_sym]
+          raise "#{klass.name} custom constructor '#{custom_ctor}' not found !" unless ctor
+          raise "#{klass.name} custom constructor '#{custom_ctor}' not a static function !" unless ctor.static?
+
+          global_methods = klass.names.map do |name|
+            "{%-20s, #{ctor.method_name(0)}}" % name.inspect
+          end
+        else
+          global_methods = klass.names.map do |name|
+            "{%-20s, #{(klass[klass.opts[:constructor]] || klass.constructor).method_name(0)}}" % name.inspect
+          end
         end
 
         (klass.members || []).map do |method|
           next unless method.static?
+          next if method.name == custom_ctor
           global_methods << "{%-20s, #{method.method_name(0)}}" % "#{klass.name}_#{method.name}".inspect
         end
 

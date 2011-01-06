@@ -66,11 +66,11 @@ Then you can write settings in the class documentation:
 
 Note that for some strange reason, you have to use a double '%' to get one.
 
-== constants
+== Constants
 
 The easiest way to deal with constants is through documented enums (if this is possible) or defines with @defgroup.
 
-== destructors
+== Custom destructors
 
 By default Dub expects that the scripting app manages memory. This means that objects are deleted by the __gc method in
 Lua for example. If you want to allow destruction from both the scripting language and C++, you can subclass the C++ with
@@ -89,3 +89,19 @@ Once a custom destructor is set, the method calls in Lua are protected (check th
 method "deleted" that returns true if the C++ is ... well, yes: deleted.
 
 You can also disable destruction from the scripting language by setting "destructor: ''" (empty string).
+
+== Cucstom constructors
+
+You can use custom constructors by using a static member function:
+
+    /** This class can be deleted from C++ or Lua
+     * @dub constructor: 'BuildCar'
+     */
+    class Car
+    {
+    public:
+      static LuaStackSize BuildCar(lua_State *L);
+    };
+
+Note that we have used the two special return values and parameters so that we can be in full control (this also means we will need
+to push the userdata on the stack before returning the stack size). The LuaStackSize is a typedef for int.
