@@ -174,15 +174,16 @@
 <codeline lineno="140"><highlight class="normal"><sp/><sp/><ref refid="classdub_1_1_private_constr" kindref="compound">PrivateConstr</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*name)<sp/>{}</highlight></codeline>
 <codeline lineno="141"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="142"><highlight class="normal"></highlight></codeline>
-<codeline lineno="147" refid="classdub_1_1_custom_destructor" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdub_1_1_custom_destructor" kindref="compound">CustomDestructor</ref><sp/>{</highlight></codeline>
+<codeline lineno="146" refid="classdub_1_1_custom_destructor" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdub_1_1_custom_destructor" kindref="compound">CustomDestructor</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>DeletableOutOfLua</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="148"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="149"><highlight class="normal"></highlight></codeline>
 <codeline lineno="150"><highlight class="normal"><sp/><sp/><ref refid="classdub_1_1_custom_destructor" kindref="compound">CustomDestructor</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x)<sp/>{}</highlight></codeline>
 <codeline lineno="151"><highlight class="normal"></highlight></codeline>
 <codeline lineno="152"><highlight class="normal"><sp/><sp/>~<ref refid="classdub_1_1_custom_destructor" kindref="compound">CustomDestructor</ref>()<sp/>{}</highlight></codeline>
 <codeline lineno="153"><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>foobar()<sp/>{</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>do_this(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x)<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
 <codeline lineno="156"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="157"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="158"><highlight class="normal"></highlight></codeline>

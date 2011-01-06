@@ -3,7 +3,7 @@
   <compound refid="classdub_1_1_custom_destructor" kind="class"><name>dub::CustomDestructor</name>
     <member refid="classdub_1_1_custom_destructor_1a3d7ad33377ffbaabc015e9edf817cbef" kind="function"><name>CustomDestructor</name></member>
     <member refid="classdub_1_1_custom_destructor_1acf4d9fd787b873c8eef16b824bd4cff1" kind="function"><name>~CustomDestructor</name></member>
-    <member refid="classdub_1_1_custom_destructor_1a43d35f2bff2e39aea509f0d4c5ba2d06" kind="function"><name>foobar</name></member>
+    <member refid="classdub_1_1_custom_destructor_1aa47a1ea428fb9cde34d726d06f32ffc0" kind="function"><name>do_this</name></member>
   </compound>
   <compound refid="classdub_1_1_matrix" kind="class"><name>dub::Matrix</name>
     <member refid="classdub_1_1_matrix_1aa2925235ace4c72c9cf8e5509c8fea9f" kind="property"><name>foo_prop</name></member>

@@ -88,6 +88,14 @@ module Dub
       !@enums.empty?
     end
 
+    # Special or no destructor: class construction
+    # and method calls are treated differently because
+    # the object can be destroyed out of Lua (and Lua
+    # should call a special method on garbage collection).
+    def custom_destructor?
+      @opts[:destructor]
+    end
+
     def template_params
       @template_params
     end
@@ -123,6 +131,10 @@ module Dub
 
     def destructor_name
       "#{name}_destructor"
+    end
+
+    def is_deleted_name
+      "#{name}_deleted"
     end
 
     def tostring_name
@@ -209,11 +221,11 @@ module Dub
       def make_member(name, xml)
         member = super
         return nil unless member
-        
-        if names.include?(name)          
+
+        if names.include?(name)
           member.name = @name # force key name
           member.set_as_constructor
-          
+
           # special handling of constructors
           if @constructor.kind_of?(FunctionGroup)
             @constructor << member
@@ -226,7 +238,7 @@ module Dub
             @constructor = member
           end
         end
-        
+
         member
       end
 
@@ -249,6 +261,15 @@ module Dub
         else
           super
         end
+      end
+
+      def ignore_member?(member)
+        if custom_destructor?
+          if member.name == opts[:destructor] || member.name == 'set_userdata_ptr'
+            return true
+          end
+        end
+        super
       end
 
   end

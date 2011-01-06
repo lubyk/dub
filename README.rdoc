@@ -69,3 +69,23 @@ Note that for some strange reason, you have to use a double '%' to get one.
 == constants
 
 The easiest way to deal with constants is through documented enums (if this is possible) or defines with @defgroup.
+
+== destructors
+
+By default Dub expects that the scripting app manages memory. This means that objects are deleted by the __gc method in
+Lua for example. If you want to allow destruction from both the scripting language and C++, you can subclass the C++ with
+DeletableOutOfLua (this protects Lua userdata from dangling pointers):
+
+    /** This class can be deleted from C++ or Lua
+     * @dub destructor: 'dub_destroy'
+     */
+    class CustomDestructor : public DeletableOutOfLua
+    {
+    public:
+      // nothing special here
+    };
+
+Once a custom destructor is set, the method calls in Lua are protected (check that the object still exists). You also get a new
+method "deleted" that returns true if the C++ is ... well, yes: deleted.
+
+You can also disable destruction from the scripting language by setting "destructor: ''" (empty string).

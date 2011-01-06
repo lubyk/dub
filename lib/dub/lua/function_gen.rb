@@ -125,6 +125,10 @@ module Dub
         if func.member_method? && !func.constructor? && !func.static?
           klass = func.parent
           res << "#{klass.name} *self__ = *((#{klass.name}**)luaL_checkudata(L, 1, #{klass.id_name.inspect}));"
+          if func.member_method? && func.klass.custom_destructor?
+            # protect calls
+            res << "if (!self__) return luaL_error(L, \"Using deleted #{klass.id_name} in #{func.name}\");"
+          end
           delta_top = 1
         end
 
@@ -205,12 +209,17 @@ module Dub
           when :string
             res << "lua_pushstring(L, retval__);"
           else
+            pushclass = 'lua_pushclass'
             if func.constructor?
+              if func.klass.custom_destructor?
+                # Use special pushclass to set userdata
+                pushclass = 'lua_pushclass2'
+              end
               prefix = func.klass.prefix
             else
               prefix = func.prefix
             end
-            res << "lua_pushclass<#{return_value.type}>(L, retval__, \"#{return_value.id_name}\");"
+            res << "#{pushclass}<#{return_value.type}>(L, retval__, \"#{return_value.id_name}\");"
           end
           res << "return 1;"
         else

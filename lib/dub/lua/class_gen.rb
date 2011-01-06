@@ -32,7 +32,12 @@ module Dub
         end.compact
 
         member_methods << "{%-20s, #{klass.tostring_name}}" % "__tostring".inspect
-        member_methods << "{%-20s, #{klass.destructor_name}}" % "__gc".inspect
+        if klass.opts[:destructor] != ''
+          member_methods << "{%-20s, #{klass.destructor_name}}" % "__gc".inspect
+        end
+        if klass.custom_destructor?
+          member_methods << "{%-20s, #{klass.is_deleted_name}}" % "deleted".inspect
+        end
 
         member_methods.join(",\n")
       end

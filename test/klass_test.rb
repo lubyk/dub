@@ -81,7 +81,7 @@ class KlassTest < Test::Unit::TestCase
     context 'with a bound member list' do
       setup do
         Dub::Lua.bind(@class)
-        @list = @class.members.map {|m| m.name}
+        @list = @class.members.map(&:name)
       end
 
       should 'remove destructor from member list' do
@@ -198,29 +198,66 @@ class KlassTest < Test::Unit::TestCase
         assert_match %r{static int Matrix_Matrix\s*\(},  result
           assert_match %r{if \(\*userdata\) delete \*userdata;}, result
       end
-      
+
       context 'with a custom destructor' do
         subject do
-          klass = namespacedub_xml[:dub][:CustomDestructor]
-          Dub::Lua.bind(klass)
-          klass.to_s
+          namespacedub_xml[:dub][:CustomDestructor]
+        end
+
+        should 'respond true to custom_destructor?' do
+          assert subject.custom_destructor?
         end
 
         should 'use custom destructor' do
-          assert_match %r{if \(\*userdata\) \(\*userdata\)->foobar\(\);}, subject
+          Dub::Lua.bind(subject)
+          assert_match %r{if \(\*userdata\) \(\*userdata\)->dub_destroy\(\);}, subject.to_s
+        end
+
+        should 'secure calls' do
+          function = subject[:do_this]
+          Dub::Lua.bind(function)
+          assert_match %r{if \(!self__\) return luaL_error\(L, "Using deleted dub\.CustomDestructor in do_this"\);}, function.to_s
+        end
+
+        should 'specialize to_string' do
+          Dub::Lua.bind(subject)
+          assert_match %r{if \(!\*userdata\) \{.*lua_pushstring\(L, "<dub.CustomDestructor: NULL>"\);}m, subject.to_s
+        end
+
+        should 'add deleted method' do
+          Dub::Lua.bind(subject)
+          assert_match %r{CustomDestructor_deleted.*lua_pushboolean\(L, \*userdata == NULL\);}m, subject.to_s
+        end
+
+        should 'not insert destructor in members' do
+          assert !subject.members.map(&:name).include?('destroy')
+        end
+
+        should 'ignore set_userdata_ptr' do
+          assert !subject.members.map(&:name).include?('set_userdata_ptr')
+        end
+
+        should 'set pointer to userdata on create' do
+          function = subject[:CustomDestructor]
+          Dub::Lua.bind(function)
+          assert_match %r{lua_pushclass2}, function.to_s
         end
       end # with a custom destructor
 
       context 'with a custom destructor set to nothing' do
         subject do
-          klass = namespacedub_xml[:dub][:NoDestructor]
-          Dub::Lua.bind(klass)
-          klass.to_s
+          @klass = namespacedub_xml[:dub][:NoDestructor]
+          Dub::Lua.bind(@klass)
+          @klass.to_s
         end
 
-        should 'noop in destructor' do
-          assert_match %r{// do not destroy}, subject
-          assert_no_match %r{delete\s+\*userdata}, subject
+        should 'not create destructor' do
+          subject
+          assert_no_match %r{#{@klass.destructor_name}}, subject
+        end
+
+        should 'not declare __gc' do
+          assert_no_match %r{__gc}m, subject
         end
       end # with a custom destructor
 
@@ -229,7 +266,7 @@ class KlassTest < Test::Unit::TestCase
         Dub::Lua.bind(@class)
         assert_match %r{lua_pushclass<Mat>.*"cv.Mat"}, @class.constructor.first.to_s
       end
-      
+
       should 'include class header' do
         assert_match %r{#include\s+"matrix.h"}, @class.to_s
       end
@@ -315,7 +352,7 @@ class KlassTest < Test::Unit::TestCase
       setup do
         @class = namespacedub_xml[:dub][:FMatrix]
         Dub::Lua.bind(@class)
-        @list = @class.members.map {|m| m.name}
+        @list = @class.members.map(&:name)
       end
 
       should 'ignore template methods in member list' do
@@ -341,7 +378,7 @@ class KlassTest < Test::Unit::TestCase
     context 'with a bound member list' do
       setup do
         Dub::Lua.bind(@class)
-        @list = @class.members.map {|m| m.name}
+        @list = @class.members.map(&:name)
       end
 
       should 'ignore template methods in member list' do
@@ -445,7 +482,7 @@ class KlassTest < Test::Unit::TestCase
       end
 
       should 'list all members on members' do
-        assert_equal %w{addref adjustROI assignTo channels clone col colRange convertTo copyTo create cross depth diag dot elemSize elemSize1 empty eye isContinuous locateROI ones release reshape row rowRange setTo size step1 type zeros}, @class.members.map {|m| m.name}
+        assert_equal %w{addref adjustROI assignTo channels clone col colRange convertTo copyTo create cross depth diag dot elemSize elemSize1 empty eye isContinuous locateROI ones release reshape row rowRange setTo size step1 type zeros}, @class.members.map(&:name)
       end
     end
   end

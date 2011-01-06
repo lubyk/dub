@@ -187,17 +187,22 @@ class LuaFunctionGenTest < Test::Unit::TestCase
   end
 
   context 'A member function bound to a Lua generator' do
-    setup do
-      @member = namespacedub_xml[:dub][:Matrix][:rows]
-      Dub::Lua.bind(@member)
+    subject do
+      member = namespacedub_xml[:dub][:Matrix][:rows]
+      Dub::Lua.bind(member)
+      member.to_s
     end
 
     should 'start by getting self' do
-      assert_match %r{self__\s*=\s*\*\(\(Matrix\*\*\)luaL_checkudata}, @member.to_s
+      assert_match %r{self__\s*=\s*\*\(\(Matrix\*\*\)luaL_checkudata}, subject
+    end
+
+    should 'assert that self is not nil' do
+      assert_match %r{self__\s*=\s*\*\(\(Matrix\*\*\)luaL_checkudata}, subject
     end
 
     should 'prefix call with self' do
-      assert_match %r{self__->rows\(}, @member.to_s
+      assert_match %r{self__->rows\(}, subject
     end
   end
 

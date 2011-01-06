@@ -33,6 +33,61 @@ void lua_pushclass(lua_State *L, T *ptr, const char *type_name) {
   lua_setmetatable(L, -2);
 }
 
+/** Push a custom type on the stack and give it the pointer to the userdata.
+ * Passing the userdata enables early deletion from some other thread (GUI)
+ * that safely invalidates the userdatum.
+ */
+template<class T>
+void lua_pushclass2(lua_State *L, T *ptr, const char *type_name) {
+  T **userdata = (T**)lua_newuserdata(L, sizeof(T*));
+  *userdata = ptr;
+
+  // store pointer in class so that it can set it to NULL on destroy with
+  // *userdata = NULL
+  ptr->set_userdata_ptr(userdata);
+
+  // the userdata is now on top of the stack
+
+  // set metatable (contains methods)
+  luaL_getmetatable(L, type_name);
+  lua_setmetatable(L, -2);
+}
+
+/** Classes that can be deleted out of Lua should inherit from this class or
+ * implement 'set_userdata_ptr' (and manage the userdata_ptr...)
+ */
+class DeletableOutOfLua {
+  void **userdata_ptr_;
+public:
+  DeletableOutOfLua()
+   : userdata_ptr_(NULL) {}
+  virtual ~DeletableOutOfLua() {
+    if (userdata_ptr_) {
+      *userdata_ptr_ = NULL;
+      userdata_ptr_ = NULL;
+    }
+  }
+
+  virtual void dub_destroy() {
+    dub_cleanup();
+    delete this;
+  }
+
+  /** @internal
+   */
+  void set_userdata_ptr(void **ptr) {
+    userdata_ptr_ = ptr;
+  }
+
+protected:
+  /** MUST be called from the custom destructor.
+   */
+  void dub_cleanup() {
+    // so that it is not changed in ~DeletableOutOfLua
+    userdata_ptr_ = NULL;
+  }
+};
+
 /** Push a custom type on the stack.
  * Since the value is passed by value, we have to allocate a copy
  * using 'new' so that Lua can keep it.

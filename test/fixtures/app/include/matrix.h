@@ -141,18 +141,18 @@ private:
 };
 
 /** Test that custom destructors are used.
- *
- * @dub destructor: 'foobar'
+ * @dub destructor: 'dub_destroy'
  */
-class CustomDestructor {
+class CustomDestructor : public DeletableOutOfLua
+{
 public:
 
   CustomDestructor(int x) {}
 
   ~CustomDestructor() {}
 
-  void foobar() {
-    delete this;
+  void do_this(int x) {
+
   }
 };
 
