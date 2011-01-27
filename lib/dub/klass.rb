@@ -151,7 +151,7 @@ module Dub
         # Using a static member built with member list
         return nil
       end
-      
+
       if defined?(@constructor)
         @constructor
       else

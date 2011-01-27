@@ -2,6 +2,9 @@ require 'helper'
 require 'dub/lua'
 
 class KlassTest < Test::Unit::TestCase
+  def assert_include(x, list)
+    assert list.include?(x)
+  end
 
   context 'A Klass' do
     setup do
@@ -339,6 +342,21 @@ class KlassTest < Test::Unit::TestCase
           assert_equal 'CLASS: Matrix', @class.to_s
         end
       end
+    end
+  end
+
+  context 'A sub class' do
+    subject do
+      # namespacecv_xml = Dub.parse(fixture('app/xml/namespacedub.xml'))
+      namespacedub_xml[:dub][:SubBase]
+    end
+
+    should 'know the list of the public super classes' do
+      assert_include namespacedub_xml[:dub][:Base], subject.superclasses
+    end
+
+    should 'include public methods from super class' do
+      assert_include 'method_in_base', subject.members.map(&:name)
     end
   end
 

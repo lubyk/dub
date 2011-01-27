@@ -185,6 +185,38 @@ public:
   }
 };
 
+// class inheritence tests
+class Base {
+public:
+  Base() {}
+  ~Base() {}
+
+  const char *method_in_base(int x, float y) {
+    return "nothing";
+  }
+};
+
+// class inheritence tests
+class SubBase : public Base {
+public:
+  SubBase() {}
+  ~SubBase() {}
+
+  void method_in_sub(float y) {
+    return "nothing";
+  }
+};
+
+// class inheritence tests
+class PrivSubBase : private Base {
+public:
+  SubBase() {}
+  ~SubBase() {}
+
+  void method_in_sub(float y) {
+    return "nothing";
+  }
+};
 template<class T>
 class TMat {
 public:

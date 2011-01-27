@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.6.3">
+  <compound refid="classdub_1_1_base" kind="class"><name>dub::Base</name>
+    <member refid="classdub_1_1_base_1ac906f7b7c2dadda8277be3f7dff4d0fe" kind="function"><name>Base</name></member>
+    <member refid="classdub_1_1_base_1ad7382fcee9fc5a93dbdd94375e4bf512" kind="function"><name>~Base</name></member>
+    <member refid="classdub_1_1_base_1a000aeea60faa72eb694f636125cadbc2" kind="function"><name>method_in_base</name></member>
+  </compound>
   <compound refid="classdub_1_1_custom_destructor" kind="class"><name>dub::CustomDestructor</name>
     <member refid="classdub_1_1_custom_destructor_1a3d7ad33377ffbaabc015e9edf817cbef" kind="function"><name>CustomDestructor</name></member>
     <member refid="classdub_1_1_custom_destructor_1acf4d9fd787b873c8eef16b824bd4cff1" kind="function"><name>~CustomDestructor</name></member>
@@ -43,10 +48,20 @@
     <member refid="classdub_1_1_private_constr_1a174cf284ec0da84991abb013d7b498a7" kind="function"><name>~PrivateConstr</name></member>
     <member refid="classdub_1_1_private_constr_1ad75c5206e443c41ec74a9d273db8a733" kind="function"><name>PrivateConstr</name></member>
   </compound>
+  <compound refid="classdub_1_1_priv_sub_base" kind="class"><name>dub::PrivSubBase</name>
+    <member refid="classdub_1_1_priv_sub_base_1ad3b248b5942202e9e4f24bd70bba9842" kind="function"><name>SubBase</name></member>
+    <member refid="classdub_1_1_priv_sub_base_1a434f3cce3e7a507457c245b946359160" kind="function"><name>~SubBase</name></member>
+    <member refid="classdub_1_1_priv_sub_base_1a2596f5226a8ac79d2ef19ab3273fdaf9" kind="function"><name>method_in_sub</name></member>
+  </compound>
   <compound refid="classdub_1_1_static_constr" kind="class"><name>dub::StaticConstr</name>
     <member refid="classdub_1_1_static_constr_1abf9020105a36eb99e7346a45625a7e2c" kind="function"><name>StaticConstr</name></member>
     <member refid="classdub_1_1_static_constr_1aaf9d50d7ddca927965d3832f355bd6ac" kind="function"><name>~StaticConstr</name></member>
     <member refid="classdub_1_1_static_constr_1a56ca6344b17c8ff3df132c6100b53882" kind="function"><name>MakeStaticConstr</name></member>
+  </compound>
+  <compound refid="classdub_1_1_sub_base" kind="class"><name>dub::SubBase</name>
+    <member refid="classdub_1_1_sub_base_1a9138b809b491779bce4b6ea83fafef77" kind="function"><name>SubBase</name></member>
+    <member refid="classdub_1_1_sub_base_1a8428276b3ec36d87805fdb7b74746459" kind="function"><name>~SubBase</name></member>
+    <member refid="classdub_1_1_sub_base_1ac4f5b28ef51171560a92ba242766a072" kind="function"><name>method_in_sub</name></member>
   </compound>
   <compound refid="classdub_1_1_t_mat" kind="class"><name>dub::TMat</name>
     <member refid="classdub_1_1_t_mat_1a325c9dcebf13b0804997d014e7287606" kind="variable"><name>data_</name></member>
