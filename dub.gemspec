@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gaspard Bucher"]
-  s.date = %q{2011-01-27}
+  s.date = %q{2011-02-15}
   s.description = %q{This is a tool to ease the creation of scripting language bindings for a C++ library.
     It is currently developed to crete the OpenCV bindings for Lua in Rubyk (http://rubyk.org). The generator uses the xml output from Doxygen to avoid parsing C++ code by itself.}
   s.email = %q{gaspard@teti.ch}
@@ -138,11 +138,15 @@ Gem::Specification.new do |s|
      "test/fixtures/app/vendor/lua/test/trace-calls.lua",
      "test/fixtures/app/vendor/lua/test/trace-globals.lua",
      "test/fixtures/app/vendor/lua/test/xd.lua",
+     "test/fixtures/app/xml/classdub_1_1_base.xml",
      "test/fixtures/app/xml/classdub_1_1_custom_destructor.xml",
      "test/fixtures/app/xml/classdub_1_1_deletable_out_of_lua.xml",
      "test/fixtures/app/xml/classdub_1_1_matrix.xml",
      "test/fixtures/app/xml/classdub_1_1_no_destructor.xml",
+     "test/fixtures/app/xml/classdub_1_1_priv_sub_base.xml",
      "test/fixtures/app/xml/classdub_1_1_private_constr.xml",
+     "test/fixtures/app/xml/classdub_1_1_static_constr.xml",
+     "test/fixtures/app/xml/classdub_1_1_sub_base.xml",
      "test/fixtures/app/xml/classdub_1_1_t_mat.xml",
      "test/fixtures/app/xml/combine.xslt",
      "test/fixtures/app/xml/compound.xsd",

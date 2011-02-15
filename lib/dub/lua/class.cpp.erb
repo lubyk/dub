@@ -97,6 +97,8 @@ extern "C" int luaopen_<%= @class.prefix %>_<%= @class.lib_name %>(lua_State *L)
 
   // register member methods
   luaL_register(L, NULL, <%= @class.name %>_member_methods);
+  // save meta-table in <%= @class.prefix %>.<%= @class.name %>_
+  register_mt(L, <%= @class.prefix.inspect %>, <%= @class.name.inspect %>);
 
   // register class methods in a global namespace table
   luaL_register(L, <%= @class.prefix.inspect %>, <%= @class.name %>_namespace_methods);

@@ -192,5 +192,23 @@ inline void register_constants(lua_State *L, const char *name_space, const lua_c
   lua_pop(L, 1);
 }
 
+// The metatable lives in libname.ClassName_
+inline void register_mt(lua_State *L, const char *libname, const char *class_name) {
+  size_t len = strlen(class_name) + 2;
+  char *buffer = (char*)malloc(sizeof(char) * len);
+  snprintf(buffer, len, "%s_", class_name);
 
+  // meta-table should be on top
+  // <mt>
+  lua_getglobal(L, libname);
+  // <mt> <lib>
+  lua_pushstring(L, buffer);
+  // <mt> <lib> "Foobar_"
+  lua_pushvalue(L, -3);
+  // <mt> <lib> "Foobar" <mt>
+  lua_settable(L, -3);
+  // <mt> <lib>
+  lua_pop(L, 1);
+  // <mt>
+}
 #endif // DOXY_GENERATOR_LIB_DOXY_GENERATOR_INCLUDE_LUA_DOXY_HELPER_H_
