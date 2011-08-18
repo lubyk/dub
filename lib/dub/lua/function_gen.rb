@@ -129,15 +129,22 @@ module Dub
         "static int #{method_name(func, overloaded_index)}(lua_State *L)"
       end
 
-      def body(func)
+      # The check_prefix parameter chooses between dubL_check and luaL_check depending
+      # on exceptions that can be thrown.
+      def body(func, check_prefix)
         res = []
         delta_top = 0
         if func.member_method? && !func.constructor? && !func.static?
           klass = func.parent
-          res << "#{klass.name} *self__ = *((#{klass.name}**)dubL_checkudata(L, 1, #{klass.id_name.inspect}));"
+          res << "#{klass.name} *self__ = *((#{klass.name}**)#{check_prefix}L_checkudata(L, 1, #{klass.id_name.inspect}));"
           if func.member_method? && func.klass.custom_destructor?
             # protect calls
-            res << "if (!self__) return luaL_error(L, \"Using deleted #{klass.id_name} in #{func.name}\");"
+            if check_prefix == 'dub'
+              # we cannot use luaL_error
+              res << "if (!self__) throw dub::Exception(\"Using deleted #{klass.id_name} in #{func.name}\");"
+            else
+              res << "if (!self__) return luaL_error(L, \"Using deleted #{klass.id_name} in #{func.name}\");"
+            end
           end
           delta_top = 1
         end
@@ -157,7 +164,7 @@ module Dub
             res << indent("} else {", if_indent)
             if_indent += 2
           end
-          res << indent(get_arg(arg, i + 1 + delta_top), if_indent)
+          res << indent(get_arg(arg, i + 1 + delta_top, check_prefix), if_indent)
         end
         res << indent(call_string(func, func.arguments.count), if_indent)
         while if_indent > 0
@@ -240,7 +247,9 @@ module Dub
 
       # Get argument and verify type
       # // luaL_argcheck could be better to report errors like "expected Mat"
-      def get_arg(arg, stack_pos)
+      # the check_prefix chooses between 'luaL_check...' and 'dubL_check' methods
+      # depending on C++ exceptions raised by the function.
+      def get_arg(arg, stack_pos, check_prefix)
         type_def = "#{arg.create_type}#{arg.name}#{arg.array_suffix}"
         if custom_type = @custom_types.detect {|reg,proc| type_def =~ reg}
           custom_type[1].call(type_def, arg, stack_pos)
@@ -248,7 +257,7 @@ module Dub
           if arg.is_pointer?
             if arg.type == 'char'
               type_def = "const #{type_def}" unless arg.is_const?
-              "#{type_def} = dubL_checkstring(L, #{stack_pos});"
+              "#{type_def} = #{check_prefix}L_checkstring(L, #{stack_pos});"
             else
               # retrieve by using a table accessor
               # TODO: we should have a hint on required sizes !
@@ -257,17 +266,17 @@ module Dub
             end
           else
             if NUMBER_TYPES.include?(arg.type)
-              "#{type_def} = dubL_checknumber(L, #{stack_pos});"
+              "#{type_def} = #{check_prefix}L_checknumber(L, #{stack_pos});"
             elsif BOOL_TYPES.include?(arg.type)
               "#{type_def} = lua_toboolean(L, #{stack_pos});"
             elsif INT_TYPES.include?(arg.type)
-              "#{type_def} = dubL_checkint(L, #{stack_pos});"
+              "#{type_def} = #{check_prefix}L_checkint(L, #{stack_pos});"
             else
               raise "Unsuported type: #{arg.type}"
             end
           end
         else
-          "#{type_def} = *((#{arg.create_type}*)dubL_checkudata(L, #{stack_pos}, #{arg.id_name.inspect}));"
+          "#{type_def} = *((#{arg.create_type}*)#{check_prefix}L_checkudata(L, #{stack_pos}, #{arg.id_name.inspect}));"
         end
       end
 
@@ -284,7 +293,7 @@ module Dub
       end
 
       def load_erb
-        @function_template = ::ERB.new(File.read(@template_path ||File.join(File.dirname(__FILE__), 'function.cpp.erb')))
+        @function_template = ::ERB.new(File.read(@template_path ||File.join(File.dirname(__FILE__), 'function.cpp.erb')), nil, '%<>-')
         @group_template    = ::ERB.new(File.read(File.join(File.dirname(__FILE__), 'group.cpp.erb')))
       end
     end # FunctionGen

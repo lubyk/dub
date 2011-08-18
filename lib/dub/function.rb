@@ -43,6 +43,12 @@ module Dub
       @is_constructor
     end
 
+    def throws?
+      @throw ||= (@xml/'exceptions').innerHTML || ''
+      @throw = (@throw =~ /throw\s*\(\s*\)/) ? :nothing : :any
+      @throw != :nothing
+    end
+
     def static?
       @is_static
     end

@@ -1,10 +1,15 @@
 <%= comment(@function) %>
 <%= signature(@function) %> {
+<% if @function.throws? -%>
   try {
-<%= indent(body(@function), 4) %>
+<%= indent(body(@function, 'dub'), 4) %>
   } catch (std::exception &e) {
-    return luaL_error(L, "<%= @function.id_name %>: %s", e.what());
+    lua_pushfstring(L, "<%= @function.id_name %>: %s", e.what());
   } catch (...) {
-    return luaL_error(L, "<%= @function.id_name %>: Unknown exception");
+    lua_pushfstring(L, "<%= @function.id_name %>: Unknown exception");
   }
+  return lua_error(L);
+<% else -%>
+<%= indent(body(@function, 'lua'), 2) %>
+<% end -%>
 }
