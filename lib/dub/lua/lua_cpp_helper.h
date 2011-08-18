@@ -3,6 +3,7 @@
 #define DOXY_GENERATOR_LIB_DOXY_GENERATOR_INCLUDE_LUA_DOXY_HELPER_H_
 
 #include <stdlib.h> // malloc
+#include <string> // std::string for Exception
 
 #ifdef __cplusplus
 extern "C" {
@@ -14,6 +15,48 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
+/** Try/catch safe versions of luaL_checknumber, luaL_checkudata, .. */
+                       
+#define DUB_EXCEPTION_BUFFER_SIZE 256  
+
+namespace dub {
+class Exception : public std::exception
+{
+  std::string message_;
+public:
+  explicit Exception(const char *format, ...);
+
+  ~Exception() throw();
+
+  const char* what() const throw();
+};
+
+class TypeException : public Exception
+{
+public:
+  explicit TypeException(lua_State *L, int narg, const char *type);
+};
+
+} // dub
+
+
+// ================================================== dubL_check... try/catch safe
+// these provide the same funcionality of their equivalent luaL_check... but they
+// throw std::exception which can be caught (eventually to call lua_error)
+using namespace dub;
+
+lua_Number dubL_checknumber(lua_State *L, int narg) throw(TypeException);
+lua_Number dubL_checkint(lua_State *L, int narg) throw(TypeException);
+
+const char *dubL_checklstring(lua_State *L, int narg, size_t *len) throw(TypeException);
+
+lua_Integer dubL_checkinteger(lua_State *L, int narg) throw(TypeException);
+
+void *dubL_checkudata(lua_State *L, int ud, const char *tname) throw(TypeException);
+
+#define dubL_checkstring(L,n) (dubL_checklstring(L, (n), NULL))
+#define dubL_checkint(L,n) ((int)dubL_checkinteger(L, (n)))
+
 /** ======================================== lua_pushclass          */
 
 /** Push a custom type on the stack.
@@ -59,33 +102,20 @@ void lua_pushclass2(lua_State *L, T *ptr, const char *type_name) {
 class DeletableOutOfLua {
   void **userdata_ptr_;
 public:
-  DeletableOutOfLua()
-   : userdata_ptr_(NULL) {}
-  virtual ~DeletableOutOfLua() {
-    if (userdata_ptr_) {
-      *userdata_ptr_ = NULL;
-      userdata_ptr_ = NULL;
-    }
-  }
+  DeletableOutOfLua();
 
-  virtual void dub_destroy() {
-    dub_cleanup();
-    delete this;
-  }
+  virtual ~DeletableOutOfLua();
+
+  virtual void dub_destroy();
 
   /** @internal
    */
-  void set_userdata_ptr(void **ptr) {
-    userdata_ptr_ = ptr;
-  }
+  void set_userdata_ptr(void **ptr);
 
 protected:
   /** MUST be called from the custom destructor.
    */
-  void dub_cleanup() {
-    // so that it is not changed in ~DeletableOutOfLua
-    userdata_ptr_ = NULL;
-  }
+  void dub_cleanup();
 };
 
 /** Push a custom type on the stack.
@@ -142,73 +172,20 @@ private:
 
 /** ======================================== is_userdata */
 
-inline bool is_userdata(lua_State *L, int index, const char *tname) {
-  void *p = lua_touserdata(L, index);
-  if (p != NULL) {  /* value is a userdata? */
-    if (lua_getmetatable(L, index)) {  /* does it have a metatable? */
-      lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
-      if (lua_rawequal(L, -1, -2)) {  /* does it have the correct mt? */
-        lua_pop(L, 2);  /* remove both metatables */
-        // type match
-        return true;
-      }
-    }
-  }
-  // type does not match
-  return false;
-}
+bool is_userdata(lua_State *L, int index, const char *tname);
 
 /** ======================================== register_constants */
-
 
 typedef struct lua_constants_Reg {
   const char *name;
   double constant;
 } lua_constants_Reg;
 
-inline int libsize (const lua_constants_Reg *l) {
-  int size = 0;
-  for (; l->name; l++) size++;
-  return size;
-}
+int libsize (const lua_constants_Reg *l);
 
-inline void register_constants(lua_State *L, const char *name_space, const lua_constants_Reg *l) {
-  if (name_space) {
-    /* compute size hint for new table. */
-    int size = libsize(l);
-
-    /* try global variable (and create one if it does not exist) */
-    if (luaL_findtable(L, LUA_GLOBALSINDEX, name_space, size) != NULL)
-      luaL_error(L, "name conflict for module " LUA_QS, name_space);
-
-    /* found name_space in global index ==> stack -1 */
-  }
-  for (; l->name; l++) {
-    /* push each constant into the name_space (stack position = -1)*/
-    lua_pushnumber(L, l->constant);
-    lua_setfield(L, -2, l->name);
-  }
-  /* pop name_space */
-  lua_pop(L, 1);
-}
+void register_constants(lua_State *L, const char *name_space, const lua_constants_Reg *l);
 
 // The metatable lives in libname.ClassName_
-inline void register_mt(lua_State *L, const char *libname, const char *class_name) {
-  size_t len = strlen(class_name) + 2;
-  char *buffer = (char*)malloc(sizeof(char) * len);
-  snprintf(buffer, len, "%s_", class_name);
+void register_mt(lua_State *L, const char *libname, const char *class_name);
 
-  // meta-table should be on top
-  // <mt>
-  lua_getglobal(L, libname);
-  // <mt> <lib>
-  lua_pushstring(L, buffer);
-  // <mt> <lib> "Foobar_"
-  lua_pushvalue(L, -3);
-  // <mt> <lib> "Foobar" <mt>
-  lua_settable(L, -3);
-  // <mt> <lib>
-  lua_pop(L, 1);
-  // <mt>
-}
 #endif // DOXY_GENERATOR_LIB_DOXY_GENERATOR_INCLUDE_LUA_DOXY_HELPER_H_

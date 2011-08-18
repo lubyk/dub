@@ -5,4 +5,5 @@
 build
 test/fixtures/app/vendor/lua/lua
 *.gem
+.*
 test/fixtures/app/html

@@ -134,7 +134,7 @@ module Dub
         delta_top = 0
         if func.member_method? && !func.constructor? && !func.static?
           klass = func.parent
-          res << "#{klass.name} *self__ = *((#{klass.name}**)luaL_checkudata(L, 1, #{klass.id_name.inspect}));"
+          res << "#{klass.name} *self__ = *((#{klass.name}**)dubL_checkudata(L, 1, #{klass.id_name.inspect}));"
           if func.member_method? && func.klass.custom_destructor?
             # protect calls
             res << "if (!self__) return luaL_error(L, \"Using deleted #{klass.id_name} in #{func.name}\");"
@@ -248,7 +248,7 @@ module Dub
           if arg.is_pointer?
             if arg.type == 'char'
               type_def = "const #{type_def}" unless arg.is_const?
-              "#{type_def} = luaL_checkstring(L, #{stack_pos});"
+              "#{type_def} = dubL_checkstring(L, #{stack_pos});"
             else
               # retrieve by using a table accessor
               # TODO: we should have a hint on required sizes !
@@ -257,17 +257,17 @@ module Dub
             end
           else
             if NUMBER_TYPES.include?(arg.type)
-              "#{type_def} = luaL_checknumber(L, #{stack_pos});"
+              "#{type_def} = dubL_checknumber(L, #{stack_pos});"
             elsif BOOL_TYPES.include?(arg.type)
               "#{type_def} = lua_toboolean(L, #{stack_pos});"
             elsif INT_TYPES.include?(arg.type)
-              "#{type_def} = luaL_checkint(L, #{stack_pos});"
+              "#{type_def} = dubL_checkint(L, #{stack_pos});"
             else
               raise "Unsuported type: #{arg.type}"
             end
           end
         else
-          "#{type_def} = *((#{arg.create_type}*)luaL_checkudata(L, #{stack_pos}, #{arg.id_name.inspect}));"
+          "#{type_def} = *((#{arg.create_type}*)dubL_checkudata(L, #{stack_pos}, #{arg.id_name.inspect}));"
         end
       end
 

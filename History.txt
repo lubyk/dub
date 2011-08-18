@@ -11,6 +11,7 @@
   * Added 'deleted' method when the class can be destroyed out of Lua.
   * Added support for custom constructors.
   * Giving access to meta-table in libname.ClassName_.
+  * Changed LuaL_check... for dubL_check... to work in try/catch scope (thanks to Ignacio Burgueño)
 
 == 0.6.6 2010-12-16
 
