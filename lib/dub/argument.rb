@@ -57,21 +57,30 @@ module Dub
       def decision_tree(group)
         hash = {}
         group.each do |function|
-          insert_by_type(hash, function)
+          insert_by_arg(hash, function)
         end
+        print(hash.inspect) if group.first.name == 'bind'
         hash
       end
 
       # Insert a function into the hash, using the argument at the given
       # index to filter
-      def insert_by_type(hash, function, index = 0)
+      def insert_by_arg(hash, function, index = 0)
         arg  = function.arguments[index]
         type = arg ? type_group(arg) : nil
+        insert_by_type(hash, function, index, type)
+        if arg && arg.has_default?
+          insert_by_type(hash, function, index, nil)
+        end
+      end
+
+      def insert_by_type(hash, function, index, type)
+        # hash[nil] ==> there is a default argument
         slot = hash[type]
         if slot.nil?
           hash[type] = function
         elsif slot.kind_of?(Hash)
-          insert_by_type(slot, function, index + 1)
+          insert_by_arg(slot, function, index + 1)
         elsif type.nil?
           # ignore
 
@@ -79,8 +88,8 @@ module Dub
           # puts "Cannot filter functions #{function.source}"
         else
           h = {}
-          insert_by_type(h, slot, index + 1)
-          insert_by_type(h, function, index + 1)
+          insert_by_arg(h, slot, index + 1)
+          insert_by_arg(h, function, index + 1)
           hash[type] = h
         end
       end

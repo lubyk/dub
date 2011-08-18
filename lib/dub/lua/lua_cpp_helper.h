@@ -1,9 +1,32 @@
+/*                                     
+Copyright (c) 2011 by Gaspard Bucher (http://teti.ch).
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
 
 #ifndef DOXY_GENERATOR_LIB_DOXY_GENERATOR_INCLUDE_LUA_DOXY_HELPER_H_
 #define DOXY_GENERATOR_LIB_DOXY_GENERATOR_INCLUDE_LUA_DOXY_HELPER_H_
 
 #include <stdlib.h> // malloc
 #include <string> // std::string for Exception
+#include <exception> // std::exception
 
 #ifdef __cplusplus
 extern "C" {
@@ -17,8 +40,6 @@ extern "C" {
 #endif
 /** Try/catch safe versions of luaL_checknumber, luaL_checkudata, .. */
                        
-#define DUB_EXCEPTION_BUFFER_SIZE 256  
-
 namespace dub {
 class Exception : public std::exception
 {
@@ -43,16 +64,15 @@ public:
 // ================================================== dubL_check... try/catch safe
 // these provide the same funcionality of their equivalent luaL_check... but they
 // throw std::exception which can be caught (eventually to call lua_error)
-using namespace dub;
 
-lua_Number dubL_checknumber(lua_State *L, int narg) throw(TypeException);
-lua_Number dubL_checkint(lua_State *L, int narg) throw(TypeException);
+lua_Number dubL_checknumber(lua_State *L, int narg) throw(dub::TypeException);
+lua_Number dubL_checkint(lua_State *L, int narg) throw(dub::TypeException);
 
-const char *dubL_checklstring(lua_State *L, int narg, size_t *len) throw(TypeException);
+const char *dubL_checklstring(lua_State *L, int narg, size_t *len) throw(dub::TypeException);
 
-lua_Integer dubL_checkinteger(lua_State *L, int narg) throw(TypeException);
+lua_Integer dubL_checkinteger(lua_State *L, int narg) throw(dub::TypeException);
 
-void *dubL_checkudata(lua_State *L, int ud, const char *tname) throw(TypeException);
+void *dubL_checkudata(lua_State *L, int ud, const char *tname) throw(dub::TypeException);
 
 #define dubL_checkstring(L,n) (dubL_checklstring(L, (n), NULL))
 #define dubL_checkint(L,n) ((int)dubL_checkinteger(L, (n)))
@@ -87,7 +107,7 @@ void lua_pushclass2(lua_State *L, T *ptr, const char *type_name) {
 
   // store pointer in class so that it can set it to NULL on destroy with
   // *userdata = NULL
-  ptr->set_userdata_ptr(userdata);
+  ptr->set_userdata_ptr((void**)userdata);
 
   // the userdata is now on top of the stack
 

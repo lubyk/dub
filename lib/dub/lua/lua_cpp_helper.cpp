@@ -1,3 +1,26 @@
+/* 
+Copyright (c) 2011 by Gaspard Bucher (http://teti.ch).
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
 #include "lua_cpp_helper.h"
 
 #define DUB_EXCEPTION_BUFFER_SIZE 256  
@@ -8,14 +31,14 @@ Exception::Exception(const char *format, ...) {
   char buffer[DUB_EXCEPTION_BUFFER_SIZE];
   va_list args;
   va_start(args, format);
-    vsnprintf(buffer, EXCEPTION_BUFFER_SIZE, format, args);
+    vsnprintf(buffer, DUB_EXCEPTION_BUFFER_SIZE, format, args);
   va_end(args);
   message_ = buffer;
 }
 
-Exception::~Exception() {}
+Exception::~Exception() throw() {}
 
-const char* Exception::what() {
+const char* Exception::what() const throw() {
   return message_.c_str();
 }
 
@@ -27,27 +50,27 @@ TypeException::TypeException(lua_State *L, int narg, const char *type) :
 // These methods (dubL_...) are slight adaptations from luaxlib.c
 // Copyright (C) 1994-2008 Lua.org, PUC-Rio.
 
-lua_Number dubL_checknumber(lua_State *L, int narg) {
+lua_Number dubL_checknumber(lua_State *L, int narg) throw(TypeException) {
   lua_Number d = lua_tonumber(L, narg);
   if (d == 0 && !lua_isnumber(L, narg))  /* avoid extra test when d is not 0 */
-    throw TypeException(L, narg, LUA_TNUMBER);
+    throw TypeException(L, narg, lua_typename(L, LUA_TNUMBER));
   return d;
 }
 
-lua_Integer dubL_checkinteger(lua_State *L, int narg) {
+lua_Integer dubL_checkinteger(lua_State *L, int narg) throw(TypeException) {
   lua_Integer d = lua_tointeger(L, narg);
   if (d == 0 && !lua_isnumber(L, narg))  /* avoid extra test when d is not 0 */
     throw TypeException(L, narg, lua_typename(L, LUA_TNUMBER));
   return d;
 }
 
-const char *dubL_checklstring(lua_State *L, int narg, size_t *len) {
+const char *dubL_checklstring(lua_State *L, int narg, size_t *len) throw(TypeException) {
   const char *s = lua_tolstring(L, narg, len);
-  if (!s) throw TypeException(L, narg, LUA_TSTRING);
+  if (!s) throw TypeException(L, narg, lua_typename(L, LUA_TSTRING));
   return s;
 }
 
-void *dubL_checkudata(lua_State *L, int ud, const char *tname) {
+void *dubL_checkudata(lua_State *L, int ud, const char *tname) throw(TypeException) {
   void *p = lua_touserdata(L, ud);
   if (p != NULL) {  /* value is a userdata? */
     if (lua_getmetatable(L, ud)) {  /* does it have a metatable? */
@@ -150,4 +173,4 @@ void register_mt(lua_State *L, const char *libname, const char *class_name) {
   lua_pop(L, 1);
   // <mt>
 }
-#endif // DOXY_GENERATOR_LIB_DOXY_GENERATOR_INCLUDE_LUA_DOXY_HELPER_H_
+
