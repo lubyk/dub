@@ -136,7 +136,7 @@ module Dub
         delta_top = 0
         if func.member_method? && !func.constructor? && !func.static?
           klass = func.parent
-          res << "#{klass.name} *self__ = *((#{klass.name}**)#{check_prefix}L_checkudata(L, 1, #{klass.id_name.inspect}));"
+          res << "#{klass.name} *self__ = *((#{klass.name}**)#{check_prefix}L_checksdata(L, 1, #{klass.id_name.inspect}));"
           if func.member_method? && func.klass.custom_destructor?
             # protect calls
             if check_prefix == 'dub'
@@ -276,7 +276,7 @@ module Dub
             end
           end
         else
-          "#{type_def} = *((#{arg.create_type}*)#{check_prefix}L_checkudata(L, #{stack_pos}, #{arg.id_name.inspect}));"
+          "#{type_def} = *((#{arg.create_type}*)#{check_prefix}L_checksdata(L, #{stack_pos}, #{arg.id_name.inspect}));"
         end
       end
 

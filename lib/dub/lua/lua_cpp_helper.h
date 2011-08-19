@@ -55,7 +55,7 @@ public:
 class TypeException : public Exception
 {
 public:
-  explicit TypeException(lua_State *L, int narg, const char *type);
+  explicit TypeException(lua_State *L, int narg, const char *type, bool is_super = false);
 };
 
 } // dub
@@ -66,6 +66,7 @@ public:
 // throw std::exception which can be caught (eventually to call lua_error)
 
 lua_Number dubL_checknumber(lua_State *L, int narg) throw(dub::TypeException);
+
 lua_Number dubL_checkint(lua_State *L, int narg) throw(dub::TypeException);
 
 const char *dubL_checklstring(lua_State *L, int narg, size_t *len) throw(dub::TypeException);
@@ -74,8 +75,15 @@ lua_Integer dubL_checkinteger(lua_State *L, int narg) throw(dub::TypeException);
 
 void *dubL_checkudata(lua_State *L, int ud, const char *tname) throw(dub::TypeException);
 
+// super aware userdata calls
+void *dubL_checksdata(lua_State *L, int ud, const char *tname) throw(dub::TypeException);
+// does not throw exceptions (can be used with a #define for luaL_checksdata)
+void *dubL_checksdata_n(lua_State *L, int ud, const char *tname) throw();
+
 #define dubL_checkstring(L,n) (dubL_checklstring(L, (n), NULL))
 #define dubL_checkint(L,n) ((int)dubL_checkinteger(L, (n)))
+// super aware userdata check (does not throw)
+#define luaL_checksdata(L, u, t) (dubL_checksdata_n(L, u, t))
 
 /** ======================================== lua_pushclass          */
 

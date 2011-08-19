@@ -16,7 +16,7 @@ using namespace <%= @class.prefix %>;
 /* ============================ Destructor       ====================== */
 
 static int <%= @class.destructor_name %>(lua_State *L) {
-  <%= @class.name %> **userdata = (<%= @class.name %>**)luaL_checkudata(L, 1, <%= @class.id_name.inspect %>);
+  <%= @class.name %> **userdata = (<%= @class.name %>**)dubL_checksdata_n(L, 1, <%= @class.id_name.inspect %>);
 
   <% if @class.custom_destructor? %>
   // custom destructor
@@ -33,7 +33,7 @@ static int <%= @class.destructor_name %>(lua_State *L) {
 
 // test if class is deleted
 static int <%= @class.is_deleted_name %>(lua_State *L) {
-  <%= @class.name %> **userdata = (<%= @class.name %>**)luaL_checkudata(L, 1, <%= @class.id_name.inspect %>);
+  <%= @class.name %> **userdata = (<%= @class.name %>**)dubL_checksdata_n(L, 1, <%= @class.id_name.inspect %>);
   lua_pushboolean(L, *userdata == NULL);
   return 1;
 }
@@ -41,7 +41,7 @@ static int <%= @class.is_deleted_name %>(lua_State *L) {
 /* ============================ tostring         ====================== */
 
 static int <%= @class.tostring_name %>(lua_State *L) {
-  <%= @class.name %> **userdata = (<%= @class.name %>**)luaL_checkudata(L, 1, <%= @class.id_name.inspect %>);
+  <%= @class.name %> **userdata = (<%= @class.name %>**)dubL_checksdata_n(L, 1, <%= @class.id_name.inspect %>);
   <% if @class.custom_destructor? %>
   if (!*userdata) {
     lua_pushstring(L, "<<%= @class.id_name %>: NULL>");

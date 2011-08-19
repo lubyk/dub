@@ -24,7 +24,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "lua_cpp_helper.h"
 
 #define DUB_EXCEPTION_BUFFER_SIZE 256  
-
+#define TYPE_EXCEPTION_MSG "%s expected, got %s"
+#define TYPE_EXCEPTION_SMSG "%s expected, got %s (using super)"
 using namespace dub;
 
 Exception::Exception(const char *format, ...) {
@@ -42,9 +43,9 @@ const char* Exception::what() const throw() {
   return message_.c_str();
 }
 
-TypeException::TypeException(lua_State *L, int narg, const char *type) :
-  Exception("%s expected, got %s", type, luaL_typename(L, narg)) {}
 
+TypeException::TypeException(lua_State *L, int narg, const char *type, bool is_super) :
+  Exception(is_super ? TYPE_EXCEPTION_SMSG : TYPE_EXCEPTION_MSG, type, luaL_typename(L, narg)) {}
 
 // ================================================== LuaL_check... try/catch safe
 // These methods (dubL_...) are slight adaptations from luaxlib.c
@@ -84,6 +85,81 @@ void *dubL_checkudata(lua_State *L, int ud, const char *tname) throw(TypeExcepti
   throw TypeException(L, ud, tname); /* else error */
   return NULL;  /* to avoid warnings */
 }
+
+// throws exceptions
+void *dubL_checksdata(lua_State *L, int ud, const char *tname) throw(dub::TypeException) {
+  void *p = lua_touserdata(L, ud);
+  if (p != NULL) {  /* value is a userdata? */
+    if (lua_getmetatable(L, ud)) {  /* does it have a metatable? */
+      lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
+      if (lua_rawequal(L, -1, -2)) {  /* does it have the correct mt? */
+        lua_pop(L, 2);  /* remove both metatables */
+        return p;
+      }
+    }
+  } else if (lua_istable(L, ud)) {
+    // get p from super
+    // ... <ud> ...
+    // TODO: optimize by storing key in registry ?
+    lua_pushlstring(L, "super", 5);
+    // ... <ud> ... <'super'>
+    lua_rawget(L, ud);
+    // ... <ud> ... <ud?>
+    p = lua_touserdata(L, -1);
+    if (p != NULL) {
+      if (lua_getmetatable(L, -1)) {  /* does it have a metatable? */
+        lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
+        if (lua_rawequal(L, -1, -2)) {  /* does it have the correct mt? */
+          lua_pop(L, 3);  /* remove both metatables and super */
+          return p;
+        }
+        // remove both metatables
+        lua_pop(L, 2);
+      }
+      throw dub::TypeException(L, -1, tname, true);
+    }
+  }
+  throw dub::TypeException(L, ud, tname);
+  return NULL;
+}
+
+// does not throw exceptions
+void *dubL_checksdata_n(lua_State *L, int ud, const char *tname) throw() {
+  void *p = lua_touserdata(L, ud);
+  if (p != NULL) {  /* value is a userdata? */
+    if (lua_getmetatable(L, ud)) {  /* does it have a metatable? */
+      lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
+      if (lua_rawequal(L, -1, -2)) {  /* does it have the correct mt? */
+        lua_pop(L, 2);  /* remove both metatables */
+        return p;
+      }
+    }
+  } else if (lua_istable(L, ud)) {
+    // get p from super
+    // ... <ud> ...
+    // TODO: optimize by storing key in registry ?
+    lua_pushlstring(L, "super", 5);
+    // ... <ud> ... <'super'>
+    lua_rawget(L, ud);
+    // ... <ud> ... <ud?>
+    p = lua_touserdata(L, -1);
+    if (p != NULL) {
+      if (lua_getmetatable(L, -1)) {  /* does it have a metatable? */
+        lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
+        if (lua_rawequal(L, -1, -2)) {  /* does it have the correct mt? */
+          lua_pop(L, 3);  /* remove both metatables and super */
+          return p;
+        }
+        // remove both metatables
+        lua_pop(L, 2);
+      }
+      luaL_error(L, "%s expected, got %s (using super)", tname, luaL_typename(L, -1));
+    }
+  }
+  luaL_error(L, "%s expected, got %s", tname, luaL_typename(L, ud));
+  return NULL;
+}
+
 // ==================================================
 
 DeletableOutOfLua::DeletableOutOfLua() :
