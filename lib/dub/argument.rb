@@ -59,7 +59,6 @@ module Dub
         group.each do |function|
           insert_by_arg(hash, function)
         end
-        print(hash.inspect) if group.first.name == 'bind'
         hash
       end
 

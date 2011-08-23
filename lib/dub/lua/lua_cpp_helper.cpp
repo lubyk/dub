@@ -98,6 +98,9 @@ void *dubL_checksdata(lua_State *L, int ud, const char *tname) throw(dub::TypeEx
       }
     }
   } else if (lua_istable(L, ud)) {
+    if (ud < 0) {
+      ud = lua_gettop(L) + 1 + ud;
+    }
     // get p from super
     // ... <ud> ...
     // TODO: optimize by storing key in registry ?
@@ -135,6 +138,9 @@ void *dubL_checksdata_n(lua_State *L, int ud, const char *tname) throw() {
       }
     }
   } else if (lua_istable(L, ud)) {
+    if (ud < 0) {
+      ud = lua_gettop(L) + 1 + ud;
+    }
     // get p from super
     // ... <ud> ...
     // TODO: optimize by storing key in registry ?
@@ -249,4 +255,5 @@ void register_mt(lua_State *L, const char *libname, const char *class_name) {
   lua_pop(L, 1);
   // <mt>
 }
+
 

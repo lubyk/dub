@@ -228,7 +228,11 @@ module Dub
           else
             pushclass = 'lua_pushclass'
             if func.constructor?
-              if func.klass.custom_destructor?
+              if ctor_with_lua_init?(func)
+                res << "// The class inherits from 'LuaCallback', use lua_init instead of pushclass."
+                res << "return retval__->lua_init(L, \"#{return_value.id_name}\");"
+                return res.join("\n")
+              elsif func.klass.custom_destructor?
                 # Use special pushclass to set userdata
                 pushclass = 'lua_pushclass2'
               end
@@ -295,6 +299,16 @@ module Dub
       def load_erb
         @function_template = ::ERB.new(File.read(@template_path ||File.join(File.dirname(__FILE__), 'function.cpp.erb')), nil, '%<>-')
         @group_template    = ::ERB.new(File.read(File.join(File.dirname(__FILE__), 'group.cpp.erb')))
+      end
+
+      def ctor_with_lua_init?(func)
+        # If the class inherits from LuaObject, we need to use
+        # s->lua_init(L); instead of pushclass.
+        if func.constructor?
+          func.klass.ancestors.detect{|a| a =~ /LuaObject/}
+        else
+          false
+        end
       end
     end # FunctionGen
   end # Lua

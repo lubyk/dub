@@ -7,7 +7,7 @@ require 'dub/member_extraction'
 module Dub
   class Klass
     include MemberExtraction
-    attr_reader :name, :xml, :prefix, :constructor, :alias_names, :enums, :parent, :instanciations
+    attr_reader :name, :xml, :prefix, :constructor, :alias_names, :enums, :ancestors, :parent, :instanciations
     attr_accessor :opts
 
     def initialize(parent, name, xml, prefix = '')
@@ -168,6 +168,7 @@ module Dub
     private
       def parse_xml
         parse_opts_hash
+        parse_ancestors
         parse_enums
         parse_members
         parse_template_params
@@ -190,6 +191,10 @@ module Dub
 
       def parse_enums
         @enums = (@xml/"enumvalue/name").map{|e| e.innerHTML}
+      end
+
+      def parse_ancestors
+        @ancestors = (@xml/'inheritancegraph'/'label').map{|a| a.innerHTML}
       end
 
       def parse_template_params
