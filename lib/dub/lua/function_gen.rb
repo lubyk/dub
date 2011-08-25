@@ -230,7 +230,7 @@ module Dub
             if func.constructor?
               if ctor_with_lua_init?(func)
                 res << "// The class inherits from 'LuaCallback', use lua_init instead of pushclass."
-                res << "return retval__->lua_init(L, \"#{return_value.id_name}\");"
+                res << "return retval__->luaInit(L, retval__, \"#{return_value.id_name}\");"
                 return res.join("\n")
               elsif func.klass.custom_destructor?
                 # Use special pushclass to set userdata

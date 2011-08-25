@@ -1,3 +1,11 @@
+== 0.7.1
+
+The tests in this release do not pass, but the generator is really better and works. I just
+don't have the time to fix the tests.
+
+* Major enhancement
+  * When the object inherits from a LuaObject class, it calls luaInit(L, obj, "foo.Bar")
+
 == 0.7.0 2011-08-19
 
 The tests in this release do not pass, but the generator is really better and works. I just

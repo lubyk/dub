@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Gaspard Bucher}]
-  s.date = %q{2011-08-19}
+  s.date = %q{2011-08-23}
   s.description = %q{This is a tool to ease the creation of scripting language bindings for a C++ library.
     It is currently developed to crete the OpenCV bindings for Lua in Rubyk (http://rubyk.org). The generator uses the xml output from Doxygen to avoid parsing C++ code by itself.}
   s.email = %q{gaspard@teti.ch}
@@ -39,6 +39,8 @@ Gem::Specification.new do |s|
     "lib/dub/lua/group.cpp.erb",
     "lib/dub/lua/lua_cpp_helper.cpp",
     "lib/dub/lua/lua_cpp_helper.h",
+    "lib/dub/lua/lua_object.cpp",
+    "lib/dub/lua/lua_object.h",
     "lib/dub/lua/namespace.cpp.erb",
     "lib/dub/lua/namespace_gen.rb",
     "lib/dub/member_extraction.rb",
