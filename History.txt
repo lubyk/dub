@@ -1,3 +1,9 @@
+== 1.0.0
+
+* Major enhancement
+  * Support for yaml definition of binding body.
+  * Support for superclass (reuse of definitions from the super class)
+  
 == 0.7.1
 
 The tests in this release do not pass, but the generator is really better and works. I just

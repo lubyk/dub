@@ -49,6 +49,10 @@ module Dub
       @throw != :nothing
     end
 
+    def custom_body(lang)
+      klass ? klass.custom_bind(lang)[self.name] : nil
+    end
+
     def static?
       @is_static
     end

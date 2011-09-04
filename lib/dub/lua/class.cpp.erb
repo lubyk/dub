@@ -2,6 +2,9 @@
 
 #include "lua_cpp_helper.h"
 
+<%# We need this to serialize superclass members properly %>
+<% Lua.function_generator.klass = @class %>
+
 <% if @class.prefix %>
 using namespace <%= @class.prefix %>;
 <% end %>

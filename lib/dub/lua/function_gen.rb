@@ -3,8 +3,10 @@ require 'erb'
 
 module Dub
   module Lua
+    SELF = "self"
     class FunctionGen < Dub::Generator
-      attr_accessor :template_path
+      # klass is used when parsing members from the superclasses.
+      attr_accessor :template_path, :klass
 
       NUMBER_TYPES = [
         'float',
@@ -135,44 +137,56 @@ module Dub
         res = []
         delta_top = 0
         if func.member_method? && !func.constructor? && !func.static?
-          klass = func.parent
-          res << "#{klass.name} *self__ = *((#{klass.name}**)#{check_prefix}L_checksdata(L, 1, #{klass.id_name.inspect}));"
+          # Force @klass when serializing members from superclass.
+          klass = @klass || func.parent
+          res << "#{klass.name} *#{SELF} = *((#{klass.name}**)#{check_prefix}L_checksdata(L, 1, #{klass.id_name.inspect}));"
           if func.member_method? && func.klass.custom_destructor?
             # protect calls
             if check_prefix == 'dub'
               # we cannot use luaL_error
-              res << "if (!self__) throw dub::Exception(\"Using deleted #{klass.id_name} in #{func.name}\");"
+              res << "if (!#{SELF}) throw dub::Exception(\"Using deleted #{klass.id_name} in #{func.name}\");"
             else
-              res << "if (!self__) return luaL_error(L, \"Using deleted #{klass.id_name} in #{func.name}\");"
+              res << "if (!#{SELF}) return luaL_error(L, \"Using deleted #{klass.id_name} in #{func.name}\");"
             end
           end
           delta_top = 1
         end
-
-        if func.has_default_arguments?
-          res << "int top__ = lua_gettop(L);"
-          if return_value = func.return_value
-            res << "#{return_value.create_type} retval__;"
-          end
-        end
+        
+        custom_body = func.custom_body('lua')
 
         if_indent = 0
-        func.arguments.each_with_index do |arg, i|
-          if arg.has_default?
-            res << indent("if (top__ < #{i+1+delta_top}) {",     if_indent)
-            res << indent("  #{call_string(func, i)}", if_indent)
-            res << indent("} else {", if_indent)
-            if_indent += 2
+        if custom_body && func.has_default_arguments?
+          # we do not prepare arguments
+        else
+          if func.has_default_arguments?
+            res << "int top__ = lua_gettop(L);"
+            if return_value = func.return_value
+              res << "#{return_value.create_type} retval__;"
+            end
           end
-          res << indent(get_arg(arg, i + 1 + delta_top, check_prefix), if_indent)
+          func.arguments.each_with_index do |arg, i|
+            if arg.has_default?
+              res << indent("if (top__ < #{i+1+delta_top}) {",     if_indent)
+              res << indent("  #{call_string(func, i)}", if_indent)
+              res << indent("} else {", if_indent)
+              if_indent += 2
+            end
+            res << indent(get_arg(arg, i + 1 + delta_top, check_prefix), if_indent)
+          end
         end
-        res << indent(call_string(func, func.arguments.count), if_indent)
+        if custom_body
+          res << indent(custom_body, if_indent)
+        else
+          res << indent(call_string(func, func.arguments.count), if_indent)
+        end
         while if_indent > 0
           if_indent -= 2
           res << indent("}", if_indent)
         end
 
-        res << return_value(func)
+        unless custom_body
+          res << return_value(func)
+        end
         res.join("\n")
       end
 
@@ -197,7 +211,7 @@ module Dub
         if func.constructor?
           call_string = "new #{call_string}"
         elsif func.member_method? && !func.static?
-          call_string = "self__->#{call_string}"
+          call_string = "#{SELF}->#{call_string}"
         end
 
 

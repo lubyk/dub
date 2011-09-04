@@ -21,7 +21,13 @@ Currently, the parser supports:
  * class enums
  * namespace enums
  * group constant defines
+ * bindings for superclass
+ * hand made bindings in yaml (this is used to do more 'natural' bindings for
+   the target language)
  * well tested
+   in fact no, it was but the tests are not up to date and need fixing
+   our best testing is that bindings run and compile without a warning or bug.
+
 
 If you are not good at reading lists, here is an example of the kind of tricks Dub plays with types:
 
@@ -62,6 +68,8 @@ Then you can write settings in the class documentation:
    *
    * @dub string_format:'%%f'
    *      string_args:'(*userdata)->interval()'
+   *      super: 'QObject, QWidget'
+   *      bind: 'Foobar.yml'
    */
 
 Note that for some strange reason, you have to use a double '%' to get one.

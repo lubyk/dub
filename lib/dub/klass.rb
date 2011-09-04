@@ -1,3 +1,4 @@
+require 'yaml'
 module Dub
   module MemberExtraction
   end
@@ -58,9 +59,27 @@ module Dub
     def members
       list = super(@ignores)
       if self.generator
-        @gen_members ||= self.generator.members_list(list.reject {|m| m.constructor?})
-      else
-        list
+        list = @gen_members ||= self.generator.members_list(list.reject {|m| m.constructor?})
+      end
+      # Copy members from super classes
+      superclasses = (@opts[:super] || '').split(',').map(&:strip)
+      @super_members ||= superclasses.map do |id_name|
+        if id_name =~ /([^\.])\.(.*)/
+          namespace = Dub::Namespace.find($1)
+          class_name = $2
+        else
+          namespace = self.parent
+          class_name = id_name
+        end
+        if x = namespace[class_name]
+          x.members
+        else
+          Dub.logger.warn "Could not find superclass '#{id_name}'"
+          nil
+        end
+      end.compact.flatten
+      (list + @super_members).sort do |a,b|
+        a.name <=> b.name
       end
     end
 
@@ -163,6 +182,29 @@ module Dub
 
     def names
       [@name] + @alias_names
+    end
+
+    # Uses the bind declaration to read function bodies from a yml file:
+    # @dub bind: Foo.yml
+    def custom_bind(lang)
+      if !@bind_hash then
+        if file = @opts[:bind] then
+          header = (@xml/'location').first[:file]
+          path = header.split('/')
+          path.pop
+          path = (path + [file]).join('/')
+          if File.exist?(path) then
+            data = File.read(path)
+            @bind_hash = YAML::load(data)
+          else
+            @bind_hash = {}
+            Dub.logger.warn "Missing binding file '#{path}'"
+          end
+        else
+          @bind_hash = {}
+        end
+      end
+      @bind_hash[lang] ||= {}
     end
 
     private

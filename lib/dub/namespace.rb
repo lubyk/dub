@@ -3,10 +3,17 @@ require 'dub/member_extraction'
 module Dub
 
   class Namespace
+    @@namespaces = {}
+
+    def self.find(name)
+      @@namespaces[name]
+    end
+
     include MemberExtraction
     attr_accessor :name, :gen, :xml, :enums, :parent, :header, :prefix, :defines
 
     def initialize(name, xml, current_dir)
+      @@namespaces[name] = self
       @name, @xml, @current_dir = name, xml, current_dir
       @class_alias = {}
       @alias_names = []
