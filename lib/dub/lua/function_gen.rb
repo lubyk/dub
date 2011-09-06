@@ -175,7 +175,10 @@ module Dub
           end
         end
         if custom_body
-          res << indent(custom_body, if_indent)
+          res << indent(custom_body.strip, if_indent)
+          if !(custom_body =~ /^\s*return\s+[0-9]+\s*;/)
+            res << "return 0;"
+          end
         else
           res << indent(call_string(func, func.arguments.count), if_indent)
         end
