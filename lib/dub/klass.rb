@@ -111,8 +111,8 @@ module Dub
     # and method calls are treated differently because
     # the object can be destroyed out of Lua (and Lua
     # should call a special method on garbage collection).
-    def custom_destructor?
-      @opts[:destructor]
+    def custom_destructor
+      @custom_destructor
     end
 
     # Use a static method as constructor.
@@ -321,8 +321,9 @@ module Dub
       end
 
       def ignore_member?(member)
-        if custom_destructor?
-          if member.name == opts[:destructor] || member.name == 'set_userdata_ptr'
+        if opts[:destructor]
+          if member.name == opts[:destructor]
+            @custom_destructor = member
             return true
           end
         end

@@ -2,6 +2,7 @@
 
 * Minor enhancement
   * We can omit 'return 0' when defining body with yaml.
+  * Automatically uses luaDestroy with subclassed with LuaObject.
 
 == 1.0.0
 

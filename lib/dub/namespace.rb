@@ -265,7 +265,7 @@ module Dub
               end
             end
           else
-            Dub.logger.warn "Could not find reference class #{id}"
+            Dub.logger.warn "Could not find reference class '#{id}'"
           end
         end
       end

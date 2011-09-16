@@ -21,9 +21,12 @@ using namespace <%= @class.prefix %>;
 static int <%= @class.destructor_name %>(lua_State *L) {
   <%= @class.name %> **userdata = (<%= @class.name %>**)dubL_checksdata_n(L, 1, <%= @class.id_name.inspect %>);
 
-  <% if @class.custom_destructor? %>
+  <% if func = @class.custom_destructor %>
   // custom destructor
-  if (*userdata) (*userdata)-><%= @class.opts[:destructor] %>();
+  <%= @class.name %> *self = *userdata;
+  if (self) <%= func.gen.call_string(func) %>
+  <% elsif @class.ancestors.detect{|a| a =~ /LuaObject/} %>
+  if (*userdata) (*userdata)->luaDestroy();
   <% else %>
   if (*userdata) delete *userdata;
   <% end %>
@@ -32,7 +35,7 @@ static int <%= @class.destructor_name %>(lua_State *L) {
 }
 <% end %>
 
-<% if @class.custom_destructor? %>
+<% if @class.custom_destructor %>
 
 // test if class is deleted
 static int <%= @class.is_deleted_name %>(lua_State *L) {
@@ -45,7 +48,7 @@ static int <%= @class.is_deleted_name %>(lua_State *L) {
 
 static int <%= @class.tostring_name %>(lua_State *L) {
   <%= @class.name %> **userdata = (<%= @class.name %>**)dubL_checksdata_n(L, 1, <%= @class.id_name.inspect %>);
-  <% if @class.custom_destructor? %>
+  <% if @class.custom_destructor %>
   if (!*userdata) {
     lua_pushstring(L, "<<%= @class.id_name %>: NULL>");
     return 1;

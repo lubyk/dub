@@ -140,7 +140,7 @@ module Dub
           # Force @klass when serializing members from superclass.
           klass = @klass || func.parent
           res << "#{klass.name} *#{SELF} = *((#{klass.name}**)#{check_prefix}L_checksdata(L, 1, #{klass.id_name.inspect}));"
-          if func.member_method? && func.klass.custom_destructor?
+          if func.member_method? && func.klass.custom_destructor
             # protect calls
             if check_prefix == 'dub'
               # we cannot use luaL_error
@@ -246,10 +246,10 @@ module Dub
             pushclass = 'lua_pushclass'
             if func.constructor?
               if ctor_with_lua_init?(func)
-                res << "// The class inherits from 'LuaCallback', use lua_init instead of pushclass."
+                res << "// The class inherits from 'LuaObject', use luaInit instead of lua_pushclass."
                 res << "return retval__->luaInit(L, retval__, \"#{return_value.id_name}\");"
                 return res.join("\n")
-              elsif func.klass.custom_destructor?
+              elsif func.klass.custom_destructor
                 # Use special pushclass to set userdata
                 pushclass = 'lua_pushclass2'
               end
