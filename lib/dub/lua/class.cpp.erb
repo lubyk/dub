@@ -35,7 +35,7 @@ static int <%= @class.destructor_name %>(lua_State *L) {
 }
 <% end %>
 
-<% if @class.custom_destructor %>
+<% if @class.custom_destructor || @class.ancestors.detect{|a| a =~ /LuaObject/} %>
 
 // test if class is deleted
 static int <%= @class.is_deleted_name %>(lua_State *L) {

@@ -35,7 +35,7 @@ module Dub
         if klass.opts[:destructor] != ''
           member_methods << "{%-20s, #{klass.destructor_name}}" % "__gc".inspect
         end
-        if klass.custom_destructor
+        if klass.custom_destructor || klass.ancestors.detect{|a| a =~ /LuaObject/}
           member_methods << "{%-20s, #{klass.is_deleted_name}}" % "deleted".inspect
         end
 
