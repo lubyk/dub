@@ -8,6 +8,9 @@ module Dub
     attr_accessor :gen, :name, :is_constructor, :overloaded_index
 
     def initialize(parent, name, xml, prefix = '')
+      if xml.kind_of?(String)
+        xml = (Hpricot::XML(%Q{<elem>#{xml}</elem>})/'elem')[0]
+      end
       @parent, @name = parent, name
       @xml, @prefix = xml, prefix
       parse_xml

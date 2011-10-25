@@ -64,7 +64,7 @@ module Dub
       # Copy members from super classes
       superclasses = (@opts[:super] || '').split(',').map(&:strip)
       @super_members ||= superclasses.map do |id_name|
-        if id_name =~ /([^\.])\.(.*)/
+        if id_name =~ /([^\.]+)\.(.*)/
           namespace = Dub::Namespace.find($1)
           class_name = $2
         else
@@ -112,7 +112,12 @@ module Dub
     # the object can be destroyed out of Lua (and Lua
     # should call a special method on garbage collection).
     def custom_destructor
-      @custom_destructor
+      @custom_destructor ||= @opts[:destructor] ? Dub::Function.new(self, @opts[:destructor], '<type>void</type>') : nil
+    end
+
+    def custom_destructor=(func)
+      @opts[:destructor] = func.name
+      @custom_destructor = func
     end
 
     # Use a static method as constructor.

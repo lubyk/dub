@@ -140,7 +140,7 @@ module Dub
           # Force @klass when serializing members from superclass.
           klass = @klass || func.parent
           res << "#{klass.name} *#{SELF} = *((#{klass.name}**)#{check_prefix}L_checksdata(L, 1, #{klass.id_name.inspect}));"
-          if func.member_method? && func.klass.custom_destructor
+          if func.member_method? && klass.custom_destructor
             # protect calls
             if check_prefix == 'dub'
               # we cannot use luaL_error
@@ -245,9 +245,8 @@ module Dub
           else
             pushclass = 'lua_pushclass'
             if func.constructor?
-              if ctor_with_lua_init?(func)
-                res << "// The class inherits from 'LuaObject', use luaInit instead of lua_pushclass."
-                res << "return retval__->luaInit(L, retval__, \"#{return_value.id_name}\");"
+              if init_func = func.klass.opts[:init]
+                res << "return retval__->#{init_func}(L, retval__, \"#{return_value.id_name}\");"
                 return res.join("\n")
               elsif func.klass.custom_destructor
                 # Use special pushclass to set userdata
@@ -316,16 +315,6 @@ module Dub
       def load_erb
         @function_template = ::ERB.new(File.read(@template_path ||File.join(File.dirname(__FILE__), 'function.cpp.erb')), nil, '%<>-')
         @group_template    = ::ERB.new(File.read(File.join(File.dirname(__FILE__), 'group.cpp.erb')))
-      end
-
-      def ctor_with_lua_init?(func)
-        # If the class inherits from LuaObject, we need to use
-        # s->lua_init(L); instead of pushclass.
-        if func.constructor?
-          func.klass.ancestors.detect{|a| a =~ /LuaObject/}
-        else
-          false
-        end
       end
     end # FunctionGen
   end # Lua
