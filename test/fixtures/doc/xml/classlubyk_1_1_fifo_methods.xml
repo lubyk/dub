@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classlubyk_1_1_fifo_methods" kind="class" prot="public">
+    <compoundname>lubyk::FifoMethods</compoundname>
+    <includes refid="bind_2fifo_8h" local="no">Fifo.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlubyk_1_1_fifo_methods_1a90cabbc870222f2576ffefac24c4b551" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int lubyk::FifoMethods::fd</definition>
+        <argsstring>()</argsstring>
+        <name>fd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/bind/Fifo.h" line="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_fifo_methods_1a513f978861f28a8730dee59b3e98f4f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize lubyk::FifoMethods::pop</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>pop</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/bind/Fifo.h" line="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Dummy definition to create the bindings to subclasses of the <ref refid="classlubyk_1_1_fifo" kindref="compound">lubyk::Fifo</ref> template. </para>    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/lubyk/bind/Fifo.h" line="6" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/bind/Fifo.h" bodystart="6" bodyend="10"/>
+    <listofallmembers>
+      <member refid="classlubyk_1_1_fifo_methods_1a90cabbc870222f2576ffefac24c4b551" prot="public" virt="non-virtual"><scope>lubyk::FifoMethods</scope><name>fd</name></member>
+      <member refid="classlubyk_1_1_fifo_methods_1a513f978861f28a8730dee59b3e98f4f6" prot="public" virt="non-virtual"><scope>lubyk::FifoMethods</scope><name>pop</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,4267 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="namespacemimas" kind="namespace">
+    <compoundname>mimas</compoundname>
+    <innerclass refid="classmimas_1_1_action" prot="public">mimas::Action</innerclass>
+    <innerclass refid="classmimas_1_1_application" prot="public">mimas::Application</innerclass>
+    <innerclass refid="classmimas_1_1_brush" prot="public">mimas::Brush</innerclass>
+    <innerclass refid="classmimas_1_1_button" prot="public">mimas::Button</innerclass>
+    <innerclass refid="classmimas_1_1_callback" prot="public">mimas::Callback</innerclass>
+    <innerclass refid="classmimas_1_1_color" prot="public">mimas::Color</innerclass>
+    <innerclass refid="classmimas_1_1_data_source" prot="public">mimas::DataSource</innerclass>
+    <innerclass refid="classmimas_1_1_file_observer" prot="public">mimas::FileObserver</innerclass>
+    <innerclass refid="classmimas_1_1_g_l_widget" prot="public">mimas::GLWidget</innerclass>
+    <innerclass refid="classmimas_1_1_group_box" prot="public">mimas::GroupBox</innerclass>
+    <innerclass refid="classmimas_1_1_h_box_layout" prot="public">mimas::HBoxLayout</innerclass>
+    <innerclass refid="classmimas_1_1_label" prot="public">mimas::Label</innerclass>
+    <innerclass refid="classmimas_1_1_line_edit" prot="public">mimas::LineEdit</innerclass>
+    <innerclass refid="classmimas_1_1_list_view" prot="public">mimas::ListView</innerclass>
+    <innerclass refid="classmimas_1_1_main_window" prot="public">mimas::MainWindow</innerclass>
+    <innerclass refid="classmimas_1_1_menu" prot="public">mimas::Menu</innerclass>
+    <innerclass refid="classmimas_1_1_menu_bar" prot="public">mimas::MenuBar</innerclass>
+    <innerclass refid="classmimas_1_1_painter" prot="public">mimas::Painter</innerclass>
+    <innerclass refid="classmimas_1_1_path" prot="public">mimas::Path</innerclass>
+    <innerclass refid="classmimas_1_1_pen" prot="public">mimas::Pen</innerclass>
+    <innerclass refid="classmimas_1_1_range_widget" prot="public">mimas::RangeWidget</innerclass>
+    <innerclass refid="classmimas_1_1_slider" prot="public">mimas::Slider</innerclass>
+    <innerclass refid="classmimas_1_1_socket_notifier" prot="public">mimas::SocketNotifier</innerclass>
+    <innerclass refid="classmimas_1_1_table_view" prot="public">mimas::TableView</innerclass>
+    <innerclass refid="classmimas_1_1_timer" prot="public">mimas::Timer</innerclass>
+    <innerclass refid="classmimas_1_1_v_box_layout" prot="public">mimas::VBoxLayout</innerclass>
+    <innerclass refid="classmimas_1_1_widget" prot="public">mimas::Widget</innerclass>
+    <innerclass refid="classmimas_1_1_q_action" prot="public">mimas::QAction</innerclass>
+    <innerclass refid="classmimas_1_1_q_main_window" prot="public">mimas::QMainWindow</innerclass>
+    <innerclass refid="classmimas_1_1_q_menu" prot="public">mimas::QMenu</innerclass>
+    <innerclass refid="classmimas_1_1_q_menu_bar" prot="public">mimas::QMenuBar</innerclass>
+    <innerclass refid="classmimas_1_1_q_object" prot="public">mimas::QObject</innerclass>
+    <innerclass refid="classmimas_1_1_q_painter_path" prot="public">mimas::QPainterPath</innerclass>
+    <innerclass refid="classmimas_1_1_q_widget" prot="public">mimas::QWidget</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacemimas_1ac1d0e8b40dcc5a5ed74918c84b6d2a6d" prot="public" static="no">
+        <name>BrushStyles</name>
+        <enumvalue id="namespacemimas_1ac1d0e8b40dcc5a5ed74918c84b6d2a6da6c641c7011da44a78f51928302982ebe" prot="public">
+          <name>NoBrush</name>
+          <initializer> Qt::NoBrush</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ac1d0e8b40dcc5a5ed74918c84b6d2a6da9123661034a84bbf61b985ed77c119da" prot="public">
+          <name>SolidPattern</name>
+          <initializer> Qt::SolidPattern</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ac1d0e8b40dcc5a5ed74918c84b6d2a6dae34fe9065261fb382ae913d5a788f025" prot="public">
+          <name>LinearGradientPattern</name>
+          <initializer> Qt::LinearGradientPattern</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ac1d0e8b40dcc5a5ed74918c84b6d2a6daebe4eb8c49fc2b05e03704e97bd72d80" prot="public">
+          <name>ConicalGradientPattern</name>
+          <initializer> Qt::ConicalGradientPattern</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ac1d0e8b40dcc5a5ed74918c84b6d2a6da9b91c90a0e27d3acd36ad856b4d52a19" prot="public">
+          <name>RadialGradientPattern</name>
+          <initializer> Qt::RadialGradientPattern</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ac1d0e8b40dcc5a5ed74918c84b6d2a6da4b861d4ca52dc8234751d5b692be277f" prot="public">
+          <name>TexturePattern</name>
+          <initializer> Qt::TexturePattern</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>List of <ref refid="classmimas_1_1_brush" kindref="compound">Brush</ref> styles. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" line="43" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" bodystart="43" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacemimas_1a697794920451d61b43d76b58b7a841cb" prot="public" static="no">
+        <name>PenStyles</name>
+        <enumvalue id="namespacemimas_1a697794920451d61b43d76b58b7a841cba51f7ab4f0961cca3a2c555cc0c439ca8" prot="public">
+          <name>NoPen</name>
+          <initializer> Qt::NoPen</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a697794920451d61b43d76b58b7a841cba924c1214b8f329ec22af9f58417601c9" prot="public">
+          <name>SolidLine</name>
+          <initializer> Qt::SolidLine</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a697794920451d61b43d76b58b7a841cba69efc806bca95ce90eb44f5f21b5132a" prot="public">
+          <name>DashLine</name>
+          <initializer> Qt::DashLine</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a697794920451d61b43d76b58b7a841cba37f0221c2569fa900fca70eba1d1a6da" prot="public">
+          <name>DotLine</name>
+          <initializer> Qt::DotLine</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a697794920451d61b43d76b58b7a841cba8b0c3284e931d3939373e17e3980f44e" prot="public">
+          <name>DashDotLine</name>
+          <initializer> Qt::DashDotLine</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a697794920451d61b43d76b58b7a841cba6f068a1357b4627fff31a85fb1d9192e" prot="public">
+          <name>DashDotDotLine</name>
+          <initializer> Qt::DashDotDotLine</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a697794920451d61b43d76b58b7a841cba6832e6367bf2d9252c8dbd5132cb6ba0" prot="public">
+          <name>CustomDashLine</name>
+          <initializer> Qt::CustomDashLine</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classmimas_1_1_pen" kindref="compound">Pen</ref> styles. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" line="67" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" bodystart="67" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacemimas_1ab7bcca8be2c31d428333d579d6149baf" prot="public" static="no">
+        <name>CapStyles</name>
+        <enumvalue id="namespacemimas_1ab7bcca8be2c31d428333d579d6149bafa210a4f24e319d4dab6f0f6bec88c6b90" prot="public">
+          <name>FlatCap</name>
+          <initializer> Qt::FlatCap</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ab7bcca8be2c31d428333d579d6149bafa76b63f1b462d921611f5cc34a2576e99" prot="public">
+          <name>SquareCap</name>
+          <initializer> Qt::SquareCap</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ab7bcca8be2c31d428333d579d6149bafa8c70afd260773f32c4a0907a39edaff6" prot="public">
+          <name>RoundCap</name>
+          <initializer> Qt::RoundCap</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>List of <ref refid="classmimas_1_1_pen" kindref="compound">Pen</ref> cap styles. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" line="79" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" bodystart="79" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacemimas_1a10156e741cd5fc32f6645666ff621bc4" prot="public" static="no">
+        <name>JoinStyles</name>
+        <enumvalue id="namespacemimas_1a10156e741cd5fc32f6645666ff621bc4a6b1ec808c997329c940d331fe6496d2c" prot="public">
+          <name>MiterJoin</name>
+          <initializer> Qt::MiterJoin</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a10156e741cd5fc32f6645666ff621bc4a2b2e033180c096b688ab49be318110a6" prot="public">
+          <name>BevelJoin</name>
+          <initializer> Qt::BevelJoin</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a10156e741cd5fc32f6645666ff621bc4af18e512e31950ca2fa2580b0a0ffee0f" prot="public">
+          <name>RoundJoin</name>
+          <initializer> Qt::RoundJoin</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a10156e741cd5fc32f6645666ff621bc4a53319664e5d7aba16d725c1aef59fb1d" prot="public">
+          <name>SvgMiterJoin</name>
+          <initializer> Qt::SvgMiterJoin</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>List of <ref refid="classmimas_1_1_pen" kindref="compound">Pen</ref> join styles. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" line="87" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" bodystart="87" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacemimas_1a0b528c8a9506390293f887b20b6d22d6" prot="public" static="no">
+        <name>AlignFlags</name>
+        <enumvalue id="namespacemimas_1a0b528c8a9506390293f887b20b6d22d6ae17405ea7090ff1560a99ae8699c1466" prot="public">
+          <name>AlignLeft</name>
+          <initializer> Qt::AlignLeft</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a0b528c8a9506390293f887b20b6d22d6a963fa925a7aaba77b8f85bb79d930813" prot="public">
+          <name>AlignRight</name>
+          <initializer> Qt::AlignRight</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a0b528c8a9506390293f887b20b6d22d6a1680a9069a555daee967cfacda845aa7" prot="public">
+          <name>AlignHCenter</name>
+          <initializer> Qt::AlignHCenter</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a0b528c8a9506390293f887b20b6d22d6a9508521a35506115e1c2faff1c8273e9" prot="public">
+          <name>AlignJustify</name>
+          <initializer> Qt::AlignJustify</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a0b528c8a9506390293f887b20b6d22d6aa20a26c2052c66987a32f1edb42da0cf" prot="public">
+          <name>AlignTop</name>
+          <initializer> Qt::AlignTop</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a0b528c8a9506390293f887b20b6d22d6a5707b94aab18b293bbe0f53f47cb72a8" prot="public">
+          <name>AlignBottom</name>
+          <initializer> Qt::AlignBottom</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a0b528c8a9506390293f887b20b6d22d6ade6bbeae7948eea27740b8daac305d28" prot="public">
+          <name>AlignVCenter</name>
+          <initializer> Qt::AlignVCenter</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a0b528c8a9506390293f887b20b6d22d6a1adcb2414e10eabb197357fd7a12d8d6" prot="public">
+          <name>AlignCenter</name>
+          <initializer> Qt::AlignCenter</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" line="95" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" bodystart="95" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacemimas_1ad60d49d3f1d45d41992c4bf608dd1586" prot="public" static="no">
+        <name>TextFlags</name>
+        <enumvalue id="namespacemimas_1ad60d49d3f1d45d41992c4bf608dd1586ab28201a338c48f31a52521bcd7cf6135" prot="public">
+          <name>TextDontClip</name>
+          <initializer> Qt::TextDontClip</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ad60d49d3f1d45d41992c4bf608dd1586ac05183c02d13af25bf9420918d0c5521" prot="public">
+          <name>TextSingleLine</name>
+          <initializer> Qt::TextSingleLine</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ad60d49d3f1d45d41992c4bf608dd1586afbf42b4d310bb41e8d0e7986d1aca648" prot="public">
+          <name>TextExpandTabs</name>
+          <initializer> Qt::TextExpandTabs</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ad60d49d3f1d45d41992c4bf608dd1586a4138b5322b11c7deb7ef5c094938bf6d" prot="public">
+          <name>TextShowMnemonic</name>
+          <initializer> Qt::TextShowMnemonic</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ad60d49d3f1d45d41992c4bf608dd1586a6abecdb9c8d03914b4469a235b4b4879" prot="public">
+          <name>TextWordWrap</name>
+          <initializer> Qt::TextWordWrap</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ad60d49d3f1d45d41992c4bf608dd1586a609fe3f265ebe21ad699223865f8cfe1" prot="public">
+          <name>TextIncludeTrailingSpaces</name>
+          <initializer> Qt::TextIncludeTrailingSpaces</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" line="106" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" bodystart="106" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacemimas_1a6b8104d04f69668f9d21c3d544b7bd59" prot="public" static="no">
+        <name>SizePolicy</name>
+        <enumvalue id="namespacemimas_1a6b8104d04f69668f9d21c3d544b7bd59a95f2aa1b3dae0445cbb0bba039fdb78f" prot="public">
+          <name>Fixed</name>
+          <initializer> QSizePolicy::Fixed</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a6b8104d04f69668f9d21c3d544b7bd59a304f044c04b4a75fb33767616339088d" prot="public">
+          <name>Minimum</name>
+          <initializer> QSizePolicy::Minimum</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a6b8104d04f69668f9d21c3d544b7bd59acb36ccb4b28ad4d40abc3eaca8a0322c" prot="public">
+          <name>Maximum</name>
+          <initializer> QSizePolicy::Maximum</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a6b8104d04f69668f9d21c3d544b7bd59a315087667c24a8320c60381ba0ec03da" prot="public">
+          <name>Preferred</name>
+          <initializer> QSizePolicy::Preferred</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a6b8104d04f69668f9d21c3d544b7bd59ac4700363048f7582b57d859bbe40aa55" prot="public">
+          <name>Expanding</name>
+          <initializer> QSizePolicy::Expanding</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a6b8104d04f69668f9d21c3d544b7bd59a1101d82e546d7e1e766025f6f3adc3d3" prot="public">
+          <name>MinimumExpanding</name>
+          <initializer> QSizePolicy::MinimumExpanding</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a6b8104d04f69668f9d21c3d544b7bd59a6b11b8c70b99052eeba57b135cbca143" prot="public">
+          <name>Ignored</name>
+          <initializer> QSizePolicy::Ignored</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" line="115" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" bodystart="115" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacemimas_1adff6e0784ae780063cd752f466959f40" prot="public" static="no">
+        <name>MouseButtons</name>
+        <enumvalue id="namespacemimas_1adff6e0784ae780063cd752f466959f40afc7ad6c17c981665b93483ebc7696949" prot="public">
+          <name>NoButton</name>
+          <initializer> Qt::NoButton</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1adff6e0784ae780063cd752f466959f40ad48388ef725e0c83bb8ba94d673b8c74" prot="public">
+          <name>LeftButton</name>
+          <initializer> Qt::LeftButton</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1adff6e0784ae780063cd752f466959f40ac09fc6a512499b4417e8dc257ee79483" prot="public">
+          <name>RightButton</name>
+          <initializer> Qt::RightButton</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1adff6e0784ae780063cd752f466959f40a7e0408fea2c61a6c6c92de53da084f0d" prot="public">
+          <name>MidButton</name>
+          <initializer> Qt::MidButton</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1adff6e0784ae780063cd752f466959f40afa7090eabcf96829fed4fdb499673ddf" prot="public">
+          <name>MiddleButton</name>
+          <initializer> Qt::MiddleButton</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1adff6e0784ae780063cd752f466959f40a9e61c9b64535b1316a8fecbe01f3ded5" prot="public">
+          <name>XButton1</name>
+          <initializer> Qt::XButton1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1adff6e0784ae780063cd752f466959f40a5e4834df3ed75bdb2d6498355797e641" prot="public">
+          <name>XButton2</name>
+          <initializer> Qt::XButton2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" line="126" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" bodystart="126" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacemimas_1ac511138d28d71a62e97f1639d18c08a6" prot="public" static="no">
+        <name>ClickTypes</name>
+        <enumvalue id="namespacemimas_1ac511138d28d71a62e97f1639d18c08a6a53a1fecfaa3461c5fa343cccce94322d" prot="public">
+          <name>MousePress</name>
+          <initializer> 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ac511138d28d71a62e97f1639d18c08a6a07cdb56d9783986895cc0ee3a3150b73" prot="public">
+          <name>MouseRelease</name>
+          <initializer> 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ac511138d28d71a62e97f1639d18c08a6a79efc10f470f89403cfc8c847cffc397" prot="public">
+          <name>DoubleClick</name>
+          <initializer> 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" line="136" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" bodystart="136" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacemimas_1a607756d266395f4afd89b4dc5535c465" prot="public" static="no">
+        <name>KeyboardModifiers</name>
+        <enumvalue id="namespacemimas_1a607756d266395f4afd89b4dc5535c465ad5bb92ea70397dbf2cc50e09c0e6310c" prot="public">
+          <name>NoModifier</name>
+          <initializer> Qt::NoModifier</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a607756d266395f4afd89b4dc5535c465a259d83c833b156548ded47bf9d54bfd5" prot="public">
+          <name>ShiftModifier</name>
+          <initializer> Qt::ShiftModifier</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a607756d266395f4afd89b4dc5535c465ac8a52dfde8812e93ae96f4c9777cfaa3" prot="public">
+          <name>ControlModifier</name>
+          <initializer> Qt::ControlModifier</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a607756d266395f4afd89b4dc5535c465a8a4dc13de5a8c62fe1604f0239d03f0b" prot="public">
+          <name>AltModifier</name>
+          <initializer> Qt::AltModifier</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a607756d266395f4afd89b4dc5535c465a01e6d61e7ba5a2af67d910493e7d3e7d" prot="public">
+          <name>MetaModifier</name>
+          <initializer> Qt::MetaModifier</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a607756d266395f4afd89b4dc5535c465aea1eb3ac82f80f28289d42bb0d2730a3" prot="public">
+          <name>KeypadModifier</name>
+          <initializer> Qt::KeypadModifier</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a607756d266395f4afd89b4dc5535c465a85a2a77788c407b35fec5c883eaf06fa" prot="public">
+          <name>GroupSwitchModifier</name>
+          <initializer> Qt::GroupSwitchModifier</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" line="142" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" bodystart="142" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacemimas_1aef120fdcea27b9d9d68a1fad0ff1ca31" prot="public" static="no">
+        <name>Orientation</name>
+        <enumvalue id="namespacemimas_1aef120fdcea27b9d9d68a1fad0ff1ca31a7066d402ed974580777b6e5f0d1f7520" prot="public">
+          <name>Horizontal</name>
+          <initializer> Qt::Horizontal</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1aef120fdcea27b9d9d68a1fad0ff1ca31a966bf944ca569d89ca4fb751ca19aeb9" prot="public">
+          <name>Vertical</name>
+          <initializer> Qt::Vertical</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" line="152" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" bodystart="152" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949" prot="public" static="no">
+        <name>Key</name>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ad51f60ec85fe0bb8c93086892a08e6fc" prot="public">
+          <name>Key_Escape</name>
+          <initializer> Qt::Key_Escape</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a7b40d5e1250f1e6583dc7889683f9e1f" prot="public">
+          <name>Key_Tab</name>
+          <initializer> Qt::Key_Tab</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a08c110795a369e764f8195139e500a60" prot="public">
+          <name>Key_Backtab</name>
+          <initializer> Qt::Key_Backtab</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ad449a3d248ce88399d0874196939a42e" prot="public">
+          <name>Key_Backspace</name>
+          <initializer> Qt::Key_Backspace</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a76c2e65870b61b21da2164bc23d262a1" prot="public">
+          <name>Key_Return</name>
+          <initializer> Qt::Key_Return</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a32d690550c8c6590cb8b7c50c7096206" prot="public">
+          <name>Key_Enter</name>
+          <initializer> Qt::Key_Enter</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a375f625750817f2f10f0915ad18e50d6" prot="public">
+          <name>Key_Insert</name>
+          <initializer> Qt::Key_Insert</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a5dcc79788eafb3681d3b22157d414b15" prot="public">
+          <name>Key_Delete</name>
+          <initializer> Qt::Key_Delete</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a09e1e60337858a229a14776140ac5096" prot="public">
+          <name>Key_Pause</name>
+          <initializer> Qt::Key_Pause</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a5e37e5dd80d09c985ceb11e00f26d002" prot="public">
+          <name>Key_Print</name>
+          <initializer> Qt::Key_Print</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3d5ca67e0d9254e9c4d2bf1ee3268d21" prot="public">
+          <name>Key_SysReq</name>
+          <initializer> Qt::Key_SysReq</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a8517adca26d3ba0f182667fd7c0e58f1" prot="public">
+          <name>Key_Clear</name>
+          <initializer> Qt::Key_Clear</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a972554b2862b3b0bf44f2ce10385649f" prot="public">
+          <name>Key_Home</name>
+          <initializer> Qt::Key_Home</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a1c45f2110719f46e2c8672748c51587b" prot="public">
+          <name>Key_End</name>
+          <initializer> Qt::Key_End</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9394b9af2b8b86567aa8c2acffa2e956" prot="public">
+          <name>Key_Left</name>
+          <initializer> Qt::Key_Left</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a7b6c8c0c09a1b75bf65ec291a9941038" prot="public">
+          <name>Key_Up</name>
+          <initializer> Qt::Key_Up</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aa55a43e06a56c52919f14f8548fbb62d" prot="public">
+          <name>Key_Right</name>
+          <initializer> Qt::Key_Right</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3e00a4a0709cfe34a6f905afb6d84762" prot="public">
+          <name>Key_Down</name>
+          <initializer> Qt::Key_Down</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aae559538d260285aa04521da1918cb38" prot="public">
+          <name>Key_PageUp</name>
+          <initializer> Qt::Key_PageUp</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a7243c01850797fb60e52698cb6451c18" prot="public">
+          <name>Key_PageDown</name>
+          <initializer> Qt::Key_PageDown</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a72abd79c798a84848f5ad66f01309bec" prot="public">
+          <name>Key_Shift</name>
+          <initializer> Qt::Key_Shift</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949adf99824d6b37956892477ffffd4df02a" prot="public">
+          <name>Key_Control</name>
+          <initializer> Qt::Key_Control</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae9f0c92cf6d3f6212d549029df4408a1" prot="public">
+          <name>Key_Meta</name>
+          <initializer> Qt::Key_Meta</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a114d89b26fd5d17b2e77eb4112bbdcf7" prot="public">
+          <name>Key_Alt</name>
+          <initializer> Qt::Key_Alt</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a738b581d11ba476af22f320afac4e7fd" prot="public">
+          <name>Key_AltGr</name>
+          <initializer> Qt::Key_AltGr</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac277a3b402ed1a60184f6b6aabd8f9c9" prot="public">
+          <name>Key_CapsLock</name>
+          <initializer> Qt::Key_CapsLock</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac34b0de659389ba8c05ff5680ea954ff" prot="public">
+          <name>Key_NumLock</name>
+          <initializer> Qt::Key_NumLock</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ad02bd7270f384ff9aeddc26ab88240f5" prot="public">
+          <name>Key_ScrollLock</name>
+          <initializer> Qt::Key_ScrollLock</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a5f4926767c5d44e060eae8188797d7d0" prot="public">
+          <name>Key_F1</name>
+          <initializer> Qt::Key_F1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a8676441bf92e3cac648903f5d6130d24" prot="public">
+          <name>Key_F2</name>
+          <initializer> Qt::Key_F2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac51c3ff240d7cdc3090d745db31adb84" prot="public">
+          <name>Key_F3</name>
+          <initializer> Qt::Key_F3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a91bb526089be74c63eb424915460fd34" prot="public">
+          <name>Key_F4</name>
+          <initializer> Qt::Key_F4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a61dac84da224c1f3281c340fb13311f6" prot="public">
+          <name>Key_F5</name>
+          <initializer> Qt::Key_F5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ade31c431bc8929323cd31a0da7d6930a" prot="public">
+          <name>Key_F6</name>
+          <initializer> Qt::Key_F6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a84477ed3814adc74c3a90c7679a90196" prot="public">
+          <name>Key_F7</name>
+          <initializer> Qt::Key_F7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a6aac4e2af4f4ac8d9f8d62b296dfeeac" prot="public">
+          <name>Key_F8</name>
+          <initializer> Qt::Key_F8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac4ce18bd6e4af008e55909fa21b4ff21" prot="public">
+          <name>Key_F9</name>
+          <initializer> Qt::Key_F9</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae47b6a9702358ee2b108e0e00d8c8f1b" prot="public">
+          <name>Key_F10</name>
+          <initializer> Qt::Key_F10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae1c339ad3e10bea5e277396017d859df" prot="public">
+          <name>Key_F11</name>
+          <initializer> Qt::Key_F11</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a6f45e0e0fe80a32dc96b3fe33c8de026" prot="public">
+          <name>Key_F12</name>
+          <initializer> Qt::Key_F12</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a31a7d6d40c6c000c7fc0ae8dc3700073" prot="public">
+          <name>Key_F13</name>
+          <initializer> Qt::Key_F13</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a6c96fda8f79a25ec9228a0ddebd228ab" prot="public">
+          <name>Key_F14</name>
+          <initializer> Qt::Key_F14</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a39b50e573fdbf7f8e74c383412eef5d6" prot="public">
+          <name>Key_F15</name>
+          <initializer> Qt::Key_F15</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aaef2d130d2c7f68a12a3ea90d8cc1e0d" prot="public">
+          <name>Key_F16</name>
+          <initializer> Qt::Key_F16</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac678fbe496715feb0455e78b53ed5eea" prot="public">
+          <name>Key_F17</name>
+          <initializer> Qt::Key_F17</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae1dbfb3d34adb185d161eecd2ca82e46" prot="public">
+          <name>Key_F18</name>
+          <initializer> Qt::Key_F18</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a8ee712a94a4acfafb903dd88fa40d9e4" prot="public">
+          <name>Key_F19</name>
+          <initializer> Qt::Key_F19</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab9ba8832b29bb7fb2ecb7bcf9bb74c6b" prot="public">
+          <name>Key_F20</name>
+          <initializer> Qt::Key_F20</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a163c4d551f90b95403a1ab7bc0b3a558" prot="public">
+          <name>Key_F21</name>
+          <initializer> Qt::Key_F21</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a8e37b38bbd4661c701971fdcda6f62de" prot="public">
+          <name>Key_F22</name>
+          <initializer> Qt::Key_F22</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a2f48bb4ff48d5269879bf976b6706e33" prot="public">
+          <name>Key_F23</name>
+          <initializer> Qt::Key_F23</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a09fc849d653b6ebce217eb82a318acf0" prot="public">
+          <name>Key_F24</name>
+          <initializer> Qt::Key_F24</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a471db584b6d08c62d94687bf2c0aba92" prot="public">
+          <name>Key_F25</name>
+          <initializer> Qt::Key_F25</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a4ae122476ad56df122d21c6f23f91c3b" prot="public">
+          <name>Key_F26</name>
+          <initializer> Qt::Key_F26</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab7c8c4e0b822b2e12c68c965e4fe732b" prot="public">
+          <name>Key_F27</name>
+          <initializer> Qt::Key_F27</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae181448ee18883029c38c688a6dedbb5" prot="public">
+          <name>Key_F28</name>
+          <initializer> Qt::Key_F28</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9588f153ed8d94d32e521056c07d3a9b" prot="public">
+          <name>Key_F29</name>
+          <initializer> Qt::Key_F29</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949adc082f2f53ec976d939b24e9a111ade7" prot="public">
+          <name>Key_F30</name>
+          <initializer> Qt::Key_F30</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a69683d0a162708c0dcd691df7d092a05" prot="public">
+          <name>Key_F31</name>
+          <initializer> Qt::Key_F31</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a83d5260bf5f70e0bccbd0f5ecc88767c" prot="public">
+          <name>Key_F32</name>
+          <initializer> Qt::Key_F32</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac97e0f2e2d49f6649c17b1bda701758c" prot="public">
+          <name>Key_F33</name>
+          <initializer> Qt::Key_F33</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949acf73c942212d8051e5e14aaf6ad1197a" prot="public">
+          <name>Key_F34</name>
+          <initializer> Qt::Key_F34</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aa446db93f6f2c85a0d486f1400bde7d3" prot="public">
+          <name>Key_F35</name>
+          <initializer> Qt::Key_F35</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac90d8ebb8b3690a5b4cb4ba6fa4a7091" prot="public">
+          <name>Key_Super_L</name>
+          <initializer> Qt::Key_Super_L</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a992e8ab3942353d6e96876a92b802285" prot="public">
+          <name>Key_Super_R</name>
+          <initializer> Qt::Key_Super_R</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a5b6da6a99cc2c43ffd007171104fb0c5" prot="public">
+          <name>Key_Menu</name>
+          <initializer> Qt::Key_Menu</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a2e237c2bcc16baec6f876b668667c544" prot="public">
+          <name>Key_Hyper_L</name>
+          <initializer> Qt::Key_Hyper_L</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a8e41c7c1f74082ff44e9ee61c5809c65" prot="public">
+          <name>Key_Hyper_R</name>
+          <initializer> Qt::Key_Hyper_R</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab833958aab451ff241cebaeb91148c0a" prot="public">
+          <name>Key_Help</name>
+          <initializer> Qt::Key_Help</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9b4974a1306fee7c48353da55789f33f" prot="public">
+          <name>Key_Direction_L</name>
+          <initializer> Qt::Key_Direction_L</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3636570b6878d4f14c1128f39e06cdc4" prot="public">
+          <name>Key_Direction_R</name>
+          <initializer> Qt::Key_Direction_R</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a8cc6d07cd0c8d6c0567847c33bbcac92" prot="public">
+          <name>Key_Space</name>
+          <initializer> Qt::Key_Space</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a7c58bd4aa2e0452a48d8a15e5d2dceec" prot="public">
+          <name>Key_Any</name>
+          <initializer> Qt::Key_Any</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a61c09566873c63aa7edead1e1ab4fd5e" prot="public">
+          <name>Key_Exclam</name>
+          <initializer> Qt::Key_Exclam</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3bbab24bc1907a4fcf29007061ce1da8" prot="public">
+          <name>Key_QuoteDbl</name>
+          <initializer> Qt::Key_QuoteDbl</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a70a8975a603d8d36f1b0061f61a4acb1" prot="public">
+          <name>Key_NumberSign</name>
+          <initializer> Qt::Key_NumberSign</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a2ba765f62ae047f66a63b9029eea1819" prot="public">
+          <name>Key_Dollar</name>
+          <initializer> Qt::Key_Dollar</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949acc2649b4eddc90d81a7f33bad9b8d03f" prot="public">
+          <name>Key_Percent</name>
+          <initializer> Qt::Key_Percent</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949af7436500d602f61cd74a63648acb8d74" prot="public">
+          <name>Key_Ampersand</name>
+          <initializer> Qt::Key_Ampersand</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a67b197646cfed2d62db55b845b3c88b7" prot="public">
+          <name>Key_Apostrophe</name>
+          <initializer> Qt::Key_Apostrophe</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab243cb285e2e4eba5affb6901df35c6c" prot="public">
+          <name>Key_ParenLeft</name>
+          <initializer> Qt::Key_ParenLeft</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a040c7b553fb76dbbfa0f60671706a1ba" prot="public">
+          <name>Key_ParenRight</name>
+          <initializer> Qt::Key_ParenRight</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949adef9df6475ff16b09b3331b81d76c4ef" prot="public">
+          <name>Key_Asterisk</name>
+          <initializer> Qt::Key_Asterisk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a1aec0209f92f47bf9ae42f56b40ebd03" prot="public">
+          <name>Key_Plus</name>
+          <initializer> Qt::Key_Plus</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ad9c9b369aa3c32fb47b59cf4ef6d9ed9" prot="public">
+          <name>Key_Comma</name>
+          <initializer> Qt::Key_Comma</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aa73c59cc663c454201abdd2a543ec6fa" prot="public">
+          <name>Key_Minus</name>
+          <initializer> Qt::Key_Minus</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a460b3357c907662e968a37502dfb5757" prot="public">
+          <name>Key_Period</name>
+          <initializer> Qt::Key_Period</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a0fc61282db11a299570a8ee7fd0bc9b1" prot="public">
+          <name>Key_Slash</name>
+          <initializer> Qt::Key_Slash</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949af7c9ff5efb89cc355f86109370ae876f" prot="public">
+          <name>Key_0</name>
+          <initializer> Qt::Key_0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a2746e847c3b9736abbf599d307893ed0" prot="public">
+          <name>Key_1</name>
+          <initializer> Qt::Key_1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949af85cceac1a38105a325e2120766dccfb" prot="public">
+          <name>Key_2</name>
+          <initializer> Qt::Key_2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a00997094775d9e60b7c71f5fa4993d10" prot="public">
+          <name>Key_3</name>
+          <initializer> Qt::Key_3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a1649aebccdaf36641d42ac667760c274" prot="public">
+          <name>Key_4</name>
+          <initializer> Qt::Key_4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a4e65619617d348ee9b4a0a99a00701de" prot="public">
+          <name>Key_5</name>
+          <initializer> Qt::Key_5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949afbd6e3cc0e8de134b1a102233b661b22" prot="public">
+          <name>Key_6</name>
+          <initializer> Qt::Key_6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ad37c056464d37432c1247be2759e37d8" prot="public">
+          <name>Key_7</name>
+          <initializer> Qt::Key_7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949add92080898362141d557cf1cf7dc1994" prot="public">
+          <name>Key_8</name>
+          <initializer> Qt::Key_8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a162135aed151065bda2b751a6ca31b19" prot="public">
+          <name>Key_9</name>
+          <initializer> Qt::Key_9</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a66bd3daeac027ef501f171d8338556d1" prot="public">
+          <name>Key_Colon</name>
+          <initializer> Qt::Key_Colon</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a16129de4d2bd8d2549c1c8e3830c45ce" prot="public">
+          <name>Key_Semicolon</name>
+          <initializer> Qt::Key_Semicolon</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aff5cf7daa796180a5315fbe77375a079" prot="public">
+          <name>Key_Less</name>
+          <initializer> Qt::Key_Less</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aee6139ac81e13e2206a627c97cdaadf7" prot="public">
+          <name>Key_Equal</name>
+          <initializer> Qt::Key_Equal</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aadb2b660d748e491137ee199a5c99933" prot="public">
+          <name>Key_Greater</name>
+          <initializer> Qt::Key_Greater</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a1729be44e5255a39479dde5b2296ead5" prot="public">
+          <name>Key_Question</name>
+          <initializer> Qt::Key_Question</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9352f413ba9d63c052aaeff08aaf3699" prot="public">
+          <name>Key_At</name>
+          <initializer> Qt::Key_At</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aeba9a09fc335b597a2d20b69e76d416f" prot="public">
+          <name>Key_A</name>
+          <initializer> Qt::Key_A</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3fee97b18e360c7de43e1011d21b4a01" prot="public">
+          <name>Key_B</name>
+          <initializer> Qt::Key_B</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949af0e8b1ad5bcea13d9390e3ebc8fdbea2" prot="public">
+          <name>Key_C</name>
+          <initializer> Qt::Key_C</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ad71d366ceaad1a171e6be9aab68aa459" prot="public">
+          <name>Key_D</name>
+          <initializer> Qt::Key_D</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949abe07f976f1b0f8095b23e0692d3fe297" prot="public">
+          <name>Key_E</name>
+          <initializer> Qt::Key_E</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ad94bfa5a42f00bdd7ff3fe4ea8ac4bb5" prot="public">
+          <name>Key_F</name>
+          <initializer> Qt::Key_F</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a931b25970c6ab47cf7dfe0de8c94b75c" prot="public">
+          <name>Key_G</name>
+          <initializer> Qt::Key_G</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac2f00231b643fb3281b061e34848a465" prot="public">
+          <name>Key_H</name>
+          <initializer> Qt::Key_H</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a1c3a8a1096c22a3d9709ce4e5cafb265" prot="public">
+          <name>Key_I</name>
+          <initializer> Qt::Key_I</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac5a2ca9869b806bc3777feeb5774e860" prot="public">
+          <name>Key_J</name>
+          <initializer> Qt::Key_J</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949af1844d61a5cbe3402d467e037017a34a" prot="public">
+          <name>Key_K</name>
+          <initializer> Qt::Key_K</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac59306701864bb7c3e455bc287ef72fa" prot="public">
+          <name>Key_L</name>
+          <initializer> Qt::Key_L</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3c0eed1347e1fd0374bd56346e6dddca" prot="public">
+          <name>Key_M</name>
+          <initializer> Qt::Key_M</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab389cede6a51dcbe6cb371739914ca6a" prot="public">
+          <name>Key_N</name>
+          <initializer> Qt::Key_N</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949afb9c5583d543eaed859a406987ec544b" prot="public">
+          <name>Key_O</name>
+          <initializer> Qt::Key_O</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a5ccc819a210d25816b2bed555ca99ced" prot="public">
+          <name>Key_P</name>
+          <initializer> Qt::Key_P</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ad2056a7f02b4fcd3781b246942ea34f2" prot="public">
+          <name>Key_Q</name>
+          <initializer> Qt::Key_Q</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a8c191359c9ca7ec10aed84ae4925d6d7" prot="public">
+          <name>Key_R</name>
+          <initializer> Qt::Key_R</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949afbcf7a845aec111534624c02dc29336a" prot="public">
+          <name>Key_S</name>
+          <initializer> Qt::Key_S</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aa7630a3303c54a4aa66311744f727e04" prot="public">
+          <name>Key_T</name>
+          <initializer> Qt::Key_T</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a174adeb59f683eb58a5f0a72ee5aac42" prot="public">
+          <name>Key_U</name>
+          <initializer> Qt::Key_U</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a82aab8e0102735d2ced31731771ec335" prot="public">
+          <name>Key_V</name>
+          <initializer> Qt::Key_V</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aee3ac1b8347bdd37a46f934a5a2a3b35" prot="public">
+          <name>Key_W</name>
+          <initializer> Qt::Key_W</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a48afb03f0185d21cfa334477fc877b85" prot="public">
+          <name>Key_X</name>
+          <initializer> Qt::Key_X</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a1032d84780226ce34d82a00c99a8c0ea" prot="public">
+          <name>Key_Y</name>
+          <initializer> Qt::Key_Y</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a512cc98efb7851423be2c7b1f6be499e" prot="public">
+          <name>Key_Z</name>
+          <initializer> Qt::Key_Z</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a68bf435d571cfede2eda3054e8bed505" prot="public">
+          <name>Key_BracketLeft</name>
+          <initializer> Qt::Key_BracketLeft</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac5f8c8b15abffb2a9c69276a296d4f95" prot="public">
+          <name>Key_Backslash</name>
+          <initializer> Qt::Key_Backslash</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949abc0689d877790fde5826a63c159bed8a" prot="public">
+          <name>Key_BracketRight</name>
+          <initializer> Qt::Key_BracketRight</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac21316c10bf13e5bb4b8496da75cd772" prot="public">
+          <name>Key_AsciiCircum</name>
+          <initializer> Qt::Key_AsciiCircum</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949af91f217955f8cc7b1265981dd9be31f4" prot="public">
+          <name>Key_Underscore</name>
+          <initializer> Qt::Key_Underscore</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab35968a5a71f01a6f2032db5136dc0ba" prot="public">
+          <name>Key_QuoteLeft</name>
+          <initializer> Qt::Key_QuoteLeft</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aaad2beb53db3add4e0429bd7333fed9d" prot="public">
+          <name>Key_BraceLeft</name>
+          <initializer> Qt::Key_BraceLeft</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aafc8e776f8e851d9f199d2038176b110" prot="public">
+          <name>Key_Bar</name>
+          <initializer> Qt::Key_Bar</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae07b69f21dadbeea98b9f9c02c325023" prot="public">
+          <name>Key_BraceRight</name>
+          <initializer> Qt::Key_BraceRight</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a213e949148a94ee5f137eb3add29e2c6" prot="public">
+          <name>Key_AsciiTilde</name>
+          <initializer> Qt::Key_AsciiTilde</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a635f39ac0146fd7e87cc3e56da280ea4" prot="public">
+          <name>Key_nobreakspace</name>
+          <initializer> Qt::Key_nobreakspace</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949abdb812a3d74f20606fd1c81b4def488c" prot="public">
+          <name>Key_exclamdown</name>
+          <initializer> Qt::Key_exclamdown</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a24298359ce5ea2ebadf04fdb82a9837e" prot="public">
+          <name>Key_cent</name>
+          <initializer> Qt::Key_cent</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a31c6876a855708fbbecf86bf458270b9" prot="public">
+          <name>Key_sterling</name>
+          <initializer> Qt::Key_sterling</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab277588e7763c851f09b7b0bde83a884" prot="public">
+          <name>Key_currency</name>
+          <initializer> Qt::Key_currency</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac95730602d45502f57fd1886625ef105" prot="public">
+          <name>Key_yen</name>
+          <initializer> Qt::Key_yen</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3d09352061e4993a7e7be649a3f3980f" prot="public">
+          <name>Key_brokenbar</name>
+          <initializer> Qt::Key_brokenbar</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a7aed0c17fb24cb258614f6c239439115" prot="public">
+          <name>Key_section</name>
+          <initializer> Qt::Key_section</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a42a73e92b60863ad0cf5fb65b76f1c3a" prot="public">
+          <name>Key_diaeresis</name>
+          <initializer> Qt::Key_diaeresis</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a7da3fbd67da0c7d75f706e03629c8d6a" prot="public">
+          <name>Key_copyright</name>
+          <initializer> Qt::Key_copyright</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949afa777e056e5c450bb242eb6930421e95" prot="public">
+          <name>Key_ordfeminine</name>
+          <initializer> Qt::Key_ordfeminine</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac831820bbf4622500d1a3ce08bd222a7" prot="public">
+          <name>Key_guillemotleft</name>
+          <initializer> Qt::Key_guillemotleft</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a8d8949ebf44d57504045a5ba502a342c" prot="public">
+          <name>Key_notsign</name>
+          <initializer> Qt::Key_notsign</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3df3f1b21adf66ec9e194fc226db2197" prot="public">
+          <name>Key_hyphen</name>
+          <initializer> Qt::Key_hyphen</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a76f207884dd82b9dd9690dce1424fcd2" prot="public">
+          <name>Key_registered</name>
+          <initializer> Qt::Key_registered</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3b114999a087049b9a86f7c2764da653" prot="public">
+          <name>Key_macron</name>
+          <initializer> Qt::Key_macron</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949af35c2e0d237db1b7231b256e5988e1e1" prot="public">
+          <name>Key_degree</name>
+          <initializer> Qt::Key_degree</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a5032ecb893f61647217a6f78943a53ed" prot="public">
+          <name>Key_plusminus</name>
+          <initializer> Qt::Key_plusminus</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a10e931e6268de576457ca381c0d42ff5" prot="public">
+          <name>Key_twosuperior</name>
+          <initializer> Qt::Key_twosuperior</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a888810c3b9d469bdae4d9939a28cf750" prot="public">
+          <name>Key_threesuperior</name>
+          <initializer> Qt::Key_threesuperior</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3f5c8f00ef20fca4bf16b4903f5cc305" prot="public">
+          <name>Key_acute</name>
+          <initializer> Qt::Key_acute</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9b902855d9b11e182a04977ad83b2055" prot="public">
+          <name>Key_mu</name>
+          <initializer> Qt::Key_mu</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a5e6e4a4b6a872df78745974a90066bbe" prot="public">
+          <name>Key_paragraph</name>
+          <initializer> Qt::Key_paragraph</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a63881b152fdab4cdf081911262fa6301" prot="public">
+          <name>Key_periodcentered</name>
+          <initializer> Qt::Key_periodcentered</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae950d2a7c4405dc462a57de4504167ca" prot="public">
+          <name>Key_cedilla</name>
+          <initializer> Qt::Key_cedilla</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aedcbec9026db319fb248d206e121062d" prot="public">
+          <name>Key_onesuperior</name>
+          <initializer> Qt::Key_onesuperior</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949af1b51e330b9f1834262f1e74df8381a2" prot="public">
+          <name>Key_masculine</name>
+          <initializer> Qt::Key_masculine</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949af181b172e1ec11aa210fab80fe862168" prot="public">
+          <name>Key_guillemotright</name>
+          <initializer> Qt::Key_guillemotright</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a4274cbd9d8dc3e2beffa99f925df860a" prot="public">
+          <name>Key_onequarter</name>
+          <initializer> Qt::Key_onequarter</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a447f42827bc03a023a9400a0d4d83775" prot="public">
+          <name>Key_onehalf</name>
+          <initializer> Qt::Key_onehalf</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a0c0d5470bf2c1a7bbeb2eb8d756b2fb2" prot="public">
+          <name>Key_threequarters</name>
+          <initializer> Qt::Key_threequarters</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949adfa510518fae5cccbf3901ccc43ceddb" prot="public">
+          <name>Key_questiondown</name>
+          <initializer> Qt::Key_questiondown</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a7377e995006e9a05e2c183e1d7f915aa" prot="public">
+          <name>Key_Agrave</name>
+          <initializer> Qt::Key_Agrave</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a500fc5078c9174a8febe0e0fe2e9ad01" prot="public">
+          <name>Key_Aacute</name>
+          <initializer> Qt::Key_Aacute</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a884a719fc4959c54a5df8603e85be71e" prot="public">
+          <name>Key_Acircumflex</name>
+          <initializer> Qt::Key_Acircumflex</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a2aededbc6cd80ca1e4ed2d1521950928" prot="public">
+          <name>Key_Atilde</name>
+          <initializer> Qt::Key_Atilde</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9c03100fd340294e8d5e148e3d56861d" prot="public">
+          <name>Key_Adiaeresis</name>
+          <initializer> Qt::Key_Adiaeresis</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a99576f0a7e909aab88d967e4698d4acd" prot="public">
+          <name>Key_Aring</name>
+          <initializer> Qt::Key_Aring</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9a03f51273f6b5b4e44801f1c6ca91f0" prot="public">
+          <name>Key_AE</name>
+          <initializer> Qt::Key_AE</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab60ed77dbc035fa9fc13c4abacca892f" prot="public">
+          <name>Key_Ccedilla</name>
+          <initializer> Qt::Key_Ccedilla</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a49c3e7a7d193a7cb80d95d2310f3a204" prot="public">
+          <name>Key_Egrave</name>
+          <initializer> Qt::Key_Egrave</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab838f4d87d17f35bb71c0aa465697fd0" prot="public">
+          <name>Key_Eacute</name>
+          <initializer> Qt::Key_Eacute</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a8751c93e6cb0292901d0e4771ac1d721" prot="public">
+          <name>Key_Ecircumflex</name>
+          <initializer> Qt::Key_Ecircumflex</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a57bf0bcd384d7003c43cb12cb3338a3c" prot="public">
+          <name>Key_Ediaeresis</name>
+          <initializer> Qt::Key_Ediaeresis</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a96eed610f2d881aa1837396e2ebbf943" prot="public">
+          <name>Key_Igrave</name>
+          <initializer> Qt::Key_Igrave</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9a27761a6ed2471bdd4363c06c5a9a30" prot="public">
+          <name>Key_Iacute</name>
+          <initializer> Qt::Key_Iacute</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3f88cacae84abd5601eef2c316fdab95" prot="public">
+          <name>Key_Icircumflex</name>
+          <initializer> Qt::Key_Icircumflex</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aba61076fb532a23430a90d178618c1d2" prot="public">
+          <name>Key_Idiaeresis</name>
+          <initializer> Qt::Key_Idiaeresis</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a70e1a88e62673899c59bc0b531ef5c0b" prot="public">
+          <name>Key_ETH</name>
+          <initializer> Qt::Key_ETH</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a06c4de229a84bafc5104b78cb32ba364" prot="public">
+          <name>Key_Ntilde</name>
+          <initializer> Qt::Key_Ntilde</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a981c66ba8339348a11740e06979058be" prot="public">
+          <name>Key_Ograve</name>
+          <initializer> Qt::Key_Ograve</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aa7a07f8ce3b7b5d473e2b9818bf93c3b" prot="public">
+          <name>Key_Oacute</name>
+          <initializer> Qt::Key_Oacute</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949acdae5f7f4d55b480859112926448996e" prot="public">
+          <name>Key_Ocircumflex</name>
+          <initializer> Qt::Key_Ocircumflex</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab6ab1b850b2ed173d2f6e4f2498f2ee3" prot="public">
+          <name>Key_Otilde</name>
+          <initializer> Qt::Key_Otilde</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a796c0f55fe546abd3f0240709c1aa3ff" prot="public">
+          <name>Key_Odiaeresis</name>
+          <initializer> Qt::Key_Odiaeresis</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a495d4e3d96ed98e8bdfdc9418b4cabad" prot="public">
+          <name>Key_multiply</name>
+          <initializer> Qt::Key_multiply</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3a7d9b7a4adafba199f8a525e071efaa" prot="public">
+          <name>Key_Ooblique</name>
+          <initializer> Qt::Key_Ooblique</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949acd879169bf37dac873a3f24cbebdd47d" prot="public">
+          <name>Key_Ugrave</name>
+          <initializer> Qt::Key_Ugrave</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a79bf022fd2dac7d78ae0221f4ee70589" prot="public">
+          <name>Key_Uacute</name>
+          <initializer> Qt::Key_Uacute</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a0b094ae4e775e70f56a6d0184394e646" prot="public">
+          <name>Key_Ucircumflex</name>
+          <initializer> Qt::Key_Ucircumflex</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aca855dbfb2850b11f43ea0a5ade4526f" prot="public">
+          <name>Key_Udiaeresis</name>
+          <initializer> Qt::Key_Udiaeresis</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae074256d8121b07c5fc85ba8215f715a" prot="public">
+          <name>Key_Yacute</name>
+          <initializer> Qt::Key_Yacute</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a870de40db6e97ec3666ba8e73fca058f" prot="public">
+          <name>Key_THORN</name>
+          <initializer> Qt::Key_THORN</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a4caacc987d9bd78f751db8f02e19d12e" prot="public">
+          <name>Key_ssharp</name>
+          <initializer> Qt::Key_ssharp</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a36f8180fa0e61ee04f852e9cd85bcc75" prot="public">
+          <name>Key_division</name>
+          <initializer> Qt::Key_division</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aeeb4082bf8b014d111a2e5b99ad20c40" prot="public">
+          <name>Key_ydiaeresis</name>
+          <initializer> Qt::Key_ydiaeresis</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab6c5ee9b98bdde98cc2b7b9fae7c2435" prot="public">
+          <name>Key_Multi_key</name>
+          <initializer> Qt::Key_Multi_key</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a6e67d37570196aedbc0fb29bd70d27ff" prot="public">
+          <name>Key_Codeinput</name>
+          <initializer> Qt::Key_Codeinput</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949af60fdc0714d9e0747df10cba0c6b7e0d" prot="public">
+          <name>Key_SingleCandidate</name>
+          <initializer> Qt::Key_SingleCandidate</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a10813fc86a2253a100279d064ff90bc4" prot="public">
+          <name>Key_MultipleCandidate</name>
+          <initializer> Qt::Key_MultipleCandidate</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a2b3ddd37fda529a6ff63921cf245ed98" prot="public">
+          <name>Key_PreviousCandidate</name>
+          <initializer> Qt::Key_PreviousCandidate</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae75ba51f40588e6f710ce5fe2ee8499b" prot="public">
+          <name>Key_Mode_switch</name>
+          <initializer> Qt::Key_Mode_switch</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a139a20aa958e4d8296d947b0afa1d97b" prot="public">
+          <name>Key_Kanji</name>
+          <initializer> Qt::Key_Kanji</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949af50ef94a59b9ab1a8f675324115d4200" prot="public">
+          <name>Key_Muhenkan</name>
+          <initializer> Qt::Key_Muhenkan</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949af21e78d54d80af919a8c87b64a965099" prot="public">
+          <name>Key_Henkan</name>
+          <initializer> Qt::Key_Henkan</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a2c3572376b1ab15614fe1a9bccb2f299" prot="public">
+          <name>Key_Romaji</name>
+          <initializer> Qt::Key_Romaji</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949add36f1dbdd641c3581b17d48450e83bd" prot="public">
+          <name>Key_Hiragana</name>
+          <initializer> Qt::Key_Hiragana</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae656f7d900e03f2255abc460b0004607" prot="public">
+          <name>Key_Katakana</name>
+          <initializer> Qt::Key_Katakana</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a858fc36faeee8dee2d60d8104db85379" prot="public">
+          <name>Key_Hiragana_Katakana</name>
+          <initializer> Qt::Key_Hiragana_Katakana</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a4f04ef555a35786d5c82e16596b41aaa" prot="public">
+          <name>Key_Zenkaku</name>
+          <initializer> Qt::Key_Zenkaku</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a844271015be09d841eb525f7ec601a1f" prot="public">
+          <name>Key_Hankaku</name>
+          <initializer> Qt::Key_Hankaku</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a1622bea5b705de8669a89c2c9e22ba17" prot="public">
+          <name>Key_Zenkaku_Hankaku</name>
+          <initializer> Qt::Key_Zenkaku_Hankaku</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a688a642a6ab45b0f6154b302a48bb5ea" prot="public">
+          <name>Key_Touroku</name>
+          <initializer> Qt::Key_Touroku</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a417f9e279274f9d055cd20a8cf9b96c8" prot="public">
+          <name>Key_Massyo</name>
+          <initializer> Qt::Key_Massyo</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aca70ce027e3ae96dab73534c3817deaf" prot="public">
+          <name>Key_Kana_Lock</name>
+          <initializer> Qt::Key_Kana_Lock</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a115b3fc3ef81bcba57c820f5610ca681" prot="public">
+          <name>Key_Kana_Shift</name>
+          <initializer> Qt::Key_Kana_Shift</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a211263b262e12eceedd7da3fc21bf87f" prot="public">
+          <name>Key_Eisu_Shift</name>
+          <initializer> Qt::Key_Eisu_Shift</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a19491c3aaef42b71347824be540eb700" prot="public">
+          <name>Key_Eisu_toggle</name>
+          <initializer> Qt::Key_Eisu_toggle</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a49a07d1db1c67c1efef608ad75b8e2e8" prot="public">
+          <name>Key_Hangul</name>
+          <initializer> Qt::Key_Hangul</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae2845c506e8665ee348497a656ebf398" prot="public">
+          <name>Key_Hangul_Start</name>
+          <initializer> Qt::Key_Hangul_Start</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949abc47f2d3b5d657668c612c20d9e120b0" prot="public">
+          <name>Key_Hangul_End</name>
+          <initializer> Qt::Key_Hangul_End</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949acfa75ad9d527cd2bfb980600a052e053" prot="public">
+          <name>Key_Hangul_Hanja</name>
+          <initializer> Qt::Key_Hangul_Hanja</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a59e778063ef9e8c12486008e289476e1" prot="public">
+          <name>Key_Hangul_Jamo</name>
+          <initializer> Qt::Key_Hangul_Jamo</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a1c71870c5125f9c6187c49307b3ce1bf" prot="public">
+          <name>Key_Hangul_Romaja</name>
+          <initializer> Qt::Key_Hangul_Romaja</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a089ad409330acd2227a0057813239ff1" prot="public">
+          <name>Key_Hangul_Jeonja</name>
+          <initializer> Qt::Key_Hangul_Jeonja</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a16a51d0abec6000b3e4af0b6c1836ef1" prot="public">
+          <name>Key_Hangul_Banja</name>
+          <initializer> Qt::Key_Hangul_Banja</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a63e11413e959260f404bff0758847686" prot="public">
+          <name>Key_Hangul_PreHanja</name>
+          <initializer> Qt::Key_Hangul_PreHanja</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a334f2d6b07c952f60a374fc1bce6ba1d" prot="public">
+          <name>Key_Hangul_PostHanja</name>
+          <initializer> Qt::Key_Hangul_PostHanja</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aba93f58b92f36661f133664b3760f8a0" prot="public">
+          <name>Key_Hangul_Special</name>
+          <initializer> Qt::Key_Hangul_Special</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a32479e21755368d1ddbfa4d0305f71c0" prot="public">
+          <name>Key_Dead_Grave</name>
+          <initializer> Qt::Key_Dead_Grave</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a0d67f646354e478ec7439f0662826327" prot="public">
+          <name>Key_Dead_Acute</name>
+          <initializer> Qt::Key_Dead_Acute</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a6280048d16d4ebfc9c0dd1476275a8d4" prot="public">
+          <name>Key_Dead_Circumflex</name>
+          <initializer> Qt::Key_Dead_Circumflex</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a2d6e3363c1944b429c97963c964f83ef" prot="public">
+          <name>Key_Dead_Tilde</name>
+          <initializer> Qt::Key_Dead_Tilde</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a464134e4e8ef4e8f93269941ef46bb07" prot="public">
+          <name>Key_Dead_Macron</name>
+          <initializer> Qt::Key_Dead_Macron</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a0912745d443889cdaffdfc53f6ef37a2" prot="public">
+          <name>Key_Dead_Breve</name>
+          <initializer> Qt::Key_Dead_Breve</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949acfbc3d58c192b72d2577475c3c966c69" prot="public">
+          <name>Key_Dead_Abovedot</name>
+          <initializer> Qt::Key_Dead_Abovedot</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aff871d5c92c132364fabe3f6ae1e2fac" prot="public">
+          <name>Key_Dead_Diaeresis</name>
+          <initializer> Qt::Key_Dead_Diaeresis</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ad33e18c7bcefc7ffa78332bead264483" prot="public">
+          <name>Key_Dead_Abovering</name>
+          <initializer> Qt::Key_Dead_Abovering</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab9803b1e3aa3d2df4b47dc157f3feb0b" prot="public">
+          <name>Key_Dead_Doubleacute</name>
+          <initializer> Qt::Key_Dead_Doubleacute</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a2af5de0ff6db631b506af719827b8e96" prot="public">
+          <name>Key_Dead_Caron</name>
+          <initializer> Qt::Key_Dead_Caron</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a599bf636351e03d6760fc1275aedadad" prot="public">
+          <name>Key_Dead_Cedilla</name>
+          <initializer> Qt::Key_Dead_Cedilla</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a77fa91281a1a5d397331a43a6034d65b" prot="public">
+          <name>Key_Dead_Ogonek</name>
+          <initializer> Qt::Key_Dead_Ogonek</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aa05303e7e809fe4b005d803e42298b3c" prot="public">
+          <name>Key_Dead_Iota</name>
+          <initializer> Qt::Key_Dead_Iota</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac2d7a22bbeb35aa86fdc30026f91af87" prot="public">
+          <name>Key_Dead_Voiced_Sound</name>
+          <initializer> Qt::Key_Dead_Voiced_Sound</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a6887d321b7ebd4cca95a57d4832de7c6" prot="public">
+          <name>Key_Dead_Semivoiced_Sound</name>
+          <initializer> Qt::Key_Dead_Semivoiced_Sound</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a6ab04090003f42d6c1b5957541c00065" prot="public">
+          <name>Key_Dead_Belowdot</name>
+          <initializer> Qt::Key_Dead_Belowdot</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae8beefce3fe19237dd5dfb07b48b3df1" prot="public">
+          <name>Key_Dead_Hook</name>
+          <initializer> Qt::Key_Dead_Hook</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a71fd22a33317cc3b40d34d2ddf99ba2b" prot="public">
+          <name>Key_Dead_Horn</name>
+          <initializer> Qt::Key_Dead_Horn</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3cdd8b48ed8e37bcfb055faca5b9f2b4" prot="public">
+          <name>Key_Back</name>
+          <initializer> Qt::Key_Back</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a8d86792b68e4f129f9be26599a47b2e0" prot="public">
+          <name>Key_Forward</name>
+          <initializer> Qt::Key_Forward</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a4426d259d785ec7d1ac839719c7a41f4" prot="public">
+          <name>Key_Stop</name>
+          <initializer> Qt::Key_Stop</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9fb7b04d99b2ee8fba93df49535883f1" prot="public">
+          <name>Key_Refresh</name>
+          <initializer> Qt::Key_Refresh</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a43a641cdd77b4f5ca176baaf6691dd5b" prot="public">
+          <name>Key_VolumeDown</name>
+          <initializer> Qt::Key_VolumeDown</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949afeee8178687dc06e662036f31068c393" prot="public">
+          <name>Key_VolumeMute</name>
+          <initializer> Qt::Key_VolumeMute</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae3e4e3fb414c6be4b964b9051ac6e846" prot="public">
+          <name>Key_VolumeUp</name>
+          <initializer> Qt::Key_VolumeUp</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a6d8e3adbe9b4ec0e2a87f01669d5b44c" prot="public">
+          <name>Key_BassBoost</name>
+          <initializer> Qt::Key_BassBoost</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a4f91156d76f94468ce246903156ad9e5" prot="public">
+          <name>Key_BassUp</name>
+          <initializer> Qt::Key_BassUp</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a412411523b098f24841be54ef8c4a55f" prot="public">
+          <name>Key_BassDown</name>
+          <initializer> Qt::Key_BassDown</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a523a4bc40fd9ee7a7be6b0d64a1b1069" prot="public">
+          <name>Key_TrebleUp</name>
+          <initializer> Qt::Key_TrebleUp</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a6fa7e0dbd43d50c0c41da260586fdde6" prot="public">
+          <name>Key_TrebleDown</name>
+          <initializer> Qt::Key_TrebleDown</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae031c4690f7b68524292f0077f0a011f" prot="public">
+          <name>Key_MediaPlay</name>
+          <initializer> Qt::Key_MediaPlay</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a26516a382f0a588057f6a3b580f82f3e" prot="public">
+          <name>Key_MediaStop</name>
+          <initializer> Qt::Key_MediaStop</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a994e8e65a5796a9ef8a1875be69cab7c" prot="public">
+          <name>Key_MediaPrevious</name>
+          <initializer> Qt::Key_MediaPrevious</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9edce5c6feee2842dd1bd69baf28e4de" prot="public">
+          <name>Key_MediaNext</name>
+          <initializer> Qt::Key_MediaNext</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a30e6ef178d5b7238497d039a4f5b02d6" prot="public">
+          <name>Key_MediaRecord</name>
+          <initializer> Qt::Key_MediaRecord</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a71ed17d477c632c1b5fc89c8c2eec339" prot="public">
+          <name>Key_MediaPause</name>
+          <initializer> Qt::Key_MediaPause</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a90407bd76b1de37cf2ee4fbb5bbada8b" prot="public">
+          <name>Key_MediaTogglePlayPause</name>
+          <initializer> Qt::Key_MediaTogglePlayPause</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a99774054576c58e0563b9e9980eb145a" prot="public">
+          <name>Key_HomePage</name>
+          <initializer> Qt::Key_HomePage</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a67b9e5f54d3cdf3df22140b404b8ec89" prot="public">
+          <name>Key_Favorites</name>
+          <initializer> Qt::Key_Favorites</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a790a182aacf07b4dce8635653b3bcacf" prot="public">
+          <name>Key_Search</name>
+          <initializer> Qt::Key_Search</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a95b5946d5bb97769e6a5a93a10ebbaa0" prot="public">
+          <name>Key_Standby</name>
+          <initializer> Qt::Key_Standby</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aa08ab6511d22a3d964eaf45bc5f19659" prot="public">
+          <name>Key_OpenUrl</name>
+          <initializer> Qt::Key_OpenUrl</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949af0775f781da26407ac0671c29ae52bee" prot="public">
+          <name>Key_LaunchMail</name>
+          <initializer> Qt::Key_LaunchMail</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9b9bc60300e0a434e125ca5f85e1b86b" prot="public">
+          <name>Key_LaunchMedia</name>
+          <initializer> Qt::Key_LaunchMedia</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a64d4aa1164df663326d83c03ea155332" prot="public">
+          <name>Key_Launch0</name>
+          <initializer> Qt::Key_Launch0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3a47dde47cbbc602a9c74c9188a332d1" prot="public">
+          <name>Key_Launch1</name>
+          <initializer> Qt::Key_Launch1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aa07c6aac27e85374c1bd648ffbe2c969" prot="public">
+          <name>Key_Launch2</name>
+          <initializer> Qt::Key_Launch2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a5b3827e1f5d842ee91a816218cb31436" prot="public">
+          <name>Key_Launch3</name>
+          <initializer> Qt::Key_Launch3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac33dcebdc4396c3e7cb375aba108f54f" prot="public">
+          <name>Key_Launch4</name>
+          <initializer> Qt::Key_Launch4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a5faaab36386afb396418ed38b2069ff6" prot="public">
+          <name>Key_Launch5</name>
+          <initializer> Qt::Key_Launch5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a634773deb3795c1284a40a8babf8668b" prot="public">
+          <name>Key_Launch6</name>
+          <initializer> Qt::Key_Launch6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a57d2d8d9e29458b8f5586959af42f6e6" prot="public">
+          <name>Key_Launch7</name>
+          <initializer> Qt::Key_Launch7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a1f9c5509821a149afe02e2a2793f1ae6" prot="public">
+          <name>Key_Launch8</name>
+          <initializer> Qt::Key_Launch8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab496dc1ed0bf21af7c975ffea44bece8" prot="public">
+          <name>Key_Launch9</name>
+          <initializer> Qt::Key_Launch9</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a30dc4d9f0c65e76eff5e1fac4a686770" prot="public">
+          <name>Key_LaunchA</name>
+          <initializer> Qt::Key_LaunchA</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aef77f59fc72c16a53b4c34fa673129fe" prot="public">
+          <name>Key_LaunchB</name>
+          <initializer> Qt::Key_LaunchB</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a5ccfa65b11a9b2caf11edde5ff15d87f" prot="public">
+          <name>Key_LaunchC</name>
+          <initializer> Qt::Key_LaunchC</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aea232832ad47ccfcecac6c78ca7bb980" prot="public">
+          <name>Key_LaunchD</name>
+          <initializer> Qt::Key_LaunchD</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aad9d96d083acd1698e7ffe72dd600494" prot="public">
+          <name>Key_LaunchE</name>
+          <initializer> Qt::Key_LaunchE</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a68939925ee59e042ebd837fe19e64b77" prot="public">
+          <name>Key_LaunchF</name>
+          <initializer> Qt::Key_LaunchF</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac393e30a41f55a3120fb32e1d2da46bf" prot="public">
+          <name>Key_LaunchG</name>
+          <initializer> Qt::Key_LaunchG</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a90e695bdb0104fded8cdceff4bb80ff8" prot="public">
+          <name>Key_LaunchH</name>
+          <initializer> Qt::Key_LaunchH</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab5fc0eae7aa6591a2d366bdd168199a2" prot="public">
+          <name>Key_MonBrightnessUp</name>
+          <initializer> Qt::Key_MonBrightnessUp</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aa4e9710fdc47fa972bbc19be15917acc" prot="public">
+          <name>Key_MonBrightnessDown</name>
+          <initializer> Qt::Key_MonBrightnessDown</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a8d60dd3c644e6cd7f38f46d8f222cf9c" prot="public">
+          <name>Key_KeyboardLightOnOff</name>
+          <initializer> Qt::Key_KeyboardLightOnOff</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949acd4acf698af598650975b84a53e99848" prot="public">
+          <name>Key_KeyboardBrightnessUp</name>
+          <initializer> Qt::Key_KeyboardBrightnessUp</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a669723af6726e1fa97a6071ddba63da3" prot="public">
+          <name>Key_KeyboardBrightnessDown</name>
+          <initializer> Qt::Key_KeyboardBrightnessDown</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a07ecae1a3f588b6b28daadfa41fe8d3e" prot="public">
+          <name>Key_PowerOff</name>
+          <initializer> Qt::Key_PowerOff</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a65ed4219bea838ebc00cb2f13091ce88" prot="public">
+          <name>Key_WakeUp</name>
+          <initializer> Qt::Key_WakeUp</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a60437c357e33efd7e0df328bde0bb2d0" prot="public">
+          <name>Key_Eject</name>
+          <initializer> Qt::Key_Eject</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a964ad334f63efa78e8f107dd3068b6b8" prot="public">
+          <name>Key_ScreenSaver</name>
+          <initializer> Qt::Key_ScreenSaver</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949afe332098cb4b09a622686d9ecf9efc8e" prot="public">
+          <name>Key_WWW</name>
+          <initializer> Qt::Key_WWW</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949afefe75de22e7869ad283be63c33125e3" prot="public">
+          <name>Key_Memo</name>
+          <initializer> Qt::Key_Memo</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a1e4405324125b25cd60983e4ad134e3b" prot="public">
+          <name>Key_LightBulb</name>
+          <initializer> Qt::Key_LightBulb</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9c2789606591bf811d12c7c1c71e16a0" prot="public">
+          <name>Key_Shop</name>
+          <initializer> Qt::Key_Shop</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a43456b0face8a8885cdd5a4ba690548b" prot="public">
+          <name>Key_History</name>
+          <initializer> Qt::Key_History</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ade855807ce80d4e0a08107aad6eb2130" prot="public">
+          <name>Key_AddFavorite</name>
+          <initializer> Qt::Key_AddFavorite</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab0b4b3c82e5da3a600b05f8703912e0e" prot="public">
+          <name>Key_HotLinks</name>
+          <initializer> Qt::Key_HotLinks</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a42c39930a0338a1d436d56db3f1aab34" prot="public">
+          <name>Key_BrightnessAdjust</name>
+          <initializer> Qt::Key_BrightnessAdjust</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aaa9a81819a791dd5aa8043d07cabb826" prot="public">
+          <name>Key_Finance</name>
+          <initializer> Qt::Key_Finance</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a78e5e2f390cb4e81593550ea4e6edd08" prot="public">
+          <name>Key_Community</name>
+          <initializer> Qt::Key_Community</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949adc74affd96a5b7a7b9e01b12d1387eaf" prot="public">
+          <name>Key_AudioRewind</name>
+          <initializer> Qt::Key_AudioRewind</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ad7da9b5b3a5d6718ae26602bbc84f5ec" prot="public">
+          <name>Key_BackForward</name>
+          <initializer> Qt::Key_BackForward</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a4cd43e50bcc48b287d5f261d98119a84" prot="public">
+          <name>Key_ApplicationLeft</name>
+          <initializer> Qt::Key_ApplicationLeft</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a05d06a23ecf4b4ae3c408e026280892f" prot="public">
+          <name>Key_ApplicationRight</name>
+          <initializer> Qt::Key_ApplicationRight</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a6cd99973a4f8668ab74824ba9b84d834" prot="public">
+          <name>Key_Book</name>
+          <initializer> Qt::Key_Book</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949addf1ee34b7cf227a28c5ec13625b537d" prot="public">
+          <name>Key_CD</name>
+          <initializer> Qt::Key_CD</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a07ae57d68412925cf3f86063ae8c8854" prot="public">
+          <name>Key_Calculator</name>
+          <initializer> Qt::Key_Calculator</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aa70580810a0b7a62229ac3d90862d07d" prot="public">
+          <name>Key_ToDoList</name>
+          <initializer> Qt::Key_ToDoList</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aadba91b1658ef2d24f9c62877fc7bf58" prot="public">
+          <name>Key_ClearGrab</name>
+          <initializer> Qt::Key_ClearGrab</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a6fd4d388021ea27294e7c5bd6bb9e6f2" prot="public">
+          <name>Key_Close</name>
+          <initializer> Qt::Key_Close</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a478b613be4d6e34cc14c263e65aaa203" prot="public">
+          <name>Key_Copy</name>
+          <initializer> Qt::Key_Copy</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a99fb28b0817dd708a8b7691006699607" prot="public">
+          <name>Key_Cut</name>
+          <initializer> Qt::Key_Cut</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949add3f832d43fa1bf9d3e9ee9a59b469f1" prot="public">
+          <name>Key_Display</name>
+          <initializer> Qt::Key_Display</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949af2e37979d41b897abbf29063e30a9fa6" prot="public">
+          <name>Key_DOS</name>
+          <initializer> Qt::Key_DOS</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a858754552dc10cbd4dd0ec1a4f33354f" prot="public">
+          <name>Key_Documents</name>
+          <initializer> Qt::Key_Documents</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac7ea8ca61db3d5c3789e78d8e38a8585" prot="public">
+          <name>Key_Excel</name>
+          <initializer> Qt::Key_Excel</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949abc090b00698480347bfa3c20e475d926" prot="public">
+          <name>Key_Explorer</name>
+          <initializer> Qt::Key_Explorer</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9d92be9c7f1fd43efdba088f09dc8274" prot="public">
+          <name>Key_Game</name>
+          <initializer> Qt::Key_Game</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab0b4d2db4e241fd7856e2d7c10a069dc" prot="public">
+          <name>Key_Go</name>
+          <initializer> Qt::Key_Go</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a082f3db4a7f4ef22f8e052bf1f0681fd" prot="public">
+          <name>Key_iTouch</name>
+          <initializer> Qt::Key_iTouch</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a5306555eee8ef8a62746dfa509ef1bdb" prot="public">
+          <name>Key_LogOff</name>
+          <initializer> Qt::Key_LogOff</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949afd3b7a5d5ed32994670ad0e59114d50e" prot="public">
+          <name>Key_Market</name>
+          <initializer> Qt::Key_Market</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a33f0f6e5b29c7438580727fbefb0afc1" prot="public">
+          <name>Key_Meeting</name>
+          <initializer> Qt::Key_Meeting</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949af84e63bd2ba20e4d8b72f16cf0093bfc" prot="public">
+          <name>Key_MenuKB</name>
+          <initializer> Qt::Key_MenuKB</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a839b8eb17cde92b5e0415b06afa02304" prot="public">
+          <name>Key_MenuPB</name>
+          <initializer> Qt::Key_MenuPB</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a79a00487cb423d80c089107e848444b5" prot="public">
+          <name>Key_MySites</name>
+          <initializer> Qt::Key_MySites</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a6a2b9847b2f8685084e5f829c568193e" prot="public">
+          <name>Key_News</name>
+          <initializer> Qt::Key_News</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a78a2d321960b26f4f680089671d02b76" prot="public">
+          <name>Key_OfficeHome</name>
+          <initializer> Qt::Key_OfficeHome</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a1324742545f52dfc5d33389d89a757ab" prot="public">
+          <name>Key_Option</name>
+          <initializer> Qt::Key_Option</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae85f2b64c47bd3c1add1ade21cb02ca3" prot="public">
+          <name>Key_Paste</name>
+          <initializer> Qt::Key_Paste</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a8d091a2adce63455182186ee1c1075ba" prot="public">
+          <name>Key_Phone</name>
+          <initializer> Qt::Key_Phone</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a66514dd051356fb5d639c3390c9f04c0" prot="public">
+          <name>Key_Calendar</name>
+          <initializer> Qt::Key_Calendar</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac7dc102fb2646c61b03a956bbca7efde" prot="public">
+          <name>Key_Reply</name>
+          <initializer> Qt::Key_Reply</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a8c98998843781343067183558e6d675c" prot="public">
+          <name>Key_Reload</name>
+          <initializer> Qt::Key_Reload</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a57948680262a1ddd6b262b12a9e3af9a" prot="public">
+          <name>Key_RotateWindows</name>
+          <initializer> Qt::Key_RotateWindows</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a0f09edc0a5dbed5389811a6b950c24c4" prot="public">
+          <name>Key_RotationPB</name>
+          <initializer> Qt::Key_RotationPB</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ad7af411d186a13731230b09698e56825" prot="public">
+          <name>Key_RotationKB</name>
+          <initializer> Qt::Key_RotationKB</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a279fa90f8d5ee80bdc89f21871316bd2" prot="public">
+          <name>Key_Save</name>
+          <initializer> Qt::Key_Save</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ac6ae97739911230313bdeca22cb2cfb4" prot="public">
+          <name>Key_Send</name>
+          <initializer> Qt::Key_Send</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a6f5cb3e8e1af570322a4a85f07829ffa" prot="public">
+          <name>Key_Spell</name>
+          <initializer> Qt::Key_Spell</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3bb761b4f144eca1666cea41e8ec2d48" prot="public">
+          <name>Key_SplitScreen</name>
+          <initializer> Qt::Key_SplitScreen</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a221d14cb13492b92132565e81f850f68" prot="public">
+          <name>Key_Support</name>
+          <initializer> Qt::Key_Support</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a921e19e413e5f8ba07cbc9f5a29d3d3d" prot="public">
+          <name>Key_TaskPane</name>
+          <initializer> Qt::Key_TaskPane</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aa2a3fa8d3b206069aab36f664ef2b287" prot="public">
+          <name>Key_Terminal</name>
+          <initializer> Qt::Key_Terminal</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949afa632bd00cf0f4396b4ad79400e209cb" prot="public">
+          <name>Key_Tools</name>
+          <initializer> Qt::Key_Tools</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ad3a6bbcefe7a0e942c0853ff7d1ca846" prot="public">
+          <name>Key_Travel</name>
+          <initializer> Qt::Key_Travel</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a2dad20a8c8a8807f26499cb532073dae" prot="public">
+          <name>Key_Video</name>
+          <initializer> Qt::Key_Video</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a21ba3d4fb47857539c755068fa5e2c0d" prot="public">
+          <name>Key_Word</name>
+          <initializer> Qt::Key_Word</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a40fbe653e944a2deafa8a1844e33e636" prot="public">
+          <name>Key_Xfer</name>
+          <initializer> Qt::Key_Xfer</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a92fc3c3081dac5035f4a2960307a9464" prot="public">
+          <name>Key_ZoomIn</name>
+          <initializer> Qt::Key_ZoomIn</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a54928c45cfe48973ac0571980900e30f" prot="public">
+          <name>Key_ZoomOut</name>
+          <initializer> Qt::Key_ZoomOut</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a93ca03317946d24a26a9c52df82b5027" prot="public">
+          <name>Key_Away</name>
+          <initializer> Qt::Key_Away</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae32426a092b3a8c4b9f66cdabfe6483a" prot="public">
+          <name>Key_Messenger</name>
+          <initializer> Qt::Key_Messenger</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a51bc1def52fbcd7c874f98c44eb30c42" prot="public">
+          <name>Key_WebCam</name>
+          <initializer> Qt::Key_WebCam</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab2dcfb196fb7ae52548561f60796a47f" prot="public">
+          <name>Key_MailForward</name>
+          <initializer> Qt::Key_MailForward</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a2d4de7dbbf27ae0f2b2b1f1dc5fa9371" prot="public">
+          <name>Key_Pictures</name>
+          <initializer> Qt::Key_Pictures</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a97a52dc4fb933f24f337c9d35f3e3918" prot="public">
+          <name>Key_Music</name>
+          <initializer> Qt::Key_Music</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949afe2227ca425042e8dc7421ce4877cf10" prot="public">
+          <name>Key_Battery</name>
+          <initializer> Qt::Key_Battery</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a57b991033733ec446506f3156bff78f4" prot="public">
+          <name>Key_Bluetooth</name>
+          <initializer> Qt::Key_Bluetooth</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949adb2ba8771915a735192866fc7d9d707a" prot="public">
+          <name>Key_WLAN</name>
+          <initializer> Qt::Key_WLAN</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a957065b3b6ccdaee446e43bfa53bca26" prot="public">
+          <name>Key_UWB</name>
+          <initializer> Qt::Key_UWB</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a31349ddc8341d10ace93b513319f2bd8" prot="public">
+          <name>Key_AudioForward</name>
+          <initializer> Qt::Key_AudioForward</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a0364bb8be5935d589ef18116e3088be7" prot="public">
+          <name>Key_AudioRepeat</name>
+          <initializer> Qt::Key_AudioRepeat</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ae17aee5899b176e021312ac6fb4b50bd" prot="public">
+          <name>Key_AudioRandomPlay</name>
+          <initializer> Qt::Key_AudioRandomPlay</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a24ce10e8da48d45c99984eb907d3e9d9" prot="public">
+          <name>Key_Subtitle</name>
+          <initializer> Qt::Key_Subtitle</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9d42bcf06f723ef65d6f47e94a4cd6f3" prot="public">
+          <name>Key_AudioCycleTrack</name>
+          <initializer> Qt::Key_AudioCycleTrack</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a1eb70c86890c9064aa4838a3305e674c" prot="public">
+          <name>Key_Time</name>
+          <initializer> Qt::Key_Time</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab8ab229fd1615cefbdcd142478349bc4" prot="public">
+          <name>Key_Hibernate</name>
+          <initializer> Qt::Key_Hibernate</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a116807c7520a0af126f40415d4dda090" prot="public">
+          <name>Key_View</name>
+          <initializer> Qt::Key_View</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3c52c1753ad29e01fba68c23dffc1d78" prot="public">
+          <name>Key_TopMenu</name>
+          <initializer> Qt::Key_TopMenu</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9db3fa0478828ab01d34d3871c42ad40" prot="public">
+          <name>Key_PowerDown</name>
+          <initializer> Qt::Key_PowerDown</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a829764a4557ac770aa471984581c62c0" prot="public">
+          <name>Key_Suspend</name>
+          <initializer> Qt::Key_Suspend</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aa45bb93519dc6060904c3ce513a7f047" prot="public">
+          <name>Key_ContrastAdjust</name>
+          <initializer> Qt::Key_ContrastAdjust</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9441f80054ec35f7a476c5bfa6b7fcf6" prot="public">
+          <name>Key_MediaLast</name>
+          <initializer> Qt::Key_MediaLast</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949afaace53627027d1b8ca82688b4938080" prot="public">
+          <name>Key_unknown</name>
+          <initializer> Qt::Key_unknown</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a4ff5553069efe54a6d1a0dcd7a50a3cd" prot="public">
+          <name>Key_Call</name>
+          <initializer> Qt::Key_Call</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a179431f3cfe4a4eace0da629347e73db" prot="public">
+          <name>Key_Camera</name>
+          <initializer> Qt::Key_Camera</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ab763d4bbb182ebcb2c8dd418871ff30f" prot="public">
+          <name>Key_CameraFocus</name>
+          <initializer> Qt::Key_CameraFocus</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a4c9a0400a55941b90a184515ecb32d54" prot="public">
+          <name>Key_Context1</name>
+          <initializer> Qt::Key_Context1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a298b0da6e90a07b887b9ce230422f276" prot="public">
+          <name>Key_Context2</name>
+          <initializer> Qt::Key_Context2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a12a13fea340a360535447fc4ae95e87f" prot="public">
+          <name>Key_Context3</name>
+          <initializer> Qt::Key_Context3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ace3f30856026efe5403fc5381b8840e6" prot="public">
+          <name>Key_Context4</name>
+          <initializer> Qt::Key_Context4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a2df01057948e48312abc0d3eff2e7cf2" prot="public">
+          <name>Key_Flip</name>
+          <initializer> Qt::Key_Flip</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9af6612766a1888a9bfcbf2236db49b2" prot="public">
+          <name>Key_Hangup</name>
+          <initializer> Qt::Key_Hangup</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a3362604e38989fa365b07e2ba4f4a530" prot="public">
+          <name>Key_No</name>
+          <initializer> Qt::Key_No</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a9d90235fb436f51158303f8a244c79af" prot="public">
+          <name>Key_Select</name>
+          <initializer> Qt::Key_Select</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a779c694436925fb63223f955c7b9cffa" prot="public">
+          <name>Key_Yes</name>
+          <initializer> Qt::Key_Yes</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a7afdf2e8fb81567be2955e40d334200b" prot="public">
+          <name>Key_ToggleCallHangup</name>
+          <initializer> Qt::Key_ToggleCallHangup</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a7e6a58f1963171f81c8a8321bde0d536" prot="public">
+          <name>Key_VoiceDial</name>
+          <initializer> Qt::Key_VoiceDial</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a5532b854aac76a0350b0f92a14ad29b3" prot="public">
+          <name>Key_LastNumberRedial</name>
+          <initializer> Qt::Key_LastNumberRedial</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aa2bd1095c7bbf5ba866a7367988227b4" prot="public">
+          <name>Key_Execute</name>
+          <initializer> Qt::Key_Execute</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a4ba95ecf4067e48509849f382ab12619" prot="public">
+          <name>Key_Printer</name>
+          <initializer> Qt::Key_Printer</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949ad2619b4415a368b24b41c1b24fa75328" prot="public">
+          <name>Key_Play</name>
+          <initializer> Qt::Key_Play</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aa7a8ea72eb500ab6595e97874371928b" prot="public">
+          <name>Key_Sleep</name>
+          <initializer> Qt::Key_Sleep</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949aa0dbd4c12f162e1cc5f2b11dcd2fd0f1" prot="public">
+          <name>Key_Zoom</name>
+          <initializer> Qt::Key_Zoom</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ade53cbc33e8b6b997158d4bfa74ea949a35a18dea1da36dd177c768c636de23d7" prot="public">
+          <name>Key_Cancel</name>
+          <initializer> Qt::Key_Cancel</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" line="157" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" bodystart="157" bodyend="576"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacemimas_1ab33dfe47004a6ca54f37cc81a9f20047" prot="public" static="no">
+        <name>WindowFlags</name>
+        <enumvalue id="namespacemimas_1ab33dfe47004a6ca54f37cc81a9f20047a8b31af4ebd74ccd970ce15c7c41e3c25" prot="public">
+          <name>WidgetFlag</name>
+          <initializer> Qt::Widget</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ab33dfe47004a6ca54f37cc81a9f20047a6e4dd83c82c696a8cbaf61d848177fd5" prot="public">
+          <name>WindowFlag</name>
+          <initializer> Qt::Window</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ab33dfe47004a6ca54f37cc81a9f20047a8a0d7c3714e49f555876fc3c5b4d6866" prot="public">
+          <name>DialogFlag</name>
+          <initializer> Qt::Dialog</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ab33dfe47004a6ca54f37cc81a9f20047a6cdb4ee18af68130be8dc5102cc76001" prot="public">
+          <name>SheetFlag</name>
+          <initializer> Qt::Sheet</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ab33dfe47004a6ca54f37cc81a9f20047abb213a0fdb3f1a1f12911dd3b96b19bc" prot="public">
+          <name>DrawerFlag</name>
+          <initializer> Qt::Drawer</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ab33dfe47004a6ca54f37cc81a9f20047aafa18ac3e71e273cc75842a769ac1093" prot="public">
+          <name>PopupFlag</name>
+          <initializer> Qt::Popup</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ab33dfe47004a6ca54f37cc81a9f20047a658f5201fd5a86ddd8a96db58c443d4b" prot="public">
+          <name>ToolFlag</name>
+          <initializer> Qt::Tool</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ab33dfe47004a6ca54f37cc81a9f20047ab44d17cbc5d07a153260e4a6c7c9d53e" prot="public">
+          <name>ToolTipFlag</name>
+          <initializer> Qt::ToolTip</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ab33dfe47004a6ca54f37cc81a9f20047a1ed2f62bab9bca7a68a6ebd2ce94708b" prot="public">
+          <name>SplashScreenFlag</name>
+          <initializer> Qt::SplashScreen</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ab33dfe47004a6ca54f37cc81a9f20047ad23da4b0af00739c675054169ea88f7d" prot="public">
+          <name>DesktopFlag</name>
+          <initializer> Qt::Desktop</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1ab33dfe47004a6ca54f37cc81a9f20047aadcbe228302de929b566d761d98b3c42" prot="public">
+          <name>SubWindowFlag</name>
+          <initializer> Qt::SubWindow</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" line="582" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" bodystart="582" bodyend="594"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacemimas_1afbd15433af6838bb6447da1cfe1b2a20" prot="public" static="no">
+        <name>FileDialogFlags</name>
+        <enumvalue id="namespacemimas_1afbd15433af6838bb6447da1cfe1b2a20aa28175e99323bd450b07cf33da50b6bd" prot="public">
+          <name>ShowDirsOnly</name>
+          <initializer> QFileDialog::ShowDirsOnly</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1afbd15433af6838bb6447da1cfe1b2a20a2fbdbf855c05183a37d94ba3de981acc" prot="public">
+          <name>DontResolveSymlinks</name>
+          <initializer> QFileDialog::DontResolveSymlinks</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1afbd15433af6838bb6447da1cfe1b2a20a4c7a473cdcbbf19d584101aa61e734f7" prot="public">
+          <name>DontConfirmOverwrite</name>
+          <initializer> QFileDialog::DontConfirmOverwrite</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1afbd15433af6838bb6447da1cfe1b2a20a6d98bc07162969e647e35063bea0feef" prot="public">
+          <name>DontUseNativeDialog</name>
+          <initializer> QFileDialog::DontUseNativeDialog</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1afbd15433af6838bb6447da1cfe1b2a20a25996506b6e9a76bc70489370e8623f0" prot="public">
+          <name>ReadOnly</name>
+          <initializer> QFileDialog::ReadOnly</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1afbd15433af6838bb6447da1cfe1b2a20ad6c11951ac1143445977cce8685a798a" prot="public">
+          <name>HideNameFilterDetails</name>
+          <initializer> QFileDialog::HideNameFilterDetails</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1afbd15433af6838bb6447da1cfe1b2a20a5e20a860086b6dccc10b57589f4a0a3d" prot="public">
+          <name>DontUseSheet</name>
+          <initializer> QFileDialog::DontUseSheet</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" line="596" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" bodystart="596" bodyend="604"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacemimas_1a75e6183fa8b5dd098acd82f1dc951e07" prot="public" static="no">
+        <name>ActionMenuRoleFlags</name>
+        <enumvalue id="namespacemimas_1a75e6183fa8b5dd098acd82f1dc951e07a1836c7284f7e8290fa412c425e564fe6" prot="public">
+          <name>NoRole</name>
+          <initializer> QAction::NoRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a75e6183fa8b5dd098acd82f1dc951e07aff9a86b6187e934e9a5386ca8eb31cd2" prot="public">
+          <name>TextHeuristicRole</name>
+          <initializer> QAction::TextHeuristicRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a75e6183fa8b5dd098acd82f1dc951e07ab69542f16bb0dc4570ebca25054442eb" prot="public">
+          <name>ApplicationSpecificRole</name>
+          <initializer> QAction::ApplicationSpecificRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a75e6183fa8b5dd098acd82f1dc951e07a31244e0e4bd1e1a9d829c94a3b2e5c5f" prot="public">
+          <name>AboutQtRole</name>
+          <initializer> QAction::AboutQtRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a75e6183fa8b5dd098acd82f1dc951e07a1d218f7ced9137e9ae5cd735845ca050" prot="public">
+          <name>AboutRole</name>
+          <initializer> QAction::AboutRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a75e6183fa8b5dd098acd82f1dc951e07a459cf3235eeec593ac095985e90c91d1" prot="public">
+          <name>PreferencesRole</name>
+          <initializer> QAction::PreferencesRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacemimas_1a75e6183fa8b5dd098acd82f1dc951e07acdc29b701e9d1a914ae2b379d913d908" prot="public">
+          <name>QuitRole</name>
+          <initializer> QAction::QuitRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" line="606" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h" bodystart="606" bodyend="614"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacemimas_1a7d2641d1d32f342736e279c66d78181a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::setHue</definition>
+        <argsstring>(QPalette &amp;palette, float hue)</argsstring>
+        <name>setHue</name>
+        <param>
+          <type>QPalette &amp;</type>
+          <declname>palette</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>hue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/mimas.h" line="52"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemimas_1a645a656c9e3b876d7962fd33562b0cf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant mimas::variantFromLua</definition>
+        <argsstring>(lua_State *L, int index)</argsstring>
+        <name>variantFromLua</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/mimas.h" line="53"/>
+        <referencedby refid="classmimas_1_1_data_source_1ad8f4fcf00bf511c0261ef63333f94f37" compoundref="_data_source_8h" startline="121" endline="138">mimas::DataSource::data</referencedby>
+        <referencedby refid="classmimas_1_1_data_source_1a967f4af632dd00a25ff5167e92de7adf" compoundref="_data_source_8h" startline="140" endline="157">mimas::DataSource::headerData</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Action.h" line="37"/>
+  </compounddef>
+</doxygen>

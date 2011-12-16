@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="union_cv64suf" kind="union" prot="public">
+    <compoundname>Cv64suf</compoundname>
+    <includes refid="cxtypes_8h" local="no">cxtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="union_cv64suf_1af9bfb67aa19f4eaf8eab3b0ee48784ac" prot="public" static="no" mutable="no">
+        <type><ref refid="cxtypes_8h_1a7cde0074dfd288f2d70c0e035dacb28a" kindref="member">int64</ref></type>
+        <definition>int64 Cv64suf::i</definition>
+        <argsstring></argsstring>
+        <name>i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="192" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_cv64suf_1aeaca4eabd014c9d16ac355d23b47f42e" prot="public" static="no" mutable="no">
+        <type><ref refid="cxtypes_8h_1abc0f5bc07737e498f287334775dff2b6" kindref="member">uint64</ref></type>
+        <definition>uint64 Cv64suf::u</definition>
+        <argsstring></argsstring>
+        <name>u</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="193" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="193" bodyend="-1"/>
+        <referencedby refid="cxtypes_8h_1a2eae082fc5ba0e83001e2ac00185aef5" compoundref="cxtypes_8h" startline="304" endline="316">cvIsInf</referencedby>
+        <referencedby refid="cxtypes_8h_1a05292f7c78002a3d1b640d3bdce32429" compoundref="cxtypes_8h" startline="289" endline="301">cvIsNaN</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="union_cv64suf_1a963f2cd7c89ac7177d0c72d41afcf6f9" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Cv64suf::f</definition>
+        <argsstring></argsstring>
+        <name>f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="194" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="194" bodyend="-1"/>
+        <referencedby refid="cxtypes_8h_1a2eae082fc5ba0e83001e2ac00185aef5" compoundref="cxtypes_8h" startline="304" endline="316">cvIsInf</referencedby>
+        <referencedby refid="cxtypes_8h_1a05292f7c78002a3d1b640d3bdce32429" compoundref="cxtypes_8h" startline="289" endline="301">cvIsNaN</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="191" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="190" bodyend="195"/>
+    <listofallmembers>
+      <member refid="union_cv64suf_1a963f2cd7c89ac7177d0c72d41afcf6f9" prot="public" virt="non-virtual"><scope>Cv64suf</scope><name>f</name></member>
+      <member refid="union_cv64suf_1af9bfb67aa19f4eaf8eab3b0ee48784ac" prot="public" virt="non-virtual"><scope>Cv64suf</scope><name>i</name></member>
+      <member refid="union_cv64suf_1aeaca4eabd014c9d16ac355d23b47f42e" prot="public" virt="non-virtual"><scope>Cv64suf</scope><name>u</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

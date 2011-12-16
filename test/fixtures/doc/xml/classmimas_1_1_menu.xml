@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmimas_1_1_menu" kind="class" prot="public">
+    <compoundname>mimas::Menu</compoundname>
+    <basecompoundref refid="classmimas_1_1_q_menu" prot="public" virt="non-virtual">mimas::QMenu</basecompoundref>
+    <basecompoundref refid="classlubyk_1_1_threaded_lua_object" prot="public" virt="non-virtual">lubyk::ThreadedLuaObject</basecompoundref>
+    <includes refid="_menu_8h" local="no">Menu.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmimas_1_1_menu_1a64ba6803efd4dcf99c69b37bde2ab9bb" prot="public" static="no" mutable="no">
+        <type>QSize</type>
+        <definition>QSize mimas::Menu::size_hint_</definition>
+        <argsstring></argsstring>
+        <name>size_hint_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Menu.h" line="65" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Menu.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmimas_1_1_menu_1a417158da6fd52ffc45369b2274f9e823" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Menu::Menu</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>Menu</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Menu.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Menu.h" bodystart="52" bodyend="55"/>
+        <references refid="mimas_8h_1abf7761995db91711f1c2001b3ea81ae7" compoundref="mimas_8h" startline="37">MIMAS_DEBUG_CC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_menu_1aeaca20ca43aa30bd21a2293f2aec4582" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Menu::~Menu</definition>
+        <argsstring>()</argsstring>
+        <name>~Menu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Menu.h" line="57" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Menu.h" bodystart="57" bodyend="59"/>
+        <references refid="mimas_8h_1a9d2f1addda3f00a2c1d2e3e2b6e4b5b5" compoundref="mimas_8h" startline="38">MIMAS_DEBUG_GC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_menu_1ae5b136fda07be239d2cebd62ffc89a62" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString mimas::Menu::cssClass</definition>
+        <argsstring>() const </argsstring>
+        <name>cssClass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Menu.h" line="61" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Menu.h" bodystart="61" bodyend="63"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A <ref refid="classmimas_1_1_menu" kindref="compound">Menu</ref> is an element from a <ref refid="classmimas_1_1_menu_bar" kindref="compound">MenuBar</ref>. FIXME: The <ref refid="classmimas_1_1_menu" kindref="compound">Menu</ref> does not need to have lua_ and worker_ set: what is the cost of this lua thread ? Should we remove it ?</para><para><simplesect kind="see"><para><ref refid="classmimas_1_1_menu_bar" kindref="compound">MenuBar</ref> </para><simplesectsep/><para><ref refid="classmimas_1_1_q_menu" kindref="compound">QMenu</ref> </para></simplesect>
+<simplesect kind="par"><title>Bindings info:</title><para>destructor: &apos;luaDestroy&apos; super: &apos;QMenu&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2243">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="2242">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2243" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2240">
+        <label>mimas::Menu</label>
+        <link refid="classmimas_1_1_menu"/>
+        <childnode refid="2241" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2242" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2241">
+        <label>mimas::QMenu</label>
+        <link refid="classmimas_1_1_q_menu"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2248">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="2249" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2250">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2247">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="2248" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2246">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2247" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2249">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="2250" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2244">
+        <label>mimas::Menu</label>
+        <link refid="classmimas_1_1_menu"/>
+        <childnode refid="2245" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2246" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2245">
+        <label>mimas::QMenu</label>
+        <link refid="classmimas_1_1_q_menu"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Menu.h" line="49" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Menu.h" bodystart="49" bodyend="66"/>
+    <listofallmembers>
+      <member refid="classmimas_1_1_q_menu_1a2ee1e1633c24427f2d8e54aad65ad5ab" prot="public" virt="non-virtual"><scope>mimas::Menu</scope><name>addAction</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>mimas::Menu</scope><name>class_name_</name></member>
+      <member refid="classmimas_1_1_q_menu_1ad0517d512dc9ad6fe0c25f2dee947b9b" prot="public" virt="non-virtual"><scope>mimas::Menu</scope><name>clear</name></member>
+      <member refid="classmimas_1_1_menu_1ae5b136fda07be239d2cebd62ffc89a62" prot="public" virt="non-virtual"><scope>mimas::Menu</scope><name>cssClass</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" prot="public" virt="non-virtual"><scope>mimas::Menu</scope><name>lua_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>mimas::Menu</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>mimas::Menu</scope><name>luaDestroy</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a1351dd8c5053c7df8e0a29b2887ddb8e" prot="public" virt="non-virtual"><scope>mimas::Menu</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>mimas::Menu</scope><name>LuaObject</name></member>
+      <member refid="classmimas_1_1_menu_1a417158da6fd52ffc45369b2274f9e823" prot="public" virt="non-virtual"><scope>mimas::Menu</scope><name>Menu</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1af9f7e3d5717357958461b2634742475f" prot="protected" virt="non-virtual"><scope>mimas::Menu</scope><name>pushLuaCallbackl</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1ad533909af126d2aa2b058dea6b0d91f0" prot="protected" virt="non-virtual"><scope>mimas::Menu</scope><name>setupLuaThread</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>mimas::Menu</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>mimas::Menu</scope><name>setupSuper</name></member>
+      <member refid="classmimas_1_1_menu_1a64ba6803efd4dcf99c69b37bde2ab9bb" prot="public" virt="non-virtual"><scope>mimas::Menu</scope><name>size_hint_</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a68147ed0f2048d29f6adf5316992ad69" prot="public" virt="non-virtual"><scope>mimas::Menu</scope><name>ThreadedLuaObject</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>mimas::Menu</scope><name>worker_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>mimas::Menu</scope><name>~LuaObject</name></member>
+      <member refid="classmimas_1_1_menu_1aeaca20ca43aa30bd21a2293f2aec4582" prot="public" virt="non-virtual"><scope>mimas::Menu</scope><name>~Menu</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

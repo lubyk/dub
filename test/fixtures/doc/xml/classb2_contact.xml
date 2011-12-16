@@ -1,0 +1,1386 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classb2_contact" kind="class" prot="public">
+    <compoundname>b2Contact</compoundname>
+    <derivedcompoundref refid="classb2_chain_and_circle_contact" prot="public" virt="non-virtual">b2ChainAndCircleContact</derivedcompoundref>
+    <derivedcompoundref refid="classb2_chain_and_polygon_contact" prot="public" virt="non-virtual">b2ChainAndPolygonContact</derivedcompoundref>
+    <derivedcompoundref refid="classb2_circle_contact" prot="public" virt="non-virtual">b2CircleContact</derivedcompoundref>
+    <derivedcompoundref refid="classb2_edge_and_circle_contact" prot="public" virt="non-virtual">b2EdgeAndCircleContact</derivedcompoundref>
+    <derivedcompoundref refid="classb2_edge_and_polygon_contact" prot="public" virt="non-virtual">b2EdgeAndPolygonContact</derivedcompoundref>
+    <derivedcompoundref refid="classb2_polygon_and_circle_contact" prot="public" virt="non-virtual">b2PolygonAndCircleContact</derivedcompoundref>
+    <derivedcompoundref refid="classb2_polygon_contact" prot="public" virt="non-virtual">b2PolygonContact</derivedcompoundref>
+    <includes refid="b2_contact_8h" local="no">b2Contact.h</includes>
+      <sectiondef kind="protected-type">
+      <memberdef kind="enum" id="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583" prot="protected" static="no">
+        <name>@2</name>
+        <enumvalue id="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583aad83700b4de33a2e3133ea0d98aa1c8b" prot="protected">
+          <name>e_islandFlag</name>
+          <initializer> 0x0001</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583aff50bb5872ede1ef890c5b4d063c6378" prot="protected">
+          <name>e_touchingFlag</name>
+          <initializer> 0x0002</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583a63ecc7ff371a26143b250e8f315576a7" prot="protected">
+          <name>e_enabledFlag</name>
+          <initializer> 0x0004</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583ab8e92ae0c3f97e9d95aedb30238e6817" prot="protected">
+          <name>e_filterFlag</name>
+          <initializer> 0x0008</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583aa3f6336608fedaf5a3edd8d7199af567" prot="protected">
+          <name>e_bulletHitFlag</name>
+          <initializer> 0x0010</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583affeff4bfd177073172521d6be7e202de" prot="protected">
+          <name>e_toiFlag</name>
+          <initializer> 0x0020</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="150" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="149" bodyend="168"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classb2_contact_1aece264d42f69aed410f5eb3beba6ddf2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class b2ContactManager</definition>
+        <argsstring></argsstring>
+        <name>b2ContactManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="142" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classb2_contact_1a4bd536c5a7c0587913765bbc2693ceea" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class b2World</definition>
+        <argsstring></argsstring>
+        <name>b2World</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="143" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classb2_contact_1afb788a7ba90344f3ddbafff3de0465c4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class b2ContactSolver</definition>
+        <argsstring></argsstring>
+        <name>b2ContactSolver</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="144" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classb2_contact_1a010ab52de250e5fe30a45d642f46405b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class b2Body</definition>
+        <argsstring></argsstring>
+        <name>b2Body</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="145" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classb2_contact_1afb35b0e61f6ee3cc516c40ea251f3236" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class b2Fixture</definition>
+        <argsstring></argsstring>
+        <name>b2Fixture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="146" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-static-attrib">
+      <memberdef kind="variable" id="classb2_contact_1a11e5b67d3e46ff9306d642a776e18890" prot="protected" static="yes" mutable="no">
+        <type><ref refid="structb2_contact_register" kindref="compound">b2ContactRegister</ref></type>
+        <definition>b2ContactRegister b2Contact::s_registers[b2Shape::e_typeCount][b2Shape::e_typeCount]</definition>
+        <argsstring>[b2Shape::e_typeCount][b2Shape::e_typeCount]</argsstring>
+        <name>s_registers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="186" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_contact_1a672598c350694d7b9a89c45f8ad0dd90" prot="protected" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool b2Contact::s_initialized</definition>
+        <argsstring></argsstring>
+        <name>s_initialized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="187" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classb2_contact_1a85d5408adcbf466bcb8f291aeb35bc3b" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a1134b580f8da4de94ca6b1de4d37975e" kindref="member">uint32</ref></type>
+        <definition>uint32 b2Contact::m_flags</definition>
+        <argsstring></argsstring>
+        <name>m_flags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="189" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="189" bodyend="-1"/>
+        <referencedby refid="classb2_contact_1a44a3d32149021269eb9dfd4015c98e0d" compoundref="b2_contact_8h" startline="296" endline="299">FlagForFiltering</referencedby>
+        <referencedby refid="classb2_contact_1ae7bd71ee1b0bb352bec6eeaab4f91c6a" compoundref="b2_contact_8h" startline="246" endline="249">IsEnabled</referencedby>
+        <referencedby refid="classb2_contact_1a367dc9a563ad7db5547f4247777a33c9" compoundref="b2_contact_8h" startline="251" endline="254">IsTouching</referencedby>
+        <referencedby refid="classb2_contact_1a6edf582f8c161d6632854cddefe55a0c" compoundref="b2_contact_8h" startline="234" endline="244">SetEnabled</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_contact_1adf3a3450e0fa9cf6d11ca22467c2370b" prot="protected" static="no" mutable="no">
+        <type><ref refid="classb2_contact" kindref="compound">b2Contact</ref> *</type>
+        <definition>b2Contact* b2Contact::m_prev</definition>
+        <argsstring></argsstring>
+        <name>m_prev</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="192" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_contact_1a241fea000d26da8761b5520a9adcd87a" prot="protected" static="no" mutable="no">
+        <type><ref refid="classb2_contact" kindref="compound">b2Contact</ref> *</type>
+        <definition>b2Contact* b2Contact::m_next</definition>
+        <argsstring></argsstring>
+        <name>m_next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="193" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="193" bodyend="-1"/>
+        <referencedby refid="classb2_contact_1aebfebb1e4b27dc0bd7aa120093e3d650" compoundref="b2_contact_8h" startline="256" endline="259">GetNext</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_contact_1a5f5ce747bb04f48843eb07304d47faab" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_contact_edge" kindref="compound">b2ContactEdge</ref></type>
+        <definition>b2ContactEdge b2Contact::m_nodeA</definition>
+        <argsstring></argsstring>
+        <name>m_nodeA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="196" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_contact_1a4887c3acb8cb857e2bec659027539c7a" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_contact_edge" kindref="compound">b2ContactEdge</ref></type>
+        <definition>b2ContactEdge b2Contact::m_nodeB</definition>
+        <argsstring></argsstring>
+        <name>m_nodeB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="197" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_contact_1aec94bbbb8862f09365a5af99650b5be4" prot="protected" static="no" mutable="no">
+        <type><ref refid="classb2_fixture" kindref="compound">b2Fixture</ref> *</type>
+        <definition>b2Fixture* b2Contact::m_fixtureA</definition>
+        <argsstring></argsstring>
+        <name>m_fixtureA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="199" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="199" bodyend="-1"/>
+        <referencedby refid="classb2_contact_1a707a3a5a14c2cdd4c6eb7fc648d76037" compoundref="b2_contact_8h" startline="266" endline="269">GetFixtureA</referencedby>
+        <referencedby refid="classb2_contact_1a6a30a44a28b44754cb61bba65cb5b728" compoundref="b2_contact_8h" startline="224" endline="232">GetWorldManifold</referencedby>
+        <referencedby refid="classb2_contact_1ad66d9290da187cef4c9f48c5766d4460" compoundref="b2_contact_8h" startline="311" endline="314">ResetFriction</referencedby>
+        <referencedby refid="classb2_contact_1a243501bc5c146e9eb1296162d328aef1" compoundref="b2_contact_8h" startline="326" endline="329">ResetRestitution</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_contact_1a83b18f0da1cfeb2c9dccc6aabed881d3" prot="protected" static="no" mutable="no">
+        <type><ref refid="classb2_fixture" kindref="compound">b2Fixture</ref> *</type>
+        <definition>b2Fixture* b2Contact::m_fixtureB</definition>
+        <argsstring></argsstring>
+        <name>m_fixtureB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="200" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="200" bodyend="-1"/>
+        <referencedby refid="classb2_contact_1a68464fe587d7e6a1f52763e965bb7361" compoundref="b2_contact_8h" startline="276" endline="279">GetFixtureB</referencedby>
+        <referencedby refid="classb2_contact_1a6a30a44a28b44754cb61bba65cb5b728" compoundref="b2_contact_8h" startline="224" endline="232">GetWorldManifold</referencedby>
+        <referencedby refid="classb2_contact_1ad66d9290da187cef4c9f48c5766d4460" compoundref="b2_contact_8h" startline="311" endline="314">ResetFriction</referencedby>
+        <referencedby refid="classb2_contact_1a243501bc5c146e9eb1296162d328aef1" compoundref="b2_contact_8h" startline="326" endline="329">ResetRestitution</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_contact_1ac69d3c8f18ac653cbff658a718ab9067" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2Contact::m_indexA</definition>
+        <argsstring></argsstring>
+        <name>m_indexA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="202" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="202" bodyend="-1"/>
+        <referencedby refid="classb2_contact_1ab0c9c059c776f315ae62abb5c978afcc" compoundref="b2_contact_8h" startline="281" endline="284">GetChildIndexA</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_contact_1aaaae6d149986c7267f3e28f0c58da8a0" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2Contact::m_indexB</definition>
+        <argsstring></argsstring>
+        <name>m_indexB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="203" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="203" bodyend="-1"/>
+        <referencedby refid="classb2_contact_1a9edc26022c3d1a9cf1dab9d79d639b3f" compoundref="b2_contact_8h" startline="291" endline="294">GetChildIndexB</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_contact_1aebdc2c073d05ac8e544a591d2043b251" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_manifold" kindref="compound">b2Manifold</ref></type>
+        <definition>b2Manifold b2Contact::m_manifold</definition>
+        <argsstring></argsstring>
+        <name>m_manifold</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="205" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="205" bodyend="-1"/>
+        <referencedby refid="classb2_contact_1ab0597077b23615476327f9b32d9c4979" compoundref="b2_contact_8h" startline="214" endline="217">GetManifold</referencedby>
+        <referencedby refid="classb2_contact_1a6a30a44a28b44754cb61bba65cb5b728" compoundref="b2_contact_8h" startline="224" endline="232">GetWorldManifold</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_contact_1afaa231f3e9a908154f9a32af456601b6" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2Contact::m_toiCount</definition>
+        <argsstring></argsstring>
+        <name>m_toiCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="207" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_contact_1aa9e75253eaac6efdb6485a8646ac553f" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Contact::m_toi</definition>
+        <argsstring></argsstring>
+        <name>m_toi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="208" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_contact_1ac7915ef6f92d609ee0a43d518b4f9e75" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Contact::m_friction</definition>
+        <argsstring></argsstring>
+        <name>m_friction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="210" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="210" bodyend="-1"/>
+        <referencedby refid="classb2_contact_1a0b6daf4137fd1719961f5d780b8dda15" compoundref="b2_contact_8h" startline="306" endline="309">GetFriction</referencedby>
+        <referencedby refid="classb2_contact_1ad66d9290da187cef4c9f48c5766d4460" compoundref="b2_contact_8h" startline="311" endline="314">ResetFriction</referencedby>
+        <referencedby refid="classb2_contact_1a5e8fbb6bb2966ac84272bb0ea9d2e4c7" compoundref="b2_contact_8h" startline="301" endline="304">SetFriction</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_contact_1a6bc56522b4c04e28bee3542a7fc2f796" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Contact::m_restitution</definition>
+        <argsstring></argsstring>
+        <name>m_restitution</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="211" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="211" bodyend="-1"/>
+        <referencedby refid="classb2_contact_1aed12746a2855277479802144b699326b" compoundref="b2_contact_8h" startline="321" endline="324">GetRestitution</referencedby>
+        <referencedby refid="classb2_contact_1a243501bc5c146e9eb1296162d328aef1" compoundref="b2_contact_8h" startline="326" endline="329">ResetRestitution</referencedby>
+        <referencedby refid="classb2_contact_1a24ca342c2bb766c53ef5ad04f5268fc1" compoundref="b2_contact_8h" startline="316" endline="319">SetRestitution</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classb2_contact_1ab0597077b23615476327f9b32d9c4979" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structb2_manifold" kindref="compound">b2Manifold</ref> *</type>
+        <definition>b2Manifold * b2Contact::GetManifold</definition>
+        <argsstring>()</argsstring>
+        <name>GetManifold</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the contact manifold. Do not modify the manifold unless you understand the internals of Box2D. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="83" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="214" bodyend="217"/>
+        <references refid="classb2_contact_1aebdc2c073d05ac8e544a591d2043b251" compoundref="b2_contact_8h" startline="205">m_manifold</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a2a1fb2fa1e0956faf61047c4aba3da5a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="structb2_manifold" kindref="compound">b2Manifold</ref> *</type>
+        <definition>const b2Manifold * b2Contact::GetManifold</definition>
+        <argsstring>() const </argsstring>
+        <name>GetManifold</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="84" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="219" bodyend="222"/>
+        <references refid="classb2_contact_1aebdc2c073d05ac8e544a591d2043b251" compoundref="b2_contact_8h" startline="205">m_manifold</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a6a30a44a28b44754cb61bba65cb5b728" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Contact::GetWorldManifold</definition>
+        <argsstring>(b2WorldManifold *worldManifold) const </argsstring>
+        <name>GetWorldManifold</name>
+        <param>
+          <type><ref refid="structb2_world_manifold" kindref="compound">b2WorldManifold</ref> *</type>
+          <declname>worldManifold</declname>
+        </param>
+        <briefdescription>
+<para>Get the world manifold. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="87" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="224" bodyend="232"/>
+        <references refid="classb2_fixture_1a9d6536ef274d768e86ab0a8330921535" compoundref="b2_fixture_8h" startline="273" endline="276">b2Fixture::GetBody</references>
+        <references refid="classb2_fixture_1aaa2b73fa212fa53b1c800cccd7a1d31e" compoundref="b2_fixture_8h" startline="243" endline="246">b2Fixture::GetShape</references>
+        <references refid="classb2_body_1adaaebca750d0bda56a543884adc5f519" compoundref="b2_body_8h" startline="468" endline="471">b2Body::GetTransform</references>
+        <references refid="structb2_world_manifold_1a896dd7e7d4d6f6a5bc69e19fbd6871bd">b2WorldManifold::Initialize</references>
+        <references refid="classb2_contact_1aec94bbbb8862f09365a5af99650b5be4" compoundref="b2_contact_8h" startline="199">m_fixtureA</references>
+        <references refid="classb2_contact_1a83b18f0da1cfeb2c9dccc6aabed881d3" compoundref="b2_contact_8h" startline="200">m_fixtureB</references>
+        <references refid="classb2_contact_1aebdc2c073d05ac8e544a591d2043b251" compoundref="b2_contact_8h" startline="205">m_manifold</references>
+        <references refid="classb2_shape_1a5de7a9bd3f9e72ef7025a65c304aaf1a" compoundref="b2_shape_8h" startline="93">b2Shape::m_radius</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a367dc9a563ad7db5547f4247777a33c9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool b2Contact::IsTouching</definition>
+        <argsstring>() const </argsstring>
+        <name>IsTouching</name>
+        <briefdescription>
+<para>Is this contact touching? </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="90" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="251" bodyend="254"/>
+        <references refid="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583aff50bb5872ede1ef890c5b4d063c6378" compoundref="b2_contact_8h" startline="155">e_touchingFlag</references>
+        <references refid="classb2_contact_1a85d5408adcbf466bcb8f291aeb35bc3b" compoundref="b2_contact_8h" startline="189">m_flags</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a6edf582f8c161d6632854cddefe55a0c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Contact::SetEnabled</definition>
+        <argsstring>(bool flag)</argsstring>
+        <name>SetEnabled</name>
+        <param>
+          <type>bool</type>
+          <declname>flag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enable/disable this contact. This can be used inside the pre-solve contact listener. The contact is only disabled for the current time step (or sub-step in continuous collisions). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="95" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="234" bodyend="244"/>
+        <references refid="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583a63ecc7ff371a26143b250e8f315576a7" compoundref="b2_contact_8h" startline="158">e_enabledFlag</references>
+        <references refid="classb2_contact_1a85d5408adcbf466bcb8f291aeb35bc3b" compoundref="b2_contact_8h" startline="189">m_flags</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1ae7bd71ee1b0bb352bec6eeaab4f91c6a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool b2Contact::IsEnabled</definition>
+        <argsstring>() const </argsstring>
+        <name>IsEnabled</name>
+        <briefdescription>
+<para>Has this contact been disabled? </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="98" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="246" bodyend="249"/>
+        <references refid="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583a63ecc7ff371a26143b250e8f315576a7" compoundref="b2_contact_8h" startline="158">e_enabledFlag</references>
+        <references refid="classb2_contact_1a85d5408adcbf466bcb8f291aeb35bc3b" compoundref="b2_contact_8h" startline="189">m_flags</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1aebfebb1e4b27dc0bd7aa120093e3d650" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classb2_contact" kindref="compound">b2Contact</ref> *</type>
+        <definition>b2Contact * b2Contact::GetNext</definition>
+        <argsstring>()</argsstring>
+        <name>GetNext</name>
+        <briefdescription>
+<para>Get the next contact in the world&apos;s contact list. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="101" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="256" bodyend="259"/>
+        <references refid="classb2_contact_1a241fea000d26da8761b5520a9adcd87a" compoundref="b2_contact_8h" startline="193">m_next</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a55e20c9e32071f492952dad256552141" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classb2_contact" kindref="compound">b2Contact</ref> *</type>
+        <definition>const b2Contact * b2Contact::GetNext</definition>
+        <argsstring>() const </argsstring>
+        <name>GetNext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="102" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="261" bodyend="264"/>
+        <references refid="classb2_contact_1a241fea000d26da8761b5520a9adcd87a" compoundref="b2_contact_8h" startline="193">m_next</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a707a3a5a14c2cdd4c6eb7fc648d76037" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classb2_fixture" kindref="compound">b2Fixture</ref> *</type>
+        <definition>b2Fixture * b2Contact::GetFixtureA</definition>
+        <argsstring>()</argsstring>
+        <name>GetFixtureA</name>
+        <briefdescription>
+<para>Get fixture A in this contact. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="105" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="266" bodyend="269"/>
+        <references refid="classb2_contact_1aec94bbbb8862f09365a5af99650b5be4" compoundref="b2_contact_8h" startline="199">m_fixtureA</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1af5820afc8ebb6d785a47a979b373b004" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classb2_fixture" kindref="compound">b2Fixture</ref> *</type>
+        <definition>const b2Fixture * b2Contact::GetFixtureA</definition>
+        <argsstring>() const </argsstring>
+        <name>GetFixtureA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="106" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="271" bodyend="274"/>
+        <references refid="classb2_contact_1aec94bbbb8862f09365a5af99650b5be4" compoundref="b2_contact_8h" startline="199">m_fixtureA</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1ab0c9c059c776f315ae62abb5c978afcc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2Contact::GetChildIndexA</definition>
+        <argsstring>() const </argsstring>
+        <name>GetChildIndexA</name>
+        <briefdescription>
+<para>Get the child primitive index for fixture A. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="109" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="281" bodyend="284"/>
+        <references refid="classb2_contact_1ac69d3c8f18ac653cbff658a718ab9067" compoundref="b2_contact_8h" startline="202">m_indexA</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a68464fe587d7e6a1f52763e965bb7361" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classb2_fixture" kindref="compound">b2Fixture</ref> *</type>
+        <definition>b2Fixture * b2Contact::GetFixtureB</definition>
+        <argsstring>()</argsstring>
+        <name>GetFixtureB</name>
+        <briefdescription>
+<para>Get fixture B in this contact. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="112" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="276" bodyend="279"/>
+        <references refid="classb2_contact_1a83b18f0da1cfeb2c9dccc6aabed881d3" compoundref="b2_contact_8h" startline="200">m_fixtureB</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a06db543279afbb51071bf57475bfcc1e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classb2_fixture" kindref="compound">b2Fixture</ref> *</type>
+        <definition>const b2Fixture * b2Contact::GetFixtureB</definition>
+        <argsstring>() const </argsstring>
+        <name>GetFixtureB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="113" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="286" bodyend="289"/>
+        <references refid="classb2_contact_1a83b18f0da1cfeb2c9dccc6aabed881d3" compoundref="b2_contact_8h" startline="200">m_fixtureB</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a9edc26022c3d1a9cf1dab9d79d639b3f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2Contact::GetChildIndexB</definition>
+        <argsstring>() const </argsstring>
+        <name>GetChildIndexB</name>
+        <briefdescription>
+<para>Get the child primitive index for fixture B. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="116" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="291" bodyend="294"/>
+        <references refid="classb2_contact_1aaaae6d149986c7267f3e28f0c58da8a0" compoundref="b2_contact_8h" startline="203">m_indexB</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a5e8fbb6bb2966ac84272bb0ea9d2e4c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Contact::SetFriction</definition>
+        <argsstring>(float32 friction)</argsstring>
+        <name>SetFriction</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>friction</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Override the default friction mixture. You can call this in <ref refid="classb2_contact_listener_1a416f85eb45a1099053402b15a19a7de0" kindref="member">b2ContactListener::PreSolve</ref>. This value persists until set or reset. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="120" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="301" bodyend="304"/>
+        <references refid="classb2_contact_1ac7915ef6f92d609ee0a43d518b4f9e75" compoundref="b2_contact_8h" startline="210">m_friction</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a0b6daf4137fd1719961f5d780b8dda15" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Contact::GetFriction</definition>
+        <argsstring>() const </argsstring>
+        <name>GetFriction</name>
+        <briefdescription>
+<para>Get the friction. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="123" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="306" bodyend="309"/>
+        <references refid="classb2_contact_1ac7915ef6f92d609ee0a43d518b4f9e75" compoundref="b2_contact_8h" startline="210">m_friction</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1ad66d9290da187cef4c9f48c5766d4460" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Contact::ResetFriction</definition>
+        <argsstring>()</argsstring>
+        <name>ResetFriction</name>
+        <briefdescription>
+<para>Reset the friction mixture to the default value. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="126" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="311" bodyend="314"/>
+        <references refid="b2_contact_8h_1a25afe118bb01c7a2a7425deddb4a519e" compoundref="b2_contact_8h" startline="37" endline="40">b2MixFriction</references>
+        <references refid="classb2_contact_1aec94bbbb8862f09365a5af99650b5be4" compoundref="b2_contact_8h" startline="199">m_fixtureA</references>
+        <references refid="classb2_contact_1a83b18f0da1cfeb2c9dccc6aabed881d3" compoundref="b2_contact_8h" startline="200">m_fixtureB</references>
+        <references refid="classb2_contact_1ac7915ef6f92d609ee0a43d518b4f9e75" compoundref="b2_contact_8h" startline="210">m_friction</references>
+        <references refid="classb2_fixture_1a314118ee973ebd14e083553fed1e0212" compoundref="b2_fixture_8h" startline="225">b2Fixture::m_friction</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a24ca342c2bb766c53ef5ad04f5268fc1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Contact::SetRestitution</definition>
+        <argsstring>(float32 restitution)</argsstring>
+        <name>SetRestitution</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>restitution</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Override the default restitution mixture. You can call this in <ref refid="classb2_contact_listener_1a416f85eb45a1099053402b15a19a7de0" kindref="member">b2ContactListener::PreSolve</ref>. The value persists until you set or reset. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="130" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="316" bodyend="319"/>
+        <references refid="classb2_contact_1a6bc56522b4c04e28bee3542a7fc2f796" compoundref="b2_contact_8h" startline="211">m_restitution</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1aed12746a2855277479802144b699326b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Contact::GetRestitution</definition>
+        <argsstring>() const </argsstring>
+        <name>GetRestitution</name>
+        <briefdescription>
+<para>Get the restitution. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="133" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="321" bodyend="324"/>
+        <references refid="classb2_contact_1a6bc56522b4c04e28bee3542a7fc2f796" compoundref="b2_contact_8h" startline="211">m_restitution</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a243501bc5c146e9eb1296162d328aef1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Contact::ResetRestitution</definition>
+        <argsstring>()</argsstring>
+        <name>ResetRestitution</name>
+        <briefdescription>
+<para>Reset the restitution to the default value. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="136" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="326" bodyend="329"/>
+        <references refid="b2_contact_8h_1a6ae248694dcabf79fbb0f4db15980b77" compoundref="b2_contact_8h" startline="44" endline="47">b2MixRestitution</references>
+        <references refid="classb2_contact_1aec94bbbb8862f09365a5af99650b5be4" compoundref="b2_contact_8h" startline="199">m_fixtureA</references>
+        <references refid="classb2_contact_1a83b18f0da1cfeb2c9dccc6aabed881d3" compoundref="b2_contact_8h" startline="200">m_fixtureB</references>
+        <references refid="classb2_contact_1a6bc56522b4c04e28bee3542a7fc2f796" compoundref="b2_contact_8h" startline="211">m_restitution</references>
+        <references refid="classb2_fixture_1a343a35683ce4a79d2151761611027d66" compoundref="b2_fixture_8h" startline="226">b2Fixture::m_restitution</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1ae3c2842e5325b2d4500f8ed1d4de2f72" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void b2Contact::Evaluate</definition>
+        <argsstring>(b2Manifold *manifold, const b2Transform &amp;xfA, const b2Transform &amp;xfB)=0</argsstring>
+        <name>Evaluate</name>
+        <reimplementedby refid="classb2_polygon_and_circle_contact_1ac24d495022aae853cb573f86c8d86c3d">Evaluate</reimplementedby>
+        <reimplementedby refid="classb2_polygon_contact_1ae75f78bb52c76fc4fffda4d91e62d354">Evaluate</reimplementedby>
+        <reimplementedby refid="classb2_edge_and_polygon_contact_1a5f360f5f0b1d367beb517ba9f380c84b">Evaluate</reimplementedby>
+        <reimplementedby refid="classb2_edge_and_circle_contact_1a8f083c4c7c7da83eae38975164fd1452">Evaluate</reimplementedby>
+        <reimplementedby refid="classb2_circle_contact_1ac0651dda773561b8561b8efa3cd31d5c">Evaluate</reimplementedby>
+        <reimplementedby refid="classb2_chain_and_polygon_contact_1a8c25ceb49d981797d0a7f8a1ea769442">Evaluate</reimplementedby>
+        <reimplementedby refid="classb2_chain_and_circle_contact_1afe52ebd870f24cbecedd1db662705f12">Evaluate</reimplementedby>
+        <param>
+          <type><ref refid="structb2_manifold" kindref="compound">b2Manifold</ref> *</type>
+          <declname>manifold</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_transform" kindref="compound">b2Transform</ref> &amp;</type>
+          <declname>xfA</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_transform" kindref="compound">b2Transform</ref> &amp;</type>
+          <declname>xfB</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate this contact with your own manifold and transforms. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="139"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classb2_contact_1a44a3d32149021269eb9dfd4015c98e0d" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Contact::FlagForFiltering</definition>
+        <argsstring>()</argsstring>
+        <name>FlagForFiltering</name>
+        <briefdescription>
+<para>Flag this contact for filtering. Filtering will occur the next time step. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="171" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="296" bodyend="299"/>
+        <references refid="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583ab8e92ae0c3f97e9d95aedb30238e6817" compoundref="b2_contact_8h" startline="161">e_filterFlag</references>
+        <references refid="classb2_contact_1a85d5408adcbf466bcb8f291aeb35bc3b" compoundref="b2_contact_8h" startline="189">m_flags</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a04b21bf6fcf41ba19866a2d57c4a2060" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2Contact::b2Contact</definition>
+        <argsstring>()</argsstring>
+        <name>b2Contact</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="180" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="180" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a2d1c98399cef1eb95c6ee8aad8257f60" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>b2Contact::b2Contact</definition>
+        <argsstring>(b2Fixture *fixtureA, int32 indexA, b2Fixture *fixtureB, int32 indexB)</argsstring>
+        <name>b2Contact</name>
+        <param>
+          <type><ref refid="classb2_fixture" kindref="compound">b2Fixture</ref> *</type>
+          <declname>fixtureA</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+          <declname>indexA</declname>
+        </param>
+        <param>
+          <type><ref refid="classb2_fixture" kindref="compound">b2Fixture</ref> *</type>
+          <declname>fixtureB</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+          <declname>indexB</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a37368b233a5ac0d698310b300426ce16" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual b2Contact::~b2Contact</definition>
+        <argsstring>()</argsstring>
+        <name>~b2Contact</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="182" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="182" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a218a66a6c34e3de1c428aa73a0680dfe" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Contact::Update</definition>
+        <argsstring>(b2ContactListener *listener)</argsstring>
+        <name>Update</name>
+        <param>
+          <type><ref refid="classb2_contact_listener" kindref="compound">b2ContactListener</ref> *</type>
+          <declname>listener</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="184"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-static-func">
+      <memberdef kind="function" id="classb2_contact_1ae8580ab841e216713216421833a11b3b" prot="protected" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void b2Contact::AddType</definition>
+        <argsstring>(b2ContactCreateFcn *createFcn, b2ContactDestroyFcn *destroyFcn, b2Shape::Type typeA, b2Shape::Type typeB)</argsstring>
+        <name>AddType</name>
+        <param>
+          <type><ref refid="b2_contact_8h_1a8c349419089565d4b718438978e2e098" kindref="member">b2ContactCreateFcn</ref> *</type>
+          <declname>createFcn</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_contact_8h_1a13f1fcd7bbd3900e53e6ddf8a76428e7" kindref="member">b2ContactDestroyFcn</ref> *</type>
+          <declname>destroyFcn</declname>
+        </param>
+        <param>
+          <type><ref refid="classb2_shape_1a4c1f3a9ad6b3150bb90ad9018ca4b1e0" kindref="member">b2Shape::Type</ref></type>
+          <declname>typeA</declname>
+        </param>
+        <param>
+          <type><ref refid="classb2_shape_1a4c1f3a9ad6b3150bb90ad9018ca4b1e0" kindref="member">b2Shape::Type</ref></type>
+          <declname>typeB</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a34838bc1364bbe142dfb028f3a417550" prot="protected" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void b2Contact::InitializeRegisters</definition>
+        <argsstring>()</argsstring>
+        <name>InitializeRegisters</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="175"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a0ced22a8c626b8e5aaf5d98163cb157c" prot="protected" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classb2_contact" kindref="compound">b2Contact</ref> *</type>
+        <definition>static b2Contact* b2Contact::Create</definition>
+        <argsstring>(b2Fixture *fixtureA, int32 indexA, b2Fixture *fixtureB, int32 indexB, b2BlockAllocator *allocator)</argsstring>
+        <name>Create</name>
+        <reimplementedby refid="classb2_polygon_and_circle_contact_1a0ff5b8e7167146b5716bce55365b7fc3">Create</reimplementedby>
+        <reimplementedby refid="classb2_polygon_contact_1a6f72e00b9f4870b214477073be35f592">Create</reimplementedby>
+        <reimplementedby refid="classb2_edge_and_polygon_contact_1a43c450ab34c63cb7dca91ed04a6bacaf">Create</reimplementedby>
+        <reimplementedby refid="classb2_edge_and_circle_contact_1ad253e184d26e54c60fa874b329f9737e">Create</reimplementedby>
+        <reimplementedby refid="classb2_circle_contact_1a741c07fe3f626b80e01ff3d96cf2d90a">Create</reimplementedby>
+        <reimplementedby refid="classb2_chain_and_polygon_contact_1aae40d48ef8f2a49297a38c615a79e3b2">Create</reimplementedby>
+        <reimplementedby refid="classb2_chain_and_circle_contact_1a644e6d00b903534b5b00e76c52859ad8">Create</reimplementedby>
+        <param>
+          <type><ref refid="classb2_fixture" kindref="compound">b2Fixture</ref> *</type>
+          <declname>fixtureA</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+          <declname>indexA</declname>
+        </param>
+        <param>
+          <type><ref refid="classb2_fixture" kindref="compound">b2Fixture</ref> *</type>
+          <declname>fixtureB</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+          <declname>indexB</declname>
+        </param>
+        <param>
+          <type><ref refid="classb2_block_allocator" kindref="compound">b2BlockAllocator</ref> *</type>
+          <declname>allocator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1a36c1f6767f212f2e4ddb4c4b2c7cdb75" prot="protected" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void b2Contact::Destroy</definition>
+        <argsstring>(b2Contact *contact, b2Shape::Type typeA, b2Shape::Type typeB, b2BlockAllocator *allocator)</argsstring>
+        <name>Destroy</name>
+        <param>
+          <type><ref refid="classb2_contact" kindref="compound">b2Contact</ref> *</type>
+          <declname>contact</declname>
+        </param>
+        <param>
+          <type><ref refid="classb2_shape_1a4c1f3a9ad6b3150bb90ad9018ca4b1e0" kindref="member">b2Shape::Type</ref></type>
+          <declname>typeA</declname>
+        </param>
+        <param>
+          <type><ref refid="classb2_shape_1a4c1f3a9ad6b3150bb90ad9018ca4b1e0" kindref="member">b2Shape::Type</ref></type>
+          <declname>typeB</declname>
+        </param>
+        <param>
+          <type><ref refid="classb2_block_allocator" kindref="compound">b2BlockAllocator</ref> *</type>
+          <declname>allocator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_contact_1ae45d9cd7b90e3933ba03c220340cb687" prot="protected" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void b2Contact::Destroy</definition>
+        <argsstring>(b2Contact *contact, b2BlockAllocator *allocator)</argsstring>
+        <name>Destroy</name>
+        <reimplementedby refid="classb2_polygon_and_circle_contact_1a666779f20aa3b57cfc0c60e3ac235f6b">Destroy</reimplementedby>
+        <reimplementedby refid="classb2_polygon_contact_1a8f9687ed70a02550095cf80d3bbefc92">Destroy</reimplementedby>
+        <reimplementedby refid="classb2_edge_and_polygon_contact_1aefebb57eb58fa87a609033b0d4991a66">Destroy</reimplementedby>
+        <reimplementedby refid="classb2_edge_and_circle_contact_1a7d77dd43691dad8d813450aefdb1e11e">Destroy</reimplementedby>
+        <reimplementedby refid="classb2_circle_contact_1a0171e991d568b7f4d8e5b4179072bf60">Destroy</reimplementedby>
+        <reimplementedby refid="classb2_chain_and_polygon_contact_1aed8a69453a9d7bb77a3c2b70fb20c764">Destroy</reimplementedby>
+        <reimplementedby refid="classb2_chain_and_circle_contact_1abe4320581520cd75b333200745f436b8">Destroy</reimplementedby>
+        <param>
+          <type><ref refid="classb2_contact" kindref="compound">b2Contact</ref> *</type>
+          <declname>contact</declname>
+        </param>
+        <param>
+          <type><ref refid="classb2_block_allocator" kindref="compound">b2BlockAllocator</ref> *</type>
+          <declname>allocator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="178"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The class manages contact between two shapes. A contact exists for each overlapping AABB in the broad-phase (except if filtered). Therefore a contact object may exist that has no contact points. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="229">
+        <label>b2PolygonAndCircleContact</label>
+        <link refid="classb2_polygon_and_circle_contact"/>
+        <childnode refid="223" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="223">
+        <label>b2Contact</label>
+        <link refid="classb2_contact"/>
+      </node>
+      <node id="230">
+        <label>b2PolygonContact</label>
+        <link refid="classb2_polygon_contact"/>
+        <childnode refid="223" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="224">
+        <label>b2ChainAndCircleContact</label>
+        <link refid="classb2_chain_and_circle_contact"/>
+        <childnode refid="223" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="225">
+        <label>b2ChainAndPolygonContact</label>
+        <link refid="classb2_chain_and_polygon_contact"/>
+        <childnode refid="223" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="227">
+        <label>b2EdgeAndCircleContact</label>
+        <link refid="classb2_edge_and_circle_contact"/>
+        <childnode refid="223" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="226">
+        <label>b2CircleContact</label>
+        <link refid="classb2_circle_contact"/>
+        <childnode refid="223" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="228">
+        <label>b2EdgeAndPolygonContact</label>
+        <link refid="classb2_edge_and_polygon_contact"/>
+        <childnode refid="223" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="247">
+        <label>b2Draw</label>
+        <link refid="classb2_draw"/>
+      </node>
+      <node id="254">
+        <label>b2DynamicTree</label>
+        <link refid="classb2_dynamic_tree"/>
+        <childnode refid="255" relation="usage">
+          <edgelabel>m_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="252">
+        <label>b2BroadPhase</label>
+        <link refid="classb2_broad_phase"/>
+        <childnode refid="253" relation="usage">
+          <edgelabel>m_pairBuffer</edgelabel>
+        </childnode>
+        <childnode refid="254" relation="usage">
+          <edgelabel>m_tree</edgelabel>
+        </childnode>
+      </node>
+      <node id="258">
+        <label>b2ContactListener</label>
+        <link refid="classb2_contact_listener"/>
+      </node>
+      <node id="231">
+        <label>b2Contact</label>
+        <link refid="classb2_contact"/>
+        <childnode refid="232" relation="usage">
+          <edgelabel>s_registers</edgelabel>
+        </childnode>
+        <childnode refid="231" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="233" relation="usage">
+          <edgelabel>m_manifold</edgelabel>
+        </childnode>
+        <childnode refid="238" relation="usage">
+          <edgelabel>m_fixtureA</edgelabel>
+          <edgelabel>m_fixtureB</edgelabel>
+        </childnode>
+        <childnode refid="245" relation="usage">
+          <edgelabel>m_nodeA</edgelabel>
+          <edgelabel>m_nodeB</edgelabel>
+        </childnode>
+      </node>
+      <node id="248">
+        <label>b2Profile</label>
+        <link refid="structb2_profile"/>
+      </node>
+      <node id="239">
+        <label>b2Body</label>
+        <link refid="classb2_body"/>
+        <childnode refid="239" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="240" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+        <childnode refid="234" relation="usage">
+          <edgelabel>m_linearVelocity</edgelabel>
+          <edgelabel>m_force</edgelabel>
+        </childnode>
+        <childnode refid="242" relation="usage">
+          <edgelabel>m_sweep</edgelabel>
+        </childnode>
+        <childnode refid="243" relation="usage">
+          <edgelabel>m_xf</edgelabel>
+        </childnode>
+        <childnode refid="245" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="238" relation="usage">
+          <edgelabel>m_fixtureList</edgelabel>
+        </childnode>
+        <childnode refid="246" relation="usage">
+          <edgelabel>m_world</edgelabel>
+        </childnode>
+      </node>
+      <node id="237">
+        <label>b2ContactFeature</label>
+        <link refid="structb2_contact_feature"/>
+      </node>
+      <node id="245">
+        <label>b2ContactEdge</label>
+        <link refid="structb2_contact_edge"/>
+        <childnode refid="239" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="231" relation="usage">
+          <edgelabel>contact</edgelabel>
+        </childnode>
+        <childnode refid="245" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="233">
+        <label>b2Manifold</label>
+        <link refid="structb2_manifold"/>
+        <childnode refid="234" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+          <edgelabel>localNormal</edgelabel>
+        </childnode>
+        <childnode refid="235" relation="usage">
+          <edgelabel>points</edgelabel>
+        </childnode>
+      </node>
+      <node id="249">
+        <label>b2BlockAllocator</label>
+        <link refid="classb2_block_allocator"/>
+      </node>
+      <node id="250">
+        <label>b2DestructionListener</label>
+        <link refid="classb2_destruction_listener"/>
+      </node>
+      <node id="246">
+        <label>b2World</label>
+        <link refid="classb2_world"/>
+        <childnode refid="239" relation="usage">
+          <edgelabel>m_bodyList</edgelabel>
+        </childnode>
+        <childnode refid="247" relation="usage">
+          <edgelabel>m_debugDraw</edgelabel>
+        </childnode>
+        <childnode refid="234" relation="usage">
+          <edgelabel>m_gravity</edgelabel>
+        </childnode>
+        <childnode refid="248" relation="usage">
+          <edgelabel>m_profile</edgelabel>
+        </childnode>
+        <childnode refid="249" relation="usage">
+          <edgelabel>m_blockAllocator</edgelabel>
+        </childnode>
+        <childnode refid="250" relation="usage">
+          <edgelabel>m_destructionListener</edgelabel>
+        </childnode>
+        <childnode refid="251" relation="usage">
+          <edgelabel>m_contactManager</edgelabel>
+        </childnode>
+        <childnode refid="259" relation="usage">
+          <edgelabel>m_stackAllocator</edgelabel>
+        </childnode>
+        <childnode refid="241" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+      </node>
+      <node id="260">
+        <label>b2StackEntry</label>
+        <link refid="structb2_stack_entry"/>
+      </node>
+      <node id="261">
+        <label>b2FixtureProxy</label>
+        <link refid="structb2_fixture_proxy"/>
+        <childnode refid="256" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+        <childnode refid="238" relation="usage">
+          <edgelabel>fixture</edgelabel>
+        </childnode>
+      </node>
+      <node id="253">
+        <label>b2Pair</label>
+        <link refid="structb2_pair"/>
+      </node>
+      <node id="242">
+        <label>b2Sweep</label>
+        <link refid="structb2_sweep"/>
+        <childnode refid="234" relation="usage">
+          <edgelabel>c0</edgelabel>
+          <edgelabel>localCenter</edgelabel>
+          <edgelabel>c</edgelabel>
+        </childnode>
+      </node>
+      <node id="243">
+        <label>b2Transform</label>
+        <link refid="structb2_transform"/>
+        <childnode refid="234" relation="usage">
+          <edgelabel>p</edgelabel>
+        </childnode>
+        <childnode refid="244" relation="usage">
+          <edgelabel>q</edgelabel>
+        </childnode>
+      </node>
+      <node id="259">
+        <label>b2StackAllocator</label>
+        <link refid="classb2_stack_allocator"/>
+        <childnode refid="260" relation="usage">
+          <edgelabel>m_entries</edgelabel>
+        </childnode>
+      </node>
+      <node id="263">
+        <label>b2Filter</label>
+        <link refid="structb2_filter"/>
+      </node>
+      <node id="240">
+        <label>b2JointEdge</label>
+        <link refid="structb2_joint_edge"/>
+        <childnode refid="239" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="240" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="241" relation="usage">
+          <edgelabel>joint</edgelabel>
+        </childnode>
+      </node>
+      <node id="257">
+        <label>b2ContactFilter</label>
+        <link refid="classb2_contact_filter"/>
+      </node>
+      <node id="241">
+        <label>b2Joint</label>
+        <link refid="classb2_joint"/>
+        <childnode refid="239" relation="usage">
+          <edgelabel>m_bodyA</edgelabel>
+          <edgelabel>m_bodyB</edgelabel>
+        </childnode>
+        <childnode refid="240" relation="usage">
+          <edgelabel>m_edgeB</edgelabel>
+          <edgelabel>m_edgeA</edgelabel>
+        </childnode>
+        <childnode refid="241" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="234">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+      <node id="236">
+        <label>b2ContactID</label>
+        <link refid="unionb2_contact_i_d"/>
+        <childnode refid="237" relation="usage">
+          <edgelabel>cf</edgelabel>
+        </childnode>
+      </node>
+      <node id="262">
+        <label>b2Shape</label>
+        <link refid="classb2_shape"/>
+      </node>
+      <node id="255">
+        <label>b2TreeNode</label>
+        <link refid="structb2_tree_node"/>
+        <childnode refid="256" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+      </node>
+      <node id="256">
+        <label>b2AABB</label>
+        <link refid="structb2_a_a_b_b"/>
+        <childnode refid="234" relation="usage">
+          <edgelabel>lowerBound</edgelabel>
+          <edgelabel>upperBound</edgelabel>
+        </childnode>
+      </node>
+      <node id="244">
+        <label>b2Rot</label>
+        <link refid="structb2_rot"/>
+      </node>
+      <node id="251">
+        <label>b2ContactManager</label>
+        <link refid="classb2_contact_manager"/>
+        <childnode refid="249" relation="usage">
+          <edgelabel>m_allocator</edgelabel>
+        </childnode>
+        <childnode refid="231" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="252" relation="usage">
+          <edgelabel>m_broadPhase</edgelabel>
+        </childnode>
+        <childnode refid="257" relation="usage">
+          <edgelabel>m_contactFilter</edgelabel>
+        </childnode>
+        <childnode refid="258" relation="usage">
+          <edgelabel>m_contactListener</edgelabel>
+        </childnode>
+      </node>
+      <node id="238">
+        <label>b2Fixture</label>
+        <link refid="classb2_fixture"/>
+        <childnode refid="239" relation="usage">
+          <edgelabel>m_body</edgelabel>
+        </childnode>
+        <childnode refid="261" relation="usage">
+          <edgelabel>m_proxies</edgelabel>
+        </childnode>
+        <childnode refid="262" relation="usage">
+          <edgelabel>m_shape</edgelabel>
+        </childnode>
+        <childnode refid="263" relation="usage">
+          <edgelabel>m_filter</edgelabel>
+        </childnode>
+        <childnode refid="238" relation="usage">
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="232">
+        <label>b2ContactRegister</label>
+        <link refid="structb2_contact_register"/>
+      </node>
+      <node id="235">
+        <label>b2ManifoldPoint</label>
+        <link refid="structb2_manifold_point"/>
+        <childnode refid="234" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+        </childnode>
+        <childnode refid="236" relation="usage">
+          <edgelabel>id</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="78" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="77" bodyend="212"/>
+    <listofallmembers>
+      <member refid="classb2_contact_1ae8580ab841e216713216421833a11b3b" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>AddType</name></member>
+      <member refid="classb2_contact_1a010ab52de250e5fe30a45d642f46405b" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>b2Body</name></member>
+      <member refid="classb2_contact_1a04b21bf6fcf41ba19866a2d57c4a2060" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>b2Contact</name></member>
+      <member refid="classb2_contact_1a2d1c98399cef1eb95c6ee8aad8257f60" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>b2Contact</name></member>
+      <member refid="classb2_contact_1aece264d42f69aed410f5eb3beba6ddf2" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>b2ContactManager</name></member>
+      <member refid="classb2_contact_1afb788a7ba90344f3ddbafff3de0465c4" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>b2ContactSolver</name></member>
+      <member refid="classb2_contact_1afb35b0e61f6ee3cc516c40ea251f3236" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>b2Fixture</name></member>
+      <member refid="classb2_contact_1a4bd536c5a7c0587913765bbc2693ceea" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>b2World</name></member>
+      <member refid="classb2_contact_1a0ced22a8c626b8e5aaf5d98163cb157c" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>Create</name></member>
+      <member refid="classb2_contact_1a36c1f6767f212f2e4ddb4c4b2c7cdb75" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>Destroy</name></member>
+      <member refid="classb2_contact_1ae45d9cd7b90e3933ba03c220340cb687" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>Destroy</name></member>
+      <member refid="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583aa3f6336608fedaf5a3edd8d7199af567" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>e_bulletHitFlag</name></member>
+      <member refid="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583a63ecc7ff371a26143b250e8f315576a7" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>e_enabledFlag</name></member>
+      <member refid="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583ab8e92ae0c3f97e9d95aedb30238e6817" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>e_filterFlag</name></member>
+      <member refid="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583aad83700b4de33a2e3133ea0d98aa1c8b" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>e_islandFlag</name></member>
+      <member refid="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583affeff4bfd177073172521d6be7e202de" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>e_toiFlag</name></member>
+      <member refid="classb2_contact_1a1bbb4ce251d70e0de4c0b8f117e11583aff50bb5872ede1ef890c5b4d063c6378" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>e_touchingFlag</name></member>
+      <member refid="classb2_contact_1ae3c2842e5325b2d4500f8ed1d4de2f72" prot="public" virt="pure-virtual"><scope>b2Contact</scope><name>Evaluate</name></member>
+      <member refid="classb2_contact_1a44a3d32149021269eb9dfd4015c98e0d" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>FlagForFiltering</name></member>
+      <member refid="classb2_contact_1ab0c9c059c776f315ae62abb5c978afcc" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>GetChildIndexA</name></member>
+      <member refid="classb2_contact_1a9edc26022c3d1a9cf1dab9d79d639b3f" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>GetChildIndexB</name></member>
+      <member refid="classb2_contact_1a707a3a5a14c2cdd4c6eb7fc648d76037" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>GetFixtureA</name></member>
+      <member refid="classb2_contact_1af5820afc8ebb6d785a47a979b373b004" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>GetFixtureA</name></member>
+      <member refid="classb2_contact_1a68464fe587d7e6a1f52763e965bb7361" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>GetFixtureB</name></member>
+      <member refid="classb2_contact_1a06db543279afbb51071bf57475bfcc1e" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>GetFixtureB</name></member>
+      <member refid="classb2_contact_1a0b6daf4137fd1719961f5d780b8dda15" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>GetFriction</name></member>
+      <member refid="classb2_contact_1ab0597077b23615476327f9b32d9c4979" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>GetManifold</name></member>
+      <member refid="classb2_contact_1a2a1fb2fa1e0956faf61047c4aba3da5a" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>GetManifold</name></member>
+      <member refid="classb2_contact_1aebfebb1e4b27dc0bd7aa120093e3d650" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>GetNext</name></member>
+      <member refid="classb2_contact_1a55e20c9e32071f492952dad256552141" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>GetNext</name></member>
+      <member refid="classb2_contact_1aed12746a2855277479802144b699326b" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>GetRestitution</name></member>
+      <member refid="classb2_contact_1a6a30a44a28b44754cb61bba65cb5b728" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>GetWorldManifold</name></member>
+      <member refid="classb2_contact_1a34838bc1364bbe142dfb028f3a417550" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>InitializeRegisters</name></member>
+      <member refid="classb2_contact_1ae7bd71ee1b0bb352bec6eeaab4f91c6a" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>IsEnabled</name></member>
+      <member refid="classb2_contact_1a367dc9a563ad7db5547f4247777a33c9" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>IsTouching</name></member>
+      <member refid="classb2_contact_1aec94bbbb8862f09365a5af99650b5be4" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>m_fixtureA</name></member>
+      <member refid="classb2_contact_1a83b18f0da1cfeb2c9dccc6aabed881d3" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>m_fixtureB</name></member>
+      <member refid="classb2_contact_1a85d5408adcbf466bcb8f291aeb35bc3b" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>m_flags</name></member>
+      <member refid="classb2_contact_1ac7915ef6f92d609ee0a43d518b4f9e75" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>m_friction</name></member>
+      <member refid="classb2_contact_1ac69d3c8f18ac653cbff658a718ab9067" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>m_indexA</name></member>
+      <member refid="classb2_contact_1aaaae6d149986c7267f3e28f0c58da8a0" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>m_indexB</name></member>
+      <member refid="classb2_contact_1aebdc2c073d05ac8e544a591d2043b251" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>m_manifold</name></member>
+      <member refid="classb2_contact_1a241fea000d26da8761b5520a9adcd87a" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>m_next</name></member>
+      <member refid="classb2_contact_1a5f5ce747bb04f48843eb07304d47faab" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>m_nodeA</name></member>
+      <member refid="classb2_contact_1a4887c3acb8cb857e2bec659027539c7a" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>m_nodeB</name></member>
+      <member refid="classb2_contact_1adf3a3450e0fa9cf6d11ca22467c2370b" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>m_prev</name></member>
+      <member refid="classb2_contact_1a6bc56522b4c04e28bee3542a7fc2f796" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>m_restitution</name></member>
+      <member refid="classb2_contact_1aa9e75253eaac6efdb6485a8646ac553f" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>m_toi</name></member>
+      <member refid="classb2_contact_1afaa231f3e9a908154f9a32af456601b6" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>m_toiCount</name></member>
+      <member refid="classb2_contact_1ad66d9290da187cef4c9f48c5766d4460" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>ResetFriction</name></member>
+      <member refid="classb2_contact_1a243501bc5c146e9eb1296162d328aef1" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>ResetRestitution</name></member>
+      <member refid="classb2_contact_1a672598c350694d7b9a89c45f8ad0dd90" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>s_initialized</name></member>
+      <member refid="classb2_contact_1a11e5b67d3e46ff9306d642a776e18890" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>s_registers</name></member>
+      <member refid="classb2_contact_1a6edf582f8c161d6632854cddefe55a0c" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>SetEnabled</name></member>
+      <member refid="classb2_contact_1a5e8fbb6bb2966ac84272bb0ea9d2e4c7" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>SetFriction</name></member>
+      <member refid="classb2_contact_1a24ca342c2bb766c53ef5ad04f5268fc1" prot="public" virt="non-virtual"><scope>b2Contact</scope><name>SetRestitution</name></member>
+      <member refid="classb2_contact_1a218a66a6c34e3de1c428aa73a0680dfe" prot="protected" virt="non-virtual"><scope>b2Contact</scope><name>Update</name></member>
+      <member refid="classb2_contact_1a37368b233a5ac0d698310b300426ce16" prot="protected" virt="virtual"><scope>b2Contact</scope><name>~b2Contact</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

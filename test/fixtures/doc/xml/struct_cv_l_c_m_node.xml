@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_l_c_m_node" kind="struct" prot="public">
+    <compoundname>CvLCMNode</compoundname>
+    <includes refid="cvaux_8h" local="no">cvaux.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_l_c_m_node_1a8af2cb0a0c8b9595d19d18d9cc54edce" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_contour" kindref="compound">CvContour</ref> *</type>
+        <definition>CvContour* CvLCMNode::contour</definition>
+        <argsstring></argsstring>
+        <name>contour</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1035" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1035" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1934">
+        <label>CvLCMNode</label>
+        <link refid="struct_cv_l_c_m_node"/>
+        <childnode refid="1935" relation="usage">
+          <edgelabel>contour</edgelabel>
+        </childnode>
+      </node>
+      <node id="1935">
+        <label>CvContour</label>
+        <link refid="struct_cv_contour"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1033" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1032" bodyend="1036"/>
+    <listofallmembers>
+      <member refid="struct_cv_l_c_m_node_1a8af2cb0a0c8b9595d19d18d9cc54edce" prot="public" virt="non-virtual"><scope>CvLCMNode</scope><name>contour</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

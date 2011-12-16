@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_b_g_pixel_stat" kind="struct" prot="public">
+    <compoundname>CvBGPixelStat</compoundname>
+    <includes refid="cvaux_8h" local="no">cvaux.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_b_g_pixel_stat_1acfe036c8c4bb456ae384f43ebddd1629" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvBGPixelStat::Pbc</definition>
+        <argsstring></argsstring>
+        <name>Pbc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1307" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1307" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_b_g_pixel_stat_1a7d5b13421a935222967e1a30d14ea4f7" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvBGPixelStat::Pbcc</definition>
+        <argsstring></argsstring>
+        <name>Pbcc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1308" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1308" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_b_g_pixel_stat_1a856e3ea97f987f7888f3d0c6daa17614" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_b_g_pixel_c_stat_table" kindref="compound">CvBGPixelCStatTable</ref> *</type>
+        <definition>CvBGPixelCStatTable* CvBGPixelStat::ctable</definition>
+        <argsstring></argsstring>
+        <name>ctable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1309" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1309" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_b_g_pixel_stat_1a6e516d9913cc4cf3764abeeffe8cf35d" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_b_g_pixel_c_c_stat_table" kindref="compound">CvBGPixelCCStatTable</ref> *</type>
+        <definition>CvBGPixelCCStatTable* CvBGPixelStat::cctable</definition>
+        <argsstring></argsstring>
+        <name>cctable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1310" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_b_g_pixel_stat_1a1bf6fcf273879a8934e6f9aef4494331" prot="public" static="no" mutable="no">
+        <type><ref refid="cxtypes_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>uchar CvBGPixelStat::is_trained_st_model</definition>
+        <argsstring></argsstring>
+        <name>is_trained_st_model</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1311" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1311" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_b_g_pixel_stat_1aad3efd5bcefd90b3fc0cd9c1e39095d4" prot="public" static="no" mutable="no">
+        <type><ref refid="cxtypes_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>uchar CvBGPixelStat::is_trained_dyn_model</definition>
+        <argsstring></argsstring>
+        <name>is_trained_dyn_model</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1312" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1312" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1799">
+        <label>CvBGPixelStat</label>
+        <link refid="struct_cv_b_g_pixel_stat"/>
+        <childnode refid="1800" relation="usage">
+          <edgelabel>cctable</edgelabel>
+        </childnode>
+        <childnode refid="1801" relation="usage">
+          <edgelabel>ctable</edgelabel>
+        </childnode>
+      </node>
+      <node id="1800">
+        <label>CvBGPixelCCStatTable</label>
+        <link refid="struct_cv_b_g_pixel_c_c_stat_table"/>
+      </node>
+      <node id="1801">
+        <label>CvBGPixelCStatTable</label>
+        <link refid="struct_cv_b_g_pixel_c_stat_table"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1306" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1305" bodyend="1313"/>
+    <listofallmembers>
+      <member refid="struct_cv_b_g_pixel_stat_1a6e516d9913cc4cf3764abeeffe8cf35d" prot="public" virt="non-virtual"><scope>CvBGPixelStat</scope><name>cctable</name></member>
+      <member refid="struct_cv_b_g_pixel_stat_1a856e3ea97f987f7888f3d0c6daa17614" prot="public" virt="non-virtual"><scope>CvBGPixelStat</scope><name>ctable</name></member>
+      <member refid="struct_cv_b_g_pixel_stat_1aad3efd5bcefd90b3fc0cd9c1e39095d4" prot="public" virt="non-virtual"><scope>CvBGPixelStat</scope><name>is_trained_dyn_model</name></member>
+      <member refid="struct_cv_b_g_pixel_stat_1a1bf6fcf273879a8934e6f9aef4494331" prot="public" virt="non-virtual"><scope>CvBGPixelStat</scope><name>is_trained_st_model</name></member>
+      <member refid="struct_cv_b_g_pixel_stat_1acfe036c8c4bb456ae384f43ebddd1629" prot="public" virt="non-virtual"><scope>CvBGPixelStat</scope><name>Pbc</name></member>
+      <member refid="struct_cv_b_g_pixel_stat_1a7d5b13421a935222967e1a30d14ea4f7" prot="public" virt="non-virtual"><scope>CvBGPixelStat</scope><name>Pbcc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

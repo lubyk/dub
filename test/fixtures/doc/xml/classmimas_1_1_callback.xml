@@ -1,0 +1,343 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmimas_1_1_callback" kind="class" prot="public">
+    <compoundname>mimas::Callback</compoundname>
+    <basecompoundref refid="classmimas_1_1_q_object" prot="public" virt="non-virtual">mimas::QObject</basecompoundref>
+    <basecompoundref refid="classlubyk_1_1_threaded_lua_object" prot="public" virt="non-virtual">lubyk::ThreadedLuaObject</basecompoundref>
+    <includes refid="_callback_8h" local="no">Callback.h</includes>
+    <innerclass refid="classmimas_1_1_callback_1_1_event" prot="public">mimas::Callback::Event</innerclass>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmimas_1_1_callback_1a7719da5f2a4b179ecc1bfa3cb0b3843a" prot="public" static="yes" mutable="no">
+        <type>const QEvent::Type</type>
+        <definition>const QEvent::Type mimas::Callback::EventType</definition>
+        <argsstring></argsstring>
+        <name>EventType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" line="57" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classmimas_1_1_callback_1a23f25bcc02a0e94c2f5a4188496b04d0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class Application</definition>
+        <argsstring></argsstring>
+        <name>Application</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" line="117" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classmimas_1_1_callback_1a610f3c9abc5bb8cdefea67be2f7a7783" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class Slider</definition>
+        <argsstring></argsstring>
+        <name>Slider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" line="118" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmimas_1_1_callback_1a14fb7092322a4da8c09b2d841a20312a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mimas::Callback::self_in_app_</definition>
+        <argsstring></argsstring>
+        <name>self_in_app_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To protect from garbage collection before app is deleted. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" line="161" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" bodystart="161" bodyend="-1"/>
+        <referencedby refid="classmimas_1_1_callback_1aef4d31c9dbca60d81545f4102a157611" compoundref="_callback_8h" startline="148" endline="157">deleteOnCall</referencedby>
+        <referencedby refid="classmimas_1_1_callback_1a9125670e042a28a0b8c58e9e1d9e1531" compoundref="_callback_8h" startline="123" endline="146">setCallbackFromApp</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classmimas_1_1_callback_1a66d8a6a954a314095861c0f912092424" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mimas::Callback::app_in_thread_</definition>
+        <argsstring></argsstring>
+        <name>app_in_thread_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To unprotect self from garbage collection when deleted. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" line="165" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" bodystart="165" bodyend="-1"/>
+        <referencedby refid="classmimas_1_1_callback_1aef4d31c9dbca60d81545f4102a157611" compoundref="_callback_8h" startline="148" endline="157">deleteOnCall</referencedby>
+        <referencedby refid="classmimas_1_1_callback_1a9125670e042a28a0b8c58e9e1d9e1531" compoundref="_callback_8h" startline="123" endline="146">setCallbackFromApp</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmimas_1_1_callback_1a198fdaf9f804e90a5c6bae8856f0856f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Callback::Callback</definition>
+        <argsstring>()</argsstring>
+        <name>Callback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" line="59" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" bodystart="59" bodyend="61"/>
+        <references refid="mimas_8h_1abf7761995db91711f1c2001b3ea81ae7" compoundref="mimas_8h" startline="37">MIMAS_DEBUG_CC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_callback_1a338b9a2ee17e6f0ac1b953a98ca1ac2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual mimas::Callback::~Callback</definition>
+        <argsstring>()</argsstring>
+        <name>~Callback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" line="63" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" bodystart="63" bodyend="65"/>
+        <references refid="mimas_8h_1a9d2f1addda3f00a2c1d2e3e2b6e4b5b5" compoundref="mimas_8h" startline="38">MIMAS_DEBUG_GC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_callback_1a77b69fff913b57fe13ae464988c1f63d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Callback::connect</definition>
+        <argsstring>(QObject *obj, const char *method, const char *callback)</argsstring>
+        <name>connect</name>
+        <param>
+          <type><ref refid="classmimas_1_1_q_object" kindref="compound">QObject</ref> *</type>
+          <declname>obj</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>method</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" line="67" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" bodystart="67" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classmimas_1_1_callback_1a4038e26728479049d4b90ce1ee4d90e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Callback::callback</definition>
+        <argsstring>()</argsstring>
+        <name>callback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" line="84" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" bodystart="84" bodyend="95"/>
+        <references refid="classmimas_1_1_callback_1aef4d31c9dbca60d81545f4102a157611" compoundref="_callback_8h" startline="148" endline="157">deleteOnCall</references>
+        <references refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" compoundref="lua__object_8h" startline="79">lubyk::ThreadedLuaObject::lua_</references>
+        <references refid="lua__object_8h_1a1095d349e93aa25cf9ddf8d07cbb6eea" compoundref="lua__object_8h" startline="34">pushLuaCallback</references>
+        <references refid="cv_8h_1ae17b3c2584dab511e91d1c96644018bf" compoundref="cv_8h" startline="516">status</references>
+        <referencedby refid="classmimas_1_1_callback_1a4a13b272ac89b91e74648a76c3c22192" compoundref="_callback_8h" startline="112" endline="114">callback</referencedby>
+      </memberdef>
+      <memberdef kind="slot" id="classmimas_1_1_callback_1a7f2142263727b4716b2bc3038879f686" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Callback::callback</definition>
+        <argsstring>(double value)</argsstring>
+        <name>callback</name>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" line="97" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" bodystart="97" bodyend="110"/>
+        <references refid="classmimas_1_1_callback_1aef4d31c9dbca60d81545f4102a157611" compoundref="_callback_8h" startline="148" endline="157">deleteOnCall</references>
+        <references refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" compoundref="lua__object_8h" startline="79">lubyk::ThreadedLuaObject::lua_</references>
+        <references refid="lua__object_8h_1a1095d349e93aa25cf9ddf8d07cbb6eea" compoundref="lua__object_8h" startline="34">pushLuaCallback</references>
+        <references refid="cv_8h_1ae17b3c2584dab511e91d1c96644018bf" compoundref="cv_8h" startline="516">status</references>
+      </memberdef>
+      <memberdef kind="slot" id="classmimas_1_1_callback_1a4a13b272ac89b91e74648a76c3c22192" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Callback::callback</definition>
+        <argsstring>(int value)</argsstring>
+        <name>callback</name>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" line="112" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" bodystart="112" bodyend="114"/>
+        <references refid="classmimas_1_1_callback_1a4038e26728479049d4b90ce1ee4d90e5" compoundref="_callback_8h" startline="84" endline="95">callback</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmimas_1_1_callback_1a9125670e042a28a0b8c58e9e1d9e1531" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Callback::setCallbackFromApp</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>setCallbackFromApp</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Define a callback and store a reference inside the application so that it is not garbage collected too soon. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" line="123" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" bodystart="123" bodyend="146"/>
+        <references refid="classmimas_1_1_callback_1a66d8a6a954a314095861c0f912092424" compoundref="_callback_8h" startline="165">app_in_thread_</references>
+        <references refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" compoundref="lua__object_8h" startline="79">lubyk::ThreadedLuaObject::lua_</references>
+        <references refid="classmimas_1_1_callback_1a14fb7092322a4da8c09b2d841a20312a" compoundref="_callback_8h" startline="161">self_in_app_</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_callback_1aef4d31c9dbca60d81545f4102a157611" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Callback::deleteOnCall</definition>
+        <argsstring>()</argsstring>
+        <name>deleteOnCall</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" line="148" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" bodystart="148" bodyend="157"/>
+        <references refid="classmimas_1_1_callback_1a66d8a6a954a314095861c0f912092424" compoundref="_callback_8h" startline="165">app_in_thread_</references>
+        <references refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" compoundref="lua__object_8h" startline="79">lubyk::ThreadedLuaObject::lua_</references>
+        <references refid="classmimas_1_1_callback_1a14fb7092322a4da8c09b2d841a20312a" compoundref="_callback_8h" startline="161">self_in_app_</references>
+        <referencedby refid="classmimas_1_1_callback_1a4038e26728479049d4b90ce1ee4d90e5" compoundref="_callback_8h" startline="84" endline="95">callback</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Calls a lua function back.</para><para><simplesect kind="par"><title>Bindings info:</title><para>lib_name:&apos;Callback_core&apos; ignore: &apos;callback&apos; super: &apos;QObject&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="1749">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="1747">
+        <label>mimas::QObject</label>
+        <link refid="classmimas_1_1_q_object"/>
+      </node>
+      <node id="1748">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="1749" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1746">
+        <label>mimas::Callback</label>
+        <link refid="classmimas_1_1_callback"/>
+        <childnode refid="1747" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1748" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1754">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="1755" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1756">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="1753">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="1754" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1751">
+        <label>mimas::QObject</label>
+        <link refid="classmimas_1_1_q_object"/>
+      </node>
+      <node id="1752">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="1753" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1755">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="1756" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="1750">
+        <label>mimas::Callback</label>
+        <link refid="classmimas_1_1_callback"/>
+        <childnode refid="1751" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1752" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h" bodystart="52" bodyend="166"/>
+    <listofallmembers>
+      <member refid="classmimas_1_1_callback_1a66d8a6a954a314095861c0f912092424" prot="private" virt="non-virtual"><scope>mimas::Callback</scope><name>app_in_thread_</name></member>
+      <member refid="classmimas_1_1_callback_1a23f25bcc02a0e94c2f5a4188496b04d0" prot="private" virt="non-virtual"><scope>mimas::Callback</scope><name>Application</name></member>
+      <member refid="classmimas_1_1_callback_1a4038e26728479049d4b90ce1ee4d90e5" prot="public" virt="non-virtual"><scope>mimas::Callback</scope><name>callback</name></member>
+      <member refid="classmimas_1_1_callback_1a7f2142263727b4716b2bc3038879f686" prot="public" virt="non-virtual"><scope>mimas::Callback</scope><name>callback</name></member>
+      <member refid="classmimas_1_1_callback_1a4a13b272ac89b91e74648a76c3c22192" prot="public" virt="non-virtual"><scope>mimas::Callback</scope><name>callback</name></member>
+      <member refid="classmimas_1_1_callback_1a198fdaf9f804e90a5c6bae8856f0856f" prot="public" virt="non-virtual"><scope>mimas::Callback</scope><name>Callback</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>mimas::Callback</scope><name>class_name_</name></member>
+      <member refid="classmimas_1_1_callback_1a77b69fff913b57fe13ae464988c1f63d" prot="public" virt="non-virtual"><scope>mimas::Callback</scope><name>connect</name></member>
+      <member refid="classmimas_1_1_callback_1aef4d31c9dbca60d81545f4102a157611" prot="private" virt="non-virtual"><scope>mimas::Callback</scope><name>deleteOnCall</name></member>
+      <member refid="classmimas_1_1_callback_1a7719da5f2a4b179ecc1bfa3cb0b3843a" prot="public" virt="non-virtual"><scope>mimas::Callback</scope><name>EventType</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" prot="public" virt="non-virtual"><scope>mimas::Callback</scope><name>lua_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>mimas::Callback</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>mimas::Callback</scope><name>luaDestroy</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a1351dd8c5053c7df8e0a29b2887ddb8e" prot="public" virt="non-virtual"><scope>mimas::Callback</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>mimas::Callback</scope><name>LuaObject</name></member>
+      <member refid="classmimas_1_1_q_object_1af8efebebabb12dbcadf06e4f1c987f0f" prot="public" virt="non-virtual"><scope>mimas::Callback</scope><name>name</name></member>
+      <member refid="classmimas_1_1_q_object_1a23a08f7ca37c775fcb8e800d02229565" prot="public" virt="non-virtual"><scope>mimas::Callback</scope><name>object</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1af9f7e3d5717357958461b2634742475f" prot="protected" virt="non-virtual"><scope>mimas::Callback</scope><name>pushLuaCallbackl</name></member>
+      <member refid="classmimas_1_1_callback_1a14fb7092322a4da8c09b2d841a20312a" prot="private" virt="non-virtual"><scope>mimas::Callback</scope><name>self_in_app_</name></member>
+      <member refid="classmimas_1_1_callback_1a9125670e042a28a0b8c58e9e1d9e1531" prot="private" virt="non-virtual"><scope>mimas::Callback</scope><name>setCallbackFromApp</name></member>
+      <member refid="classmimas_1_1_q_object_1a703a9b7d8388b671c4115f21afceeb72" prot="public" virt="non-virtual"><scope>mimas::Callback</scope><name>setName</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1ad533909af126d2aa2b058dea6b0d91f0" prot="protected" virt="non-virtual"><scope>mimas::Callback</scope><name>setupLuaThread</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>mimas::Callback</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>mimas::Callback</scope><name>setupSuper</name></member>
+      <member refid="classmimas_1_1_callback_1a610f3c9abc5bb8cdefea67be2f7a7783" prot="private" virt="non-virtual"><scope>mimas::Callback</scope><name>Slider</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a68147ed0f2048d29f6adf5316992ad69" prot="public" virt="non-virtual"><scope>mimas::Callback</scope><name>ThreadedLuaObject</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>mimas::Callback</scope><name>worker_</name></member>
+      <member refid="classmimas_1_1_callback_1a338b9a2ee17e6f0ac1b953a98ca1ac2c" prot="public" virt="virtual"><scope>mimas::Callback</scope><name>~Callback</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>mimas::Callback</scope><name>~LuaObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

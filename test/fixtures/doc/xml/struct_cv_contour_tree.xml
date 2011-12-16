@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_contour_tree" kind="struct" prot="public">
+    <compoundname>CvContourTree</compoundname>
+    <includes refid="cvtypes_8h" local="no">cvtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_contour_tree_1ae93d5eaff425a4d30c518490f2345888" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_point" kindref="compound">CvPoint</ref></type>
+        <definition>CvPoint CvContourTree::p1</definition>
+        <argsstring></argsstring>
+        <name>p1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="119" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_contour_tree_1aa2e801818ebee167017c5dc7c7148858" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_point" kindref="compound">CvPoint</ref></type>
+        <definition>CvPoint CvContourTree::p2</definition>
+        <argsstring></argsstring>
+        <name>p2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="120" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1836">
+        <label>CvPoint</label>
+        <link refid="struct_cv_point"/>
+      </node>
+      <node id="1835">
+        <label>CvContourTree</label>
+        <link refid="struct_cv_contour_tree"/>
+        <childnode refid="1836" relation="usage">
+          <edgelabel>p1</edgelabel>
+          <edgelabel>p2</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="117" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="116" bodyend="121"/>
+    <listofallmembers>
+      <member refid="struct_cv_contour_tree_1ae93d5eaff425a4d30c518490f2345888" prot="public" virt="non-virtual"><scope>CvContourTree</scope><name>p1</name></member>
+      <member refid="struct_cv_contour_tree_1aa2e801818ebee167017c5dc7c7148858" prot="public" virt="non-virtual"><scope>CvContourTree</scope><name>p2</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

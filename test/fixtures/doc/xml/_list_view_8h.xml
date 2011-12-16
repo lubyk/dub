@@ -1,0 +1,402 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="_list_view_8h" kind="file">
+    <compoundname>ListView.h</compoundname>
+    <includes refid="mimas_8h" local="yes">mimas/mimas.h</includes>
+    <includes refid="mimas_2include_2mimas_2constants_8h" local="yes">mimas/constants.h</includes>
+    <includes refid="_data_source_8h" local="yes">mimas/DataSource.h</includes>
+    <includes local="no">QtGui/QListView</includes>
+    <includes local="no">QtGui/QHeaderView</includes>
+    <includes local="no">QtGui/QMouseEvent</includes>
+    <includes local="no">QtCore/QPoint</includes>
+    <includes local="no">iostream</includes>
+    <incdepgraph>
+      <node id="855">
+        <label>mimas/Action.h</label>
+        <link refid="_action_8h"/>
+        <childnode refid="852" relation="include">
+        </childnode>
+        <childnode refid="856" relation="include">
+        </childnode>
+        <childnode refid="857" relation="include">
+        </childnode>
+      </node>
+      <node id="865">
+        <label>QtGui/QListView</label>
+      </node>
+      <node id="853">
+        <label>lubyk.h</label>
+      </node>
+      <node id="860">
+        <label>string</label>
+      </node>
+      <node id="862">
+        <label>QtCore/QAbstractItemModel</label>
+      </node>
+      <node id="851">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h</label>
+        <link refid="ListView.h"/>
+        <childnode refid="852" relation="include">
+        </childnode>
+        <childnode refid="858" relation="include">
+        </childnode>
+        <childnode refid="861" relation="include">
+        </childnode>
+        <childnode refid="865" relation="include">
+        </childnode>
+        <childnode refid="866" relation="include">
+        </childnode>
+        <childnode refid="863" relation="include">
+        </childnode>
+        <childnode refid="864" relation="include">
+        </childnode>
+        <childnode refid="857" relation="include">
+        </childnode>
+      </node>
+      <node id="852">
+        <label>mimas/mimas.h</label>
+        <link refid="mimas_8h"/>
+        <childnode refid="853" relation="include">
+        </childnode>
+        <childnode refid="854" relation="include">
+        </childnode>
+        <childnode refid="855" relation="include">
+        </childnode>
+      </node>
+      <node id="858">
+        <label>mimas/constants.h</label>
+        <link refid="mimas_2include_2mimas_2constants_8h"/>
+        <childnode refid="852" relation="include">
+        </childnode>
+        <childnode refid="859" relation="include">
+        </childnode>
+        <childnode refid="853" relation="include">
+        </childnode>
+        <childnode refid="860" relation="include">
+        </childnode>
+      </node>
+      <node id="854">
+        <label>QtGui/QWidget</label>
+      </node>
+      <node id="863">
+        <label>QtGui/QMouseEvent</label>
+      </node>
+      <node id="864">
+        <label>QtCore/QPoint</label>
+      </node>
+      <node id="856">
+        <label>QtGui/QAction</label>
+      </node>
+      <node id="857">
+        <label>iostream</label>
+      </node>
+      <node id="859">
+        <label>QtGui/QFileDialog</label>
+      </node>
+      <node id="861">
+        <label>mimas/DataSource.h</label>
+        <link refid="_data_source_8h"/>
+        <childnode refid="852" relation="include">
+        </childnode>
+        <childnode refid="858" relation="include">
+        </childnode>
+        <childnode refid="862" relation="include">
+        </childnode>
+        <childnode refid="863" relation="include">
+        </childnode>
+        <childnode refid="864" relation="include">
+        </childnode>
+        <childnode refid="857" relation="include">
+        </childnode>
+      </node>
+      <node id="866">
+        <label>QtGui/QHeaderView</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classmimas_1_1_list_view" prot="public">mimas::ListView</innerclass>
+    <innernamespace refid="namespacemimas">mimas</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>==============================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>LUBYK<sp/>project<sp/>(http://lubyk.org)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/>Copyright<sp/>(c)<sp/>2007-2011<sp/>by<sp/>Gaspard<sp/>Bucher<sp/>(http://teti.ch).</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"></highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/>------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"></highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/>of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/>in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/><sp/><sp/>to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/><sp/><sp/>copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/><sp/><sp/>furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/><sp/><sp/>all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/><sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/><sp/><sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/><sp/><sp/>AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/><sp/><sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/><sp/><sp/>OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/>THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"></highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/>==============================================================================</highlight></codeline>
+<codeline lineno="28"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>LUBYK_INCLUDE_MIMAS_TABLE_VIEW_H_</highlight></codeline>
+<codeline lineno="30"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>LUBYK_INCLUDE_MIMAS_TABLE_VIEW_H_</highlight></codeline>
+<codeline lineno="31"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mimas_8h" kindref="compound">mimas/mimas.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mimas_2include_2mimas_2constants_8h" kindref="compound">mimas/constants.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_data_source_8h" kindref="compound">mimas/DataSource.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">lubyk;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtGui/QListView&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtGui/QHeaderView&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtGui/QMouseEvent&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtCore/QPoint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mimas<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="classmimas_1_1_list_view" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classmimas_1_1_list_view" kindref="compound">ListView</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QListView,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_threaded_lua_object" kindref="compound">ThreadedLuaObject</ref><sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="56" refid="classmimas_1_1_list_view_1a34726f00359c45dbbe7fdddfea6fb1b7" refkind="member"><highlight class="normal"><sp/><sp/>Q_PROPERTY(QString<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>READ<sp/>cssClass)</highlight></codeline>
+<codeline lineno="57" refid="classmimas_1_1_list_view_1a271561ef905fa6ea214b882170047fb3" refkind="member"><highlight class="normal"><sp/><sp/>Q_PROPERTY(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>hue<sp/>READ<sp/>hue<sp/>WRITE<sp/><ref refid="namespacemimas_1a7d2641d1d32f342736e279c66d78181a" kindref="member">setHue</ref>)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="classmimas_1_1_list_view_1a8225b9083baac0df7829189cf7b46f7c" refkind="member"><highlight class="normal"><sp/><sp/>QSize<sp/>size_hint_;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/>public:</highlight></codeline>
+<codeline lineno="61" refid="classmimas_1_1_list_view_1ae5d3977339bdc349a3192f217047b05d" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmimas_1_1_list_view" kindref="compound">ListView</ref>(lubyk::<ref refid="classlubyk_1_1_worker" kindref="compound">Worker</ref><sp/>*worker)<sp/><sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>setAttribute(Qt::WA_DeleteOnClose);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>setSelectionMode(QAbstractItemView::SingleSelection);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Not<sp/>editable</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>setEditTriggers(QAbstractItemView::NoEditTriggers);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>find<sp/>another<sp/>way<sp/>to<sp/>remove<sp/>the<sp/>dotted<sp/>lines<sp/>around<sp/>text<sp/>after<sp/>click.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>clearFocus();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mimas_8h_1abf7761995db91711f1c2001b3ea81ae7" kindref="member">MIMAS_DEBUG_CC</ref></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="classmimas_1_1_list_view_1a2621d40ab3d07157f90aa94c6d5b5c30" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmimas_1_1_list_view_1a2621d40ab3d07157f90aa94c6d5b5c30" kindref="member">~ListView</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mimas_8h_1a9d2f1addda3f00a2c1d2e3e2b6e4b5b5" kindref="member">MIMAS_DEBUG_GC</ref></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>============================<sp/>[<sp/>all<sp/>Widgets</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="classmimas_1_1_list_view_1a5333a2b88c5fc345b80b52ce223bd204" refkind="member"><highlight class="normal"><sp/><sp/>QString<sp/><ref refid="classmimas_1_1_list_view_1a5333a2b88c5fc345b80b52ce223bd204" kindref="member">cssClass</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QString(</highlight><highlight class="stringliteral">&quot;list&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="classmimas_1_1_list_view_1af3b5b4a5e50b0c57fed2328ebee223c8" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmimas_1_1_q_widget" kindref="compound">QWidget</ref><sp/>*<ref refid="classmimas_1_1_list_view_1af3b5b4a5e50b0c57fed2328ebee223c8" kindref="member">widget</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="classmimas_1_1_list_view_1a0fd744249f8aef415d0113e7ea9b82ac" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmimas_1_1_q_object" kindref="compound">QObject</ref><sp/>*<ref refid="classmimas_1_1_list_view_1a0fd744249f8aef415d0113e7ea9b82ac" kindref="member">object</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="classmimas_1_1_list_view_1a5d8a35fa3e2f4d8d32911d089e68a0ab" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref><sp/><ref refid="classmimas_1_1_list_view_1a5d8a35fa3e2f4d8d32911d089e68a0ab" kindref="member">name</ref>(lua_State<sp/>*L)<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>lua_pushstring(L,<sp/>QObject::objectName().toUtf8().<ref refid="cv_8h_1acd1647952fba31484ea63d6f1140e509" kindref="member">data</ref>());</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="classmimas_1_1_list_view_1afb1b8cd54bccceb4ec1707317df03795" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1afb1b8cd54bccceb4ec1707317df03795" kindref="member">setName</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="cxcore_8h_1add928d8eb85ea33a25a67db3406d4887" kindref="member">name</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>QObject::setObjectName(QString(name));</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103" refid="classmimas_1_1_list_view_1ac09e575d26010b5c92aaa1b937e20f6b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1ac09e575d26010b5c92aaa1b937e20f6b" kindref="member">move</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="highgui_8h_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="highgui_8h_1af1202c02b14870c18fb3a1da73e9e7c7" kindref="member">y</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>QWidget::move(x,<sp/>y);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="classmimas_1_1_list_view_1afc87cc3b427dd905fd6d2714e8ee6830" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1afc87cc3b427dd905fd6d2714e8ee6830" kindref="member">resize</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>h)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>QWidget::resize(w,<sp/>h);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111" refid="classmimas_1_1_list_view_1a54f27a500e23b747e0d48260dd8dde29" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1a54f27a500e23b747e0d48260dd8dde29" kindref="member">x</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="highgui_8h_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">QWidget::x</ref>();</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="classmimas_1_1_list_view_1a525c6fa70feb98c63c7d1f0834dfab5a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1a525c6fa70feb98c63c7d1f0834dfab5a" kindref="member">y</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="highgui_8h_1af1202c02b14870c18fb3a1da73e9e7c7" kindref="member">QWidget::y</ref>();</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="classmimas_1_1_list_view_1aa0912b30b09f4dea891acb2848d2d6c9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1aa0912b30b09f4dea891acb2848d2d6c9" kindref="member">width</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="highgui_8h_1a2474a5474cbff19523a51eb1de01cda4" kindref="member">QWidget::width</ref>();</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="classmimas_1_1_list_view_1a66494429ac27f4081a85638b2fc7c410" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1a66494429ac27f4081a85638b2fc7c410" kindref="member">height</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="highgui_8h_1adc7b4b8a6ef510e136071efbc9cd9a58" kindref="member">QWidget::height</ref>();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="classmimas_1_1_list_view_1a32dc5db02d7cfd8ee2d7bff7d5e977b0" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1a32dc5db02d7cfd8ee2d7bff7d5e977b0" kindref="member">setStyle</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="cxcore_8h_1a16343090e80c4472521560f30113d96c" kindref="member">text</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>QWidget::setStyleSheet(QString(</highlight><highlight class="stringliteral">&quot;.%1<sp/>{<sp/>%2<sp/>}&quot;</highlight><highlight class="normal">).arg(cssClass()).arg(text));</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="classmimas_1_1_list_view_1a19cf53ffa6c7b77c9efb441860989b7b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1a19cf53ffa6c7b77c9efb441860989b7b" kindref="member">setStyleSheet</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="cxcore_8h_1a16343090e80c4472521560f30113d96c" kindref="member">text</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>QWidget::setStyleSheet(text);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="classmimas_1_1_list_view_1a639f409312e88b9de9924417a59bbbe4" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1a639f409312e88b9de9924417a59bbbe4" kindref="member">setHue</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>hue)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>hue_<sp/>=<sp/>hue;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>update();</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140" refid="classmimas_1_1_list_view_1ae97548fff30414c754b74e119eacb378" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1ae97548fff30414c754b74e119eacb378" kindref="member">hue</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hue_;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144" refid="classmimas_1_1_list_view_1acd18596047d492d03535b40c314bc14f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1acd18596047d492d03535b40c314bc14f" kindref="member">update</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>QWidget::update();</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="classmimas_1_1_list_view_1a605bacfe7733b2b555ddab1e0a323125" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref><sp/><ref refid="classmimas_1_1_list_view_1a605bacfe7733b2b555ddab1e0a323125" kindref="member">textSize</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="cxcore_8h_1a16343090e80c4472521560f30113d96c" kindref="member">text</ref>,<sp/>lua_State<sp/>*L)<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>lua_pushnumber(L,<sp/>fontMetrics().<ref refid="highgui_8h_1a2474a5474cbff19523a51eb1de01cda4" kindref="member">width</ref>(text));</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>lua_pushnumber(L,<sp/>fontMetrics().<ref refid="highgui_8h_1adc7b4b8a6ef510e136071efbc9cd9a58" kindref="member">height</ref>());</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>2;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159" refid="classmimas_1_1_list_view_1acf410fb2876f91b4b42c4aa80eafc7d8" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1acf410fb2876f91b4b42c4aa80eafc7d8" kindref="member">setSizeHint</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>w,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>h)<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>size_hint_<sp/>=<sp/>QSize(w,<sp/>h);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>updateGeometry();</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166" refid="classmimas_1_1_list_view_1a71c7f4190e94586bd2898575c5ab2fe9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1a71c7f4190e94586bd2898575c5ab2fe9" kindref="member">setSizePolicy</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>horizontal,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vertical)<sp/>{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>QWidget::setSizePolicy((QSizePolicy::Policy)horizontal,<sp/>(QSizePolicy::Policy)vertical);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>updateGeometry();</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>maybe<sp/>we<sp/>can<sp/>remove<sp/>this<sp/>and<sp/>only<sp/>use<sp/>setSizeHint<sp/>+<sp/>setSizePolicy...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172" refid="classmimas_1_1_list_view_1afc25594a52d8b0e03a3a5db0842f985a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1afc25594a52d8b0e03a3a5db0842f985a" kindref="member">setMinimumSize</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>w,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>h)<sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>QWidget::setMinimumSize(w,<sp/>h);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178" refid="classmimas_1_1_list_view_1a1e8f2384c8a015c51364e5f7f630aa70" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1a1e8f2384c8a015c51364e5f7f630aa70" kindref="member">setMouseTracking</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enable)<sp/>{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>QWidget::setMouseTracking(enable);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184" refid="classmimas_1_1_list_view_1ab2b1eb53f585f160fbd1c84e2461952c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1ab2b1eb53f585f160fbd1c84e2461952c" kindref="member">close</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QWidget::close();</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188" refid="classmimas_1_1_list_view_1a13864919579011ea94925773e6f5a5ee" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1a13864919579011ea94925773e6f5a5ee" kindref="member">isVisible</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QWidget::isVisible();</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192" refid="classmimas_1_1_list_view_1a84fa80b15b3622249f62b63e7b13c951" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1a84fa80b15b3622249f62b63e7b13c951" kindref="member">show</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>QWidget::show();</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196" refid="classmimas_1_1_list_view_1ada5efeda80fa1dc96cf9c808df2da5cd" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1ada5efeda80fa1dc96cf9c808df2da5cd" kindref="member">hide</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>QWidget::hide();</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203" refid="classmimas_1_1_list_view_1a2fb365bff6d8be316c8cfbddc2e79497" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref><sp/><ref refid="classmimas_1_1_list_view_1a2fb365bff6d8be316c8cfbddc2e79497" kindref="member">globalPosition</ref>(lua_State<sp/>*L)<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>QPoint<sp/><ref refid="cv_8h_1a69c6090aa56793ec8ef2457bc6d45b45" kindref="member">pt</ref><sp/>=<sp/>mapToGlobal(QPoint(0,<sp/>0));</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>lua_pushnumber(L,<sp/>pt.x());</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>lua_pushnumber(L,<sp/>pt.y());</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>2;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212" refid="classmimas_1_1_list_view_1ae8c6c6622c8aa84c0184bea737eeeb01" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1ae8c6c6622c8aa84c0184bea737eeeb01" kindref="member">globalMove</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="highgui_8h_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="highgui_8h_1af1202c02b14870c18fb3a1da73e9e7c7" kindref="member">y</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>QWidget::move(mapToParent(mapFromGlobal(QPoint(x,<sp/>y))));</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218" refid="classmimas_1_1_list_view_1a127037e501655fc7175e75b274314a0b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1a127037e501655fc7175e75b274314a0b" kindref="member">lower</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cxcore_8h_1a0383d0fa3cd604e2cb1be135c65ccd98" kindref="member">QWidget::lower</ref>();</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224" refid="classmimas_1_1_list_view_1ab88a3ecee7b28666381576f738066f63" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">raise</highlight><highlight class="normal">()<sp/>{</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>QWidget::raise();</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>=============================================================<sp/>all<sp/>Widgets<sp/>]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>=============================================================<sp/>ListView</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234" refid="classmimas_1_1_list_view_1a5a5d3b36efcb5a9c037327405114f57f" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref><sp/><ref refid="classmimas_1_1_list_view_1a5a5d3b36efcb5a9c037327405114f57f" kindref="member">indexAt</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="highgui_8h_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="highgui_8h_1af1202c02b14870c18fb3a1da73e9e7c7" kindref="member">y</ref>,<sp/>lua_State<sp/>*L)<sp/>{</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>indexAt<sp/>calls<sp/>&quot;data&quot;<sp/>method<sp/>in<sp/>data_source_<sp/>(don&apos;t<sp/>ask<sp/>why...)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>QModelIndex<sp/><ref refid="cxcore_8h_1a5c7c842f447336aa2f10826df65a28b3" kindref="member">idx</ref><sp/>=<sp/>QListView::indexAt(QPoint(x,<sp/>y));</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(idx.isValid())<sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>lua_pushnumber(L,<sp/>idx.row()<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>lua_pushnumber(L,<sp/>idx.column()<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>2;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246" refid="classmimas_1_1_list_view_1a17f9d52f800d1d4690b6bd43fd209f22" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1a17f9d52f800d1d4690b6bd43fd209f22" kindref="member">selectRow</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>row)<sp/>{</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>QModelIndex<sp/><ref refid="cxcore_8h_1a750b5d744c39a06bfb13e6eb010e35d0" kindref="member">index</ref><sp/>=<sp/>model()-&gt;index(row<sp/>-<sp/>1,<sp/>0);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>index.isValid()<sp/>)</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>selectionModel()-&gt;select(<sp/>index,<sp/>QItemSelectionModel::ClearAndSelect<sp/>);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254" refid="classmimas_1_1_list_view_1af0336f3804e947c8ed608884d5dac268" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1af0336f3804e947c8ed608884d5dac268" kindref="member">setModel</ref>(<ref refid="classmimas_1_1_data_source" kindref="compound">DataSource</ref><sp/>*model)<sp/>{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/>QListView::setModel(model);</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258" refid="classmimas_1_1_list_view_1ad38c79b83d4021b0ea057869c17529e8" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1ad38c79b83d4021b0ea057869c17529e8" kindref="member">luaInit</ref>(lua_State<sp/>*L,<sp/><ref refid="classmimas_1_1_list_view" kindref="compound">ListView</ref><sp/>*obj,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*class_name)<sp/>{</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classlubyk_1_1_threaded_lua_object_1a1351dd8c5053c7df8e0a29b2887ddb8e" kindref="member">ThreadedLuaObject::luaInit</ref>(L,<sp/>obj,<sp/>class_name);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&lt;self&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>lua_pushlstring(L,<sp/></highlight><highlight class="stringliteral">&quot;data_source&quot;</highlight><highlight class="normal">,<sp/>11);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&lt;self&gt;<sp/>&lt;&apos;data_source&apos;&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&lt;self&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classmimas_1_1_data_source" kindref="compound">DataSource</ref><sp/>*<ref refid="cv_8h_1acd1647952fba31484ea63d6f1140e509" kindref="member">data</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_data_source" kindref="compound">DataSource</ref>();</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/>data-&gt;<ref refid="classlubyk_1_1_threaded_lua_object_1a1351dd8c5053c7df8e0a29b2887ddb8e" kindref="member">luaInit</ref>(L,<sp/>data,<sp/></highlight><highlight class="stringliteral">&quot;mimas.DataSource&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&lt;self&gt;<sp/>&lt;&apos;data_source&apos;&gt;<sp/>&lt;data&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/>lua_settable(L,<sp/>-3);<sp/></highlight><highlight class="comment">//<sp/>self.data_source<sp/>=<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&lt;self&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>make<sp/>DataSource<sp/>look<sp/>in<sp/>&lt;self&gt;<sp/>for<sp/>callbacks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>lua_pushvalue(L,<sp/>-1);</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&lt;self&gt;<sp/>&lt;self&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>lua_pop(data-&gt;<ref refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" kindref="member">lua_</ref>,<sp/>1);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>lua_xmove(L,<sp/>data-&gt;<ref refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" kindref="member">lua_</ref>,<sp/>1);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>data:<sp/>&lt;self&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&lt;self&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/>setModel(data);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mouseMoveEvent(QMouseEvent<sp/>*event);</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight></codeline>
+<codeline lineno="283" refid="classmimas_1_1_list_view_1a7bbff6bc9675d807132e8aa20ccaeb63" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1a7bbff6bc9675d807132e8aa20ccaeb63" kindref="member">mousePressEvent</ref>(QMouseEvent<sp/>*event)<sp/>{</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!click(event,<sp/><ref refid="namespacemimas_1ac511138d28d71a62e97f1639d18c08a6a53a1fecfaa3461c5fa343cccce94322d" kindref="member">MousePress</ref>))</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QListView::mousePressEvent(event);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288" refid="classmimas_1_1_list_view_1a774adbe80087f79b1ebaec80f2680a89" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1a774adbe80087f79b1ebaec80f2680a89" kindref="member">mouseDoubleClickEvent</ref>(QMouseEvent<sp/>*event)<sp/>{</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!click(event,<sp/><ref refid="namespacemimas_1ac511138d28d71a62e97f1639d18c08a6a79efc10f470f89403cfc8c847cffc397" kindref="member">DoubleClick</ref>))</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QListView::mouseDoubleClickEvent(event);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight></codeline>
+<codeline lineno="293" refid="classmimas_1_1_list_view_1a19f401df5a10e84242c502814e80d4fe" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1a19f401df5a10e84242c502814e80d4fe" kindref="member">mouseReleaseEvent</ref>(QMouseEvent<sp/>*event)<sp/>{</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!click(event,<sp/><ref refid="namespacemimas_1ac511138d28d71a62e97f1639d18c08a6a07cdb56d9783986895cc0ee3a3150b73" kindref="member">MouseRelease</ref>))</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QListView::mouseReleaseEvent(event);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="298" refid="classmimas_1_1_list_view_1a95d70a6e76ee4d11ad789d6aa789a0f2" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>QSize<sp/><ref refid="classmimas_1_1_list_view_1a95d70a6e76ee4d11ad789d6aa789a0f2" kindref="member">sizeHint</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>size_hint_;</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="304" refid="classmimas_1_1_list_view_1abe7b87362fe1344306e8884cf902530b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_list_view_1abe7b87362fe1344306e8884cf902530b" kindref="member">hue_</ref>;</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>click(QMouseEvent<sp/>*event,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="cv_8h_1a8bc957583d2a5247e490ea9ce960cf21" kindref="member">type</ref>);</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>select(QMouseEvent<sp/>*event,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="cv_8h_1a8bc957583d2a5247e490ea9ce960cf21" kindref="member">type</ref>);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>mimas</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>LUBYK_INCLUDE_MIMAS_TABLE_VIEW_H_</highlight></codeline>
+    </programlisting>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h"/>
+  </compounddef>
+</doxygen>

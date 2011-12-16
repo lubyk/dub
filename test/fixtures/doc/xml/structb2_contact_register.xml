@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_contact_register" kind="struct" prot="public">
+    <compoundname>b2ContactRegister</compoundname>
+    <includes refid="b2_contact_8h" local="no">b2Contact.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_contact_register_1ae065de11ab2f164bd1b8e3a461b41824" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_contact_8h_1a8c349419089565d4b718438978e2e098" kindref="member">b2ContactCreateFcn</ref> *</type>
+        <definition>b2ContactCreateFcn* b2ContactRegister::createFcn</definition>
+        <argsstring></argsstring>
+        <name>createFcn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="56" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_register_1a95862aec746f5fd6ffa00a6729dec61f" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_contact_8h_1a13f1fcd7bbd3900e53e6ddf8a76428e7" kindref="member">b2ContactDestroyFcn</ref> *</type>
+        <definition>b2ContactDestroyFcn* b2ContactRegister::destroyFcn</definition>
+        <argsstring></argsstring>
+        <name>destroyFcn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="57" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_register_1a43f2d79909505b785b9034b21a56525e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool b2ContactRegister::primary</definition>
+        <argsstring></argsstring>
+        <name>primary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="58" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" line="55" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Contact.h" bodystart="54" bodyend="59"/>
+    <listofallmembers>
+      <member refid="structb2_contact_register_1ae065de11ab2f164bd1b8e3a461b41824" prot="public" virt="non-virtual"><scope>b2ContactRegister</scope><name>createFcn</name></member>
+      <member refid="structb2_contact_register_1a95862aec746f5fd6ffa00a6729dec61f" prot="public" virt="non-virtual"><scope>b2ContactRegister</scope><name>destroyFcn</name></member>
+      <member refid="structb2_contact_register_1a43f2d79909505b785b9034b21a56525e" prot="public" virt="non-virtual"><scope>b2ContactRegister</scope><name>primary</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

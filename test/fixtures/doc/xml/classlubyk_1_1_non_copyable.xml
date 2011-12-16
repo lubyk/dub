@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classlubyk_1_1_non_copyable" kind="class" prot="public">
+    <compoundname>lubyk::NonCopyable</compoundname>
+    <derivedcompoundref refid="classlubyk_1_1_fifo" prot="private" virt="non-virtual">lubyk::Fifo&lt; MsgVector &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classlubyk_1_1_fifo" prot="private" virt="non-virtual">lubyk::Fifo&lt; T &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classlubyk_1_1_mutex" prot="private" virt="non-virtual">lubyk::Mutex</derivedcompoundref>
+    <derivedcompoundref refid="classlubyk_1_1_r_mutex" prot="private" virt="non-virtual">lubyk::RMutex</derivedcompoundref>
+    <derivedcompoundref refid="classlubyk_1_1_scoped_lock" prot="private" virt="non-virtual">lubyk::ScopedLock</derivedcompoundref>
+    <derivedcompoundref refid="classlubyk_1_1_scoped_s_lock" prot="private" virt="non-virtual">lubyk::ScopedSLock</derivedcompoundref>
+    <derivedcompoundref refid="classlubyk_1_1_scoped_s_unlock" prot="private" virt="non-virtual">lubyk::ScopedSUnlock</derivedcompoundref>
+    <derivedcompoundref refid="classlubyk_1_1_scoped_unlock" prot="private" virt="non-virtual">lubyk::ScopedUnlock</derivedcompoundref>
+    <derivedcompoundref refid="classlubyk_1_1_semaphore" prot="private" virt="non-virtual">lubyk::Semaphore</derivedcompoundref>
+    <derivedcompoundref refid="classlubyk_1_1_time_ref" prot="private" virt="non-virtual">lubyk::TimeRef</derivedcompoundref>
+    <includes refid="non__copyable_8h" local="no">non_copyable.h</includes>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classlubyk_1_1_non_copyable_1a589ca6787b3fb8f88439cff31b249bf7" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lubyk::NonCopyable::NonCopyable</definition>
+        <argsstring>()</argsstring>
+        <name>NonCopyable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/non_copyable.h" line="36" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/non_copyable.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_non_copyable_1a7efa456af3055dc86071f78c4bf1d1c3" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lubyk::NonCopyable::~NonCopyable</definition>
+        <argsstring>()</argsstring>
+        <name>~NonCopyable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/non_copyable.h" line="37" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/non_copyable.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlubyk_1_1_non_copyable_1aeef36287d248b2f6bddbf995f185ba14" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>lubyk::NonCopyable::NonCopyable</definition>
+        <argsstring>(const NonCopyable &amp;other)</argsstring>
+        <name>NonCopyable</name>
+        <param>
+          <type>const <ref refid="classlubyk_1_1_non_copyable" kindref="compound">NonCopyable</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/non_copyable.h" line="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_non_copyable_1a3f8a4ce6f665083ca2ee255fb4f9be2e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classlubyk_1_1_non_copyable" kindref="compound">NonCopyable</ref> &amp;</type>
+        <definition>NonCopyable&amp; lubyk::NonCopyable::operator=</definition>
+        <argsstring>(const NonCopyable &amp;other)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classlubyk_1_1_non_copyable" kindref="compound">NonCopyable</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/non_copyable.h" line="40"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2281">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2293">
+        <label>lk::Mutex</label>
+        <link refid="classlk_1_1_mutex"/>
+        <childnode refid="2292" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2296">
+        <label>lubyk::ScopedSUnlock</label>
+        <link refid="classlubyk_1_1_scoped_s_unlock"/>
+        <childnode refid="2281" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2290">
+        <label>mdns::AbstractRegistration</label>
+        <link refid="classmdns_1_1_abstract_registration"/>
+        <childnode refid="2285" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2299">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="2281" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2283">
+        <label>midi::In</label>
+        <link refid="classmidi_1_1_in"/>
+        <childnode refid="2282" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2288">
+        <label>mdns::AbstractBrowser</label>
+        <link refid="classmdns_1_1_abstract_browser"/>
+        <childnode refid="2285" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2284">
+        <label>lubyk::Fifo&lt; T &gt;</label>
+        <link refid="classlubyk_1_1_fifo"/>
+        <childnode refid="2281" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2292">
+        <label>lubyk::RMutex</label>
+        <link refid="classlubyk_1_1_r_mutex"/>
+        <childnode refid="2281" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2294">
+        <label>lubyk::ScopedLock</label>
+        <link refid="classlubyk_1_1_scoped_lock"/>
+        <childnode refid="2281" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2287">
+        <label>lubyk::Thread</label>
+        <link refid="classlubyk_1_1_thread"/>
+        <childnode refid="2285" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2282">
+        <label>lubyk::Fifo&lt; MsgVector &gt;</label>
+        <link refid="classlubyk_1_1_fifo"/>
+        <childnode refid="2281" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2285">
+        <label>lubyk::Mutex</label>
+        <link refid="classlubyk_1_1_mutex"/>
+        <childnode refid="2281" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2295">
+        <label>lubyk::ScopedSLock</label>
+        <link refid="classlubyk_1_1_scoped_s_lock"/>
+        <childnode refid="2281" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2286">
+        <label>lubyk::Condition</label>
+        <link refid="classlubyk_1_1_condition"/>
+        <childnode refid="2285" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2291">
+        <label>mdns::Registration</label>
+        <link refid="classmdns_1_1_registration"/>
+        <childnode refid="2290" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2297">
+        <label>lubyk::ScopedUnlock</label>
+        <link refid="classlubyk_1_1_scoped_unlock"/>
+        <childnode refid="2281" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2298">
+        <label>lubyk::Semaphore</label>
+        <link refid="classlubyk_1_1_semaphore"/>
+        <childnode refid="2281" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2289">
+        <label>mdns::Browser</label>
+        <link refid="classmdns_1_1_browser"/>
+        <childnode refid="2288" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/non_copyable.h" line="34" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/non_copyable.h" bodystart="34" bodyend="41"/>
+    <listofallmembers>
+      <member refid="classlubyk_1_1_non_copyable_1a589ca6787b3fb8f88439cff31b249bf7" prot="protected" virt="non-virtual"><scope>lubyk::NonCopyable</scope><name>NonCopyable</name></member>
+      <member refid="classlubyk_1_1_non_copyable_1aeef36287d248b2f6bddbf995f185ba14" prot="private" virt="non-virtual"><scope>lubyk::NonCopyable</scope><name>NonCopyable</name></member>
+      <member refid="classlubyk_1_1_non_copyable_1a3f8a4ce6f665083ca2ee255fb4f9be2e" prot="private" virt="non-virtual"><scope>lubyk::NonCopyable</scope><name>operator=</name></member>
+      <member refid="classlubyk_1_1_non_copyable_1a7efa456af3055dc86071f78c4bf1d1c3" prot="protected" virt="non-virtual"><scope>lubyk::NonCopyable</scope><name>~NonCopyable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

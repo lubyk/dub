@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="_color_8h" kind="file">
+    <compoundname>Color.h</compoundname>
+    <includes refid="mimas_8h" local="yes">mimas/mimas.h</includes>
+    <includes local="no">QtGui/QColor</includes>
+    <includes local="no">iostream</includes>
+    <includedby refid="_brush_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Brush.h</includedby>
+    <includedby refid="_menu_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Menu.h</includedby>
+    <includedby refid="_menu_bar_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/MenuBar.h</includedby>
+    <includedby refid="_painter_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Painter.h</includedby>
+    <includedby refid="_pen_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Pen.h</includedby>
+    <incdepgraph>
+      <node id="760">
+        <label>mimas/Action.h</label>
+        <link refid="_action_8h"/>
+        <childnode refid="757" relation="include">
+        </childnode>
+        <childnode refid="761" relation="include">
+        </childnode>
+        <childnode refid="762" relation="include">
+        </childnode>
+      </node>
+      <node id="758">
+        <label>lubyk.h</label>
+      </node>
+      <node id="757">
+        <label>mimas/mimas.h</label>
+        <link refid="mimas_8h"/>
+        <childnode refid="758" relation="include">
+        </childnode>
+        <childnode refid="759" relation="include">
+        </childnode>
+        <childnode refid="760" relation="include">
+        </childnode>
+      </node>
+      <node id="759">
+        <label>QtGui/QWidget</label>
+      </node>
+      <node id="761">
+        <label>QtGui/QAction</label>
+      </node>
+      <node id="762">
+        <label>iostream</label>
+      </node>
+      <node id="763">
+        <label>QtGui/QColor</label>
+      </node>
+      <node id="756">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Color.h</label>
+        <link refid="Color.h"/>
+        <childnode refid="757" relation="include">
+        </childnode>
+        <childnode refid="763" relation="include">
+        </childnode>
+        <childnode refid="762" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="765">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Brush.h</label>
+        <link refid="_brush_8h"/>
+        <childnode refid="766" relation="include">
+        </childnode>
+      </node>
+      <node id="768">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/MainWindow.h</label>
+        <link refid="_main_window_8h"/>
+      </node>
+      <node id="767">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Menu.h</label>
+        <link refid="_menu_8h"/>
+        <childnode refid="768" relation="include">
+        </childnode>
+        <childnode refid="769" relation="include">
+        </childnode>
+      </node>
+      <node id="770">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Pen.h</label>
+        <link refid="_pen_8h"/>
+        <childnode refid="766" relation="include">
+        </childnode>
+      </node>
+      <node id="766">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Painter.h</label>
+        <link refid="_painter_8h"/>
+      </node>
+      <node id="769">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/MenuBar.h</label>
+        <link refid="_menu_bar_8h"/>
+        <childnode refid="768" relation="include">
+        </childnode>
+      </node>
+      <node id="764">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Color.h</label>
+        <link refid="Color.h"/>
+        <childnode refid="765" relation="include">
+        </childnode>
+        <childnode refid="767" relation="include">
+        </childnode>
+        <childnode refid="769" relation="include">
+        </childnode>
+        <childnode refid="766" relation="include">
+        </childnode>
+        <childnode refid="770" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classmimas_1_1_color" prot="public">mimas::Color</innerclass>
+    <innernamespace refid="namespacemimas">mimas</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>==============================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>LUBYK<sp/>project<sp/>(http://lubyk.org)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/>Copyright<sp/>(c)<sp/>2007-2011<sp/>by<sp/>Gaspard<sp/>Bucher<sp/>(http://teti.ch).</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"></highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/>------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"></highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/>of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/>in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/><sp/><sp/>to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/><sp/><sp/>copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/><sp/><sp/>furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/><sp/><sp/>all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/><sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/><sp/><sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/><sp/><sp/>AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/><sp/><sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/><sp/><sp/>OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/>THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"></highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/>==============================================================================</highlight></codeline>
+<codeline lineno="28"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>LUBYK_INCLUDE_MIMAS_COLOR_H_</highlight></codeline>
+<codeline lineno="30"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>LUBYK_INCLUDE_MIMAS_COLOR_H_</highlight></codeline>
+<codeline lineno="31"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mimas_8h" kindref="compound">mimas/mimas.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtGui/QColor&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mimas<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="classmimas_1_1_color" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classmimas_1_1_color" kindref="compound">Color</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QColor</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="45" refid="classmimas_1_1_color_1a170ab223d40c1e5b2fd2bce51e91d931" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmimas_1_1_color_1a170ab223d40c1e5b2fd2bce51e91d931" kindref="member">Color</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mimas_8h_1a367e7f458808d993f646caf0be80a7a2" kindref="member">MIMAS_DEBUG_GX</ref>(</highlight><highlight class="stringliteral">&quot;Color&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="classmimas_1_1_color_1a9a9ebdff4287c1440bc7071fde5cde65" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmimas_1_1_color_1a9a9ebdff4287c1440bc7071fde5cde65" kindref="member">Color</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>h,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>s=1.0,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>v=1.0,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="cvaux_8h_1a1031d0e0a97a340abfe0a6ab9e831045" kindref="member">a</ref>=1.0)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>setHsvF(h,<sp/>s,<sp/>v,<sp/><ref refid="cvaux_8h_1a1031d0e0a97a340abfe0a6ab9e831045" kindref="member">a</ref>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mimas_8h_1a367e7f458808d993f646caf0be80a7a2" kindref="member">MIMAS_DEBUG_GX</ref>(</highlight><highlight class="stringliteral">&quot;Color&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="classmimas_1_1_color_1ab9e2301aa09688f3cb4042d4b3532c53" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmimas_1_1_color_1ab9e2301aa09688f3cb4042d4b3532c53" kindref="member">~Color</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mimas_8h_1a367e7f458808d993f646caf0be80a7a2" kindref="member">MIMAS_DEBUG_GX</ref>(</highlight><highlight class="stringliteral">&quot;~Color&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="classmimas_1_1_color_1a8b46fd7c90de2ef37c68b930e2f7d4fb" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_color_1a8b46fd7c90de2ef37c68b930e2f7d4fb" kindref="member">hue</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hueF();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="classmimas_1_1_color_1aec17ce866e996339445d5f83f362da3c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_color_1aec17ce866e996339445d5f83f362da3c" kindref="member">saturation</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>saturationF();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="classmimas_1_1_color_1a6322e2c5040e8c07fd327e58d9bff2fe" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_color_1a6322e2c5040e8c07fd327e58d9bff2fe" kindref="member">value</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>valueF();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="classmimas_1_1_color_1af3a55721255161407a931071885a16d9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_color_1af3a55721255161407a931071885a16d9" kindref="member">alpha</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>alphaF();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="classmimas_1_1_color_1aea340676199edfb0c6c072e0497a463f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_color_1aea340676199edfb0c6c072e0497a463f" kindref="member">setRgba</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="cxcore_8h_1a54709f3b06b33b66763f1613cc7fb571" kindref="member">r</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>g,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="cvaux_8h_1ac04272e8ca865b8fba18d36edae9fd2a" kindref="member">b</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="cvaux_8h_1a1031d0e0a97a340abfe0a6ab9e831045" kindref="member">a</ref>=1.0)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>setRgbF(r,<sp/>g,<sp/>b,<sp/><ref refid="cvaux_8h_1a1031d0e0a97a340abfe0a6ab9e831045" kindref="member">a</ref>);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="classmimas_1_1_color_1a71e2c787e6cd82966809c8d7c0231c5e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_color_1a71e2c787e6cd82966809c8d7c0231c5e" kindref="member">setHsva</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>h,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>s=1.0,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>v=1.0,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="cvaux_8h_1a1031d0e0a97a340abfe0a6ab9e831045" kindref="member">a</ref>=1.0)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>setHsvF(h,<sp/>s,<sp/>v,<sp/><ref refid="cvaux_8h_1a1031d0e0a97a340abfe0a6ab9e831045" kindref="member">a</ref>);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="classmimas_1_1_color_1a89426f350e1f7f83414279d171ab1d94" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_color_1a89426f350e1f7f83414279d171ab1d94" kindref="member">setHue</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>h)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>setHsvF(h,<sp/>saturationF(),<sp/>valueF(),<sp/>alphaF());</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="classmimas_1_1_color_1a672545d9e3a265ce4f51b2408cc85135" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_color_1a672545d9e3a265ce4f51b2408cc85135" kindref="member">setSaturation</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>s)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>setHsvF(hueF(),<sp/>s,<sp/>valueF(),<sp/>alphaF());</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="classmimas_1_1_color_1a43271ece19294bafdce500caba3c6936" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_color_1a43271ece19294bafdce500caba3c6936" kindref="member">setValue</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>v)<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>setHsvF(hueF(),<sp/>saturationF(),<sp/>v,<sp/>alphaF());</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="classmimas_1_1_color_1a80d1c50712d7b7c6efa9a29ee1dad38b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_color_1a80d1c50712d7b7c6efa9a29ee1dad38b" kindref="member">setAlpha</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="cvaux_8h_1a1031d0e0a97a340abfe0a6ab9e831045" kindref="member">a</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>setHsvF(hueF(),<sp/>saturationF(),<sp/>valueF(),<sp/>a);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="classmimas_1_1_color_1a07d46ee55b09e7720aeedf325da91b18" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmimas_1_1_color" kindref="compound">Color</ref><sp/>*<ref refid="classmimas_1_1_color_1a07d46ee55b09e7720aeedf325da91b18" kindref="member">colorWithHue</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>h)<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_color_1a170ab223d40c1e5b2fd2bce51e91d931" kindref="member">Color</ref>(h,<sp/>saturationF(),<sp/>valueF(),<sp/>alphaF());</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="classmimas_1_1_color_1a3c5310b41466ab010d4deeaf57973810" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmimas_1_1_color" kindref="compound">Color</ref><sp/>*<ref refid="classmimas_1_1_color_1a3c5310b41466ab010d4deeaf57973810" kindref="member">colorWithSaturation</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>s)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_color_1a170ab223d40c1e5b2fd2bce51e91d931" kindref="member">Color</ref>(hueF(),<sp/>s,<sp/>valueF(),<sp/>alphaF());</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="classmimas_1_1_color_1a82e913bfc0c3618f73f41eefee88bd38" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmimas_1_1_color" kindref="compound">Color</ref><sp/>*<ref refid="classmimas_1_1_color_1a82e913bfc0c3618f73f41eefee88bd38" kindref="member">colorWithValue</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>v)<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_color_1a170ab223d40c1e5b2fd2bce51e91d931" kindref="member">Color</ref>(hueF(),<sp/>saturationF(),<sp/>v,<sp/>alphaF());</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113" refid="classmimas_1_1_color_1aa5b507439f258fd012e8d4915c682093" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmimas_1_1_color" kindref="compound">Color</ref><sp/>*<ref refid="classmimas_1_1_color_1aa5b507439f258fd012e8d4915c682093" kindref="member">colorWithAlpha</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="cvaux_8h_1a1031d0e0a97a340abfe0a6ab9e831045" kindref="member">a</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_color_1a170ab223d40c1e5b2fd2bce51e91d931" kindref="member">Color</ref>(hueF(),<sp/>saturationF(),<sp/>valueF(),<sp/>a);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>mimas</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>LUBYK_INCLUDE_MIMAS_COLOR_H_</highlight></codeline>
+    </programlisting>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Color.h"/>
+  </compounddef>
+</doxygen>

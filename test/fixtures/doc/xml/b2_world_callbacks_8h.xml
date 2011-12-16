@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="b2_world_callbacks_8h" kind="file">
+    <compoundname>b2WorldCallbacks.h</compoundname>
+    <includes local="no">Box2D/Common/b2Settings.h</includes>
+    <incdepgraph>
+      <node id="162">
+        <label>/Users/gaspard/git/lubyk/modules/b2/bind/b2WorldCallbacks.h</label>
+        <link refid="b2WorldCallbacks.h"/>
+        <childnode refid="163" relation="include">
+        </childnode>
+      </node>
+      <node id="163">
+        <label>Box2D/Common/b2Settings.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classb2_destruction_listener" prot="public">b2DestructionListener</innerclass>
+    <innerclass refid="classb2_contact_filter" prot="public">b2ContactFilter</innerclass>
+    <innerclass refid="structb2_contact_impulse" prot="public">b2ContactImpulse</innerclass>
+    <innerclass refid="classb2_contact_listener" prot="public">b2ContactListener</innerclass>
+    <innerclass refid="classb2_query_callback" prot="public">b2QueryCallback</innerclass>
+    <innerclass refid="classb2_ray_cast_callback" prot="public">b2RayCastCallback</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">*<sp/>Copyright<sp/>(c)<sp/>2006-2009<sp/>Erin<sp/>Catto<sp/>http://www.box2d.org</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">*<sp/>This<sp/>software<sp/>is<sp/>provided<sp/>&apos;as-is&apos;,<sp/>without<sp/>any<sp/>express<sp/>or<sp/>implied</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">*<sp/>warranty.<sp/><sp/>In<sp/>no<sp/>event<sp/>will<sp/>the<sp/>authors<sp/>be<sp/>held<sp/>liable<sp/>for<sp/>any<sp/>damages</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*<sp/>arising<sp/>from<sp/>the<sp/>use<sp/>of<sp/>this<sp/>software.</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">*<sp/>Permission<sp/>is<sp/>granted<sp/>to<sp/>anyone<sp/>to<sp/>use<sp/>this<sp/>software<sp/>for<sp/>any<sp/>purpose,</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">*<sp/>including<sp/>commercial<sp/>applications,<sp/>and<sp/>to<sp/>alter<sp/>it<sp/>and<sp/>redistribute<sp/>it</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">*<sp/>freely,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>restrictions:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">*<sp/>1.<sp/>The<sp/>origin<sp/>of<sp/>this<sp/>software<sp/>must<sp/>not<sp/>be<sp/>misrepresented;<sp/>you<sp/>must<sp/>not</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">*<sp/>claim<sp/>that<sp/>you<sp/>wrote<sp/>the<sp/>original<sp/>software.<sp/>If<sp/>you<sp/>use<sp/>this<sp/>software</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">*<sp/>in<sp/>a<sp/>product,<sp/>an<sp/>acknowledgment<sp/>in<sp/>the<sp/>product<sp/>documentation<sp/>would<sp/>be</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">*<sp/>appreciated<sp/>but<sp/>is<sp/>not<sp/>required.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">*<sp/>2.<sp/>Altered<sp/>source<sp/>versions<sp/>must<sp/>be<sp/>plainly<sp/>marked<sp/>as<sp/>such,<sp/>and<sp/>must<sp/>not<sp/>be</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">*<sp/>misrepresented<sp/>as<sp/>being<sp/>the<sp/>original<sp/>software.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">*<sp/>3.<sp/>This<sp/>notice<sp/>may<sp/>not<sp/>be<sp/>removed<sp/>or<sp/>altered<sp/>from<sp/>any<sp/>source<sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>B2_WORLD_CALLBACKS_H</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>B2_WORLD_CALLBACKS_H</highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Box2D/Common/b2Settings.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structb2_transform" kindref="compound">b2Transform</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_fixture" kindref="compound">b2Fixture</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_body" kindref="compound" tooltip="A rigid body. These are created via b2World::CreateBody.">b2Body</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_joint" kindref="compound">b2Joint</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_contact" kindref="compound">b2Contact</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">b2ContactResult;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structb2_manifold" kindref="compound">b2Manifold</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="classb2_destruction_listener" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_destruction_listener" kindref="compound">b2DestructionListener</ref></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="39" refid="classb2_destruction_listener_1a7bfd35145aeb2b614f6bc529ba1500bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classb2_destruction_listener_1a7bfd35145aeb2b614f6bc529ba1500bf" kindref="member">~b2DestructionListener</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_destruction_listener_1a6cd15baa6e5c33118cf7173ab5bf6d58" kindref="member">SayGoodbye</ref>(<ref refid="classb2_joint" kindref="compound">b2Joint</ref>*<sp/>joint)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_destruction_listener_1a6cd15baa6e5c33118cf7173ab5bf6d58" kindref="member">SayGoodbye</ref>(<ref refid="classb2_fixture" kindref="compound">b2Fixture</ref>*<sp/>fixture)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="classb2_contact_filter" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_contact_filter" kindref="compound">b2ContactFilter</ref></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="55" refid="classb2_contact_filter_1a1a6f1ad4208624b180e4536ff4bc1d9c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classb2_contact_filter_1a1a6f1ad4208624b180e4536ff4bc1d9c" kindref="member">~b2ContactFilter</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classb2_contact_filter_1a0e33d4fc90a9345160a07cc494b45ecd" kindref="member">ShouldCollide</ref>(<ref refid="classb2_fixture" kindref="compound">b2Fixture</ref>*<sp/>fixtureA,<sp/><ref refid="classb2_fixture" kindref="compound">b2Fixture</ref>*<sp/>fixtureB);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="structb2_contact_impulse" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structb2_contact_impulse" kindref="compound">b2ContactImpulse</ref></highlight></codeline>
+<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67" refid="structb2_contact_impulse_1a553d3562a3a34ea013e2d9860f6fd207" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="structb2_contact_impulse_1a553d3562a3a34ea013e2d9860f6fd207" kindref="member">normalImpulses</ref>[<ref refid="b2_settings_8h_1aa5f44cc9edf711433dea2b2ec94f3c42" kindref="member">b2_maxManifoldPoints</ref>];</highlight></codeline>
+<codeline lineno="68" refid="structb2_contact_impulse_1aebd9875b1f55a90865770a53e30e609a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="structb2_contact_impulse_1aebd9875b1f55a90865770a53e30e609a" kindref="member">tangentImpulses</ref>[<ref refid="b2_settings_8h_1aa5f44cc9edf711433dea2b2ec94f3c42" kindref="member">b2_maxManifoldPoints</ref>];</highlight></codeline>
+<codeline lineno="69" refid="structb2_contact_impulse_1a258e094ab0d769971f40d6c144420bf7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="structb2_contact_impulse_1a258e094ab0d769971f40d6c144420bf7" kindref="member">count</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="classb2_contact_listener" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_contact_listener" kindref="compound">b2ContactListener</ref></highlight></codeline>
+<codeline lineno="82"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="84" refid="classb2_contact_listener_1ac823a8fc3da242814ee649c093c74e21" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classb2_contact_listener_1ac823a8fc3da242814ee649c093c74e21" kindref="member">~b2ContactListener</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="classb2_contact_listener_1a35148fc56fb9eac12077200fbd928f65" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_contact_listener_1a35148fc56fb9eac12077200fbd928f65" kindref="member" tooltip="Called when two fixtures begin to touch.">BeginContact</ref>(<ref refid="classb2_contact" kindref="compound">b2Contact</ref>*<sp/>contact)<sp/>{<sp/><ref refid="b2_settings_8h_1a24cdaa0e73463ad545524b9aee142b7b" kindref="member">B2_NOT_USED</ref>(contact);<sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="classb2_contact_listener_1afb3059058e5c47903a3947c2eef5826b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_contact_listener_1afb3059058e5c47903a3947c2eef5826b" kindref="member" tooltip="Called when two fixtures cease to touch.">EndContact</ref>(<ref refid="classb2_contact" kindref="compound">b2Contact</ref>*<sp/>contact)<sp/>{<sp/><ref refid="b2_settings_8h_1a24cdaa0e73463ad545524b9aee142b7b" kindref="member">B2_NOT_USED</ref>(contact);<sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="classb2_contact_listener_1a416f85eb45a1099053402b15a19a7de0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_contact_listener_1a416f85eb45a1099053402b15a19a7de0" kindref="member">PreSolve</ref>(<ref refid="classb2_contact" kindref="compound">b2Contact</ref>*<sp/>contact,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_manifold" kindref="compound">b2Manifold</ref>*<sp/>oldManifold)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a24cdaa0e73463ad545524b9aee142b7b" kindref="member">B2_NOT_USED</ref>(contact);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a24cdaa0e73463ad545524b9aee142b7b" kindref="member">B2_NOT_USED</ref>(oldManifold);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="classb2_contact_listener_1acd58ec96f7569b95eec65b8ca3f8013d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_contact_listener_1acd58ec96f7569b95eec65b8ca3f8013d" kindref="member">PostSolve</ref>(<ref refid="classb2_contact" kindref="compound">b2Contact</ref>*<sp/>contact,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_contact_impulse" kindref="compound">b2ContactImpulse</ref>*<sp/>impulse)</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a24cdaa0e73463ad545524b9aee142b7b" kindref="member">B2_NOT_USED</ref>(contact);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a24cdaa0e73463ad545524b9aee142b7b" kindref="member">B2_NOT_USED</ref>(impulse);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="classb2_query_callback" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_query_callback" kindref="compound">b2QueryCallback</ref></highlight></codeline>
+<codeline lineno="124"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="126" refid="classb2_query_callback_1a8749b2ff1ab37e3d47e2b162749dbd52" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classb2_query_callback_1a8749b2ff1ab37e3d47e2b162749dbd52" kindref="member">~b2QueryCallback</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classb2_query_callback_1a187dd04dd0f5164fb05c2ce2cbfd9ee5" kindref="member">ReportFixture</ref>(<ref refid="classb2_fixture" kindref="compound">b2Fixture</ref>*<sp/>fixture)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="classb2_ray_cast_callback" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_ray_cast_callback" kindref="compound">b2RayCastCallback</ref></highlight></codeline>
+<codeline lineno="136"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="138" refid="classb2_ray_cast_callback_1a8d7bab364f08f8ab122b59560355a739" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classb2_ray_cast_callback_1a8d7bab364f08f8ab122b59560355a739" kindref="member">~b2RayCastCallback</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="classb2_ray_cast_callback_1a658d5c8e89e0c73230cc8bddade4f3a4" kindref="member">ReportFixture</ref>(<sp/><sp/><ref refid="classb2_fixture" kindref="compound">b2Fixture</ref>*<sp/>fixture,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref>&amp;<sp/><ref refid="cvaux_8h_1a5c1566552733b40c41abae3210910ccb" kindref="member">point</ref>,</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref>&amp;<sp/>normal,<sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/>fraction)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WorldCallbacks.h"/>
+  </compounddef>
+</doxygen>

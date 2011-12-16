@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_haar_classifier" kind="struct" prot="public">
+    <compoundname>CvHaarClassifier</compoundname>
+    <includes refid="cvtypes_8h" local="no">cvtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_haar_classifier_1a3ba787f11eefe63769d5a0022637ce4e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvHaarClassifier::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="325" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="325" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_haar_classifier_1af725c589aa9dca1f885e7325344c5e2a" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_haar_feature" kindref="compound">CvHaarFeature</ref> *</type>
+        <definition>CvHaarFeature* CvHaarClassifier::haar_feature</definition>
+        <argsstring></argsstring>
+        <name>haar_feature</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="326" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="326" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_haar_classifier_1ace474e46e89bd798e5b6876a0e7e7b49" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvHaarClassifier::threshold</definition>
+        <argsstring></argsstring>
+        <name>threshold</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="327" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="327" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_haar_classifier_1a18f94870d89d594a11331a7a1c87a9f5" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* CvHaarClassifier::left</definition>
+        <argsstring></argsstring>
+        <name>left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="328" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_haar_classifier_1a66d9f903380ac8e6fd69dfcfde987b76" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* CvHaarClassifier::right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="329" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="329" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_haar_classifier_1a88adaa53db275db0896d27a3950d8923" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvHaarClassifier::alpha</definition>
+        <argsstring></argsstring>
+        <name>alpha</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="330" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="330" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1901">
+        <label>CvHaarFeature</label>
+        <link refid="struct_cv_haar_feature"/>
+        <childnode refid="1902" relation="usage">
+          <edgelabel>r</edgelabel>
+        </childnode>
+      </node>
+      <node id="1900">
+        <label>CvHaarClassifier</label>
+        <link refid="struct_cv_haar_classifier"/>
+        <childnode refid="1901" relation="usage">
+          <edgelabel>haar_feature</edgelabel>
+        </childnode>
+      </node>
+      <node id="1902">
+        <label>CvRect</label>
+        <link refid="struct_cv_rect"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="324" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="323" bodyend="331"/>
+    <listofallmembers>
+      <member refid="struct_cv_haar_classifier_1a88adaa53db275db0896d27a3950d8923" prot="public" virt="non-virtual"><scope>CvHaarClassifier</scope><name>alpha</name></member>
+      <member refid="struct_cv_haar_classifier_1a3ba787f11eefe63769d5a0022637ce4e" prot="public" virt="non-virtual"><scope>CvHaarClassifier</scope><name>count</name></member>
+      <member refid="struct_cv_haar_classifier_1af725c589aa9dca1f885e7325344c5e2a" prot="public" virt="non-virtual"><scope>CvHaarClassifier</scope><name>haar_feature</name></member>
+      <member refid="struct_cv_haar_classifier_1a18f94870d89d594a11331a7a1c87a9f5" prot="public" virt="non-virtual"><scope>CvHaarClassifier</scope><name>left</name></member>
+      <member refid="struct_cv_haar_classifier_1a66d9f903380ac8e6fd69dfcfde987b76" prot="public" virt="non-virtual"><scope>CvHaarClassifier</scope><name>right</name></member>
+      <member refid="struct_cv_haar_classifier_1ace474e46e89bd798e5b6876a0e7e7b49" prot="public" virt="non-virtual"><scope>CvHaarClassifier</scope><name>threshold</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

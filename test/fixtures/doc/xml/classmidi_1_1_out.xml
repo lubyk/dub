@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmidi_1_1_out" kind="class" prot="public">
+    <compoundname>midi::Out</compoundname>
+    <includes refid="_out_8h" local="no">Out.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmidi_1_1_out_1aa9e48a1548f2b53fa7cfd5a6a97e523e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int midi::Out::port_id_</definition>
+        <argsstring></argsstring>
+        <name>port_id_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Midi port id to which the element is connected. If the value is -1 this means it has opened its own virtual port. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" line="119" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmidi_1_1_out_1a924b2d3d45ef4cf8b0c2547198a64ea8" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string midi::Out::port_name_</definition>
+        <argsstring></argsstring>
+        <name>port_name_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The connected port name. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" line="123" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmidi_1_1_out_1abca38203e6e7282a7b3ef846c87da953" prot="private" static="no" mutable="no">
+        <type>RtMidiOut *</type>
+        <definition>RtMidiOut* midi::Out::midi_out_</definition>
+        <argsstring></argsstring>
+        <name>midi_out_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to our RtMidiOut instance (<ref refid="classmidi_1_1_out" kindref="compound">midi::Out</ref> is just a wrapper around RtMidiOut). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" line="128" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmidi_1_1_out_1a949711ef2f3bf4a581f726a4edc5aec5" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; unsigned char &gt;</type>
+        <definition>std::vector&lt;unsigned char&gt; midi::Out::buffer_</definition>
+        <argsstring></argsstring>
+        <name>buffer_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Message sending buffer. TODO: modify RtMidiOut so we do not need this. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" line="133" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmidi_1_1_out_1aa08eab2a0562b9faa2d24487dfd76d39" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>midi::Out::Out</definition>
+        <argsstring>()</argsstring>
+        <name>Out</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" line="51" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" bodystart="47" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classmidi_1_1_out_1a84ee332784a1045905262df67fbb85ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>midi::Out::~Out</definition>
+        <argsstring>()</argsstring>
+        <name>~Out</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" line="55" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" bodystart="55" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classmidi_1_1_out_1ac7441419ab65506dfb651b039855cc9c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int midi::Out::port</definition>
+        <argsstring>() const </argsstring>
+        <name>port</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" line="61" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" bodystart="61" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classmidi_1_1_out_1a7a9792e535cddacc01ebfe18719571cd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* midi::Out::portName</definition>
+        <argsstring>() const </argsstring>
+        <name>portName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" line="65" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" bodystart="65" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classmidi_1_1_out_1ae653abd2acb323ee2c933dda6dcdd5a6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void midi::Out::openPort</definition>
+        <argsstring>(int port, lua_State *L)</argsstring>
+        <name>openPort</name>
+        <param>
+          <type>int</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" line="69" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" bodystart="69" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classmidi_1_1_out_1a70899287e4075ed14d26491d1209556a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void midi::Out::openPort</definition>
+        <argsstring>(const char *port_name, lua_State *L)</argsstring>
+        <name>openPort</name>
+        <param>
+          <type>const char *</type>
+          <declname>port_name</declname>
+        </param>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" line="87" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" bodystart="87" bodyend="100"/>
+        <references refid="cxcore_8h_1add928d8eb85ea33a25a67db3406d4887" compoundref="cxcore_8h" startline="1614">name</references>
+      </memberdef>
+      <memberdef kind="function" id="classmidi_1_1_out_1a91eae59b112ea4016551a785fedbb45b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void midi::Out::virtualPort</definition>
+        <argsstring>(const char *port_name, lua_State *L)</argsstring>
+        <name>virtualPort</name>
+        <param>
+          <type>const char *</type>
+          <declname>port_name</declname>
+        </param>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" line="102" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" bodystart="102" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classmidi_1_1_out_1a1c93b4be658b160296e48f0428ac6223" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void midi::Out::send</definition>
+        <argsstring>(int a, int b, int c)</argsstring>
+        <name>send</name>
+        <param>
+          <type>int</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" line="107" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" bodystart="107" bodyend="113"/>
+        <references refid="cvaux_8h_1a1031d0e0a97a340abfe0a6ab9e831045" compoundref="cvaux_8h" startline="602">a</references>
+        <references refid="cvaux_8h_1ac04272e8ca865b8fba18d36edae9fd2a" compoundref="cvaux_8h" startline="602">b</references>
+        <references refid="cvaux_8h_1a1971420173e06f45845eed2ab4e3d5d0" compoundref="cvaux_8h" startline="602">c</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class lets you receive midi events through virtual ports (where possible) or connect to midi senders and receive midi data from them.</para><para><simplesect kind="par"><title>Bindings info:</title><para>lib_name:&apos;Out_core&apos; string_format:&apos;%s (%f)&apos; string_args:&apos;(*userdata)-&gt;<ref refid="classmidi_1_1_out_1a7a9792e535cddacc01ebfe18719571cd" kindref="member">portName()</ref>, (*userdata)-&gt;<ref refid="classmidi_1_1_out_1ac7441419ab65506dfb651b039855cc9c" kindref="member">port()</ref>&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" line="45" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/Out.h" bodystart="45" bodyend="134"/>
+    <listofallmembers>
+      <member refid="classmidi_1_1_out_1a949711ef2f3bf4a581f726a4edc5aec5" prot="private" virt="non-virtual"><scope>midi::Out</scope><name>buffer_</name></member>
+      <member refid="classmidi_1_1_out_1abca38203e6e7282a7b3ef846c87da953" prot="private" virt="non-virtual"><scope>midi::Out</scope><name>midi_out_</name></member>
+      <member refid="classmidi_1_1_out_1ae653abd2acb323ee2c933dda6dcdd5a6" prot="public" virt="non-virtual"><scope>midi::Out</scope><name>openPort</name></member>
+      <member refid="classmidi_1_1_out_1a70899287e4075ed14d26491d1209556a" prot="public" virt="non-virtual"><scope>midi::Out</scope><name>openPort</name></member>
+      <member refid="classmidi_1_1_out_1aa08eab2a0562b9faa2d24487dfd76d39" prot="public" virt="non-virtual"><scope>midi::Out</scope><name>Out</name></member>
+      <member refid="classmidi_1_1_out_1ac7441419ab65506dfb651b039855cc9c" prot="public" virt="non-virtual"><scope>midi::Out</scope><name>port</name></member>
+      <member refid="classmidi_1_1_out_1aa9e48a1548f2b53fa7cfd5a6a97e523e" prot="private" virt="non-virtual"><scope>midi::Out</scope><name>port_id_</name></member>
+      <member refid="classmidi_1_1_out_1a924b2d3d45ef4cf8b0c2547198a64ea8" prot="private" virt="non-virtual"><scope>midi::Out</scope><name>port_name_</name></member>
+      <member refid="classmidi_1_1_out_1a7a9792e535cddacc01ebfe18719571cd" prot="public" virt="non-virtual"><scope>midi::Out</scope><name>portName</name></member>
+      <member refid="classmidi_1_1_out_1a1c93b4be658b160296e48f0428ac6223" prot="public" virt="non-virtual"><scope>midi::Out</scope><name>send</name></member>
+      <member refid="classmidi_1_1_out_1a91eae59b112ea4016551a785fedbb45b" prot="public" virt="non-virtual"><scope>midi::Out</scope><name>virtualPort</name></member>
+      <member refid="classmidi_1_1_out_1a84ee332784a1045905262df67fbb85ae" prot="public" virt="non-virtual"><scope>midi::Out</scope><name>~Out</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

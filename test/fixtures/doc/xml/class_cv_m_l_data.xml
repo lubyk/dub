@@ -1,0 +1,699 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="class_cv_m_l_data" kind="class" prot="public">
+    <compoundname>CvMLData</compoundname>
+    <includes refid="ml_8h" local="no">ml.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_cv_m_l_data_1a67f0e64b1d5fad688195baff21d8e017" prot="protected" static="no" mutable="no">
+        <type>char</type>
+        <definition>char CvMLData::delimiter</definition>
+        <argsstring></argsstring>
+        <name>delimiter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1888" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1888" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1ac16c306fdee3ff76639903328d1f7cb4" prot="protected" static="no" mutable="no">
+        <type>char</type>
+        <definition>char CvMLData::miss_ch</definition>
+        <argsstring></argsstring>
+        <name>miss_ch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1889" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1889" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1a7e163ab151009303aafa05cce4e79f4c" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvMLData::values</definition>
+        <argsstring></argsstring>
+        <name>values</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1892" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1892" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1aa8006aa03dd6cc2bea822e78db496f41" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvMLData::missing</definition>
+        <argsstring></argsstring>
+        <name>missing</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1893" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1893" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1af32fdbb928e86a5896ffb63c9701f3bb" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvMLData::var_types</definition>
+        <argsstring></argsstring>
+        <name>var_types</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1894" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1894" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1aff6a8da0a0584e058e44f2d6e7f4bbeb" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvMLData::var_idx_mask</definition>
+        <argsstring></argsstring>
+        <name>var_idx_mask</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1895" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1895" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1a74e63448708c436bb211cb6d070f52d1" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvMLData::response_out</definition>
+        <argsstring></argsstring>
+        <name>response_out</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1897" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1897" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1a63b42ab139832e10bb692a6de8d734ac" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvMLData::var_idx_out</definition>
+        <argsstring></argsstring>
+        <name>var_idx_out</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1898" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1898" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1a9f2c8b8fd9ccbb00c35a52961f7403e5" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvMLData::var_types_out</definition>
+        <argsstring></argsstring>
+        <name>var_types_out</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1899" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1899" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1aa87b97d4db563f14c17071280287894d" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvMLData::response_idx</definition>
+        <argsstring></argsstring>
+        <name>response_idx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1901" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1901" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1a2bc9f12411b952efe16cb92b978f17e3" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvMLData::train_sample_count</definition>
+        <argsstring></argsstring>
+        <name>train_sample_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1903" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1903" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1ab617488c786a0f3c953e293269cd28ef" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CvMLData::mix</definition>
+        <argsstring></argsstring>
+        <name>mix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1904" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1904" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1a21014a3e361afa29a9f0c6d9e6293ec2" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvMLData::total_class_count</definition>
+        <argsstring></argsstring>
+        <name>total_class_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1906" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1906" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1a9af5e20df2677e74f85c96c724b087dd" prot="protected" static="no" mutable="no">
+        <type><ref refid="cxcore_8h_1a035af1d430a8c9a1d115cbfb6c8e25dc" kindref="member">std::map</ref>&lt; std::string, int &gt; *</type>
+        <definition>std::map&lt;std::string, int&gt;* CvMLData::class_map</definition>
+        <argsstring></argsstring>
+        <name>class_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1907" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1907" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1a66b54dfc168d1ed2869f046d5df989ff" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvMLData::train_sample_idx</definition>
+        <argsstring></argsstring>
+        <name>train_sample_idx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1909" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1909" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1a5db3f697dad677fc9240e6e6f882fcc9" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvMLData::test_sample_idx</definition>
+        <argsstring></argsstring>
+        <name>test_sample_idx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1910" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1910" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1a01680a0847998c0c40e3823ce5e35e46" prot="protected" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* CvMLData::sample_idx</definition>
+        <argsstring></argsstring>
+        <name>sample_idx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1911" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1911" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cv_m_l_data_1a9e14437a8678962cf11d2965d81ace5d" prot="protected" static="no" mutable="no">
+        <type><ref refid="cxtypes_8h_1a1a96e51ab3a372962769bb72b8ebb95d" kindref="member">CvRNG</ref></type>
+        <definition>CvRNG CvMLData::rng</definition>
+        <argsstring></argsstring>
+        <name>rng</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1913" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1913" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_cv_m_l_data_1a6fd2e336f9bf7e341e878bb136b78af0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CvMLData::CvMLData</definition>
+        <argsstring>()</argsstring>
+        <name>CvMLData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1840"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1ab484f3cea84d0ab4711ec5163e963a27" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual CvMLData::~CvMLData</definition>
+        <argsstring>()</argsstring>
+        <name>~CvMLData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1841"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1a7faaccfc758290d888741c95f8fbb7f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CvMLData::read_csv</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>read_csv</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1846"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1ada05fd9cd8ae5a12cc95c67cef8769d9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>const CvMat* CvMLData::get_values</definition>
+        <argsstring>()</argsstring>
+        <name>get_values</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1848" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1848" bodyend="1848"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1a3f1019c9a5a356e227d525b096d6fce6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>const CvMat* CvMLData::get_responses</definition>
+        <argsstring>()</argsstring>
+        <name>get_responses</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1850"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1ae278675cd86957c93fef07d1f461ed4f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>const CvMat* CvMLData::get_missing</definition>
+        <argsstring>()</argsstring>
+        <name>get_missing</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1852" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1852" bodyend="1852"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1a42505785c94df0ce2d62de0c7081e73d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CvMLData::set_response_idx</definition>
+        <argsstring>(int idx)</argsstring>
+        <name>set_response_idx</name>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1854"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1a49ba6089c0bafa64a4b0dc25877b93f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int CvMLData::get_response_idx</definition>
+        <argsstring>()</argsstring>
+        <name>get_response_idx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1856" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1856" bodyend="1856"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1ae21ebad29978485c93780650114e46f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>const CvMat* CvMLData::get_train_sample_idx</definition>
+        <argsstring>()</argsstring>
+        <name>get_train_sample_idx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1858" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1858" bodyend="1858"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1ad987f47680ae995a7e07c88ec3563f73" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>const CvMat* CvMLData::get_test_sample_idx</definition>
+        <argsstring>()</argsstring>
+        <name>get_test_sample_idx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1859" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1859" bodyend="1859"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1a95f8205f5194942d0885021eba900ae6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CvMLData::mix_train_and_test_idx</definition>
+        <argsstring>()</argsstring>
+        <name>mix_train_and_test_idx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1860"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1a67a328ad671fd47a593bfb085ba64570" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CvMLData::set_train_test_split</definition>
+        <argsstring>(const CvTrainTestSplit *spl)</argsstring>
+        <name>set_train_test_split</name>
+        <param>
+          <type>const <ref refid="struct_cv_train_test_split" kindref="compound">CvTrainTestSplit</ref> *</type>
+          <declname>spl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1861"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1ac70b586b451711230e315aed990bc6a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>const CvMat* CvMLData::get_var_idx</definition>
+        <argsstring>()</argsstring>
+        <name>get_var_idx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1863"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1a77f83f1443a722dc19de303fd5ea4bb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CvMLData::chahge_var_idx</definition>
+        <argsstring>(int vi, bool state)</argsstring>
+        <name>chahge_var_idx</name>
+        <param>
+          <type>int</type>
+          <declname>vi</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1864"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1a0e8cce24e1d8e96868eeabf2b48f664c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>const CvMat* CvMLData::get_var_types</definition>
+        <argsstring>()</argsstring>
+        <name>get_var_types</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1866"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1aed3cd88251d26971913e953523194564" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int CvMLData::get_var_type</definition>
+        <argsstring>(int var_idx)</argsstring>
+        <name>get_var_type</name>
+        <param>
+          <type>int</type>
+          <declname>var_idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1867" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1867" bodyend="1867"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1ae98474f595d62ac3dfdec0e66b12804b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CvMLData::set_var_types</definition>
+        <argsstring>(const char *str)</argsstring>
+        <name>set_var_types</name>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1871"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1a7c2ac742145f8acae64c195c34d685ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CvMLData::change_var_type</definition>
+        <argsstring>(int var_idx, int type)</argsstring>
+        <name>change_var_type</name>
+        <param>
+          <type>int</type>
+          <declname>var_idx</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1874"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1a4d26c63dbfcf8b00a8ee85d3acd73d44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CvMLData::set_delimiter</definition>
+        <argsstring>(char ch)</argsstring>
+        <name>set_delimiter</name>
+        <param>
+          <type>char</type>
+          <declname>ch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1876"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1a9ab2c16e68403b9d5af495d690151f05" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>char</type>
+        <definition>char CvMLData::get_delimiter</definition>
+        <argsstring>()</argsstring>
+        <name>get_delimiter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1877" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1877" bodyend="1877"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1ad0517ee26318a7ca02397e072b31ba02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CvMLData::set_miss_ch</definition>
+        <argsstring>(char ch)</argsstring>
+        <name>set_miss_ch</name>
+        <param>
+          <type>char</type>
+          <declname>ch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1879"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1a98b73d972b3d79deb2f1022674897bcc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>char</type>
+        <definition>char CvMLData::get_miss_ch</definition>
+        <argsstring>()</argsstring>
+        <name>get_miss_ch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1880" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1880" bodyend="1880"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_cv_m_l_data_1a19a7f144355fac0bacc0899def6a0b7f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CvMLData::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1883"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1a855d57d099c7d2b21ca65d44c5cdb6d9" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CvMLData::str_to_flt_elem</definition>
+        <argsstring>(const char *token, float &amp;flt_elem, int &amp;type)</argsstring>
+        <name>str_to_flt_elem</name>
+        <param>
+          <type>const char *</type>
+          <declname>token</declname>
+        </param>
+        <param>
+          <type>float &amp;</type>
+          <declname>flt_elem</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1885"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cv_m_l_data_1a1d61567c3e1fa8f6bf68cb45074121dd" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CvMLData::free_train_test_idx</definition>
+        <argsstring>()</argsstring>
+        <name>free_train_test_idx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1886"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1953">
+        <label>CvMLData</label>
+        <link refid="class_cv_m_l_data"/>
+        <childnode refid="1954" relation="usage">
+          <edgelabel>var_idx_out</edgelabel>
+          <edgelabel>values</edgelabel>
+          <edgelabel>response_out</edgelabel>
+          <edgelabel>train_sample_idx</edgelabel>
+          <edgelabel>var_types_out</edgelabel>
+          <edgelabel>missing</edgelabel>
+          <edgelabel>test_sample_idx</edgelabel>
+          <edgelabel>var_idx_mask</edgelabel>
+          <edgelabel>var_types</edgelabel>
+        </childnode>
+      </node>
+      <node id="1954">
+        <label>CvMat</label>
+        <link refid="struct_cv_mat"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1838" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1837" bodyend="1914"/>
+    <listofallmembers>
+      <member refid="class_cv_m_l_data_1a77f83f1443a722dc19de303fd5ea4bb0" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>chahge_var_idx</name></member>
+      <member refid="class_cv_m_l_data_1a7c2ac742145f8acae64c195c34d685ec" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>change_var_type</name></member>
+      <member refid="class_cv_m_l_data_1a9af5e20df2677e74f85c96c724b087dd" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>class_map</name></member>
+      <member refid="class_cv_m_l_data_1a19a7f144355fac0bacc0899def6a0b7f" prot="protected" virt="virtual"><scope>CvMLData</scope><name>clear</name></member>
+      <member refid="class_cv_m_l_data_1a6fd2e336f9bf7e341e878bb136b78af0" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>CvMLData</name></member>
+      <member refid="class_cv_m_l_data_1a67f0e64b1d5fad688195baff21d8e017" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>delimiter</name></member>
+      <member refid="class_cv_m_l_data_1a1d61567c3e1fa8f6bf68cb45074121dd" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>free_train_test_idx</name></member>
+      <member refid="class_cv_m_l_data_1a9ab2c16e68403b9d5af495d690151f05" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>get_delimiter</name></member>
+      <member refid="class_cv_m_l_data_1a98b73d972b3d79deb2f1022674897bcc" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>get_miss_ch</name></member>
+      <member refid="class_cv_m_l_data_1ae278675cd86957c93fef07d1f461ed4f" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>get_missing</name></member>
+      <member refid="class_cv_m_l_data_1a49ba6089c0bafa64a4b0dc25877b93f7" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>get_response_idx</name></member>
+      <member refid="class_cv_m_l_data_1a3f1019c9a5a356e227d525b096d6fce6" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>get_responses</name></member>
+      <member refid="class_cv_m_l_data_1ad987f47680ae995a7e07c88ec3563f73" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>get_test_sample_idx</name></member>
+      <member refid="class_cv_m_l_data_1ae21ebad29978485c93780650114e46f9" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>get_train_sample_idx</name></member>
+      <member refid="class_cv_m_l_data_1ada05fd9cd8ae5a12cc95c67cef8769d9" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>get_values</name></member>
+      <member refid="class_cv_m_l_data_1ac70b586b451711230e315aed990bc6a2" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>get_var_idx</name></member>
+      <member refid="class_cv_m_l_data_1aed3cd88251d26971913e953523194564" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>get_var_type</name></member>
+      <member refid="class_cv_m_l_data_1a0e8cce24e1d8e96868eeabf2b48f664c" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>get_var_types</name></member>
+      <member refid="class_cv_m_l_data_1ac16c306fdee3ff76639903328d1f7cb4" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>miss_ch</name></member>
+      <member refid="class_cv_m_l_data_1aa8006aa03dd6cc2bea822e78db496f41" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>missing</name></member>
+      <member refid="class_cv_m_l_data_1ab617488c786a0f3c953e293269cd28ef" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>mix</name></member>
+      <member refid="class_cv_m_l_data_1a95f8205f5194942d0885021eba900ae6" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>mix_train_and_test_idx</name></member>
+      <member refid="class_cv_m_l_data_1a7faaccfc758290d888741c95f8fbb7f1" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>read_csv</name></member>
+      <member refid="class_cv_m_l_data_1aa87b97d4db563f14c17071280287894d" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>response_idx</name></member>
+      <member refid="class_cv_m_l_data_1a74e63448708c436bb211cb6d070f52d1" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>response_out</name></member>
+      <member refid="class_cv_m_l_data_1a9e14437a8678962cf11d2965d81ace5d" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>rng</name></member>
+      <member refid="class_cv_m_l_data_1a01680a0847998c0c40e3823ce5e35e46" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>sample_idx</name></member>
+      <member refid="class_cv_m_l_data_1a4d26c63dbfcf8b00a8ee85d3acd73d44" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>set_delimiter</name></member>
+      <member refid="class_cv_m_l_data_1ad0517ee26318a7ca02397e072b31ba02" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>set_miss_ch</name></member>
+      <member refid="class_cv_m_l_data_1a42505785c94df0ce2d62de0c7081e73d" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>set_response_idx</name></member>
+      <member refid="class_cv_m_l_data_1a67a328ad671fd47a593bfb085ba64570" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>set_train_test_split</name></member>
+      <member refid="class_cv_m_l_data_1ae98474f595d62ac3dfdec0e66b12804b" prot="public" virt="non-virtual"><scope>CvMLData</scope><name>set_var_types</name></member>
+      <member refid="class_cv_m_l_data_1a855d57d099c7d2b21ca65d44c5cdb6d9" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>str_to_flt_elem</name></member>
+      <member refid="class_cv_m_l_data_1a5db3f697dad677fc9240e6e6f882fcc9" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>test_sample_idx</name></member>
+      <member refid="class_cv_m_l_data_1a21014a3e361afa29a9f0c6d9e6293ec2" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>total_class_count</name></member>
+      <member refid="class_cv_m_l_data_1a2bc9f12411b952efe16cb92b978f17e3" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>train_sample_count</name></member>
+      <member refid="class_cv_m_l_data_1a66b54dfc168d1ed2869f046d5df989ff" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>train_sample_idx</name></member>
+      <member refid="class_cv_m_l_data_1a7e163ab151009303aafa05cce4e79f4c" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>values</name></member>
+      <member refid="class_cv_m_l_data_1aff6a8da0a0584e058e44f2d6e7f4bbeb" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>var_idx_mask</name></member>
+      <member refid="class_cv_m_l_data_1a63b42ab139832e10bb692a6de8d734ac" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>var_idx_out</name></member>
+      <member refid="class_cv_m_l_data_1af32fdbb928e86a5896ffb63c9701f3bb" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>var_types</name></member>
+      <member refid="class_cv_m_l_data_1a9f2c8b8fd9ccbb00c35a52961f7403e5" prot="protected" virt="non-virtual"><scope>CvMLData</scope><name>var_types_out</name></member>
+      <member refid="class_cv_m_l_data_1ab484f3cea84d0ab4711ec5163e963a27" prot="public" virt="virtual"><scope>CvMLData</scope><name>~CvMLData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

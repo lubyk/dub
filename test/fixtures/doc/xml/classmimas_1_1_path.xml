@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmimas_1_1_path" kind="class" prot="public">
+    <compoundname>mimas::Path</compoundname>
+    <basecompoundref refid="classmimas_1_1_q_painter_path" prot="public" virt="non-virtual">mimas::QPainterPath</basecompoundref>
+    <includes refid="_path_8h" local="no">Path.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmimas_1_1_path_1a5e967e869a3410e59f6c3a737c5a45ce" prot="private" static="no" mutable="no">
+        <type>QPainterPathStroker *</type>
+        <definition>QPainterPathStroker* mimas::Path::stroker_</definition>
+        <argsstring></argsstring>
+        <name>stroker_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Path.h" line="45" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Path.h" bodystart="45" bodyend="-1"/>
+        <referencedby refid="classmimas_1_1_path_1ad10d25f3b7099a9213210ebc0bfd40d8" compoundref="_path_8h" startline="66" endline="72">outlineForWidth</referencedby>
+        <referencedby refid="classmimas_1_1_path_1a23acbb48de1bb5b8bd7aa327704918da" compoundref="_path_8h" startline="55" endline="60">~Path</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmimas_1_1_path_1a9fd3d9d5dd59203805bfabc03d8d649f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Path::Path</definition>
+        <argsstring>()</argsstring>
+        <name>Path</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Path.h" line="47" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Path.h" bodystart="47" bodyend="47"/>
+        <referencedby refid="classmimas_1_1_path_1ad10d25f3b7099a9213210ebc0bfd40d8" compoundref="_path_8h" startline="66" endline="72">outlineForWidth</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_path_1a9fe9263287f8372021ec5ca29c61cd8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Path::Path</definition>
+        <argsstring>(const QPainterPath &amp;path)</argsstring>
+        <name>Path</name>
+        <param>
+          <type>const <ref refid="classmimas_1_1_q_painter_path" kindref="compound">QPainterPath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Path.h" line="51" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Path.h" bodystart="49" bodyend="53"/>
+        <references refid="mimas_8h_1a367e7f458808d993f646caf0be80a7a2" compoundref="mimas_8h" startline="39">MIMAS_DEBUG_GX</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_path_1a23acbb48de1bb5b8bd7aa327704918da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Path::~Path</definition>
+        <argsstring>()</argsstring>
+        <name>~Path</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Path.h" line="55" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Path.h" bodystart="55" bodyend="60"/>
+        <references refid="mimas_8h_1a367e7f458808d993f646caf0be80a7a2" compoundref="mimas_8h" startline="39">MIMAS_DEBUG_GX</references>
+        <references refid="classmimas_1_1_path_1a5e967e869a3410e59f6c3a737c5a45ce" compoundref="_path_8h" startline="45">stroker_</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_path_1ad10d25f3b7099a9213210ebc0bfd40d8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmimas_1_1_path" kindref="compound">Path</ref></type>
+        <definition>Path mimas::Path::outlineForWidth</definition>
+        <argsstring>(float width)</argsstring>
+        <name>outlineForWidth</name>
+        <param>
+          <type>float</type>
+          <declname>width</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return a new path that corresponds to the outline of the current path (takes a curve, returns a surface). This new path can be used to check intersection for example. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Path.h" line="66" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Path.h" bodystart="66" bodyend="72"/>
+        <references refid="classmimas_1_1_path_1a9fd3d9d5dd59203805bfabc03d8d649f" compoundref="_path_8h" startline="47" endline="47">Path</references>
+        <references refid="classmimas_1_1_path_1a5e967e869a3410e59f6c3a737c5a45ce" compoundref="_path_8h" startline="45">stroker_</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_path_1a67673166015dc59af5df9e5853d61ab8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mimas::Path::contains</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>contains</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the *shape* contains the given point. This is a test against a surface. To test intersection with a line, use &apos;outlineForWidth&apos; first. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Path.h" line="78" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Path.h" bodystart="78" bodyend="80"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classmimas_1_1_pen" kindref="compound">Pen</ref> used by <ref refid="classmimas_1_1_painter" kindref="compound">Painter</ref>.</para><para><simplesect kind="par"><title>Bindings info:</title><para>super: &apos;QPainterPath&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2313">
+        <label>mimas::Path</label>
+        <link refid="classmimas_1_1_path"/>
+        <childnode refid="2314" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2314">
+        <label>mimas::QPainterPath</label>
+        <link refid="classmimas_1_1_q_painter_path"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2315">
+        <label>mimas::Path</label>
+        <link refid="classmimas_1_1_path"/>
+        <childnode refid="2316" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2316">
+        <label>mimas::QPainterPath</label>
+        <link refid="classmimas_1_1_q_painter_path"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Path.h" line="44" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Path.h" bodystart="43" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classmimas_1_1_q_painter_path_1a2e9091e79b60f3e9fc667f6b9844524d" prot="public" virt="non-virtual"><scope>mimas::Path</scope><name>addRect</name></member>
+      <member refid="classmimas_1_1_path_1a67673166015dc59af5df9e5853d61ab8" prot="public" virt="non-virtual"><scope>mimas::Path</scope><name>contains</name></member>
+      <member refid="classmimas_1_1_q_painter_path_1a21a8e138e24c6c7c6451f931a88a9188" prot="public" virt="non-virtual"><scope>mimas::Path</scope><name>cubicTo</name></member>
+      <member refid="classmimas_1_1_q_painter_path_1aaa81d743a632b5cc1302bf2e2683a7bf" prot="public" virt="non-virtual"><scope>mimas::Path</scope><name>lineTo</name></member>
+      <member refid="classmimas_1_1_q_painter_path_1a2e93c4326f44eb15e28524fc2379f5a7" prot="public" virt="non-virtual"><scope>mimas::Path</scope><name>moveTo</name></member>
+      <member refid="classmimas_1_1_path_1ad10d25f3b7099a9213210ebc0bfd40d8" prot="public" virt="non-virtual"><scope>mimas::Path</scope><name>outlineForWidth</name></member>
+      <member refid="classmimas_1_1_path_1a9fd3d9d5dd59203805bfabc03d8d649f" prot="public" virt="non-virtual"><scope>mimas::Path</scope><name>Path</name></member>
+      <member refid="classmimas_1_1_path_1a9fe9263287f8372021ec5ca29c61cd8d" prot="public" virt="non-virtual"><scope>mimas::Path</scope><name>Path</name></member>
+      <member refid="classmimas_1_1_path_1a5e967e869a3410e59f6c3a737c5a45ce" prot="private" virt="non-virtual"><scope>mimas::Path</scope><name>stroker_</name></member>
+      <member refid="classmimas_1_1_path_1a23acbb48de1bb5b8bd7aa327704918da" prot="public" virt="non-virtual"><scope>mimas::Path</scope><name>~Path</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

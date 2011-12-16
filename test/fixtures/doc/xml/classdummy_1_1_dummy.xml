@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classdummy_1_1_dummy" kind="class" prot="public">
+    <compoundname>dummy::Dummy</compoundname>
+    <basecompoundref refid="classlubyk_1_1_threaded_lua_object" prot="public" virt="non-virtual">lubyk::ThreadedLuaObject</basecompoundref>
+    <includes refid="dummy_8h" local="no">dummy.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdummy_1_1_dummy_1adcee5a6966ddc0c78ce1ebdebf1b701a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dummy::Dummy::Dummy</definition>
+        <argsstring>()</argsstring>
+        <name>Dummy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/dummy/include/dummy/dummy.h" line="44" bodyfile="/Users/gaspard/git/lubyk/modules/dummy/include/dummy/dummy.h" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classdummy_1_1_dummy_1afec342700e35d57079ef135c88af7863" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float dummy::Dummy::callback</definition>
+        <argsstring>(const char *func, float value)</argsstring>
+        <name>callback</name>
+        <param>
+          <type>const char *</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Used to test if the callback is properly set. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/dummy/include/dummy/dummy.h" line="48" bodyfile="/Users/gaspard/git/lubyk/modules/dummy/include/dummy/dummy.h" bodystart="48" bodyend="63"/>
+        <references refid="lua__object_8h_1a1095d349e93aa25cf9ddf8d07cbb6eea" compoundref="lua__object_8h" startline="34">pushLuaCallback</references>
+        <references refid="cv_8h_1ae17b3c2584dab511e91d1c96644018bf" compoundref="cv_8h" startline="516">status</references>
+      </memberdef>
+      <memberdef kind="function" id="classdummy_1_1_dummy_1a30a1ba2ac04fb69938f3ec26263fe6a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float dummy::Dummy::addSomething</definition>
+        <argsstring>(float value)</argsstring>
+        <name>addSomething</name>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method becomes a lua binding to C and will be overloaded in Lua. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/dummy/include/dummy/dummy.h" line="68" bodyfile="/Users/gaspard/git/lubyk/modules/dummy/include/dummy/dummy.h" bodystart="68" bodyend="70"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classdummy_1_1_dummy_1adc3d1057ee76bd583e81281984de86e3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>static const char* dummy::Dummy::plat</definition>
+        <argsstring>()</argsstring>
+        <name>plat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/dummy/include/dummy/dummy.h" line="72"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classdummy_1_1_dummy" kindref="compound">Dummy</ref> (a simple class to test bindings).</para><para><simplesect kind="par"><title>Bindings info:</title><para>lib_name: &apos;Dummy_core&apos; filename: &apos;Dummy_core/Dummy&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2087">
+        <label>dummy::Dummy</label>
+        <link refid="classdummy_1_1_dummy"/>
+        <childnode refid="2088" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2089">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="2088">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2089" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2093">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="2094" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2090">
+        <label>dummy::Dummy</label>
+        <link refid="classdummy_1_1_dummy"/>
+        <childnode refid="2091" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2095">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2092">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="2093" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2091">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2092" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2094">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="2095" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/dummy/include/dummy/dummy.h" line="42" bodyfile="/Users/gaspard/git/lubyk/modules/dummy/include/dummy/dummy.h" bodystart="42" bodyend="73"/>
+    <listofallmembers>
+      <member refid="classdummy_1_1_dummy_1a30a1ba2ac04fb69938f3ec26263fe6a3" prot="public" virt="non-virtual"><scope>dummy::Dummy</scope><name>addSomething</name></member>
+      <member refid="classdummy_1_1_dummy_1afec342700e35d57079ef135c88af7863" prot="public" virt="non-virtual"><scope>dummy::Dummy</scope><name>callback</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>dummy::Dummy</scope><name>class_name_</name></member>
+      <member refid="classdummy_1_1_dummy_1adcee5a6966ddc0c78ce1ebdebf1b701a" prot="public" virt="non-virtual"><scope>dummy::Dummy</scope><name>Dummy</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" prot="public" virt="non-virtual"><scope>dummy::Dummy</scope><name>lua_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>dummy::Dummy</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>dummy::Dummy</scope><name>luaDestroy</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a1351dd8c5053c7df8e0a29b2887ddb8e" prot="public" virt="non-virtual"><scope>dummy::Dummy</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>dummy::Dummy</scope><name>LuaObject</name></member>
+      <member refid="classdummy_1_1_dummy_1adc3d1057ee76bd583e81281984de86e3" prot="public" virt="non-virtual"><scope>dummy::Dummy</scope><name>plat</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1af9f7e3d5717357958461b2634742475f" prot="protected" virt="non-virtual"><scope>dummy::Dummy</scope><name>pushLuaCallbackl</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1ad533909af126d2aa2b058dea6b0d91f0" prot="protected" virt="non-virtual"><scope>dummy::Dummy</scope><name>setupLuaThread</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>dummy::Dummy</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>dummy::Dummy</scope><name>setupSuper</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a68147ed0f2048d29f6adf5316992ad69" prot="public" virt="non-virtual"><scope>dummy::Dummy</scope><name>ThreadedLuaObject</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>dummy::Dummy</scope><name>worker_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>dummy::Dummy</scope><name>~LuaObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="b2_island_8h" kind="file">
+    <compoundname>b2Island.h</compoundname>
+    <includes local="no">Box2D/Common/b2Math.h</includes>
+    <includes local="no">Box2D/Dynamics/b2Body.h</includes>
+    <includes local="no">Box2D/Dynamics/b2TimeStep.h</includes>
+    <incdepgraph>
+      <node id="84">
+        <label>/Users/gaspard/git/lubyk/modules/b2/bind/b2Island.h</label>
+        <link refid="b2Island.h"/>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+      </node>
+      <node id="85">
+        <label>Box2D/Common/b2Math.h</label>
+      </node>
+      <node id="87">
+        <label>Box2D/Dynamics/b2TimeStep.h</label>
+      </node>
+      <node id="86">
+        <label>Box2D/Dynamics/b2Body.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classb2_island" prot="public">b2Island</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">*<sp/>Copyright<sp/>(c)<sp/>2006-2009<sp/>Erin<sp/>Catto<sp/>http://www.box2d.org</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">*<sp/>This<sp/>software<sp/>is<sp/>provided<sp/>&apos;as-is&apos;,<sp/>without<sp/>any<sp/>express<sp/>or<sp/>implied</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">*<sp/>warranty.<sp/><sp/>In<sp/>no<sp/>event<sp/>will<sp/>the<sp/>authors<sp/>be<sp/>held<sp/>liable<sp/>for<sp/>any<sp/>damages</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*<sp/>arising<sp/>from<sp/>the<sp/>use<sp/>of<sp/>this<sp/>software.</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">*<sp/>Permission<sp/>is<sp/>granted<sp/>to<sp/>anyone<sp/>to<sp/>use<sp/>this<sp/>software<sp/>for<sp/>any<sp/>purpose,</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">*<sp/>including<sp/>commercial<sp/>applications,<sp/>and<sp/>to<sp/>alter<sp/>it<sp/>and<sp/>redistribute<sp/>it</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">*<sp/>freely,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>restrictions:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">*<sp/>1.<sp/>The<sp/>origin<sp/>of<sp/>this<sp/>software<sp/>must<sp/>not<sp/>be<sp/>misrepresented;<sp/>you<sp/>must<sp/>not</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">*<sp/>claim<sp/>that<sp/>you<sp/>wrote<sp/>the<sp/>original<sp/>software.<sp/>If<sp/>you<sp/>use<sp/>this<sp/>software</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">*<sp/>in<sp/>a<sp/>product,<sp/>an<sp/>acknowledgment<sp/>in<sp/>the<sp/>product<sp/>documentation<sp/>would<sp/>be</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">*<sp/>appreciated<sp/>but<sp/>is<sp/>not<sp/>required.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">*<sp/>2.<sp/>Altered<sp/>source<sp/>versions<sp/>must<sp/>be<sp/>plainly<sp/>marked<sp/>as<sp/>such,<sp/>and<sp/>must<sp/>not<sp/>be</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">*<sp/>misrepresented<sp/>as<sp/>being<sp/>the<sp/>original<sp/>software.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">*<sp/>3.<sp/>This<sp/>notice<sp/>may<sp/>not<sp/>be<sp/>removed<sp/>or<sp/>altered<sp/>from<sp/>any<sp/>source<sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>B2_ISLAND_H</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>B2_ISLAND_H</highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Box2D/Common/b2Math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Box2D/Dynamics/b2Body.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Box2D/Dynamics/b2TimeStep.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_contact" kindref="compound">b2Contact</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_joint" kindref="compound">b2Joint</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_stack_allocator" kindref="compound">b2StackAllocator</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_contact_listener" kindref="compound">b2ContactListener</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structb2_contact_velocity_constraint" kindref="compound">b2ContactVelocityConstraint</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structb2_profile" kindref="compound" tooltip="Profiling data. Times are in milliseconds.">b2Profile</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="classb2_island" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_island" kindref="compound" tooltip="This is an internal class.">b2Island</ref></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_island_1a2f2258f09d2663dcb35a1d69d16896cb" kindref="member">b2Island</ref>(<ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/>bodyCapacity,<sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/>contactCapacity,<sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/>jointCapacity,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_stack_allocator" kindref="compound">b2StackAllocator</ref>*<sp/>allocator,<sp/><ref refid="classb2_contact_listener" kindref="compound">b2ContactListener</ref>*<sp/>listener);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_island_1a87b39bdaab4f98acca77dd39d157a0e8" kindref="member">~b2Island</ref>();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="classb2_island_1a26566f7388fcaf7523446e5e76d99c4d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_island_1a26566f7388fcaf7523446e5e76d99c4d" kindref="member">Clear</ref>()</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_island_1af78d066321e18cd8a4e409c4539ccb81" kindref="member">m_bodyCount</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_island_1ab5bad98e18356b15a68733be07b98abf" kindref="member">m_contactCount</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_island_1a913c91afb35ff717c7dd5b0aa1559e5b" kindref="member">m_jointCount</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_island_1a28a6f74174cde3a6e93663c740f418fa" kindref="member">Solve</ref>(<ref refid="structb2_profile" kindref="compound" tooltip="Profiling data. Times are in milliseconds.">b2Profile</ref>*<sp/>profile,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_time_step" kindref="compound" tooltip="This is an internal structure.">b2TimeStep</ref>&amp;<sp/><ref refid="cvaux_8h_1abc16e65f240ed0c8f3e876e8732c0a33" kindref="member">step</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref>&amp;<sp/>gravity,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>allowSleep);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_island_1a61f577b473962bb0d8add1f55eeef7ee" kindref="member">SolveTOI</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_time_step" kindref="compound" tooltip="This is an internal structure.">b2TimeStep</ref>&amp;<sp/>subStep,<sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/>toiIndexA,<sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/>toiIndexB);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="classb2_island_1af2d54861bd063051c0a6dc5f73b27c3e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_island_1af2d54861bd063051c0a6dc5f73b27c3e" kindref="member">Add</ref>(<ref refid="classb2_body" kindref="compound" tooltip="A rigid body. These are created via b2World::CreateBody.">b2Body</ref>*<sp/>body)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1ab3fe3791ea4d700d5cc1f8124d2edf33" kindref="member">b2Assert</ref>(<ref refid="classb2_island_1af78d066321e18cd8a4e409c4539ccb81" kindref="member">m_bodyCount</ref><sp/>&lt;<sp/><ref refid="classb2_island_1a5ea371889bb93fb6387ff2ab427191ed" kindref="member">m_bodyCapacity</ref>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>body-&gt;<ref refid="classb2_body_1a3536cbe2d878d2861f29496380a43abd" kindref="member">m_islandIndex</ref><sp/>=<sp/><ref refid="classb2_island_1af78d066321e18cd8a4e409c4539ccb81" kindref="member">m_bodyCount</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_island_1ac9c65abf14c88e8a52fdd2c5cb56c5f4" kindref="member">m_bodies</ref>[<ref refid="classb2_island_1af78d066321e18cd8a4e409c4539ccb81" kindref="member">m_bodyCount</ref>]<sp/>=<sp/>body;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++<ref refid="classb2_island_1af78d066321e18cd8a4e409c4539ccb81" kindref="member">m_bodyCount</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="classb2_island_1abc0ea9208e818b551404fd507f197a51" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_island_1af2d54861bd063051c0a6dc5f73b27c3e" kindref="member">Add</ref>(<ref refid="classb2_contact" kindref="compound">b2Contact</ref>*<sp/>contact)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1ab3fe3791ea4d700d5cc1f8124d2edf33" kindref="member">b2Assert</ref>(<ref refid="classb2_island_1ab5bad98e18356b15a68733be07b98abf" kindref="member">m_contactCount</ref><sp/>&lt;<sp/><ref refid="classb2_island_1a1a65b8fc8256ca443f85e6ae6f2d841a" kindref="member">m_contactCapacity</ref>);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_island_1a49499a350859768a0c3f7b29fb091422" kindref="member">m_contacts</ref>[<ref refid="classb2_island_1ab5bad98e18356b15a68733be07b98abf" kindref="member">m_contactCount</ref>++]<sp/>=<sp/>contact;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="classb2_island_1a04e6ccd0c11f6ef5a7ed0a926d081445" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_island_1af2d54861bd063051c0a6dc5f73b27c3e" kindref="member">Add</ref>(<ref refid="classb2_joint" kindref="compound">b2Joint</ref>*<sp/>joint)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1ab3fe3791ea4d700d5cc1f8124d2edf33" kindref="member">b2Assert</ref>(<ref refid="classb2_island_1a913c91afb35ff717c7dd5b0aa1559e5b" kindref="member">m_jointCount</ref><sp/>&lt;<sp/><ref refid="classb2_island_1a9b6e63c89307d469e1075585d65a9bbb" kindref="member">m_jointCapacity</ref>);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_island_1a6653da11b66de22d8ba5db531c11b373" kindref="member">m_joints</ref>[<ref refid="classb2_island_1a913c91afb35ff717c7dd5b0aa1559e5b" kindref="member">m_jointCount</ref>++]<sp/>=<sp/>joint;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_island_1a57620f76faf000f61c76e925e40e6129" kindref="member">Report</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_contact_velocity_constraint" kindref="compound">b2ContactVelocityConstraint</ref>*<sp/>constraints);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="classb2_island_1a5e28f216c0a12548c04491ab1d73c958" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_stack_allocator" kindref="compound">b2StackAllocator</ref>*<sp/><ref refid="classb2_island_1a5e28f216c0a12548c04491ab1d73c958" kindref="member">m_allocator</ref>;</highlight></codeline>
+<codeline lineno="75" refid="classb2_island_1aeba73fe42839d0361524d98e330e8e66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_contact_listener" kindref="compound">b2ContactListener</ref>*<sp/><ref refid="classb2_island_1aeba73fe42839d0361524d98e330e8e66" kindref="member">m_listener</ref>;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="classb2_island_1ac9c65abf14c88e8a52fdd2c5cb56c5f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_body" kindref="compound" tooltip="A rigid body. These are created via b2World::CreateBody.">b2Body</ref>**<sp/><ref refid="classb2_island_1ac9c65abf14c88e8a52fdd2c5cb56c5f4" kindref="member">m_bodies</ref>;</highlight></codeline>
+<codeline lineno="78" refid="classb2_island_1a49499a350859768a0c3f7b29fb091422" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_contact" kindref="compound">b2Contact</ref>**<sp/><ref refid="classb2_island_1a49499a350859768a0c3f7b29fb091422" kindref="member">m_contacts</ref>;</highlight></codeline>
+<codeline lineno="79" refid="classb2_island_1a6653da11b66de22d8ba5db531c11b373" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_joint" kindref="compound">b2Joint</ref>**<sp/><ref refid="classb2_island_1a6653da11b66de22d8ba5db531c11b373" kindref="member">m_joints</ref>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="classb2_island_1a0f05bd177cf942ddfb494b17ec09b874" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_position" kindref="compound" tooltip="This is an internal structure.">b2Position</ref>*<sp/><ref refid="classb2_island_1a0f05bd177cf942ddfb494b17ec09b874" kindref="member">m_positions</ref>;</highlight></codeline>
+<codeline lineno="82" refid="classb2_island_1ae6a42be7ce4c03724a6da17d96cacb9f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_velocity" kindref="compound" tooltip="This is an internal structure.">b2Velocity</ref>*<sp/><ref refid="classb2_island_1ae6a42be7ce4c03724a6da17d96cacb9f" kindref="member">m_velocities</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="classb2_island_1af78d066321e18cd8a4e409c4539ccb81" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="classb2_island_1af78d066321e18cd8a4e409c4539ccb81" kindref="member">m_bodyCount</ref>;</highlight></codeline>
+<codeline lineno="85" refid="classb2_island_1a913c91afb35ff717c7dd5b0aa1559e5b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="classb2_island_1a913c91afb35ff717c7dd5b0aa1559e5b" kindref="member">m_jointCount</ref>;</highlight></codeline>
+<codeline lineno="86" refid="classb2_island_1ab5bad98e18356b15a68733be07b98abf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="classb2_island_1ab5bad98e18356b15a68733be07b98abf" kindref="member">m_contactCount</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="classb2_island_1a5ea371889bb93fb6387ff2ab427191ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="classb2_island_1a5ea371889bb93fb6387ff2ab427191ed" kindref="member">m_bodyCapacity</ref>;</highlight></codeline>
+<codeline lineno="89" refid="classb2_island_1a1a65b8fc8256ca443f85e6ae6f2d841a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="classb2_island_1a1a65b8fc8256ca443f85e6ae6f2d841a" kindref="member">m_contactCapacity</ref>;</highlight></codeline>
+<codeline lineno="90" refid="classb2_island_1a9b6e63c89307d469e1075585d65a9bbb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="classb2_island_1a9b6e63c89307d469e1075585d65a9bbb" kindref="member">m_jointCapacity</ref>;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Island.h"/>
+  </compounddef>
+</doxygen>

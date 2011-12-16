@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_graph_scanner" kind="struct" prot="public">
+    <compoundname>CvGraphScanner</compoundname>
+    <includes refid="cxcore_8h" local="no">cxcore.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_graph_scanner_1ad80ad454de5201cefa11d83bc533f798" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_graph_vtx" kindref="compound">CvGraphVtx</ref> *</type>
+        <definition>CvGraphVtx* CvGraphScanner::vtx</definition>
+        <argsstring></argsstring>
+        <name>vtx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1250" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_graph_scanner_1a91bef0ef47bc1f5639bcdf78249633d9" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_graph_vtx" kindref="compound">CvGraphVtx</ref> *</type>
+        <definition>CvGraphVtx* CvGraphScanner::dst</definition>
+        <argsstring></argsstring>
+        <name>dst</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1251" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_graph_scanner_1ab1dda30fae2447a8302717d1ba59cf39" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_graph_edge" kindref="compound">CvGraphEdge</ref> *</type>
+        <definition>CvGraphEdge* CvGraphScanner::edge</definition>
+        <argsstring></argsstring>
+        <name>edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1252" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_graph_scanner_1a092119864e858db9dbb77816ded7e436" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_graph" kindref="compound">CvGraph</ref> *</type>
+        <definition>CvGraph* CvGraphScanner::graph</definition>
+        <argsstring></argsstring>
+        <name>graph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1254" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1254" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_graph_scanner_1ab48c73ca35401a92cbcf479277642bc6" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_seq" kindref="compound">CvSeq</ref> *</type>
+        <definition>CvSeq* CvGraphScanner::stack</definition>
+        <argsstring></argsstring>
+        <name>stack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1255" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1255" bodyend="-1"/>
+        <referencedby refid="cvcompat_8h_1a8fcf6e3aad6ab748a486aefc8baba074" compoundref="cvcompat_8h" startline="841" endline="853">cvEndScanGraph</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_graph_scanner_1a8942c65f190ecb15983491145c3d01ea" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvGraphScanner::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1256" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_graph_scanner_1a95d8158067ea2c81be54de5ca67cb67d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvGraphScanner::mask</definition>
+        <argsstring></argsstring>
+        <name>mask</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1257" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1257" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1887">
+        <label>CvGraphVtx</label>
+        <link refid="struct_cv_graph_vtx"/>
+      </node>
+      <node id="1888">
+        <label>CvSeq</label>
+        <link refid="struct_cv_seq"/>
+      </node>
+      <node id="1886">
+        <label>CvGraph</label>
+        <link refid="struct_cv_graph"/>
+      </node>
+      <node id="1889">
+        <label>CvGraphEdge</label>
+        <link refid="struct_cv_graph_edge"/>
+      </node>
+      <node id="1885">
+        <label>CvGraphScanner</label>
+        <link refid="struct_cv_graph_scanner"/>
+        <childnode refid="1886" relation="usage">
+          <edgelabel>graph</edgelabel>
+        </childnode>
+        <childnode refid="1887" relation="usage">
+          <edgelabel>vtx</edgelabel>
+          <edgelabel>dst</edgelabel>
+        </childnode>
+        <childnode refid="1888" relation="usage">
+          <edgelabel>stack</edgelabel>
+        </childnode>
+        <childnode refid="1889" relation="usage">
+          <edgelabel>edge</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1249" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1248" bodyend="1258"/>
+    <listofallmembers>
+      <member refid="struct_cv_graph_scanner_1a91bef0ef47bc1f5639bcdf78249633d9" prot="public" virt="non-virtual"><scope>CvGraphScanner</scope><name>dst</name></member>
+      <member refid="struct_cv_graph_scanner_1ab1dda30fae2447a8302717d1ba59cf39" prot="public" virt="non-virtual"><scope>CvGraphScanner</scope><name>edge</name></member>
+      <member refid="struct_cv_graph_scanner_1a092119864e858db9dbb77816ded7e436" prot="public" virt="non-virtual"><scope>CvGraphScanner</scope><name>graph</name></member>
+      <member refid="struct_cv_graph_scanner_1a8942c65f190ecb15983491145c3d01ea" prot="public" virt="non-virtual"><scope>CvGraphScanner</scope><name>index</name></member>
+      <member refid="struct_cv_graph_scanner_1a95d8158067ea2c81be54de5ca67cb67d" prot="public" virt="non-virtual"><scope>CvGraphScanner</scope><name>mask</name></member>
+      <member refid="struct_cv_graph_scanner_1ab48c73ca35401a92cbcf479277642bc6" prot="public" virt="non-virtual"><scope>CvGraphScanner</scope><name>stack</name></member>
+      <member refid="struct_cv_graph_scanner_1ad80ad454de5201cefa11d83bc533f798" prot="public" virt="non-virtual"><scope>CvGraphScanner</scope><name>vtx</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

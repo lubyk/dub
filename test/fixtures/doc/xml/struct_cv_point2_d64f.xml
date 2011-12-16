@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_point2_d64f" kind="struct" prot="public">
+    <compoundname>CvPoint2D64f</compoundname>
+    <includes refid="cxtypes_8h" local="no">cxtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_point2_d64f_1a02fda59aa4280086833a6f81b24bd299" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvPoint2D64f::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="1025" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="1025" bodyend="-1"/>
+        <referencedby refid="cvcompat_8h_1a51898af72ba31544fdb324051032b08d" compoundref="cvcompat_8h" startline="662" endline="683">cvFindExtrinsicCameraParams_64d</referencedby>
+        <referencedby refid="cxtypes_8h_1a5ee3ed9d497add891e516dfd9cdad903" compoundref="cxtypes_8h" startline="1031" endline="1039">cvPoint2D64f</referencedby>
+        <referencedby refid="cvcompat_8h_1abf2d8cb36c8f0702267c51dfff447be8" compoundref="cvcompat_8h" startline="702" endline="733">cvProjectPoints</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_point2_d64f_1a69f2e60120960128997b59dabd1c1687" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvPoint2D64f::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="1026" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="1026" bodyend="-1"/>
+        <referencedby refid="cvcompat_8h_1a51898af72ba31544fdb324051032b08d" compoundref="cvcompat_8h" startline="662" endline="683">cvFindExtrinsicCameraParams_64d</referencedby>
+        <referencedby refid="cxtypes_8h_1a5ee3ed9d497add891e516dfd9cdad903" compoundref="cxtypes_8h" startline="1031" endline="1039">cvPoint2D64f</referencedby>
+        <referencedby refid="cvcompat_8h_1abf2d8cb36c8f0702267c51dfff447be8" compoundref="cvcompat_8h" startline="702" endline="733">cvProjectPoints</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="1024" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="1023" bodyend="1027"/>
+    <listofallmembers>
+      <member refid="struct_cv_point2_d64f_1a02fda59aa4280086833a6f81b24bd299" prot="public" virt="non-virtual"><scope>CvPoint2D64f</scope><name>x</name></member>
+      <member refid="struct_cv_point2_d64f_1a69f2e60120960128997b59dabd1c1687" prot="public" virt="non-virtual"><scope>CvPoint2D64f</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

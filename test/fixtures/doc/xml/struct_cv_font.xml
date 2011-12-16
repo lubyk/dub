@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_font" kind="struct" prot="public">
+    <compoundname>CvFont</compoundname>
+    <includes refid="cxcore_8h" local="no">cxcore.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_font_1a2de0fc46f5753aa4c116f458892e62d0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvFont::font_face</definition>
+        <argsstring></argsstring>
+        <name>font_face</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1401" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1401" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_font_1afc9430164e0b91a85965e034001c4b70" prot="public" static="no" mutable="no">
+        <type>const int *</type>
+        <definition>const int* CvFont::ascii</definition>
+        <argsstring></argsstring>
+        <name>ascii</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1402" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1402" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_font_1af55a3757145c476173f919e847bbca30" prot="public" static="no" mutable="no">
+        <type>const int *</type>
+        <definition>const int* CvFont::greek</definition>
+        <argsstring></argsstring>
+        <name>greek</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1403" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1403" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_font_1a7b29fd406e20a69b222fbe66236f681d" prot="public" static="no" mutable="no">
+        <type>const int *</type>
+        <definition>const int* CvFont::cyrillic</definition>
+        <argsstring></argsstring>
+        <name>cyrillic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1404" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1404" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_font_1a5c8d8de16accb4814af7467131cd8097" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvFont::hscale</definition>
+        <argsstring></argsstring>
+        <name>hscale</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1405" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1405" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_font_1ada5bc81a795b54864e5b4584223281e2" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvFont::vscale</definition>
+        <argsstring></argsstring>
+        <name>vscale</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1405" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1405" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_font_1a8c8c6ec0d06f325d1f6d460993ef9cd1" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvFont::shear</definition>
+        <argsstring></argsstring>
+        <name>shear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1406" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1406" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_font_1a9a7b17d7af1c32cc0955997ba87e0729" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvFont::thickness</definition>
+        <argsstring></argsstring>
+        <name>thickness</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1407" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1407" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_font_1ab6075f079d1c8be002a320f93c4a1824" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvFont::dx</definition>
+        <argsstring></argsstring>
+        <name>dx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1408" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1408" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_font_1aad561dba61a70aea869ea429bf692299" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvFont::line_type</definition>
+        <argsstring></argsstring>
+        <name>line_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1409" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1409" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="1400" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="1399" bodyend="1410"/>
+    <listofallmembers>
+      <member refid="struct_cv_font_1afc9430164e0b91a85965e034001c4b70" prot="public" virt="non-virtual"><scope>CvFont</scope><name>ascii</name></member>
+      <member refid="struct_cv_font_1a7b29fd406e20a69b222fbe66236f681d" prot="public" virt="non-virtual"><scope>CvFont</scope><name>cyrillic</name></member>
+      <member refid="struct_cv_font_1ab6075f079d1c8be002a320f93c4a1824" prot="public" virt="non-virtual"><scope>CvFont</scope><name>dx</name></member>
+      <member refid="struct_cv_font_1a2de0fc46f5753aa4c116f458892e62d0" prot="public" virt="non-virtual"><scope>CvFont</scope><name>font_face</name></member>
+      <member refid="struct_cv_font_1af55a3757145c476173f919e847bbca30" prot="public" virt="non-virtual"><scope>CvFont</scope><name>greek</name></member>
+      <member refid="struct_cv_font_1a5c8d8de16accb4814af7467131cd8097" prot="public" virt="non-virtual"><scope>CvFont</scope><name>hscale</name></member>
+      <member refid="struct_cv_font_1aad561dba61a70aea869ea429bf692299" prot="public" virt="non-virtual"><scope>CvFont</scope><name>line_type</name></member>
+      <member refid="struct_cv_font_1a8c8c6ec0d06f325d1f6d460993ef9cd1" prot="public" virt="non-virtual"><scope>CvFont</scope><name>shear</name></member>
+      <member refid="struct_cv_font_1a9a7b17d7af1c32cc0955997ba87e0729" prot="public" virt="non-virtual"><scope>CvFont</scope><name>thickness</name></member>
+      <member refid="struct_cv_font_1ada5bc81a795b54864e5b4584223281e2" prot="public" virt="non-virtual"><scope>CvFont</scope><name>vscale</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

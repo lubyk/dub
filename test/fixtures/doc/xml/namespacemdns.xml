@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="namespacemdns" kind="namespace">
+    <compoundname>mdns</compoundname>
+    <innerclass refid="classmdns_1_1_abstract_browser" prot="public">mdns::AbstractBrowser</innerclass>
+    <innerclass refid="classmdns_1_1_abstract_registration" prot="public">mdns::AbstractRegistration</innerclass>
+    <innerclass refid="classmdns_1_1_browser" prot="public">mdns::Browser</innerclass>
+    <innerclass refid="classmdns_1_1_location" prot="public">mdns::Location</innerclass>
+    <innerclass refid="classmdns_1_1_registration" prot="public">mdns::Registration</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacemdns_1a974310778c3d3ff3cffb2cc66b0143a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; mdns::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;out_stream, const Location &amp;location)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out_stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classmdns_1_1_location" kindref="compound">Location</ref> &amp;</type>
+          <declname>location</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Location.h" line="188"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractBrowser.h" line="37"/>
+  </compounddef>
+</doxygen>

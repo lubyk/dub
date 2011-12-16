@@ -1,0 +1,590 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmimas_1_1_q_widget" kind="class" prot="public">
+    <compoundname>mimas::QWidget</compoundname>
+    <derivedcompoundref refid="classmimas_1_1_slider" prot="public" virt="non-virtual">mimas::Slider</derivedcompoundref>
+    <derivedcompoundref refid="classmimas_1_1_widget" prot="public" virt="non-virtual">mimas::Widget</derivedcompoundref>
+    <includes refid="_q_widget_8h" local="no">QWidget.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1ab5e51803a824ad15b61372e324272b93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::move</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>move</name>
+        <reimplementedby refid="classmimas_1_1_slider_1a2e557ead732c1f7c18d43b34372372ef">move</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="13"/>
+        <referencedby refid="classmimas_1_1_g_l_widget_1a496f753560edcedf80f9ac3120ca53b7" compoundref="_g_l_widget_8h" startline="99" endline="103">mimas::GLWidget::addWidgetToScene</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1afe94af75a541c01ba3f59fcaf872156f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::resize</definition>
+        <argsstring>(int w, int h)</argsstring>
+        <name>resize</name>
+        <reimplementedby refid="classmimas_1_1_slider_1a10acca9927105dbed69f855b5202fb42">resize</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1ad845a35637d42f405c33367ef7bf2ed9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::QWidget::x</definition>
+        <argsstring>()</argsstring>
+        <name>x</name>
+        <reimplementedby refid="classmimas_1_1_slider_1a4e6c89cd02787526eb24d37a775e70e0">x</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a07d98551b42a971c118c6dc3899950b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::QWidget::y</definition>
+        <argsstring>()</argsstring>
+        <name>y</name>
+        <reimplementedby refid="classmimas_1_1_slider_1a14b66edb4c3a9ba05a30d58e0d0dfba6">y</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a5d0dc8f782b597611a1245c5afb97007" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::QWidget::width</definition>
+        <argsstring>()</argsstring>
+        <name>width</name>
+        <reimplementedby refid="classmimas_1_1_slider_1af79f33e0b4b7751ed8f32584cb52f89f">width</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a5c700ca1fa9c71a523e3805ce476f696" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::QWidget::height</definition>
+        <argsstring>()</argsstring>
+        <name>height</name>
+        <reimplementedby refid="classmimas_1_1_slider_1a0ed7591324bd9c2199fb3e2f34e24b6e">height</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a31869420ca8548d53dfa68d740420fc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::setParent</definition>
+        <argsstring>(QWidget *parent)</argsstring>
+        <name>setParent</name>
+        <param>
+          <type><ref refid="classmimas_1_1_q_widget" kindref="compound">QWidget</ref> *</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1abbb4a63f897a8f4fb253ee4034e955d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="20"/>
+        <referencedby refid="classmimas_1_1_label_1a3e4b6e1e4c4f543f82bea7d1b7826a2f" compoundref="_label_8h" startline="123" endline="126">mimas::Label::setHue</referencedby>
+        <referencedby refid="classmimas_1_1_label_1a2653ba76b9a225258bf554bc39c3776e" compoundref="_label_8h" startline="134" endline="137">mimas::Label::setText</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a8e3bc761b7a886be737db2997af47189" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::setMinimumSize</definition>
+        <argsstring>(float w, float h)</argsstring>
+        <name>setMinimumSize</name>
+        <param>
+          <type>float</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1acd34e1e7980ff068609166ad7d641ed2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::setMouseTracking</definition>
+        <argsstring>(bool enable)</argsstring>
+        <name>setMouseTracking</name>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Receive mouse move events even if no button is pressed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a12abba582c7816ae2dde59e78b4ac6c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mimas::QWidget::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1adffb55ee69ac12c23140615127904b25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mimas::QWidget::isVisible</definition>
+        <argsstring>()</argsstring>
+        <name>isVisible</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a25554ad818cb2756fc3874a2b3eb0ee8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::show</definition>
+        <argsstring>()</argsstring>
+        <name>show</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="28"/>
+        <referencedby refid="classmimas_1_1_g_l_widget_1a496f753560edcedf80f9ac3120ca53b7" compoundref="_g_l_widget_8h" startline="99" endline="103">mimas::GLWidget::addWidgetToScene</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1aca021adaeab492012a55a89957f86c73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::hide</definition>
+        <argsstring>()</argsstring>
+        <name>hide</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1ad905316c5da0b19d8e4207e18f33787a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::lower</definition>
+        <argsstring>()</argsstring>
+        <name>lower</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a4b1a5316df83360cf96448fa62aa9128" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::raise</definition>
+        <argsstring>()</argsstring>
+        <name>raise</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a2c16b0aa59b73765654d2237089c2a35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::activateWindow</definition>
+        <argsstring>()</argsstring>
+        <name>activateWindow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1ab3d4c7aeae7fda2e289998a19bb87de2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mimas::QWidget::isFullScreen</definition>
+        <argsstring>()</argsstring>
+        <name>isFullScreen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a5eb714472ab84bd1d914d581d2c6b7e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::addAction</definition>
+        <argsstring>(Action *action)</argsstring>
+        <name>addAction</name>
+        <param>
+          <type><ref refid="classmimas_1_1_action" kindref="compound">Action</ref> *</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a42d138391b7ae0ce0157f3657a5449aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::widget</definition>
+        <argsstring>()</argsstring>
+        <name>widget</name>
+        <reimplementedby refid="classmimas_1_1_slider_1a59c320d2af884c417555d4a8a90a2c24">widget</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1ad7b621aae4b372e0233c6bd1a14704f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::addWidget</definition>
+        <argsstring>(QWidget *widget, float x=0, float y=0)</argsstring>
+        <name>addWidget</name>
+        <param>
+          <type><ref refid="classmimas_1_1_q_widget" kindref="compound">QWidget</ref> *</type>
+          <declname>widget</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a482dfbb8005f78f12ea4ef436c327b49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the size of the widget as a pair (width, height). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a40d48fe5fa33117cc17b76154b7cb1b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::setStyle</definition>
+        <argsstring>(const char *text)</argsstring>
+        <name>setStyle</name>
+        <reimplementedby refid="classmimas_1_1_slider_1a8efd3cb8fcb452a599182dfd4e9be146">setStyle</reimplementedby>
+        <param>
+          <type>const char *</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a90b909331eb2a15fee67cb3735c9606e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::setStyleSheet</definition>
+        <argsstring>(const char *text)</argsstring>
+        <name>setStyleSheet</name>
+        <reimplementedby refid="classmimas_1_1_slider_1aeabbee6a2f4e5f43cf642f53e95dc6db">setStyleSheet</reimplementedby>
+        <param>
+          <type>const char *</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1adb774878a00187cf1532dab0055aa43e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::textSize</definition>
+        <argsstring>(const char *text)</argsstring>
+        <name>textSize</name>
+        <param>
+          <type>const char *</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get size of text with current widget font. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a3953e60f2bfc706c2b2895417b0378e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::setSizeHint</definition>
+        <argsstring>(float w, float h)</argsstring>
+        <name>setSizeHint</name>
+        <param>
+          <type>float</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the prefered size. Use setSizePolicy to define how the widget resizes compared to this value. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1aa96e32e9bbeea9f55522e6d8e476c9a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::setSizePolicy</definition>
+        <argsstring>(int horizontal, int vertical)</argsstring>
+        <name>setSizePolicy</name>
+        <param>
+          <type>int</type>
+          <declname>horizontal</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>vertical</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Control how the widget behaves in a layout related to it&apos;s sizeHint(). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a3a36d9de33e38c7635e12793fabd5367" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::showFullScreen</definition>
+        <argsstring>(bool enable=true)</argsstring>
+        <name>showFullScreen</name>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a862367fa45e2590be15c62dd330a8d69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::swapFullScreen</definition>
+        <argsstring>()</argsstring>
+        <name>swapFullScreen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Swap fullscreen mode. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1a456b3504fad72ef80acbfab384a9a537" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize mimas::QWidget::globalPosition</definition>
+        <argsstring>()</argsstring>
+        <name>globalPosition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns (x,y) position of the widget in the global screen coordinates. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1acf3ea1c9deaa9e46307d5aaf2d72610e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize mimas::QWidget::position</definition>
+        <argsstring>()</argsstring>
+        <name>position</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns (x,y) position of the widget in the parent coordinates. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_widget_1af7a068c51800c3a7ae324c9389a63e42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QWidget::globalMove</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>globalMove</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Move the widget to the given global coordinates. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="77"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This is a dummy class to create bindings for objects inheriting from Qt&apos;s <ref refid="classmimas_1_1_q_widget" kindref="compound">QWidget</ref>.</para><para><simplesect kind="see"><para><ref refid="classmimas_1_1_widget" kindref="compound">Widget</ref> </para><simplesectsep/><para><ref refid="classmimas_1_1_q_object" kindref="compound">QObject</ref> </para></simplesect>
+<simplesect kind="par"><title>Bindings info:</title><para>bind: &apos;QWidget.yml&apos; super: &apos;QObject&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2343">
+        <label>mimas::Widget</label>
+        <link refid="classmimas_1_1_widget"/>
+        <childnode refid="2341" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2341">
+        <label>mimas::QWidget</label>
+        <link refid="classmimas_1_1_q_widget"/>
+      </node>
+      <node id="2342">
+        <label>mimas::Slider</label>
+        <link refid="classmimas_1_1_slider"/>
+        <childnode refid="2341" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" line="11" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/bind/QWidget.h" bodystart="11" bodyend="78"/>
+    <listofallmembers>
+      <member refid="classmimas_1_1_q_widget_1a2c16b0aa59b73765654d2237089c2a35" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>activateWindow</name></member>
+      <member refid="classmimas_1_1_q_widget_1a5eb714472ab84bd1d914d581d2c6b7e1" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>addAction</name></member>
+      <member refid="classmimas_1_1_q_widget_1ad7b621aae4b372e0233c6bd1a14704f7" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>addWidget</name></member>
+      <member refid="classmimas_1_1_q_widget_1a12abba582c7816ae2dde59e78b4ac6c6" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>close</name></member>
+      <member refid="classmimas_1_1_q_widget_1af7a068c51800c3a7ae324c9389a63e42" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>globalMove</name></member>
+      <member refid="classmimas_1_1_q_widget_1a456b3504fad72ef80acbfab384a9a537" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>globalPosition</name></member>
+      <member refid="classmimas_1_1_q_widget_1a5c700ca1fa9c71a523e3805ce476f696" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>height</name></member>
+      <member refid="classmimas_1_1_q_widget_1aca021adaeab492012a55a89957f86c73" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>hide</name></member>
+      <member refid="classmimas_1_1_q_widget_1ab3d4c7aeae7fda2e289998a19bb87de2" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>isFullScreen</name></member>
+      <member refid="classmimas_1_1_q_widget_1adffb55ee69ac12c23140615127904b25" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>isVisible</name></member>
+      <member refid="classmimas_1_1_q_widget_1ad905316c5da0b19d8e4207e18f33787a" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>lower</name></member>
+      <member refid="classmimas_1_1_q_widget_1ab5e51803a824ad15b61372e324272b93" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>move</name></member>
+      <member refid="classmimas_1_1_q_widget_1acf3ea1c9deaa9e46307d5aaf2d72610e" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>position</name></member>
+      <member refid="classmimas_1_1_q_widget_1a4b1a5316df83360cf96448fa62aa9128" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>raise</name></member>
+      <member refid="classmimas_1_1_q_widget_1afe94af75a541c01ba3f59fcaf872156f" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>resize</name></member>
+      <member refid="classmimas_1_1_q_widget_1a8e3bc761b7a886be737db2997af47189" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>setMinimumSize</name></member>
+      <member refid="classmimas_1_1_q_widget_1acd34e1e7980ff068609166ad7d641ed2" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>setMouseTracking</name></member>
+      <member refid="classmimas_1_1_q_widget_1a31869420ca8548d53dfa68d740420fc5" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>setParent</name></member>
+      <member refid="classmimas_1_1_q_widget_1a3953e60f2bfc706c2b2895417b0378e1" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>setSizeHint</name></member>
+      <member refid="classmimas_1_1_q_widget_1aa96e32e9bbeea9f55522e6d8e476c9a5" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>setSizePolicy</name></member>
+      <member refid="classmimas_1_1_q_widget_1a40d48fe5fa33117cc17b76154b7cb1b0" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>setStyle</name></member>
+      <member refid="classmimas_1_1_q_widget_1a90b909331eb2a15fee67cb3735c9606e" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>setStyleSheet</name></member>
+      <member refid="classmimas_1_1_q_widget_1a25554ad818cb2756fc3874a2b3eb0ee8" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>show</name></member>
+      <member refid="classmimas_1_1_q_widget_1a3a36d9de33e38c7635e12793fabd5367" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>showFullScreen</name></member>
+      <member refid="classmimas_1_1_q_widget_1a482dfbb8005f78f12ea4ef436c327b49" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>size</name></member>
+      <member refid="classmimas_1_1_q_widget_1a862367fa45e2590be15c62dd330a8d69" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>swapFullScreen</name></member>
+      <member refid="classmimas_1_1_q_widget_1adb774878a00187cf1532dab0055aa43e" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>textSize</name></member>
+      <member refid="classmimas_1_1_q_widget_1abbb4a63f897a8f4fb253ee4034e955d0" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>update</name></member>
+      <member refid="classmimas_1_1_q_widget_1a42d138391b7ae0ce0157f3657a5449aa" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>widget</name></member>
+      <member refid="classmimas_1_1_q_widget_1a5d0dc8f782b597611a1245c5afb97007" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>width</name></member>
+      <member refid="classmimas_1_1_q_widget_1ad845a35637d42f405c33367ef7bf2ed9" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>x</name></member>
+      <member refid="classmimas_1_1_q_widget_1a07d98551b42a971c118c6dc3899950b3" prot="public" virt="non-virtual"><scope>mimas::QWidget</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,551 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_wheel_joint_def" kind="struct" prot="public">
+    <compoundname>b2WheelJointDef</compoundname>
+    <basecompoundref refid="structb2_joint_def" prot="public" virt="non-virtual">b2JointDef</basecompoundref>
+    <includes refid="b2_wheel_joint_8h" local="no">b2WheelJoint.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_wheel_joint_def_1a9429d2273bfdd8bdc0db416e73b89ae4" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2WheelJointDef::localAnchorA</definition>
+        <argsstring></argsstring>
+        <name>localAnchorA</name>
+        <briefdescription>
+<para>The local anchor point relative to bodyA&apos;s origin. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" line="50" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" bodystart="50" bodyend="-1"/>
+        <referencedby refid="structb2_wheel_joint_def_1a3da0f9e8e69eb228c6b24b851802da88" compoundref="b2_wheel_joint_8h" startline="32" endline="43">b2WheelJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_wheel_joint_def_1a88ba0f7108076b9d7ced68425be95c27" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2WheelJointDef::localAnchorB</definition>
+        <argsstring></argsstring>
+        <name>localAnchorB</name>
+        <briefdescription>
+<para>The local anchor point relative to bodyB&apos;s origin. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" bodystart="53" bodyend="-1"/>
+        <referencedby refid="structb2_wheel_joint_def_1a3da0f9e8e69eb228c6b24b851802da88" compoundref="b2_wheel_joint_8h" startline="32" endline="43">b2WheelJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_wheel_joint_def_1ad635ee7b77b50037dc0e021a0f5c93a6" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2WheelJointDef::localAxisA</definition>
+        <argsstring></argsstring>
+        <name>localAxisA</name>
+        <briefdescription>
+<para>The local translation axis in bodyA. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" line="56" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" bodystart="56" bodyend="-1"/>
+        <referencedby refid="structb2_wheel_joint_def_1a3da0f9e8e69eb228c6b24b851802da88" compoundref="b2_wheel_joint_8h" startline="32" endline="43">b2WheelJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_wheel_joint_def_1a8e7193d6c34c784ffd71e79d3a70acc6" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool b2WheelJointDef::enableMotor</definition>
+        <argsstring></argsstring>
+        <name>enableMotor</name>
+        <briefdescription>
+<para>Enable/disable the joint motor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" line="59" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" bodystart="59" bodyend="-1"/>
+        <referencedby refid="structb2_wheel_joint_def_1a3da0f9e8e69eb228c6b24b851802da88" compoundref="b2_wheel_joint_8h" startline="32" endline="43">b2WheelJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_wheel_joint_def_1ab658ce0fae40c6de09133659f7ffb829" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2WheelJointDef::maxMotorTorque</definition>
+        <argsstring></argsstring>
+        <name>maxMotorTorque</name>
+        <briefdescription>
+<para>The maximum motor torque, usually in N-m. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" line="62" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" bodystart="62" bodyend="-1"/>
+        <referencedby refid="structb2_wheel_joint_def_1a3da0f9e8e69eb228c6b24b851802da88" compoundref="b2_wheel_joint_8h" startline="32" endline="43">b2WheelJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_wheel_joint_def_1a7248e25f2ca6b6c2a5f7079ce16e7748" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2WheelJointDef::motorSpeed</definition>
+        <argsstring></argsstring>
+        <name>motorSpeed</name>
+        <briefdescription>
+<para>The desired motor speed in radians per second. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" line="65" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" bodystart="65" bodyend="-1"/>
+        <referencedby refid="structb2_wheel_joint_def_1a3da0f9e8e69eb228c6b24b851802da88" compoundref="b2_wheel_joint_8h" startline="32" endline="43">b2WheelJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_wheel_joint_def_1acf3540f46eaf3bc91426386939bd37b1" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2WheelJointDef::frequencyHz</definition>
+        <argsstring></argsstring>
+        <name>frequencyHz</name>
+        <briefdescription>
+<para>Suspension frequency, zero indicates no suspension. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" line="68" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" bodystart="68" bodyend="-1"/>
+        <referencedby refid="structb2_wheel_joint_def_1a3da0f9e8e69eb228c6b24b851802da88" compoundref="b2_wheel_joint_8h" startline="32" endline="43">b2WheelJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_wheel_joint_def_1a9976584bfee18b46dec355764797ce54" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2WheelJointDef::dampingRatio</definition>
+        <argsstring></argsstring>
+        <name>dampingRatio</name>
+        <briefdescription>
+<para>Suspension damping ratio, one indicates critical damping. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" line="71" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" bodystart="71" bodyend="-1"/>
+        <referencedby refid="structb2_wheel_joint_def_1a3da0f9e8e69eb228c6b24b851802da88" compoundref="b2_wheel_joint_8h" startline="32" endline="43">b2WheelJointDef</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structb2_wheel_joint_def_1a3da0f9e8e69eb228c6b24b851802da88" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2WheelJointDef::b2WheelJointDef</definition>
+        <argsstring>()</argsstring>
+        <name>b2WheelJointDef</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" line="33" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" bodystart="32" bodyend="43"/>
+        <references refid="structb2_wheel_joint_def_1a9976584bfee18b46dec355764797ce54" compoundref="b2_wheel_joint_8h" startline="71">dampingRatio</references>
+        <references refid="b2_joint_8h_1a0bb202d8a286c888a11985b07b2272aba5bc5057890e1b60168be638272cc2cab" compoundref="b2_joint_8h" startline="38">e_wheelJoint</references>
+        <references refid="structb2_wheel_joint_def_1a8e7193d6c34c784ffd71e79d3a70acc6" compoundref="b2_wheel_joint_8h" startline="59">enableMotor</references>
+        <references refid="structb2_wheel_joint_def_1acf3540f46eaf3bc91426386939bd37b1" compoundref="b2_wheel_joint_8h" startline="68">frequencyHz</references>
+        <references refid="structb2_wheel_joint_def_1a9429d2273bfdd8bdc0db416e73b89ae4" compoundref="b2_wheel_joint_8h" startline="50">localAnchorA</references>
+        <references refid="structb2_wheel_joint_def_1a88ba0f7108076b9d7ced68425be95c27" compoundref="b2_wheel_joint_8h" startline="53">localAnchorB</references>
+        <references refid="structb2_wheel_joint_def_1ad635ee7b77b50037dc0e021a0f5c93a6" compoundref="b2_wheel_joint_8h" startline="56">localAxisA</references>
+        <references refid="structb2_wheel_joint_def_1ab658ce0fae40c6de09133659f7ffb829" compoundref="b2_wheel_joint_8h" startline="62">maxMotorTorque</references>
+        <references refid="structb2_wheel_joint_def_1a7248e25f2ca6b6c2a5f7079ce16e7748" compoundref="b2_wheel_joint_8h" startline="65">motorSpeed</references>
+        <references refid="structb2_vec2_1a4d61640a645e470a50b451307d8e94c3" compoundref="b2_math_8h" startline="76" endline="76">b2Vec2::Set</references>
+        <references refid="structb2_vec2_1a5c6cbe27cfb29c6dbb29b9a3285b88d0" compoundref="b2_math_8h" startline="73" endline="73">b2Vec2::SetZero</references>
+        <references refid="structb2_joint_def_1a470f2879b24adb05facbd49f338856fb" compoundref="b2_joint_8h" startline="85">b2JointDef::type</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_wheel_joint_def_1af26887092d36c3cd03898401a38783e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2WheelJointDef::Initialize</definition>
+        <argsstring>(b2Body *bodyA, b2Body *bodyB, const b2Vec2 &amp;anchor, const b2Vec2 &amp;axis)</argsstring>
+        <name>Initialize</name>
+        <param>
+          <type><ref refid="classb2_body" kindref="compound">b2Body</ref> *</type>
+          <declname>bodyA</declname>
+        </param>
+        <param>
+          <type><ref refid="classb2_body" kindref="compound">b2Body</ref> *</type>
+          <declname>bodyB</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>anchor</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>axis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize the bodies, anchors, axis, and reference angle using the world anchor and world axis. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" line="47"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Wheel joint definition. This requires defining a line of motion using an axis and an anchor point. The definition uses local anchor points and a local axis so that the initial configuration can violate the constraint slightly. The joint translation is zero when the local anchor points coincide in world space. Using local anchors and a local axis helps when saving and loading a game. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="1643">
+        <label>b2JointDef</label>
+        <link refid="structb2_joint_def"/>
+      </node>
+      <node id="1642">
+        <label>b2WheelJointDef</label>
+        <link refid="structb2_wheel_joint_def"/>
+        <childnode refid="1643" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1666">
+        <label>b2Draw</label>
+        <link refid="classb2_draw"/>
+      </node>
+      <node id="1673">
+        <label>b2DynamicTree</label>
+        <link refid="classb2_dynamic_tree"/>
+        <childnode refid="1674" relation="usage">
+          <edgelabel>m_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="1671">
+        <label>b2BroadPhase</label>
+        <link refid="classb2_broad_phase"/>
+        <childnode refid="1672" relation="usage">
+          <edgelabel>m_pairBuffer</edgelabel>
+        </childnode>
+        <childnode refid="1673" relation="usage">
+          <edgelabel>m_tree</edgelabel>
+        </childnode>
+      </node>
+      <node id="1676">
+        <label>b2ContactListener</label>
+        <link refid="classb2_contact_listener"/>
+      </node>
+      <node id="1654">
+        <label>b2Contact</label>
+        <link refid="classb2_contact"/>
+        <childnode refid="1655" relation="usage">
+          <edgelabel>s_registers</edgelabel>
+        </childnode>
+        <childnode refid="1654" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="1656" relation="usage">
+          <edgelabel>m_manifold</edgelabel>
+        </childnode>
+        <childnode refid="1660" relation="usage">
+          <edgelabel>m_fixtureA</edgelabel>
+          <edgelabel>m_fixtureB</edgelabel>
+        </childnode>
+        <childnode refid="1653" relation="usage">
+          <edgelabel>m_nodeA</edgelabel>
+          <edgelabel>m_nodeB</edgelabel>
+        </childnode>
+      </node>
+      <node id="1667">
+        <label>b2Profile</label>
+        <link refid="structb2_profile"/>
+      </node>
+      <node id="1646">
+        <label>b2Body</label>
+        <link refid="classb2_body"/>
+        <childnode refid="1646" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="1647" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+        <childnode refid="1649" relation="usage">
+          <edgelabel>m_linearVelocity</edgelabel>
+          <edgelabel>m_force</edgelabel>
+        </childnode>
+        <childnode refid="1650" relation="usage">
+          <edgelabel>m_sweep</edgelabel>
+        </childnode>
+        <childnode refid="1651" relation="usage">
+          <edgelabel>m_xf</edgelabel>
+        </childnode>
+        <childnode refid="1653" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="1660" relation="usage">
+          <edgelabel>m_fixtureList</edgelabel>
+        </childnode>
+        <childnode refid="1665" relation="usage">
+          <edgelabel>m_world</edgelabel>
+        </childnode>
+      </node>
+      <node id="1659">
+        <label>b2ContactFeature</label>
+        <link refid="structb2_contact_feature"/>
+      </node>
+      <node id="1653">
+        <label>b2ContactEdge</label>
+        <link refid="structb2_contact_edge"/>
+        <childnode refid="1646" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="1654" relation="usage">
+          <edgelabel>contact</edgelabel>
+        </childnode>
+        <childnode refid="1653" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1656">
+        <label>b2Manifold</label>
+        <link refid="structb2_manifold"/>
+        <childnode refid="1649" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+          <edgelabel>localNormal</edgelabel>
+        </childnode>
+        <childnode refid="1657" relation="usage">
+          <edgelabel>points</edgelabel>
+        </childnode>
+      </node>
+      <node id="1668">
+        <label>b2BlockAllocator</label>
+        <link refid="classb2_block_allocator"/>
+      </node>
+      <node id="1669">
+        <label>b2DestructionListener</label>
+        <link refid="classb2_destruction_listener"/>
+      </node>
+      <node id="1665">
+        <label>b2World</label>
+        <link refid="classb2_world"/>
+        <childnode refid="1646" relation="usage">
+          <edgelabel>m_bodyList</edgelabel>
+        </childnode>
+        <childnode refid="1666" relation="usage">
+          <edgelabel>m_debugDraw</edgelabel>
+        </childnode>
+        <childnode refid="1649" relation="usage">
+          <edgelabel>m_gravity</edgelabel>
+        </childnode>
+        <childnode refid="1667" relation="usage">
+          <edgelabel>m_profile</edgelabel>
+        </childnode>
+        <childnode refid="1668" relation="usage">
+          <edgelabel>m_blockAllocator</edgelabel>
+        </childnode>
+        <childnode refid="1669" relation="usage">
+          <edgelabel>m_destructionListener</edgelabel>
+        </childnode>
+        <childnode refid="1670" relation="usage">
+          <edgelabel>m_contactManager</edgelabel>
+        </childnode>
+        <childnode refid="1677" relation="usage">
+          <edgelabel>m_stackAllocator</edgelabel>
+        </childnode>
+        <childnode refid="1648" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+      </node>
+      <node id="1678">
+        <label>b2StackEntry</label>
+        <link refid="structb2_stack_entry"/>
+      </node>
+      <node id="1645">
+        <label>b2JointDef</label>
+        <link refid="structb2_joint_def"/>
+        <childnode refid="1646" relation="usage">
+          <edgelabel>bodyA</edgelabel>
+          <edgelabel>bodyB</edgelabel>
+        </childnode>
+      </node>
+      <node id="1661">
+        <label>b2FixtureProxy</label>
+        <link refid="structb2_fixture_proxy"/>
+        <childnode refid="1662" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+        <childnode refid="1660" relation="usage">
+          <edgelabel>fixture</edgelabel>
+        </childnode>
+      </node>
+      <node id="1672">
+        <label>b2Pair</label>
+        <link refid="structb2_pair"/>
+      </node>
+      <node id="1650">
+        <label>b2Sweep</label>
+        <link refid="structb2_sweep"/>
+        <childnode refid="1649" relation="usage">
+          <edgelabel>c0</edgelabel>
+          <edgelabel>localCenter</edgelabel>
+          <edgelabel>c</edgelabel>
+        </childnode>
+      </node>
+      <node id="1651">
+        <label>b2Transform</label>
+        <link refid="structb2_transform"/>
+        <childnode refid="1649" relation="usage">
+          <edgelabel>p</edgelabel>
+        </childnode>
+        <childnode refid="1652" relation="usage">
+          <edgelabel>q</edgelabel>
+        </childnode>
+      </node>
+      <node id="1677">
+        <label>b2StackAllocator</label>
+        <link refid="classb2_stack_allocator"/>
+        <childnode refid="1678" relation="usage">
+          <edgelabel>m_entries</edgelabel>
+        </childnode>
+      </node>
+      <node id="1664">
+        <label>b2Filter</label>
+        <link refid="structb2_filter"/>
+      </node>
+      <node id="1647">
+        <label>b2JointEdge</label>
+        <link refid="structb2_joint_edge"/>
+        <childnode refid="1646" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="1647" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="1648" relation="usage">
+          <edgelabel>joint</edgelabel>
+        </childnode>
+      </node>
+      <node id="1675">
+        <label>b2ContactFilter</label>
+        <link refid="classb2_contact_filter"/>
+      </node>
+      <node id="1648">
+        <label>b2Joint</label>
+        <link refid="classb2_joint"/>
+        <childnode refid="1646" relation="usage">
+          <edgelabel>m_bodyA</edgelabel>
+          <edgelabel>m_bodyB</edgelabel>
+        </childnode>
+        <childnode refid="1647" relation="usage">
+          <edgelabel>m_edgeB</edgelabel>
+          <edgelabel>m_edgeA</edgelabel>
+        </childnode>
+        <childnode refid="1648" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1644">
+        <label>b2WheelJointDef</label>
+        <link refid="structb2_wheel_joint_def"/>
+        <childnode refid="1645" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1649" relation="usage">
+          <edgelabel>localAxisA</edgelabel>
+          <edgelabel>localAnchorA</edgelabel>
+          <edgelabel>localAnchorB</edgelabel>
+        </childnode>
+      </node>
+      <node id="1649">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+      <node id="1658">
+        <label>b2ContactID</label>
+        <link refid="unionb2_contact_i_d"/>
+        <childnode refid="1659" relation="usage">
+          <edgelabel>cf</edgelabel>
+        </childnode>
+      </node>
+      <node id="1663">
+        <label>b2Shape</label>
+        <link refid="classb2_shape"/>
+      </node>
+      <node id="1674">
+        <label>b2TreeNode</label>
+        <link refid="structb2_tree_node"/>
+        <childnode refid="1662" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+      </node>
+      <node id="1662">
+        <label>b2AABB</label>
+        <link refid="structb2_a_a_b_b"/>
+        <childnode refid="1649" relation="usage">
+          <edgelabel>lowerBound</edgelabel>
+          <edgelabel>upperBound</edgelabel>
+        </childnode>
+      </node>
+      <node id="1652">
+        <label>b2Rot</label>
+        <link refid="structb2_rot"/>
+      </node>
+      <node id="1670">
+        <label>b2ContactManager</label>
+        <link refid="classb2_contact_manager"/>
+        <childnode refid="1668" relation="usage">
+          <edgelabel>m_allocator</edgelabel>
+        </childnode>
+        <childnode refid="1654" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="1671" relation="usage">
+          <edgelabel>m_broadPhase</edgelabel>
+        </childnode>
+        <childnode refid="1675" relation="usage">
+          <edgelabel>m_contactFilter</edgelabel>
+        </childnode>
+        <childnode refid="1676" relation="usage">
+          <edgelabel>m_contactListener</edgelabel>
+        </childnode>
+      </node>
+      <node id="1660">
+        <label>b2Fixture</label>
+        <link refid="classb2_fixture"/>
+        <childnode refid="1646" relation="usage">
+          <edgelabel>m_body</edgelabel>
+        </childnode>
+        <childnode refid="1661" relation="usage">
+          <edgelabel>m_proxies</edgelabel>
+        </childnode>
+        <childnode refid="1663" relation="usage">
+          <edgelabel>m_shape</edgelabel>
+        </childnode>
+        <childnode refid="1664" relation="usage">
+          <edgelabel>m_filter</edgelabel>
+        </childnode>
+        <childnode refid="1660" relation="usage">
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1655">
+        <label>b2ContactRegister</label>
+        <link refid="structb2_contact_register"/>
+      </node>
+      <node id="1657">
+        <label>b2ManifoldPoint</label>
+        <link refid="structb2_manifold_point"/>
+        <childnode refid="1649" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+        </childnode>
+        <childnode refid="1658" relation="usage">
+          <edgelabel>id</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" line="31" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WheelJoint.h" bodystart="30" bodyend="72"/>
+    <listofallmembers>
+      <member refid="structb2_joint_def_1a1fdb44829d4fd13c72edb1daacb72f89" prot="public" virt="non-virtual"><scope>b2WheelJointDef</scope><name>b2JointDef</name></member>
+      <member refid="structb2_wheel_joint_def_1a3da0f9e8e69eb228c6b24b851802da88" prot="public" virt="non-virtual"><scope>b2WheelJointDef</scope><name>b2WheelJointDef</name></member>
+      <member refid="structb2_joint_def_1a8cd54c93da396be75a9788f2c6897f05" prot="public" virt="non-virtual"><scope>b2WheelJointDef</scope><name>bodyA</name></member>
+      <member refid="structb2_joint_def_1aa4f4dee2fbcd12187b19506b60e68e3d" prot="public" virt="non-virtual"><scope>b2WheelJointDef</scope><name>bodyB</name></member>
+      <member refid="structb2_joint_def_1aef099a1f89b64e230173b6016848ea9b" prot="public" virt="non-virtual"><scope>b2WheelJointDef</scope><name>collideConnected</name></member>
+      <member refid="structb2_wheel_joint_def_1a9976584bfee18b46dec355764797ce54" prot="public" virt="non-virtual"><scope>b2WheelJointDef</scope><name>dampingRatio</name></member>
+      <member refid="structb2_wheel_joint_def_1a8e7193d6c34c784ffd71e79d3a70acc6" prot="public" virt="non-virtual"><scope>b2WheelJointDef</scope><name>enableMotor</name></member>
+      <member refid="structb2_wheel_joint_def_1acf3540f46eaf3bc91426386939bd37b1" prot="public" virt="non-virtual"><scope>b2WheelJointDef</scope><name>frequencyHz</name></member>
+      <member refid="structb2_wheel_joint_def_1af26887092d36c3cd03898401a38783e2" prot="public" virt="non-virtual"><scope>b2WheelJointDef</scope><name>Initialize</name></member>
+      <member refid="structb2_wheel_joint_def_1a9429d2273bfdd8bdc0db416e73b89ae4" prot="public" virt="non-virtual"><scope>b2WheelJointDef</scope><name>localAnchorA</name></member>
+      <member refid="structb2_wheel_joint_def_1a88ba0f7108076b9d7ced68425be95c27" prot="public" virt="non-virtual"><scope>b2WheelJointDef</scope><name>localAnchorB</name></member>
+      <member refid="structb2_wheel_joint_def_1ad635ee7b77b50037dc0e021a0f5c93a6" prot="public" virt="non-virtual"><scope>b2WheelJointDef</scope><name>localAxisA</name></member>
+      <member refid="structb2_wheel_joint_def_1ab658ce0fae40c6de09133659f7ffb829" prot="public" virt="non-virtual"><scope>b2WheelJointDef</scope><name>maxMotorTorque</name></member>
+      <member refid="structb2_wheel_joint_def_1a7248e25f2ca6b6c2a5f7079ce16e7748" prot="public" virt="non-virtual"><scope>b2WheelJointDef</scope><name>motorSpeed</name></member>
+      <member refid="structb2_joint_def_1a470f2879b24adb05facbd49f338856fb" prot="public" virt="non-virtual"><scope>b2WheelJointDef</scope><name>type</name></member>
+      <member refid="structb2_joint_def_1a07eb150daaaa52fc09c3bcf402b295fe" prot="public" virt="non-virtual"><scope>b2WheelJointDef</scope><name>userData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

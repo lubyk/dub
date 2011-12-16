@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_tree_node" kind="struct" prot="public">
+    <compoundname>b2TreeNode</compoundname>
+    <includes refid="b2_dynamic_tree_8h" local="no">b2DynamicTree.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_tree_node_1a798f1a594b33c713be45e76e79912239" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_a_a_b_b" kindref="compound">b2AABB</ref></type>
+        <definition>b2AABB b2TreeNode::aabb</definition>
+        <argsstring></argsstring>
+        <name>aabb</name>
+        <briefdescription>
+<para>Enlarged AABB. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" line="36" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" bodystart="36" bodyend="-1"/>
+        <referencedby refid="classb2_dynamic_tree_1adf4676b1c34a57b4451bcbeaebe65687" compoundref="b2_dynamic_tree_8h" startline="157" endline="161">b2DynamicTree::GetFatAABB</referencedby>
+        <referencedby refid="classb2_dynamic_tree_1adf70aee89b4692fc79d65b1f54308585" compoundref="b2_dynamic_tree_8h" startline="164" endline="196">b2DynamicTree::Query</referencedby>
+        <referencedby refid="classb2_dynamic_tree_1abd7a5c6a5bc109dbbdb0ec3aae039648" compoundref="b2_dynamic_tree_8h" startline="199" endline="282">b2DynamicTree::RayCast</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_tree_node_1aff77b3eb48326aca1b0762f5c45e56e7" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* b2TreeNode::userData</definition>
+        <argsstring></argsstring>
+        <name>userData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" line="38" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" bodystart="38" bodyend="-1"/>
+        <referencedby refid="classb2_dynamic_tree_1a44ab57dce3c42b0a5847a64e489a71ce" compoundref="b2_dynamic_tree_8h" startline="151" endline="155">b2DynamicTree::GetUserData</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_tree_node_1a6d293fa25192db51808ebec05ee7e56e" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2TreeNode::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" line="42" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_tree_node_1a67ac768e9227b165198d3d4e2299f9b3" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2TreeNode::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" line="43" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_tree_node_1a5ed841ddc37b39fae1c3b8faff1e10db" prot="public" static="no" mutable="no">
+        <type>union b2TreeNode::@4</type>
+        <definition>union b2TreeNode::@4 b2TreeNode::@5</definition>
+        <argsstring></argsstring>
+        <name>@5</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" line="44"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_tree_node_1a3a320f2afc7d223e92ee3629602be5ca" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2TreeNode::child1</definition>
+        <argsstring></argsstring>
+        <name>child1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" line="46" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" bodystart="46" bodyend="-1"/>
+        <referencedby refid="structb2_tree_node_1a684e5a48e69fc38264ed8f8aa056ccc1" compoundref="b2_dynamic_tree_8h" startline="30" endline="33">IsLeaf</referencedby>
+        <referencedby refid="classb2_dynamic_tree_1adf70aee89b4692fc79d65b1f54308585" compoundref="b2_dynamic_tree_8h" startline="164" endline="196">b2DynamicTree::Query</referencedby>
+        <referencedby refid="classb2_dynamic_tree_1abd7a5c6a5bc109dbbdb0ec3aae039648" compoundref="b2_dynamic_tree_8h" startline="199" endline="282">b2DynamicTree::RayCast</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_tree_node_1aa6774ce329715b20d8b7cc8b6e3d50bc" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2TreeNode::child2</definition>
+        <argsstring></argsstring>
+        <name>child2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" line="47" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" bodystart="47" bodyend="-1"/>
+        <referencedby refid="classb2_dynamic_tree_1adf70aee89b4692fc79d65b1f54308585" compoundref="b2_dynamic_tree_8h" startline="164" endline="196">b2DynamicTree::Query</referencedby>
+        <referencedby refid="classb2_dynamic_tree_1abd7a5c6a5bc109dbbdb0ec3aae039648" compoundref="b2_dynamic_tree_8h" startline="199" endline="282">b2DynamicTree::RayCast</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_tree_node_1acd183ac94a8d44195c787111be4c22e2" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2TreeNode::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" line="50" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structb2_tree_node_1a684e5a48e69fc38264ed8f8aa056ccc1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool b2TreeNode::IsLeaf</definition>
+        <argsstring>() const </argsstring>
+        <name>IsLeaf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" line="31" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" bodystart="30" bodyend="33"/>
+        <references refid="b2_dynamic_tree_8h_1a270158a5581de19a0baa4b4c1c54f1fe" compoundref="b2_dynamic_tree_8h" startline="25">b2_nullNode</references>
+        <references refid="structb2_tree_node_1a3a320f2afc7d223e92ee3629602be5ca" compoundref="b2_dynamic_tree_8h" startline="46">child1</references>
+        <referencedby refid="classb2_dynamic_tree_1adf70aee89b4692fc79d65b1f54308585" compoundref="b2_dynamic_tree_8h" startline="164" endline="196">b2DynamicTree::Query</referencedby>
+        <referencedby refid="classb2_dynamic_tree_1abd7a5c6a5bc109dbbdb0ec3aae039648" compoundref="b2_dynamic_tree_8h" startline="199" endline="282">b2DynamicTree::RayCast</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A node in the dynamic tree. The client does not interact with this directly. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1518">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+      <node id="1516">
+        <label>b2TreeNode</label>
+        <link refid="structb2_tree_node"/>
+        <childnode refid="1517" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+      </node>
+      <node id="1517">
+        <label>b2AABB</label>
+        <link refid="structb2_a_a_b_b"/>
+        <childnode refid="1518" relation="usage">
+          <edgelabel>lowerBound</edgelabel>
+          <edgelabel>upperBound</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" line="29" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2DynamicTree.h" bodystart="28" bodyend="51"/>
+    <listofallmembers>
+      <member refid="structb2_tree_node_1a798f1a594b33c713be45e76e79912239" prot="public" virt="non-virtual"><scope>b2TreeNode</scope><name>aabb</name></member>
+      <member refid="structb2_tree_node_1a3a320f2afc7d223e92ee3629602be5ca" prot="public" virt="non-virtual"><scope>b2TreeNode</scope><name>child1</name></member>
+      <member refid="structb2_tree_node_1aa6774ce329715b20d8b7cc8b6e3d50bc" prot="public" virt="non-virtual"><scope>b2TreeNode</scope><name>child2</name></member>
+      <member refid="structb2_tree_node_1acd183ac94a8d44195c787111be4c22e2" prot="public" virt="non-virtual"><scope>b2TreeNode</scope><name>height</name></member>
+      <member refid="structb2_tree_node_1a684e5a48e69fc38264ed8f8aa056ccc1" prot="public" virt="non-virtual"><scope>b2TreeNode</scope><name>IsLeaf</name></member>
+      <member refid="structb2_tree_node_1a67ac768e9227b165198d3d4e2299f9b3" prot="public" virt="non-virtual"><scope>b2TreeNode</scope><name>next</name></member>
+      <member refid="structb2_tree_node_1a6d293fa25192db51808ebec05ee7e56e" prot="public" virt="non-virtual"><scope>b2TreeNode</scope><name>parent</name></member>
+      <member refid="structb2_tree_node_1aff77b3eb48326aca1b0762f5c45e56e7" prot="public" virt="non-virtual"><scope>b2TreeNode</scope><name>userData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

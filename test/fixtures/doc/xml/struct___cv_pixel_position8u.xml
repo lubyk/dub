@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct___cv_pixel_position8u" kind="struct" prot="public">
+    <compoundname>_CvPixelPosition8u</compoundname>
+    <includes refid="cvcompat_8h" local="no">cvcompat.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct___cv_pixel_position8u_1a6a9bda68917643165be387246c543dca" prot="public" static="no" mutable="no">
+        <type><ref refid="cxtypes_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref> *</type>
+        <definition>uchar* _CvPixelPosition8u::currline</definition>
+        <argsstring></argsstring>
+        <name>currline</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" line="903" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" bodystart="903" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___cv_pixel_position8u_1a11bc495a5f8fdcfd6bf5490268fe8581" prot="public" static="no" mutable="no">
+        <type><ref refid="cxtypes_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref> *</type>
+        <definition>uchar* _CvPixelPosition8u::topline</definition>
+        <argsstring></argsstring>
+        <name>topline</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" line="904" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" bodystart="904" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___cv_pixel_position8u_1a8f1fbe542accf7cf54288a2515c57d0a" prot="public" static="no" mutable="no">
+        <type><ref refid="cxtypes_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref> *</type>
+        <definition>uchar* _CvPixelPosition8u::bottomline</definition>
+        <argsstring></argsstring>
+        <name>bottomline</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" line="905" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" bodystart="905" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___cv_pixel_position8u_1ad52f7663e0fd0e8f9867dd168ae8ecc2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _CvPixelPosition8u::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" line="907" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" bodystart="907" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___cv_pixel_position8u_1a0c55ef48b276bdf2ed3aa126a42bab12" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _CvPixelPosition8u::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" line="908" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" bodystart="908" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___cv_pixel_position8u_1ac14134c23d6a4d84271afdd047fc3513" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _CvPixelPosition8u::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" line="909" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" bodystart="909" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___cv_pixel_position8u_1a973b65fc90204b43bacff3c72ed9aa3d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _CvPixelPosition8u::step</definition>
+        <argsstring></argsstring>
+        <name>step</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" line="910" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" bodystart="910" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___cv_pixel_position8u_1a7dd5900e39e061cefbb5bb115de58d01" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _CvPixelPosition8u::step_arr[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>step_arr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" line="912" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" bodystart="912" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" line="902" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" bodystart="901" bodyend="914"/>
+    <listofallmembers>
+      <member refid="struct___cv_pixel_position8u_1a8f1fbe542accf7cf54288a2515c57d0a" prot="public" virt="non-virtual"><scope>_CvPixelPosition8u</scope><name>bottomline</name></member>
+      <member refid="struct___cv_pixel_position8u_1a6a9bda68917643165be387246c543dca" prot="public" virt="non-virtual"><scope>_CvPixelPosition8u</scope><name>currline</name></member>
+      <member refid="struct___cv_pixel_position8u_1ac14134c23d6a4d84271afdd047fc3513" prot="public" virt="non-virtual"><scope>_CvPixelPosition8u</scope><name>height</name></member>
+      <member refid="struct___cv_pixel_position8u_1a973b65fc90204b43bacff3c72ed9aa3d" prot="public" virt="non-virtual"><scope>_CvPixelPosition8u</scope><name>step</name></member>
+      <member refid="struct___cv_pixel_position8u_1a7dd5900e39e061cefbb5bb115de58d01" prot="public" virt="non-virtual"><scope>_CvPixelPosition8u</scope><name>step_arr</name></member>
+      <member refid="struct___cv_pixel_position8u_1a11bc495a5f8fdcfd6bf5490268fe8581" prot="public" virt="non-virtual"><scope>_CvPixelPosition8u</scope><name>topline</name></member>
+      <member refid="struct___cv_pixel_position8u_1a0c55ef48b276bdf2ed3aa126a42bab12" prot="public" virt="non-virtual"><scope>_CvPixelPosition8u</scope><name>width</name></member>
+      <member refid="struct___cv_pixel_position8u_1ad52f7663e0fd0e8f9867dd168ae8ecc2" prot="public" virt="non-virtual"><scope>_CvPixelPosition8u</scope><name>x</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

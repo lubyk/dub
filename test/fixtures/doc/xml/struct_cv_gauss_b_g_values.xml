@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_gauss_b_g_values" kind="struct" prot="public">
+    <compoundname>CvGaussBGValues</compoundname>
+    <includes refid="cvaux_8h" local="no">cvaux.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_gauss_b_g_values_1a0ead7e4f776366c5746e0d2614491a3c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvGaussBGValues::match_sum</definition>
+        <argsstring></argsstring>
+        <name>match_sum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1367" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1367" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_gauss_b_g_values_1a123de53e18b5254ec6557ddc542b1b42" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvGaussBGValues::weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1368" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1368" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_gauss_b_g_values_1ad70a97c35dda441899e98c84f94f3a71" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvGaussBGValues::variance[CV_BGFG_MOG_NCOLORS]</definition>
+        <argsstring>[CV_BGFG_MOG_NCOLORS]</argsstring>
+        <name>variance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1369" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1369" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_gauss_b_g_values_1a1a89e405a3b88c3776d56c8fb45b810c" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvGaussBGValues::mean[CV_BGFG_MOG_NCOLORS]</definition>
+        <argsstring>[CV_BGFG_MOG_NCOLORS]</argsstring>
+        <name>mean</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1370" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1370" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1366" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1365" bodyend="1371"/>
+    <listofallmembers>
+      <member refid="struct_cv_gauss_b_g_values_1a0ead7e4f776366c5746e0d2614491a3c" prot="public" virt="non-virtual"><scope>CvGaussBGValues</scope><name>match_sum</name></member>
+      <member refid="struct_cv_gauss_b_g_values_1a1a89e405a3b88c3776d56c8fb45b810c" prot="public" virt="non-virtual"><scope>CvGaussBGValues</scope><name>mean</name></member>
+      <member refid="struct_cv_gauss_b_g_values_1ad70a97c35dda441899e98c84f94f3a71" prot="public" virt="non-virtual"><scope>CvGaussBGValues</scope><name>variance</name></member>
+      <member refid="struct_cv_gauss_b_g_values_1a123de53e18b5254ec6557ddc542b1b42" prot="public" virt="non-virtual"><scope>CvGaussBGValues</scope><name>weight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

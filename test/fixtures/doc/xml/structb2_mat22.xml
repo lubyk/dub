@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_mat22" kind="struct" prot="public">
+    <compoundname>b2Mat22</compoundname>
+    <includes refid="b2_math_8h" local="no">b2Math.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_mat22_1abaffa5fc1d401ea36415acffa6205689" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2Mat22::ex</definition>
+        <argsstring></argsstring>
+        <name>ex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="264" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="264" bodyend="-1"/>
+        <referencedby refid="b2_math_8h_1a4e14463da9e9a214121aedc4590822c2" compoundref="b2_math_8h" startline="637" endline="640">b2Abs</referencedby>
+        <referencedby refid="structb2_mat22_1abd674c6d92e26962977f34bcd92ff24d" compoundref="b2_math_8h" startline="200" endline="204">b2Mat22</referencedby>
+        <referencedby refid="b2_math_8h_1a12738edb3f24ad9d872421f4e6898de9" compoundref="b2_math_8h" startline="444" endline="447">b2Mul</referencedby>
+        <referencedby refid="b2_math_8h_1a38bf48069527b2dc0224e0dedbafe17c" compoundref="b2_math_8h" startline="451" endline="454">b2MulT</referencedby>
+        <referencedby refid="structb2_mat22_1af8d14ac8f48feb282cdd669f36ac8070" compoundref="b2_math_8h" startline="234" endline="246">GetInverse</referencedby>
+        <referencedby refid="b2_math_8h_1ad26d99f359b3a6f100d9538ce8fba78f" compoundref="b2_math_8h" startline="519" endline="522">operator+</referencedby>
+        <referencedby refid="structb2_mat22_1aed3bee1de38a0b3f36e21c90faa24112" compoundref="b2_math_8h" startline="214" endline="218">Set</referencedby>
+        <referencedby refid="structb2_mat22_1a7192f063b771ac9ded060e41df890509" compoundref="b2_math_8h" startline="221" endline="225">SetIdentity</referencedby>
+        <referencedby refid="structb2_mat22_1aaeae95f61cf3171ffb94703980e3594b" compoundref="b2_math_8h" startline="228" endline="232">SetZero</referencedby>
+        <referencedby refid="structb2_mat22_1ab511ad33f5abf87351581842628a9dc3" compoundref="b2_math_8h" startline="250" endline="262">Solve</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_mat22_1af19db58941d2cd146325ef3191b776fd" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2Mat22::ey</definition>
+        <argsstring></argsstring>
+        <name>ey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="264" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="264" bodyend="-1"/>
+        <referencedby refid="b2_math_8h_1a4e14463da9e9a214121aedc4590822c2" compoundref="b2_math_8h" startline="637" endline="640">b2Abs</referencedby>
+        <referencedby refid="structb2_mat22_1abd674c6d92e26962977f34bcd92ff24d" compoundref="b2_math_8h" startline="200" endline="204">b2Mat22</referencedby>
+        <referencedby refid="b2_math_8h_1a12738edb3f24ad9d872421f4e6898de9" compoundref="b2_math_8h" startline="444" endline="447">b2Mul</referencedby>
+        <referencedby refid="b2_math_8h_1a38bf48069527b2dc0224e0dedbafe17c" compoundref="b2_math_8h" startline="451" endline="454">b2MulT</referencedby>
+        <referencedby refid="structb2_mat22_1af8d14ac8f48feb282cdd669f36ac8070" compoundref="b2_math_8h" startline="234" endline="246">GetInverse</referencedby>
+        <referencedby refid="b2_math_8h_1ad26d99f359b3a6f100d9538ce8fba78f" compoundref="b2_math_8h" startline="519" endline="522">operator+</referencedby>
+        <referencedby refid="structb2_mat22_1aed3bee1de38a0b3f36e21c90faa24112" compoundref="b2_math_8h" startline="214" endline="218">Set</referencedby>
+        <referencedby refid="structb2_mat22_1a7192f063b771ac9ded060e41df890509" compoundref="b2_math_8h" startline="221" endline="225">SetIdentity</referencedby>
+        <referencedby refid="structb2_mat22_1aaeae95f61cf3171ffb94703980e3594b" compoundref="b2_math_8h" startline="228" endline="232">SetZero</referencedby>
+        <referencedby refid="structb2_mat22_1ab511ad33f5abf87351581842628a9dc3" compoundref="b2_math_8h" startline="250" endline="262">Solve</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structb2_mat22_1ac3e10f6d457c8dab9062ba378f66bc4d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2Mat22::b2Mat22</definition>
+        <argsstring>()</argsstring>
+        <name>b2Mat22</name>
+        <briefdescription>
+<para>The default constructor does nothing (for performance). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="197" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="197" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="structb2_mat22_1abd674c6d92e26962977f34bcd92ff24d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2Mat22::b2Mat22</definition>
+        <argsstring>(const b2Vec2 &amp;c1, const b2Vec2 &amp;c2)</argsstring>
+        <name>b2Mat22</name>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>c1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>c2</declname>
+        </param>
+        <briefdescription>
+<para>Construct this matrix using columns. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="201" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="200" bodyend="204"/>
+        <references refid="structb2_mat22_1abaffa5fc1d401ea36415acffa6205689" compoundref="b2_math_8h" startline="264">ex</references>
+        <references refid="structb2_mat22_1af19db58941d2cd146325ef3191b776fd" compoundref="b2_math_8h" startline="264">ey</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_mat22_1a41d5d8743bda32cb8c6e212528934810" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2Mat22::b2Mat22</definition>
+        <argsstring>(float32 a11, float32 a12, float32 a21, float32 a22)</argsstring>
+        <name>b2Mat22</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>a11</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>a12</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>a21</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>a22</declname>
+        </param>
+        <briefdescription>
+<para>Construct this matrix using scalars. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="208" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="207" bodyend="211"/>
+        <references refid="structb2_mat22_1abaffa5fc1d401ea36415acffa6205689" compoundref="b2_math_8h" startline="264">ex</references>
+        <references refid="structb2_mat22_1af19db58941d2cd146325ef3191b776fd" compoundref="b2_math_8h" startline="264">ey</references>
+        <references refid="structb2_vec2_1a07021c1c08c547868e3cce9c9ef2ea71" compoundref="b2_math_8h" startline="151">b2Vec2::x</references>
+        <references refid="structb2_vec2_1a880f573a9efe402ec207e9d132cb2a43" compoundref="b2_math_8h" startline="151">b2Vec2::y</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_mat22_1aed3bee1de38a0b3f36e21c90faa24112" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Mat22::Set</definition>
+        <argsstring>(const b2Vec2 &amp;c1, const b2Vec2 &amp;c2)</argsstring>
+        <name>Set</name>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>c1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>c2</declname>
+        </param>
+        <briefdescription>
+<para>Initialize this matrix using columns. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="215" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="214" bodyend="218"/>
+        <references refid="structb2_mat22_1abaffa5fc1d401ea36415acffa6205689" compoundref="b2_math_8h" startline="264">ex</references>
+        <references refid="structb2_mat22_1af19db58941d2cd146325ef3191b776fd" compoundref="b2_math_8h" startline="264">ey</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_mat22_1a7192f063b771ac9ded060e41df890509" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Mat22::SetIdentity</definition>
+        <argsstring>()</argsstring>
+        <name>SetIdentity</name>
+        <briefdescription>
+<para>Set this to the identity matrix. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="222" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="221" bodyend="225"/>
+        <references refid="structb2_mat22_1abaffa5fc1d401ea36415acffa6205689" compoundref="b2_math_8h" startline="264">ex</references>
+        <references refid="structb2_mat22_1af19db58941d2cd146325ef3191b776fd" compoundref="b2_math_8h" startline="264">ey</references>
+        <references refid="structb2_vec2_1a07021c1c08c547868e3cce9c9ef2ea71" compoundref="b2_math_8h" startline="151">b2Vec2::x</references>
+        <references refid="structb2_vec2_1a880f573a9efe402ec207e9d132cb2a43" compoundref="b2_math_8h" startline="151">b2Vec2::y</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_mat22_1aaeae95f61cf3171ffb94703980e3594b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Mat22::SetZero</definition>
+        <argsstring>()</argsstring>
+        <name>SetZero</name>
+        <briefdescription>
+<para>Set this matrix to all zeros. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="229" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="228" bodyend="232"/>
+        <references refid="structb2_mat22_1abaffa5fc1d401ea36415acffa6205689" compoundref="b2_math_8h" startline="264">ex</references>
+        <references refid="structb2_mat22_1af19db58941d2cd146325ef3191b776fd" compoundref="b2_math_8h" startline="264">ey</references>
+        <references refid="structb2_vec2_1a07021c1c08c547868e3cce9c9ef2ea71" compoundref="b2_math_8h" startline="151">b2Vec2::x</references>
+        <references refid="structb2_vec2_1a880f573a9efe402ec207e9d132cb2a43" compoundref="b2_math_8h" startline="151">b2Vec2::y</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_mat22_1af8d14ac8f48feb282cdd669f36ac8070" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structb2_mat22" kindref="compound">b2Mat22</ref></type>
+        <definition>b2Mat22 b2Mat22::GetInverse</definition>
+        <argsstring>() const </argsstring>
+        <name>GetInverse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="235" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="234" bodyend="246"/>
+        <references refid="cvaux_8h_1a1031d0e0a97a340abfe0a6ab9e831045" compoundref="cvaux_8h" startline="602">a</references>
+        <references refid="cv_8h_1ad029a852b561fb55dd583daf3830ed89" compoundref="cv_8h" startline="541">B</references>
+        <references refid="cvaux_8h_1ac04272e8ca865b8fba18d36edae9fd2a" compoundref="cvaux_8h" startline="602">b</references>
+        <references refid="cvaux_8h_1a1971420173e06f45845eed2ab4e3d5d0" compoundref="cvaux_8h" startline="602">c</references>
+        <references refid="cv_8h_1a6f364afbe132c4ecfea48bde1b0618ba" compoundref="cv_8h" startline="1094">d</references>
+        <references refid="structb2_mat22_1abaffa5fc1d401ea36415acffa6205689" compoundref="b2_math_8h" startline="264">ex</references>
+        <references refid="structb2_mat22_1af19db58941d2cd146325ef3191b776fd" compoundref="b2_math_8h" startline="264">ey</references>
+        <references refid="structb2_vec2_1a07021c1c08c547868e3cce9c9ef2ea71" compoundref="b2_math_8h" startline="151">b2Vec2::x</references>
+        <references refid="structb2_vec2_1a880f573a9efe402ec207e9d132cb2a43" compoundref="b2_math_8h" startline="151">b2Vec2::y</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_mat22_1ab511ad33f5abf87351581842628a9dc3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2Mat22::Solve</definition>
+        <argsstring>(const b2Vec2 &amp;b) const </argsstring>
+        <name>Solve</name>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Solve A * x = b, where b is a column vector. This is more efficient than computing the inverse in one-shot cases. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="251" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="250" bodyend="262"/>
+        <references refid="structb2_mat22_1abaffa5fc1d401ea36415acffa6205689" compoundref="b2_math_8h" startline="264">ex</references>
+        <references refid="structb2_mat22_1af19db58941d2cd146325ef3191b776fd" compoundref="b2_math_8h" startline="264">ey</references>
+        <references refid="structb2_vec2_1a07021c1c08c547868e3cce9c9ef2ea71" compoundref="b2_math_8h" startline="151">b2Vec2::x</references>
+        <references refid="structb2_vec2_1a880f573a9efe402ec207e9d132cb2a43" compoundref="b2_math_8h" startline="151">b2Vec2::y</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A 2-by-2 matrix. Stored in column-major order. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1001">
+        <label>b2Mat22</label>
+        <link refid="structb2_mat22"/>
+        <childnode refid="1002" relation="usage">
+          <edgelabel>ex</edgelabel>
+          <edgelabel>ey</edgelabel>
+        </childnode>
+      </node>
+      <node id="1002">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="195" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="194" bodyend="265"/>
+    <listofallmembers>
+      <member refid="structb2_mat22_1ac3e10f6d457c8dab9062ba378f66bc4d" prot="public" virt="non-virtual"><scope>b2Mat22</scope><name>b2Mat22</name></member>
+      <member refid="structb2_mat22_1abd674c6d92e26962977f34bcd92ff24d" prot="public" virt="non-virtual"><scope>b2Mat22</scope><name>b2Mat22</name></member>
+      <member refid="structb2_mat22_1a41d5d8743bda32cb8c6e212528934810" prot="public" virt="non-virtual"><scope>b2Mat22</scope><name>b2Mat22</name></member>
+      <member refid="structb2_mat22_1abaffa5fc1d401ea36415acffa6205689" prot="public" virt="non-virtual"><scope>b2Mat22</scope><name>ex</name></member>
+      <member refid="structb2_mat22_1af19db58941d2cd146325ef3191b776fd" prot="public" virt="non-virtual"><scope>b2Mat22</scope><name>ey</name></member>
+      <member refid="structb2_mat22_1af8d14ac8f48feb282cdd669f36ac8070" prot="public" virt="non-virtual"><scope>b2Mat22</scope><name>GetInverse</name></member>
+      <member refid="structb2_mat22_1aed3bee1de38a0b3f36e21c90faa24112" prot="public" virt="non-virtual"><scope>b2Mat22</scope><name>Set</name></member>
+      <member refid="structb2_mat22_1a7192f063b771ac9ded060e41df890509" prot="public" virt="non-virtual"><scope>b2Mat22</scope><name>SetIdentity</name></member>
+      <member refid="structb2_mat22_1aaeae95f61cf3171ffb94703980e3594b" prot="public" virt="non-virtual"><scope>b2Mat22</scope><name>SetZero</name></member>
+      <member refid="structb2_mat22_1ab511ad33f5abf87351581842628a9dc3" prot="public" virt="non-virtual"><scope>b2Mat22</scope><name>Solve</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

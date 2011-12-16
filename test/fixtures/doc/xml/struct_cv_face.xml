@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_face" kind="struct" prot="public">
+    <compoundname>CvFace</compoundname>
+    <includes refid="cvaux_8h" local="no">cvaux.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_face_1af9e59f64d8b4ff74be6481ee4a6eda0b" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_rect" kindref="compound">CvRect</ref></type>
+        <definition>CvRect CvFace::MouthRect</definition>
+        <argsstring></argsstring>
+        <name>MouthRect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="856" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="856" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_face_1a1552b64b4ff72137d3b3a3f31d87c315" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_rect" kindref="compound">CvRect</ref></type>
+        <definition>CvRect CvFace::LeftEyeRect</definition>
+        <argsstring></argsstring>
+        <name>LeftEyeRect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="857" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="857" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_face_1ae39fc3ffa37e59363fc3c2bf81d80b06" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_rect" kindref="compound">CvRect</ref></type>
+        <definition>CvRect CvFace::RightEyeRect</definition>
+        <argsstring></argsstring>
+        <name>RightEyeRect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="858" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="858" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1847">
+        <label>CvRect</label>
+        <link refid="struct_cv_rect"/>
+      </node>
+      <node id="1846">
+        <label>CvFace</label>
+        <link refid="struct_cv_face"/>
+        <childnode refid="1847" relation="usage">
+          <edgelabel>RightEyeRect</edgelabel>
+          <edgelabel>MouthRect</edgelabel>
+          <edgelabel>LeftEyeRect</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="855" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="854" bodyend="859"/>
+    <listofallmembers>
+      <member refid="struct_cv_face_1a1552b64b4ff72137d3b3a3f31d87c315" prot="public" virt="non-virtual"><scope>CvFace</scope><name>LeftEyeRect</name></member>
+      <member refid="struct_cv_face_1af9e59f64d8b4ff74be6481ee4a6eda0b" prot="public" virt="non-virtual"><scope>CvFace</scope><name>MouthRect</name></member>
+      <member refid="struct_cv_face_1ae39fc3ffa37e59363fc3c2bf81d80b06" prot="public" virt="non-virtual"><scope>CvFace</scope><name>RightEyeRect</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_m_s_e_r_params" kind="struct" prot="public">
+    <compoundname>CvMSERParams</compoundname>
+    <includes refid="cv_8h" local="no">cv.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_m_s_e_r_params_1a9a8574af934f1efe0aacb610fd273f04" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvMSERParams::delta</definition>
+        <argsstring></argsstring>
+        <name>delta</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1165" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_m_s_e_r_params_1a4f2be25b22dd08ebf741240d9b5a445e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvMSERParams::maxArea</definition>
+        <argsstring></argsstring>
+        <name>maxArea</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1167" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_m_s_e_r_params_1aa05b341d994d1fd85e199f5c4fe41db0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvMSERParams::minArea</definition>
+        <argsstring></argsstring>
+        <name>minArea</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1168" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_m_s_e_r_params_1acb769f970c8804c122db9c5dbbc9a37d" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvMSERParams::maxVariation</definition>
+        <argsstring></argsstring>
+        <name>maxVariation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1170" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_m_s_e_r_params_1addc1cf6caebd85fa2eee45be5cafe613" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvMSERParams::minDiversity</definition>
+        <argsstring></argsstring>
+        <name>minDiversity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1172" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_m_s_e_r_params_1ae2c65c573f5749809ae5cf426a4bd311" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvMSERParams::maxEvolution</definition>
+        <argsstring></argsstring>
+        <name>maxEvolution</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1175" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_m_s_e_r_params_1a2da123e24b459290065e7714bd7c1833" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMSERParams::areaThreshold</definition>
+        <argsstring></argsstring>
+        <name>areaThreshold</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1177" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_m_s_e_r_params_1ad06b0684eab5f764baf1ddcb9627dbe0" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMSERParams::minMargin</definition>
+        <argsstring></argsstring>
+        <name>minMargin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1179" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_m_s_e_r_params_1a968af0c998169f789c72f7c1320fd029" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvMSERParams::edgeBlurSize</definition>
+        <argsstring></argsstring>
+        <name>edgeBlurSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1181" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1181" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1163" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1162" bodyend="1182"/>
+    <listofallmembers>
+      <member refid="struct_cv_m_s_e_r_params_1a2da123e24b459290065e7714bd7c1833" prot="public" virt="non-virtual"><scope>CvMSERParams</scope><name>areaThreshold</name></member>
+      <member refid="struct_cv_m_s_e_r_params_1a9a8574af934f1efe0aacb610fd273f04" prot="public" virt="non-virtual"><scope>CvMSERParams</scope><name>delta</name></member>
+      <member refid="struct_cv_m_s_e_r_params_1a968af0c998169f789c72f7c1320fd029" prot="public" virt="non-virtual"><scope>CvMSERParams</scope><name>edgeBlurSize</name></member>
+      <member refid="struct_cv_m_s_e_r_params_1a4f2be25b22dd08ebf741240d9b5a445e" prot="public" virt="non-virtual"><scope>CvMSERParams</scope><name>maxArea</name></member>
+      <member refid="struct_cv_m_s_e_r_params_1ae2c65c573f5749809ae5cf426a4bd311" prot="public" virt="non-virtual"><scope>CvMSERParams</scope><name>maxEvolution</name></member>
+      <member refid="struct_cv_m_s_e_r_params_1acb769f970c8804c122db9c5dbbc9a37d" prot="public" virt="non-virtual"><scope>CvMSERParams</scope><name>maxVariation</name></member>
+      <member refid="struct_cv_m_s_e_r_params_1aa05b341d994d1fd85e199f5c4fe41db0" prot="public" virt="non-virtual"><scope>CvMSERParams</scope><name>minArea</name></member>
+      <member refid="struct_cv_m_s_e_r_params_1addc1cf6caebd85fa2eee45be5cafe613" prot="public" virt="non-virtual"><scope>CvMSERParams</scope><name>minDiversity</name></member>
+      <member refid="struct_cv_m_s_e_r_params_1ad06b0684eab5f764baf1ddcb9627dbe0" prot="public" virt="non-virtual"><scope>CvMSERParams</scope><name>minMargin</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

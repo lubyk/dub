@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct___ipl_conv_kernel_f_p" kind="struct" prot="public">
+    <compoundname>_IplConvKernelFP</compoundname>
+    <includes refid="cxtypes_8h" local="no">cxtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct___ipl_conv_kernel_f_p_1a61869edd3ab2cc2f59c3c6cc809bf05d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplConvKernelFP::nCols</definition>
+        <argsstring></argsstring>
+        <name>nCols</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="445" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="445" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_conv_kernel_f_p_1a1875e5b13135e849ac8f701b328e2dee" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplConvKernelFP::nRows</definition>
+        <argsstring></argsstring>
+        <name>nRows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="446" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="446" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_conv_kernel_f_p_1a26d834467c3155173b4fd458bd57d407" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplConvKernelFP::anchorX</definition>
+        <argsstring></argsstring>
+        <name>anchorX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="447" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="447" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_conv_kernel_f_p_1a81e8df32bddad0435612ce88c8b1b2a7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplConvKernelFP::anchorY</definition>
+        <argsstring></argsstring>
+        <name>anchorY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="448" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="448" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_conv_kernel_f_p_1a754f41d0794aad5f4d2d067dd034c664" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* _IplConvKernelFP::values</definition>
+        <argsstring></argsstring>
+        <name>values</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="449" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="449" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="444" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="443" bodyend="450"/>
+    <listofallmembers>
+      <member refid="struct___ipl_conv_kernel_f_p_1a26d834467c3155173b4fd458bd57d407" prot="public" virt="non-virtual"><scope>_IplConvKernelFP</scope><name>anchorX</name></member>
+      <member refid="struct___ipl_conv_kernel_f_p_1a81e8df32bddad0435612ce88c8b1b2a7" prot="public" virt="non-virtual"><scope>_IplConvKernelFP</scope><name>anchorY</name></member>
+      <member refid="struct___ipl_conv_kernel_f_p_1a61869edd3ab2cc2f59c3c6cc809bf05d" prot="public" virt="non-virtual"><scope>_IplConvKernelFP</scope><name>nCols</name></member>
+      <member refid="struct___ipl_conv_kernel_f_p_1a1875e5b13135e849ac8f701b328e2dee" prot="public" virt="non-virtual"><scope>_IplConvKernelFP</scope><name>nRows</name></member>
+      <member refid="struct___ipl_conv_kernel_f_p_1a754f41d0794aad5f4d2d067dd034c664" prot="public" virt="non-virtual"><scope>_IplConvKernelFP</scope><name>values</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

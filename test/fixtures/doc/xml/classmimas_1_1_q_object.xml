@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmimas_1_1_q_object" kind="class" prot="public">
+    <compoundname>mimas::QObject</compoundname>
+    <derivedcompoundref refid="classmimas_1_1_callback" prot="public" virt="non-virtual">mimas::Callback</derivedcompoundref>
+    <includes refid="_q_object_8h" local="no">QObject.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmimas_1_1_q_object_1a23a08f7ca37c775fcb8e800d02229565" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QObject::object</definition>
+        <argsstring>()</argsstring>
+        <name>object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QObject.h" line="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_object_1af8efebebabb12dbcadf06e4f1c987f0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QObject::name</definition>
+        <argsstring>()</argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QObject.h" line="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_object_1a703a9b7d8388b671c4115f21afceeb72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QObject::setName</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>setName</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QObject.h" line="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This is a dummy class to create bindings for objects inheriting from Qt&apos;s <ref refid="classmimas_1_1_q_object" kindref="compound">QObject</ref>.</para><para><simplesect kind="par"><title>Bindings info:</title><para>bind: &apos;QObject.yml&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2335">
+        <label>mimas::QObject</label>
+        <link refid="classmimas_1_1_q_object"/>
+      </node>
+      <node id="2336">
+        <label>mimas::Callback</label>
+        <link refid="classmimas_1_1_callback"/>
+        <childnode refid="2335" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QObject.h" line="8" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/bind/QObject.h" bodystart="8" bodyend="14"/>
+    <listofallmembers>
+      <member refid="classmimas_1_1_q_object_1af8efebebabb12dbcadf06e4f1c987f0f" prot="public" virt="non-virtual"><scope>mimas::QObject</scope><name>name</name></member>
+      <member refid="classmimas_1_1_q_object_1a23a08f7ca37c775fcb8e800d02229565" prot="public" virt="non-virtual"><scope>mimas::QObject</scope><name>object</name></member>
+      <member refid="classmimas_1_1_q_object_1a703a9b7d8388b671c4115f21afceeb72" prot="public" virt="non-virtual"><scope>mimas::QObject</scope><name>setName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

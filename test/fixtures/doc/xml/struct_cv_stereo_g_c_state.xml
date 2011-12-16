@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_stereo_g_c_state" kind="struct" prot="public">
+    <compoundname>CvStereoGCState</compoundname>
+    <includes refid="cv_8h" local="no">cv.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1a3ffcc3ba221a17b5c6a797f193e415ef" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoGCState::Ithreshold</definition>
+        <argsstring></argsstring>
+        <name>Ithreshold</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1590" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1590" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1aabf69d788a58964238fb7fd9856c9072" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoGCState::interactionRadius</definition>
+        <argsstring></argsstring>
+        <name>interactionRadius</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1591" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1591" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1a9235a0cc202d057ea7b7702e27ef5258" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvStereoGCState::K</definition>
+        <argsstring></argsstring>
+        <name>K</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1592" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1592" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1a9964d61285e7ae6473ea67f37c690686" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvStereoGCState::lambda</definition>
+        <argsstring></argsstring>
+        <name>lambda</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1592" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1592" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1a0fcc2b4ab0710f2a908bea3c7215bf37" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvStereoGCState::lambda1</definition>
+        <argsstring></argsstring>
+        <name>lambda1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1592" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1592" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1a8a8099aa413d54772f324ffbdf5bf3c4" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvStereoGCState::lambda2</definition>
+        <argsstring></argsstring>
+        <name>lambda2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1592" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1592" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1a5180d46f17b0ef1a0a12548f1ac8d131" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoGCState::occlusionCost</definition>
+        <argsstring></argsstring>
+        <name>occlusionCost</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1593" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1593" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1acd99c90864d862383ea2ee3d7771bcdf" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoGCState::minDisparity</definition>
+        <argsstring></argsstring>
+        <name>minDisparity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1594" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1594" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1a25f14ac893bf2cc8cfa7f1b71692dbc9" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoGCState::numberOfDisparities</definition>
+        <argsstring></argsstring>
+        <name>numberOfDisparities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1595" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1595" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1a3e7a32482d880e232b95e6be0d0c0d20" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoGCState::maxIters</definition>
+        <argsstring></argsstring>
+        <name>maxIters</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1596" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1596" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1a1db1664259831d3dfd963b67d2d1f086" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvStereoGCState::left</definition>
+        <argsstring></argsstring>
+        <name>left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1598" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1598" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1a0de1cdbbff1f05aed8f73b6d0d30dc27" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvStereoGCState::right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1599" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1599" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1aa42201c55ae54bea97810a913e59eefb" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvStereoGCState::dispLeft</definition>
+        <argsstring></argsstring>
+        <name>dispLeft</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1600" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1600" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1a8d1b00fb29ac17a6ba6c49a92dc78147" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvStereoGCState::dispRight</definition>
+        <argsstring></argsstring>
+        <name>dispRight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1601" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1601" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1a47a4b2c5e47839d25f45c8214e2a3d61" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvStereoGCState::ptrLeft</definition>
+        <argsstring></argsstring>
+        <name>ptrLeft</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1602" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1602" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1a72a4375a625d180a8d4670d8f40d8eac" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvStereoGCState::ptrRight</definition>
+        <argsstring></argsstring>
+        <name>ptrRight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1603" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1603" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1a1fb806f995a7314ace15ace55d061d4e" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvStereoGCState::vtxBuf</definition>
+        <argsstring></argsstring>
+        <name>vtxBuf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1604" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1604" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_g_c_state_1a75d3251f2b816ca26bf4ee82780f1394" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvStereoGCState::edgeBuf</definition>
+        <argsstring></argsstring>
+        <name>edgeBuf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1605" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1605" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2031">
+        <label>CvStereoGCState</label>
+        <link refid="struct_cv_stereo_g_c_state"/>
+        <childnode refid="2032" relation="usage">
+          <edgelabel>ptrRight</edgelabel>
+          <edgelabel>dispLeft</edgelabel>
+          <edgelabel>right</edgelabel>
+          <edgelabel>ptrLeft</edgelabel>
+          <edgelabel>edgeBuf</edgelabel>
+          <edgelabel>left</edgelabel>
+          <edgelabel>vtxBuf</edgelabel>
+          <edgelabel>dispRight</edgelabel>
+        </childnode>
+      </node>
+      <node id="2032">
+        <label>CvMat</label>
+        <link refid="struct_cv_mat"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1589" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1588" bodyend="1606"/>
+    <listofallmembers>
+      <member refid="struct_cv_stereo_g_c_state_1aa42201c55ae54bea97810a913e59eefb" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>dispLeft</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1a8d1b00fb29ac17a6ba6c49a92dc78147" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>dispRight</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1a75d3251f2b816ca26bf4ee82780f1394" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>edgeBuf</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1aabf69d788a58964238fb7fd9856c9072" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>interactionRadius</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1a3ffcc3ba221a17b5c6a797f193e415ef" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>Ithreshold</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1a9235a0cc202d057ea7b7702e27ef5258" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>K</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1a9964d61285e7ae6473ea67f37c690686" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>lambda</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1a0fcc2b4ab0710f2a908bea3c7215bf37" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>lambda1</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1a8a8099aa413d54772f324ffbdf5bf3c4" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>lambda2</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1a1db1664259831d3dfd963b67d2d1f086" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>left</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1a3e7a32482d880e232b95e6be0d0c0d20" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>maxIters</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1acd99c90864d862383ea2ee3d7771bcdf" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>minDisparity</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1a25f14ac893bf2cc8cfa7f1b71692dbc9" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>numberOfDisparities</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1a5180d46f17b0ef1a0a12548f1ac8d131" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>occlusionCost</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1a47a4b2c5e47839d25f45c8214e2a3d61" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>ptrLeft</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1a72a4375a625d180a8d4670d8f40d8eac" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>ptrRight</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1a0de1cdbbff1f05aed8f73b6d0d30dc27" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>right</name></member>
+      <member refid="struct_cv_stereo_g_c_state_1a1fb806f995a7314ace15ace55d061d4e" prot="public" virt="non-virtual"><scope>CvStereoGCState</scope><name>vtxBuf</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

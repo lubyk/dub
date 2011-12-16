@@ -1,0 +1,912 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmimas_1_1_list_view" kind="class" prot="public">
+    <compoundname>mimas::ListView</compoundname>
+    <basecompoundref refid="classlubyk_1_1_threaded_lua_object" prot="public" virt="non-virtual">lubyk::ThreadedLuaObject</basecompoundref>
+    <includes refid="_list_view_8h" local="no">ListView.h</includes>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="classmimas_1_1_list_view_1a34726f00359c45dbbe7fdddfea6fb1b7" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+        <type>QString</type>
+        <definition>QString mimas::ListView::class</definition>
+        <argsstring></argsstring>
+        <name>class</name>
+        <read>cssClass</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="56" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classmimas_1_1_list_view_1a271561ef905fa6ea214b882170047fb3" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+        <type>float</type>
+        <definition>float mimas::ListView::hue</definition>
+        <argsstring></argsstring>
+        <name>hue</name>
+        <read>hue</read>
+        <write>setHue</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="57" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classmimas_1_1_list_view_1a8225b9083baac0df7829189cf7b46f7c" prot="public" static="no" readable="no" writable="no" gettable="no" settable="no">
+        <type>QSize</type>
+        <definition>QSize mimas::ListView::size_hint_</definition>
+        <argsstring></argsstring>
+        <name>size_hint_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="59" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmimas_1_1_list_view_1abe7b87362fe1344306e8884cf902530b" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float mimas::ListView::hue_</definition>
+        <argsstring></argsstring>
+        <name>hue_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The component&apos;s color. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="304" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmimas_1_1_list_view_1ae5d3977339bdc349a3192f217047b05d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::ListView::ListView</definition>
+        <argsstring>(lubyk::Worker *worker)</argsstring>
+        <name>ListView</name>
+        <param>
+          <type><ref refid="classlubyk_1_1_worker" kindref="compound">lubyk::Worker</ref> *</type>
+          <declname>worker</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="61" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="61" bodyend="70"/>
+        <references refid="mimas_8h_1abf7761995db91711f1c2001b3ea81ae7" compoundref="mimas_8h" startline="37">MIMAS_DEBUG_CC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a2621d40ab3d07157f90aa94c6d5b5c30" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::ListView::~ListView</definition>
+        <argsstring>()</argsstring>
+        <name>~ListView</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="72" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="72" bodyend="74"/>
+        <references refid="mimas_8h_1a9d2f1addda3f00a2c1d2e3e2b6e4b5b5" compoundref="mimas_8h" startline="38">MIMAS_DEBUG_GC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a5333a2b88c5fc345b80b52ce223bd204" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString mimas::ListView::cssClass</definition>
+        <argsstring>() const </argsstring>
+        <name>cssClass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="78" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="78" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1af3b5b4a5e50b0c57fed2328ebee223c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmimas_1_1_q_widget" kindref="compound">QWidget</ref> *</type>
+        <definition>QWidget* mimas::ListView::widget</definition>
+        <argsstring>()</argsstring>
+        <name>widget</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="82" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="82" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a0fd744249f8aef415d0113e7ea9b82ac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmimas_1_1_q_object" kindref="compound">QObject</ref> *</type>
+        <definition>QObject* mimas::ListView::object</definition>
+        <argsstring>()</argsstring>
+        <name>object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="86" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="86" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a5d8a35fa3e2f4d8d32911d089e68a0ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize mimas::ListView::name</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>name</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the widget&apos;s name. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="92" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="92" bodyend="95"/>
+        <references refid="cv_8h_1acd1647952fba31484ea63d6f1140e509" compoundref="cv_8h" startline="841">data</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1afb1b8cd54bccceb4ec1707317df03795" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::setName</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>setName</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the widget&apos;s name. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="99" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="99" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1ac09e575d26010b5c92aaa1b937e20f6b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::move</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>move</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="103" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="103" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1afc87cc3b427dd905fd6d2714e8ee6830" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::resize</definition>
+        <argsstring>(int w, int h)</argsstring>
+        <name>resize</name>
+        <param>
+          <type>int</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="107" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="107" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a54f27a500e23b747e0d48260dd8dde29" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::ListView::x</definition>
+        <argsstring>()</argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="111" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="111" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a525c6fa70feb98c63c7d1f0834dfab5a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::ListView::y</definition>
+        <argsstring>()</argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="115" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="115" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1aa0912b30b09f4dea891acb2848d2d6c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::ListView::width</definition>
+        <argsstring>()</argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="119" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="119" bodyend="121"/>
+        <references refid="highgui_8h_1a2474a5474cbff19523a51eb1de01cda4" compoundref="highgui_8h" startline="131">width</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a66494429ac27f4081a85638b2fc7c410" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::ListView::height</definition>
+        <argsstring>()</argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="123" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="123" bodyend="125"/>
+        <references refid="highgui_8h_1adc7b4b8a6ef510e136071efbc9cd9a58" compoundref="highgui_8h" startline="131">height</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a32dc5db02d7cfd8ee2d7bff7d5e977b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::setStyle</definition>
+        <argsstring>(const char *text)</argsstring>
+        <name>setStyle</name>
+        <param>
+          <type>const char *</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="127" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="127" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a19cf53ffa6c7b77c9efb441860989b7b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::setStyleSheet</definition>
+        <argsstring>(const char *text)</argsstring>
+        <name>setStyleSheet</name>
+        <param>
+          <type>const char *</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="131" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="131" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a639f409312e88b9de9924417a59bbbe4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::setHue</definition>
+        <argsstring>(float hue)</argsstring>
+        <name>setHue</name>
+        <param>
+          <type>float</type>
+          <declname>hue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="135" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="135" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1ae97548fff30414c754b74e119eacb378" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float mimas::ListView::hue</definition>
+        <argsstring>()</argsstring>
+        <name>hue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="140" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="140" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1acd18596047d492d03535b40c314bc14f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="144" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="144" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a605bacfe7733b2b555ddab1e0a323125" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize mimas::ListView::textSize</definition>
+        <argsstring>(const char *text, lua_State *L)</argsstring>
+        <name>textSize</name>
+        <param>
+          <type>const char *</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get size of text with current widget font. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="150" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="150" bodyend="154"/>
+        <references refid="highgui_8h_1adc7b4b8a6ef510e136071efbc9cd9a58" compoundref="highgui_8h" startline="131">height</references>
+        <references refid="highgui_8h_1a2474a5474cbff19523a51eb1de01cda4" compoundref="highgui_8h" startline="131">width</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1acf410fb2876f91b4b42c4aa80eafc7d8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::setSizeHint</definition>
+        <argsstring>(float w, float h)</argsstring>
+        <name>setSizeHint</name>
+        <param>
+          <type>float</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the prefered size. Use setSizePolicy to define how the widget resizes compared to this value. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="159" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="159" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a71c7f4190e94586bd2898575c5ab2fe9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::setSizePolicy</definition>
+        <argsstring>(int horizontal, int vertical)</argsstring>
+        <name>setSizePolicy</name>
+        <param>
+          <type>int</type>
+          <declname>horizontal</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>vertical</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Control how the widget behaves in a layout related to it&apos;s <ref refid="classmimas_1_1_list_view_1a95d70a6e76ee4d11ad789d6aa789a0f2" kindref="member">sizeHint()</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="166" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="166" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1afc25594a52d8b0e03a3a5db0842f985a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::setMinimumSize</definition>
+        <argsstring>(float w, float h)</argsstring>
+        <name>setMinimumSize</name>
+        <param>
+          <type>float</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="172" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="172" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a1e8f2384c8a015c51364e5f7f630aa70" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::setMouseTracking</definition>
+        <argsstring>(bool enable)</argsstring>
+        <name>setMouseTracking</name>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Receive mouse move events even if no button is pressed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="178" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="178" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1ab2b1eb53f585f160fbd1c84e2461952c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mimas::ListView::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Close and delete the window. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="184" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="184" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a13864919579011ea94925773e6f5a5ee" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mimas::ListView::isVisible</definition>
+        <argsstring>() const </argsstring>
+        <name>isVisible</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="188" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="188" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a84fa80b15b3622249f62b63e7b13c951" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::show</definition>
+        <argsstring>()</argsstring>
+        <name>show</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="192" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="192" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1ada5efeda80fa1dc96cf9c808df2da5cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::hide</definition>
+        <argsstring>()</argsstring>
+        <name>hide</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="196" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="196" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a2fb365bff6d8be316c8cfbddc2e79497" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize mimas::ListView::globalPosition</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>globalPosition</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns (x,y) position of the widget in the global screen coordinates. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="203" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="203" bodyend="208"/>
+        <references refid="cv_8h_1a69c6090aa56793ec8ef2457bc6d45b45" compoundref="cv_8h" startline="660">pt</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1ae8c6c6622c8aa84c0184bea737eeeb01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::globalMove</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>globalMove</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Move the widget to the given global coordinates. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="212" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="212" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a127037e501655fc7175e75b274314a0b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::lower</definition>
+        <argsstring>()</argsstring>
+        <name>lower</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Bring to bottom of parent widget. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="218" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="218" bodyend="220"/>
+        <references refid="cxcore_8h_1a0383d0fa3cd604e2cb1be135c65ccd98" compoundref="cxcore_8h" startline="583">lower</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1ab88a3ecee7b28666381576f738066f63" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::raise</definition>
+        <argsstring>()</argsstring>
+        <name>raise</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Bring to top of parent widget. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="224" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="224" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a5a5d3b36efcb5a9c037327405114f57f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize mimas::ListView::indexAt</definition>
+        <argsstring>(float x, float y, lua_State *L)</argsstring>
+        <name>indexAt</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the index of the model at the given x,y position. <simplesect kind="return"><para>x, y </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="234" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="234" bodyend="244"/>
+        <references refid="cxcore_8h_1a5c7c842f447336aa2f10826df65a28b3" compoundref="cxcore_8h" startline="348">idx</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a17f9d52f800d1d4690b6bd43fd209f22" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::selectRow</definition>
+        <argsstring>(int row)</argsstring>
+        <name>selectRow</name>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="246" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="246" bodyend="250"/>
+        <references refid="cxcore_8h_1a750b5d744c39a06bfb13e6eb010e35d0" compoundref="cxcore_8h" startline="334">index</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1af0336f3804e947c8ed608884d5dac268" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::ListView::setModel</definition>
+        <argsstring>(DataSource *model)</argsstring>
+        <name>setModel</name>
+        <param>
+          <type><ref refid="classmimas_1_1_data_source" kindref="compound">DataSource</ref> *</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Use an external model instead of the default one. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="254" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="254" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1ad38c79b83d4021b0ea057869c17529e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::ListView::luaInit</definition>
+        <argsstring>(lua_State *L, ListView *obj, const char *class_name)</argsstring>
+        <name>luaInit</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type><ref refid="classmimas_1_1_list_view" kindref="compound">ListView</ref> *</type>
+          <declname>obj</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>class_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="258" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="258" bodyend="278"/>
+        <references refid="cv_8h_1acd1647952fba31484ea63d6f1140e509" compoundref="cv_8h" startline="841">data</references>
+        <references refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" compoundref="lua__object_8h" startline="79">lubyk::ThreadedLuaObject::lua_</references>
+        <references refid="classlubyk_1_1_threaded_lua_object_1a1351dd8c5053c7df8e0a29b2887ddb8e">lubyk::ThreadedLuaObject::luaInit</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a21f4423875dc775d7d90a4f194febe70" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::ListView::mouseMoveEvent</definition>
+        <argsstring>(QMouseEvent *event)</argsstring>
+        <name>mouseMoveEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="281"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a7bbff6bc9675d807132e8aa20ccaeb63" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::ListView::mousePressEvent</definition>
+        <argsstring>(QMouseEvent *event)</argsstring>
+        <name>mousePressEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="283" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="283" bodyend="286"/>
+        <references refid="namespacemimas_1ac511138d28d71a62e97f1639d18c08a6a53a1fecfaa3461c5fa343cccce94322d" compoundref="mimas_2include_2mimas_2constants_8h" startline="137">mimas::MousePress</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a774adbe80087f79b1ebaec80f2680a89" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::ListView::mouseDoubleClickEvent</definition>
+        <argsstring>(QMouseEvent *event)</argsstring>
+        <name>mouseDoubleClickEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="288" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="288" bodyend="291"/>
+        <references refid="namespacemimas_1ac511138d28d71a62e97f1639d18c08a6a79efc10f470f89403cfc8c847cffc397" compoundref="mimas_2include_2mimas_2constants_8h" startline="139">mimas::DoubleClick</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a19f401df5a10e84242c502814e80d4fe" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::ListView::mouseReleaseEvent</definition>
+        <argsstring>(QMouseEvent *event)</argsstring>
+        <name>mouseReleaseEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="293" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="293" bodyend="296"/>
+        <references refid="namespacemimas_1ac511138d28d71a62e97f1639d18c08a6a07cdb56d9783986895cc0ee3a3150b73" compoundref="mimas_2include_2mimas_2constants_8h" startline="138">mimas::MouseRelease</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a95d70a6e76ee4d11ad789d6aa789a0f2" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QSize</type>
+        <definition>virtual QSize mimas::ListView::sizeHint</definition>
+        <argsstring>() const </argsstring>
+        <name>sizeHint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="298" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="298" bodyend="300"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a864809bbda802f6ee7e74f1fd4fdfc76" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mimas::ListView::click</definition>
+        <argsstring>(QMouseEvent *event, int type)</argsstring>
+        <name>click</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="307"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_list_view_1a73503251d96ee50591eab15dcebf490d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mimas::ListView::select</definition>
+        <argsstring>(QMouseEvent *event, int type)</argsstring>
+        <name>select</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="308"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classmimas_1_1_list_view" kindref="compound">ListView</ref> is used to display data as a list.</para><para><simplesect kind="par"><title>Bindings info:</title><para>destructor: &apos;luaDestroy&apos; ignore: &apos;luaInit&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2174">
+        <label>mimas::ListView</label>
+        <link refid="classmimas_1_1_list_view"/>
+        <childnode refid="2175" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2176">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="2175">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2176" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2180">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="2181" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2177">
+        <label>mimas::ListView</label>
+        <link refid="classmimas_1_1_list_view"/>
+        <childnode refid="2178" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2182">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2179">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="2180" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2178">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2179" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2181">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="2182" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" line="54" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h" bodystart="54" bodyend="309"/>
+    <listofallmembers>
+      <member refid="classmimas_1_1_list_view_1a34726f00359c45dbbe7fdddfea6fb1b7" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>class</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>mimas::ListView</scope><name>class_name_</name></member>
+      <member refid="classmimas_1_1_list_view_1a864809bbda802f6ee7e74f1fd4fdfc76" prot="private" virt="non-virtual"><scope>mimas::ListView</scope><name>click</name></member>
+      <member refid="classmimas_1_1_list_view_1ab2b1eb53f585f160fbd1c84e2461952c" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>close</name></member>
+      <member refid="classmimas_1_1_list_view_1a5333a2b88c5fc345b80b52ce223bd204" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>cssClass</name></member>
+      <member refid="classmimas_1_1_list_view_1ae8c6c6622c8aa84c0184bea737eeeb01" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>globalMove</name></member>
+      <member refid="classmimas_1_1_list_view_1a2fb365bff6d8be316c8cfbddc2e79497" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>globalPosition</name></member>
+      <member refid="classmimas_1_1_list_view_1a66494429ac27f4081a85638b2fc7c410" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>height</name></member>
+      <member refid="classmimas_1_1_list_view_1ada5efeda80fa1dc96cf9c808df2da5cd" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>hide</name></member>
+      <member refid="classmimas_1_1_list_view_1a271561ef905fa6ea214b882170047fb3" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>hue</name></member>
+      <member refid="classmimas_1_1_list_view_1ae97548fff30414c754b74e119eacb378" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>hue</name></member>
+      <member refid="classmimas_1_1_list_view_1abe7b87362fe1344306e8884cf902530b" prot="protected" virt="non-virtual"><scope>mimas::ListView</scope><name>hue_</name></member>
+      <member refid="classmimas_1_1_list_view_1a5a5d3b36efcb5a9c037327405114f57f" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>indexAt</name></member>
+      <member refid="classmimas_1_1_list_view_1a13864919579011ea94925773e6f5a5ee" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>isVisible</name></member>
+      <member refid="classmimas_1_1_list_view_1ae5d3977339bdc349a3192f217047b05d" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>ListView</name></member>
+      <member refid="classmimas_1_1_list_view_1a127037e501655fc7175e75b274314a0b" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>lower</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>lua_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>mimas::ListView</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>luaDestroy</name></member>
+      <member refid="classmimas_1_1_list_view_1ad38c79b83d4021b0ea057869c17529e8" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a1351dd8c5053c7df8e0a29b2887ddb8e" prot="public" virt="non-virtual" ambiguityscope="lubyk::ThreadedLuaObject::"><scope>mimas::ListView</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>LuaObject</name></member>
+      <member refid="classmimas_1_1_list_view_1a774adbe80087f79b1ebaec80f2680a89" prot="protected" virt="virtual"><scope>mimas::ListView</scope><name>mouseDoubleClickEvent</name></member>
+      <member refid="classmimas_1_1_list_view_1a21f4423875dc775d7d90a4f194febe70" prot="protected" virt="virtual"><scope>mimas::ListView</scope><name>mouseMoveEvent</name></member>
+      <member refid="classmimas_1_1_list_view_1a7bbff6bc9675d807132e8aa20ccaeb63" prot="protected" virt="virtual"><scope>mimas::ListView</scope><name>mousePressEvent</name></member>
+      <member refid="classmimas_1_1_list_view_1a19f401df5a10e84242c502814e80d4fe" prot="protected" virt="virtual"><scope>mimas::ListView</scope><name>mouseReleaseEvent</name></member>
+      <member refid="classmimas_1_1_list_view_1ac09e575d26010b5c92aaa1b937e20f6b" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>move</name></member>
+      <member refid="classmimas_1_1_list_view_1a5d8a35fa3e2f4d8d32911d089e68a0ab" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>name</name></member>
+      <member refid="classmimas_1_1_list_view_1a0fd744249f8aef415d0113e7ea9b82ac" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>object</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1af9f7e3d5717357958461b2634742475f" prot="protected" virt="non-virtual"><scope>mimas::ListView</scope><name>pushLuaCallbackl</name></member>
+      <member refid="classmimas_1_1_list_view_1ab88a3ecee7b28666381576f738066f63" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>raise</name></member>
+      <member refid="classmimas_1_1_list_view_1afc87cc3b427dd905fd6d2714e8ee6830" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>resize</name></member>
+      <member refid="classmimas_1_1_list_view_1a73503251d96ee50591eab15dcebf490d" prot="private" virt="non-virtual"><scope>mimas::ListView</scope><name>select</name></member>
+      <member refid="classmimas_1_1_list_view_1a17f9d52f800d1d4690b6bd43fd209f22" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>selectRow</name></member>
+      <member refid="classmimas_1_1_list_view_1a639f409312e88b9de9924417a59bbbe4" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>setHue</name></member>
+      <member refid="classmimas_1_1_list_view_1afc25594a52d8b0e03a3a5db0842f985a" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>setMinimumSize</name></member>
+      <member refid="classmimas_1_1_list_view_1af0336f3804e947c8ed608884d5dac268" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>setModel</name></member>
+      <member refid="classmimas_1_1_list_view_1a1e8f2384c8a015c51364e5f7f630aa70" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>setMouseTracking</name></member>
+      <member refid="classmimas_1_1_list_view_1afb1b8cd54bccceb4ec1707317df03795" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>setName</name></member>
+      <member refid="classmimas_1_1_list_view_1acf410fb2876f91b4b42c4aa80eafc7d8" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>setSizeHint</name></member>
+      <member refid="classmimas_1_1_list_view_1a71c7f4190e94586bd2898575c5ab2fe9" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>setSizePolicy</name></member>
+      <member refid="classmimas_1_1_list_view_1a32dc5db02d7cfd8ee2d7bff7d5e977b0" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>setStyle</name></member>
+      <member refid="classmimas_1_1_list_view_1a19cf53ffa6c7b77c9efb441860989b7b" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>setStyleSheet</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1ad533909af126d2aa2b058dea6b0d91f0" prot="protected" virt="non-virtual"><scope>mimas::ListView</scope><name>setupLuaThread</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>mimas::ListView</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>mimas::ListView</scope><name>setupSuper</name></member>
+      <member refid="classmimas_1_1_list_view_1a84fa80b15b3622249f62b63e7b13c951" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>show</name></member>
+      <member refid="classmimas_1_1_list_view_1a8225b9083baac0df7829189cf7b46f7c" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>size_hint_</name></member>
+      <member refid="classmimas_1_1_list_view_1a95d70a6e76ee4d11ad789d6aa789a0f2" prot="protected" virt="virtual"><scope>mimas::ListView</scope><name>sizeHint</name></member>
+      <member refid="classmimas_1_1_list_view_1a605bacfe7733b2b555ddab1e0a323125" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>textSize</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a68147ed0f2048d29f6adf5316992ad69" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>ThreadedLuaObject</name></member>
+      <member refid="classmimas_1_1_list_view_1acd18596047d492d03535b40c314bc14f" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>update</name></member>
+      <member refid="classmimas_1_1_list_view_1af3b5b4a5e50b0c57fed2328ebee223c8" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>widget</name></member>
+      <member refid="classmimas_1_1_list_view_1aa0912b30b09f4dea891acb2848d2d6c9" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>width</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>worker_</name></member>
+      <member refid="classmimas_1_1_list_view_1a54f27a500e23b747e0d48260dd8dde29" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>x</name></member>
+      <member refid="classmimas_1_1_list_view_1a525c6fa70feb98c63c7d1f0834dfab5a" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>y</name></member>
+      <member refid="classmimas_1_1_list_view_1a2621d40ab3d07157f90aa94c6d5b5c30" prot="public" virt="non-virtual"><scope>mimas::ListView</scope><name>~ListView</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>mimas::ListView</scope><name>~LuaObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

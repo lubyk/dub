@@ -1,0 +1,325 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="namespacecv" kind="namespace">
+    <compoundname>cv</compoundname>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespacecv_1a5bfe9446a9ef53d052e8d1231408241c" prot="public" static="no">
+        <type>CvStatModel</type>
+        <definition>typedef CvStatModel cv::StatModel</definition>
+        <argsstring></argsstring>
+        <name>StatModel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1920" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1920" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1a553bfad7549284b4c9dc62cda6775fe0" prot="public" static="no">
+        <type>CvParamGrid</type>
+        <definition>typedef CvParamGrid cv::ParamGrid</definition>
+        <argsstring></argsstring>
+        <name>ParamGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1921" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1921" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1a7b3c734d4bd39d225120e4646ae52da3" prot="public" static="no">
+        <type>CvNormalBayesClassifier</type>
+        <definition>typedef CvNormalBayesClassifier cv::NormalBayesClassifier</definition>
+        <argsstring></argsstring>
+        <name>NormalBayesClassifier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1922" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1922" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1aab100bf5123c4e9ae559488730eb0c16" prot="public" static="no">
+        <type>CvKNearest</type>
+        <definition>typedef CvKNearest cv::KNearest</definition>
+        <argsstring></argsstring>
+        <name>KNearest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1923" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1923" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1ab2732cd927cbd1384551687124653d14" prot="public" static="no">
+        <type>CvSVMParams</type>
+        <definition>typedef CvSVMParams cv::SVMParams</definition>
+        <argsstring></argsstring>
+        <name>SVMParams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1924" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1924" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1ac6cb1c71c79028ac850926e0607da32c" prot="public" static="no">
+        <type>CvSVMKernel</type>
+        <definition>typedef CvSVMKernel cv::SVMKernel</definition>
+        <argsstring></argsstring>
+        <name>SVMKernel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1925" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1925" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1a5c58d9c8b6d984ae1a8474a20c034054" prot="public" static="no">
+        <type>CvSVMSolver</type>
+        <definition>typedef CvSVMSolver cv::SVMSolver</definition>
+        <argsstring></argsstring>
+        <name>SVMSolver</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1926" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1926" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1aec6889cbf1b4a6e57236b2f33078be78" prot="public" static="no">
+        <type>CvSVM</type>
+        <definition>typedef CvSVM cv::SVM</definition>
+        <argsstring></argsstring>
+        <name>SVM</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1927" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1927" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1aa4086d21d046ca9c98bf0f2ca7c8a376" prot="public" static="no">
+        <type>CvEMParams</type>
+        <definition>typedef CvEMParams cv::EMParams</definition>
+        <argsstring></argsstring>
+        <name>EMParams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1928" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1928" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1abe12c53d4ecd3c437c8b209b504b5fd3" prot="public" static="no">
+        <type>CvEM</type>
+        <definition>typedef CvEM cv::ExpectationMaximization</definition>
+        <argsstring></argsstring>
+        <name>ExpectationMaximization</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1929" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1929" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1a1c0367d732af1884c7a872cda9e42121" prot="public" static="no">
+        <type>CvDTreeParams</type>
+        <definition>typedef CvDTreeParams cv::DTreeParams</definition>
+        <argsstring></argsstring>
+        <name>DTreeParams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1930" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1930" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1a13d9efbdccb7667ae71e8c5f2b15aad8" prot="public" static="no">
+        <type><ref refid="class_cv_m_l_data" kindref="compound">CvMLData</ref></type>
+        <definition>typedef CvMLData cv::TrainData</definition>
+        <argsstring></argsstring>
+        <name>TrainData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1931" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1931" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1a62ab0b82fb2982018d08985497af3b9b" prot="public" static="no">
+        <type>CvDTree</type>
+        <definition>typedef CvDTree cv::DecisionTree</definition>
+        <argsstring></argsstring>
+        <name>DecisionTree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1932" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1932" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1a76941066e0e52564ac55e0383f9fff38" prot="public" static="no">
+        <type>CvForestTree</type>
+        <definition>typedef CvForestTree cv::ForestTree</definition>
+        <argsstring></argsstring>
+        <name>ForestTree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1933" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1933" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1a7b018353b010572045899c83a09c839c" prot="public" static="no">
+        <type>CvRTParams</type>
+        <definition>typedef CvRTParams cv::RandomTreeParams</definition>
+        <argsstring></argsstring>
+        <name>RandomTreeParams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1934" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1934" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1a5cb20164fa3772e0c186185955471b59" prot="public" static="no">
+        <type>CvRTrees</type>
+        <definition>typedef CvRTrees cv::RandomTrees</definition>
+        <argsstring></argsstring>
+        <name>RandomTrees</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1935" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1935" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1a857278fa290d09e23ba32956d1f8e29c" prot="public" static="no">
+        <type>CvERTreeTrainData</type>
+        <definition>typedef CvERTreeTrainData cv::ERTreeTRainData</definition>
+        <argsstring></argsstring>
+        <name>ERTreeTRainData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1936" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1936" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1ad4885b446c2bb9d13bc002fb0945e4de" prot="public" static="no">
+        <type>CvForestERTree</type>
+        <definition>typedef CvForestERTree cv::ERTree</definition>
+        <argsstring></argsstring>
+        <name>ERTree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1937" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1937" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1a2b47ecc54c447ed0df4496cd4a23a2e3" prot="public" static="no">
+        <type>CvERTrees</type>
+        <definition>typedef CvERTrees cv::ERTrees</definition>
+        <argsstring></argsstring>
+        <name>ERTrees</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1938" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1938" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1a0483059392adced31758b287478f0787" prot="public" static="no">
+        <type>CvBoostParams</type>
+        <definition>typedef CvBoostParams cv::BoostParams</definition>
+        <argsstring></argsstring>
+        <name>BoostParams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1939" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1939" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1a745252596306400582fa02e629138b67" prot="public" static="no">
+        <type>CvBoostTree</type>
+        <definition>typedef CvBoostTree cv::BoostTree</definition>
+        <argsstring></argsstring>
+        <name>BoostTree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1940" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1940" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1ae522a6d0bb9262e303e4ef5d9eee1caf" prot="public" static="no">
+        <type>CvBoost</type>
+        <definition>typedef CvBoost cv::Boost</definition>
+        <argsstring></argsstring>
+        <name>Boost</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1941" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1941" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1a4abe44a6e94de3ef8df3cad5964cb3c1" prot="public" static="no">
+        <type>CvANN_MLP_TrainParams</type>
+        <definition>typedef CvANN_MLP_TrainParams cv::ANN_MLP_TrainParams</definition>
+        <argsstring></argsstring>
+        <name>ANN_MLP_TrainParams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1942" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1942" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecv_1ab4b26ec1dd6e09b3139999988314ad38" prot="public" static="no">
+        <type>CvANN_MLP</type>
+        <definition>typedef CvANN_MLP cv::NeuralNet_MLP</definition>
+        <argsstring></argsstring>
+        <name>NeuralNet_MLP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1943" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" bodystart="1943" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h" line="1918"/>
+  </compounddef>
+</doxygen>

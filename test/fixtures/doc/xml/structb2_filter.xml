@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_filter" kind="struct" prot="public">
+    <compoundname>b2Filter</compoundname>
+    <includes refid="b2_fixture_8h" local="no">b2Fixture.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_filter_1a368907397168d39af8b4fc5201d50bba" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a05f6b0ae8f6a6e135b0e290c25fe0e4e" kindref="member">uint16</ref></type>
+        <definition>uint16 b2Filter::categoryBits</definition>
+        <argsstring></argsstring>
+        <name>categoryBits</name>
+        <briefdescription>
+<para>The collision category bits. Normally you would just set one bit. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="42" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="42" bodyend="-1"/>
+        <referencedby refid="structb2_filter_1aeb3c0a8af990a7a3f06ae18312be50d4" compoundref="b2_fixture_8h" startline="34" endline="39">b2Filter</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_filter_1a533cccf85e3ba3d9e3700d73b819f6e2" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a05f6b0ae8f6a6e135b0e290c25fe0e4e" kindref="member">uint16</ref></type>
+        <definition>uint16 b2Filter::maskBits</definition>
+        <argsstring></argsstring>
+        <name>maskBits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The collision mask bits. This states the categories that this shape would accept for collision. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="46" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="46" bodyend="-1"/>
+        <referencedby refid="structb2_filter_1aeb3c0a8af990a7a3f06ae18312be50d4" compoundref="b2_fixture_8h" startline="34" endline="39">b2Filter</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_filter_1a572a8f4a1672f6d5d71123a35e872950" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a259fa4834387bd68627ddf37bb3ebdb9" kindref="member">int16</ref></type>
+        <definition>int16 b2Filter::groupIndex</definition>
+        <argsstring></argsstring>
+        <name>groupIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Collision groups allow a certain group of objects to never collide (negative) or always collide (positive). Zero means no collision group. Non-zero group filtering always wins against the mask bits. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="51" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="51" bodyend="-1"/>
+        <referencedby refid="structb2_filter_1aeb3c0a8af990a7a3f06ae18312be50d4" compoundref="b2_fixture_8h" startline="34" endline="39">b2Filter</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structb2_filter_1aeb3c0a8af990a7a3f06ae18312be50d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2Filter::b2Filter</definition>
+        <argsstring>()</argsstring>
+        <name>b2Filter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="35" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="34" bodyend="39"/>
+        <references refid="structb2_filter_1a368907397168d39af8b4fc5201d50bba" compoundref="b2_fixture_8h" startline="42">categoryBits</references>
+        <references refid="structb2_filter_1a572a8f4a1672f6d5d71123a35e872950" compoundref="b2_fixture_8h" startline="51">groupIndex</references>
+        <references refid="structb2_filter_1a533cccf85e3ba3d9e3700d73b819f6e2" compoundref="b2_fixture_8h" startline="46">maskBits</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This holds contact filtering data. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="33" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="32" bodyend="52"/>
+    <listofallmembers>
+      <member refid="structb2_filter_1aeb3c0a8af990a7a3f06ae18312be50d4" prot="public" virt="non-virtual"><scope>b2Filter</scope><name>b2Filter</name></member>
+      <member refid="structb2_filter_1a368907397168d39af8b4fc5201d50bba" prot="public" virt="non-virtual"><scope>b2Filter</scope><name>categoryBits</name></member>
+      <member refid="structb2_filter_1a572a8f4a1672f6d5d71123a35e872950" prot="public" virt="non-virtual"><scope>b2Filter</scope><name>groupIndex</name></member>
+      <member refid="structb2_filter_1a533cccf85e3ba3d9e3700d73b819f6e2" prot="public" virt="non-virtual"><scope>b2Filter</scope><name>maskBits</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

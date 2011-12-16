@@ -1,0 +1,497 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_weld_joint_def" kind="struct" prot="public">
+    <compoundname>b2WeldJointDef</compoundname>
+    <basecompoundref refid="structb2_joint_def" prot="public" virt="non-virtual">b2JointDef</basecompoundref>
+    <includes refid="b2_weld_joint_8h" local="no">b2WeldJoint.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_weld_joint_def_1a3b04af6164bb32efc3f5cf3e8d2b7109" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2WeldJointDef::localAnchorA</definition>
+        <argsstring></argsstring>
+        <name>localAnchorA</name>
+        <briefdescription>
+<para>The local anchor point relative to bodyA&apos;s origin. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WeldJoint.h" line="44" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WeldJoint.h" bodystart="44" bodyend="-1"/>
+        <referencedby refid="structb2_weld_joint_def_1a18f4a2f33109edc37a3a977c6296bc31" compoundref="b2_weld_joint_8h" startline="29" endline="37">b2WeldJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_weld_joint_def_1a528262b92dac10de37411ad8c5637149" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2WeldJointDef::localAnchorB</definition>
+        <argsstring></argsstring>
+        <name>localAnchorB</name>
+        <briefdescription>
+<para>The local anchor point relative to bodyB&apos;s origin. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WeldJoint.h" line="47" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WeldJoint.h" bodystart="47" bodyend="-1"/>
+        <referencedby refid="structb2_weld_joint_def_1a18f4a2f33109edc37a3a977c6296bc31" compoundref="b2_weld_joint_8h" startline="29" endline="37">b2WeldJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_weld_joint_def_1a31aeb208f15842091c55e3f1bab6d8f1" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2WeldJointDef::referenceAngle</definition>
+        <argsstring></argsstring>
+        <name>referenceAngle</name>
+        <briefdescription>
+<para>The bodyB angle minus bodyA angle in the reference state (radians). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WeldJoint.h" line="50" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WeldJoint.h" bodystart="50" bodyend="-1"/>
+        <referencedby refid="structb2_weld_joint_def_1a18f4a2f33109edc37a3a977c6296bc31" compoundref="b2_weld_joint_8h" startline="29" endline="37">b2WeldJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_weld_joint_def_1abf42ce852914af845e9203b341f55c87" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2WeldJointDef::frequencyHz</definition>
+        <argsstring></argsstring>
+        <name>frequencyHz</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The mass-spring-damper frequency in Hertz. Rotation only. Disable softness with a value of 0. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WeldJoint.h" line="54" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WeldJoint.h" bodystart="54" bodyend="-1"/>
+        <referencedby refid="structb2_weld_joint_def_1a18f4a2f33109edc37a3a977c6296bc31" compoundref="b2_weld_joint_8h" startline="29" endline="37">b2WeldJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_weld_joint_def_1ace1f0131610f14558f3dbaaed7b10e24" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2WeldJointDef::dampingRatio</definition>
+        <argsstring></argsstring>
+        <name>dampingRatio</name>
+        <briefdescription>
+<para>The damping ratio. 0 = no damping, 1 = critical damping. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WeldJoint.h" line="57" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WeldJoint.h" bodystart="57" bodyend="-1"/>
+        <referencedby refid="structb2_weld_joint_def_1a18f4a2f33109edc37a3a977c6296bc31" compoundref="b2_weld_joint_8h" startline="29" endline="37">b2WeldJointDef</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structb2_weld_joint_def_1a18f4a2f33109edc37a3a977c6296bc31" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2WeldJointDef::b2WeldJointDef</definition>
+        <argsstring>()</argsstring>
+        <name>b2WeldJointDef</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WeldJoint.h" line="30" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WeldJoint.h" bodystart="29" bodyend="37"/>
+        <references refid="structb2_weld_joint_def_1ace1f0131610f14558f3dbaaed7b10e24" compoundref="b2_weld_joint_8h" startline="57">dampingRatio</references>
+        <references refid="b2_joint_8h_1a0bb202d8a286c888a11985b07b2272abafc7c48596e79edb4e2225e0cd9cc8464" compoundref="b2_joint_8h" startline="39">e_weldJoint</references>
+        <references refid="structb2_weld_joint_def_1abf42ce852914af845e9203b341f55c87" compoundref="b2_weld_joint_8h" startline="54">frequencyHz</references>
+        <references refid="structb2_weld_joint_def_1a3b04af6164bb32efc3f5cf3e8d2b7109" compoundref="b2_weld_joint_8h" startline="44">localAnchorA</references>
+        <references refid="structb2_weld_joint_def_1a528262b92dac10de37411ad8c5637149" compoundref="b2_weld_joint_8h" startline="47">localAnchorB</references>
+        <references refid="structb2_weld_joint_def_1a31aeb208f15842091c55e3f1bab6d8f1" compoundref="b2_weld_joint_8h" startline="50">referenceAngle</references>
+        <references refid="structb2_vec2_1a4d61640a645e470a50b451307d8e94c3" compoundref="b2_math_8h" startline="76" endline="76">b2Vec2::Set</references>
+        <references refid="structb2_joint_def_1a470f2879b24adb05facbd49f338856fb" compoundref="b2_joint_8h" startline="85">b2JointDef::type</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_weld_joint_def_1a9f6592c2a7eba6ce6e07e40c4e82aab5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2WeldJointDef::Initialize</definition>
+        <argsstring>(b2Body *bodyA, b2Body *bodyB, const b2Vec2 &amp;anchor)</argsstring>
+        <name>Initialize</name>
+        <param>
+          <type><ref refid="classb2_body" kindref="compound">b2Body</ref> *</type>
+          <declname>bodyA</declname>
+        </param>
+        <param>
+          <type><ref refid="classb2_body" kindref="compound">b2Body</ref> *</type>
+          <declname>bodyB</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>anchor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize the bodies, anchors, and reference angle using a world anchor point. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WeldJoint.h" line="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Weld joint definition. You need to specify local anchor points where they are attached and the relative body angle. The position of the anchor points is important for computing the reaction torque. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="1569">
+        <label>b2WeldJointDef</label>
+        <link refid="structb2_weld_joint_def"/>
+        <childnode refid="1570" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1570">
+        <label>b2JointDef</label>
+        <link refid="structb2_joint_def"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1593">
+        <label>b2Draw</label>
+        <link refid="classb2_draw"/>
+      </node>
+      <node id="1600">
+        <label>b2DynamicTree</label>
+        <link refid="classb2_dynamic_tree"/>
+        <childnode refid="1601" relation="usage">
+          <edgelabel>m_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="1598">
+        <label>b2BroadPhase</label>
+        <link refid="classb2_broad_phase"/>
+        <childnode refid="1599" relation="usage">
+          <edgelabel>m_pairBuffer</edgelabel>
+        </childnode>
+        <childnode refid="1600" relation="usage">
+          <edgelabel>m_tree</edgelabel>
+        </childnode>
+      </node>
+      <node id="1603">
+        <label>b2ContactListener</label>
+        <link refid="classb2_contact_listener"/>
+      </node>
+      <node id="1581">
+        <label>b2Contact</label>
+        <link refid="classb2_contact"/>
+        <childnode refid="1582" relation="usage">
+          <edgelabel>s_registers</edgelabel>
+        </childnode>
+        <childnode refid="1581" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="1583" relation="usage">
+          <edgelabel>m_manifold</edgelabel>
+        </childnode>
+        <childnode refid="1587" relation="usage">
+          <edgelabel>m_fixtureA</edgelabel>
+          <edgelabel>m_fixtureB</edgelabel>
+        </childnode>
+        <childnode refid="1580" relation="usage">
+          <edgelabel>m_nodeA</edgelabel>
+          <edgelabel>m_nodeB</edgelabel>
+        </childnode>
+      </node>
+      <node id="1594">
+        <label>b2Profile</label>
+        <link refid="structb2_profile"/>
+      </node>
+      <node id="1573">
+        <label>b2Body</label>
+        <link refid="classb2_body"/>
+        <childnode refid="1573" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="1574" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+        <childnode refid="1576" relation="usage">
+          <edgelabel>m_linearVelocity</edgelabel>
+          <edgelabel>m_force</edgelabel>
+        </childnode>
+        <childnode refid="1577" relation="usage">
+          <edgelabel>m_sweep</edgelabel>
+        </childnode>
+        <childnode refid="1578" relation="usage">
+          <edgelabel>m_xf</edgelabel>
+        </childnode>
+        <childnode refid="1580" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="1587" relation="usage">
+          <edgelabel>m_fixtureList</edgelabel>
+        </childnode>
+        <childnode refid="1592" relation="usage">
+          <edgelabel>m_world</edgelabel>
+        </childnode>
+      </node>
+      <node id="1586">
+        <label>b2ContactFeature</label>
+        <link refid="structb2_contact_feature"/>
+      </node>
+      <node id="1580">
+        <label>b2ContactEdge</label>
+        <link refid="structb2_contact_edge"/>
+        <childnode refid="1573" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="1581" relation="usage">
+          <edgelabel>contact</edgelabel>
+        </childnode>
+        <childnode refid="1580" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1583">
+        <label>b2Manifold</label>
+        <link refid="structb2_manifold"/>
+        <childnode refid="1576" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+          <edgelabel>localNormal</edgelabel>
+        </childnode>
+        <childnode refid="1584" relation="usage">
+          <edgelabel>points</edgelabel>
+        </childnode>
+      </node>
+      <node id="1595">
+        <label>b2BlockAllocator</label>
+        <link refid="classb2_block_allocator"/>
+      </node>
+      <node id="1596">
+        <label>b2DestructionListener</label>
+        <link refid="classb2_destruction_listener"/>
+      </node>
+      <node id="1592">
+        <label>b2World</label>
+        <link refid="classb2_world"/>
+        <childnode refid="1573" relation="usage">
+          <edgelabel>m_bodyList</edgelabel>
+        </childnode>
+        <childnode refid="1593" relation="usage">
+          <edgelabel>m_debugDraw</edgelabel>
+        </childnode>
+        <childnode refid="1576" relation="usage">
+          <edgelabel>m_gravity</edgelabel>
+        </childnode>
+        <childnode refid="1594" relation="usage">
+          <edgelabel>m_profile</edgelabel>
+        </childnode>
+        <childnode refid="1595" relation="usage">
+          <edgelabel>m_blockAllocator</edgelabel>
+        </childnode>
+        <childnode refid="1596" relation="usage">
+          <edgelabel>m_destructionListener</edgelabel>
+        </childnode>
+        <childnode refid="1597" relation="usage">
+          <edgelabel>m_contactManager</edgelabel>
+        </childnode>
+        <childnode refid="1604" relation="usage">
+          <edgelabel>m_stackAllocator</edgelabel>
+        </childnode>
+        <childnode refid="1575" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+      </node>
+      <node id="1571">
+        <label>b2WeldJointDef</label>
+        <link refid="structb2_weld_joint_def"/>
+        <childnode refid="1572" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1576" relation="usage">
+          <edgelabel>localAnchorA</edgelabel>
+          <edgelabel>localAnchorB</edgelabel>
+        </childnode>
+      </node>
+      <node id="1605">
+        <label>b2StackEntry</label>
+        <link refid="structb2_stack_entry"/>
+      </node>
+      <node id="1572">
+        <label>b2JointDef</label>
+        <link refid="structb2_joint_def"/>
+        <childnode refid="1573" relation="usage">
+          <edgelabel>bodyA</edgelabel>
+          <edgelabel>bodyB</edgelabel>
+        </childnode>
+      </node>
+      <node id="1588">
+        <label>b2FixtureProxy</label>
+        <link refid="structb2_fixture_proxy"/>
+        <childnode refid="1589" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+        <childnode refid="1587" relation="usage">
+          <edgelabel>fixture</edgelabel>
+        </childnode>
+      </node>
+      <node id="1599">
+        <label>b2Pair</label>
+        <link refid="structb2_pair"/>
+      </node>
+      <node id="1577">
+        <label>b2Sweep</label>
+        <link refid="structb2_sweep"/>
+        <childnode refid="1576" relation="usage">
+          <edgelabel>c0</edgelabel>
+          <edgelabel>localCenter</edgelabel>
+          <edgelabel>c</edgelabel>
+        </childnode>
+      </node>
+      <node id="1578">
+        <label>b2Transform</label>
+        <link refid="structb2_transform"/>
+        <childnode refid="1576" relation="usage">
+          <edgelabel>p</edgelabel>
+        </childnode>
+        <childnode refid="1579" relation="usage">
+          <edgelabel>q</edgelabel>
+        </childnode>
+      </node>
+      <node id="1604">
+        <label>b2StackAllocator</label>
+        <link refid="classb2_stack_allocator"/>
+        <childnode refid="1605" relation="usage">
+          <edgelabel>m_entries</edgelabel>
+        </childnode>
+      </node>
+      <node id="1591">
+        <label>b2Filter</label>
+        <link refid="structb2_filter"/>
+      </node>
+      <node id="1574">
+        <label>b2JointEdge</label>
+        <link refid="structb2_joint_edge"/>
+        <childnode refid="1573" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="1574" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="1575" relation="usage">
+          <edgelabel>joint</edgelabel>
+        </childnode>
+      </node>
+      <node id="1602">
+        <label>b2ContactFilter</label>
+        <link refid="classb2_contact_filter"/>
+      </node>
+      <node id="1575">
+        <label>b2Joint</label>
+        <link refid="classb2_joint"/>
+        <childnode refid="1573" relation="usage">
+          <edgelabel>m_bodyA</edgelabel>
+          <edgelabel>m_bodyB</edgelabel>
+        </childnode>
+        <childnode refid="1574" relation="usage">
+          <edgelabel>m_edgeB</edgelabel>
+          <edgelabel>m_edgeA</edgelabel>
+        </childnode>
+        <childnode refid="1575" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1576">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+      <node id="1585">
+        <label>b2ContactID</label>
+        <link refid="unionb2_contact_i_d"/>
+        <childnode refid="1586" relation="usage">
+          <edgelabel>cf</edgelabel>
+        </childnode>
+      </node>
+      <node id="1590">
+        <label>b2Shape</label>
+        <link refid="classb2_shape"/>
+      </node>
+      <node id="1601">
+        <label>b2TreeNode</label>
+        <link refid="structb2_tree_node"/>
+        <childnode refid="1589" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+      </node>
+      <node id="1589">
+        <label>b2AABB</label>
+        <link refid="structb2_a_a_b_b"/>
+        <childnode refid="1576" relation="usage">
+          <edgelabel>lowerBound</edgelabel>
+          <edgelabel>upperBound</edgelabel>
+        </childnode>
+      </node>
+      <node id="1579">
+        <label>b2Rot</label>
+        <link refid="structb2_rot"/>
+      </node>
+      <node id="1597">
+        <label>b2ContactManager</label>
+        <link refid="classb2_contact_manager"/>
+        <childnode refid="1595" relation="usage">
+          <edgelabel>m_allocator</edgelabel>
+        </childnode>
+        <childnode refid="1581" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="1598" relation="usage">
+          <edgelabel>m_broadPhase</edgelabel>
+        </childnode>
+        <childnode refid="1602" relation="usage">
+          <edgelabel>m_contactFilter</edgelabel>
+        </childnode>
+        <childnode refid="1603" relation="usage">
+          <edgelabel>m_contactListener</edgelabel>
+        </childnode>
+      </node>
+      <node id="1587">
+        <label>b2Fixture</label>
+        <link refid="classb2_fixture"/>
+        <childnode refid="1573" relation="usage">
+          <edgelabel>m_body</edgelabel>
+        </childnode>
+        <childnode refid="1588" relation="usage">
+          <edgelabel>m_proxies</edgelabel>
+        </childnode>
+        <childnode refid="1590" relation="usage">
+          <edgelabel>m_shape</edgelabel>
+        </childnode>
+        <childnode refid="1591" relation="usage">
+          <edgelabel>m_filter</edgelabel>
+        </childnode>
+        <childnode refid="1587" relation="usage">
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1582">
+        <label>b2ContactRegister</label>
+        <link refid="structb2_contact_register"/>
+      </node>
+      <node id="1584">
+        <label>b2ManifoldPoint</label>
+        <link refid="structb2_manifold_point"/>
+        <childnode refid="1576" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+        </childnode>
+        <childnode refid="1585" relation="usage">
+          <edgelabel>id</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2WeldJoint.h" line="28" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2WeldJoint.h" bodystart="27" bodyend="58"/>
+    <listofallmembers>
+      <member refid="structb2_joint_def_1a1fdb44829d4fd13c72edb1daacb72f89" prot="public" virt="non-virtual"><scope>b2WeldJointDef</scope><name>b2JointDef</name></member>
+      <member refid="structb2_weld_joint_def_1a18f4a2f33109edc37a3a977c6296bc31" prot="public" virt="non-virtual"><scope>b2WeldJointDef</scope><name>b2WeldJointDef</name></member>
+      <member refid="structb2_joint_def_1a8cd54c93da396be75a9788f2c6897f05" prot="public" virt="non-virtual"><scope>b2WeldJointDef</scope><name>bodyA</name></member>
+      <member refid="structb2_joint_def_1aa4f4dee2fbcd12187b19506b60e68e3d" prot="public" virt="non-virtual"><scope>b2WeldJointDef</scope><name>bodyB</name></member>
+      <member refid="structb2_joint_def_1aef099a1f89b64e230173b6016848ea9b" prot="public" virt="non-virtual"><scope>b2WeldJointDef</scope><name>collideConnected</name></member>
+      <member refid="structb2_weld_joint_def_1ace1f0131610f14558f3dbaaed7b10e24" prot="public" virt="non-virtual"><scope>b2WeldJointDef</scope><name>dampingRatio</name></member>
+      <member refid="structb2_weld_joint_def_1abf42ce852914af845e9203b341f55c87" prot="public" virt="non-virtual"><scope>b2WeldJointDef</scope><name>frequencyHz</name></member>
+      <member refid="structb2_weld_joint_def_1a9f6592c2a7eba6ce6e07e40c4e82aab5" prot="public" virt="non-virtual"><scope>b2WeldJointDef</scope><name>Initialize</name></member>
+      <member refid="structb2_weld_joint_def_1a3b04af6164bb32efc3f5cf3e8d2b7109" prot="public" virt="non-virtual"><scope>b2WeldJointDef</scope><name>localAnchorA</name></member>
+      <member refid="structb2_weld_joint_def_1a528262b92dac10de37411ad8c5637149" prot="public" virt="non-virtual"><scope>b2WeldJointDef</scope><name>localAnchorB</name></member>
+      <member refid="structb2_weld_joint_def_1a31aeb208f15842091c55e3f1bab6d8f1" prot="public" virt="non-virtual"><scope>b2WeldJointDef</scope><name>referenceAngle</name></member>
+      <member refid="structb2_joint_def_1a470f2879b24adb05facbd49f338856fb" prot="public" virt="non-virtual"><scope>b2WeldJointDef</scope><name>type</name></member>
+      <member refid="structb2_joint_def_1a07eb150daaaa52fc09c3bcf402b295fe" prot="public" virt="non-virtual"><scope>b2WeldJointDef</scope><name>userData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

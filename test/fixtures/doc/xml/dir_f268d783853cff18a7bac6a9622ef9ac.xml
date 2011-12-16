@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="dir_f268d783853cff18a7bac6a9622ef9ac" kind="dir">
+    <compoundname>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/</compoundname>
+    <innerfile refid="_action_8h">Action.h</innerfile>
+    <innerfile refid="_application_8h">Application.h</innerfile>
+    <innerfile refid="_brush_8h">Brush.h</innerfile>
+    <innerfile refid="_button_8h">Button.h</innerfile>
+    <innerfile refid="_callback_8h">Callback.h</innerfile>
+    <innerfile refid="_color_8h">Color.h</innerfile>
+    <innerfile refid="mimas_2include_2mimas_2constants_8h">constants.h</innerfile>
+    <innerfile refid="_data_source_8h">DataSource.h</innerfile>
+    <innerfile refid="_file_observer_8h">FileObserver.h</innerfile>
+    <innerfile refid="_g_l_widget_8h">GLWidget.h</innerfile>
+    <innerfile refid="_group_box_8h">GroupBox.h</innerfile>
+    <innerfile refid="_h_box_layout_8h">HBoxLayout.h</innerfile>
+    <innerfile refid="_label_8h">Label.h</innerfile>
+    <innerfile refid="_line_edit_8h">LineEdit.h</innerfile>
+    <innerfile refid="_list_view_8h">ListView.h</innerfile>
+    <innerfile refid="_main_window_8h">MainWindow.h</innerfile>
+    <innerfile refid="_menu_8h">Menu.h</innerfile>
+    <innerfile refid="_menu_bar_8h">MenuBar.h</innerfile>
+    <innerfile refid="mimas_8h">mimas.h</innerfile>
+    <innerfile refid="_painter_8h">Painter.h</innerfile>
+    <innerfile refid="_path_8h">Path.h</innerfile>
+    <innerfile refid="_pen_8h">Pen.h</innerfile>
+    <innerfile refid="qt__config_8h">qt_config.h</innerfile>
+    <innerfile refid="range__widget_8h">range_widget.h</innerfile>
+    <innerfile refid="_slider_8h">Slider.h</innerfile>
+    <innerfile refid="_socket_notifier_8h">SocketNotifier.h</innerfile>
+    <innerfile refid="_table_view_8h">TableView.h</innerfile>
+    <innerfile refid="mimas_2include_2mimas_2timer_8h">Timer.h</innerfile>
+    <innerfile refid="_v_box_layout_8h">VBoxLayout.h</innerfile>
+    <innerfile refid="_widget_8h">Widget.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,750 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classlubyk_1_1_thread" kind="class" prot="public">
+    <compoundname>lubyk::Thread</compoundname>
+    <basecompoundref refid="classlubyk_1_1_mutex" prot="public" virt="non-virtual">lubyk::Mutex</basecompoundref>
+    <includes refid="thread_8h" local="no">thread.h</includes>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classlubyk_1_1_thread_1ac5066b34897d5f8ea3c696e4f712c183" prot="public" static="yes" mutable="no">
+        <type>pthread_key_t</type>
+        <definition>pthread_key_t lubyk::Thread::sThisKey</definition>
+        <argsstring></argsstring>
+        <name>sThisKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Key to retrieve &apos;this&apos; value from a running thread. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="215" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="215" bodyend="-1"/>
+        <referencedby refid="classlubyk_1_1_thread_1aec8277427577e3b0b4a8102a097c0261" compoundref="thread_8h" startline="224" endline="226">setThreadThis</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1a9881baf5e814d085525db510a6f7cdfd" compoundref="thread_8h" startline="209" endline="211">thread_this</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classlubyk_1_1_thread_1a803f2081dd6d425396dc440ecb7de399" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* lubyk::Thread::parameter_</definition>
+        <argsstring></argsstring>
+        <name>parameter_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Any parameter that the started method could use. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="217" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="217" bodyend="-1"/>
+        <referencedby refid="classlubyk_1_1_worker_1adcecfdc90d287b120b593d3942f89138" compoundref="worker_8h" startline="208" endline="213">lubyk::Worker::doExecute</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1aba8009d4d34824dc3b0f9e65f96b1469" compoundref="thread_8h" startline="55" endline="73">startThread</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlubyk_1_1_thread_1ae02827945cd692dbc62a7648dcd03611" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* lubyk::Thread::owner_</definition>
+        <argsstring></argsstring>
+        <name>owner_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="295" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="295" bodyend="-1"/>
+        <referencedby refid="classlubyk_1_1_thread_1a2bfcb77eb3b839cb3655198e0fbcc5f7" compoundref="thread_8h" startline="252" endline="269">s_startThread</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1aba8009d4d34824dc3b0f9e65f96b1469" compoundref="thread_8h" startline="55" endline="73">startThread</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classlubyk_1_1_thread_1a23b7685c06684e858bbd039456a4ac46" prot="private" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* lubyk::Thread::static_method_)(Thread *)</definition>
+        <argsstring>)(Thread *)</argsstring>
+        <name>static_method_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="296" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="296" bodyend="-1"/>
+        <referencedby refid="classlubyk_1_1_thread_1a48a1e23e21a10cf826bb4a1b6b1b1a1b" compoundref="thread_8h" startline="231" endline="248">s_start_static_thread</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1aba8009d4d34824dc3b0f9e65f96b1469" compoundref="thread_8h" startline="55" endline="73">startThread</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classlubyk_1_1_thread_1af0e95505c90fd5bbc7b4ced7ed99cf20" prot="private" static="no" mutable="no">
+        <type>pthread_t</type>
+        <definition>pthread_t lubyk::Thread::thread_id_</definition>
+        <argsstring></argsstring>
+        <name>thread_id_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="298" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="298" bodyend="-1"/>
+        <referencedby refid="classlubyk_1_1_thread_1aad6e1aa05c22d497f621142bdc894c1b" compoundref="thread_8h" startline="184" endline="186">isRunning</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1a3e070fed4de974dfea2f42f97c818250" compoundref="thread_8h" startline="168" endline="174">join</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1a53158cda2d2a4738eaab4232d5603e16" compoundref="thread_8h" startline="142" endline="152">kill</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1a48a1e23e21a10cf826bb4a1b6b1b1a1b" compoundref="thread_8h" startline="231" endline="248">s_start_static_thread</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1a2bfcb77eb3b839cb3655198e0fbcc5f7" compoundref="thread_8h" startline="252" endline="269">s_startThread</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1a0682ee75f6021f3bcb7d8d1979333f21" compoundref="thread_8h" startline="156" endline="159">sendSignal</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1aba8009d4d34824dc3b0f9e65f96b1469" compoundref="thread_8h" startline="55" endline="73">startThread</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classlubyk_1_1_thread_1aa5386778f536134d39332daf9cec1857" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int lubyk::Thread::normal_sched_policy_</definition>
+        <argsstring></argsstring>
+        <name>normal_sched_policy_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Thread&apos;s original scheduling policy (normal_priority). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="299" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="299" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlubyk_1_1_thread_1a71e5f8ea00b2b4a93bb45d53310c9026" prot="private" static="no" mutable="no">
+        <type>struct sched_param</type>
+        <definition>struct sched_param lubyk::Thread::normal_thread_param_</definition>
+        <argsstring></argsstring>
+        <name>normal_thread_param_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Scheduling parameters for commands (lower). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="300" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="300" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlubyk_1_1_thread_1a85b5d99c4d0044b805920dda5a18f9b5" prot="private" static="no" mutable="no">
+        <type><ref refid="classlubyk_1_1_condition" kindref="compound">Condition</ref></type>
+        <definition>Condition lubyk::Thread::condition_</definition>
+        <argsstring></argsstring>
+        <name>condition_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="306" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="306" bodyend="-1"/>
+        <referencedby refid="classlubyk_1_1_thread_1aba8009d4d34824dc3b0f9e65f96b1469" compoundref="thread_8h" startline="55" endline="73">startThread</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1a37f0de298862cdba718531761bdc41a5" compoundref="thread_8h" startline="202" endline="205">threadReady</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classlubyk_1_1_thread_1aed027872144ce648ab7150501ea02130" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool lubyk::Thread::should_run_</definition>
+        <argsstring></argsstring>
+        <name>should_run_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="303" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="303" bodyend="-1"/>
+        <referencedby refid="classlubyk_1_1_thread_1a53158cda2d2a4738eaab4232d5603e16" compoundref="thread_8h" startline="142" endline="152">kill</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1a63b081a7b99ac42d7d04b0cb67fbc052" compoundref="thread_8h" startline="178" endline="180">quit</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1a48a1e23e21a10cf826bb4a1b6b1b1a1b" compoundref="thread_8h" startline="231" endline="248">s_start_static_thread</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1a2bfcb77eb3b839cb3655198e0fbcc5f7" compoundref="thread_8h" startline="252" endline="269">s_startThread</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1a79a76930356ff8056995bb6ef7745d17" compoundref="thread_8h" startline="136" endline="138">shouldRun</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1aba8009d4d34824dc3b0f9e65f96b1469" compoundref="thread_8h" startline="55" endline="73">startThread</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlubyk_1_1_thread_1aed806528cf050edab241676caa80e05f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>lubyk::Thread::Thread</definition>
+        <argsstring>()</argsstring>
+        <name>Thread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1a40fe36cf5a97c14ce117287ad7d49674" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual lubyk::Thread::~Thread</definition>
+        <argsstring>()</argsstring>
+        <name>~Thread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1aba8009d4d34824dc3b0f9e65f96b1469" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>void(*)(<ref refid="classlubyk_1_1_thread" kindref="compound">Thread</ref> *)</type>
+            <declname>Tmethod</declname>
+            <defname>Tmethod</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void lubyk::Thread::startThread</definition>
+        <argsstring>(void *parameter=NULL)</argsstring>
+        <name>startThread</name>
+        <param>
+          <type>void *</type>
+          <declname>parameter</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Start a new thread with a class method. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="55" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="55" bodyend="73"/>
+        <references refid="classlubyk_1_1_thread_1a85b5d99c4d0044b805920dda5a18f9b5" compoundref="thread_8h" startline="306">condition_</references>
+        <references refid="classlubyk_1_1_thread_1aad6e1aa05c22d497f621142bdc894c1b" compoundref="thread_8h" startline="184" endline="186">isRunning</references>
+        <references refid="classlubyk_1_1_mutex_1a74ee38ef2f9bf4e86a3871f5b60a31c3" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="67" endline="69">lubyk::Mutex::lock</references>
+        <references refid="classlubyk_1_1_thread_1ae02827945cd692dbc62a7648dcd03611" compoundref="thread_8h" startline="295">owner_</references>
+        <references refid="cv_8h_1a53f8bd5b417150d5807b949c52ddc5cd" compoundref="cv_8h" startline="737">parameter</references>
+        <references refid="classlubyk_1_1_thread_1a803f2081dd6d425396dc440ecb7de399" compoundref="thread_8h" startline="217">parameter_</references>
+        <references refid="classlubyk_1_1_thread_1a48a1e23e21a10cf826bb4a1b6b1b1a1b" compoundref="thread_8h" startline="231" endline="248">s_start_static_thread</references>
+        <references refid="classlubyk_1_1_thread_1aed027872144ce648ab7150501ea02130" compoundref="thread_8h" startline="303">should_run_</references>
+        <references refid="classlubyk_1_1_thread_1a23b7685c06684e858bbd039456a4ac46" compoundref="thread_8h" startline="296">static_method_</references>
+        <references refid="classlubyk_1_1_thread_1af0e95505c90fd5bbc7b4ced7ed99cf20" compoundref="thread_8h" startline="298">thread_id_</references>
+        <references refid="classlubyk_1_1_condition_1a9e1f35162eda86874b3548386cbeffd4" compoundref="condition_8h" startline="75" endline="79">lubyk::Condition::wait</references>
+        <referencedby refid="classlubyk_1_1_worker_1a8bcd915adf91628ce61f79237e3cdfa7" compoundref="worker_8h" startline="99" endline="102">lubyk::Worker::execute</referencedby>
+        <referencedby refid="classlubyk_1_1_timer_1a33abb1fda70e8a1bd9afaef750b8b949" compoundref="lubyk_2include_2lubyk_2timer_8h" startline="58" endline="69">lubyk::Timer&lt; T, Tmethod &gt;::start</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1acd809e5980356db9b1cc5e74d4210b9e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::Thread::startThread</definition>
+        <argsstring>(void(*static_method)(Thread *), void *parameter=NULL)</argsstring>
+        <name>startThread</name>
+        <param>
+          <type>void(*)(<ref refid="classlubyk_1_1_thread" kindref="compound">Thread</ref> *)</type>
+          <declname>static_method</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>parameter</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Start a new thread with a static function. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="76" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="76" bodyend="92"/>
+        <references refid="classlubyk_1_1_thread_1a85b5d99c4d0044b805920dda5a18f9b5" compoundref="thread_8h" startline="306">condition_</references>
+        <references refid="classlubyk_1_1_thread_1aad6e1aa05c22d497f621142bdc894c1b" compoundref="thread_8h" startline="184" endline="186">isRunning</references>
+        <references refid="classlubyk_1_1_mutex_1a74ee38ef2f9bf4e86a3871f5b60a31c3" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="67" endline="69">lubyk::Mutex::lock</references>
+        <references refid="classlubyk_1_1_thread_1ae02827945cd692dbc62a7648dcd03611" compoundref="thread_8h" startline="295">owner_</references>
+        <references refid="cv_8h_1a53f8bd5b417150d5807b949c52ddc5cd" compoundref="cv_8h" startline="737">parameter</references>
+        <references refid="classlubyk_1_1_thread_1a803f2081dd6d425396dc440ecb7de399" compoundref="thread_8h" startline="217">parameter_</references>
+        <references refid="classlubyk_1_1_thread_1a48a1e23e21a10cf826bb4a1b6b1b1a1b" compoundref="thread_8h" startline="231" endline="248">s_start_static_thread</references>
+        <references refid="classlubyk_1_1_thread_1aed027872144ce648ab7150501ea02130" compoundref="thread_8h" startline="303">should_run_</references>
+        <references refid="classlubyk_1_1_thread_1a23b7685c06684e858bbd039456a4ac46" compoundref="thread_8h" startline="296">static_method_</references>
+        <references refid="classlubyk_1_1_thread_1af0e95505c90fd5bbc7b4ced7ed99cf20" compoundref="thread_8h" startline="298">thread_id_</references>
+        <references refid="classlubyk_1_1_condition_1a9e1f35162eda86874b3548386cbeffd4" compoundref="condition_8h" startline="75" endline="79">lubyk::Condition::wait</references>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1ab12640737a5456fb53d41d8690b9cd7e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="cv_8h_1a3efb9551a871ddd0463079a808916717" kindref="member">T</ref></type>
+          </param>
+          <param>
+            <type>void(T::*)(<ref refid="classlubyk_1_1_thread" kindref="compound">Thread</ref> *)</type>
+            <declname>Tmethod</declname>
+            <defname>Tmethod</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void lubyk::Thread::startThread</definition>
+        <argsstring>(T *owner, void *parameter=NULL)</argsstring>
+        <name>startThread</name>
+        <param>
+          <type><ref refid="cv_8h_1a3efb9551a871ddd0463079a808916717" kindref="member">T</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>parameter</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Start a new thread with the given parameter. The class should check if it should stop using a typical &quot;while (thread-&gt;run())&quot;. If the thread is interrupted with a SIGTERM, the class&apos;s <ref refid="classlubyk_1_1_thread_1a25a878378b45e53aa050cabb87069db2" kindref="member">terminate()</ref> method is called. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="98" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="98" bodyend="113"/>
+        <references refid="classlubyk_1_1_thread_1a85b5d99c4d0044b805920dda5a18f9b5" compoundref="thread_8h" startline="306">condition_</references>
+        <references refid="classlubyk_1_1_thread_1aad6e1aa05c22d497f621142bdc894c1b" compoundref="thread_8h" startline="184" endline="186">isRunning</references>
+        <references refid="classlubyk_1_1_mutex_1a74ee38ef2f9bf4e86a3871f5b60a31c3" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="67" endline="69">lubyk::Mutex::lock</references>
+        <references refid="classlubyk_1_1_thread_1ae02827945cd692dbc62a7648dcd03611" compoundref="thread_8h" startline="295">owner_</references>
+        <references refid="cv_8h_1a53f8bd5b417150d5807b949c52ddc5cd" compoundref="cv_8h" startline="737">parameter</references>
+        <references refid="classlubyk_1_1_thread_1a803f2081dd6d425396dc440ecb7de399" compoundref="thread_8h" startline="217">parameter_</references>
+        <references refid="classlubyk_1_1_thread_1aed027872144ce648ab7150501ea02130" compoundref="thread_8h" startline="303">should_run_</references>
+        <references refid="classlubyk_1_1_thread_1af0e95505c90fd5bbc7b4ced7ed99cf20" compoundref="thread_8h" startline="298">thread_id_</references>
+        <references refid="classlubyk_1_1_condition_1a9e1f35162eda86874b3548386cbeffd4" compoundref="condition_8h" startline="75" endline="79">lubyk::Condition::wait</references>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1ab12640737a5456fb53d41d8690b9cd7e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="cv_8h_1a3efb9551a871ddd0463079a808916717" kindref="member">T</ref></type>
+          </param>
+          <param>
+            <type>void(T::*)()</type>
+            <declname>Tmethod</declname>
+            <defname>Tmethod</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void lubyk::Thread::startThread</definition>
+        <argsstring>(T *owner, void *parameter=NULL)</argsstring>
+        <name>startThread</name>
+        <param>
+          <type><ref refid="cv_8h_1a3efb9551a871ddd0463079a808916717" kindref="member">T</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>parameter</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Start a new thread with the given parameter. The class should check if it should stop using a typical &quot;while (thread-&gt;run())&quot;. If the thread is interrupted with a SIGTERM, the class&apos;s <ref refid="classlubyk_1_1_thread_1a25a878378b45e53aa050cabb87069db2" kindref="member">terminate()</ref> method is called. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="119" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="119" bodyend="134"/>
+        <references refid="classlubyk_1_1_thread_1a85b5d99c4d0044b805920dda5a18f9b5" compoundref="thread_8h" startline="306">condition_</references>
+        <references refid="classlubyk_1_1_thread_1aad6e1aa05c22d497f621142bdc894c1b" compoundref="thread_8h" startline="184" endline="186">isRunning</references>
+        <references refid="classlubyk_1_1_mutex_1a74ee38ef2f9bf4e86a3871f5b60a31c3" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="67" endline="69">lubyk::Mutex::lock</references>
+        <references refid="classlubyk_1_1_thread_1ae02827945cd692dbc62a7648dcd03611" compoundref="thread_8h" startline="295">owner_</references>
+        <references refid="cv_8h_1a53f8bd5b417150d5807b949c52ddc5cd" compoundref="cv_8h" startline="737">parameter</references>
+        <references refid="classlubyk_1_1_thread_1a803f2081dd6d425396dc440ecb7de399" compoundref="thread_8h" startline="217">parameter_</references>
+        <references refid="classlubyk_1_1_thread_1aed027872144ce648ab7150501ea02130" compoundref="thread_8h" startline="303">should_run_</references>
+        <references refid="classlubyk_1_1_thread_1af0e95505c90fd5bbc7b4ced7ed99cf20" compoundref="thread_8h" startline="298">thread_id_</references>
+        <references refid="classlubyk_1_1_condition_1a9e1f35162eda86874b3548386cbeffd4" compoundref="condition_8h" startline="75" endline="79">lubyk::Condition::wait</references>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1a79a76930356ff8056995bb6ef7745d17" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lubyk::Thread::shouldRun</definition>
+        <argsstring>()</argsstring>
+        <name>shouldRun</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="136" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="136" bodyend="138"/>
+        <references refid="classlubyk_1_1_thread_1aed027872144ce648ab7150501ea02130" compoundref="thread_8h" startline="303">should_run_</references>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1a53158cda2d2a4738eaab4232d5603e16" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::Thread::kill</definition>
+        <argsstring>()</argsstring>
+        <name>kill</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Kill thread (do not make this a virtual). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="142" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="142" bodyend="152"/>
+        <references refid="classlubyk_1_1_thread_1aed027872144ce648ab7150501ea02130" compoundref="thread_8h" startline="303">should_run_</references>
+        <references refid="classlubyk_1_1_thread_1af0e95505c90fd5bbc7b4ced7ed99cf20" compoundref="thread_8h" startline="298">thread_id_</references>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1a0682ee75f6021f3bcb7d8d1979333f21" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::Thread::sendSignal</definition>
+        <argsstring>(int sig)</argsstring>
+        <name>sendSignal</name>
+        <param>
+          <type>int</type>
+          <declname>sig</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send a signal to the running thread. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="156" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="156" bodyend="159"/>
+        <references refid="classlubyk_1_1_thread_1af0e95505c90fd5bbc7b4ced7ed99cf20" compoundref="thread_8h" startline="298">thread_id_</references>
+        <referencedby refid="classlubyk_1_1_timer_1adc718fb556ddd2a234c098350cf1d46c" compoundref="lubyk_2include_2lubyk_2timer_8h" startline="192" endline="194">lubyk::Timer&lt; T, Tmethod &gt;::interrupt</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1a1db79610063cc908a055999f36d0cca1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::Thread::registerSignal</definition>
+        <argsstring>(int sig)</argsstring>
+        <name>registerSignal</name>
+        <param>
+          <type>int</type>
+          <declname>sig</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="161" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="161" bodyend="165"/>
+        <references refid="classlubyk_1_1_thread_1a25a878378b45e53aa050cabb87069db2" compoundref="thread_8h" startline="291" endline="293">terminate</references>
+        <referencedby refid="classlubyk_1_1_thread_1a48a1e23e21a10cf826bb4a1b6b1b1a1b" compoundref="thread_8h" startline="231" endline="248">s_start_static_thread</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1a2bfcb77eb3b839cb3655198e0fbcc5f7" compoundref="thread_8h" startline="252" endline="269">s_startThread</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1a3e070fed4de974dfea2f42f97c818250" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::Thread::join</definition>
+        <argsstring>()</argsstring>
+        <name>join</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wait for thread to finish. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="168" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="168" bodyend="174"/>
+        <references refid="classlubyk_1_1_thread_1af0e95505c90fd5bbc7b4ced7ed99cf20" compoundref="thread_8h" startline="298">thread_id_</references>
+        <referencedby refid="classlubyk_1_1_timer_1aa6d56be37561358752af53be2267380d" compoundref="lubyk_2include_2lubyk_2timer_8h" startline="91" endline="94">lubyk::Timer&lt; T, Tmethod &gt;::join</referencedby>
+        <referencedby refid="classlubyk_1_1_timer_1a33abb1fda70e8a1bd9afaef750b8b949" compoundref="lubyk_2include_2lubyk_2timer_8h" startline="58" endline="69">lubyk::Timer&lt; T, Tmethod &gt;::start</referencedby>
+        <referencedby refid="classlubyk_1_1_timer_1ac19e86c8b145d4256078fd7dec395ad4" compoundref="lubyk_2include_2lubyk_2timer_8h" startline="82" endline="89">lubyk::Timer&lt; T, Tmethod &gt;::stop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1a63b081a7b99ac42d7d04b0cb67fbc052" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::Thread::quit</definition>
+        <argsstring>()</argsstring>
+        <name>quit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Tell thread to quit (called from within own thread or when we can wait for next loop). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="178" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="178" bodyend="180"/>
+        <references refid="classlubyk_1_1_thread_1aed027872144ce648ab7150501ea02130" compoundref="thread_8h" startline="303">should_run_</references>
+        <referencedby refid="classlubyk_1_1_thread_1a25a878378b45e53aa050cabb87069db2" compoundref="thread_8h" startline="291" endline="293">terminate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1aad6e1aa05c22d497f621142bdc894c1b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lubyk::Thread::isRunning</definition>
+        <argsstring>()</argsstring>
+        <name>isRunning</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the thread is running. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="184" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="184" bodyend="186"/>
+        <references refid="classlubyk_1_1_thread_1af0e95505c90fd5bbc7b4ced7ed99cf20" compoundref="thread_8h" startline="298">thread_id_</references>
+        <referencedby refid="classlubyk_1_1_thread_1aba8009d4d34824dc3b0f9e65f96b1469" compoundref="thread_8h" startline="55" endline="73">startThread</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1af0c5a92031088fb09de9d01fddb1261b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::Thread::highPriority</definition>
+        <argsstring>()</argsstring>
+        <name>highPriority</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set thread priority to high. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="189"/>
+        <referencedby refid="classlubyk_1_1_timer_1a28bdcc9153dc8a1642a057588daf715d" compoundref="lubyk_2include_2lubyk_2timer_8h" startline="196" endline="203">lubyk::Timer&lt; T, Tmethod &gt;::startThread</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1a4e0a784e5c8a6d557b79808684547b24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::Thread::normalPriority</definition>
+        <argsstring>()</argsstring>
+        <name>normalPriority</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set thread priority to normal. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="192"/>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1a37f0de298862cdba718531761bdc41a5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::Thread::threadReady</definition>
+        <argsstring>()</argsstring>
+        <name>threadReady</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method should be called by started thread when it has properly started an it is ready. The creating thread locks until this method is called. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="202" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="202" bodyend="205"/>
+        <references refid="classlubyk_1_1_thread_1a85b5d99c4d0044b805920dda5a18f9b5" compoundref="thread_8h" startline="306">condition_</references>
+        <references refid="classlubyk_1_1_condition_1a9929b0d44e95c4986165759ec8f6e120" compoundref="condition_8h" startline="83" endline="90">lubyk::Condition::signal</references>
+        <referencedby refid="classlubyk_1_1_worker_1adcecfdc90d287b120b593d3942f89138" compoundref="worker_8h" startline="208" endline="213">lubyk::Worker::doExecute</referencedby>
+        <referencedby refid="classlubyk_1_1_timer_1a28bdcc9153dc8a1642a057588daf715d" compoundref="lubyk_2include_2lubyk_2timer_8h" startline="196" endline="203">lubyk::Timer&lt; T, Tmethod &gt;::startThread</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classlubyk_1_1_thread_1a023551515678f97dcfa14629f20f0b10" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void lubyk::Thread::millisleep</definition>
+        <argsstring>(double milliseconds)</argsstring>
+        <name>millisleep</name>
+        <param>
+          <type>double</type>
+          <declname>milliseconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sleep for a given number of milliseconds. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="196"/>
+        <referencedby refid="classzmq_1_1_poller_1a08be8489aaee2d0ade8ff1bdf839ce48" compoundref="_poller_8h" startline="138" endline="193">zmq::Poller::poll</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1a9881baf5e814d085525db510a6f7cdfd" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classlubyk_1_1_thread" kindref="compound">Thread</ref> *</type>
+        <definition>static Thread* lubyk::Thread::thread_this</definition>
+        <argsstring>()</argsstring>
+        <name>thread_this</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get &quot;this&quot; (used in static callbacks). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="209" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="209" bodyend="211"/>
+        <references refid="classlubyk_1_1_thread_1ac5066b34897d5f8ea3c696e4f712c183" compoundref="thread_8h" startline="215">sThisKey</references>
+        <referencedby refid="classlubyk_1_1_thread_1a25a878378b45e53aa050cabb87069db2" compoundref="thread_8h" startline="291" endline="293">terminate</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classlubyk_1_1_thread_1aec8277427577e3b0b4a8102a097c0261" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void lubyk::Thread::setThreadThis</definition>
+        <argsstring>(Thread *thread)</argsstring>
+        <name>setThreadThis</name>
+        <param>
+          <type><ref refid="classlubyk_1_1_thread" kindref="compound">Thread</ref> *</type>
+          <declname>thread</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set &apos;this&apos; value for the current thread so we can find our object back. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="224" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="224" bodyend="226"/>
+        <references refid="classlubyk_1_1_thread_1ac5066b34897d5f8ea3c696e4f712c183" compoundref="thread_8h" startline="215">sThisKey</references>
+        <referencedby refid="classlubyk_1_1_thread_1a48a1e23e21a10cf826bb4a1b6b1b1a1b" compoundref="thread_8h" startline="231" endline="248">s_start_static_thread</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1a2bfcb77eb3b839cb3655198e0fbcc5f7" compoundref="thread_8h" startline="252" endline="269">s_startThread</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1a48a1e23e21a10cf826bb4a1b6b1b1a1b" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void *</type>
+        <definition>static void* lubyk::Thread::s_start_static_thread</definition>
+        <argsstring>(void *thread_ptr)</argsstring>
+        <name>s_start_static_thread</name>
+        <param>
+          <type>void *</type>
+          <declname>thread_ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Static function to start a new thread from a class method or static function. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="231" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="231" bodyend="248"/>
+        <references refid="classlubyk_1_1_thread_1a1db79610063cc908a055999f36d0cca1" compoundref="thread_8h" startline="161" endline="165">registerSignal</references>
+        <references refid="classlubyk_1_1_thread_1aec8277427577e3b0b4a8102a097c0261" compoundref="thread_8h" startline="224" endline="226">setThreadThis</references>
+        <references refid="classlubyk_1_1_thread_1aed027872144ce648ab7150501ea02130" compoundref="thread_8h" startline="303">should_run_</references>
+        <references refid="classlubyk_1_1_thread_1a23b7685c06684e858bbd039456a4ac46" compoundref="thread_8h" startline="296">static_method_</references>
+        <references refid="classlubyk_1_1_thread_1af0e95505c90fd5bbc7b4ced7ed99cf20" compoundref="thread_8h" startline="298">thread_id_</references>
+        <referencedby refid="classlubyk_1_1_thread_1aba8009d4d34824dc3b0f9e65f96b1469" compoundref="thread_8h" startline="55" endline="73">startThread</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1a2bfcb77eb3b839cb3655198e0fbcc5f7" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="cv_8h_1a3efb9551a871ddd0463079a808916717" kindref="member">T</ref></type>
+          </param>
+          <param>
+            <type>void(T::*)(<ref refid="classlubyk_1_1_thread" kindref="compound">Thread</ref> *)</type>
+            <declname>Tmethod</declname>
+            <defname>Tmethod</defname>
+          </param>
+        </templateparamlist>
+        <type>void *</type>
+        <definition>static void* lubyk::Thread::s_startThread</definition>
+        <argsstring>(void *thread_ptr)</argsstring>
+        <name>s_startThread</name>
+        <param>
+          <type>void *</type>
+          <declname>thread_ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Static function to start a new thread. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="252" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="252" bodyend="269"/>
+        <references refid="classlubyk_1_1_thread_1ae02827945cd692dbc62a7648dcd03611" compoundref="thread_8h" startline="295">owner_</references>
+        <references refid="classlubyk_1_1_thread_1a1db79610063cc908a055999f36d0cca1" compoundref="thread_8h" startline="161" endline="165">registerSignal</references>
+        <references refid="classlubyk_1_1_thread_1aec8277427577e3b0b4a8102a097c0261" compoundref="thread_8h" startline="224" endline="226">setThreadThis</references>
+        <references refid="classlubyk_1_1_thread_1aed027872144ce648ab7150501ea02130" compoundref="thread_8h" startline="303">should_run_</references>
+        <references refid="cv_8h_1a3efb9551a871ddd0463079a808916717" compoundref="cv_8h" startline="1450">T</references>
+        <references refid="classlubyk_1_1_thread_1af0e95505c90fd5bbc7b4ced7ed99cf20" compoundref="thread_8h" startline="298">thread_id_</references>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1a2bfcb77eb3b839cb3655198e0fbcc5f7" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="cv_8h_1a3efb9551a871ddd0463079a808916717" kindref="member">T</ref></type>
+          </param>
+          <param>
+            <type>void(T::*)()</type>
+            <declname>Tmethod</declname>
+            <defname>Tmethod</defname>
+          </param>
+        </templateparamlist>
+        <type>void *</type>
+        <definition>static void* lubyk::Thread::s_startThread</definition>
+        <argsstring>(void *thread_ptr)</argsstring>
+        <name>s_startThread</name>
+        <param>
+          <type>void *</type>
+          <declname>thread_ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Static function to start a new thread. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="273" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="273" bodyend="288"/>
+        <references refid="classlubyk_1_1_thread_1ae02827945cd692dbc62a7648dcd03611" compoundref="thread_8h" startline="295">owner_</references>
+        <references refid="classlubyk_1_1_thread_1a1db79610063cc908a055999f36d0cca1" compoundref="thread_8h" startline="161" endline="165">registerSignal</references>
+        <references refid="classlubyk_1_1_thread_1aec8277427577e3b0b4a8102a097c0261" compoundref="thread_8h" startline="224" endline="226">setThreadThis</references>
+        <references refid="classlubyk_1_1_thread_1aed027872144ce648ab7150501ea02130" compoundref="thread_8h" startline="303">should_run_</references>
+        <references refid="cv_8h_1a3efb9551a871ddd0463079a808916717" compoundref="cv_8h" startline="1450">T</references>
+        <references refid="classlubyk_1_1_thread_1af0e95505c90fd5bbc7b4ced7ed99cf20" compoundref="thread_8h" startline="298">thread_id_</references>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_thread_1a25a878378b45e53aa050cabb87069db2" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void lubyk::Thread::terminate</definition>
+        <argsstring>(int sig)</argsstring>
+        <name>terminate</name>
+        <param>
+          <type>int</type>
+          <declname>sig</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classlubyk_1_1_thread" kindref="compound">Thread</ref> should stop. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="291" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="291" bodyend="293"/>
+        <references refid="classlubyk_1_1_thread_1a63b081a7b99ac42d7d04b0cb67fbc052" compoundref="thread_8h" startline="178" endline="180">quit</references>
+        <references refid="classlubyk_1_1_thread_1a9881baf5e814d085525db510a6f7cdfd" compoundref="thread_8h" startline="209" endline="211">thread_this</references>
+        <referencedby refid="classlubyk_1_1_thread_1a1db79610063cc908a055999f36d0cca1" compoundref="thread_8h" startline="161" endline="165">registerSignal</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2451">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2449">
+        <label>lubyk::Thread</label>
+        <link refid="classlubyk_1_1_thread"/>
+        <childnode refid="2450" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2450">
+        <label>lubyk::Mutex</label>
+        <link refid="classlubyk_1_1_mutex"/>
+        <childnode refid="2451" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2454">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2452">
+        <label>lubyk::Thread</label>
+        <link refid="classlubyk_1_1_thread"/>
+        <childnode refid="2453" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2455" relation="usage">
+          <edgelabel>condition_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2453">
+        <label>lubyk::Mutex</label>
+        <link refid="classlubyk_1_1_mutex"/>
+        <childnode refid="2454" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2455">
+        <label>lubyk::Condition</label>
+        <link refid="classlubyk_1_1_condition"/>
+        <childnode refid="2453" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" line="47" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/thread.h" bodystart="47" bodyend="308"/>
+    <listofallmembers>
+      <member refid="classlubyk_1_1_thread_1a85b5d99c4d0044b805920dda5a18f9b5" prot="private" virt="non-virtual"><scope>lubyk::Thread</scope><name>condition_</name></member>
+      <member refid="classlubyk_1_1_thread_1af0c5a92031088fb09de9d01fddb1261b" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>highPriority</name></member>
+      <member refid="classlubyk_1_1_thread_1aad6e1aa05c22d497f621142bdc894c1b" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>isRunning</name></member>
+      <member refid="classlubyk_1_1_thread_1a3e070fed4de974dfea2f42f97c818250" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>join</name></member>
+      <member refid="classlubyk_1_1_thread_1a53158cda2d2a4738eaab4232d5603e16" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>kill</name></member>
+      <member refid="classlubyk_1_1_mutex_1a74ee38ef2f9bf4e86a3871f5b60a31c3" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>lock</name></member>
+      <member refid="classlubyk_1_1_thread_1a023551515678f97dcfa14629f20f0b10" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>millisleep</name></member>
+      <member refid="classlubyk_1_1_mutex_1a8e93f428f3245e6b6528901f4599d0d7" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>Mutex</name></member>
+      <member refid="classlubyk_1_1_thread_1aa5386778f536134d39332daf9cec1857" prot="private" virt="non-virtual"><scope>lubyk::Thread</scope><name>normal_sched_policy_</name></member>
+      <member refid="classlubyk_1_1_thread_1a71e5f8ea00b2b4a93bb45d53310c9026" prot="private" virt="non-virtual"><scope>lubyk::Thread</scope><name>normal_thread_param_</name></member>
+      <member refid="classlubyk_1_1_thread_1a4e0a784e5c8a6d557b79808684547b24" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>normalPriority</name></member>
+      <member refid="classlubyk_1_1_thread_1ae02827945cd692dbc62a7648dcd03611" prot="private" virt="non-virtual"><scope>lubyk::Thread</scope><name>owner_</name></member>
+      <member refid="classlubyk_1_1_thread_1a803f2081dd6d425396dc440ecb7de399" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>parameter_</name></member>
+      <member refid="classlubyk_1_1_thread_1a63b081a7b99ac42d7d04b0cb67fbc052" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>quit</name></member>
+      <member refid="classlubyk_1_1_thread_1a1db79610063cc908a055999f36d0cca1" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>registerSignal</name></member>
+      <member refid="classlubyk_1_1_thread_1a48a1e23e21a10cf826bb4a1b6b1b1a1b" prot="private" virt="non-virtual"><scope>lubyk::Thread</scope><name>s_start_static_thread</name></member>
+      <member refid="classlubyk_1_1_thread_1a2bfcb77eb3b839cb3655198e0fbcc5f7" prot="private" virt="non-virtual"><scope>lubyk::Thread</scope><name>s_startThread</name></member>
+      <member refid="classlubyk_1_1_thread_1a2bfcb77eb3b839cb3655198e0fbcc5f7" prot="private" virt="non-virtual"><scope>lubyk::Thread</scope><name>s_startThread</name></member>
+      <member refid="classlubyk_1_1_thread_1a0682ee75f6021f3bcb7d8d1979333f21" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>sendSignal</name></member>
+      <member refid="classlubyk_1_1_thread_1aec8277427577e3b0b4a8102a097c0261" prot="private" virt="non-virtual"><scope>lubyk::Thread</scope><name>setThreadThis</name></member>
+      <member refid="classlubyk_1_1_thread_1aed027872144ce648ab7150501ea02130" prot="protected" virt="non-virtual"><scope>lubyk::Thread</scope><name>should_run_</name></member>
+      <member refid="classlubyk_1_1_thread_1a79a76930356ff8056995bb6ef7745d17" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>shouldRun</name></member>
+      <member refid="classlubyk_1_1_thread_1aba8009d4d34824dc3b0f9e65f96b1469" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>startThread</name></member>
+      <member refid="classlubyk_1_1_thread_1acd809e5980356db9b1cc5e74d4210b9e" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>startThread</name></member>
+      <member refid="classlubyk_1_1_thread_1ab12640737a5456fb53d41d8690b9cd7e" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>startThread</name></member>
+      <member refid="classlubyk_1_1_thread_1ab12640737a5456fb53d41d8690b9cd7e" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>startThread</name></member>
+      <member refid="classlubyk_1_1_thread_1a23b7685c06684e858bbd039456a4ac46" prot="private" virt="non-virtual"><scope>lubyk::Thread</scope><name>static_method_</name></member>
+      <member refid="classlubyk_1_1_thread_1ac5066b34897d5f8ea3c696e4f712c183" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>sThisKey</name></member>
+      <member refid="classlubyk_1_1_thread_1a25a878378b45e53aa050cabb87069db2" prot="private" virt="non-virtual"><scope>lubyk::Thread</scope><name>terminate</name></member>
+      <member refid="classlubyk_1_1_thread_1aed806528cf050edab241676caa80e05f" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>Thread</name></member>
+      <member refid="classlubyk_1_1_thread_1af0e95505c90fd5bbc7b4ced7ed99cf20" prot="private" virt="non-virtual"><scope>lubyk::Thread</scope><name>thread_id_</name></member>
+      <member refid="classlubyk_1_1_thread_1a9881baf5e814d085525db510a6f7cdfd" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>thread_this</name></member>
+      <member refid="classlubyk_1_1_thread_1a37f0de298862cdba718531761bdc41a5" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>threadReady</name></member>
+      <member refid="classlubyk_1_1_mutex_1a83fead89eb5401b9dd1fbc6ecdd7e31c" prot="public" virt="non-virtual"><scope>lubyk::Thread</scope><name>unlock</name></member>
+      <member refid="classlubyk_1_1_mutex_1abca8268a2723750c3c9a31bc839a2912" prot="public" virt="virtual"><scope>lubyk::Thread</scope><name>~Mutex</name></member>
+      <member refid="classlubyk_1_1_thread_1a40fe36cf5a97c14ce117287ad7d49674" prot="public" virt="virtual"><scope>lubyk::Thread</scope><name>~Thread</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

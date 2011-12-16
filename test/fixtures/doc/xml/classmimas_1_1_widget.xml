@@ -1,0 +1,592 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmimas_1_1_widget" kind="class" prot="public">
+    <compoundname>mimas::Widget</compoundname>
+    <basecompoundref refid="classmimas_1_1_q_widget" prot="public" virt="non-virtual">mimas::QWidget</basecompoundref>
+    <basecompoundref refid="classlubyk_1_1_threaded_lua_object" prot="public" virt="non-virtual">lubyk::ThreadedLuaObject</basecompoundref>
+    <includes refid="_widget_8h" local="no">Widget.h</includes>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="classmimas_1_1_widget_1acf52a71256fd413c84c6e44bb80e71bf" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+        <type>QString</type>
+        <definition>QString mimas::Widget::class</definition>
+        <argsstring></argsstring>
+        <name>class</name>
+        <read>cssClass</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="55" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classmimas_1_1_widget_1a49c29d34135500be58a22ebc69e5f148" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+        <type>float</type>
+        <definition>float mimas::Widget::hue</definition>
+        <argsstring></argsstring>
+        <name>hue</name>
+        <read>hue</read>
+        <write>setHue</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="56" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmimas_1_1_widget_1a57ff26f71d67f147204011e37477d416" prot="public" static="no" mutable="no">
+        <type>QSize</type>
+        <definition>QSize mimas::Widget::size_hint_</definition>
+        <argsstring></argsstring>
+        <name>size_hint_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="84" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmimas_1_1_widget_1a7af3899a531775c5fa816d0e1630c4c8" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float mimas::Widget::hue_</definition>
+        <argsstring></argsstring>
+        <name>hue_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The component&apos;s color. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="143" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmimas_1_1_widget_1a306ec4c871d4b967a41fba359d2a5177" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Widget::Widget</definition>
+        <argsstring>(int window_flags=0)</argsstring>
+        <name>Widget</name>
+        <param>
+          <type>int</type>
+          <declname>window_flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="60" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="59" bodyend="63"/>
+        <references refid="mimas_8h_1abf7761995db91711f1c2001b3ea81ae7" compoundref="mimas_8h" startline="37">MIMAS_DEBUG_CC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1ada6d2efbb3adb09b8e14e016a2896963" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Widget::~Widget</definition>
+        <argsstring>()</argsstring>
+        <name>~Widget</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="65" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="65" bodyend="67"/>
+        <references refid="mimas_8h_1a9d2f1addda3f00a2c1d2e3e2b6e4b5b5" compoundref="mimas_8h" startline="38">MIMAS_DEBUG_GC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1ac4cf21bb807c87a333099b7f0d4bb9c9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString mimas::Widget::cssClass</definition>
+        <argsstring>() const </argsstring>
+        <name>cssClass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="69" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="69" bodyend="71"/>
+        <references refid="cxcore_8h_1a5f450b216725a37cbc0acd54340144d9" compoundref="cxcore_8h" startline="1479">parent</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1afdc74c502fab106d25560724c207abab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Widget::setHue</definition>
+        <argsstring>(float hue)</argsstring>
+        <name>setHue</name>
+        <param>
+          <type>float</type>
+          <declname>hue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is this used ??? </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="75" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="75" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1a1a3956a7f7fe5cb910067405c2c9529f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float mimas::Widget::hue</definition>
+        <argsstring>()</argsstring>
+        <name>hue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="80" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="80" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1aa6f4c6ddfdb67affdcfb166170d6da92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize mimas::Widget::getOpenFileName</definition>
+        <argsstring>(const char *caption, const char *base_dir, const char *filter, int options, lua_State *L)</argsstring>
+        <name>getOpenFileName</name>
+        <param>
+          <type>const char *</type>
+          <declname>caption</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>base_dir</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>filter</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1a30161e2c4e011bebd5aa38de21f25506" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize mimas::Widget::getExistingDirectory</definition>
+        <argsstring>(const char *caption, const char *base_dir, int options, lua_State *L)</argsstring>
+        <name>getExistingDirectory</name>
+        <param>
+          <type>const char *</type>
+          <declname>caption</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>base_dir</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="95"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmimas_1_1_widget_1a3aea2300cacba1569fb5764234522797" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Widget::mouseMoveEvent</definition>
+        <argsstring>(QMouseEvent *event)</argsstring>
+        <name>mouseMoveEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1add42e798f0fb1122d35c161d111b8c6b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Widget::mousePressEvent</definition>
+        <argsstring>(QMouseEvent *event)</argsstring>
+        <name>mousePressEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="99" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="99" bodyend="101"/>
+        <references refid="namespacemimas_1ac511138d28d71a62e97f1639d18c08a6a53a1fecfaa3461c5fa343cccce94322d" compoundref="mimas_2include_2mimas_2constants_8h" startline="137">mimas::MousePress</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1a02f85b4b13bc6f069661e0f8cfd1ff45" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Widget::mouseDoubleClickEvent</definition>
+        <argsstring>(QMouseEvent *event)</argsstring>
+        <name>mouseDoubleClickEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="103" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="103" bodyend="105"/>
+        <references refid="namespacemimas_1ac511138d28d71a62e97f1639d18c08a6a79efc10f470f89403cfc8c847cffc397" compoundref="mimas_2include_2mimas_2constants_8h" startline="139">mimas::DoubleClick</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1a6baec748801483c21d4016722ee81869" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Widget::mouseReleaseEvent</definition>
+        <argsstring>(QMouseEvent *event)</argsstring>
+        <name>mouseReleaseEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="107" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="107" bodyend="109"/>
+        <references refid="namespacemimas_1ac511138d28d71a62e97f1639d18c08a6a07cdb56d9783986895cc0ee3a3150b73" compoundref="mimas_2include_2mimas_2constants_8h" startline="138">mimas::MouseRelease</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1a101b187f715c9bcc4d12b3f1c2ad269b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Widget::paintEvent</definition>
+        <argsstring>(QPaintEvent *event)</argsstring>
+        <name>paintEvent</name>
+        <param>
+          <type>QPaintEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1a555eec7c25ab279efcdd85d1f9261836" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Widget::resizeEvent</definition>
+        <argsstring>(QResizeEvent *event)</argsstring>
+        <name>resizeEvent</name>
+        <param>
+          <type>QResizeEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1af33b100e20262919942a9b7ab0f6bc2e" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Widget::moveEvent</definition>
+        <argsstring>(QMoveEvent *event)</argsstring>
+        <name>moveEvent</name>
+        <param>
+          <type>QMoveEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="114" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="114" bodyend="127"/>
+        <references refid="lua_8h_1a14e41f2bd36ece32e14d289b213ddd54">luaDump</references>
+        <references refid="lua__object_8h_1a1095d349e93aa25cf9ddf8d07cbb6eea" compoundref="lua__object_8h" startline="34">pushLuaCallback</references>
+        <references refid="cv_8h_1ae17b3c2584dab511e91d1c96644018bf" compoundref="cv_8h" startline="516">status</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1a793e538aaafb10278567c2525b9aa504" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Widget::keyPressEvent</definition>
+        <argsstring>(QKeyEvent *event)</argsstring>
+        <name>keyPressEvent</name>
+        <param>
+          <type>QKeyEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="129" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="129" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1a712672c09c5097e59754786589b73c70" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Widget::keyReleaseEvent</definition>
+        <argsstring>(QKeyEvent *event)</argsstring>
+        <name>keyReleaseEvent</name>
+        <param>
+          <type>QKeyEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="133" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="133" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1ac649f999fbb1b15addc0b939769e5746" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QSize</type>
+        <definition>virtual QSize mimas::Widget::sizeHint</definition>
+        <argsstring>() const </argsstring>
+        <name>sizeHint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="137" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="137" bodyend="139"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmimas_1_1_widget_1a9a6eb4e863fc99fcb31804da8a33ba13" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Widget::paint</definition>
+        <argsstring>(Painter &amp;p)</argsstring>
+        <name>paint</name>
+        <param>
+          <type><ref refid="classmimas_1_1_painter" kindref="compound">Painter</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1a717659ba0425ab27c54b685bfe5707c9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Widget::keyboard</definition>
+        <argsstring>(QKeyEvent *event, bool isPressed)</argsstring>
+        <name>keyboard</name>
+        <param>
+          <type>QKeyEvent *</type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isPressed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_widget_1a0b9b3b73f877bccc2416f4851c6dec8c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Widget::click</definition>
+        <argsstring>(QMouseEvent *event, int type)</argsstring>
+        <name>click</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="148"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classmimas_1_1_widget" kindref="compound">Widget</ref> is used to display custom elements or windows. The <ref refid="classmimas_1_1_widget" kindref="compound">Widget</ref> uses the following callbacks: paint, mouse, click, keyboard, move and resized.</para><para><simplesect kind="see"><para><ref refid="classmimas_1_1_q_widget" kindref="compound">QWidget</ref> </para></simplesect>
+<simplesect kind="par"><title>Bindings info:</title><para>destructor: &apos;luaDestroy&apos; super: &apos;QWidget&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2515">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="2514">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2515" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2512">
+        <label>mimas::Widget</label>
+        <link refid="classmimas_1_1_widget"/>
+        <childnode refid="2513" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2514" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2513">
+        <label>mimas::QWidget</label>
+        <link refid="classmimas_1_1_q_widget"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2520">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="2521" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2522">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2519">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="2520" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2518">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2519" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2521">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="2522" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2516">
+        <label>mimas::Widget</label>
+        <link refid="classmimas_1_1_widget"/>
+        <childnode refid="2517" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2518" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2517">
+        <label>mimas::QWidget</label>
+        <link refid="classmimas_1_1_q_widget"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h" bodystart="53" bodyend="149"/>
+    <listofallmembers>
+      <member refid="classmimas_1_1_q_widget_1a2c16b0aa59b73765654d2237089c2a35" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>activateWindow</name></member>
+      <member refid="classmimas_1_1_q_widget_1a5eb714472ab84bd1d914d581d2c6b7e1" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>addAction</name></member>
+      <member refid="classmimas_1_1_q_widget_1ad7b621aae4b372e0233c6bd1a14704f7" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>addWidget</name></member>
+      <member refid="classmimas_1_1_widget_1acf52a71256fd413c84c6e44bb80e71bf" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>class</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>mimas::Widget</scope><name>class_name_</name></member>
+      <member refid="classmimas_1_1_widget_1a0b9b3b73f877bccc2416f4851c6dec8c" prot="private" virt="non-virtual"><scope>mimas::Widget</scope><name>click</name></member>
+      <member refid="classmimas_1_1_q_widget_1a12abba582c7816ae2dde59e78b4ac6c6" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>close</name></member>
+      <member refid="classmimas_1_1_widget_1ac4cf21bb807c87a333099b7f0d4bb9c9" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>cssClass</name></member>
+      <member refid="classmimas_1_1_widget_1a30161e2c4e011bebd5aa38de21f25506" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>getExistingDirectory</name></member>
+      <member refid="classmimas_1_1_widget_1aa6f4c6ddfdb67affdcfb166170d6da92" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>getOpenFileName</name></member>
+      <member refid="classmimas_1_1_q_widget_1af7a068c51800c3a7ae324c9389a63e42" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>globalMove</name></member>
+      <member refid="classmimas_1_1_q_widget_1a456b3504fad72ef80acbfab384a9a537" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>globalPosition</name></member>
+      <member refid="classmimas_1_1_q_widget_1a5c700ca1fa9c71a523e3805ce476f696" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>height</name></member>
+      <member refid="classmimas_1_1_q_widget_1aca021adaeab492012a55a89957f86c73" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>hide</name></member>
+      <member refid="classmimas_1_1_widget_1a49c29d34135500be58a22ebc69e5f148" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>hue</name></member>
+      <member refid="classmimas_1_1_widget_1a1a3956a7f7fe5cb910067405c2c9529f" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>hue</name></member>
+      <member refid="classmimas_1_1_widget_1a7af3899a531775c5fa816d0e1630c4c8" prot="protected" virt="non-virtual"><scope>mimas::Widget</scope><name>hue_</name></member>
+      <member refid="classmimas_1_1_q_widget_1ab3d4c7aeae7fda2e289998a19bb87de2" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>isFullScreen</name></member>
+      <member refid="classmimas_1_1_q_widget_1adffb55ee69ac12c23140615127904b25" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>isVisible</name></member>
+      <member refid="classmimas_1_1_widget_1a717659ba0425ab27c54b685bfe5707c9" prot="private" virt="non-virtual"><scope>mimas::Widget</scope><name>keyboard</name></member>
+      <member refid="classmimas_1_1_widget_1a793e538aaafb10278567c2525b9aa504" prot="protected" virt="virtual"><scope>mimas::Widget</scope><name>keyPressEvent</name></member>
+      <member refid="classmimas_1_1_widget_1a712672c09c5097e59754786589b73c70" prot="protected" virt="virtual"><scope>mimas::Widget</scope><name>keyReleaseEvent</name></member>
+      <member refid="classmimas_1_1_q_widget_1ad905316c5da0b19d8e4207e18f33787a" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>lower</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>lua_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>mimas::Widget</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>luaDestroy</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a1351dd8c5053c7df8e0a29b2887ddb8e" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>LuaObject</name></member>
+      <member refid="classmimas_1_1_widget_1a02f85b4b13bc6f069661e0f8cfd1ff45" prot="protected" virt="virtual"><scope>mimas::Widget</scope><name>mouseDoubleClickEvent</name></member>
+      <member refid="classmimas_1_1_widget_1a3aea2300cacba1569fb5764234522797" prot="protected" virt="virtual"><scope>mimas::Widget</scope><name>mouseMoveEvent</name></member>
+      <member refid="classmimas_1_1_widget_1add42e798f0fb1122d35c161d111b8c6b" prot="protected" virt="virtual"><scope>mimas::Widget</scope><name>mousePressEvent</name></member>
+      <member refid="classmimas_1_1_widget_1a6baec748801483c21d4016722ee81869" prot="protected" virt="virtual"><scope>mimas::Widget</scope><name>mouseReleaseEvent</name></member>
+      <member refid="classmimas_1_1_q_widget_1ab5e51803a824ad15b61372e324272b93" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>move</name></member>
+      <member refid="classmimas_1_1_widget_1af33b100e20262919942a9b7ab0f6bc2e" prot="protected" virt="virtual"><scope>mimas::Widget</scope><name>moveEvent</name></member>
+      <member refid="classmimas_1_1_widget_1a9a6eb4e863fc99fcb31804da8a33ba13" prot="private" virt="non-virtual"><scope>mimas::Widget</scope><name>paint</name></member>
+      <member refid="classmimas_1_1_widget_1a101b187f715c9bcc4d12b3f1c2ad269b" prot="protected" virt="virtual"><scope>mimas::Widget</scope><name>paintEvent</name></member>
+      <member refid="classmimas_1_1_q_widget_1acf3ea1c9deaa9e46307d5aaf2d72610e" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>position</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1af9f7e3d5717357958461b2634742475f" prot="protected" virt="non-virtual"><scope>mimas::Widget</scope><name>pushLuaCallbackl</name></member>
+      <member refid="classmimas_1_1_q_widget_1a4b1a5316df83360cf96448fa62aa9128" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>raise</name></member>
+      <member refid="classmimas_1_1_q_widget_1afe94af75a541c01ba3f59fcaf872156f" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>resize</name></member>
+      <member refid="classmimas_1_1_widget_1a555eec7c25ab279efcdd85d1f9261836" prot="protected" virt="virtual"><scope>mimas::Widget</scope><name>resizeEvent</name></member>
+      <member refid="classmimas_1_1_widget_1afdc74c502fab106d25560724c207abab" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>setHue</name></member>
+      <member refid="classmimas_1_1_q_widget_1a8e3bc761b7a886be737db2997af47189" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>setMinimumSize</name></member>
+      <member refid="classmimas_1_1_q_widget_1acd34e1e7980ff068609166ad7d641ed2" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>setMouseTracking</name></member>
+      <member refid="classmimas_1_1_q_widget_1a31869420ca8548d53dfa68d740420fc5" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>setParent</name></member>
+      <member refid="classmimas_1_1_q_widget_1a3953e60f2bfc706c2b2895417b0378e1" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>setSizeHint</name></member>
+      <member refid="classmimas_1_1_q_widget_1aa96e32e9bbeea9f55522e6d8e476c9a5" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>setSizePolicy</name></member>
+      <member refid="classmimas_1_1_q_widget_1a40d48fe5fa33117cc17b76154b7cb1b0" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>setStyle</name></member>
+      <member refid="classmimas_1_1_q_widget_1a90b909331eb2a15fee67cb3735c9606e" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>setStyleSheet</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1ad533909af126d2aa2b058dea6b0d91f0" prot="protected" virt="non-virtual"><scope>mimas::Widget</scope><name>setupLuaThread</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>mimas::Widget</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>mimas::Widget</scope><name>setupSuper</name></member>
+      <member refid="classmimas_1_1_q_widget_1a25554ad818cb2756fc3874a2b3eb0ee8" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>show</name></member>
+      <member refid="classmimas_1_1_q_widget_1a3a36d9de33e38c7635e12793fabd5367" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>showFullScreen</name></member>
+      <member refid="classmimas_1_1_q_widget_1a482dfbb8005f78f12ea4ef436c327b49" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>size</name></member>
+      <member refid="classmimas_1_1_widget_1a57ff26f71d67f147204011e37477d416" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>size_hint_</name></member>
+      <member refid="classmimas_1_1_widget_1ac649f999fbb1b15addc0b939769e5746" prot="protected" virt="virtual"><scope>mimas::Widget</scope><name>sizeHint</name></member>
+      <member refid="classmimas_1_1_q_widget_1a862367fa45e2590be15c62dd330a8d69" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>swapFullScreen</name></member>
+      <member refid="classmimas_1_1_q_widget_1adb774878a00187cf1532dab0055aa43e" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>textSize</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a68147ed0f2048d29f6adf5316992ad69" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>ThreadedLuaObject</name></member>
+      <member refid="classmimas_1_1_q_widget_1abbb4a63f897a8f4fb253ee4034e955d0" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>update</name></member>
+      <member refid="classmimas_1_1_widget_1a306ec4c871d4b967a41fba359d2a5177" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>Widget</name></member>
+      <member refid="classmimas_1_1_q_widget_1a42d138391b7ae0ce0157f3657a5449aa" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>widget</name></member>
+      <member refid="classmimas_1_1_q_widget_1a5d0dc8f782b597611a1245c5afb97007" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>width</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>worker_</name></member>
+      <member refid="classmimas_1_1_q_widget_1ad845a35637d42f405c33367ef7bf2ed9" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>x</name></member>
+      <member refid="classmimas_1_1_q_widget_1a07d98551b42a971c118c6dc3899950b3" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>y</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>mimas::Widget</scope><name>~LuaObject</name></member>
+      <member refid="classmimas_1_1_widget_1ada6d2efbb3adb09b8e14e016a2896963" prot="public" virt="non-virtual"><scope>mimas::Widget</scope><name>~Widget</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

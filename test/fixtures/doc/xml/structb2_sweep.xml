@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_sweep" kind="struct" prot="public">
+    <compoundname>b2Sweep</compoundname>
+    <includes refid="b2_math_8h" local="no">b2Math.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_sweep_1a4bcc302cf78771896d6256fc53f2f8be" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2Sweep::localCenter</definition>
+        <argsstring></argsstring>
+        <name>localCenter</name>
+        <briefdescription>
+<para>local center of mass position </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="404" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="404" bodyend="-1"/>
+        <referencedby refid="classb2_body_1a018ca81f6c1bef31942931dfa9459f4f" compoundref="b2_body_8h" startline="826" endline="834">b2Body::Advance</referencedby>
+        <referencedby refid="classb2_body_1a8c8916caf67c1e618a07d8b6b9253fa8" compoundref="b2_body_8h" startline="538" endline="541">b2Body::GetInertia</referencedby>
+        <referencedby refid="classb2_body_1a27ed7f8a3b36ddfb01069ee8f7106033" compoundref="b2_body_8h" startline="488" endline="491">b2Body::GetLocalCenter</referencedby>
+        <referencedby refid="classb2_body_1ad0a90df7e2617a8572cd476267f95417" compoundref="b2_body_8h" startline="543" endline="548">b2Body::GetMassData</referencedby>
+        <referencedby refid="structb2_sweep_1a81947646092468290d15005928e12fcd" compoundref="b2_math_8h" startline="703" endline="711">GetTransform</referencedby>
+        <referencedby refid="classb2_body_1a4ce4a12de31c4e877ac5075331cb3a47" compoundref="b2_body_8h" startline="820" endline="824">b2Body::SynchronizeTransform</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_sweep_1a16dacd7188f3c7b2adef3242012587d8" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2Sweep::c0</definition>
+        <argsstring></argsstring>
+        <name>c0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="405" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="405" bodyend="-1"/>
+        <referencedby refid="structb2_sweep_1a35eb9b976ca87c9b8d758bec070c6c06" compoundref="b2_math_8h" startline="713" endline="720">Advance</referencedby>
+        <referencedby refid="classb2_body_1a018ca81f6c1bef31942931dfa9459f4f" compoundref="b2_body_8h" startline="826" endline="834">b2Body::Advance</referencedby>
+        <referencedby refid="structb2_sweep_1a81947646092468290d15005928e12fcd" compoundref="b2_math_8h" startline="703" endline="711">GetTransform</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_sweep_1a1b5402e01b92cc82473389fc6f0375c3" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2Sweep::c</definition>
+        <argsstring></argsstring>
+        <name>c</name>
+        <briefdescription>
+<para>center world positions </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="405" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="405" bodyend="-1"/>
+        <referencedby refid="structb2_sweep_1a35eb9b976ca87c9b8d758bec070c6c06" compoundref="b2_math_8h" startline="713" endline="720">Advance</referencedby>
+        <referencedby refid="classb2_body_1a018ca81f6c1bef31942931dfa9459f4f" compoundref="b2_body_8h" startline="826" endline="834">b2Body::Advance</referencedby>
+        <referencedby refid="classb2_body_1aa1a2ebd027635ea5a81749f267a19261" compoundref="b2_body_8h" startline="745" endline="759">b2Body::ApplyForce</referencedby>
+        <referencedby refid="classb2_body_1ada3c2a70cbb53c4fcee5a4febbbefc15" compoundref="b2_body_8h" startline="791" endline="804">b2Body::ApplyLinearImpulse</referencedby>
+        <referencedby refid="classb2_body_1a4238ae43f5afeb2126b8e8bf765334b5" compoundref="b2_body_8h" startline="570" endline="573">b2Body::GetLinearVelocityFromWorldPoint</referencedby>
+        <referencedby refid="structb2_sweep_1a81947646092468290d15005928e12fcd" compoundref="b2_math_8h" startline="703" endline="711">GetTransform</referencedby>
+        <referencedby refid="classb2_body_1a04db0c7b12b315802e58b33884f4f63c" compoundref="b2_body_8h" startline="483" endline="486">b2Body::GetWorldCenter</referencedby>
+        <referencedby refid="classb2_body_1a4ce4a12de31c4e877ac5075331cb3a47" compoundref="b2_body_8h" startline="820" endline="824">b2Body::SynchronizeTransform</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_sweep_1acf89c7d1223f8ab27501ff033aeac92b" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Sweep::a0</definition>
+        <argsstring></argsstring>
+        <name>a0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="406" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="406" bodyend="-1"/>
+        <referencedby refid="structb2_sweep_1a35eb9b976ca87c9b8d758bec070c6c06" compoundref="b2_math_8h" startline="713" endline="720">Advance</referencedby>
+        <referencedby refid="classb2_body_1a018ca81f6c1bef31942931dfa9459f4f" compoundref="b2_body_8h" startline="826" endline="834">b2Body::Advance</referencedby>
+        <referencedby refid="structb2_sweep_1a81947646092468290d15005928e12fcd" compoundref="b2_math_8h" startline="703" endline="711">GetTransform</referencedby>
+        <referencedby refid="structb2_sweep_1ad66a3086bc7656df9cf7454013a2f61b" compoundref="b2_math_8h" startline="723" endline="729">Normalize</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_sweep_1afa96bacc91dd3c92ae716a45512332d6" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Sweep::a</definition>
+        <argsstring></argsstring>
+        <name>a</name>
+        <briefdescription>
+<para>world angles </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="406" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="406" bodyend="-1"/>
+        <referencedby refid="structb2_sweep_1a35eb9b976ca87c9b8d758bec070c6c06" compoundref="b2_math_8h" startline="713" endline="720">Advance</referencedby>
+        <referencedby refid="classb2_body_1a018ca81f6c1bef31942931dfa9459f4f" compoundref="b2_body_8h" startline="826" endline="834">b2Body::Advance</referencedby>
+        <referencedby refid="classb2_body_1a57c4a1946a6dd5a00e28691bc419fdcd" compoundref="b2_body_8h" startline="478" endline="481">b2Body::GetAngle</referencedby>
+        <referencedby refid="structb2_sweep_1a81947646092468290d15005928e12fcd" compoundref="b2_math_8h" startline="703" endline="711">GetTransform</referencedby>
+        <referencedby refid="structb2_sweep_1ad66a3086bc7656df9cf7454013a2f61b" compoundref="b2_math_8h" startline="723" endline="729">Normalize</referencedby>
+        <referencedby refid="classb2_body_1a4ce4a12de31c4e877ac5075331cb3a47" compoundref="b2_body_8h" startline="820" endline="824">b2Body::SynchronizeTransform</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_sweep_1aa5f8ab90178b58bc0777096cbc6b91cf" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Sweep::alpha0</definition>
+        <argsstring></argsstring>
+        <name>alpha0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fraction of the current time step in the range [0,1] c0 and a0 are the positions at alpha0. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="410" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="410" bodyend="-1"/>
+        <referencedby refid="structb2_sweep_1a35eb9b976ca87c9b8d758bec070c6c06" compoundref="b2_math_8h" startline="713" endline="720">Advance</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structb2_sweep_1a81947646092468290d15005928e12fcd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Sweep::GetTransform</definition>
+        <argsstring>(b2Transform *xfb, float32 beta) const </argsstring>
+        <name>GetTransform</name>
+        <param>
+          <type><ref refid="structb2_transform" kindref="compound">b2Transform</ref> *</type>
+          <declname>xfb</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>beta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the interpolated transform at a specific time. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>beta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a factor in [0,1], where 0 indicates alpha0. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="395" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="703" bodyend="711"/>
+        <references refid="structb2_sweep_1afa96bacc91dd3c92ae716a45512332d6" compoundref="b2_math_8h" startline="406">a</references>
+        <references refid="structb2_sweep_1acf89c7d1223f8ab27501ff033aeac92b" compoundref="b2_math_8h" startline="406">a0</references>
+        <references refid="cv_8h_1a00147158cd32c0f762ad7d5917e6d8fd" compoundref="cv_8h" startline="304">angle</references>
+        <references refid="b2_math_8h_1a12738edb3f24ad9d872421f4e6898de9" compoundref="b2_math_8h" startline="444" endline="447">b2Mul</references>
+        <references refid="cv_8h_1a4bf45595b7df91ad095c49cf02ddee05" compoundref="cv_8h" startline="925">beta</references>
+        <references refid="structb2_sweep_1a1b5402e01b92cc82473389fc6f0375c3" compoundref="b2_math_8h" startline="405">c</references>
+        <references refid="structb2_sweep_1a16dacd7188f3c7b2adef3242012587d8" compoundref="b2_math_8h" startline="405">c0</references>
+        <references refid="structb2_sweep_1a4bcc302cf78771896d6256fc53f2f8be" compoundref="b2_math_8h" startline="404">localCenter</references>
+        <references refid="structb2_transform_1a9eeeb643a016c29a4d389e480ba6c628" compoundref="b2_math_8h" startline="383">b2Transform::p</references>
+        <references refid="structb2_transform_1ae4aaac23f32686e165138c4e5dc4ce85" compoundref="b2_math_8h" startline="384">b2Transform::q</references>
+        <references refid="structb2_rot_1acde9186de0a4a7397bf8ef714408ad60" compoundref="b2_math_8h" startline="323" endline="328">b2Rot::Set</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_sweep_1a35eb9b976ca87c9b8d758bec070c6c06" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Sweep::Advance</definition>
+        <argsstring>(float32 alpha)</argsstring>
+        <name>Advance</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>alpha</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Advance the sweep forward, yielding a new initial state. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>alpha</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new initial time. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="399" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="713" bodyend="720"/>
+        <references refid="structb2_sweep_1afa96bacc91dd3c92ae716a45512332d6" compoundref="b2_math_8h" startline="406">a</references>
+        <references refid="structb2_sweep_1acf89c7d1223f8ab27501ff033aeac92b" compoundref="b2_math_8h" startline="406">a0</references>
+        <references refid="cv_8h_1ad41061098bac66a8a839219e14877324" compoundref="cv_8h" startline="600">alpha</references>
+        <references refid="structb2_sweep_1aa5f8ab90178b58bc0777096cbc6b91cf" compoundref="b2_math_8h" startline="410">alpha0</references>
+        <references refid="b2_settings_8h_1ab3fe3791ea4d700d5cc1f8124d2edf33" compoundref="b2_settings_8h" startline="26">b2Assert</references>
+        <references refid="cv_8h_1a4bf45595b7df91ad095c49cf02ddee05" compoundref="cv_8h" startline="925">beta</references>
+        <references refid="structb2_sweep_1a1b5402e01b92cc82473389fc6f0375c3" compoundref="b2_math_8h" startline="405">c</references>
+        <references refid="structb2_sweep_1a16dacd7188f3c7b2adef3242012587d8" compoundref="b2_math_8h" startline="405">c0</references>
+        <referencedby refid="classb2_body_1a018ca81f6c1bef31942931dfa9459f4f" compoundref="b2_body_8h" startline="826" endline="834">b2Body::Advance</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structb2_sweep_1ad66a3086bc7656df9cf7454013a2f61b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Sweep::Normalize</definition>
+        <argsstring>()</argsstring>
+        <name>Normalize</name>
+        <briefdescription>
+<para>Normalize the angles. </para>        </briefdescription>
+        <detaileddescription>
+<para>Normalize an angle in radians to be between -pi and pi. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="402" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="723" bodyend="729"/>
+        <references refid="structb2_sweep_1afa96bacc91dd3c92ae716a45512332d6" compoundref="b2_math_8h" startline="406">a</references>
+        <references refid="structb2_sweep_1acf89c7d1223f8ab27501ff033aeac92b" compoundref="b2_math_8h" startline="406">a0</references>
+        <references refid="b2_settings_8h_1a3f1872f3fc3c46abc809e7f7d467eb6c" compoundref="b2_settings_8h" startline="39">b2_pi</references>
+        <references refid="cv_8h_1a6f364afbe132c4ecfea48bde1b0618ba" compoundref="cv_8h" startline="1094">d</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This describes the motion of a body/shape for TOI computation. Shapes are defined with respect to the body origin, which may no coincide with the center of mass. However, to support dynamics we must interpolate the center of mass position. </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="1498">
+        <label>b2Sweep</label>
+        <link refid="structb2_sweep"/>
+        <childnode refid="1499" relation="usage">
+          <edgelabel>c0</edgelabel>
+          <edgelabel>localCenter</edgelabel>
+          <edgelabel>c</edgelabel>
+        </childnode>
+      </node>
+      <node id="1499">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="392" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="391" bodyend="411"/>
+    <listofallmembers>
+      <member refid="structb2_sweep_1afa96bacc91dd3c92ae716a45512332d6" prot="public" virt="non-virtual"><scope>b2Sweep</scope><name>a</name></member>
+      <member refid="structb2_sweep_1acf89c7d1223f8ab27501ff033aeac92b" prot="public" virt="non-virtual"><scope>b2Sweep</scope><name>a0</name></member>
+      <member refid="structb2_sweep_1a35eb9b976ca87c9b8d758bec070c6c06" prot="public" virt="non-virtual"><scope>b2Sweep</scope><name>Advance</name></member>
+      <member refid="structb2_sweep_1aa5f8ab90178b58bc0777096cbc6b91cf" prot="public" virt="non-virtual"><scope>b2Sweep</scope><name>alpha0</name></member>
+      <member refid="structb2_sweep_1a1b5402e01b92cc82473389fc6f0375c3" prot="public" virt="non-virtual"><scope>b2Sweep</scope><name>c</name></member>
+      <member refid="structb2_sweep_1a16dacd7188f3c7b2adef3242012587d8" prot="public" virt="non-virtual"><scope>b2Sweep</scope><name>c0</name></member>
+      <member refid="structb2_sweep_1a81947646092468290d15005928e12fcd" prot="public" virt="non-virtual"><scope>b2Sweep</scope><name>GetTransform</name></member>
+      <member refid="structb2_sweep_1a4bcc302cf78771896d6256fc53f2f8be" prot="public" virt="non-virtual"><scope>b2Sweep</scope><name>localCenter</name></member>
+      <member refid="structb2_sweep_1ad66a3086bc7656df9cf7454013a2f61b" prot="public" virt="non-virtual"><scope>b2Sweep</scope><name>Normalize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

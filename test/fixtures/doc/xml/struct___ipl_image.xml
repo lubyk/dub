@@ -1,0 +1,340 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct___ipl_image" kind="struct" prot="public">
+    <compoundname>_IplImage</compoundname>
+    <includes refid="cxtypes_8h" local="no">cxtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct___ipl_image_1ac042e3a06cc422bccb1a1f8152f24a49" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplImage::nSize</definition>
+        <argsstring></argsstring>
+        <name>nSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="387" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="387" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1a995c41842868b0370ca485929bb71606" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplImage::ID</definition>
+        <argsstring></argsstring>
+        <name>ID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="388" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="388" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1a5d933a635592532b912e0427b1b606b2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplImage::nChannels</definition>
+        <argsstring></argsstring>
+        <name>nChannels</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="389" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="389" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1a7d8aece5d2f9236fb1e712ef76f7ceb8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplImage::alphaChannel</definition>
+        <argsstring></argsstring>
+        <name>alphaChannel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="390" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="390" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1ad4326e3cb33d92d5f30621789b23c67c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplImage::depth</definition>
+        <argsstring></argsstring>
+        <name>depth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="391" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="391" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1abb1da44708efff7421fc569502be3df3" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char _IplImage::colorModel[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>colorModel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="393" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="393" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1ae054c335a4bce0132b6a85f4b428a02b" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char _IplImage::channelSeq[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>channelSeq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="394" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="394" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1a0569ad4452436f5b651e8a8c9e15cc3a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplImage::dataOrder</definition>
+        <argsstring></argsstring>
+        <name>dataOrder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="395" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="395" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1ac391fa66e6f3075d78f17e30ef3136e5" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplImage::origin</definition>
+        <argsstring></argsstring>
+        <name>origin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="397" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="397" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1a8c6319575da9a150894eed1354578163" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplImage::align</definition>
+        <argsstring></argsstring>
+        <name>align</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="399" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="399" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1af6e81897beca2d2d9914949912cd7b32" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplImage::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="401" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="401" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1a760ffed837a60c6606047177697d97f3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplImage::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="402" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="402" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1a697184a2da29652d664ae540ec36839b" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct___ipl_r_o_i" kindref="compound">_IplROI</ref> *</type>
+        <definition>struct _IplROI* _IplImage::roi</definition>
+        <argsstring></argsstring>
+        <name>roi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="403" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="403" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1a54d4dfa9db712c250c54bbdb1eb50235" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct___ipl_image" kindref="compound">_IplImage</ref> *</type>
+        <definition>struct _IplImage* _IplImage::maskROI</definition>
+        <argsstring></argsstring>
+        <name>maskROI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="404" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="404" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1abf166d6ba198582e05f72e2ebaeae67a" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* _IplImage::imageId</definition>
+        <argsstring></argsstring>
+        <name>imageId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="405" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="405" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1a3901b044f1243c6f50ff24f68b599796" prot="public" static="no" mutable="no">
+        <type>struct _IplTileInfo *</type>
+        <definition>struct _IplTileInfo* _IplImage::tileInfo</definition>
+        <argsstring></argsstring>
+        <name>tileInfo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="406" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="406" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1a952f4afaf1b3f68d004a806e5b535bde" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplImage::imageSize</definition>
+        <argsstring></argsstring>
+        <name>imageSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="407" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="407" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1a8f494e96def4231c3623eead920b3358" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* _IplImage::imageData</definition>
+        <argsstring></argsstring>
+        <name>imageData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="410" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="410" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1aca744fd03a4a3ccf8b896798a09c2784" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplImage::widthStep</definition>
+        <argsstring></argsstring>
+        <name>widthStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="411" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="411" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1a120beb19f43ba8744daea43544ee75f3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplImage::BorderMode[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>BorderMode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="412" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="412" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1a6931382b6f5aae497ed1d020dba372a3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _IplImage::BorderConst[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>BorderConst</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="413" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="413" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___ipl_image_1a22b6ea51215650daac5dd9070cea338b" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* _IplImage::imageDataOrigin</definition>
+        <argsstring></argsstring>
+        <name>imageDataOrigin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="414" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="414" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="11">
+        <label>_IplImage</label>
+        <link refid="struct___ipl_image"/>
+        <childnode refid="12" relation="usage">
+          <edgelabel>roi</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>maskROI</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>_IplROI</label>
+        <link refid="struct___ipl_r_o_i"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="386" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="385" bodyend="417"/>
+    <listofallmembers>
+      <member refid="struct___ipl_image_1a8c6319575da9a150894eed1354578163" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>align</name></member>
+      <member refid="struct___ipl_image_1a7d8aece5d2f9236fb1e712ef76f7ceb8" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>alphaChannel</name></member>
+      <member refid="struct___ipl_image_1a6931382b6f5aae497ed1d020dba372a3" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>BorderConst</name></member>
+      <member refid="struct___ipl_image_1a120beb19f43ba8744daea43544ee75f3" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>BorderMode</name></member>
+      <member refid="struct___ipl_image_1ae054c335a4bce0132b6a85f4b428a02b" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>channelSeq</name></member>
+      <member refid="struct___ipl_image_1abb1da44708efff7421fc569502be3df3" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>colorModel</name></member>
+      <member refid="struct___ipl_image_1a0569ad4452436f5b651e8a8c9e15cc3a" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>dataOrder</name></member>
+      <member refid="struct___ipl_image_1ad4326e3cb33d92d5f30621789b23c67c" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>depth</name></member>
+      <member refid="struct___ipl_image_1a760ffed837a60c6606047177697d97f3" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>height</name></member>
+      <member refid="struct___ipl_image_1a995c41842868b0370ca485929bb71606" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>ID</name></member>
+      <member refid="struct___ipl_image_1a8f494e96def4231c3623eead920b3358" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>imageData</name></member>
+      <member refid="struct___ipl_image_1a22b6ea51215650daac5dd9070cea338b" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>imageDataOrigin</name></member>
+      <member refid="struct___ipl_image_1abf166d6ba198582e05f72e2ebaeae67a" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>imageId</name></member>
+      <member refid="struct___ipl_image_1a952f4afaf1b3f68d004a806e5b535bde" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>imageSize</name></member>
+      <member refid="struct___ipl_image_1a54d4dfa9db712c250c54bbdb1eb50235" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>maskROI</name></member>
+      <member refid="struct___ipl_image_1a5d933a635592532b912e0427b1b606b2" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>nChannels</name></member>
+      <member refid="struct___ipl_image_1ac042e3a06cc422bccb1a1f8152f24a49" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>nSize</name></member>
+      <member refid="struct___ipl_image_1ac391fa66e6f3075d78f17e30ef3136e5" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>origin</name></member>
+      <member refid="struct___ipl_image_1a697184a2da29652d664ae540ec36839b" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>roi</name></member>
+      <member refid="struct___ipl_image_1a3901b044f1243c6f50ff24f68b599796" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>tileInfo</name></member>
+      <member refid="struct___ipl_image_1af6e81897beca2d2d9914949912cd7b32" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>width</name></member>
+      <member refid="struct___ipl_image_1aca744fd03a4a3ccf8b896798a09c2784" prot="public" virt="non-virtual"><scope>_IplImage</scope><name>widthStep</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

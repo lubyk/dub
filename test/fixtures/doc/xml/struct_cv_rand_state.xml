@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_rand_state" kind="struct" prot="public">
+    <compoundname>CvRandState</compoundname>
+    <includes refid="cvcompat_8h" local="no">cvcompat.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_rand_state_1a564c167b31ca5d5f3bb574d23127fcb5" prot="public" static="no" mutable="no">
+        <type><ref refid="cxtypes_8h_1a1a96e51ab3a372962769bb72b8ebb95d" kindref="member">CvRNG</ref></type>
+        <definition>CvRNG CvRandState::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" line="175" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" bodystart="175" bodyend="-1"/>
+        <referencedby refid="cvcompat_8h_1a278f3047f5aa1d6cac4dafe2c03fb437" compoundref="cvcompat_8h" startline="236" endline="244">cvRand</referencedby>
+        <referencedby refid="cvcompat_8h_1ac734e1228efb2648c65359cabb45ea12" compoundref="cvcompat_8h" startline="213" endline="232">cvRandInit</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_rand_state_1a250e3c9f5ba28d74aae2d21fbc13c812" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvRandState::disttype</definition>
+        <argsstring></argsstring>
+        <name>disttype</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" line="176" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" bodystart="176" bodyend="-1"/>
+        <referencedby refid="cvcompat_8h_1a278f3047f5aa1d6cac4dafe2c03fb437" compoundref="cvcompat_8h" startline="236" endline="244">cvRand</referencedby>
+        <referencedby refid="cvcompat_8h_1ac734e1228efb2648c65359cabb45ea12" compoundref="cvcompat_8h" startline="213" endline="232">cvRandInit</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_rand_state_1a57bd1e6afb134d7450af354cc1abd810" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_scalar" kindref="compound">CvScalar</ref></type>
+        <definition>CvScalar CvRandState::param[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>param</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" line="177" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" bodystart="177" bodyend="-1"/>
+        <referencedby refid="cvcompat_8h_1a278f3047f5aa1d6cac4dafe2c03fb437" compoundref="cvcompat_8h" startline="236" endline="244">cvRand</referencedby>
+        <referencedby refid="cvcompat_8h_1ae2ba2ef777d34a60480c072b471612af" compoundref="cvcompat_8h" startline="183" endline="210">cvRandSetRange</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1981">
+        <label>CvRandState</label>
+        <link refid="struct_cv_rand_state"/>
+        <childnode refid="1982" relation="usage">
+          <edgelabel>param</edgelabel>
+        </childnode>
+      </node>
+      <node id="1982">
+        <label>CvScalar</label>
+        <link refid="struct_cv_scalar"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" line="174" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvcompat.h" bodystart="173" bodyend="178"/>
+    <listofallmembers>
+      <member refid="struct_cv_rand_state_1a250e3c9f5ba28d74aae2d21fbc13c812" prot="public" virt="non-virtual"><scope>CvRandState</scope><name>disttype</name></member>
+      <member refid="struct_cv_rand_state_1a57bd1e6afb134d7450af354cc1abd810" prot="public" virt="non-virtual"><scope>CvRandState</scope><name>param</name></member>
+      <member refid="struct_cv_rand_state_1a564c167b31ca5d5f3bb574d23127fcb5" prot="public" virt="non-virtual"><scope>CvRandState</scope><name>state</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

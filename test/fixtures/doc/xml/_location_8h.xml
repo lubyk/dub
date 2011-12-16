@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="_location_8h" kind="file">
+    <compoundname>Location.h</compoundname>
+    <includes local="no">string</includes>
+    <includes local="no">ostream</includes>
+    <includedby refid="_abstract_browser_8h" local="yes">/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractBrowser.h</includedby>
+    <includedby refid="_abstract_registration_8h" local="yes">/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h</includedby>
+    <incdepgraph>
+      <node id="602">
+        <label>/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Location.h</label>
+        <link refid="Location.h"/>
+        <childnode refid="603" relation="include">
+        </childnode>
+        <childnode refid="604" relation="include">
+        </childnode>
+      </node>
+      <node id="603">
+        <label>string</label>
+      </node>
+      <node id="604">
+        <label>ostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="605">
+        <label>/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Location.h</label>
+        <link refid="Location.h"/>
+        <childnode refid="606" relation="include">
+        </childnode>
+        <childnode refid="608" relation="include">
+        </childnode>
+      </node>
+      <node id="606">
+        <label>/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractBrowser.h</label>
+        <link refid="_abstract_browser_8h"/>
+        <childnode refid="607" relation="include">
+        </childnode>
+      </node>
+      <node id="609">
+        <label>/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Registration.h</label>
+        <link refid="_registration_8h"/>
+      </node>
+      <node id="608">
+        <label>/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h</label>
+        <link refid="_abstract_registration_8h"/>
+        <childnode refid="609" relation="include">
+        </childnode>
+      </node>
+      <node id="607">
+        <label>/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h</label>
+        <link refid="mdns_2include_2mdns_2_browser_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classmdns_1_1_location" prot="public">mdns::Location</innerclass>
+    <innernamespace refid="namespacemdns">mdns</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_location_8h_1a63206d24a4d41cf5443f3b0731238da6" prot="public" static="no">
+        <name>DEFAULT_PROTOCOL</name>
+        <initializer>&quot;lubyk&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Location.h" line="40" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Location.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_location_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" prot="public" static="no">
+        <type>unsigned int</type>
+        <definition>typedef unsigned int uint</definition>
+        <argsstring></argsstring>
+        <name>uint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Location.h" line="36" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Location.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>==============================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>LUBYK<sp/>project<sp/>(http://lubyk.org)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/>Copyright<sp/>(c)<sp/>2007-2011<sp/>by<sp/>Gaspard<sp/>Bucher<sp/>(http://teti.ch).</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"></highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/>------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"></highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/>of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/>in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/><sp/><sp/>to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/><sp/><sp/>copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/><sp/><sp/>furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/><sp/><sp/>all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/><sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/><sp/><sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/><sp/><sp/>AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/><sp/><sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/><sp/><sp/>OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/>THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"></highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/>==============================================================================</highlight></codeline>
+<codeline lineno="28"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>LUBYK_INCLUDE_MDNS_LOCATION_H_</highlight></codeline>
+<codeline lineno="31"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>LUBYK_INCLUDE_MDNS_LOCATION_H_</highlight></codeline>
+<codeline lineno="32"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//#include<sp/>&quot;oscit/thash.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="_location_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_location_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" kindref="member">uint</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mdns<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="_location_8h_1a63206d24a4d41cf5443f3b0731238da6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_PROTOCOL<sp/>&quot;lubyk&quot;</highlight></codeline>
+<codeline lineno="41"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">ZeroConfBrowser;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classmdns_1_1_location" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classmdns_1_1_location" kindref="compound">Location</ref></highlight></codeline>
+<codeline lineno="51"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="55" refid="classmdns_1_1_location_1a718a10a3e057d5d54cc6361aac42b880" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1a718a10a3e057d5d54cc6361aac42b880" kindref="member">NO_IP</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="58" refid="classmdns_1_1_location_1af649112401d147b0216a2c1809da240d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1af649112401d147b0216a2c1809da240d" kindref="member">ANY_IP</ref><sp/>=<sp/>0xFFFFFFFF;</highlight></codeline>
+<codeline lineno="59" refid="classmdns_1_1_location_1aeb2de6dce9cb4f836b927c796a6e4ade" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1aeb2de6dce9cb4f836b927c796a6e4ade" kindref="member">LOOPBACK</ref><sp/>=<sp/>(127&lt;&lt;24)<sp/>+<sp/>1;<sp/></highlight><highlight class="comment">//<sp/>127.0.0.1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="classmdns_1_1_location_1a3bb4f86536b22463e69206c95f605233" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_location_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" kindref="member">uint</ref><sp/><ref refid="classmdns_1_1_location_1a3bb4f86536b22463e69206c95f605233" kindref="member">NO_PORT</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="61" refid="classmdns_1_1_location_1a32416afcb24ac2a43a6e24999668c8d7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_location_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" kindref="member">uint</ref><sp/><ref refid="classmdns_1_1_location_1a32416afcb24ac2a43a6e24999668c8d7" kindref="member">DEFAULT_INTERFACE</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="classmdns_1_1_location_1a346a1652b0ee5d981e82a2c2554a51cc" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmdns_1_1_location_1a1855f901eb6fe517bc0ffd7ca5badc43" kindref="member">Location</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="classmdns_1_1_location_1aeb264d140a00ae6dc59c46cea5fe13e8" kindref="member">protocol</ref>,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*service_name,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*hostname,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_location_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" kindref="member">uint</ref><sp/><ref refid="classmdns_1_1_location_1a41ef82bbf614db381369221540e719d9" kindref="member">port</ref><sp/>=<sp/><ref refid="classmdns_1_1_location_1a3bb4f86536b22463e69206c95f605233" kindref="member">NO_PORT</ref>,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_location_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" kindref="member">uint</ref><sp/><ref refid="classmdns_1_1_location_1a39023146cc764d74f182bbfde284f93f" kindref="member">interface</ref><sp/>=<sp/><ref refid="classmdns_1_1_location_1a32416afcb24ac2a43a6e24999668c8d7" kindref="member">DEFAULT_INTERFACE</ref>)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="classmdns_1_1_location_1a9b30752818ae9dbb3cf1b006f94952bc" kindref="member">protocol_</ref>(protocol),</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a9e631e9ddbfd8f7abd283538ed5040d0" kindref="member">name_</ref>(service_name),</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a5a2b69e7e0b2efb559782ccfdbf536fa" kindref="member">host_</ref>(hostname),</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a3dd01a097f76048e7d23d29ed5012674" kindref="member">ip_</ref>(<ref refid="classmdns_1_1_location_1ab83ec9f61dcf3a4bd78649c6ab83c5f9" kindref="member">ip_from_hostname</ref>(hostname)),</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a532cb7530d78be46e2c2796cef42ae4f" kindref="member">port_</ref>(<ref refid="classmdns_1_1_location_1a41ef82bbf614db381369221540e719d9" kindref="member">port</ref>),</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1ac6c297b761298809f455ee74cfc01f2e" kindref="member">interface_</ref>(<ref refid="classmdns_1_1_location_1a39023146cc764d74f182bbfde284f93f" kindref="member">interface</ref>)<sp/>{}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="classmdns_1_1_location_1a0115d654ed8c47edb81c959b952c0f5a" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmdns_1_1_location_1a1855f901eb6fe517bc0ffd7ca5badc43" kindref="member">Location</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="classmdns_1_1_location_1aeb264d140a00ae6dc59c46cea5fe13e8" kindref="member">protocol</ref>,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*hostname,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_location_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" kindref="member">uint</ref><sp/><ref refid="classmdns_1_1_location_1a41ef82bbf614db381369221540e719d9" kindref="member">port</ref>)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="classmdns_1_1_location_1a9b30752818ae9dbb3cf1b006f94952bc" kindref="member">protocol_</ref>(protocol),</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a5a2b69e7e0b2efb559782ccfdbf536fa" kindref="member">host_</ref>(hostname),</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a3dd01a097f76048e7d23d29ed5012674" kindref="member">ip_</ref>(<ref refid="classmdns_1_1_location_1ab83ec9f61dcf3a4bd78649c6ab83c5f9" kindref="member">ip_from_hostname</ref>(hostname)),</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a532cb7530d78be46e2c2796cef42ae4f" kindref="member">port_</ref>(port)<sp/>{}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="classmdns_1_1_location_1a8c099448dc8fca40f1b2c779b436324d" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmdns_1_1_location_1a1855f901eb6fe517bc0ffd7ca5badc43" kindref="member">Location</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="classmdns_1_1_location_1aeb264d140a00ae6dc59c46cea5fe13e8" kindref="member">protocol</ref>,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1a3a1535700ea6936fc89426d9d5b69e3c" kindref="member">ip</ref>,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_location_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" kindref="member">uint</ref><sp/><ref refid="classmdns_1_1_location_1a41ef82bbf614db381369221540e719d9" kindref="member">port</ref>)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="classmdns_1_1_location_1a9b30752818ae9dbb3cf1b006f94952bc" kindref="member">protocol_</ref>(protocol),</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a5a2b69e7e0b2efb559782ccfdbf536fa" kindref="member">host_</ref>(<ref refid="classmdns_1_1_location_1a5f6b965bfcf74768a870a12c9473dcae" kindref="member">name_from_ip</ref>(<ref refid="classmdns_1_1_location_1a3dd01a097f76048e7d23d29ed5012674" kindref="member">ip_</ref>)),</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a3dd01a097f76048e7d23d29ed5012674" kindref="member">ip_</ref>(ip),</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a532cb7530d78be46e2c2796cef42ae4f" kindref="member">port_</ref>(port)<sp/>{}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="classmdns_1_1_location_1a6c2babdd8b77c3645f811ed2a8e55691" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmdns_1_1_location_1a1855f901eb6fe517bc0ffd7ca5badc43" kindref="member">Location</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="classmdns_1_1_location_1aeb264d140a00ae6dc59c46cea5fe13e8" kindref="member">protocol</ref>,</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*service_name)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="classmdns_1_1_location_1a9b30752818ae9dbb3cf1b006f94952bc" kindref="member">protocol_</ref>(protocol),</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a9e631e9ddbfd8f7abd283538ed5040d0" kindref="member">name_</ref>(service_name),</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a3dd01a097f76048e7d23d29ed5012674" kindref="member">ip_</ref>(<ref refid="classmdns_1_1_location_1a718a10a3e057d5d54cc6361aac42b880" kindref="member">NO_IP</ref>),</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a532cb7530d78be46e2c2796cef42ae4f" kindref="member">port_</ref>(<ref refid="classmdns_1_1_location_1a3bb4f86536b22463e69206c95f605233" kindref="member">NO_PORT</ref>)<sp/>{}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98" refid="classmdns_1_1_location_1a1855f901eb6fe517bc0ffd7ca5badc43" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmdns_1_1_location_1a1855f901eb6fe517bc0ffd7ca5badc43" kindref="member">Location</ref>()</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="classmdns_1_1_location_1a3dd01a097f76048e7d23d29ed5012674" kindref="member">ip_</ref>(<ref refid="classmdns_1_1_location_1a718a10a3e057d5d54cc6361aac42b880" kindref="member">NO_IP</ref>),</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a532cb7530d78be46e2c2796cef42ae4f" kindref="member">port_</ref>(<ref refid="classmdns_1_1_location_1a3bb4f86536b22463e69206c95f605233" kindref="member">NO_PORT</ref>)<sp/>{}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="classmdns_1_1_location_1a27a8eb09257900facd9b46b51e6e1173" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1a27a8eb09257900facd9b46b51e6e1173" kindref="member">clear</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a9b30752818ae9dbb3cf1b006f94952bc" kindref="member">protocol_</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a9e631e9ddbfd8f7abd283538ed5040d0" kindref="member">name_</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a5a2b69e7e0b2efb559782ccfdbf536fa" kindref="member">host_</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a3dd01a097f76048e7d23d29ed5012674" kindref="member">ip_</ref><sp/><sp/><sp/>=<sp/><ref refid="classmdns_1_1_location_1a718a10a3e057d5d54cc6361aac42b880" kindref="member">NO_IP</ref>;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a532cb7530d78be46e2c2796cef42ae4f" kindref="member">port_</ref><sp/>=<sp/><ref refid="classmdns_1_1_location_1a3bb4f86536b22463e69206c95f605233" kindref="member">NO_PORT</ref>;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110" refid="classmdns_1_1_location_1afd4816bc0e38b97d8f8cc5b23f561876" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1afd4816bc0e38b97d8f8cc5b23f561876" kindref="member">operator!=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location" kindref="compound">Location</ref><sp/>&amp;other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!(this-&gt;<ref refid="classmdns_1_1_location_1a50d3b1f504af97855886cc64bdd1f350" kindref="member">operator==</ref>(other));</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="classmdns_1_1_location_1a50d3b1f504af97855886cc64bdd1f350" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1a50d3b1f504af97855886cc64bdd1f350" kindref="member">operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location" kindref="compound">Location</ref><sp/>&amp;other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1a9b30752818ae9dbb3cf1b006f94952bc" kindref="member">protocol_</ref><sp/>==<sp/>other.<ref refid="classmdns_1_1_location_1a9b30752818ae9dbb3cf1b006f94952bc" kindref="member">protocol_</ref><sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="classmdns_1_1_location_1a3dd01a097f76048e7d23d29ed5012674" kindref="member">ip_</ref><sp/>!=<sp/><ref refid="classmdns_1_1_location_1a718a10a3e057d5d54cc6361aac42b880" kindref="member">Location::NO_IP</ref><sp/>&amp;&amp;<sp/><ref refid="classmdns_1_1_location_1a3dd01a097f76048e7d23d29ed5012674" kindref="member">ip_</ref><sp/>==<sp/>other.<ref refid="classmdns_1_1_location_1a3dd01a097f76048e7d23d29ed5012674" kindref="member">ip_</ref><sp/>&amp;&amp;<sp/><ref refid="classmdns_1_1_location_1a532cb7530d78be46e2c2796cef42ae4f" kindref="member">port_</ref><sp/>==<sp/>other.<ref refid="classmdns_1_1_location_1a532cb7530d78be46e2c2796cef42ae4f" kindref="member">port_</ref>)<sp/>||</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="classmdns_1_1_location_1a5a2b69e7e0b2efb559782ccfdbf536fa" kindref="member">host_</ref><sp/>==<sp/>other.<ref refid="classmdns_1_1_location_1a5a2b69e7e0b2efb559782ccfdbf536fa" kindref="member">host_</ref><sp/>&amp;&amp;<sp/><ref refid="classmdns_1_1_location_1a532cb7530d78be46e2c2796cef42ae4f" kindref="member">port_</ref><sp/>==<sp/>other.<ref refid="classmdns_1_1_location_1a532cb7530d78be46e2c2796cef42ae4f" kindref="member">port_</ref>)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122" refid="classmdns_1_1_location_1aeb264d140a00ae6dc59c46cea5fe13e8" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="classmdns_1_1_location_1aeb264d140a00ae6dc59c46cea5fe13e8" kindref="member">protocol</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1a9b30752818ae9dbb3cf1b006f94952bc" kindref="member">protocol_</ref>.c_str();</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="classmdns_1_1_location_1a6936e532f176330df7ed1f67cf37c0a1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="classmdns_1_1_location_1a6936e532f176330df7ed1f67cf37c0a1" kindref="member">name</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1a9e631e9ddbfd8f7abd283538ed5040d0" kindref="member">name_</ref>.c_str();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130" refid="classmdns_1_1_location_1a0574635f96aa4ff2771479160c992c8b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="classmdns_1_1_location_1a0574635f96aa4ff2771479160c992c8b" kindref="member">host</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1a5a2b69e7e0b2efb559782ccfdbf536fa" kindref="member">host_</ref>.c_str();</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="classmdns_1_1_location_1a3a1535700ea6936fc89426d9d5b69e3c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>&amp;<ref refid="classmdns_1_1_location_1a3a1535700ea6936fc89426d9d5b69e3c" kindref="member">ip</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1a3dd01a097f76048e7d23d29ed5012674" kindref="member">ip_</ref>;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="classmdns_1_1_location_1a41ef82bbf614db381369221540e719d9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_location_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" kindref="member">uint</ref><sp/>&amp;<ref refid="classmdns_1_1_location_1a41ef82bbf614db381369221540e719d9" kindref="member">port</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1a532cb7530d78be46e2c2796cef42ae4f" kindref="member">port_</ref>;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142" refid="classmdns_1_1_location_1a39023146cc764d74f182bbfde284f93f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_location_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" kindref="member">uint</ref><sp/>&amp;<ref refid="classmdns_1_1_location_1a39023146cc764d74f182bbfde284f93f" kindref="member">interface</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1ac6c297b761298809f455ee74cfc01f2e" kindref="member">interface_</ref>;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="classmdns_1_1_location_1aaeafecac57b073dbba9a9bd50190715d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1aaeafecac57b073dbba9a9bd50190715d" kindref="member">set_port</ref>(<ref refid="_location_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" kindref="member">uint</ref><sp/><ref refid="classmdns_1_1_location_1a41ef82bbf614db381369221540e719d9" kindref="member">port</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classmdns_1_1_location_1a532cb7530d78be46e2c2796cef42ae4f" kindref="member">port_</ref><sp/>=<sp/><ref refid="classmdns_1_1_location_1a41ef82bbf614db381369221540e719d9" kindref="member">port</ref>;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classmdns_1_1_location_1a886b1f7ad6715d3394571a2246203649" kindref="member">inspect</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1ab83ec9f61dcf3a4bd78649c6ab83c5f9" kindref="member">ip_from_hostname</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*hostname);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classmdns_1_1_location_1a5f6b965bfcf74768a870a12c9473dcae" kindref="member">name_from_ip</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1a3a1535700ea6936fc89426d9d5b69e3c" kindref="member">ip</ref>);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/>std::ostream<sp/>&amp;<ref refid="classmdns_1_1_location_1ad60c58b8a647ab11b76d001bb77b7029" kindref="member">operator&lt;&lt;</ref>(std::ostream<sp/>&amp;out_stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location" kindref="compound">Location</ref><sp/>&amp;location);</highlight></codeline>
+<codeline lineno="159" refid="classmdns_1_1_location_1ac5eb062bf71ebf4ef114d256c79601f9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classmdns_1_1_location_1ac5eb062bf71ebf4ef114d256c79601f9" kindref="member">Url</ref>;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/><ref refid="_location_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" kindref="member">uint</ref><sp/><ref refid="classmdns_1_1_location_1a60e7d1a2673cbdcceb610bf20ad55a47" kindref="member">hashId</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location" kindref="compound">Location</ref><sp/>&amp;location);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165" refid="classmdns_1_1_location_1a9b30752818ae9dbb3cf1b006f94952bc" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="classmdns_1_1_location_1a9b30752818ae9dbb3cf1b006f94952bc" kindref="member">protocol_</ref>;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169" refid="classmdns_1_1_location_1a9e631e9ddbfd8f7abd283538ed5040d0" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="classmdns_1_1_location_1a9e631e9ddbfd8f7abd283538ed5040d0" kindref="member">name_</ref>;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173" refid="classmdns_1_1_location_1a5a2b69e7e0b2efb559782ccfdbf536fa" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="classmdns_1_1_location_1a5a2b69e7e0b2efb559782ccfdbf536fa" kindref="member">host_</ref>;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177" refid="classmdns_1_1_location_1a3dd01a097f76048e7d23d29ed5012674" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location_1a3dd01a097f76048e7d23d29ed5012674" kindref="member">ip_</ref>;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181" refid="classmdns_1_1_location_1a532cb7530d78be46e2c2796cef42ae4f" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_location_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" kindref="member">uint</ref><sp/><ref refid="classmdns_1_1_location_1a532cb7530d78be46e2c2796cef42ae4f" kindref="member">port_</ref>;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185" refid="classmdns_1_1_location_1ac6c297b761298809f455ee74cfc01f2e" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_location_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" kindref="member">uint</ref><sp/><ref refid="classmdns_1_1_location_1ac6c297b761298809f455ee74cfc01f2e" kindref="member">interface_</ref>;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal">std::ostream<sp/>&amp;<ref refid="namespacemdns_1a974310778c3d3ff3cffb2cc66b0143a2" kindref="member">operator&lt;&lt;</ref>(std::ostream<sp/>&amp;out_stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classmdns_1_1_location" kindref="compound">Location</ref><sp/>&amp;location);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>mdns</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>LUBYK_INCLUDE_MDNS_LOCATION_H_</highlight></codeline>
+    </programlisting>
+    <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Location.h"/>
+  </compounddef>
+</doxygen>

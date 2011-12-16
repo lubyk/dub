@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_size" kind="struct" prot="public">
+    <compoundname>CvSize</compoundname>
+    <includes refid="cxtypes_8h" local="no">cxtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_size_1a2b1a1518e624c74c5a0e24c6cc1c3170" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvSize::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="1067" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="1067" bodyend="-1"/>
+        <referencedby refid="cxcore_8h_1ad870859764211611926d13a0cead740f" compoundref="cxcore_8h" startline="1327" endline="1337">cvEllipseBox</referencedby>
+        <referencedby refid="cxmisc_8h_1a708aee55ce6d6eb5f962eaf4342a90b2" compoundref="cxmisc_8h" startline="226" endline="232">cvGetMatSize</referencedby>
+        <referencedby refid="cxtypes_8h_1ad25ce7ac18665d5c9b062283ff0204ed" compoundref="cxtypes_8h" startline="1072" endline="1080">cvSize</referencedby>
+        <referencedby refid="cvcompat_8h_1ab3611ea3743f6ee8ba0c9a734f8f657f" compoundref="cvcompat_8h" startline="783" endline="795">cvUnDistort</referencedby>
+        <referencedby refid="cvcompat_8h_1a1ab2efa3d080e34851a51977268ea308" compoundref="cvcompat_8h" startline="767" endline="781">cvUnDistortInit</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_size_1ac743399a59a7a2f302091b9180d23673" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvSize::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="1068" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="1068" bodyend="-1"/>
+        <referencedby refid="cxcore_8h_1ad870859764211611926d13a0cead740f" compoundref="cxcore_8h" startline="1327" endline="1337">cvEllipseBox</referencedby>
+        <referencedby refid="cxmisc_8h_1a708aee55ce6d6eb5f962eaf4342a90b2" compoundref="cxmisc_8h" startline="226" endline="232">cvGetMatSize</referencedby>
+        <referencedby refid="cxtypes_8h_1ad25ce7ac18665d5c9b062283ff0204ed" compoundref="cxtypes_8h" startline="1072" endline="1080">cvSize</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="1066" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="1065" bodyend="1069"/>
+    <listofallmembers>
+      <member refid="struct_cv_size_1ac743399a59a7a2f302091b9180d23673" prot="public" virt="non-virtual"><scope>CvSize</scope><name>height</name></member>
+      <member refid="struct_cv_size_1a2b1a1518e624c74c5a0e24c6cc1c3170" prot="public" virt="non-virtual"><scope>CvSize</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_manifold_point" kind="struct" prot="public">
+    <compoundname>b2ManifoldPoint</compoundname>
+    <includes refid="b2_collision_8h" local="no">b2Collision.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_manifold_point_1ab3616990e7d1644deeeb691246094bfa" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2ManifoldPoint::localPoint</definition>
+        <argsstring></argsstring>
+        <name>localPoint</name>
+        <briefdescription>
+<para>usage depends on manifold type </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" line="71" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_manifold_point_1af4218c2359cb7762cd4e9d8ecefab173" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2ManifoldPoint::normalImpulse</definition>
+        <argsstring></argsstring>
+        <name>normalImpulse</name>
+        <briefdescription>
+<para>the non-penetration impulse </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" line="72" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_manifold_point_1a0ac5375b1fc4675a0073129f56aa62c9" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2ManifoldPoint::tangentImpulse</definition>
+        <argsstring></argsstring>
+        <name>tangentImpulse</name>
+        <briefdescription>
+<para>the friction impulse </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" line="73" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_manifold_point_1afa7ec272b2b27abe129540f8fbe57fc5" prot="public" static="no" mutable="no">
+        <type><ref refid="unionb2_contact_i_d" kindref="compound">b2ContactID</ref></type>
+        <definition>b2ContactID b2ManifoldPoint::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+<para>uniquely identifies a contact point between two shapes </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" line="74" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A manifold point is a contact point belonging to a contact manifold. It holds details related to the geometry and dynamics of the contact points. The local point usage depends on the manifold type: -e_circles: the local center of circleB -e_faceA: the local center of cirlceB or the clip point of polygonB -e_faceB: the clip point of polygonA This structure is stored across time steps, so we keep it small. Note: the impulses are used for internal caching and may not provide reliable contact forces, especially for high speed collisions. </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="996">
+        <label>b2ContactFeature</label>
+        <link refid="structb2_contact_feature"/>
+      </node>
+      <node id="994">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+      <node id="995">
+        <label>b2ContactID</label>
+        <link refid="unionb2_contact_i_d"/>
+        <childnode refid="996" relation="usage">
+          <edgelabel>cf</edgelabel>
+        </childnode>
+      </node>
+      <node id="993">
+        <label>b2ManifoldPoint</label>
+        <link refid="structb2_manifold_point"/>
+        <childnode refid="994" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+        </childnode>
+        <childnode refid="995" relation="usage">
+          <edgelabel>id</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" line="70" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" bodystart="69" bodyend="75"/>
+    <listofallmembers>
+      <member refid="structb2_manifold_point_1afa7ec272b2b27abe129540f8fbe57fc5" prot="public" virt="non-virtual"><scope>b2ManifoldPoint</scope><name>id</name></member>
+      <member refid="structb2_manifold_point_1ab3616990e7d1644deeeb691246094bfa" prot="public" virt="non-virtual"><scope>b2ManifoldPoint</scope><name>localPoint</name></member>
+      <member refid="structb2_manifold_point_1af4218c2359cb7762cd4e9d8ecefab173" prot="public" virt="non-virtual"><scope>b2ManifoldPoint</scope><name>normalImpulse</name></member>
+      <member refid="structb2_manifold_point_1a0ac5375b1fc4675a0073129f56aa62c9" prot="public" virt="non-virtual"><scope>b2ManifoldPoint</scope><name>tangentImpulse</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

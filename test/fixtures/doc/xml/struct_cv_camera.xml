@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_camera" kind="struct" prot="public">
+    <compoundname>CvCamera</compoundname>
+    <includes refid="cvaux_8h" local="no">cvaux.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_camera_1a9c640598804a3a64825e73b9456725a6" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvCamera::imgSize[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>imgSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="528" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="528" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_camera_1a59f4e88cb77d0659b7721fdb221857e2" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvCamera::matrix[9]</definition>
+        <argsstring>[9]</argsstring>
+        <name>matrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="529" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="529" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_camera_1a042d0f5498714b8ccbc42edb6dc6d3f4" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvCamera::distortion[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>distortion</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="530" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="530" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_camera_1a2948313899fc0f26610cc228039240ec" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvCamera::rotMatr[9]</definition>
+        <argsstring>[9]</argsstring>
+        <name>rotMatr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="532" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="532" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_camera_1ab4671992d1b78e26994418f1845727b4" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvCamera::transVect[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>transVect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="533" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="533" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="527" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="526" bodyend="535"/>
+    <listofallmembers>
+      <member refid="struct_cv_camera_1a042d0f5498714b8ccbc42edb6dc6d3f4" prot="public" virt="non-virtual"><scope>CvCamera</scope><name>distortion</name></member>
+      <member refid="struct_cv_camera_1a9c640598804a3a64825e73b9456725a6" prot="public" virt="non-virtual"><scope>CvCamera</scope><name>imgSize</name></member>
+      <member refid="struct_cv_camera_1a59f4e88cb77d0659b7721fdb221857e2" prot="public" virt="non-virtual"><scope>CvCamera</scope><name>matrix</name></member>
+      <member refid="struct_cv_camera_1a2948313899fc0f26610cc228039240ec" prot="public" virt="non-virtual"><scope>CvCamera</scope><name>rotMatr</name></member>
+      <member refid="struct_cv_camera_1ab4671992d1b78e26994418f1845727b4" prot="public" virt="non-virtual"><scope>CvCamera</scope><name>transVect</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

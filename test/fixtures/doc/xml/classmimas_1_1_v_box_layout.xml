@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmimas_1_1_v_box_layout" kind="class" prot="public">
+    <compoundname>mimas::VBoxLayout</compoundname>
+    <basecompoundref refid="classlubyk_1_1_lua_object" prot="public" virt="non-virtual">lubyk::LuaObject</basecompoundref>
+    <includes refid="_v_box_layout_8h" local="no">VBoxLayout.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmimas_1_1_v_box_layout_1aa23bd70bf52b81905002554788120ad3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::VBoxLayout::VBoxLayout</definition>
+        <argsstring>(QWidget *parent=NULL)</argsstring>
+        <name>VBoxLayout</name>
+        <param>
+          <type><ref refid="classmimas_1_1_q_widget" kindref="compound">QWidget</ref> *</type>
+          <declname>parent</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" line="52" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" bodystart="51" bodyend="54"/>
+        <references refid="mimas_8h_1abf7761995db91711f1c2001b3ea81ae7" compoundref="mimas_8h" startline="37">MIMAS_DEBUG_CC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_v_box_layout_1a2e59ff67dd74db5a8c6c8214a93ba6f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::VBoxLayout::~VBoxLayout</definition>
+        <argsstring>()</argsstring>
+        <name>~VBoxLayout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" line="56" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" bodystart="56" bodyend="58"/>
+        <references refid="mimas_8h_1a9d2f1addda3f00a2c1d2e3e2b6e4b5b5" compoundref="mimas_8h" startline="38">MIMAS_DEBUG_GC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_v_box_layout_1a0b8329af0af342f317663adbdf39077f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::VBoxLayout::addWidget</definition>
+        <argsstring>(QWidget *widget, int stretch=0, int alignment=0)</argsstring>
+        <name>addWidget</name>
+        <param>
+          <type><ref refid="classmimas_1_1_q_widget" kindref="compound">QWidget</ref> *</type>
+          <declname>widget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>stretch</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>alignment</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" line="60" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" bodystart="60" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_v_box_layout_1a82d91f95720086477e2ee6ddbc122620" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::VBoxLayout::addLayout</definition>
+        <argsstring>(QLayout *layout)</argsstring>
+        <name>addLayout</name>
+        <param>
+          <type>QLayout *</type>
+          <declname>layout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" line="64" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" bodystart="64" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_v_box_layout_1a1c4d442fdab86595f0dc3593dbea8d20" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::VBoxLayout::addStretch</definition>
+        <argsstring>(int stretch=0)</argsstring>
+        <name>addStretch</name>
+        <param>
+          <type>int</type>
+          <declname>stretch</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add a strechable item. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" line="70" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" bodystart="70" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_v_box_layout_1a761b084b0129835581f98c8a094c6a34" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::VBoxLayout::addSpacing</definition>
+        <argsstring>(int size)</argsstring>
+        <name>addSpacing</name>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add a single fixed space. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" line="76" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" bodystart="76" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_v_box_layout_1ad3c6c4f709a5d12d9efedf12eb0bf1ad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::VBoxLayout::setSpacing</definition>
+        <argsstring>(int space)</argsstring>
+        <name>setSpacing</name>
+        <param>
+          <type>int</type>
+          <declname>space</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fixed spacing between items. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" line="82" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" bodystart="82" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_v_box_layout_1a082d997c8ec5964e3de840cf3e3d4bd0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::VBoxLayout::setContentsMargins</definition>
+        <argsstring>(int left, int top, int right, int bottom)</argsstring>
+        <name>setContentsMargins</name>
+        <param>
+          <type>int</type>
+          <declname>left</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>top</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>right</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>bottom</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" line="86" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" bodystart="86" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_v_box_layout_1ace4bba023872f5b13e73ebe790737d2b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QLayout *</type>
+        <definition>QLayout* mimas::VBoxLayout::layout</definition>
+        <argsstring>()</argsstring>
+        <name>layout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" line="90" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" bodystart="90" bodyend="92"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classmimas_1_1_v_box_layout" kindref="compound">VBoxLayout</ref> (arrange widgets vertically).</para><para><simplesect kind="par"><title>Bindings info:</title><para>lib_name:&apos;VBoxLayout_core&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2504">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="2503">
+        <label>mimas::VBoxLayout</label>
+        <link refid="classmimas_1_1_v_box_layout"/>
+        <childnode refid="2504" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2507">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="2508" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2509">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2506">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="2507" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2508">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="2509" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2505">
+        <label>mimas::VBoxLayout</label>
+        <link refid="classmimas_1_1_v_box_layout"/>
+        <childnode refid="2506" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" line="47" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h" bodystart="46" bodyend="93"/>
+    <listofallmembers>
+      <member refid="classmimas_1_1_v_box_layout_1a82d91f95720086477e2ee6ddbc122620" prot="public" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>addLayout</name></member>
+      <member refid="classmimas_1_1_v_box_layout_1a761b084b0129835581f98c8a094c6a34" prot="public" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>addSpacing</name></member>
+      <member refid="classmimas_1_1_v_box_layout_1a1c4d442fdab86595f0dc3593dbea8d20" prot="public" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>addStretch</name></member>
+      <member refid="classmimas_1_1_v_box_layout_1a0b8329af0af342f317663adbdf39077f" prot="public" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>addWidget</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>class_name_</name></member>
+      <member refid="classmimas_1_1_v_box_layout_1ace4bba023872f5b13e73ebe790737d2b" prot="public" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>layout</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>luaDestroy</name></member>
+      <member refid="classlubyk_1_1_lua_object_1afc36a0ff048ab6ebe7e43b4717d45bec" prot="public" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>LuaObject</name></member>
+      <member refid="classmimas_1_1_v_box_layout_1a082d997c8ec5964e3de840cf3e3d4bd0" prot="public" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>setContentsMargins</name></member>
+      <member refid="classmimas_1_1_v_box_layout_1ad3c6c4f709a5d12d9efedf12eb0bf1ad" prot="public" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>setSpacing</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>setupSuper</name></member>
+      <member refid="classmimas_1_1_v_box_layout_1aa23bd70bf52b81905002554788120ad3" prot="public" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>VBoxLayout</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>worker_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>mimas::VBoxLayout</scope><name>~LuaObject</name></member>
+      <member refid="classmimas_1_1_v_box_layout_1a2e59ff67dd74db5a8c6c8214a93ba6f1" prot="public" virt="non-virtual"><scope>mimas::VBoxLayout</scope><name>~VBoxLayout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

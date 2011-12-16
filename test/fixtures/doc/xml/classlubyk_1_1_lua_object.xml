@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classlubyk_1_1_lua_object" kind="class" prot="public">
+    <compoundname>lubyk::LuaObject</compoundname>
+    <derivedcompoundref refid="classlk_1_1_finalizer" prot="public" virt="non-virtual">lk::Finalizer</derivedcompoundref>
+    <derivedcompoundref refid="classlk_1_1_socket" prot="public" virt="non-virtual">lk::Socket</derivedcompoundref>
+    <derivedcompoundref refid="classlubyk_1_1_threaded_lua_object" prot="public" virt="non-virtual">lubyk::ThreadedLuaObject</derivedcompoundref>
+    <derivedcompoundref refid="classmdns_1_1_browser" prot="public" virt="non-virtual">mdns::Browser</derivedcompoundref>
+    <derivedcompoundref refid="classmdns_1_1_registration" prot="public" virt="non-virtual">mdns::Registration</derivedcompoundref>
+    <derivedcompoundref refid="classmidi_1_1_in" prot="public" virt="non-virtual">midi::In</derivedcompoundref>
+    <derivedcompoundref refid="classmimas_1_1_group_box" prot="public" virt="non-virtual">mimas::GroupBox</derivedcompoundref>
+    <derivedcompoundref refid="classmimas_1_1_label" prot="public" virt="non-virtual">mimas::Label</derivedcompoundref>
+    <derivedcompoundref refid="classmimas_1_1_v_box_layout" prot="public" virt="non-virtual">mimas::VBoxLayout</derivedcompoundref>
+    <derivedcompoundref refid="classwii_1_1_browser" prot="public" virt="non-virtual">wii::Browser</derivedcompoundref>
+    <derivedcompoundref refid="classwii_1_1_remote" prot="public" virt="non-virtual">wii::Remote</derivedcompoundref>
+    <derivedcompoundref refid="classzmq_1_1_socket" prot="public" virt="non-virtual">zmq::Socket</derivedcompoundref>
+    <includes refid="lua__object_8h" local="no">lua_object.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlubyk_1_1_lua_object_1ae8c296083afd5f587cdf4ed25d81093f" prot="private" static="no" mutable="no">
+        <type>void **</type>
+        <definition>void** lubyk::LuaObject::userdata_</definition>
+        <argsstring></argsstring>
+        <name>userdata_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This is used to invalidate the userdata in case the object is deleted out of Lua. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" line="43" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" static="no" mutable="no">
+        <type><ref refid="classlubyk_1_1_worker" kindref="compound">lubyk::Worker</ref> *</type>
+        <definition>lubyk::Worker* lubyk::LuaObject::worker_</definition>
+        <argsstring></argsstring>
+        <name>worker_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" line="60" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* lubyk::LuaObject::class_name_</definition>
+        <argsstring></argsstring>
+        <name>class_name_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" line="71" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>lubyk::LuaObject::LuaObject</definition>
+        <argsstring>()</argsstring>
+        <name>LuaObject</name>
+        <exceptions> throw ()</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prepare tables to work with the table based self idion. expects stack to be: ... self if self (last argument) is a table, it is used as self. Otherwise, a new table is created. The method leaves &quot;self&quot; on top of the stack, with self.super = this. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" line="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_lua_object_1afc36a0ff048ab6ebe7e43b4717d45bec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int lubyk::LuaObject::luaInit</definition>
+        <argsstring>(lua_State *L, void *ptr, const char *type_name)</argsstring>
+        <name>luaInit</name>
+        <reimplementedby refid="classlk_1_1_finalizer_1a52c569b1dead0392d2cc75e1b9855bd3">luaInit</reimplementedby>
+        <reimplementedby refid="classlubyk_1_1_threaded_lua_object_1a1351dd8c5053c7df8e0a29b2887ddb8e">luaInit</reimplementedby>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>type_name</declname>
+        </param>
+        <exceptions> throw ()</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" line="54"/>
+        <referencedby refid="classlk_1_1_finalizer_1a52c569b1dead0392d2cc75e1b9855bd3" compoundref="_finalizer_8h" startline="48" endline="73">lk::Finalizer::luaInit</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual lubyk::LuaObject::~LuaObject</definition>
+        <argsstring>()</argsstring>
+        <name>~LuaObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" line="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::LuaObject::luaDestroy</definition>
+        <argsstring>()</argsstring>
+        <name>luaDestroy</name>
+        <reimplementedby refid="classmimas_1_1_slider_1a51b14b2cb1f75785048683448b88cea9">luaDestroy</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" line="58"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::LuaObject::luaCleanup</definition>
+        <argsstring>()</argsstring>
+        <name>luaCleanup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When using a custom destructor, this method must be called from within the custom destructor. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" line="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::LuaObject::setupSuper</definition>
+        <argsstring>(lua_State *L, void *ptr)</argsstring>
+        <name>setupSuper</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <exceptions> throw ()</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" line="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::LuaObject::setupMetatable</definition>
+        <argsstring>(lua_State *L, const char *type_name)</argsstring>
+        <name>setupMetatable</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>type_name</declname>
+        </param>
+        <exceptions> throw ()</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" line="69"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Calls a lua function back. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2220">
+        <label>wii::Browser</label>
+        <link refid="classwii_1_1_browser"/>
+        <childnode refid="2191" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2205">
+        <label>mimas::ListView</label>
+        <link refid="classmimas_1_1_list_view"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2195">
+        <label>dummy::Dummy</label>
+        <link refid="classdummy_1_1_dummy"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2217">
+        <label>mimas::GroupBox</label>
+        <link refid="classmimas_1_1_group_box"/>
+        <childnode refid="2191" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2193">
+        <label>lk::Socket</label>
+        <link refid="classlk_1_1_socket"/>
+        <childnode refid="2191" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2211">
+        <label>mimas::TableView</label>
+        <link refid="classmimas_1_1_table_view"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2191">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="2212">
+        <label>mimas::Timer</label>
+        <link refid="classmimas_1_1_timer"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2194">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2191" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2216">
+        <label>midi::In</label>
+        <link refid="classmidi_1_1_in"/>
+        <childnode refid="2191" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2218">
+        <label>mimas::Label</label>
+        <link refid="classmimas_1_1_label"/>
+        <childnode refid="2191" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2200">
+        <label>mimas::Callback</label>
+        <link refid="classmimas_1_1_callback"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2208">
+        <label>mimas::MenuBar</label>
+        <link refid="classmimas_1_1_menu_bar"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2213">
+        <label>mimas::Widget</label>
+        <link refid="classmimas_1_1_widget"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2203">
+        <label>mimas::GLWidget</label>
+        <link refid="classmimas_1_1_g_l_widget"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2201">
+        <label>mimas::DataSource</label>
+        <link refid="classmimas_1_1_data_source"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2206">
+        <label>mimas::MainWindow</label>
+        <link refid="classmimas_1_1_main_window"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2196">
+        <label>lk::Debug</label>
+        <link refid="classlk_1_1_debug"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2198">
+        <label>mimas::Application</label>
+        <link refid="classmimas_1_1_application"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2199">
+        <label>mimas::Button</label>
+        <link refid="classmimas_1_1_button"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2197">
+        <label>mimas::Action</label>
+        <link refid="classmimas_1_1_action"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2215">
+        <label>mdns::Registration</label>
+        <link refid="classmdns_1_1_registration"/>
+        <childnode refid="2191" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2207">
+        <label>mimas::Menu</label>
+        <link refid="classmimas_1_1_menu"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2219">
+        <label>mimas::VBoxLayout</label>
+        <link refid="classmimas_1_1_v_box_layout"/>
+        <childnode refid="2191" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2210">
+        <label>mimas::SocketNotifier</label>
+        <link refid="classmimas_1_1_socket_notifier"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2192">
+        <label>lk::Finalizer</label>
+        <link refid="classlk_1_1_finalizer"/>
+        <childnode refid="2191" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2222">
+        <label>zmq::Socket</label>
+        <link refid="classzmq_1_1_socket"/>
+        <childnode refid="2191" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2204">
+        <label>mimas::LineEdit</label>
+        <link refid="classmimas_1_1_line_edit"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2221">
+        <label>wii::Remote</label>
+        <link refid="classwii_1_1_remote"/>
+        <childnode refid="2191" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2202">
+        <label>mimas::FileObserver</label>
+        <link refid="classmimas_1_1_file_observer"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2209">
+        <label>mimas::Slider</label>
+        <link refid="classmimas_1_1_slider"/>
+        <childnode refid="2194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2214">
+        <label>mdns::Browser</label>
+        <link refid="classmdns_1_1_browser"/>
+        <childnode refid="2191" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2224">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="2225" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2226">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2223">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="2224" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2225">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="2226" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" line="39" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" bodystart="38" bodyend="72"/>
+    <listofallmembers>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>lubyk::LuaObject</scope><name>class_name_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>lubyk::LuaObject</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>lubyk::LuaObject</scope><name>luaDestroy</name></member>
+      <member refid="classlubyk_1_1_lua_object_1afc36a0ff048ab6ebe7e43b4717d45bec" prot="public" virt="non-virtual"><scope>lubyk::LuaObject</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>lubyk::LuaObject</scope><name>LuaObject</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>lubyk::LuaObject</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>lubyk::LuaObject</scope><name>setupSuper</name></member>
+      <member refid="classlubyk_1_1_lua_object_1ae8c296083afd5f587cdf4ed25d81093f" prot="private" virt="non-virtual"><scope>lubyk::LuaObject</scope><name>userdata_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>lubyk::LuaObject</scope><name>worker_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>lubyk::LuaObject</scope><name>~LuaObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

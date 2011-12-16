@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_star_keypoint" kind="struct" prot="public">
+    <compoundname>CvStarKeypoint</compoundname>
+    <includes refid="cv_8h" local="no">cv.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_star_keypoint_1a11e9bdef9f976cd6efd52f15528202f7" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_point" kindref="compound">CvPoint</ref></type>
+        <definition>CvPoint CvStarKeypoint::pt</definition>
+        <argsstring></argsstring>
+        <name>pt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1198" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1198" bodyend="-1"/>
+        <referencedby refid="cv_8h_1a2f99191cda0700de3f89b88fd939fdaf" compoundref="cv_8h" startline="1204" endline="1211">cvStarKeypoint</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_star_keypoint_1a484ba003548660389a9b547618f23a8b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStarKeypoint::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1199" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1199" bodyend="-1"/>
+        <referencedby refid="cv_8h_1a2f99191cda0700de3f89b88fd939fdaf" compoundref="cv_8h" startline="1204" endline="1211">cvStarKeypoint</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_star_keypoint_1a1f824a700a88dd7f8c0114292626cae0" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvStarKeypoint::response</definition>
+        <argsstring></argsstring>
+        <name>response</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1200" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1200" bodyend="-1"/>
+        <referencedby refid="cv_8h_1a2f99191cda0700de3f89b88fd939fdaf" compoundref="cv_8h" startline="1204" endline="1211">cvStarKeypoint</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2019">
+        <label>CvPoint</label>
+        <link refid="struct_cv_point"/>
+      </node>
+      <node id="2018">
+        <label>CvStarKeypoint</label>
+        <link refid="struct_cv_star_keypoint"/>
+        <childnode refid="2019" relation="usage">
+          <edgelabel>pt</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1197" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1196" bodyend="1201"/>
+    <listofallmembers>
+      <member refid="struct_cv_star_keypoint_1a11e9bdef9f976cd6efd52f15528202f7" prot="public" virt="non-virtual"><scope>CvStarKeypoint</scope><name>pt</name></member>
+      <member refid="struct_cv_star_keypoint_1a1f824a700a88dd7f8c0114292626cae0" prot="public" virt="non-virtual"><scope>CvStarKeypoint</scope><name>response</name></member>
+      <member refid="struct_cv_star_keypoint_1a484ba003548660389a9b547618f23a8b" prot="public" virt="non-virtual"><scope>CvStarKeypoint</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

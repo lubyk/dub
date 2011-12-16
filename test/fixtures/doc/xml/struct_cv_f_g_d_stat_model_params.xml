@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_f_g_d_stat_model_params" kind="struct" prot="public">
+    <compoundname>CvFGDStatModelParams</compoundname>
+    <includes refid="cvaux_8h" local="no">cvaux.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_f_g_d_stat_model_params_1aac86ba5f354a21a368a1df04742860ff" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvFGDStatModelParams::Lc</definition>
+        <argsstring></argsstring>
+        <name>Lc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1267" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1267" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_f_g_d_stat_model_params_1af99c0e0c9ae588219f13583e22a715ed" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvFGDStatModelParams::N1c</definition>
+        <argsstring></argsstring>
+        <name>N1c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1268" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1268" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_f_g_d_stat_model_params_1afb5e452daa801b83378b8fee545c5162" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvFGDStatModelParams::N2c</definition>
+        <argsstring></argsstring>
+        <name>N2c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1269" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1269" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_f_g_d_stat_model_params_1a3ef6879a486b1b068129394d324612b0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvFGDStatModelParams::Lcc</definition>
+        <argsstring></argsstring>
+        <name>Lcc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1272" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1272" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_f_g_d_stat_model_params_1abab3dcbc3510dc386ee536a3b6712b75" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvFGDStatModelParams::N1cc</definition>
+        <argsstring></argsstring>
+        <name>N1cc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1273" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1273" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_f_g_d_stat_model_params_1ae3e5c442d4f636c39d0180efd6910070" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvFGDStatModelParams::N2cc</definition>
+        <argsstring></argsstring>
+        <name>N2cc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1274" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1274" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_f_g_d_stat_model_params_1a5e06949f2ff0adf20bd5bb9059c0a179" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvFGDStatModelParams::is_obj_without_holes</definition>
+        <argsstring></argsstring>
+        <name>is_obj_without_holes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1277" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1277" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_f_g_d_stat_model_params_1ad22b9089be11b542b4868ba3dd1713d1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvFGDStatModelParams::perform_morphing</definition>
+        <argsstring></argsstring>
+        <name>perform_morphing</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1278" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1278" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_f_g_d_stat_model_params_1ab1070d30fd82b26ec8766721122e8483" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvFGDStatModelParams::alpha1</definition>
+        <argsstring></argsstring>
+        <name>alpha1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1281" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1281" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_f_g_d_stat_model_params_1ace1a97cf24f397d30a522b66c9a9ec79" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvFGDStatModelParams::alpha2</definition>
+        <argsstring></argsstring>
+        <name>alpha2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1282" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_f_g_d_stat_model_params_1a975b153605ac09b3b04e263452169493" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvFGDStatModelParams::alpha3</definition>
+        <argsstring></argsstring>
+        <name>alpha3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1283" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1283" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_f_g_d_stat_model_params_1ac4fa054edef4b46290e1d81b95bffc39" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvFGDStatModelParams::delta</definition>
+        <argsstring></argsstring>
+        <name>delta</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1285" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_f_g_d_stat_model_params_1ae622017985c5bb40a27fdb8fbc5aad95" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvFGDStatModelParams::T</definition>
+        <argsstring></argsstring>
+        <name>T</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1286" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_f_g_d_stat_model_params_1a211c52623f57ab66c72ba4db5696225d" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvFGDStatModelParams::minArea</definition>
+        <argsstring></argsstring>
+        <name>minArea</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1287" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1287" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1266" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1265" bodyend="1288"/>
+    <listofallmembers>
+      <member refid="struct_cv_f_g_d_stat_model_params_1ab1070d30fd82b26ec8766721122e8483" prot="public" virt="non-virtual"><scope>CvFGDStatModelParams</scope><name>alpha1</name></member>
+      <member refid="struct_cv_f_g_d_stat_model_params_1ace1a97cf24f397d30a522b66c9a9ec79" prot="public" virt="non-virtual"><scope>CvFGDStatModelParams</scope><name>alpha2</name></member>
+      <member refid="struct_cv_f_g_d_stat_model_params_1a975b153605ac09b3b04e263452169493" prot="public" virt="non-virtual"><scope>CvFGDStatModelParams</scope><name>alpha3</name></member>
+      <member refid="struct_cv_f_g_d_stat_model_params_1ac4fa054edef4b46290e1d81b95bffc39" prot="public" virt="non-virtual"><scope>CvFGDStatModelParams</scope><name>delta</name></member>
+      <member refid="struct_cv_f_g_d_stat_model_params_1a5e06949f2ff0adf20bd5bb9059c0a179" prot="public" virt="non-virtual"><scope>CvFGDStatModelParams</scope><name>is_obj_without_holes</name></member>
+      <member refid="struct_cv_f_g_d_stat_model_params_1aac86ba5f354a21a368a1df04742860ff" prot="public" virt="non-virtual"><scope>CvFGDStatModelParams</scope><name>Lc</name></member>
+      <member refid="struct_cv_f_g_d_stat_model_params_1a3ef6879a486b1b068129394d324612b0" prot="public" virt="non-virtual"><scope>CvFGDStatModelParams</scope><name>Lcc</name></member>
+      <member refid="struct_cv_f_g_d_stat_model_params_1a211c52623f57ab66c72ba4db5696225d" prot="public" virt="non-virtual"><scope>CvFGDStatModelParams</scope><name>minArea</name></member>
+      <member refid="struct_cv_f_g_d_stat_model_params_1af99c0e0c9ae588219f13583e22a715ed" prot="public" virt="non-virtual"><scope>CvFGDStatModelParams</scope><name>N1c</name></member>
+      <member refid="struct_cv_f_g_d_stat_model_params_1abab3dcbc3510dc386ee536a3b6712b75" prot="public" virt="non-virtual"><scope>CvFGDStatModelParams</scope><name>N1cc</name></member>
+      <member refid="struct_cv_f_g_d_stat_model_params_1afb5e452daa801b83378b8fee545c5162" prot="public" virt="non-virtual"><scope>CvFGDStatModelParams</scope><name>N2c</name></member>
+      <member refid="struct_cv_f_g_d_stat_model_params_1ae3e5c442d4f636c39d0180efd6910070" prot="public" virt="non-virtual"><scope>CvFGDStatModelParams</scope><name>N2cc</name></member>
+      <member refid="struct_cv_f_g_d_stat_model_params_1ad22b9089be11b542b4868ba3dd1713d1" prot="public" virt="non-virtual"><scope>CvFGDStatModelParams</scope><name>perform_morphing</name></member>
+      <member refid="struct_cv_f_g_d_stat_model_params_1ae622017985c5bb40a27fdb8fbc5aad95" prot="public" virt="non-virtual"><scope>CvFGDStatModelParams</scope><name>T</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

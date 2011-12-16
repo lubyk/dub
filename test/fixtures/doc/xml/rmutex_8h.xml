@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="rmutex_8h" kind="file">
+    <compoundname>rmutex.h</compoundname>
+    <includes local="no">pthread.h</includes>
+    <includes local="no">assert.h</includes>
+    <includes local="no">cstdio</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="lubyk_2include_2lubyk_2_mutex_8h" local="yes">lubyk/mutex.h</includes>
+    <includes refid="non__copyable_8h" local="yes">lubyk/non_copyable.h</includes>
+    <includedby refid="lk_2include_2lk_2_mutex_8h" local="yes">/Users/gaspard/git/lubyk/modules/lk/include/lk/Mutex.h</includedby>
+    <includedby refid="worker_8h" local="yes">/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h</includedby>
+    <incdepgraph>
+      <node id="468">
+        <label>assert.h</label>
+      </node>
+      <node id="471">
+        <label>lubyk/mutex.h</label>
+        <link refid="lubyk_2include_2lubyk_2_mutex_8h"/>
+        <childnode refid="467" relation="include">
+        </childnode>
+        <childnode refid="468" relation="include">
+        </childnode>
+        <childnode refid="469" relation="include">
+        </childnode>
+        <childnode refid="470" relation="include">
+        </childnode>
+        <childnode refid="472" relation="include">
+        </childnode>
+      </node>
+      <node id="467">
+        <label>pthread.h</label>
+      </node>
+      <node id="470">
+        <label>string.h</label>
+      </node>
+      <node id="469">
+        <label>cstdio</label>
+      </node>
+      <node id="466">
+        <label>/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/rmutex.h</label>
+        <link refid="rmutex.h"/>
+        <childnode refid="467" relation="include">
+        </childnode>
+        <childnode refid="468" relation="include">
+        </childnode>
+        <childnode refid="469" relation="include">
+        </childnode>
+        <childnode refid="470" relation="include">
+        </childnode>
+        <childnode refid="471" relation="include">
+        </childnode>
+        <childnode refid="472" relation="include">
+        </childnode>
+      </node>
+      <node id="472">
+        <label>lubyk/non_copyable.h</label>
+        <link refid="non__copyable_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="475">
+        <label>/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h</label>
+        <link refid="worker_8h"/>
+      </node>
+      <node id="474">
+        <label>/Users/gaspard/git/lubyk/modules/lk/include/lk/Mutex.h</label>
+        <link refid="lk_2include_2lk_2_mutex_8h"/>
+      </node>
+      <node id="473">
+        <label>/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/rmutex.h</label>
+        <link refid="rmutex.h"/>
+        <childnode refid="474" relation="include">
+        </childnode>
+        <childnode refid="475" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classlubyk_1_1_r_mutex" prot="public">lubyk::RMutex</innerclass>
+    <innerclass refid="classlubyk_1_1_scoped_lock" prot="public">lubyk::ScopedLock</innerclass>
+    <innerclass refid="classlubyk_1_1_scoped_unlock" prot="public">lubyk::ScopedUnlock</innerclass>
+    <innernamespace refid="namespacelubyk">lubyk</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>==============================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>LUBYK<sp/>project<sp/>(http://lubyk.org)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/>Copyright<sp/>(c)<sp/>2007-2011<sp/>by<sp/>Gaspard<sp/>Bucher<sp/>(http://teti.ch).</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"></highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/>------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"></highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/>of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/>in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/><sp/><sp/>to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/><sp/><sp/>copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/><sp/><sp/>furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/><sp/><sp/>all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/><sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/><sp/><sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/><sp/><sp/>AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/><sp/><sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/><sp/><sp/>OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/>THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"></highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/>==============================================================================</highlight></codeline>
+<codeline lineno="28"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>LUBYK_INCLUDE_LUBYK_RECURSIVE_MUTEX_H_</highlight></codeline>
+<codeline lineno="31"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>LUBYK_INCLUDE_LUBYK_RECURSIVE_MUTEX_H_</highlight></codeline>
+<codeline lineno="32"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;pthread.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdio&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>strerror</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="lubyk_2include_2lubyk_2_mutex_8h" kindref="compound">lubyk/mutex.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="non__copyable_8h" kindref="compound">lubyk/non_copyable.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">lubyk<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="classlubyk_1_1_r_mutex" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlubyk_1_1_r_mutex" kindref="compound">RMutex</ref><sp/>:<sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_non_copyable" kindref="compound">NonCopyable</ref></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46" refid="classlubyk_1_1_r_mutex_1a90815906910a60676dcb8f019946254c" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classlubyk_1_1_mutex" kindref="compound">Mutex</ref><sp/><ref refid="classlubyk_1_1_r_mutex_1a90815906910a60676dcb8f019946254c" kindref="member">mutex_</ref>;</highlight></codeline>
+<codeline lineno="47" refid="classlubyk_1_1_r_mutex_1a8e32c598ca3ae87227c6ce5b2173ecc3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_r_mutex_1a8e32c598ca3ae87227c6ce5b2173ecc3" kindref="member">counter_</ref>;</highlight></codeline>
+<codeline lineno="48" refid="classlubyk_1_1_r_mutex_1a04f8725a1831353b11d5c940df75c812" refkind="member"><highlight class="normal"><sp/><sp/>pthread_t<sp/><ref refid="classlubyk_1_1_r_mutex_1a04f8725a1831353b11d5c940df75c812" kindref="member">owner_</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="50" refid="classlubyk_1_1_r_mutex_1a25061c60abad8f98b813ebfe1a358ad0" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classlubyk_1_1_r_mutex_1a25061c60abad8f98b813ebfe1a358ad0" kindref="member">RMutex</ref>()</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/>:<sp/><ref refid="classlubyk_1_1_r_mutex_1a8e32c598ca3ae87227c6ce5b2173ecc3" kindref="member">counter_</ref>(0),</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="classlubyk_1_1_r_mutex_1a04f8725a1831353b11d5c940df75c812" kindref="member">owner_</ref>(NULL)<sp/>{}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="classlubyk_1_1_r_mutex_1a57f8cc4e13e6286a7e41cc5d7212a08b" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classlubyk_1_1_r_mutex_1a57f8cc4e13e6286a7e41cc5d7212a08b" kindref="member">~RMutex</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="classlubyk_1_1_r_mutex_1a63ad83c6e14efe863a139d972fc36e42" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_r_mutex_1a63ad83c6e14efe863a139d972fc36e42" kindref="member">lock</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>pthread_t<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>pthread_self();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classlubyk_1_1_r_mutex_1a04f8725a1831353b11d5c940df75c812" kindref="member">owner_</ref><sp/>==<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>++<ref refid="classlubyk_1_1_r_mutex_1a8e32c598ca3ae87227c6ce5b2173ecc3" kindref="member">counter_</ref>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlubyk_1_1_r_mutex_1a90815906910a60676dcb8f019946254c" kindref="member">mutex_</ref>.<ref refid="classlubyk_1_1_mutex_1a74ee38ef2f9bf4e86a3871f5b60a31c3" kindref="member">lock</ref>();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlubyk_1_1_r_mutex_1a8e32c598ca3ae87227c6ce5b2173ecc3" kindref="member">counter_</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlubyk_1_1_r_mutex_1a04f8725a1831353b11d5c940df75c812" kindref="member">owner_</ref><sp/><sp/><sp/>=<sp/>id;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="classlubyk_1_1_r_mutex_1aea9fcfff855511d10784d718c82df6f8" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_r_mutex_1aea9fcfff855511d10784d718c82df6f8" kindref="member">unlock</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(--<ref refid="classlubyk_1_1_r_mutex_1a8e32c598ca3ae87227c6ce5b2173ecc3" kindref="member">counter_</ref><sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlubyk_1_1_r_mutex_1a04f8725a1831353b11d5c940df75c812" kindref="member">owner_</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlubyk_1_1_r_mutex_1a90815906910a60676dcb8f019946254c" kindref="member">mutex_</ref>.<ref refid="classlubyk_1_1_mutex_1a83fead89eb5401b9dd1fbc6ecdd7e31c" kindref="member">unlock</ref>();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="80" refid="classlubyk_1_1_r_mutex_1a80b858a3e7a1747c3678a1e52a49ad24" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_r_mutex_1a80b858a3e7a1747c3678a1e52a49ad24" kindref="member">lockCount</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_r_mutex_1a8e32c598ca3ae87227c6ce5b2173ecc3" kindref="member">counter_</ref>;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="classlubyk_1_1_scoped_lock" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlubyk_1_1_scoped_lock" kindref="compound">ScopedLock</ref><sp/>:<sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_non_copyable" kindref="compound">NonCopyable</ref><sp/>{</highlight></codeline>
+<codeline lineno="91" refid="classlubyk_1_1_scoped_lock_1aa66584a251dc51b753b87eaf5b9460e3" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classlubyk_1_1_r_mutex" kindref="compound">RMutex</ref><sp/>*<ref refid="classlubyk_1_1_scoped_lock_1aa66584a251dc51b753b87eaf5b9460e3" kindref="member">mutex_ptr_</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="93" refid="classlubyk_1_1_scoped_lock_1a602c6ba7fa51e5e684fb90d934d94c07" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classlubyk_1_1_scoped_lock_1a602c6ba7fa51e5e684fb90d934d94c07" kindref="member">ScopedLock</ref>(<ref refid="classlubyk_1_1_r_mutex" kindref="compound">RMutex</ref><sp/>*mutex)<sp/>:<sp/><ref refid="classlubyk_1_1_scoped_lock_1aa66584a251dc51b753b87eaf5b9460e3" kindref="member">mutex_ptr_</ref>(mutex)<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classlubyk_1_1_scoped_lock_1aa66584a251dc51b753b87eaf5b9460e3" kindref="member">mutex_ptr_</ref>-&gt;<ref refid="classlubyk_1_1_r_mutex_1a63ad83c6e14efe863a139d972fc36e42" kindref="member">lock</ref>();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="classlubyk_1_1_scoped_lock_1a64ddc6fbaf51fe6ad80ed2ee880418ab" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classlubyk_1_1_scoped_lock_1a64ddc6fbaf51fe6ad80ed2ee880418ab" kindref="member">ScopedLock</ref>(<ref refid="classlubyk_1_1_r_mutex" kindref="compound">RMutex</ref><sp/>&amp;mutex)<sp/>:<sp/><ref refid="classlubyk_1_1_scoped_lock_1aa66584a251dc51b753b87eaf5b9460e3" kindref="member">mutex_ptr_</ref>(&amp;mutex)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classlubyk_1_1_scoped_lock_1aa66584a251dc51b753b87eaf5b9460e3" kindref="member">mutex_ptr_</ref>-&gt;<ref refid="classlubyk_1_1_r_mutex_1a63ad83c6e14efe863a139d972fc36e42" kindref="member">lock</ref>();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="classlubyk_1_1_scoped_lock_1adafdc2f414a4847fe3499dec25bf6fb5" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classlubyk_1_1_scoped_lock_1adafdc2f414a4847fe3499dec25bf6fb5" kindref="member">~ScopedLock</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classlubyk_1_1_scoped_lock_1aa66584a251dc51b753b87eaf5b9460e3" kindref="member">mutex_ptr_</ref>-&gt;<ref refid="classlubyk_1_1_r_mutex_1aea9fcfff855511d10784d718c82df6f8" kindref="member">unlock</ref>();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="classlubyk_1_1_scoped_unlock" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlubyk_1_1_scoped_unlock" kindref="compound">ScopedUnlock</ref><sp/>:<sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_non_copyable" kindref="compound">NonCopyable</ref></highlight></codeline>
+<codeline lineno="110"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="111" refid="classlubyk_1_1_scoped_unlock_1ab534f5a3cffcf16621a71b184b5dcc2f" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classlubyk_1_1_r_mutex" kindref="compound">RMutex</ref><sp/>*<ref refid="classlubyk_1_1_scoped_unlock_1ab534f5a3cffcf16621a71b184b5dcc2f" kindref="member">mutex_ptr_</ref>;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="113" refid="classlubyk_1_1_scoped_unlock_1af8211e327e5047c6dff6f3807c78ff15" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classlubyk_1_1_scoped_unlock_1af8211e327e5047c6dff6f3807c78ff15" kindref="member">ScopedUnlock</ref>(<ref refid="classlubyk_1_1_r_mutex" kindref="compound">RMutex</ref><sp/>*mutex)<sp/>:<sp/><ref refid="classlubyk_1_1_scoped_unlock_1ab534f5a3cffcf16621a71b184b5dcc2f" kindref="member">mutex_ptr_</ref>(mutex)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classlubyk_1_1_scoped_unlock_1ab534f5a3cffcf16621a71b184b5dcc2f" kindref="member">mutex_ptr_</ref>-&gt;<ref refid="classlubyk_1_1_r_mutex_1aea9fcfff855511d10784d718c82df6f8" kindref="member">unlock</ref>();</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117" refid="classlubyk_1_1_scoped_unlock_1a03220515d6a95e346c230d6a47790089" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classlubyk_1_1_scoped_unlock_1a03220515d6a95e346c230d6a47790089" kindref="member">ScopedUnlock</ref>(<ref refid="classlubyk_1_1_r_mutex" kindref="compound">RMutex</ref><sp/>&amp;mutex)<sp/>:<sp/><ref refid="classlubyk_1_1_scoped_unlock_1ab534f5a3cffcf16621a71b184b5dcc2f" kindref="member">mutex_ptr_</ref>(&amp;mutex)<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classlubyk_1_1_scoped_unlock_1ab534f5a3cffcf16621a71b184b5dcc2f" kindref="member">mutex_ptr_</ref>-&gt;<ref refid="classlubyk_1_1_r_mutex_1aea9fcfff855511d10784d718c82df6f8" kindref="member">unlock</ref>();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="classlubyk_1_1_scoped_unlock_1a552ddc12ad44674a7e91990706fe8bd0" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classlubyk_1_1_scoped_unlock_1a552ddc12ad44674a7e91990706fe8bd0" kindref="member">~ScopedUnlock</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classlubyk_1_1_scoped_unlock_1ab534f5a3cffcf16621a71b184b5dcc2f" kindref="member">mutex_ptr_</ref>-&gt;<ref refid="classlubyk_1_1_r_mutex_1a63ad83c6e14efe863a139d972fc36e42" kindref="member">lock</ref>();</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>lubyk</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>LUBYK_INCLUDE_LUBYK_RECURSIVE_MUTEX_H_</highlight></codeline>
+    </programlisting>
+    <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/rmutex.h"/>
+  </compounddef>
+</doxygen>

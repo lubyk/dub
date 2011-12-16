@@ -1,0 +1,805 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="group___color_conversion_option" kind="group">
+    <compoundname>ColorConversionOption</compoundname>
+    <title>ColorConversionOption</title>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___color_conversion_option_1ga5b24fd514ea14a295e7b46a57d2ef5ce" prot="public" static="no">
+        <name>CV_BGR2BGRA</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="169" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga0c4530b5bac4cd72cd8f7c55ccb256eb" prot="public" static="no">
+        <name>CV_RGB2RGBA</name>
+        <initializer>CV_BGR2BGRA</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="170" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gaa6a1e56c21fe4d9606e3ef4bc111c68f" prot="public" static="no">
+        <name>CV_BGRA2BGR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="172" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gaadbfd50f0909bdc6073e7a84344c4a2c" prot="public" static="no">
+        <name>CV_RGBA2RGB</name>
+        <initializer>CV_BGRA2BGR</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="173" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gaf254562ddf7d774f95fb3e46591a1f30" prot="public" static="no">
+        <name>CV_BGR2RGBA</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="175" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga764dd566dc3fb81b6276ece673ef17e6" prot="public" static="no">
+        <name>CV_RGB2BGRA</name>
+        <initializer>CV_BGR2RGBA</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="176" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga0a1cc93181752e2060b74d6aabbbd94a" prot="public" static="no">
+        <name>CV_RGBA2BGR</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="178" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga9cd6904941bf5a1fd39ace95f7721db9" prot="public" static="no">
+        <name>CV_BGRA2RGB</name>
+        <initializer>CV_RGBA2BGR</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="179" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gaa7666b9694f4edcff29a5abdb8a5cdb9" prot="public" static="no">
+        <name>CV_BGR2RGB</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="181" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gadae302b7a48d00828fa7304e922e046d" prot="public" static="no">
+        <name>CV_RGB2BGR</name>
+        <initializer>CV_BGR2RGB</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="182" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga6d9921f53a573f4a9ff34722ab1aec09" prot="public" static="no">
+        <name>CV_BGRA2RGBA</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="184" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga3ebdd1f439f4ee8cf7ac32437a79852d" prot="public" static="no">
+        <name>CV_RGBA2BGRA</name>
+        <initializer>CV_BGRA2RGBA</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="185" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gaf0ae40b8510ec7455fa31098cb7440c6" prot="public" static="no">
+        <name>CV_BGR2GRAY</name>
+        <initializer>6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="187" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga5fa84fde04604ff8fc61aa221188361e" prot="public" static="no">
+        <name>CV_RGB2GRAY</name>
+        <initializer>7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="188" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga80d8a7fbefe33dc64063b9bc8247b3f7" prot="public" static="no">
+        <name>CV_GRAY2BGR</name>
+        <initializer>8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="189" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga4ef22d7b303c0a5699d87af55868099d" prot="public" static="no">
+        <name>CV_GRAY2RGB</name>
+        <initializer>CV_GRAY2BGR</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="190" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga0bf8ce2fe46ab43261463bb142029ac2" prot="public" static="no">
+        <name>CV_GRAY2BGRA</name>
+        <initializer>9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="191" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gaaefc310973e3ebcec8ce9453cb54e728" prot="public" static="no">
+        <name>CV_GRAY2RGBA</name>
+        <initializer>CV_GRAY2BGRA</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="192" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gacd4190ba3bc01f4bdba50cedf50d0e4e" prot="public" static="no">
+        <name>CV_BGRA2GRAY</name>
+        <initializer>10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="193" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga95c82de176538d9a505e6251041d1773" prot="public" static="no">
+        <name>CV_RGBA2GRAY</name>
+        <initializer>11</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="194" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga17d8c4edbd765f109ee4be6f84d175f3" prot="public" static="no">
+        <name>CV_BGR2BGR565</name>
+        <initializer>12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="196" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga327b603a1b1ffa9cc3e4f88d99de7b32" prot="public" static="no">
+        <name>CV_RGB2BGR565</name>
+        <initializer>13</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="197" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga3d5adc8f5ab79b819aed73a7d66807d6" prot="public" static="no">
+        <name>CV_BGR5652BGR</name>
+        <initializer>14</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="198" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gacceb4dc43bbdf7c90fc0446780895767" prot="public" static="no">
+        <name>CV_BGR5652RGB</name>
+        <initializer>15</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="199" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gab563dc1af1028aee91c4e46f58a052ab" prot="public" static="no">
+        <name>CV_BGRA2BGR565</name>
+        <initializer>16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="200" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga6a14db30cdd67cd3e496ebd7ad790397" prot="public" static="no">
+        <name>CV_RGBA2BGR565</name>
+        <initializer>17</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="201" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gaa1be2c8aff1a85c523ec6c62dc10332f" prot="public" static="no">
+        <name>CV_BGR5652BGRA</name>
+        <initializer>18</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="202" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga4d4df0ea801680669aa5323394a141c7" prot="public" static="no">
+        <name>CV_BGR5652RGBA</name>
+        <initializer>19</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="203" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gacd7dabb53a23107a76ce1d1498996b28" prot="public" static="no">
+        <name>CV_GRAY2BGR565</name>
+        <initializer>20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="205" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga2f770bdba3aaee23c8f50b389dbb7d38" prot="public" static="no">
+        <name>CV_BGR5652GRAY</name>
+        <initializer>21</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="206" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gaceccb12d8ced4e8060e312c6a5b5e4af" prot="public" static="no">
+        <name>CV_BGR2BGR555</name>
+        <initializer>22</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="208" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga487a27be30f14dc426a89318d2104561" prot="public" static="no">
+        <name>CV_RGB2BGR555</name>
+        <initializer>23</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="209" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga6ede4ffafa7344937b7ecda261fe6976" prot="public" static="no">
+        <name>CV_BGR5552BGR</name>
+        <initializer>24</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="210" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gab6b12b980c9f341a437e7e9d6befcd53" prot="public" static="no">
+        <name>CV_BGR5552RGB</name>
+        <initializer>25</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="211" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga0b2b954617887f8729a336e853589c91" prot="public" static="no">
+        <name>CV_BGRA2BGR555</name>
+        <initializer>26</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="212" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga5b4fba27a61f3726f1b1788c0cf1715e" prot="public" static="no">
+        <name>CV_RGBA2BGR555</name>
+        <initializer>27</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="213" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gabe723ce268840bf0f68dbb5be1b46634" prot="public" static="no">
+        <name>CV_BGR5552BGRA</name>
+        <initializer>28</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="214" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga2cf236f91509417e756a7577c8d2a051" prot="public" static="no">
+        <name>CV_BGR5552RGBA</name>
+        <initializer>29</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="215" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga3cfd1638f7e339b38240fb2478e4d19e" prot="public" static="no">
+        <name>CV_GRAY2BGR555</name>
+        <initializer>30</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="217" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gac3cb5ba0d4c913491578e48f714b964b" prot="public" static="no">
+        <name>CV_BGR5552GRAY</name>
+        <initializer>31</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="218" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga4292b9c9a0fe3f0d86538bd78f14b724" prot="public" static="no">
+        <name>CV_BGR2XYZ</name>
+        <initializer>32</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="220" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga46b9da6dbda4ee6f680d9f6bcd050c77" prot="public" static="no">
+        <name>CV_RGB2XYZ</name>
+        <initializer>33</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="221" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga470d30bb0e238249c95dea01e8739d04" prot="public" static="no">
+        <name>CV_XYZ2BGR</name>
+        <initializer>34</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="222" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga8c5f95405ef4c5dcfe5270204e6388b5" prot="public" static="no">
+        <name>CV_XYZ2RGB</name>
+        <initializer>35</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="223" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga1630d113220e03cce94d844220a57d60" prot="public" static="no">
+        <name>CV_BGR2YCrCb</name>
+        <initializer>36</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="225" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="225" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga65636d1f04e6dfd32259f91eb09b751f" prot="public" static="no">
+        <name>CV_RGB2YCrCb</name>
+        <initializer>37</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="226" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga61030e896474489e54dae36080394853" prot="public" static="no">
+        <name>CV_YCrCb2BGR</name>
+        <initializer>38</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="227" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga770c270d6b56e54cd7cd6270385f6878" prot="public" static="no">
+        <name>CV_YCrCb2RGB</name>
+        <initializer>39</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="228" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="228" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga2679046349d70019edb0511c21db89a1" prot="public" static="no">
+        <name>CV_BGR2HSV</name>
+        <initializer>40</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="230" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gabc912d984a4a0b9500ca5d97e4a384e6" prot="public" static="no">
+        <name>CV_RGB2HSV</name>
+        <initializer>41</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="231" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga494c48024446b41caa67afd62482e7b5" prot="public" static="no">
+        <name>CV_BGR2Lab</name>
+        <initializer>44</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="233" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga10e955cb65116a364cf8b5d15ca87a8d" prot="public" static="no">
+        <name>CV_RGB2Lab</name>
+        <initializer>45</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="234" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga386880f86cde9adab2ae66711a86dbf4" prot="public" static="no">
+        <name>CV_BayerBG2BGR</name>
+        <initializer>46</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="236" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga75060d7179e2da11d2ae45d9361ea4e1" prot="public" static="no">
+        <name>CV_BayerGB2BGR</name>
+        <initializer>47</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="237" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga85e617556545488eff2f50e9419ce390" prot="public" static="no">
+        <name>CV_BayerRG2BGR</name>
+        <initializer>48</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="238" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gafb698cd42c3dae5e776995592529f0e9" prot="public" static="no">
+        <name>CV_BayerGR2BGR</name>
+        <initializer>49</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="239" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga92d5739632310899b1791caba670541c" prot="public" static="no">
+        <name>CV_BayerBG2RGB</name>
+        <initializer>CV_BayerRG2BGR</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="241" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="241" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gae9adb9997c9096ec45edf6c9bd778e84" prot="public" static="no">
+        <name>CV_BayerGB2RGB</name>
+        <initializer>CV_BayerGR2BGR</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="242" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga619c20cfa44f6e9be553875c8643a6a5" prot="public" static="no">
+        <name>CV_BayerRG2RGB</name>
+        <initializer>CV_BayerBG2BGR</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="243" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gac7df64b4aa3f4fffb13534ba17034e6f" prot="public" static="no">
+        <name>CV_BayerGR2RGB</name>
+        <initializer>CV_BayerGB2BGR</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="244" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gad6d7a7d645053555d4af958776ec5a64" prot="public" static="no">
+        <name>CV_BGR2Luv</name>
+        <initializer>50</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="246" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga51521e864bd44084efa8ca2a06612eb4" prot="public" static="no">
+        <name>CV_RGB2Luv</name>
+        <initializer>51</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="247" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="247" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gab5a3b6507cf7b59c9848086fc1726ff7" prot="public" static="no">
+        <name>CV_BGR2HLS</name>
+        <initializer>52</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="248" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gabbe4d786568116da4ccd27893c93842d" prot="public" static="no">
+        <name>CV_RGB2HLS</name>
+        <initializer>53</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="249" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="249" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gab67313bc939e2f466a64b8ef1c50bd4a" prot="public" static="no">
+        <name>CV_HSV2BGR</name>
+        <initializer>54</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="251" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga229596117f41e3a429c0a492d195d992" prot="public" static="no">
+        <name>CV_HSV2RGB</name>
+        <initializer>55</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="252" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga59ef5ff8335f50e7116f8d6f8cbff99f" prot="public" static="no">
+        <name>CV_Lab2BGR</name>
+        <initializer>56</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="254" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga3b18e20aa11eea272dab0b459fe2bd1a" prot="public" static="no">
+        <name>CV_Lab2RGB</name>
+        <initializer>57</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="255" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga60a1a4f63a237f06a25a105d0e474af0" prot="public" static="no">
+        <name>CV_Luv2BGR</name>
+        <initializer>58</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="256" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga9be6291962e4b82e02caf38a6586844b" prot="public" static="no">
+        <name>CV_Luv2RGB</name>
+        <initializer>59</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="257" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1gaaa7842153a21f18e5da6b7780678cb05" prot="public" static="no">
+        <name>CV_HLS2BGR</name>
+        <initializer>60</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="258" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___color_conversion_option_1ga3b9b85eaf999c04792e11cb540b2805a" prot="public" static="no">
+        <name>CV_HLS2RGB</name>
+        <initializer>61</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="259" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>List of color conversion options to use in methods such as cvtColor. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

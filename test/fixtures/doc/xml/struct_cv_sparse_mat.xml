@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_sparse_mat" kind="struct" prot="public">
+    <compoundname>CvSparseMat</compoundname>
+    <includes refid="cxtypes_8h" local="no">cxtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_sparse_mat_1a14e4b63df7e0241a024b4a1e66abf5cf" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvSparseMat::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="787" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="787" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_sparse_mat_1ae703789b8f2ef8d757250b888e8c2bf3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvSparseMat::dims</definition>
+        <argsstring></argsstring>
+        <name>dims</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="788" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="788" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_sparse_mat_1a84c838139e344c8897754e129dda10af" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* CvSparseMat::refcount</definition>
+        <argsstring></argsstring>
+        <name>refcount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="789" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="789" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_sparse_mat_1abc100a040c983923065fcfac8379f1f1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvSparseMat::hdr_refcount</definition>
+        <argsstring></argsstring>
+        <name>hdr_refcount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="790" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="790" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_sparse_mat_1a32660f98736c3bb426df78c43eabdc1b" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_cv_set" kindref="compound">CvSet</ref> *</type>
+        <definition>struct CvSet* CvSparseMat::heap</definition>
+        <argsstring></argsstring>
+        <name>heap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="792" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="792" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_sparse_mat_1ab8eb73e34a9d3c25d8523122efa770a2" prot="public" static="no" mutable="no">
+        <type>void **</type>
+        <definition>void** CvSparseMat::hashtable</definition>
+        <argsstring></argsstring>
+        <name>hashtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="793" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="793" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_sparse_mat_1ab506feb5f2501d55b8edd7f13309dfef" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvSparseMat::hashsize</definition>
+        <argsstring></argsstring>
+        <name>hashsize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="794" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="794" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_sparse_mat_1ae2894f3139e65d6d14faf1d815868a87" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvSparseMat::valoffset</definition>
+        <argsstring></argsstring>
+        <name>valoffset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="795" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="795" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_sparse_mat_1a446eb308a725b00b2adb928be97b97e9" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvSparseMat::idxoffset</definition>
+        <argsstring></argsstring>
+        <name>idxoffset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="796" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="796" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_sparse_mat_1a724bb060c7da45c00e9d3a2e2e0212f1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvSparseMat::size[CV_MAX_DIM]</definition>
+        <argsstring>[CV_MAX_DIM]</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="797" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="797" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2007">
+        <label>CvSet</label>
+        <link refid="struct_cv_set"/>
+      </node>
+      <node id="2006">
+        <label>CvSparseMat</label>
+        <link refid="struct_cv_sparse_mat"/>
+        <childnode refid="2007" relation="usage">
+          <edgelabel>heap</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="786" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="785" bodyend="798"/>
+    <listofallmembers>
+      <member refid="struct_cv_sparse_mat_1ae703789b8f2ef8d757250b888e8c2bf3" prot="public" virt="non-virtual"><scope>CvSparseMat</scope><name>dims</name></member>
+      <member refid="struct_cv_sparse_mat_1ab506feb5f2501d55b8edd7f13309dfef" prot="public" virt="non-virtual"><scope>CvSparseMat</scope><name>hashsize</name></member>
+      <member refid="struct_cv_sparse_mat_1ab8eb73e34a9d3c25d8523122efa770a2" prot="public" virt="non-virtual"><scope>CvSparseMat</scope><name>hashtable</name></member>
+      <member refid="struct_cv_sparse_mat_1abc100a040c983923065fcfac8379f1f1" prot="public" virt="non-virtual"><scope>CvSparseMat</scope><name>hdr_refcount</name></member>
+      <member refid="struct_cv_sparse_mat_1a32660f98736c3bb426df78c43eabdc1b" prot="public" virt="non-virtual"><scope>CvSparseMat</scope><name>heap</name></member>
+      <member refid="struct_cv_sparse_mat_1a446eb308a725b00b2adb928be97b97e9" prot="public" virt="non-virtual"><scope>CvSparseMat</scope><name>idxoffset</name></member>
+      <member refid="struct_cv_sparse_mat_1a84c838139e344c8897754e129dda10af" prot="public" virt="non-virtual"><scope>CvSparseMat</scope><name>refcount</name></member>
+      <member refid="struct_cv_sparse_mat_1a724bb060c7da45c00e9d3a2e2e0212f1" prot="public" virt="non-virtual"><scope>CvSparseMat</scope><name>size</name></member>
+      <member refid="struct_cv_sparse_mat_1a14e4b63df7e0241a024b4a1e66abf5cf" prot="public" virt="non-virtual"><scope>CvSparseMat</scope><name>type</name></member>
+      <member refid="struct_cv_sparse_mat_1ae2894f3139e65d6d14faf1d815868a87" prot="public" virt="non-virtual"><scope>CvSparseMat</scope><name>valoffset</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

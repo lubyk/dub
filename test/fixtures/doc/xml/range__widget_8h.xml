@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="range__widget_8h" kind="file">
+    <compoundname>range_widget.h</compoundname>
+    <includes refid="mimas_8h" local="yes">mimas/mimas.h</includes>
+    <includedby refid="_slider_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h</includedby>
+    <incdepgraph>
+      <node id="995">
+        <label>mimas/Action.h</label>
+        <link refid="_action_8h"/>
+        <childnode refid="992" relation="include">
+        </childnode>
+        <childnode refid="996" relation="include">
+        </childnode>
+        <childnode refid="997" relation="include">
+        </childnode>
+      </node>
+      <node id="993">
+        <label>lubyk.h</label>
+      </node>
+      <node id="991">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/range_widget.h</label>
+        <link refid="range_widget.h"/>
+        <childnode refid="992" relation="include">
+        </childnode>
+      </node>
+      <node id="992">
+        <label>mimas/mimas.h</label>
+        <link refid="mimas_8h"/>
+        <childnode refid="993" relation="include">
+        </childnode>
+        <childnode refid="994" relation="include">
+        </childnode>
+        <childnode refid="995" relation="include">
+        </childnode>
+      </node>
+      <node id="994">
+        <label>QtGui/QWidget</label>
+      </node>
+      <node id="996">
+        <label>QtGui/QAction</label>
+      </node>
+      <node id="997">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="998">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/range_widget.h</label>
+        <link refid="range_widget.h"/>
+        <childnode refid="999" relation="include">
+        </childnode>
+      </node>
+      <node id="999">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h</label>
+        <link refid="_slider_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classmimas_1_1_range_widget" prot="public">mimas::RangeWidget</innerclass>
+    <innernamespace refid="namespacemimas">mimas</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>==============================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>LUBYK<sp/>project<sp/>(http://lubyk.org)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/>Copyright<sp/>(c)<sp/>2007-2011<sp/>by<sp/>Gaspard<sp/>Bucher<sp/>(http://teti.ch).</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"></highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/>------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"></highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/>Mimas<sp/>is<sp/>free<sp/>software:<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation,<sp/>either<sp/>version<sp/>3<sp/>of<sp/>the<sp/>License,<sp/>or</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/><sp/><sp/>Mimas<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/><sp/><sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/><sp/><sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/>along<sp/>with<sp/>Mimas.<sp/><sp/>If<sp/>not,<sp/>see<sp/>&lt;http://www.gnu.org/licenses/&gt;.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"></highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/><sp/>==============================================================================</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>LUBYK_INCLUDE_MIMAS_RANGE_WIDGET_H_</highlight></codeline>
+<codeline lineno="26"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>LUBYK_INCLUDE_MIMAS_RANGE_WIDGET_H_</highlight></codeline>
+<codeline lineno="27"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mimas_8h" kindref="compound">mimas/mimas.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mimas<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="classmimas_1_1_range_widget" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classmimas_1_1_range_widget" kindref="compound">RangeWidget</ref></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="35" refid="classmimas_1_1_range_widget_1a738d817ceacfe73af0d583b1cf9000e8" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classmimas_1_1_range_widget_1a738d817ceacfe73af0d583b1cf9000e8" kindref="member">RangeWidget</ref>()</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/>:<sp/><ref refid="classmimas_1_1_range_widget_1a4fccdb40bb9669a3504fd490566d0fd3" kindref="member">min_</ref>(0.0),</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="classmimas_1_1_range_widget_1aa398409bcf81a52e6863558b26e8f1f6" kindref="member">max_</ref>(1.0),</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="classmimas_1_1_range_widget_1ad28c10e5ba73f0647d4b5d833a83ec72" kindref="member">value_</ref>(0.0),</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="classmimas_1_1_range_widget_1afb7e464602f6403e89b71cf0f2b3ebc9" kindref="member">remote_value_</ref>(0.0),</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="classmimas_1_1_range_widget_1af5f32f657feec911d7d09309dcefe1d9" kindref="member">is_dragged_</ref>(false)<sp/>{}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="classmimas_1_1_range_widget_1a84530e0b557e5cd3e471f541904f1b0f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1a84530e0b557e5cd3e471f541904f1b0f" kindref="member">~RangeWidget</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="classmimas_1_1_range_widget_1ac888c053b055c7e3854cc0475dd8224c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1ac888c053b055c7e3854cc0475dd8224c" kindref="member">value</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1ad28c10e5ba73f0647d4b5d833a83ec72" kindref="member">value_</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="classmimas_1_1_range_widget_1a7674a8344beaad2715d4afb7a92bccd5" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1a7674a8344beaad2715d4afb7a92bccd5" kindref="member">setRange</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>max)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classmimas_1_1_range_widget_1a4fccdb40bb9669a3504fd490566d0fd3" kindref="member">min_</ref><sp/>=<sp/>min;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classmimas_1_1_range_widget_1aa398409bcf81a52e6863558b26e8f1f6" kindref="member">max_</ref><sp/>=<sp/>max;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="classmimas_1_1_range_widget_1a624190a9736b062c009c6025c08559c9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1a624190a9736b062c009c6025c08559c9" kindref="member">position</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="cv_8h_1a7e12f6e5472cdb21ec13ab5365ffd987" kindref="member">range</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classmimas_1_1_range_widget_1aa398409bcf81a52e6863558b26e8f1f6" kindref="member">max_</ref><sp/>-<sp/><ref refid="classmimas_1_1_range_widget_1a4fccdb40bb9669a3504fd490566d0fd3" kindref="member">min_</ref><sp/>==<sp/>0)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)((<ref refid="classmimas_1_1_range_widget_1ad28c10e5ba73f0647d4b5d833a83ec72" kindref="member">value_</ref><sp/>*<sp/>range<sp/>/<sp/>(<ref refid="classmimas_1_1_range_widget_1aa398409bcf81a52e6863558b26e8f1f6" kindref="member">max_</ref><sp/>-<sp/><ref refid="classmimas_1_1_range_widget_1a4fccdb40bb9669a3504fd490566d0fd3" kindref="member">min_</ref>))<sp/>+<sp/>0.5f);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="classmimas_1_1_range_widget_1a12725c71f8c3aaa704628ff2f6c7674b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1a12725c71f8c3aaa704628ff2f6c7674b" kindref="member">remotePosition</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="cv_8h_1a7e12f6e5472cdb21ec13ab5365ffd987" kindref="member">range</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classmimas_1_1_range_widget_1aa398409bcf81a52e6863558b26e8f1f6" kindref="member">max_</ref><sp/>-<sp/><ref refid="classmimas_1_1_range_widget_1a4fccdb40bb9669a3504fd490566d0fd3" kindref="member">min_</ref><sp/>==<sp/>0)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)((<ref refid="classmimas_1_1_range_widget_1afb7e464602f6403e89b71cf0f2b3ebc9" kindref="member">remote_value_</ref><sp/>*<sp/>range<sp/>/<sp/>(<ref refid="classmimas_1_1_range_widget_1aa398409bcf81a52e6863558b26e8f1f6" kindref="member">max_</ref><sp/>-<sp/><ref refid="classmimas_1_1_range_widget_1a4fccdb40bb9669a3504fd490566d0fd3" kindref="member">min_</ref>))<sp/>+<sp/>0.5f);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="classmimas_1_1_range_widget_1abf430f903a42ae993518ed0bb114153b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1abf430f903a42ae993518ed0bb114153b" kindref="member">setPosition</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1a624190a9736b062c009c6025c08559c9" kindref="member">position</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="cv_8h_1a7e12f6e5472cdb21ec13ab5365ffd987" kindref="member">range</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!range)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="cxcore_8h_1a54709f3b06b33b66763f1613cc7fb571" kindref="member">r</ref><sp/>=<sp/>position<sp/>*<sp/>(<ref refid="classmimas_1_1_range_widget_1aa398409bcf81a52e6863558b26e8f1f6" kindref="member">max_</ref><sp/>-<sp/><ref refid="classmimas_1_1_range_widget_1a4fccdb40bb9669a3504fd490566d0fd3" kindref="member">min_</ref>)<sp/>/<sp/>range;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(r<sp/>&lt;<sp/><ref refid="classmimas_1_1_range_widget_1a4fccdb40bb9669a3504fd490566d0fd3" kindref="member">min_</ref>)<sp/>r<sp/>=<sp/><ref refid="classmimas_1_1_range_widget_1a4fccdb40bb9669a3504fd490566d0fd3" kindref="member">min_</ref>;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(r<sp/>&gt;<sp/><ref refid="classmimas_1_1_range_widget_1aa398409bcf81a52e6863558b26e8f1f6" kindref="member">max_</ref>)<sp/>r<sp/>=<sp/><ref refid="classmimas_1_1_range_widget_1aa398409bcf81a52e6863558b26e8f1f6" kindref="member">max_</ref>;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classmimas_1_1_range_widget_1ad28c10e5ba73f0647d4b5d833a83ec72" kindref="member">value_</ref><sp/>!=<sp/>r)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmimas_1_1_range_widget_1ad28c10e5ba73f0647d4b5d833a83ec72" kindref="member">value_</ref><sp/>=<sp/><ref refid="cxcore_8h_1a54709f3b06b33b66763f1613cc7fb571" kindref="member">r</ref>;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="classmimas_1_1_range_widget_1a73fe9d5ead594e445a3b76868b80814f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1a73fe9d5ead594e445a3b76868b80814f" kindref="member">isDragged</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1af5f32f657feec911d7d09309dcefe1d9" kindref="member">is_dragged_</ref>;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="classmimas_1_1_range_widget_1a089c2d18f9a16c028fda6e765e845684" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1a089c2d18f9a16c028fda6e765e845684" kindref="member">setDragged</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>dragged)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classmimas_1_1_range_widget_1af5f32f657feec911d7d09309dcefe1d9" kindref="member">is_dragged_</ref><sp/>=<sp/>dragged;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="classmimas_1_1_range_widget_1a57dace066897251b6991dbbb2508d8b2" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1a57dace066897251b6991dbbb2508d8b2" kindref="member">setValue</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>remote_value)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classmimas_1_1_range_widget_1afb7e464602f6403e89b71cf0f2b3ebc9" kindref="member">remote_value_</ref><sp/>!=<sp/>remote_value)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmimas_1_1_range_widget_1afb7e464602f6403e89b71cf0f2b3ebc9" kindref="member">remote_value_</ref><sp/>=<sp/>remote_value;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classmimas_1_1_range_widget_1af5f32f657feec911d7d09309dcefe1d9" kindref="member">is_dragged_</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>no<sp/>dragging</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>(last_drag_<sp/>&lt;<sp/>0<sp/>||<sp/>last_drag_<sp/>+<sp/>(3<sp/>*<sp/>proxy_-&gt;latency())<sp/>&lt;<sp/>proxy_-&gt;elapsed())<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>stopped<sp/>dragging<sp/>long<sp/>ago,<sp/>move<sp/>real.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classmimas_1_1_range_widget_1ad28c10e5ba73f0647d4b5d833a83ec72" kindref="member">value_</ref><sp/>=<sp/>remote_value;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="114" refid="classmimas_1_1_range_widget_1a4fccdb40bb9669a3504fd490566d0fd3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1a4fccdb40bb9669a3504fd490566d0fd3" kindref="member">min_</ref>;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="classmimas_1_1_range_widget_1aa398409bcf81a52e6863558b26e8f1f6" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1aa398409bcf81a52e6863558b26e8f1f6" kindref="member">max_</ref>;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122" refid="classmimas_1_1_range_widget_1ad28c10e5ba73f0647d4b5d833a83ec72" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1ad28c10e5ba73f0647d4b5d833a83ec72" kindref="member">value_</ref>;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="classmimas_1_1_range_widget_1afb7e464602f6403e89b71cf0f2b3ebc9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1afb7e464602f6403e89b71cf0f2b3ebc9" kindref="member">remote_value_</ref>;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130" refid="classmimas_1_1_range_widget_1af5f32f657feec911d7d09309dcefe1d9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classmimas_1_1_range_widget_1af5f32f657feec911d7d09309dcefe1d9" kindref="member">is_dragged_</ref>;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>mimas</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>LUBYK_INCLUDE_MIMAS_RANGE_WIDGET_H_</highlight></codeline>
+    </programlisting>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/range_widget.h"/>
+  </compounddef>
+</doxygen>

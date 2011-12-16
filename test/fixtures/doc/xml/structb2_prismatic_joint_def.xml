@@ -1,0 +1,583 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_prismatic_joint_def" kind="struct" prot="public">
+    <compoundname>b2PrismaticJointDef</compoundname>
+    <basecompoundref refid="structb2_joint_def" prot="public" virt="non-virtual">b2JointDef</basecompoundref>
+    <includes refid="b2_prismatic_joint_8h" local="no">b2PrismaticJoint.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_prismatic_joint_def_1abb51df8daff7a55f47adc83e4f7fa5b9" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PrismaticJointDef::localAnchorA</definition>
+        <argsstring></argsstring>
+        <name>localAnchorA</name>
+        <briefdescription>
+<para>The local anchor point relative to bodyA&apos;s origin. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" line="52" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" bodystart="52" bodyend="-1"/>
+        <referencedby refid="structb2_prismatic_joint_def_1aed2cd56b9d870058413f9bd33ee915b9" compoundref="b2_prismatic_joint_8h" startline="32" endline="45">b2PrismaticJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_prismatic_joint_def_1a5acc1f2f14d1b659fc9d804ab1baf4a3" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PrismaticJointDef::localAnchorB</definition>
+        <argsstring></argsstring>
+        <name>localAnchorB</name>
+        <briefdescription>
+<para>The local anchor point relative to bodyB&apos;s origin. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" line="55" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" bodystart="55" bodyend="-1"/>
+        <referencedby refid="structb2_prismatic_joint_def_1aed2cd56b9d870058413f9bd33ee915b9" compoundref="b2_prismatic_joint_8h" startline="32" endline="45">b2PrismaticJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_prismatic_joint_def_1af36fdbcedca5a392a2649cd235c42676" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PrismaticJointDef::localAxisA</definition>
+        <argsstring></argsstring>
+        <name>localAxisA</name>
+        <briefdescription>
+<para>The local translation unit axis in bodyA. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" line="58" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" bodystart="58" bodyend="-1"/>
+        <referencedby refid="structb2_prismatic_joint_def_1aed2cd56b9d870058413f9bd33ee915b9" compoundref="b2_prismatic_joint_8h" startline="32" endline="45">b2PrismaticJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_prismatic_joint_def_1aa84b43d08e6e11b4daa0c86f46094463" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PrismaticJointDef::referenceAngle</definition>
+        <argsstring></argsstring>
+        <name>referenceAngle</name>
+        <briefdescription>
+<para>The constrained angle between the bodies: bodyB_angle - bodyA_angle. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" line="61" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" bodystart="61" bodyend="-1"/>
+        <referencedby refid="structb2_prismatic_joint_def_1aed2cd56b9d870058413f9bd33ee915b9" compoundref="b2_prismatic_joint_8h" startline="32" endline="45">b2PrismaticJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_prismatic_joint_def_1aa61a03b68caac62a5cf66354f6756eae" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool b2PrismaticJointDef::enableLimit</definition>
+        <argsstring></argsstring>
+        <name>enableLimit</name>
+        <briefdescription>
+<para>Enable/disable the joint limit. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" line="64" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" bodystart="64" bodyend="-1"/>
+        <referencedby refid="structb2_prismatic_joint_def_1aed2cd56b9d870058413f9bd33ee915b9" compoundref="b2_prismatic_joint_8h" startline="32" endline="45">b2PrismaticJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_prismatic_joint_def_1ac0a0e2a669d640ebea354895fe6a9fb6" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PrismaticJointDef::lowerTranslation</definition>
+        <argsstring></argsstring>
+        <name>lowerTranslation</name>
+        <briefdescription>
+<para>The lower translation limit, usually in meters. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" line="67" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" bodystart="67" bodyend="-1"/>
+        <referencedby refid="structb2_prismatic_joint_def_1aed2cd56b9d870058413f9bd33ee915b9" compoundref="b2_prismatic_joint_8h" startline="32" endline="45">b2PrismaticJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_prismatic_joint_def_1ae3eac123c7fe543071bdfcd1a6942350" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PrismaticJointDef::upperTranslation</definition>
+        <argsstring></argsstring>
+        <name>upperTranslation</name>
+        <briefdescription>
+<para>The upper translation limit, usually in meters. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" line="70" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" bodystart="70" bodyend="-1"/>
+        <referencedby refid="structb2_prismatic_joint_def_1aed2cd56b9d870058413f9bd33ee915b9" compoundref="b2_prismatic_joint_8h" startline="32" endline="45">b2PrismaticJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_prismatic_joint_def_1a58ac79a54a8110d3a745e1d6d36990dc" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool b2PrismaticJointDef::enableMotor</definition>
+        <argsstring></argsstring>
+        <name>enableMotor</name>
+        <briefdescription>
+<para>Enable/disable the joint motor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" line="73" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" bodystart="73" bodyend="-1"/>
+        <referencedby refid="structb2_prismatic_joint_def_1aed2cd56b9d870058413f9bd33ee915b9" compoundref="b2_prismatic_joint_8h" startline="32" endline="45">b2PrismaticJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_prismatic_joint_def_1aabeec48af1e49c7f9fed5e0bc8270a1b" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PrismaticJointDef::maxMotorForce</definition>
+        <argsstring></argsstring>
+        <name>maxMotorForce</name>
+        <briefdescription>
+<para>The maximum motor torque, usually in N-m. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" line="76" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" bodystart="76" bodyend="-1"/>
+        <referencedby refid="structb2_prismatic_joint_def_1aed2cd56b9d870058413f9bd33ee915b9" compoundref="b2_prismatic_joint_8h" startline="32" endline="45">b2PrismaticJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_prismatic_joint_def_1ac4bdaea15653657e724a04fc60f3f235" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PrismaticJointDef::motorSpeed</definition>
+        <argsstring></argsstring>
+        <name>motorSpeed</name>
+        <briefdescription>
+<para>The desired motor speed in radians per second. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" line="79" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" bodystart="79" bodyend="-1"/>
+        <referencedby refid="structb2_prismatic_joint_def_1aed2cd56b9d870058413f9bd33ee915b9" compoundref="b2_prismatic_joint_8h" startline="32" endline="45">b2PrismaticJointDef</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structb2_prismatic_joint_def_1aed2cd56b9d870058413f9bd33ee915b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2PrismaticJointDef::b2PrismaticJointDef</definition>
+        <argsstring>()</argsstring>
+        <name>b2PrismaticJointDef</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" line="33" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" bodystart="32" bodyend="45"/>
+        <references refid="b2_joint_8h_1a0bb202d8a286c888a11985b07b2272abaf67429560e13b82d733cc7c3c944c02a" compoundref="b2_joint_8h" startline="33">e_prismaticJoint</references>
+        <references refid="structb2_prismatic_joint_def_1aa61a03b68caac62a5cf66354f6756eae" compoundref="b2_prismatic_joint_8h" startline="64">enableLimit</references>
+        <references refid="structb2_prismatic_joint_def_1a58ac79a54a8110d3a745e1d6d36990dc" compoundref="b2_prismatic_joint_8h" startline="73">enableMotor</references>
+        <references refid="structb2_prismatic_joint_def_1abb51df8daff7a55f47adc83e4f7fa5b9" compoundref="b2_prismatic_joint_8h" startline="52">localAnchorA</references>
+        <references refid="structb2_prismatic_joint_def_1a5acc1f2f14d1b659fc9d804ab1baf4a3" compoundref="b2_prismatic_joint_8h" startline="55">localAnchorB</references>
+        <references refid="structb2_prismatic_joint_def_1af36fdbcedca5a392a2649cd235c42676" compoundref="b2_prismatic_joint_8h" startline="58">localAxisA</references>
+        <references refid="structb2_prismatic_joint_def_1ac0a0e2a669d640ebea354895fe6a9fb6" compoundref="b2_prismatic_joint_8h" startline="67">lowerTranslation</references>
+        <references refid="structb2_prismatic_joint_def_1aabeec48af1e49c7f9fed5e0bc8270a1b" compoundref="b2_prismatic_joint_8h" startline="76">maxMotorForce</references>
+        <references refid="structb2_prismatic_joint_def_1ac4bdaea15653657e724a04fc60f3f235" compoundref="b2_prismatic_joint_8h" startline="79">motorSpeed</references>
+        <references refid="structb2_prismatic_joint_def_1aa84b43d08e6e11b4daa0c86f46094463" compoundref="b2_prismatic_joint_8h" startline="61">referenceAngle</references>
+        <references refid="structb2_vec2_1a4d61640a645e470a50b451307d8e94c3" compoundref="b2_math_8h" startline="76" endline="76">b2Vec2::Set</references>
+        <references refid="structb2_vec2_1a5c6cbe27cfb29c6dbb29b9a3285b88d0" compoundref="b2_math_8h" startline="73" endline="73">b2Vec2::SetZero</references>
+        <references refid="structb2_joint_def_1a470f2879b24adb05facbd49f338856fb" compoundref="b2_joint_8h" startline="85">b2JointDef::type</references>
+        <references refid="structb2_prismatic_joint_def_1ae3eac123c7fe543071bdfcd1a6942350" compoundref="b2_prismatic_joint_8h" startline="70">upperTranslation</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_prismatic_joint_def_1ae60043bc22b077e8c59ab248dc34652f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2PrismaticJointDef::Initialize</definition>
+        <argsstring>(b2Body *bodyA, b2Body *bodyB, const b2Vec2 &amp;anchor, const b2Vec2 &amp;axis)</argsstring>
+        <name>Initialize</name>
+        <param>
+          <type><ref refid="classb2_body" kindref="compound">b2Body</ref> *</type>
+          <declname>bodyA</declname>
+        </param>
+        <param>
+          <type><ref refid="classb2_body" kindref="compound">b2Body</ref> *</type>
+          <declname>bodyB</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>anchor</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>axis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize the bodies, anchors, axis, and reference angle using the world anchor and unit world axis. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" line="49"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Prismatic joint definition. This requires defining a line of motion using an axis and an anchor point. The definition uses local anchor points and a local axis so that the initial configuration can violate the constraint slightly. The joint translation is zero when the local anchor points coincide in world space. Using local anchors and a local axis helps when saving and loading a game. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="1201">
+        <label>b2JointDef</label>
+        <link refid="structb2_joint_def"/>
+      </node>
+      <node id="1200">
+        <label>b2PrismaticJointDef</label>
+        <link refid="structb2_prismatic_joint_def"/>
+        <childnode refid="1201" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1224">
+        <label>b2Draw</label>
+        <link refid="classb2_draw"/>
+      </node>
+      <node id="1231">
+        <label>b2DynamicTree</label>
+        <link refid="classb2_dynamic_tree"/>
+        <childnode refid="1232" relation="usage">
+          <edgelabel>m_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="1229">
+        <label>b2BroadPhase</label>
+        <link refid="classb2_broad_phase"/>
+        <childnode refid="1230" relation="usage">
+          <edgelabel>m_pairBuffer</edgelabel>
+        </childnode>
+        <childnode refid="1231" relation="usage">
+          <edgelabel>m_tree</edgelabel>
+        </childnode>
+      </node>
+      <node id="1234">
+        <label>b2ContactListener</label>
+        <link refid="classb2_contact_listener"/>
+      </node>
+      <node id="1212">
+        <label>b2Contact</label>
+        <link refid="classb2_contact"/>
+        <childnode refid="1213" relation="usage">
+          <edgelabel>s_registers</edgelabel>
+        </childnode>
+        <childnode refid="1212" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="1214" relation="usage">
+          <edgelabel>m_manifold</edgelabel>
+        </childnode>
+        <childnode refid="1218" relation="usage">
+          <edgelabel>m_fixtureA</edgelabel>
+          <edgelabel>m_fixtureB</edgelabel>
+        </childnode>
+        <childnode refid="1211" relation="usage">
+          <edgelabel>m_nodeA</edgelabel>
+          <edgelabel>m_nodeB</edgelabel>
+        </childnode>
+      </node>
+      <node id="1225">
+        <label>b2Profile</label>
+        <link refid="structb2_profile"/>
+      </node>
+      <node id="1204">
+        <label>b2Body</label>
+        <link refid="classb2_body"/>
+        <childnode refid="1204" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="1205" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+        <childnode refid="1207" relation="usage">
+          <edgelabel>m_linearVelocity</edgelabel>
+          <edgelabel>m_force</edgelabel>
+        </childnode>
+        <childnode refid="1208" relation="usage">
+          <edgelabel>m_sweep</edgelabel>
+        </childnode>
+        <childnode refid="1209" relation="usage">
+          <edgelabel>m_xf</edgelabel>
+        </childnode>
+        <childnode refid="1211" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="1218" relation="usage">
+          <edgelabel>m_fixtureList</edgelabel>
+        </childnode>
+        <childnode refid="1223" relation="usage">
+          <edgelabel>m_world</edgelabel>
+        </childnode>
+      </node>
+      <node id="1217">
+        <label>b2ContactFeature</label>
+        <link refid="structb2_contact_feature"/>
+      </node>
+      <node id="1211">
+        <label>b2ContactEdge</label>
+        <link refid="structb2_contact_edge"/>
+        <childnode refid="1204" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="1212" relation="usage">
+          <edgelabel>contact</edgelabel>
+        </childnode>
+        <childnode refid="1211" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1214">
+        <label>b2Manifold</label>
+        <link refid="structb2_manifold"/>
+        <childnode refid="1207" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+          <edgelabel>localNormal</edgelabel>
+        </childnode>
+        <childnode refid="1215" relation="usage">
+          <edgelabel>points</edgelabel>
+        </childnode>
+      </node>
+      <node id="1226">
+        <label>b2BlockAllocator</label>
+        <link refid="classb2_block_allocator"/>
+      </node>
+      <node id="1227">
+        <label>b2DestructionListener</label>
+        <link refid="classb2_destruction_listener"/>
+      </node>
+      <node id="1223">
+        <label>b2World</label>
+        <link refid="classb2_world"/>
+        <childnode refid="1204" relation="usage">
+          <edgelabel>m_bodyList</edgelabel>
+        </childnode>
+        <childnode refid="1224" relation="usage">
+          <edgelabel>m_debugDraw</edgelabel>
+        </childnode>
+        <childnode refid="1207" relation="usage">
+          <edgelabel>m_gravity</edgelabel>
+        </childnode>
+        <childnode refid="1225" relation="usage">
+          <edgelabel>m_profile</edgelabel>
+        </childnode>
+        <childnode refid="1226" relation="usage">
+          <edgelabel>m_blockAllocator</edgelabel>
+        </childnode>
+        <childnode refid="1227" relation="usage">
+          <edgelabel>m_destructionListener</edgelabel>
+        </childnode>
+        <childnode refid="1228" relation="usage">
+          <edgelabel>m_contactManager</edgelabel>
+        </childnode>
+        <childnode refid="1235" relation="usage">
+          <edgelabel>m_stackAllocator</edgelabel>
+        </childnode>
+        <childnode refid="1206" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+      </node>
+      <node id="1236">
+        <label>b2StackEntry</label>
+        <link refid="structb2_stack_entry"/>
+      </node>
+      <node id="1203">
+        <label>b2JointDef</label>
+        <link refid="structb2_joint_def"/>
+        <childnode refid="1204" relation="usage">
+          <edgelabel>bodyA</edgelabel>
+          <edgelabel>bodyB</edgelabel>
+        </childnode>
+      </node>
+      <node id="1219">
+        <label>b2FixtureProxy</label>
+        <link refid="structb2_fixture_proxy"/>
+        <childnode refid="1220" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+        <childnode refid="1218" relation="usage">
+          <edgelabel>fixture</edgelabel>
+        </childnode>
+      </node>
+      <node id="1230">
+        <label>b2Pair</label>
+        <link refid="structb2_pair"/>
+      </node>
+      <node id="1208">
+        <label>b2Sweep</label>
+        <link refid="structb2_sweep"/>
+        <childnode refid="1207" relation="usage">
+          <edgelabel>c0</edgelabel>
+          <edgelabel>localCenter</edgelabel>
+          <edgelabel>c</edgelabel>
+        </childnode>
+      </node>
+      <node id="1209">
+        <label>b2Transform</label>
+        <link refid="structb2_transform"/>
+        <childnode refid="1207" relation="usage">
+          <edgelabel>p</edgelabel>
+        </childnode>
+        <childnode refid="1210" relation="usage">
+          <edgelabel>q</edgelabel>
+        </childnode>
+      </node>
+      <node id="1235">
+        <label>b2StackAllocator</label>
+        <link refid="classb2_stack_allocator"/>
+        <childnode refid="1236" relation="usage">
+          <edgelabel>m_entries</edgelabel>
+        </childnode>
+      </node>
+      <node id="1222">
+        <label>b2Filter</label>
+        <link refid="structb2_filter"/>
+      </node>
+      <node id="1205">
+        <label>b2JointEdge</label>
+        <link refid="structb2_joint_edge"/>
+        <childnode refid="1204" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="1205" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="1206" relation="usage">
+          <edgelabel>joint</edgelabel>
+        </childnode>
+      </node>
+      <node id="1233">
+        <label>b2ContactFilter</label>
+        <link refid="classb2_contact_filter"/>
+      </node>
+      <node id="1206">
+        <label>b2Joint</label>
+        <link refid="classb2_joint"/>
+        <childnode refid="1204" relation="usage">
+          <edgelabel>m_bodyA</edgelabel>
+          <edgelabel>m_bodyB</edgelabel>
+        </childnode>
+        <childnode refid="1205" relation="usage">
+          <edgelabel>m_edgeB</edgelabel>
+          <edgelabel>m_edgeA</edgelabel>
+        </childnode>
+        <childnode refid="1206" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1207">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+      <node id="1216">
+        <label>b2ContactID</label>
+        <link refid="unionb2_contact_i_d"/>
+        <childnode refid="1217" relation="usage">
+          <edgelabel>cf</edgelabel>
+        </childnode>
+      </node>
+      <node id="1221">
+        <label>b2Shape</label>
+        <link refid="classb2_shape"/>
+      </node>
+      <node id="1202">
+        <label>b2PrismaticJointDef</label>
+        <link refid="structb2_prismatic_joint_def"/>
+        <childnode refid="1203" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1207" relation="usage">
+          <edgelabel>localAxisA</edgelabel>
+          <edgelabel>localAnchorA</edgelabel>
+          <edgelabel>localAnchorB</edgelabel>
+        </childnode>
+      </node>
+      <node id="1232">
+        <label>b2TreeNode</label>
+        <link refid="structb2_tree_node"/>
+        <childnode refid="1220" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+      </node>
+      <node id="1220">
+        <label>b2AABB</label>
+        <link refid="structb2_a_a_b_b"/>
+        <childnode refid="1207" relation="usage">
+          <edgelabel>lowerBound</edgelabel>
+          <edgelabel>upperBound</edgelabel>
+        </childnode>
+      </node>
+      <node id="1210">
+        <label>b2Rot</label>
+        <link refid="structb2_rot"/>
+      </node>
+      <node id="1228">
+        <label>b2ContactManager</label>
+        <link refid="classb2_contact_manager"/>
+        <childnode refid="1226" relation="usage">
+          <edgelabel>m_allocator</edgelabel>
+        </childnode>
+        <childnode refid="1212" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="1229" relation="usage">
+          <edgelabel>m_broadPhase</edgelabel>
+        </childnode>
+        <childnode refid="1233" relation="usage">
+          <edgelabel>m_contactFilter</edgelabel>
+        </childnode>
+        <childnode refid="1234" relation="usage">
+          <edgelabel>m_contactListener</edgelabel>
+        </childnode>
+      </node>
+      <node id="1218">
+        <label>b2Fixture</label>
+        <link refid="classb2_fixture"/>
+        <childnode refid="1204" relation="usage">
+          <edgelabel>m_body</edgelabel>
+        </childnode>
+        <childnode refid="1219" relation="usage">
+          <edgelabel>m_proxies</edgelabel>
+        </childnode>
+        <childnode refid="1221" relation="usage">
+          <edgelabel>m_shape</edgelabel>
+        </childnode>
+        <childnode refid="1222" relation="usage">
+          <edgelabel>m_filter</edgelabel>
+        </childnode>
+        <childnode refid="1218" relation="usage">
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1213">
+        <label>b2ContactRegister</label>
+        <link refid="structb2_contact_register"/>
+      </node>
+      <node id="1215">
+        <label>b2ManifoldPoint</label>
+        <link refid="structb2_manifold_point"/>
+        <childnode refid="1207" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+        </childnode>
+        <childnode refid="1216" relation="usage">
+          <edgelabel>id</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" line="31" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PrismaticJoint.h" bodystart="30" bodyend="80"/>
+    <listofallmembers>
+      <member refid="structb2_joint_def_1a1fdb44829d4fd13c72edb1daacb72f89" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>b2JointDef</name></member>
+      <member refid="structb2_prismatic_joint_def_1aed2cd56b9d870058413f9bd33ee915b9" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>b2PrismaticJointDef</name></member>
+      <member refid="structb2_joint_def_1a8cd54c93da396be75a9788f2c6897f05" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>bodyA</name></member>
+      <member refid="structb2_joint_def_1aa4f4dee2fbcd12187b19506b60e68e3d" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>bodyB</name></member>
+      <member refid="structb2_joint_def_1aef099a1f89b64e230173b6016848ea9b" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>collideConnected</name></member>
+      <member refid="structb2_prismatic_joint_def_1aa61a03b68caac62a5cf66354f6756eae" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>enableLimit</name></member>
+      <member refid="structb2_prismatic_joint_def_1a58ac79a54a8110d3a745e1d6d36990dc" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>enableMotor</name></member>
+      <member refid="structb2_prismatic_joint_def_1ae60043bc22b077e8c59ab248dc34652f" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>Initialize</name></member>
+      <member refid="structb2_prismatic_joint_def_1abb51df8daff7a55f47adc83e4f7fa5b9" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>localAnchorA</name></member>
+      <member refid="structb2_prismatic_joint_def_1a5acc1f2f14d1b659fc9d804ab1baf4a3" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>localAnchorB</name></member>
+      <member refid="structb2_prismatic_joint_def_1af36fdbcedca5a392a2649cd235c42676" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>localAxisA</name></member>
+      <member refid="structb2_prismatic_joint_def_1ac0a0e2a669d640ebea354895fe6a9fb6" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>lowerTranslation</name></member>
+      <member refid="structb2_prismatic_joint_def_1aabeec48af1e49c7f9fed5e0bc8270a1b" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>maxMotorForce</name></member>
+      <member refid="structb2_prismatic_joint_def_1ac4bdaea15653657e724a04fc60f3f235" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>motorSpeed</name></member>
+      <member refid="structb2_prismatic_joint_def_1aa84b43d08e6e11b4daa0c86f46094463" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>referenceAngle</name></member>
+      <member refid="structb2_joint_def_1a470f2879b24adb05facbd49f338856fb" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>type</name></member>
+      <member refid="structb2_prismatic_joint_def_1ae3eac123c7fe543071bdfcd1a6942350" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>upperTranslation</name></member>
+      <member refid="structb2_joint_def_1a07eb150daaaa52fc09c3bcf402b295fe" prot="public" virt="non-virtual"><scope>b2PrismaticJointDef</scope><name>userData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classlubyk_1_1_scoped_s_lock" kind="class" prot="public">
+    <compoundname>lubyk::ScopedSLock</compoundname>
+    <basecompoundref refid="classlubyk_1_1_non_copyable" prot="private" virt="non-virtual">lubyk::NonCopyable</basecompoundref>
+    <includes refid="lubyk_2include_2lubyk_2_mutex_8h" local="no">mutex.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlubyk_1_1_scoped_s_lock_1ab3bb01a59858cb6851dc0b072ea56745" prot="private" static="no" mutable="no">
+        <type><ref refid="classlubyk_1_1_mutex" kindref="compound">Mutex</ref> *</type>
+        <definition>Mutex* lubyk::ScopedSLock::mutex_ptr_</definition>
+        <argsstring></argsstring>
+        <name>mutex_ptr_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" line="94" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" bodystart="94" bodyend="-1"/>
+        <referencedby refid="classlubyk_1_1_scoped_s_lock_1ad9e8704456baf5add9f325447ce19724" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="82" endline="84">ScopedSLock</referencedby>
+        <referencedby refid="classlubyk_1_1_scoped_s_lock_1a9746b06b29cd2dfe36f7c365b72328e9" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="90" endline="92">~ScopedSLock</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlubyk_1_1_scoped_s_lock_1ad9e8704456baf5add9f325447ce19724" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lubyk::ScopedSLock::ScopedSLock</definition>
+        <argsstring>(Mutex *mutex)</argsstring>
+        <name>ScopedSLock</name>
+        <param>
+          <type><ref refid="classlubyk_1_1_mutex" kindref="compound">Mutex</ref> *</type>
+          <declname>mutex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" line="82" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" bodystart="82" bodyend="84"/>
+        <references refid="classlubyk_1_1_mutex_1a74ee38ef2f9bf4e86a3871f5b60a31c3" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="67" endline="69">lubyk::Mutex::lock</references>
+        <references refid="classlubyk_1_1_scoped_s_lock_1ab3bb01a59858cb6851dc0b072ea56745" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="94">mutex_ptr_</references>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_scoped_s_lock_1a8ac609e24da8236fd8320435b8140399" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lubyk::ScopedSLock::ScopedSLock</definition>
+        <argsstring>(Mutex &amp;mutex)</argsstring>
+        <name>ScopedSLock</name>
+        <param>
+          <type><ref refid="classlubyk_1_1_mutex" kindref="compound">Mutex</ref> &amp;</type>
+          <declname>mutex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" line="86" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" bodystart="86" bodyend="88"/>
+        <references refid="classlubyk_1_1_mutex_1a74ee38ef2f9bf4e86a3871f5b60a31c3" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="67" endline="69">lubyk::Mutex::lock</references>
+        <references refid="classlubyk_1_1_scoped_s_lock_1ab3bb01a59858cb6851dc0b072ea56745" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="94">mutex_ptr_</references>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_scoped_s_lock_1a9746b06b29cd2dfe36f7c365b72328e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lubyk::ScopedSLock::~ScopedSLock</definition>
+        <argsstring>()</argsstring>
+        <name>~ScopedSLock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" line="90" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" bodystart="90" bodyend="92"/>
+        <references refid="classlubyk_1_1_scoped_s_lock_1ab3bb01a59858cb6851dc0b072ea56745" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="94">mutex_ptr_</references>
+        <references refid="classlubyk_1_1_mutex_1a83fead89eb5401b9dd1fbc6ecdd7e31c" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="72" endline="74">lubyk::Mutex::unlock</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Scoped simple <ref refid="classlubyk_1_1_mutex" kindref="compound">Mutex</ref> Lock for exclusive access to a resource. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2381">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2380">
+        <label>lubyk::ScopedSLock</label>
+        <link refid="classlubyk_1_1_scoped_s_lock"/>
+        <childnode refid="2381" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2383">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2384">
+        <label>lubyk::Mutex</label>
+        <link refid="classlubyk_1_1_mutex"/>
+        <childnode refid="2383" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2382">
+        <label>lubyk::ScopedSLock</label>
+        <link refid="classlubyk_1_1_scoped_s_lock"/>
+        <childnode refid="2383" relation="private-inheritance">
+        </childnode>
+        <childnode refid="2384" relation="usage">
+          <edgelabel>mutex_ptr_</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" line="80" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" bodystart="80" bodyend="95"/>
+    <listofallmembers>
+      <member refid="classlubyk_1_1_scoped_s_lock_1ab3bb01a59858cb6851dc0b072ea56745" prot="private" virt="non-virtual"><scope>lubyk::ScopedSLock</scope><name>mutex_ptr_</name></member>
+      <member refid="classlubyk_1_1_non_copyable_1a589ca6787b3fb8f88439cff31b249bf7" prot="private" virt="non-virtual"><scope>lubyk::ScopedSLock</scope><name>NonCopyable</name></member>
+      <member refid="classlubyk_1_1_scoped_s_lock_1ad9e8704456baf5add9f325447ce19724" prot="public" virt="non-virtual"><scope>lubyk::ScopedSLock</scope><name>ScopedSLock</name></member>
+      <member refid="classlubyk_1_1_scoped_s_lock_1a8ac609e24da8236fd8320435b8140399" prot="public" virt="non-virtual"><scope>lubyk::ScopedSLock</scope><name>ScopedSLock</name></member>
+      <member refid="classlubyk_1_1_non_copyable_1a7efa456af3055dc86071f78c4bf1d1c3" prot="private" virt="non-virtual"><scope>lubyk::ScopedSLock</scope><name>~NonCopyable</name></member>
+      <member refid="classlubyk_1_1_scoped_s_lock_1a9746b06b29cd2dfe36f7c365b72328e9" prot="public" virt="non-virtual"><scope>lubyk::ScopedSLock</scope><name>~ScopedSLock</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

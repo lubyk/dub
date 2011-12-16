@@ -1,0 +1,951 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classb2_pulley_joint" kind="class" prot="public">
+    <compoundname>b2PulleyJoint</compoundname>
+    <basecompoundref refid="classb2_joint" prot="public" virt="non-virtual">b2Joint</basecompoundref>
+    <includes refid="b2_pulley_joint_8h" local="no">b2PulleyJoint.h</includes>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classb2_pulley_joint_1a54ade8ed3d794298108d7f4c4e4793fa" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class b2Joint</definition>
+        <argsstring></argsstring>
+        <name>b2Joint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="108" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classb2_pulley_joint_1a13456d1c62a4e96e8247988152be4166" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PulleyJoint::m_groundAnchorA</definition>
+        <argsstring></argsstring>
+        <name>m_groundAnchorA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="115" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1a9cc8195bf4e2d53606db0b49d9fc1cbc" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PulleyJoint::m_groundAnchorB</definition>
+        <argsstring></argsstring>
+        <name>m_groundAnchorB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="116" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1a26f2565f804692553e6b96e58621dbc9" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PulleyJoint::m_lengthA</definition>
+        <argsstring></argsstring>
+        <name>m_lengthA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="117" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1aa44e84a3eed2ded26fca07281e247bbd" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PulleyJoint::m_lengthB</definition>
+        <argsstring></argsstring>
+        <name>m_lengthB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="118" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1a58cb3464ba25236e316b35d66e92366f" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PulleyJoint::m_localAnchorA</definition>
+        <argsstring></argsstring>
+        <name>m_localAnchorA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="121" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1af643cf90fb22709fe410164d8a46ea50" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PulleyJoint::m_localAnchorB</definition>
+        <argsstring></argsstring>
+        <name>m_localAnchorB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="122" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1a0e73d1d31126331267a1661beb146bc7" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PulleyJoint::m_constant</definition>
+        <argsstring></argsstring>
+        <name>m_constant</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="123" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1aa44594b9b4826c565da387bed5f02470" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PulleyJoint::m_ratio</definition>
+        <argsstring></argsstring>
+        <name>m_ratio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="124" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1a1e5b5fff8b1564688b38d139c5f7c65a" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PulleyJoint::m_impulse</definition>
+        <argsstring></argsstring>
+        <name>m_impulse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="125" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1a6ef68a1d29ef264d4c2ab2d363d9eb97" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2PulleyJoint::m_indexA</definition>
+        <argsstring></argsstring>
+        <name>m_indexA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="128" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1acbeb702d3db8a9560d9d1d57ebb1e7f2" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2PulleyJoint::m_indexB</definition>
+        <argsstring></argsstring>
+        <name>m_indexB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="129" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1a8b49167603509d296aa8d04e46b13658" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PulleyJoint::m_uA</definition>
+        <argsstring></argsstring>
+        <name>m_uA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="130" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1a1354dfebc4658560b9d7e4b447b1dd5e" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PulleyJoint::m_uB</definition>
+        <argsstring></argsstring>
+        <name>m_uB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="131" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1a4ebd669d4856b0c6d1d6f76d7a9eae2d" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PulleyJoint::m_rA</definition>
+        <argsstring></argsstring>
+        <name>m_rA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="132" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1a6be5e9ad2eeaee5cf25e1df61d923a58" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PulleyJoint::m_rB</definition>
+        <argsstring></argsstring>
+        <name>m_rB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="133" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1a82741929b0aa083f520a3d7f9ef675bb" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PulleyJoint::m_localCenterA</definition>
+        <argsstring></argsstring>
+        <name>m_localCenterA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="134" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1abd382cd6772fa3be1958c4845369f6c3" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PulleyJoint::m_localCenterB</definition>
+        <argsstring></argsstring>
+        <name>m_localCenterB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="135" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1a7c37029c6b7117a07bb8be552b44ee3f" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PulleyJoint::m_invMassA</definition>
+        <argsstring></argsstring>
+        <name>m_invMassA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="136" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1ad4e470cbc2e9f596c93e144630657534" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PulleyJoint::m_invMassB</definition>
+        <argsstring></argsstring>
+        <name>m_invMassB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="137" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1a701fbc685109f5b397b968be2407b123" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PulleyJoint::m_invIA</definition>
+        <argsstring></argsstring>
+        <name>m_invIA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="138" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1a19278e2f7dcec7275aff55b1d760b398" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PulleyJoint::m_invIB</definition>
+        <argsstring></argsstring>
+        <name>m_invIB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="139" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_pulley_joint_1a60efdc42d9fd8f4c50f96eb68ff3f191" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PulleyJoint::m_mass</definition>
+        <argsstring></argsstring>
+        <name>m_mass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="140" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classb2_pulley_joint_1a05ac0d0d927e9541f08b07cb1bf9ec56" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PulleyJoint::GetAnchorA</definition>
+        <argsstring>() const </argsstring>
+        <name>GetAnchorA</name>
+        <reimplements refid="classb2_joint_1abe46ca3aad5db73909a9b5a7b2117447">GetAnchorA</reimplements>
+        <briefdescription>
+<para>Get the anchor point on bodyA in world coordinates. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_pulley_joint_1a5cc3596f683d621b9a885c2569ecd452" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PulleyJoint::GetAnchorB</definition>
+        <argsstring>() const </argsstring>
+        <name>GetAnchorB</name>
+        <reimplements refid="classb2_joint_1a88e947c65d4ea26fe539f02a8cb7f7a9">GetAnchorB</reimplements>
+        <briefdescription>
+<para>Get the anchor point on bodyB in world coordinates. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_pulley_joint_1a38c174bf1cf1011063ff4c16556b331e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PulleyJoint::GetReactionForce</definition>
+        <argsstring>(float32 inv_dt) const </argsstring>
+        <name>GetReactionForce</name>
+        <reimplements refid="classb2_joint_1a7e0eddefb9b69ad050b8ef6425838a74">GetReactionForce</reimplements>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>inv_dt</declname>
+        </param>
+        <briefdescription>
+<para>Get the reaction force on bodyB at the joint anchor in Newtons. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_pulley_joint_1a418b200055623474c44742b1342dd278" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PulleyJoint::GetReactionTorque</definition>
+        <argsstring>(float32 inv_dt) const </argsstring>
+        <name>GetReactionTorque</name>
+        <reimplements refid="classb2_joint_1ae355e441c2aa842777dc04e24f15ced0">GetReactionTorque</reimplements>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>inv_dt</declname>
+        </param>
+        <briefdescription>
+<para>Get the reaction torque on bodyB in N*m. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_pulley_joint_1a19eefa28d2647882406ea9bfe2850a9e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PulleyJoint::GetGroundAnchorA</definition>
+        <argsstring>() const </argsstring>
+        <name>GetGroundAnchorA</name>
+        <briefdescription>
+<para>Get the first ground anchor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_pulley_joint_1a1b49d0dbce802f19711a9ab6d7dadfee" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2PulleyJoint::GetGroundAnchorB</definition>
+        <argsstring>() const </argsstring>
+        <name>GetGroundAnchorB</name>
+        <briefdescription>
+<para>Get the second ground anchor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_pulley_joint_1a6b4c2e5cb4f5da48fcb074c7b5988084" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PulleyJoint::GetLengthA</definition>
+        <argsstring>() const </argsstring>
+        <name>GetLengthA</name>
+        <briefdescription>
+<para>Get the current length of the segment attached to bodyA. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_pulley_joint_1abc7f31a35c6fb32647fd15d57e4ce60c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PulleyJoint::GetLengthB</definition>
+        <argsstring>() const </argsstring>
+        <name>GetLengthB</name>
+        <briefdescription>
+<para>Get the current length of the segment attached to bodyB. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_pulley_joint_1a625685e60d95b7c5a725e8586d146752" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2PulleyJoint::GetRatio</definition>
+        <argsstring>() const </argsstring>
+        <name>GetRatio</name>
+        <briefdescription>
+<para>Get the pulley ratio. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_pulley_joint_1ad12d0e03b5d07b2f8af1005c95c67aa2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void b2PulleyJoint::Dump</definition>
+        <argsstring>()</argsstring>
+        <name>Dump</name>
+        <reimplements refid="classb2_joint_1abd35e7316017ad9a40d5dbf9b5ba3f36">Dump</reimplements>
+        <briefdescription>
+<para>Dump joint to dmLog. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="104"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classb2_pulley_joint_1aca1b8dc6fb05c134ccbc0423674c1867" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>b2PulleyJoint::b2PulleyJoint</definition>
+        <argsstring>(const b2PulleyJointDef *data)</argsstring>
+        <name>b2PulleyJoint</name>
+        <param>
+          <type>const <ref refid="structb2_pulley_joint_def" kindref="compound">b2PulleyJointDef</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_pulley_joint_1a1b339ba58e82261beeb55f9ab04cfa7e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void b2PulleyJoint::InitVelocityConstraints</definition>
+        <argsstring>(const b2SolverData &amp;data)</argsstring>
+        <name>InitVelocityConstraints</name>
+        <reimplements refid="classb2_joint_1a599c013de5514e02684b958b31dd76a4">InitVelocityConstraints</reimplements>
+        <param>
+          <type>const <ref refid="structb2_solver_data" kindref="compound">b2SolverData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_pulley_joint_1a517858e93e24f3daa51be4873b22c2c3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void b2PulleyJoint::SolveVelocityConstraints</definition>
+        <argsstring>(const b2SolverData &amp;data)</argsstring>
+        <name>SolveVelocityConstraints</name>
+        <reimplements refid="classb2_joint_1ad302c8d02efcfe934158de0dc429348d">SolveVelocityConstraints</reimplements>
+        <param>
+          <type>const <ref refid="structb2_solver_data" kindref="compound">b2SolverData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_pulley_joint_1a8fcdd728e02b7c89372bf11b7732d976" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool b2PulleyJoint::SolvePositionConstraints</definition>
+        <argsstring>(const b2SolverData &amp;data)</argsstring>
+        <name>SolvePositionConstraints</name>
+        <reimplements refid="classb2_joint_1af767ac9aa494bd15cdf83dfe3e487d9c">SolvePositionConstraints</reimplements>
+        <param>
+          <type>const <ref refid="structb2_solver_data" kindref="compound">b2SolverData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="113"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The pulley joint is connected to two bodies and two fixed ground points. The pulley supports a ratio such that: length1 + ratio * length2 &lt;= constant Yes, the force transmitted is scaled by the ratio. Warning: the pulley joint can get a bit squirrelly by itself. They often work better when combined with prismatic joints. You should also cover the the anchor points with static shapes to prevent one side from going to zero length. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="1239">
+        <label>b2PulleyJoint</label>
+        <link refid="classb2_pulley_joint"/>
+        <childnode refid="1240" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1240">
+        <label>b2Joint</label>
+        <link refid="classb2_joint"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1241">
+        <label>b2PulleyJoint</label>
+        <link refid="classb2_pulley_joint"/>
+        <childnode refid="1242" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1245" relation="usage">
+          <edgelabel>m_groundAnchorB</edgelabel>
+          <edgelabel>m_uA</edgelabel>
+          <edgelabel>m_localAnchorA</edgelabel>
+          <edgelabel>m_uB</edgelabel>
+          <edgelabel>m_localAnchorB</edgelabel>
+          <edgelabel>m_rA</edgelabel>
+          <edgelabel>m_rB</edgelabel>
+          <edgelabel>m_localCenterA</edgelabel>
+          <edgelabel>m_localCenterB</edgelabel>
+          <edgelabel>m_groundAnchorA</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+      </node>
+      <node id="1262">
+        <label>b2Draw</label>
+        <link refid="classb2_draw"/>
+      </node>
+      <node id="1269">
+        <label>b2DynamicTree</label>
+        <link refid="classb2_dynamic_tree"/>
+        <childnode refid="1270" relation="usage">
+          <edgelabel>m_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="1267">
+        <label>b2BroadPhase</label>
+        <link refid="classb2_broad_phase"/>
+        <childnode refid="1268" relation="usage">
+          <edgelabel>m_pairBuffer</edgelabel>
+        </childnode>
+        <childnode refid="1269" relation="usage">
+          <edgelabel>m_tree</edgelabel>
+        </childnode>
+      </node>
+      <node id="1272">
+        <label>b2ContactListener</label>
+        <link refid="classb2_contact_listener"/>
+      </node>
+      <node id="1250">
+        <label>b2Contact</label>
+        <link refid="classb2_contact"/>
+        <childnode refid="1251" relation="usage">
+          <edgelabel>s_registers</edgelabel>
+        </childnode>
+        <childnode refid="1250" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="1252" relation="usage">
+          <edgelabel>m_manifold</edgelabel>
+        </childnode>
+        <childnode refid="1256" relation="usage">
+          <edgelabel>m_fixtureA</edgelabel>
+          <edgelabel>m_fixtureB</edgelabel>
+        </childnode>
+        <childnode refid="1249" relation="usage">
+          <edgelabel>m_nodeA</edgelabel>
+          <edgelabel>m_nodeB</edgelabel>
+        </childnode>
+      </node>
+      <node id="1263">
+        <label>b2Profile</label>
+        <link refid="structb2_profile"/>
+      </node>
+      <node id="1243">
+        <label>b2Body</label>
+        <link refid="classb2_body"/>
+        <childnode refid="1243" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="1244" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+        <childnode refid="1245" relation="usage">
+          <edgelabel>m_linearVelocity</edgelabel>
+          <edgelabel>m_force</edgelabel>
+        </childnode>
+        <childnode refid="1246" relation="usage">
+          <edgelabel>m_sweep</edgelabel>
+        </childnode>
+        <childnode refid="1247" relation="usage">
+          <edgelabel>m_xf</edgelabel>
+        </childnode>
+        <childnode refid="1249" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="1256" relation="usage">
+          <edgelabel>m_fixtureList</edgelabel>
+        </childnode>
+        <childnode refid="1261" relation="usage">
+          <edgelabel>m_world</edgelabel>
+        </childnode>
+      </node>
+      <node id="1255">
+        <label>b2ContactFeature</label>
+        <link refid="structb2_contact_feature"/>
+      </node>
+      <node id="1249">
+        <label>b2ContactEdge</label>
+        <link refid="structb2_contact_edge"/>
+        <childnode refid="1243" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="1250" relation="usage">
+          <edgelabel>contact</edgelabel>
+        </childnode>
+        <childnode refid="1249" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1252">
+        <label>b2Manifold</label>
+        <link refid="structb2_manifold"/>
+        <childnode refid="1245" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+          <edgelabel>localNormal</edgelabel>
+        </childnode>
+        <childnode refid="1253" relation="usage">
+          <edgelabel>points</edgelabel>
+        </childnode>
+      </node>
+      <node id="1264">
+        <label>b2BlockAllocator</label>
+        <link refid="classb2_block_allocator"/>
+      </node>
+      <node id="1265">
+        <label>b2DestructionListener</label>
+        <link refid="classb2_destruction_listener"/>
+      </node>
+      <node id="1261">
+        <label>b2World</label>
+        <link refid="classb2_world"/>
+        <childnode refid="1243" relation="usage">
+          <edgelabel>m_bodyList</edgelabel>
+        </childnode>
+        <childnode refid="1262" relation="usage">
+          <edgelabel>m_debugDraw</edgelabel>
+        </childnode>
+        <childnode refid="1245" relation="usage">
+          <edgelabel>m_gravity</edgelabel>
+        </childnode>
+        <childnode refid="1263" relation="usage">
+          <edgelabel>m_profile</edgelabel>
+        </childnode>
+        <childnode refid="1264" relation="usage">
+          <edgelabel>m_blockAllocator</edgelabel>
+        </childnode>
+        <childnode refid="1265" relation="usage">
+          <edgelabel>m_destructionListener</edgelabel>
+        </childnode>
+        <childnode refid="1266" relation="usage">
+          <edgelabel>m_contactManager</edgelabel>
+        </childnode>
+        <childnode refid="1273" relation="usage">
+          <edgelabel>m_stackAllocator</edgelabel>
+        </childnode>
+        <childnode refid="1242" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+      </node>
+      <node id="1274">
+        <label>b2StackEntry</label>
+        <link refid="structb2_stack_entry"/>
+      </node>
+      <node id="1257">
+        <label>b2FixtureProxy</label>
+        <link refid="structb2_fixture_proxy"/>
+        <childnode refid="1258" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+        <childnode refid="1256" relation="usage">
+          <edgelabel>fixture</edgelabel>
+        </childnode>
+      </node>
+      <node id="1268">
+        <label>b2Pair</label>
+        <link refid="structb2_pair"/>
+      </node>
+      <node id="1246">
+        <label>b2Sweep</label>
+        <link refid="structb2_sweep"/>
+        <childnode refid="1245" relation="usage">
+          <edgelabel>c0</edgelabel>
+          <edgelabel>localCenter</edgelabel>
+          <edgelabel>c</edgelabel>
+        </childnode>
+      </node>
+      <node id="1247">
+        <label>b2Transform</label>
+        <link refid="structb2_transform"/>
+        <childnode refid="1245" relation="usage">
+          <edgelabel>p</edgelabel>
+        </childnode>
+        <childnode refid="1248" relation="usage">
+          <edgelabel>q</edgelabel>
+        </childnode>
+      </node>
+      <node id="1273">
+        <label>b2StackAllocator</label>
+        <link refid="classb2_stack_allocator"/>
+        <childnode refid="1274" relation="usage">
+          <edgelabel>m_entries</edgelabel>
+        </childnode>
+      </node>
+      <node id="1260">
+        <label>b2Filter</label>
+        <link refid="structb2_filter"/>
+      </node>
+      <node id="1244">
+        <label>b2JointEdge</label>
+        <link refid="structb2_joint_edge"/>
+        <childnode refid="1243" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="1244" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="1242" relation="usage">
+          <edgelabel>joint</edgelabel>
+        </childnode>
+      </node>
+      <node id="1271">
+        <label>b2ContactFilter</label>
+        <link refid="classb2_contact_filter"/>
+      </node>
+      <node id="1242">
+        <label>b2Joint</label>
+        <link refid="classb2_joint"/>
+        <childnode refid="1243" relation="usage">
+          <edgelabel>m_bodyA</edgelabel>
+          <edgelabel>m_bodyB</edgelabel>
+        </childnode>
+        <childnode refid="1244" relation="usage">
+          <edgelabel>m_edgeB</edgelabel>
+          <edgelabel>m_edgeA</edgelabel>
+        </childnode>
+        <childnode refid="1242" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1245">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+      <node id="1254">
+        <label>b2ContactID</label>
+        <link refid="unionb2_contact_i_d"/>
+        <childnode refid="1255" relation="usage">
+          <edgelabel>cf</edgelabel>
+        </childnode>
+      </node>
+      <node id="1259">
+        <label>b2Shape</label>
+        <link refid="classb2_shape"/>
+      </node>
+      <node id="1270">
+        <label>b2TreeNode</label>
+        <link refid="structb2_tree_node"/>
+        <childnode refid="1258" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+      </node>
+      <node id="1258">
+        <label>b2AABB</label>
+        <link refid="structb2_a_a_b_b"/>
+        <childnode refid="1245" relation="usage">
+          <edgelabel>lowerBound</edgelabel>
+          <edgelabel>upperBound</edgelabel>
+        </childnode>
+      </node>
+      <node id="1248">
+        <label>b2Rot</label>
+        <link refid="structb2_rot"/>
+      </node>
+      <node id="1266">
+        <label>b2ContactManager</label>
+        <link refid="classb2_contact_manager"/>
+        <childnode refid="1264" relation="usage">
+          <edgelabel>m_allocator</edgelabel>
+        </childnode>
+        <childnode refid="1250" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="1267" relation="usage">
+          <edgelabel>m_broadPhase</edgelabel>
+        </childnode>
+        <childnode refid="1271" relation="usage">
+          <edgelabel>m_contactFilter</edgelabel>
+        </childnode>
+        <childnode refid="1272" relation="usage">
+          <edgelabel>m_contactListener</edgelabel>
+        </childnode>
+      </node>
+      <node id="1256">
+        <label>b2Fixture</label>
+        <link refid="classb2_fixture"/>
+        <childnode refid="1243" relation="usage">
+          <edgelabel>m_body</edgelabel>
+        </childnode>
+        <childnode refid="1257" relation="usage">
+          <edgelabel>m_proxies</edgelabel>
+        </childnode>
+        <childnode refid="1259" relation="usage">
+          <edgelabel>m_shape</edgelabel>
+        </childnode>
+        <childnode refid="1260" relation="usage">
+          <edgelabel>m_filter</edgelabel>
+        </childnode>
+        <childnode refid="1256" relation="usage">
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1251">
+        <label>b2ContactRegister</label>
+        <link refid="structb2_contact_register"/>
+      </node>
+      <node id="1253">
+        <label>b2ManifoldPoint</label>
+        <link refid="structb2_manifold_point"/>
+        <childnode refid="1245" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+        </childnode>
+        <childnode refid="1254" relation="usage">
+          <edgelabel>id</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" line="80" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2PulleyJoint.h" bodystart="79" bodyend="141"/>
+    <listofallmembers>
+      <member refid="classb2_joint_1a010ab52de250e5fe30a45d642f46405b" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>b2Body</name></member>
+      <member refid="classb2_joint_1a13c275221e30bb485e17e4e04553cb71" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>b2GearJoint</name></member>
+      <member refid="classb2_joint_1afc682950b8c4f251804fc1938663098b" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>b2Island</name></member>
+      <member refid="classb2_pulley_joint_1a54ade8ed3d794298108d7f4c4e4793fa" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>b2Joint</name></member>
+      <member refid="classb2_joint_1a8d6cce91546335fe95325d5e29c06a19" prot="protected" virt="non-virtual" ambiguityscope="b2Joint::"><scope>b2PulleyJoint</scope><name>b2Joint</name></member>
+      <member refid="classb2_pulley_joint_1aca1b8dc6fb05c134ccbc0423674c1867" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>b2PulleyJoint</name></member>
+      <member refid="classb2_joint_1a4bd536c5a7c0587913765bbc2693ceea" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>b2World</name></member>
+      <member refid="classb2_joint_1afb5e48309bffa83a01d3f8a703269602" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>Create</name></member>
+      <member refid="classb2_joint_1adfb955de2abe370a973a7158557e26be" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>Destroy</name></member>
+      <member refid="classb2_pulley_joint_1ad12d0e03b5d07b2f8af1005c95c67aa2" prot="public" virt="virtual"><scope>b2PulleyJoint</scope><name>Dump</name></member>
+      <member refid="classb2_pulley_joint_1a05ac0d0d927e9541f08b07cb1bf9ec56" prot="public" virt="virtual"><scope>b2PulleyJoint</scope><name>GetAnchorA</name></member>
+      <member refid="classb2_pulley_joint_1a5cc3596f683d621b9a885c2569ecd452" prot="public" virt="virtual"><scope>b2PulleyJoint</scope><name>GetAnchorB</name></member>
+      <member refid="classb2_joint_1a2ed5eca3dbdce48665c14452b280613f" prot="public" virt="non-virtual"><scope>b2PulleyJoint</scope><name>GetBodyA</name></member>
+      <member refid="classb2_joint_1a700b3d4c87f34f456151b9598e4641a0" prot="public" virt="non-virtual"><scope>b2PulleyJoint</scope><name>GetBodyB</name></member>
+      <member refid="classb2_joint_1a09c6bdfa5842522ba381bac8dd559f4d" prot="public" virt="non-virtual"><scope>b2PulleyJoint</scope><name>GetCollideConnected</name></member>
+      <member refid="classb2_pulley_joint_1a19eefa28d2647882406ea9bfe2850a9e" prot="public" virt="non-virtual"><scope>b2PulleyJoint</scope><name>GetGroundAnchorA</name></member>
+      <member refid="classb2_pulley_joint_1a1b49d0dbce802f19711a9ab6d7dadfee" prot="public" virt="non-virtual"><scope>b2PulleyJoint</scope><name>GetGroundAnchorB</name></member>
+      <member refid="classb2_pulley_joint_1a6b4c2e5cb4f5da48fcb074c7b5988084" prot="public" virt="non-virtual"><scope>b2PulleyJoint</scope><name>GetLengthA</name></member>
+      <member refid="classb2_pulley_joint_1abc7f31a35c6fb32647fd15d57e4ce60c" prot="public" virt="non-virtual"><scope>b2PulleyJoint</scope><name>GetLengthB</name></member>
+      <member refid="classb2_joint_1a1a0e2137b631010750c728cb4e276e5d" prot="public" virt="non-virtual"><scope>b2PulleyJoint</scope><name>GetNext</name></member>
+      <member refid="classb2_joint_1a1ac83edb39806085608c9d549dd98550" prot="public" virt="non-virtual"><scope>b2PulleyJoint</scope><name>GetNext</name></member>
+      <member refid="classb2_pulley_joint_1a625685e60d95b7c5a725e8586d146752" prot="public" virt="non-virtual"><scope>b2PulleyJoint</scope><name>GetRatio</name></member>
+      <member refid="classb2_pulley_joint_1a38c174bf1cf1011063ff4c16556b331e" prot="public" virt="virtual"><scope>b2PulleyJoint</scope><name>GetReactionForce</name></member>
+      <member refid="classb2_pulley_joint_1a418b200055623474c44742b1342dd278" prot="public" virt="virtual"><scope>b2PulleyJoint</scope><name>GetReactionTorque</name></member>
+      <member refid="classb2_joint_1a37a2ca3f0d41c6903d2cc73757f02be2" prot="public" virt="non-virtual"><scope>b2PulleyJoint</scope><name>GetType</name></member>
+      <member refid="classb2_joint_1a505ab02c234f1cc20aa3375f3ab7b587" prot="public" virt="non-virtual"><scope>b2PulleyJoint</scope><name>GetUserData</name></member>
+      <member refid="classb2_pulley_joint_1a1b339ba58e82261beeb55f9ab04cfa7e" prot="protected" virt="virtual"><scope>b2PulleyJoint</scope><name>InitVelocityConstraints</name></member>
+      <member refid="classb2_joint_1a825d3a6abb32014f31fd622f2bfc0363" prot="public" virt="non-virtual"><scope>b2PulleyJoint</scope><name>IsActive</name></member>
+      <member refid="classb2_joint_1abaebb784a51abb7d66de302ba07a4467" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_bodyA</name></member>
+      <member refid="classb2_joint_1a1fd77fcbcb8a8a3729c7dc5b790d7200" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_bodyB</name></member>
+      <member refid="classb2_joint_1ac1a93c14c8dd666bb487db6c98daad33" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_collideConnected</name></member>
+      <member refid="classb2_pulley_joint_1a0e73d1d31126331267a1661beb146bc7" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_constant</name></member>
+      <member refid="classb2_joint_1a406ea423db1fe6484408d73df647f7b2" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_edgeA</name></member>
+      <member refid="classb2_joint_1a1041219dcd353ea815ebd78f904af547" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_edgeB</name></member>
+      <member refid="classb2_pulley_joint_1a13456d1c62a4e96e8247988152be4166" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_groundAnchorA</name></member>
+      <member refid="classb2_pulley_joint_1a9cc8195bf4e2d53606db0b49d9fc1cbc" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_groundAnchorB</name></member>
+      <member refid="classb2_pulley_joint_1a1e5b5fff8b1564688b38d139c5f7c65a" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_impulse</name></member>
+      <member refid="classb2_joint_1ae207295484bc040b6b52d96d63f1369f" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_index</name></member>
+      <member refid="classb2_pulley_joint_1a6ef68a1d29ef264d4c2ab2d363d9eb97" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_indexA</name></member>
+      <member refid="classb2_pulley_joint_1acbeb702d3db8a9560d9d1d57ebb1e7f2" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_indexB</name></member>
+      <member refid="classb2_pulley_joint_1a701fbc685109f5b397b968be2407b123" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_invIA</name></member>
+      <member refid="classb2_pulley_joint_1a19278e2f7dcec7275aff55b1d760b398" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_invIB</name></member>
+      <member refid="classb2_pulley_joint_1a7c37029c6b7117a07bb8be552b44ee3f" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_invMassA</name></member>
+      <member refid="classb2_pulley_joint_1ad4e470cbc2e9f596c93e144630657534" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_invMassB</name></member>
+      <member refid="classb2_joint_1a777e45428d9a74d626f4afa1b45e1975" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_islandFlag</name></member>
+      <member refid="classb2_pulley_joint_1a26f2565f804692553e6b96e58621dbc9" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_lengthA</name></member>
+      <member refid="classb2_pulley_joint_1aa44e84a3eed2ded26fca07281e247bbd" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_lengthB</name></member>
+      <member refid="classb2_pulley_joint_1a58cb3464ba25236e316b35d66e92366f" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_localAnchorA</name></member>
+      <member refid="classb2_pulley_joint_1af643cf90fb22709fe410164d8a46ea50" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_localAnchorB</name></member>
+      <member refid="classb2_pulley_joint_1a82741929b0aa083f520a3d7f9ef675bb" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_localCenterA</name></member>
+      <member refid="classb2_pulley_joint_1abd382cd6772fa3be1958c4845369f6c3" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_localCenterB</name></member>
+      <member refid="classb2_pulley_joint_1a60efdc42d9fd8f4c50f96eb68ff3f191" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_mass</name></member>
+      <member refid="classb2_joint_1aad16778ba9c51cebb767ff7df6ed80b5" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_next</name></member>
+      <member refid="classb2_joint_1a940166e7b5d87cec1ad0603e0388854a" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_prev</name></member>
+      <member refid="classb2_pulley_joint_1a4ebd669d4856b0c6d1d6f76d7a9eae2d" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_rA</name></member>
+      <member refid="classb2_pulley_joint_1aa44594b9b4826c565da387bed5f02470" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_ratio</name></member>
+      <member refid="classb2_pulley_joint_1a6be5e9ad2eeaee5cf25e1df61d923a58" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_rB</name></member>
+      <member refid="classb2_joint_1a3fd3f2532d108d81df81427815210a59" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_type</name></member>
+      <member refid="classb2_pulley_joint_1a8b49167603509d296aa8d04e46b13658" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_uA</name></member>
+      <member refid="classb2_pulley_joint_1a1354dfebc4658560b9d7e4b447b1dd5e" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_uB</name></member>
+      <member refid="classb2_joint_1ae8a31b6d5d6e76ccf7c975b2b3ae7366" prot="protected" virt="non-virtual"><scope>b2PulleyJoint</scope><name>m_userData</name></member>
+      <member refid="classb2_joint_1a492f2d02496437572aaec6013ebdc1c8" prot="public" virt="non-virtual"><scope>b2PulleyJoint</scope><name>SetUserData</name></member>
+      <member refid="classb2_pulley_joint_1a8fcdd728e02b7c89372bf11b7732d976" prot="protected" virt="virtual"><scope>b2PulleyJoint</scope><name>SolvePositionConstraints</name></member>
+      <member refid="classb2_pulley_joint_1a517858e93e24f3daa51be4873b22c2c3" prot="protected" virt="virtual"><scope>b2PulleyJoint</scope><name>SolveVelocityConstraints</name></member>
+      <member refid="classb2_joint_1ab44cde7b81c3e77540400e0da90d6ceb" prot="protected" virt="virtual"><scope>b2PulleyJoint</scope><name>~b2Joint</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

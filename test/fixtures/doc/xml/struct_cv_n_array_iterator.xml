@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_n_array_iterator" kind="struct" prot="public">
+    <compoundname>CvNArrayIterator</compoundname>
+    <includes refid="cxcore_8h" local="no">cxcore.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_n_array_iterator_1aa6d032dc0befd446f1281bf99f9554d1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvNArrayIterator::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="296" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="296" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_n_array_iterator_1ad57960a049d73d9c51ed4aea6af1fa02" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvNArrayIterator::dims</definition>
+        <argsstring></argsstring>
+        <name>dims</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="297" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="297" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_n_array_iterator_1a9cc7aac6cb3f3d6d3645722c8509f223" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_size" kindref="compound">CvSize</ref></type>
+        <definition>CvSize CvNArrayIterator::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="298" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="298" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_n_array_iterator_1aeab4b868c639d6c41630fbf37b75c95e" prot="public" static="no" mutable="no">
+        <type><ref refid="cxtypes_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref> *</type>
+        <definition>uchar* CvNArrayIterator::ptr[CV_MAX_ARR]</definition>
+        <argsstring>[CV_MAX_ARR]</argsstring>
+        <name>ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="299" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="299" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_n_array_iterator_1a58989ed0ecfcd9f6cef660591535e99e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvNArrayIterator::stack[CV_MAX_DIM]</definition>
+        <argsstring>[CV_MAX_DIM]</argsstring>
+        <name>stack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="300" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="300" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_n_array_iterator_1adb073235c36991f2eeb912225c89faaf" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat_n_d" kindref="compound">CvMatND</ref> *</type>
+        <definition>CvMatND* CvNArrayIterator::hdr[CV_MAX_ARR]</definition>
+        <argsstring>[CV_MAX_ARR]</argsstring>
+        <name>hdr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="301" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1963">
+        <label>CvNArrayIterator</label>
+        <link refid="struct_cv_n_array_iterator"/>
+        <childnode refid="1964" relation="usage">
+          <edgelabel>hdr</edgelabel>
+        </childnode>
+        <childnode refid="1965" relation="usage">
+          <edgelabel>size</edgelabel>
+        </childnode>
+      </node>
+      <node id="1965">
+        <label>CvSize</label>
+        <link refid="struct_cv_size"/>
+      </node>
+      <node id="1964">
+        <label>CvMatND</label>
+        <link refid="struct_cv_mat_n_d"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" line="295" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h" bodystart="294" bodyend="303"/>
+    <listofallmembers>
+      <member refid="struct_cv_n_array_iterator_1aa6d032dc0befd446f1281bf99f9554d1" prot="public" virt="non-virtual"><scope>CvNArrayIterator</scope><name>count</name></member>
+      <member refid="struct_cv_n_array_iterator_1ad57960a049d73d9c51ed4aea6af1fa02" prot="public" virt="non-virtual"><scope>CvNArrayIterator</scope><name>dims</name></member>
+      <member refid="struct_cv_n_array_iterator_1adb073235c36991f2eeb912225c89faaf" prot="public" virt="non-virtual"><scope>CvNArrayIterator</scope><name>hdr</name></member>
+      <member refid="struct_cv_n_array_iterator_1aeab4b868c639d6c41630fbf37b75c95e" prot="public" virt="non-virtual"><scope>CvNArrayIterator</scope><name>ptr</name></member>
+      <member refid="struct_cv_n_array_iterator_1a9cc7aac6cb3f3d6d3645722c8509f223" prot="public" virt="non-virtual"><scope>CvNArrayIterator</scope><name>size</name></member>
+      <member refid="struct_cv_n_array_iterator_1a58989ed0ecfcd9f6cef660591535e99e" prot="public" virt="non-virtual"><scope>CvNArrayIterator</scope><name>stack</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,445 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_kalman" kind="struct" prot="public">
+    <compoundname>CvKalman</compoundname>
+    <includes refid="cvtypes_8h" local="no">cvtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_kalman_1a1e9c56ae3f138a19c67d607379e445d9" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvKalman::MP</definition>
+        <argsstring></argsstring>
+        <name>MP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="258" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a0202618820441a41c5188efddae52a43" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvKalman::DP</definition>
+        <argsstring></argsstring>
+        <name>DP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="259" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a0a505ce26c5a6e310cd37f1694c2f782" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvKalman::CP</definition>
+        <argsstring></argsstring>
+        <name>CP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="260" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a39b06cee56cb2209c3a5053123652976" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvKalman::PosterState</definition>
+        <argsstring></argsstring>
+        <name>PosterState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="264" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a416cb36df4c9775a930f3a6a8dc19d7e" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvKalman::PriorState</definition>
+        <argsstring></argsstring>
+        <name>PriorState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="265" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="265" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1ae45757e0a85d1f1af2f3fa61850fc067" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvKalman::DynamMatr</definition>
+        <argsstring></argsstring>
+        <name>DynamMatr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="266" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a1152831760f263f51612dd364e3f4a22" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvKalman::MeasurementMatr</definition>
+        <argsstring></argsstring>
+        <name>MeasurementMatr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="267" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="267" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1aba4fdb4f915c18e278ee33296586cf74" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvKalman::MNCovariance</definition>
+        <argsstring></argsstring>
+        <name>MNCovariance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="268" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="268" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a01e5ed7f67dbcb0f1c774f294795b993" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvKalman::PNCovariance</definition>
+        <argsstring></argsstring>
+        <name>PNCovariance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="269" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="269" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a3dab3b4d870cf1dfafc087d6a25824ad" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvKalman::KalmGainMatr</definition>
+        <argsstring></argsstring>
+        <name>KalmGainMatr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="270" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="270" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1af11cb151f1294a1c319e075493c70025" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvKalman::PriorErrorCovariance</definition>
+        <argsstring></argsstring>
+        <name>PriorErrorCovariance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="271" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="271" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a15dd932449d473a021634bca219404be" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvKalman::PosterErrorCovariance</definition>
+        <argsstring></argsstring>
+        <name>PosterErrorCovariance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="272" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="272" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a0b5456e55bf064a623ff71c9346c905d" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvKalman::Temp1</definition>
+        <argsstring></argsstring>
+        <name>Temp1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="273" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="273" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a35ee9fe1dabc5b27df89a423f9801c8b" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvKalman::Temp2</definition>
+        <argsstring></argsstring>
+        <name>Temp2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="274" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="274" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a7ce8d18d6af3a2d919886de2ecbea961" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvKalman::state_pre</definition>
+        <argsstring></argsstring>
+        <name>state_pre</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="277" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="277" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a2dcade041ae355d1db793bddc7b8291b" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvKalman::state_post</definition>
+        <argsstring></argsstring>
+        <name>state_post</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="279" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="279" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a9bc599a7f1197f20cbe93ed6ea3611ac" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvKalman::transition_matrix</definition>
+        <argsstring></argsstring>
+        <name>transition_matrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="281" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="281" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a4ed646de106c90cdee32abb0d0647b77" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvKalman::control_matrix</definition>
+        <argsstring></argsstring>
+        <name>control_matrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="282" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1af5574f13474afd7ba62069b5835354a9" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvKalman::measurement_matrix</definition>
+        <argsstring></argsstring>
+        <name>measurement_matrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="284" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a81abc95603757cab3faed0dafab54685" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvKalman::process_noise_cov</definition>
+        <argsstring></argsstring>
+        <name>process_noise_cov</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="285" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a9d9f6f208edab2a4202556a4fee73768" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvKalman::measurement_noise_cov</definition>
+        <argsstring></argsstring>
+        <name>measurement_noise_cov</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="286" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a7b31d7f98e9bc325f20d329b6b8c36c4" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvKalman::error_cov_pre</definition>
+        <argsstring></argsstring>
+        <name>error_cov_pre</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="287" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="287" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a2896f77c90affaf8a9ed3ba27f1e8337" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvKalman::gain</definition>
+        <argsstring></argsstring>
+        <name>gain</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="289" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1af4f76ef05f89ffce977a35e731d9a329" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvKalman::error_cov_post</definition>
+        <argsstring></argsstring>
+        <name>error_cov_post</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="291" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="291" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a69279dc4f91f2e812c1ac36f018fa78c" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvKalman::temp1</definition>
+        <argsstring></argsstring>
+        <name>temp1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="293" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="293" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1ac4977920e1427681f8cc9f6809fe5827" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvKalman::temp2</definition>
+        <argsstring></argsstring>
+        <name>temp2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="294" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="294" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a2e0a06d409a0e5584de0566113398bf3" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvKalman::temp3</definition>
+        <argsstring></argsstring>
+        <name>temp3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="295" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="295" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1ae65fae2a986ffbfdeda3c0d30fd1aefc" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvKalman::temp4</definition>
+        <argsstring></argsstring>
+        <name>temp4</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="296" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="296" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_kalman_1a094d6fae600bbbe2cc7b85ab4cfffa9e" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvKalman::temp5</definition>
+        <argsstring></argsstring>
+        <name>temp5</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="297" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="297" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1928">
+        <label>CvKalman</label>
+        <link refid="struct_cv_kalman"/>
+        <childnode refid="1929" relation="usage">
+          <edgelabel>state_post</edgelabel>
+          <edgelabel>error_cov_pre</edgelabel>
+          <edgelabel>measurement_noise_cov</edgelabel>
+          <edgelabel>state_pre</edgelabel>
+          <edgelabel>control_matrix</edgelabel>
+          <edgelabel>transition_matrix</edgelabel>
+          <edgelabel>temp1</edgelabel>
+          <edgelabel>temp2</edgelabel>
+          <edgelabel>error_cov_post</edgelabel>
+          <edgelabel>temp3</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+      </node>
+      <node id="1929">
+        <label>CvMat</label>
+        <link refid="struct_cv_mat"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="257" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="256" bodyend="298"/>
+    <listofallmembers>
+      <member refid="struct_cv_kalman_1a4ed646de106c90cdee32abb0d0647b77" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>control_matrix</name></member>
+      <member refid="struct_cv_kalman_1a0a505ce26c5a6e310cd37f1694c2f782" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>CP</name></member>
+      <member refid="struct_cv_kalman_1a0202618820441a41c5188efddae52a43" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>DP</name></member>
+      <member refid="struct_cv_kalman_1ae45757e0a85d1f1af2f3fa61850fc067" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>DynamMatr</name></member>
+      <member refid="struct_cv_kalman_1af4f76ef05f89ffce977a35e731d9a329" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>error_cov_post</name></member>
+      <member refid="struct_cv_kalman_1a7b31d7f98e9bc325f20d329b6b8c36c4" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>error_cov_pre</name></member>
+      <member refid="struct_cv_kalman_1a2896f77c90affaf8a9ed3ba27f1e8337" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>gain</name></member>
+      <member refid="struct_cv_kalman_1a3dab3b4d870cf1dfafc087d6a25824ad" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>KalmGainMatr</name></member>
+      <member refid="struct_cv_kalman_1af5574f13474afd7ba62069b5835354a9" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>measurement_matrix</name></member>
+      <member refid="struct_cv_kalman_1a9d9f6f208edab2a4202556a4fee73768" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>measurement_noise_cov</name></member>
+      <member refid="struct_cv_kalman_1a1152831760f263f51612dd364e3f4a22" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>MeasurementMatr</name></member>
+      <member refid="struct_cv_kalman_1aba4fdb4f915c18e278ee33296586cf74" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>MNCovariance</name></member>
+      <member refid="struct_cv_kalman_1a1e9c56ae3f138a19c67d607379e445d9" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>MP</name></member>
+      <member refid="struct_cv_kalman_1a01e5ed7f67dbcb0f1c774f294795b993" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>PNCovariance</name></member>
+      <member refid="struct_cv_kalman_1a15dd932449d473a021634bca219404be" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>PosterErrorCovariance</name></member>
+      <member refid="struct_cv_kalman_1a39b06cee56cb2209c3a5053123652976" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>PosterState</name></member>
+      <member refid="struct_cv_kalman_1af11cb151f1294a1c319e075493c70025" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>PriorErrorCovariance</name></member>
+      <member refid="struct_cv_kalman_1a416cb36df4c9775a930f3a6a8dc19d7e" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>PriorState</name></member>
+      <member refid="struct_cv_kalman_1a81abc95603757cab3faed0dafab54685" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>process_noise_cov</name></member>
+      <member refid="struct_cv_kalman_1a2dcade041ae355d1db793bddc7b8291b" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>state_post</name></member>
+      <member refid="struct_cv_kalman_1a7ce8d18d6af3a2d919886de2ecbea961" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>state_pre</name></member>
+      <member refid="struct_cv_kalman_1a0b5456e55bf064a623ff71c9346c905d" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>Temp1</name></member>
+      <member refid="struct_cv_kalman_1a69279dc4f91f2e812c1ac36f018fa78c" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>temp1</name></member>
+      <member refid="struct_cv_kalman_1a35ee9fe1dabc5b27df89a423f9801c8b" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>Temp2</name></member>
+      <member refid="struct_cv_kalman_1ac4977920e1427681f8cc9f6809fe5827" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>temp2</name></member>
+      <member refid="struct_cv_kalman_1a2e0a06d409a0e5584de0566113398bf3" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>temp3</name></member>
+      <member refid="struct_cv_kalman_1ae65fae2a986ffbfdeda3c0d30fd1aefc" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>temp4</name></member>
+      <member refid="struct_cv_kalman_1a094d6fae600bbbe2cc7b85ab4cfffa9e" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>temp5</name></member>
+      <member refid="struct_cv_kalman_1a9bc599a7f1197f20cbe93ed6ea3611ac" prot="public" virt="non-virtual"><scope>CvKalman</scope><name>transition_matrix</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

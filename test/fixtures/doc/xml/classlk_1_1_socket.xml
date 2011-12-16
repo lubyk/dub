@@ -1,0 +1,719 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classlk_1_1_socket" kind="class" prot="public">
+    <compoundname>lk::Socket</compoundname>
+    <basecompoundref refid="classlubyk_1_1_lua_object" prot="public" virt="non-virtual">lubyk::LuaObject</basecompoundref>
+    <includes refid="lk_2include_2lk_2_socket_8h" local="no">Socket.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classlk_1_1_socket_1abe2b7218a4b570e018867cd8c4ff2df6" prot="public" static="no">
+        <name>SocketType</name>
+        <enumvalue id="classlk_1_1_socket_1abe2b7218a4b570e018867cd8c4ff2df6a9443335bd7ba34c6e9297943837371d0" prot="public">
+          <name>TCP</name>
+          <initializer> SOCK_STREAM</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classlk_1_1_socket_1abe2b7218a4b570e018867cd8c4ff2df6a26281914ac3cb16c1482b5c12adc1693" prot="public">
+          <name>UDP</name>
+          <initializer> SOCK_DGRAM</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="96" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="96" bodyend="99"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlk_1_1_socket_1aec2063fff094cf9fe4c4012bb4377ff8" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int lk::Socket::socket_fd_</definition>
+        <argsstring></argsstring>
+        <name>socket_fd_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="69" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlk_1_1_socket_1a761f4c45152dc9d87dea3bcf686c328c" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int lk::Socket::socket_type_</definition>
+        <argsstring></argsstring>
+        <name>socket_type_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="70" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlk_1_1_socket_1a7f7b47be9050f857356b62b604d65422" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string lk::Socket::local_host_</definition>
+        <argsstring></argsstring>
+        <name>local_host_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="71" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlk_1_1_socket_1a983d68b067e8448cbcc567d3ac5bb85a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int lk::Socket::local_port_</definition>
+        <argsstring></argsstring>
+        <name>local_port_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="72" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlk_1_1_socket_1a06252547e0f98e3400af9b1c89eceb07" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string lk::Socket::remote_host_</definition>
+        <argsstring></argsstring>
+        <name>remote_host_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="73" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlk_1_1_socket_1a2b4b5589272d1f3fa0302deb9bbd35b0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int lk::Socket::remote_port_</definition>
+        <argsstring></argsstring>
+        <name>remote_port_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="74" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlk_1_1_socket_1adb98be171901c680cee74336d0f2dc07" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int lk::Socket::buffer_length_</definition>
+        <argsstring></argsstring>
+        <name>buffer_length_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of bytes already received in the buffer. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="79" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlk_1_1_socket_1a3e79569ae7aeb11c8b0ebd36c63abfb8" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int lk::Socket::buffer_i_</definition>
+        <argsstring></argsstring>
+        <name>buffer_i_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Bytes already used in the buffer. If buffer_i_ == buffer_length_: there is no more data in the buffer. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="84" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlk_1_1_socket_1a767be791a2c0ebcae835957d2aa8ed26" prot="private" static="no" mutable="no">
+        <type>char</type>
+        <definition>char lk::Socket::buffer_[MAX_BUFF_SIZE]</definition>
+        <argsstring>[MAX_BUFF_SIZE]</argsstring>
+        <name>buffer_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Buffer that contains received data not yet used by Lua. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="88" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlk_1_1_socket_1aa36db31c466e93452d93032ba4be67c2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool lk::Socket::non_blocking_</definition>
+        <argsstring></argsstring>
+        <name>non_blocking_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Non-blocking flag when setNonBlocking is called before creating the socket. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="93" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlk_1_1_socket_1a83ae0e009378df030f058b91ae9856a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lk::Socket::Socket</definition>
+        <argsstring>(int socket_type)</argsstring>
+        <name>Socket</name>
+        <param>
+          <type>int</type>
+          <declname>socket_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="112" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="101" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1ad0adeb2122804372573b9ab789812a32" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lk::Socket::~Socket</definition>
+        <argsstring>()</argsstring>
+        <name>~Socket</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="115" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="115" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1a76248c35f251aa3f65b9bf5674ec5c9c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lk::Socket::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="119" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="119" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1a4d2480874baed1375078906ba43dcb32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int lk::Socket::bind</definition>
+        <argsstring>(const char *localhost=NULL, int port=0)</argsstring>
+        <name>bind</name>
+        <param>
+          <type>const char *</type>
+          <declname>localhost</declname>
+          <defval>NULL</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>port</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Bind socket to a specific interface. <simplesect kind="return"><para>bound port </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1a3d100f48cdd22bbdbe95ae3436a5ae53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lk::Socket::connect</definition>
+        <argsstring>(const char *host, int port)</argsstring>
+        <name>connect</name>
+        <param>
+          <type>const char *</type>
+          <declname>host</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>port</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Connect to a remote socket. <simplesect kind="return"><para>false if the socket is not ready and we should waitWrite and &apos;connectFinish&apos;. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1aa0d702461591f94aab61901e4e7a7571" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lk::Socket::connectFinish</definition>
+        <argsstring>()</argsstring>
+        <name>connectFinish</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Finish connecting for NON-BLOCKING sockets. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1ad75a0c97be6ab0bbdd39c1389b710dcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lk::Socket::listen</definition>
+        <argsstring>(int backlog=BACKLOG)</argsstring>
+        <name>listen</name>
+        <param>
+          <type>int</type>
+          <declname>backlog</declname>
+          <defval>BACKLOG</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Start listening for incoming connections. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>backlog</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of accepted connections in queue before refusing. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1acb4fb9742882c0031ed9d024e974352d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize lk::Socket::accept</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>accept</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Accept a new incomming connection. <simplesect kind="return"><para>a new <ref refid="classlk_1_1_socket" kindref="compound">lk.Socket</ref> connected to the remote end. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1a2807a0dc800e448736a0bc78dff6a189" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lk::Socket::setRecvTimeout</definition>
+        <argsstring>(int timeout)</argsstring>
+        <name>setRecvTimeout</name>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="150" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="150" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1a670d8548ee9884f2eced8e84fb4467ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lk::Socket::setSendTimeout</definition>
+        <argsstring>(int timeout)</argsstring>
+        <name>setSendTimeout</name>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="154" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="154" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1ab5cda8b77898e7352d726a09cafd971b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lk::Socket::setNonBlocking</definition>
+        <argsstring>()</argsstring>
+        <name>setNonBlocking</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="158" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="158" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1a35eba74ff9a0ed5ac80ed3726b2a2098" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize lk::Socket::recv</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>recv</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Receive a message encoded by msgpack (blocks). For a server, this should typically be used inside the loop. We pass the lua_State to avoid mixing thread contexts. Receive a raw string (not encoded by msgpack). This IO call blocks. We pass the lua_State to avoid mixing thread contexts. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1a53b72311051bb0b8c7c8991d29637c81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int lk::Socket::send</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>send</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send raw bytes without encoding with msgpack. param: string to send. <simplesect kind="return"><para>number of bytes sent. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1a11c46a4c0dd605b83ab6dc774c8ff8f1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* lk::Socket::localHost</definition>
+        <argsstring>() const </argsstring>
+        <name>localHost</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send a message packed with msgpack. Varying parameters. Request = remote call (uses msgpack to encode data). This is really just a sendMsg with a recvMsg. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="203" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="203" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1a5f760e4ea2b87d0d2fc88b196513d15f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int lk::Socket::localPort</definition>
+        <argsstring>() const </argsstring>
+        <name>localPort</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="207" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="207" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1a3256d01583c6eaa054e7c7045ccb1ed0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* lk::Socket::remoteHost</definition>
+        <argsstring>() const </argsstring>
+        <name>remoteHost</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="211" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="211" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1a6bc589c2cf9674f0358f73574b4ce46c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int lk::Socket::remotePort</definition>
+        <argsstring>() const </argsstring>
+        <name>remotePort</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="215" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="215" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1ab12d3a828bc6e9bdd3d07707ddf922fc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int lk::Socket::port</definition>
+        <argsstring>() const </argsstring>
+        <name>port</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="219" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="219" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1a26a08ec0c745f7e3a123694a4e116745" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int lk::Socket::fd</definition>
+        <argsstring>() const </argsstring>
+        <name>fd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="223" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="223" bodyend="225"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlk_1_1_socket_1a9c0c4845a198a55574d3dc15997971c9" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lk::Socket::Socket</definition>
+        <argsstring>(int fd, const char *local_host, const char *remote_host, int remote_port)</argsstring>
+        <name>Socket</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>local_host</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>remote_host</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>remote_port</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a socket with an existing file descriptor. This is used as the result of an &apos;accept()&apos; call. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="239" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="231" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1a85abcb14431946a2bcf7667d1be3b48d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lk::Socket::run</definition>
+        <argsstring>(Thread *runner)</argsstring>
+        <name>run</name>
+        <param>
+          <type><ref refid="classlubyk_1_1_thread" kindref="compound">Thread</ref> *</type>
+          <declname>runner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1ae159b1b2479c93344ea0d3d0740e4e8a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int lk::Socket::recvLine</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>recvLine</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="246"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1adf259717b23a39f2468b1a3868ff59ac" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int lk::Socket::recvBytes</definition>
+        <argsstring>(lua_State *L, int sz)</argsstring>
+        <name>recvBytes</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="248"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1a68adc3b118217f295ece83755165e85b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int lk::Socket::recvAll</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>recvAll</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="250"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_socket_1af6cda39a2671489150e9aecc069e369a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lk::Socket::setTimeout</definition>
+        <argsstring>(int timeout, int opt_name)</argsstring>
+        <name>setTimeout</name>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>opt_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="252"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classlk_1_1_socket_1a64a9baf86f2a2bf3779675ede1d3c51c" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int lk::Socket::get_port</definition>
+        <argsstring>(int fd)</argsstring>
+        <name>get_port</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="242"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Listen for incoming messages on a given port.</para><para><simplesect kind="par"><title>Bindings info:</title><para>lib_name:&apos;Socket_core&apos; filename:&apos;Socket_core/Socket_core&apos; string_format:&apos;%s:%d --&gt; %s:%d&apos; string_args:&apos;(*userdata)-&gt;<ref refid="classlk_1_1_socket_1a11c46a4c0dd605b83ab6dc774c8ff8f1" kindref="member">localHost()</ref>, (*userdata)-&gt;<ref refid="classlk_1_1_socket_1a5f760e4ea2b87d0d2fc88b196513d15f" kindref="member">localPort()</ref>, (*userdata)-&gt;<ref refid="classlk_1_1_socket_1a3256d01583c6eaa054e7c7045ccb1ed0" kindref="member">remoteHost()</ref>, (*userdata)-&gt;<ref refid="classlk_1_1_socket_1a6bc589c2cf9674f0358f73574b4ce46c" kindref="member">remotePort()</ref>&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2424">
+        <label>lk::Socket</label>
+        <link refid="classlk_1_1_socket"/>
+        <childnode refid="2425" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2425">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2428">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="2429" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2430">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2426">
+        <label>lk::Socket</label>
+        <link refid="classlk_1_1_socket"/>
+        <childnode refid="2427" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2427">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="2428" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2429">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="2430" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" line="68" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h" bodystart="67" bodyend="253"/>
+    <listofallmembers>
+      <member refid="classlk_1_1_socket_1acb4fb9742882c0031ed9d024e974352d" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>accept</name></member>
+      <member refid="classlk_1_1_socket_1a4d2480874baed1375078906ba43dcb32" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>bind</name></member>
+      <member refid="classlk_1_1_socket_1a767be791a2c0ebcae835957d2aa8ed26" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>buffer_</name></member>
+      <member refid="classlk_1_1_socket_1a3e79569ae7aeb11c8b0ebd36c63abfb8" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>buffer_i_</name></member>
+      <member refid="classlk_1_1_socket_1adb98be171901c680cee74336d0f2dc07" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>buffer_length_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>lk::Socket</scope><name>class_name_</name></member>
+      <member refid="classlk_1_1_socket_1a76248c35f251aa3f65b9bf5674ec5c9c" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>close</name></member>
+      <member refid="classlk_1_1_socket_1a3d100f48cdd22bbdbe95ae3436a5ae53" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>connect</name></member>
+      <member refid="classlk_1_1_socket_1aa0d702461591f94aab61901e4e7a7571" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>connectFinish</name></member>
+      <member refid="classlk_1_1_socket_1a26a08ec0c745f7e3a123694a4e116745" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>fd</name></member>
+      <member refid="classlk_1_1_socket_1a64a9baf86f2a2bf3779675ede1d3c51c" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>get_port</name></member>
+      <member refid="classlk_1_1_socket_1ad75a0c97be6ab0bbdd39c1389b710dcf" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>listen</name></member>
+      <member refid="classlk_1_1_socket_1a7f7b47be9050f857356b62b604d65422" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>local_host_</name></member>
+      <member refid="classlk_1_1_socket_1a983d68b067e8448cbcc567d3ac5bb85a" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>local_port_</name></member>
+      <member refid="classlk_1_1_socket_1a11c46a4c0dd605b83ab6dc774c8ff8f1" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>localHost</name></member>
+      <member refid="classlk_1_1_socket_1a5f760e4ea2b87d0d2fc88b196513d15f" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>localPort</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>lk::Socket</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>luaDestroy</name></member>
+      <member refid="classlubyk_1_1_lua_object_1afc36a0ff048ab6ebe7e43b4717d45bec" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>LuaObject</name></member>
+      <member refid="classlk_1_1_socket_1aa36db31c466e93452d93032ba4be67c2" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>non_blocking_</name></member>
+      <member refid="classlk_1_1_socket_1ab12d3a828bc6e9bdd3d07707ddf922fc" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>port</name></member>
+      <member refid="classlk_1_1_socket_1a35eba74ff9a0ed5ac80ed3726b2a2098" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>recv</name></member>
+      <member refid="classlk_1_1_socket_1a68adc3b118217f295ece83755165e85b" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>recvAll</name></member>
+      <member refid="classlk_1_1_socket_1adf259717b23a39f2468b1a3868ff59ac" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>recvBytes</name></member>
+      <member refid="classlk_1_1_socket_1ae159b1b2479c93344ea0d3d0740e4e8a" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>recvLine</name></member>
+      <member refid="classlk_1_1_socket_1a06252547e0f98e3400af9b1c89eceb07" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>remote_host_</name></member>
+      <member refid="classlk_1_1_socket_1a2b4b5589272d1f3fa0302deb9bbd35b0" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>remote_port_</name></member>
+      <member refid="classlk_1_1_socket_1a3256d01583c6eaa054e7c7045ccb1ed0" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>remoteHost</name></member>
+      <member refid="classlk_1_1_socket_1a6bc589c2cf9674f0358f73574b4ce46c" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>remotePort</name></member>
+      <member refid="classlk_1_1_socket_1a85abcb14431946a2bcf7667d1be3b48d" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>run</name></member>
+      <member refid="classlk_1_1_socket_1a53b72311051bb0b8c7c8991d29637c81" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>send</name></member>
+      <member refid="classlk_1_1_socket_1ab5cda8b77898e7352d726a09cafd971b" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>setNonBlocking</name></member>
+      <member refid="classlk_1_1_socket_1a2807a0dc800e448736a0bc78dff6a189" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>setRecvTimeout</name></member>
+      <member refid="classlk_1_1_socket_1a670d8548ee9884f2eced8e84fb4467ce" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>setSendTimeout</name></member>
+      <member refid="classlk_1_1_socket_1af6cda39a2671489150e9aecc069e369a" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>setTimeout</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>lk::Socket</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>lk::Socket</scope><name>setupSuper</name></member>
+      <member refid="classlk_1_1_socket_1a83ae0e009378df030f058b91ae9856a8" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>Socket</name></member>
+      <member refid="classlk_1_1_socket_1a9c0c4845a198a55574d3dc15997971c9" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>Socket</name></member>
+      <member refid="classlk_1_1_socket_1aec2063fff094cf9fe4c4012bb4377ff8" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>socket_fd_</name></member>
+      <member refid="classlk_1_1_socket_1a761f4c45152dc9d87dea3bcf686c328c" prot="private" virt="non-virtual"><scope>lk::Socket</scope><name>socket_type_</name></member>
+      <member refid="classlk_1_1_socket_1abe2b7218a4b570e018867cd8c4ff2df6" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>SocketType</name></member>
+      <member refid="classlk_1_1_socket_1abe2b7218a4b570e018867cd8c4ff2df6a9443335bd7ba34c6e9297943837371d0" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>TCP</name></member>
+      <member refid="classlk_1_1_socket_1abe2b7218a4b570e018867cd8c4ff2df6a26281914ac3cb16c1482b5c12adc1693" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>UDP</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>worker_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>lk::Socket</scope><name>~LuaObject</name></member>
+      <member refid="classlk_1_1_socket_1ad0adeb2122804372573b9ab789812a32" prot="public" virt="non-virtual"><scope>lk::Socket</scope><name>~Socket</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,460 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classb2_chain_shape" kind="class" prot="public">
+    <compoundname>b2ChainShape</compoundname>
+    <basecompoundref refid="classb2_shape" prot="public" virt="non-virtual">b2Shape</basecompoundref>
+    <includes refid="b2_chain_shape_8h" local="no">b2ChainShape.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classb2_chain_shape_1a481116a6886fb3880b13e55c966579da" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> *</type>
+        <definition>b2Vec2* b2ChainShape::m_vertices</definition>
+        <argsstring></argsstring>
+        <name>m_vertices</name>
+        <briefdescription>
+<para>The vertices. Owned by this class. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="83" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" bodystart="83" bodyend="-1"/>
+        <referencedby refid="classb2_chain_shape_1ac4fafbfed6f5894c9f8173d2a09a1fe7" compoundref="b2_chain_shape_8h" startline="92" endline="100">b2ChainShape</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_chain_shape_1ab2ad711781e6ac81179074e90e0e058b" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2ChainShape::m_count</definition>
+        <argsstring></argsstring>
+        <name>m_count</name>
+        <briefdescription>
+<para>The vertex count. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="86" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" bodystart="86" bodyend="-1"/>
+        <referencedby refid="classb2_chain_shape_1ac4fafbfed6f5894c9f8173d2a09a1fe7" compoundref="b2_chain_shape_8h" startline="92" endline="100">b2ChainShape</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_chain_shape_1a3a42d4c6b2421bc5badda3b6164949cf" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2ChainShape::m_prevVertex</definition>
+        <argsstring></argsstring>
+        <name>m_prevVertex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="88" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_chain_shape_1af3716ef780dd5bcd905e350d8854aaa2" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2ChainShape::m_nextVertex</definition>
+        <argsstring></argsstring>
+        <name>m_nextVertex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="88" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_chain_shape_1a8a6ffbb9de0e2b8545c8b4fc8aa77249" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool b2ChainShape::m_hasPrevVertex</definition>
+        <argsstring></argsstring>
+        <name>m_hasPrevVertex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="89" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" bodystart="89" bodyend="-1"/>
+        <referencedby refid="classb2_chain_shape_1ac4fafbfed6f5894c9f8173d2a09a1fe7" compoundref="b2_chain_shape_8h" startline="92" endline="100">b2ChainShape</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_chain_shape_1a333b74486566e73c3cf1f7da5e69a96e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool b2ChainShape::m_hasNextVertex</definition>
+        <argsstring></argsstring>
+        <name>m_hasNextVertex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="89" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" bodystart="89" bodyend="-1"/>
+        <referencedby refid="classb2_chain_shape_1ac4fafbfed6f5894c9f8173d2a09a1fe7" compoundref="b2_chain_shape_8h" startline="92" endline="100">b2ChainShape</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classb2_chain_shape_1ac4fafbfed6f5894c9f8173d2a09a1fe7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2ChainShape::b2ChainShape</definition>
+        <argsstring>()</argsstring>
+        <name>b2ChainShape</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="35" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" bodystart="92" bodyend="100"/>
+        <references refid="b2_settings_8h_1afc0f934dabffb1e83e081249133ad860" compoundref="b2_settings_8h" startline="76">b2_polygonRadius</references>
+        <references refid="classb2_shape_1a4c1f3a9ad6b3150bb90ad9018ca4b1e0a3649c133fa23d5af940705432e9170f2" compoundref="b2_shape_8h" startline="51">b2Shape::e_chain</references>
+        <references refid="classb2_chain_shape_1ab2ad711781e6ac81179074e90e0e058b" compoundref="b2_chain_shape_8h" startline="86">m_count</references>
+        <references refid="classb2_chain_shape_1a333b74486566e73c3cf1f7da5e69a96e" compoundref="b2_chain_shape_8h" startline="89">m_hasNextVertex</references>
+        <references refid="classb2_chain_shape_1a8a6ffbb9de0e2b8545c8b4fc8aa77249" compoundref="b2_chain_shape_8h" startline="89">m_hasPrevVertex</references>
+        <references refid="classb2_shape_1a5de7a9bd3f9e72ef7025a65c304aaf1a" compoundref="b2_shape_8h" startline="93">b2Shape::m_radius</references>
+        <references refid="classb2_shape_1adb051791133b24f53c6e9a565a7b7bbb" compoundref="b2_shape_8h" startline="92">b2Shape::m_type</references>
+        <references refid="classb2_chain_shape_1a481116a6886fb3880b13e55c966579da" compoundref="b2_chain_shape_8h" startline="83">m_vertices</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_chain_shape_1a8c032394f5a85e7fc425a437e7689a18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>b2ChainShape::~b2ChainShape</definition>
+        <argsstring>()</argsstring>
+        <name>~b2ChainShape</name>
+        <briefdescription>
+<para>The destructor frees the vertices using b2Free. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_chain_shape_1ac257742a52cac391e25962a4c703fb06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2ChainShape::CreateLoop</definition>
+        <argsstring>(const b2Vec2 *vertices, int32 count)</argsstring>
+        <name>CreateLoop</name>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> *</type>
+          <declname>vertices</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a loop. This automatically adjusts connectivity. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vertices</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an array of vertices, these are copied </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vertex count </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_chain_shape_1aa0977339b743c05f2179939ccc38e7e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2ChainShape::CreateChain</definition>
+        <argsstring>(const b2Vec2 *vertices, int32 count)</argsstring>
+        <name>CreateChain</name>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> *</type>
+          <declname>vertices</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a chain with isolated end vertices. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vertices</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an array of vertices, these are copied </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vertex count </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_chain_shape_1aeb2ddbe0c52a98885e91b7c8f597315b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2ChainShape::SetPrevVertex</definition>
+        <argsstring>(const b2Vec2 &amp;prevVertex)</argsstring>
+        <name>SetPrevVertex</name>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>prevVertex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Establish connectivity to a vertex that precedes the first vertex. Don&apos;t call this for loops. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_chain_shape_1a15c7c2821a52266ef57621ac7d34a95f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2ChainShape::SetNextVertex</definition>
+        <argsstring>(const b2Vec2 &amp;nextVertex)</argsstring>
+        <name>SetNextVertex</name>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>nextVertex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Establish connectivity to a vertex that follows the last vertex. Don&apos;t call this for loops. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_chain_shape_1aa378f5e1a22ec71224e0182eb482b3e3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classb2_shape" kindref="compound">b2Shape</ref> *</type>
+        <definition>b2Shape* b2ChainShape::Clone</definition>
+        <argsstring>(b2BlockAllocator *allocator) const </argsstring>
+        <name>Clone</name>
+        <reimplements refid="classb2_shape_1a4716243454bb9cf7c7ee1d9cb23ae634">Clone</reimplements>
+        <param>
+          <type><ref refid="classb2_block_allocator" kindref="compound">b2BlockAllocator</ref> *</type>
+          <declname>allocator</declname>
+        </param>
+        <briefdescription>
+<para>Implement <ref refid="classb2_shape" kindref="compound">b2Shape</ref>. Vertices are cloned using b2Alloc. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_chain_shape_1a44bd58b9602dbe57cdfc3b66f8f03b61" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2ChainShape::GetChildCount</definition>
+        <argsstring>() const </argsstring>
+        <name>GetChildCount</name>
+        <reimplements refid="classb2_shape_1a05a3c445017d96df9238ceefe6ce37ab">GetChildCount</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classb2_shape_1a05a3c445017d96df9238ceefe6ce37ab" kindref="member">b2Shape::GetChildCount</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_chain_shape_1a614e630221ac7f19257c9351edf4bd12" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2ChainShape::GetChildEdge</definition>
+        <argsstring>(b2EdgeShape *edge, int32 index) const </argsstring>
+        <name>GetChildEdge</name>
+        <param>
+          <type><ref refid="classb2_edge_shape" kindref="compound">b2EdgeShape</ref> *</type>
+          <declname>edge</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Get a child edge. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_chain_shape_1a4fc27b41ecc556985efacf8e0f91c39f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool b2ChainShape::TestPoint</definition>
+        <argsstring>(const b2Transform &amp;transform, const b2Vec2 &amp;p) const </argsstring>
+        <name>TestPoint</name>
+        <reimplements refid="classb2_shape_1a6ac968e403e2d93e8ae46d728a2e50fa">TestPoint</reimplements>
+        <param>
+          <type>const <ref refid="structb2_transform" kindref="compound">b2Transform</ref> &amp;</type>
+          <declname>transform</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This always return false. <simplesect kind="see"><para><ref refid="classb2_shape_1a6ac968e403e2d93e8ae46d728a2e50fa" kindref="member">b2Shape::TestPoint</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_chain_shape_1a85c7a17a15581e0e258c7af561cf5403" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool b2ChainShape::RayCast</definition>
+        <argsstring>(b2RayCastOutput *output, const b2RayCastInput &amp;input, const b2Transform &amp;transform, int32 childIndex) const </argsstring>
+        <name>RayCast</name>
+        <reimplements refid="classb2_shape_1aee53a926f4fe64cd03693f6211ef6335">RayCast</reimplements>
+        <param>
+          <type><ref refid="structb2_ray_cast_output" kindref="compound">b2RayCastOutput</ref> *</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_ray_cast_input" kindref="compound">b2RayCastInput</ref> &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_transform" kindref="compound">b2Transform</ref> &amp;</type>
+          <declname>transform</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+          <declname>childIndex</declname>
+        </param>
+        <briefdescription>
+<para>Implement <ref refid="classb2_shape" kindref="compound">b2Shape</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_chain_shape_1a409c21206e4c84f66700809aac5b164c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void b2ChainShape::ComputeAABB</definition>
+        <argsstring>(b2AABB *aabb, const b2Transform &amp;transform, int32 childIndex) const </argsstring>
+        <name>ComputeAABB</name>
+        <reimplements refid="classb2_shape_1a88e9807fab0c8ca9a98d8926e50a1411">ComputeAABB</reimplements>
+        <param>
+          <type><ref refid="structb2_a_a_b_b" kindref="compound">b2AABB</ref> *</type>
+          <declname>aabb</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_transform" kindref="compound">b2Transform</ref> &amp;</type>
+          <declname>transform</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+          <declname>childIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classb2_shape_1a88e9807fab0c8ca9a98d8926e50a1411" kindref="member">b2Shape::ComputeAABB</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_chain_shape_1a009259d589abebeda27fe580d117b11e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void b2ChainShape::ComputeMass</definition>
+        <argsstring>(b2MassData *massData, float32 density) const </argsstring>
+        <name>ComputeMass</name>
+        <reimplements refid="classb2_shape_1a61b365526241b47f124789b0309cac69">ComputeMass</reimplements>
+        <param>
+          <type><ref refid="structb2_mass_data" kindref="compound">b2MassData</ref> *</type>
+          <declname>massData</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>density</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Chains have zero mass. <simplesect kind="see"><para><ref refid="classb2_shape_1a61b365526241b47f124789b0309cac69" kindref="member">b2Shape::ComputeMass</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="80"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A chain shape is a free form sequence of line segments. The chain has two-sided collision, so you can use inside and outside collision. Therefore, you may use any winding order. Since there may be many vertices, they are allocated using b2Alloc. Connectivity information is used to create smooth collisions. WARNING: The chain will not collide properly if there are self-intersections. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="170">
+        <label>b2ChainShape</label>
+        <link refid="classb2_chain_shape"/>
+        <childnode refid="171" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="171">
+        <label>b2Shape</label>
+        <link refid="classb2_shape"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="172">
+        <label>b2ChainShape</label>
+        <link refid="classb2_chain_shape"/>
+        <childnode refid="173" relation="public-inheritance">
+        </childnode>
+        <childnode refid="174" relation="usage">
+          <edgelabel>m_prevVertex</edgelabel>
+          <edgelabel>m_vertices</edgelabel>
+          <edgelabel>m_nextVertex</edgelabel>
+        </childnode>
+      </node>
+      <node id="174">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+      <node id="173">
+        <label>b2Shape</label>
+        <link refid="classb2_shape"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" line="33" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ChainShape.h" bodystart="32" bodyend="90"/>
+    <listofallmembers>
+      <member refid="classb2_chain_shape_1ac4fafbfed6f5894c9f8173d2a09a1fe7" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>b2ChainShape</name></member>
+      <member refid="classb2_chain_shape_1aa378f5e1a22ec71224e0182eb482b3e3" prot="public" virt="virtual"><scope>b2ChainShape</scope><name>Clone</name></member>
+      <member refid="classb2_chain_shape_1a409c21206e4c84f66700809aac5b164c" prot="public" virt="virtual"><scope>b2ChainShape</scope><name>ComputeAABB</name></member>
+      <member refid="classb2_chain_shape_1a009259d589abebeda27fe580d117b11e" prot="public" virt="virtual"><scope>b2ChainShape</scope><name>ComputeMass</name></member>
+      <member refid="classb2_chain_shape_1aa0977339b743c05f2179939ccc38e7e0" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>CreateChain</name></member>
+      <member refid="classb2_chain_shape_1ac257742a52cac391e25962a4c703fb06" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>CreateLoop</name></member>
+      <member refid="classb2_shape_1a4c1f3a9ad6b3150bb90ad9018ca4b1e0a3649c133fa23d5af940705432e9170f2" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>e_chain</name></member>
+      <member refid="classb2_shape_1a4c1f3a9ad6b3150bb90ad9018ca4b1e0a09ab906cedd1b94ebb6fedb29dace063" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>e_circle</name></member>
+      <member refid="classb2_shape_1a4c1f3a9ad6b3150bb90ad9018ca4b1e0a707a159824d438c541a452382c0daced" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>e_edge</name></member>
+      <member refid="classb2_shape_1a4c1f3a9ad6b3150bb90ad9018ca4b1e0a08afe1f3d5964062239783063a3a671f" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>e_polygon</name></member>
+      <member refid="classb2_shape_1a4c1f3a9ad6b3150bb90ad9018ca4b1e0aad7c674a33e8ca4ee9b717f226553596" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>e_typeCount</name></member>
+      <member refid="classb2_chain_shape_1a44bd58b9602dbe57cdfc3b66f8f03b61" prot="public" virt="virtual"><scope>b2ChainShape</scope><name>GetChildCount</name></member>
+      <member refid="classb2_chain_shape_1a614e630221ac7f19257c9351edf4bd12" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>GetChildEdge</name></member>
+      <member refid="classb2_shape_1a3b6093f16c18f8a877519a29674abca0" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>GetType</name></member>
+      <member refid="classb2_chain_shape_1ab2ad711781e6ac81179074e90e0e058b" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>m_count</name></member>
+      <member refid="classb2_chain_shape_1a333b74486566e73c3cf1f7da5e69a96e" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>m_hasNextVertex</name></member>
+      <member refid="classb2_chain_shape_1a8a6ffbb9de0e2b8545c8b4fc8aa77249" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>m_hasPrevVertex</name></member>
+      <member refid="classb2_chain_shape_1af3716ef780dd5bcd905e350d8854aaa2" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>m_nextVertex</name></member>
+      <member refid="classb2_chain_shape_1a3a42d4c6b2421bc5badda3b6164949cf" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>m_prevVertex</name></member>
+      <member refid="classb2_shape_1a5de7a9bd3f9e72ef7025a65c304aaf1a" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>m_radius</name></member>
+      <member refid="classb2_shape_1adb051791133b24f53c6e9a565a7b7bbb" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>m_type</name></member>
+      <member refid="classb2_chain_shape_1a481116a6886fb3880b13e55c966579da" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>m_vertices</name></member>
+      <member refid="classb2_chain_shape_1a85c7a17a15581e0e258c7af561cf5403" prot="public" virt="virtual"><scope>b2ChainShape</scope><name>RayCast</name></member>
+      <member refid="classb2_chain_shape_1a15c7c2821a52266ef57621ac7d34a95f" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>SetNextVertex</name></member>
+      <member refid="classb2_chain_shape_1aeb2ddbe0c52a98885e91b7c8f597315b" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>SetPrevVertex</name></member>
+      <member refid="classb2_chain_shape_1a4fc27b41ecc556985efacf8e0f91c39f" prot="public" virt="virtual"><scope>b2ChainShape</scope><name>TestPoint</name></member>
+      <member refid="classb2_shape_1a4c1f3a9ad6b3150bb90ad9018ca4b1e0" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>Type</name></member>
+      <member refid="classb2_chain_shape_1a8c032394f5a85e7fc425a437e7689a18" prot="public" virt="non-virtual"><scope>b2ChainShape</scope><name>~b2ChainShape</name></member>
+      <member refid="classb2_shape_1a7c14c5dcf134d22e0b5790518632d05a" prot="public" virt="virtual"><scope>b2ChainShape</scope><name>~b2Shape</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

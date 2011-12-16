@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classlubyk_1_1_scoped_pool" kind="class" prot="public">
+    <compoundname>lubyk::ScopedPool</compoundname>
+    <includes refid="cocoa_8h" local="no">cocoa.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlubyk_1_1_scoped_pool_1a271c2853ee2032f8ebc9a3ac31b7ce1f" prot="private" static="no" mutable="no">
+        <type>NSAutoreleasePool *</type>
+        <definition>NSAutoreleasePool* lubyk::ScopedPool::pool_</definition>
+        <argsstring></argsstring>
+        <name>pool_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/cocoa.h" line="48" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/cocoa.h" bodystart="48" bodyend="-1"/>
+        <referencedby refid="classlubyk_1_1_scoped_pool_1a87ec17a0de4fb44a31d8c9a3d82847ff" compoundref="cocoa_8h" startline="39" endline="41">ScopedPool</referencedby>
+        <referencedby refid="classlubyk_1_1_scoped_pool_1a7d4b2455f3b1a2e1d12105e1683b3961" compoundref="cocoa_8h" startline="43" endline="45">~ScopedPool</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlubyk_1_1_scoped_pool_1a87ec17a0de4fb44a31d8c9a3d82847ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lubyk::ScopedPool::ScopedPool</definition>
+        <argsstring>()</argsstring>
+        <name>ScopedPool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/cocoa.h" line="39" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/cocoa.h" bodystart="39" bodyend="41"/>
+        <references refid="classlubyk_1_1_scoped_pool_1a271c2853ee2032f8ebc9a3ac31b7ce1f" compoundref="cocoa_8h" startline="48">pool_</references>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_scoped_pool_1a7d4b2455f3b1a2e1d12105e1683b3961" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lubyk::ScopedPool::~ScopedPool</definition>
+        <argsstring>()</argsstring>
+        <name>~ScopedPool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/cocoa.h" line="43" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/cocoa.h" bodystart="43" bodyend="45"/>
+        <references refid="classlubyk_1_1_scoped_pool_1a271c2853ee2032f8ebc9a3ac31b7ce1f" compoundref="cocoa_8h" startline="48">pool_</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/cocoa.h" line="37" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/cocoa.h" bodystart="37" bodyend="49"/>
+    <listofallmembers>
+      <member refid="classlubyk_1_1_scoped_pool_1a271c2853ee2032f8ebc9a3ac31b7ce1f" prot="private" virt="non-virtual"><scope>lubyk::ScopedPool</scope><name>pool_</name></member>
+      <member refid="classlubyk_1_1_scoped_pool_1a87ec17a0de4fb44a31d8c9a3d82847ff" prot="public" virt="non-virtual"><scope>lubyk::ScopedPool</scope><name>ScopedPool</name></member>
+      <member refid="classlubyk_1_1_scoped_pool_1a7d4b2455f3b1a2e1d12105e1683b3961" prot="public" virt="non-virtual"><scope>lubyk::ScopedPool</scope><name>~ScopedPool</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

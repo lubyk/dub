@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classlk_1_1_finalizer" kind="class" prot="public">
+    <compoundname>lk::Finalizer</compoundname>
+    <basecompoundref refid="classlubyk_1_1_lua_object" prot="public" virt="non-virtual">lubyk::LuaObject</basecompoundref>
+    <includes refid="_finalizer_8h" local="no">Finalizer.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlk_1_1_finalizer_1afb88cec33ee5ad8a4a65b6126bb78e84" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lk::Finalizer::Finalizer</definition>
+        <argsstring>()</argsstring>
+        <name>Finalizer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Finalizer.h" line="44" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Finalizer.h" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_finalizer_1ad26c39bb8a1de1c51cf59fb430960644" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual lk::Finalizer::~Finalizer</definition>
+        <argsstring>()</argsstring>
+        <name>~Finalizer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Finalizer.h" line="46" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Finalizer.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_finalizer_1a52c569b1dead0392d2cc75e1b9855bd3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>int</type>
+        <definition>virtual int lk::Finalizer::luaInit</definition>
+        <argsstring>(lua_State *L, void *obj, const char *name)</argsstring>
+        <name>luaInit</name>
+        <reimplements refid="classlubyk_1_1_lua_object_1afc36a0ff048ab6ebe7e43b4717d45bec">luaInit</reimplements>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>obj</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <exceptions> throw ()</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Finalizer.h" line="48" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Finalizer.h" bodystart="48" bodyend="73"/>
+        <references refid="classlubyk_1_1_lua_object_1afc36a0ff048ab6ebe7e43b4717d45bec">lubyk::LuaObject::luaInit</references>
+        <references refid="cxcore_8h_1add928d8eb85ea33a25a67db3406d4887" compoundref="cxcore_8h" startline="1614">name</references>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_finalizer_1a2e6acab12b0ce1a7ee06080aff4c3add" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lk::Finalizer::finalize</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>finalize</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Finalizer.h" line="77" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Finalizer.h" bodystart="77" bodyend="99"/>
+        <references refid="cv_8h_1ae17b3c2584dab511e91d1c96644018bf" compoundref="cv_8h" startline="516">status</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The sole purpose of this class is to ease garbage collection testing in lua. The object calls &quot;callback&quot; when being garbage collected.</para><para><simplesect kind="par"><title>Bindings info:</title><para>lib_name: &apos;Finalizer_core&apos; destructor: &apos;finalize&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2124">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="2123">
+        <label>lk::Finalizer</label>
+        <link refid="classlk_1_1_finalizer"/>
+        <childnode refid="2124" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2127">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="2128" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2129">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2126">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="2127" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2128">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="2129" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2125">
+        <label>lk::Finalizer</label>
+        <link refid="classlk_1_1_finalizer"/>
+        <childnode refid="2126" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Finalizer.h" line="42" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Finalizer.h" bodystart="42" bodyend="100"/>
+    <listofallmembers>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>lk::Finalizer</scope><name>class_name_</name></member>
+      <member refid="classlk_1_1_finalizer_1a2e6acab12b0ce1a7ee06080aff4c3add" prot="public" virt="non-virtual"><scope>lk::Finalizer</scope><name>finalize</name></member>
+      <member refid="classlk_1_1_finalizer_1afb88cec33ee5ad8a4a65b6126bb78e84" prot="public" virt="non-virtual"><scope>lk::Finalizer</scope><name>Finalizer</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>lk::Finalizer</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>lk::Finalizer</scope><name>luaDestroy</name></member>
+      <member refid="classlk_1_1_finalizer_1a52c569b1dead0392d2cc75e1b9855bd3" prot="public" virt="virtual"><scope>lk::Finalizer</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>lk::Finalizer</scope><name>LuaObject</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>lk::Finalizer</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>lk::Finalizer</scope><name>setupSuper</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>lk::Finalizer</scope><name>worker_</name></member>
+      <member refid="classlk_1_1_finalizer_1ad26c39bb8a1de1c51cf59fb430960644" prot="public" virt="virtual"><scope>lk::Finalizer</scope><name>~Finalizer</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>lk::Finalizer</scope><name>~LuaObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

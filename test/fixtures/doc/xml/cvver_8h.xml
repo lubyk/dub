@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="cvver_8h" kind="file">
+    <compoundname>cvver.h</compoundname>
+    <includedby refid="cxcore_8h" local="yes">/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h</includedby>
+    <invincdepgraph>
+      <node id="211">
+        <label>/Users/gaspard/git/lubyk/modules/cv/include/cv/cvver.h</label>
+        <link refid="cvver.h"/>
+        <childnode refid="212" relation="include">
+        </childnode>
+      </node>
+      <node id="216">
+        <label>/Users/gaspard/git/lubyk/modules/cv/include/cv/highgui.h</label>
+        <link refid="highgui_8h"/>
+      </node>
+      <node id="215">
+        <label>/Users/gaspard/git/lubyk/modules/cv/include/cv/cvwimage.h</label>
+        <link refid="cvwimage_8h"/>
+      </node>
+      <node id="212">
+        <label>/Users/gaspard/git/lubyk/modules/cv/include/cv/cxcore.h</label>
+        <link refid="cxcore_8h"/>
+        <childnode refid="213" relation="include">
+        </childnode>
+        <childnode refid="215" relation="include">
+        </childnode>
+        <childnode refid="216" relation="include">
+        </childnode>
+        <childnode refid="217" relation="include">
+        </childnode>
+      </node>
+      <node id="214">
+        <label>/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h</label>
+        <link refid="cvaux_8h"/>
+      </node>
+      <node id="217">
+        <label>/Users/gaspard/git/lubyk/modules/cv/include/cv/ml.h</label>
+        <link refid="ml_8h"/>
+      </node>
+      <node id="213">
+        <label>/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h</label>
+        <link refid="cv_8h"/>
+        <childnode refid="214" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="cvver_8h_1ae02a6b34890cfad8e21402f698be83f3" prot="public" static="no">
+        <name>CV_MAJOR_VERSION</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvver.h" line="50" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvver.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvver_8h_1a8f512eb784b3b9ef48a81f93d14f9e57" prot="public" static="no">
+        <name>CV_MINOR_VERSION</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvver.h" line="51" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvver.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvver_8h_1a650ff21ed03cf7ea8bf9dbf346c6020d" prot="public" static="no">
+        <name>CV_SUBMINOR_VERSION</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvver.h" line="52" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvver.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvver_8h_1aa84f651e1f29a8a8a70cd7fe4911fa77" prot="public" static="no">
+        <name>CVAUX_STR_EXP</name>
+        <param><defname>__A</defname></param>
+        <initializer>#__A</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvver.h" line="54" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvver.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvver_8h_1aea72ae30b49e17fd343def2fac4766a2" prot="public" static="no">
+        <name>CVAUX_STR</name>
+        <param><defname>__A</defname></param>
+        <initializer>CVAUX_STR_EXP(__A)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvver.h" line="55" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvver.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvver_8h_1a4f050efda432e041621b3af3df140adc" prot="public" static="no">
+        <name>CV_VERSION</name>
+        <initializer>CVAUX_STR(CV_MAJOR_VERSION) &quot;.&quot; CVAUX_STR(CV_MINOR_VERSION) &quot;.&quot; CVAUX_STR(CV_SUBMINOR_VERSION)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvver.h" line="56" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvver.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*M///////////////////////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">//<sp/><sp/>IMPORTANT:<sp/>READ<sp/>BEFORE<sp/>DOWNLOADING,<sp/>COPYING,<sp/>INSTALLING<sp/>OR<sp/>USING.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">//<sp/><sp/>By<sp/>downloading,<sp/>copying,<sp/>installing<sp/>or<sp/>using<sp/>the<sp/>software<sp/>you<sp/>agree<sp/>to<sp/>this<sp/>license.</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">//<sp/><sp/>If<sp/>you<sp/>do<sp/>not<sp/>agree<sp/>to<sp/>this<sp/>license,<sp/>do<sp/>not<sp/>download,<sp/>install,</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">//<sp/><sp/>copy<sp/>or<sp/>use<sp/>the<sp/>software.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Intel<sp/>License<sp/>Agreement</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>For<sp/>Open<sp/>Source<sp/>Computer<sp/>Vision<sp/>Library</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">//<sp/>Copyright(<sp/>C)<sp/>2000,<sp/>Intel<sp/>Corporation,<sp/>all<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">//<sp/>Third<sp/>party<sp/>copyrights<sp/>are<sp/>property<sp/>of<sp/>their<sp/>respective<sp/>owners.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">//<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without<sp/>modification,</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">//<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">//<sp/><sp/><sp/>*<sp/>Redistribution&apos;s<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">//<sp/><sp/><sp/>*<sp/>Redistribution&apos;s<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright<sp/>notice,</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the<sp/>documentation</highlight></codeline>
+<codeline lineno="24"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="25"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="26"><highlight class="comment">//<sp/><sp/><sp/>*<sp/>The<sp/>name<sp/>of<sp/>Intel<sp/>Corporation<sp/>may<sp/>not<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products</highlight></codeline>
+<codeline lineno="27"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>derived<sp/>from<sp/>this<sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="28"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="29"><highlight class="comment">//<sp/>This<sp/>software<sp/>is<sp/>provided<sp/>by<sp/>the<sp/>copyright<sp/>holders<sp/>and<sp/>contributors<sp/>&quot;as<sp/>is&quot;<sp/>and</highlight></codeline>
+<codeline lineno="30"><highlight class="comment">//<sp/>any<sp/>express<sp/>or<sp/>implied<sp/>warranties,<sp/>including,<sp/>but<sp/>not<sp/>limited<sp/>to,<sp/>the<sp/>implied</highlight></codeline>
+<codeline lineno="31"><highlight class="comment">//<sp/>warranties<sp/>of<sp/>merchantability<sp/>and<sp/>fitness<sp/>for<sp/>a<sp/>particular<sp/>purpose<sp/>are<sp/>disclaimed.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment">//<sp/>In<sp/>no<sp/>event<sp/>shall<sp/>the<sp/>Intel<sp/>Corporation<sp/>or<sp/>contributors<sp/>be<sp/>liable<sp/>for<sp/>any<sp/>direct,</highlight></codeline>
+<codeline lineno="33"><highlight class="comment">//<sp/>indirect,<sp/>incidental,<sp/>special,<sp/>exemplary,<sp/>or<sp/>consequential<sp/>damages</highlight></codeline>
+<codeline lineno="34"><highlight class="comment">//(including,<sp/>but<sp/>not<sp/>limited<sp/>to,<sp/>procurement<sp/>of<sp/>substitute<sp/>goods<sp/>or<sp/>services;</highlight></codeline>
+<codeline lineno="35"><highlight class="comment">//<sp/>loss<sp/>of<sp/>use,<sp/>data,<sp/>or<sp/>profits;<sp/>or<sp/>business<sp/>interruption)<sp/>however<sp/>caused</highlight></codeline>
+<codeline lineno="36"><highlight class="comment">//<sp/>and<sp/>on<sp/>any<sp/>theory<sp/>of<sp/>liability,<sp/>whether<sp/>in<sp/>contract,<sp/>strict<sp/>liability,</highlight></codeline>
+<codeline lineno="37"><highlight class="comment">//<sp/>or<sp/>tort(including<sp/>negligence<sp/>or<sp/>otherwise)<sp/>arising<sp/>in<sp/>any<sp/>way<sp/>out<sp/>of</highlight></codeline>
+<codeline lineno="38"><highlight class="comment">//<sp/>the<sp/>use<sp/>of<sp/>this<sp/>software,<sp/>even<sp/>if<sp/>advised<sp/>of<sp/>the<sp/>possibility<sp/>of<sp/>such<sp/>damage.</highlight></codeline>
+<codeline lineno="39"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="40"><highlight class="comment">//M*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/>definition<sp/>of<sp/>the<sp/>current<sp/>version<sp/>of<sp/>OpenCV</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/>Usefull<sp/>to<sp/>test<sp/>in<sp/>user<sp/>programs</highlight></codeline>
+<codeline lineno="45"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_CVVERSION_H_</highlight></codeline>
+<codeline lineno="48"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_CVVERSION_H_</highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="cvver_8h_1ae02a6b34890cfad8e21402f698be83f3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_MAJOR_VERSION<sp/><sp/><sp/><sp/>2</highlight></codeline>
+<codeline lineno="51" refid="cvver_8h_1a8f512eb784b3b9ef48a81f93d14f9e57" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CV_MINOR_VERSION<sp/><sp/><sp/><sp/>0</highlight></codeline>
+<codeline lineno="52" refid="cvver_8h_1a650ff21ed03cf7ea8bf9dbf346c6020d" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CV_SUBMINOR_VERSION<sp/>0</highlight></codeline>
+<codeline lineno="53"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="cvver_8h_1aa84f651e1f29a8a8a70cd7fe4911fa77" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CVAUX_STR_EXP(__A)<sp/><sp/>#__A</highlight></codeline>
+<codeline lineno="55" refid="cvver_8h_1aea72ae30b49e17fd343def2fac4766a2" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CVAUX_STR(__A)<sp/><sp/><sp/><sp/><sp/><sp/>CVAUX_STR_EXP(__A)</highlight></codeline>
+<codeline lineno="56" refid="cvver_8h_1a4f050efda432e041621b3af3df140adc" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CV_VERSION<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CVAUX_STR(CV_MAJOR_VERSION)<sp/>&quot;.&quot;<sp/>CVAUX_STR(CV_MINOR_VERSION)<sp/>&quot;.&quot;<sp/>CVAUX_STR(CV_SUBMINOR_VERSION)</highlight></codeline>
+<codeline lineno="57"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*_CVVERSION_H_*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvver.h"/>
+  </compounddef>
+</doxygen>

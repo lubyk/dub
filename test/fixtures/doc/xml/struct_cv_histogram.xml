@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_histogram" kind="struct" prot="public">
+    <compoundname>CvHistogram</compoundname>
+    <includes refid="cxtypes_8h" local="no">cxtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_histogram_1a7756d84a7aac81bd6bde2e5f5b70bc04" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvHistogram::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="850" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="850" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_histogram_1a0e35427a99b709c43c92e8c8bb8a3019" prot="public" static="no" mutable="no">
+        <type><ref refid="cxtypes_8h_1ac5046bc0456e9295d80b37774384798c" kindref="member">CvArr</ref> *</type>
+        <definition>CvArr* CvHistogram::bins</definition>
+        <argsstring></argsstring>
+        <name>bins</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="851" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="851" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_histogram_1a9df34c3db55a11ae8c96a1d87b41a5a6" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvHistogram::thresh[CV_MAX_DIM][2]</definition>
+        <argsstring>[CV_MAX_DIM][2]</argsstring>
+        <name>thresh</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="852" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="852" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_histogram_1a54078c0f947e41860cdd9139beed48df" prot="public" static="no" mutable="no">
+        <type>float **</type>
+        <definition>float** CvHistogram::thresh2</definition>
+        <argsstring></argsstring>
+        <name>thresh2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="853" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="853" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_histogram_1a363eff76e137cbf655a4f6d50b55a6f6" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat_n_d" kindref="compound">CvMatND</ref></type>
+        <definition>CvMatND CvHistogram::mat</definition>
+        <argsstring></argsstring>
+        <name>mat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="854" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="854" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1919">
+        <label>CvHistogram</label>
+        <link refid="struct_cv_histogram"/>
+        <childnode refid="1920" relation="usage">
+          <edgelabel>mat</edgelabel>
+        </childnode>
+      </node>
+      <node id="1920">
+        <label>CvMatND</label>
+        <link refid="struct_cv_mat_n_d"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="849" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="848" bodyend="855"/>
+    <listofallmembers>
+      <member refid="struct_cv_histogram_1a0e35427a99b709c43c92e8c8bb8a3019" prot="public" virt="non-virtual"><scope>CvHistogram</scope><name>bins</name></member>
+      <member refid="struct_cv_histogram_1a363eff76e137cbf655a4f6d50b55a6f6" prot="public" virt="non-virtual"><scope>CvHistogram</scope><name>mat</name></member>
+      <member refid="struct_cv_histogram_1a9df34c3db55a11ae8c96a1d87b41a5a6" prot="public" virt="non-virtual"><scope>CvHistogram</scope><name>thresh</name></member>
+      <member refid="struct_cv_histogram_1a54078c0f947e41860cdd9139beed48df" prot="public" virt="non-virtual"><scope>CvHistogram</scope><name>thresh2</name></member>
+      <member refid="struct_cv_histogram_1a7756d84a7aac81bd6bde2e5f5b70bc04" prot="public" virt="non-virtual"><scope>CvHistogram</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

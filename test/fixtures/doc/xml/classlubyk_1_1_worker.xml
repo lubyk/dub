@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classlubyk_1_1_worker" kind="class" prot="public">
+    <compoundname>lubyk::Worker</compoundname>
+    <includes refid="worker_8h" local="no">worker.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlubyk_1_1_worker_1a87597039e4a4f7acd2ef0ccc0574ac83" prot="private" static="no" mutable="no">
+        <type>Implementation *</type>
+        <definition>Implementation* lubyk::Worker::impl_</definition>
+        <argsstring></argsstring>
+        <name>impl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" line="59" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classlubyk_1_1_worker_1a5006508788964ce90a177c690b02cfb2" prot="public" static="no" mutable="no">
+        <type><ref refid="classlubyk_1_1_time_ref" kindref="compound">TimeRef</ref></type>
+        <definition>TimeRef lubyk::Worker::time_ref_</definition>
+        <argsstring></argsstring>
+        <name>time_ref_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Time reference. All times are in milliseconds (as double) from this reference. 0.0 = The worker&apos;s birthdate ! </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" line="64" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" bodystart="64" bodyend="-1"/>
+        <referencedby refid="classlubyk_1_1_worker_1a94b0ab5968283fe3dda40e8f23d6ef77" compoundref="worker_8h" startline="118" endline="120">now</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classlubyk_1_1_worker_1a4068e8972c5fce50a60aaf9b37c614fa" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* lubyk::Worker::zmq_context_</definition>
+        <argsstring></argsstring>
+        <name>zmq_context_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>These sets contain the bitfields set by fdSet methods. These sets contain the bitfields after the select operation. Stores the maximum value of all fd sets. Context use by <ref refid="classzmq_1_1_socket" kindref="compound">zmq::Socket</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" line="80" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" bodystart="80" bodyend="-1"/>
+        <referencedby refid="classzmq_1_1_socket_1ab20b347056a6dcb162f3deef4ac2a63c" compoundref="zmq_2include_2zmq_2_socket_8h" startline="70" endline="98">zmq::Socket::Socket</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classlubyk_1_1_worker_1a0bc70f22a0ef1b6599639171828b590b" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t lubyk::Worker::zmq_context_refcount_</definition>
+        <argsstring></argsstring>
+        <name>zmq_context_refcount_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Counts the number of <ref refid="classzmq_1_1_socket" kindref="compound">zmq::Socket</ref> depending on the socket. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" line="85" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" bodystart="85" bodyend="-1"/>
+        <referencedby refid="classzmq_1_1_socket_1ab20b347056a6dcb162f3deef4ac2a63c" compoundref="zmq_2include_2zmq_2_socket_8h" startline="70" endline="98">zmq::Socket::Socket</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlubyk_1_1_worker_1ac1292772bf4542529d6269b1a2472de0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>lubyk::Worker::Worker</definition>
+        <argsstring>()</argsstring>
+        <name>Worker</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" line="88"/>
+        <referencedby refid="classlubyk_1_1_worker_1a8bcd915adf91628ce61f79237e3cdfa7" compoundref="worker_8h" startline="99" endline="102">execute</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_worker_1a1bdf2c96c1795dab045048e8a4df5f4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>lubyk::Worker::~Worker</definition>
+        <argsstring>()</argsstring>
+        <name>~Worker</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" line="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_worker_1ac48f75f520b80c71309ae6d11bd36fda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize lubyk::Worker::spawn</definition>
+        <argsstring>(const char *script, lua_State *L)</argsstring>
+        <name>spawn</name>
+        <param>
+          <type>const char *</type>
+          <declname>script</declname>
+        </param>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Start a new process with the given Lua script. <simplesect kind="return"><para>new process id or nil on failure </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" line="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_worker_1a8bcd915adf91628ce61f79237e3cdfa7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::Worker::execute</definition>
+        <argsstring>(const char *cmd)</argsstring>
+        <name>execute</name>
+        <param>
+          <type>const char *</type>
+          <declname>cmd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Execute a system command in a new thread </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" line="99" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" bodystart="99" bodyend="102"/>
+        <references refid="classlubyk_1_1_worker_1adcecfdc90d287b120b593d3942f89138" compoundref="worker_8h" startline="208" endline="213">doExecute</references>
+        <references refid="classlubyk_1_1_thread_1aba8009d4d34824dc3b0f9e65f96b1469" compoundref="thread_8h" startline="55" endline="73">lubyk::Thread::startThread</references>
+        <references refid="classlubyk_1_1_worker_1ac1292772bf4542529d6269b1a2472de0">Worker</references>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_worker_1a86d62dd649b8e068bbd191dd771bdffb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int lubyk::Worker::waitpid</definition>
+        <argsstring>(int pid)</argsstring>
+        <name>waitpid</name>
+        <param>
+          <type>int</type>
+          <declname>pid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wait for another process to finish (BLOCKING). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" line="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_worker_1a4f6851edb92f8746e6e0a792896a6073" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::Worker::exit</definition>
+        <argsstring>(int status)</argsstring>
+        <name>exit</name>
+        <param>
+          <type>int</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Exit with a given status. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" line="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_worker_1a4385c537c01d83f316403d86df08ecc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize lubyk::Worker::execPath</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>execPath</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the current executable&apos;s path. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" line="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_worker_1a92a1d4871e431092b4ba252903402ad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::Worker::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" line="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_worker_1a94b0ab5968283fe3dda40e8f23d6ef77" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double lubyk::Worker::now</definition>
+        <argsstring>()</argsstring>
+        <name>now</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" line="118" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" bodystart="118" bodyend="120"/>
+        <references refid="classlubyk_1_1_time_ref_1ae3e086e19a5464c5074ba1096cc1ae1a">lubyk::TimeRef::elapsed</references>
+        <references refid="classlubyk_1_1_worker_1a5006508788964ce90a177c690b02cfb2" compoundref="worker_8h" startline="64">time_ref_</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classlubyk_1_1_worker_1a81cce09f94da9a5ba0c387b9e786374e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classlubyk_1_1_worker" kindref="compound">Worker</ref> *</type>
+        <definition>static Worker* lubyk::Worker::getWorker</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>getWorker</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>For testing purpose. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" line="194"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlubyk_1_1_worker_1adcecfdc90d287b120b593d3942f89138" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::Worker::doExecute</definition>
+        <argsstring>(Thread *runner)</argsstring>
+        <name>doExecute</name>
+        <param>
+          <type><ref refid="classlubyk_1_1_thread" kindref="compound">Thread</ref> *</type>
+          <declname>runner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" line="208" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" bodystart="208" bodyend="213"/>
+        <references refid="classlubyk_1_1_thread_1a803f2081dd6d425396dc440ecb7de399" compoundref="thread_8h" startline="217">lubyk::Thread::parameter_</references>
+        <references refid="classlubyk_1_1_thread_1a37f0de298862cdba718531761bdc41a5" compoundref="thread_8h" startline="202" endline="205">lubyk::Thread::threadReady</references>
+        <referencedby refid="classlubyk_1_1_worker_1a8bcd915adf91628ce61f79237e3cdfa7" compoundref="worker_8h" startline="99" endline="102">execute</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The worker should be created only once and is responsible for timing and lua locking.</para><para><simplesect kind="par"><title>Bindings info:</title><para>string_format:&apos;%f&apos; string_args:&apos;(*userdata)-&gt;<ref refid="classlubyk_1_1_worker_1a94b0ab5968283fe3dda40e8f23d6ef77" kindref="member">now()</ref>&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="2524">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="2525" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2526">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2525">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="2526" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" line="57" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/worker.h" bodystart="56" bodyend="214"/>
+    <listofallmembers>
+      <member refid="classlubyk_1_1_worker_1adcecfdc90d287b120b593d3942f89138" prot="private" virt="non-virtual"><scope>lubyk::Worker</scope><name>doExecute</name></member>
+      <member refid="classlubyk_1_1_worker_1a4385c537c01d83f316403d86df08ecc5" prot="public" virt="non-virtual"><scope>lubyk::Worker</scope><name>execPath</name></member>
+      <member refid="classlubyk_1_1_worker_1a8bcd915adf91628ce61f79237e3cdfa7" prot="public" virt="non-virtual"><scope>lubyk::Worker</scope><name>execute</name></member>
+      <member refid="classlubyk_1_1_worker_1a4f6851edb92f8746e6e0a792896a6073" prot="public" virt="non-virtual"><scope>lubyk::Worker</scope><name>exit</name></member>
+      <member refid="classlubyk_1_1_worker_1a81cce09f94da9a5ba0c387b9e786374e" prot="public" virt="non-virtual"><scope>lubyk::Worker</scope><name>getWorker</name></member>
+      <member refid="classlubyk_1_1_worker_1a87597039e4a4f7acd2ef0ccc0574ac83" prot="private" virt="non-virtual"><scope>lubyk::Worker</scope><name>impl_</name></member>
+      <member refid="classlubyk_1_1_worker_1a94b0ab5968283fe3dda40e8f23d6ef77" prot="public" virt="non-virtual"><scope>lubyk::Worker</scope><name>now</name></member>
+      <member refid="classlubyk_1_1_worker_1a92a1d4871e431092b4ba252903402ad6" prot="public" virt="non-virtual"><scope>lubyk::Worker</scope><name>run</name></member>
+      <member refid="classlubyk_1_1_worker_1ac48f75f520b80c71309ae6d11bd36fda" prot="public" virt="non-virtual"><scope>lubyk::Worker</scope><name>spawn</name></member>
+      <member refid="classlubyk_1_1_worker_1a5006508788964ce90a177c690b02cfb2" prot="public" virt="non-virtual"><scope>lubyk::Worker</scope><name>time_ref_</name></member>
+      <member refid="classlubyk_1_1_worker_1a86d62dd649b8e068bbd191dd771bdffb" prot="public" virt="non-virtual"><scope>lubyk::Worker</scope><name>waitpid</name></member>
+      <member refid="classlubyk_1_1_worker_1ac1292772bf4542529d6269b1a2472de0" prot="public" virt="non-virtual"><scope>lubyk::Worker</scope><name>Worker</name></member>
+      <member refid="classlubyk_1_1_worker_1a4068e8972c5fce50a60aaf9b37c614fa" prot="public" virt="non-virtual"><scope>lubyk::Worker</scope><name>zmq_context_</name></member>
+      <member refid="classlubyk_1_1_worker_1a0bc70f22a0ef1b6599639171828b590b" prot="public" virt="non-virtual"><scope>lubyk::Worker</scope><name>zmq_context_refcount_</name></member>
+      <member refid="classlubyk_1_1_worker_1a1bdf2c96c1795dab045048e8a4df5f4d" prot="public" virt="non-virtual"><scope>lubyk::Worker</scope><name>~Worker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

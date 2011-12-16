@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_stereo_b_m_state" kind="struct" prot="public">
+    <compoundname>CvStereoBMState</compoundname>
+    <includes refid="cv_8h" local="no">cv.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1a40b1a3461c20acc310cb92d717d80349" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoBMState::preFilterType</definition>
+        <argsstring></argsstring>
+        <name>preFilterType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1542" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1542" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1a285cf901700e024d349357e24eb56f5f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoBMState::preFilterSize</definition>
+        <argsstring></argsstring>
+        <name>preFilterSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1543" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1543" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1a97497d8743ca96035a0342c124ba5722" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoBMState::preFilterCap</definition>
+        <argsstring></argsstring>
+        <name>preFilterCap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1544" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1544" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1a4a9afba8bb5776a39272f6e1572b9287" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoBMState::SADWindowSize</definition>
+        <argsstring></argsstring>
+        <name>SADWindowSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1547" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1547" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1a6e8adbd6b4c605a97319e95ccc1574dd" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoBMState::minDisparity</definition>
+        <argsstring></argsstring>
+        <name>minDisparity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1548" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1548" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1ad9309c0a1d86ada87dc992adaf778f8f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoBMState::numberOfDisparities</definition>
+        <argsstring></argsstring>
+        <name>numberOfDisparities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1549" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1549" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1af343293b2b824cc268224f27a5865251" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoBMState::textureThreshold</definition>
+        <argsstring></argsstring>
+        <name>textureThreshold</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1552" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1552" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1a6e34951a7f217bcdea3eadfb21197771" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoBMState::uniquenessRatio</definition>
+        <argsstring></argsstring>
+        <name>uniquenessRatio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1554" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1554" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1a2c5539336775ae6521a050441a2a547a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoBMState::speckleWindowSize</definition>
+        <argsstring></argsstring>
+        <name>speckleWindowSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1557" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1557" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1a65c679c2e73aca45135f5230eb264f4d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoBMState::speckleRange</definition>
+        <argsstring></argsstring>
+        <name>speckleRange</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1558" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1558" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1a00d06afb9609f107340d970c936571d9" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvStereoBMState::trySmallerWindows</definition>
+        <argsstring></argsstring>
+        <name>trySmallerWindows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1560" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1560" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1a2f133a2c8eb9de753d957a23784f26dd" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvStereoBMState::preFilteredImg0</definition>
+        <argsstring></argsstring>
+        <name>preFilteredImg0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1564" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1564" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1a71ec729ddd63b97da67d985f5d56c5f3" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvStereoBMState::preFilteredImg1</definition>
+        <argsstring></argsstring>
+        <name>preFilteredImg1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1565" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1565" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1af07848cf3acc7faa9976ccd4a1ed5954" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvStereoBMState::slidingSumBuf</definition>
+        <argsstring></argsstring>
+        <name>slidingSumBuf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1566" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1566" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1a6b00fa60f23fa1556dc85926f047a5e8" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvStereoBMState::dbmin</definition>
+        <argsstring></argsstring>
+        <name>dbmin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1567" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1567" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1aa45dadd3f74c5413b731dc51c486527b" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvStereoBMState::dbmax</definition>
+        <argsstring></argsstring>
+        <name>dbmax</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1568" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1568" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_stereo_b_m_state_1a44ac348e202fd808345395fde2b5b58a" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_mat" kindref="compound">CvMat</ref> *</type>
+        <definition>CvMat* CvStereoBMState::disp</definition>
+        <argsstring></argsstring>
+        <name>disp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1569" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1569" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2021">
+        <label>CvStereoBMState</label>
+        <link refid="struct_cv_stereo_b_m_state"/>
+        <childnode refid="2022" relation="usage">
+          <edgelabel>slidingSumBuf</edgelabel>
+          <edgelabel>disp</edgelabel>
+          <edgelabel>preFilteredImg0</edgelabel>
+          <edgelabel>preFilteredImg1</edgelabel>
+          <edgelabel>dbmin</edgelabel>
+          <edgelabel>dbmax</edgelabel>
+        </childnode>
+      </node>
+      <node id="2022">
+        <label>CvMat</label>
+        <link refid="struct_cv_mat"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1540" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1539" bodyend="1570"/>
+    <listofallmembers>
+      <member refid="struct_cv_stereo_b_m_state_1aa45dadd3f74c5413b731dc51c486527b" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>dbmax</name></member>
+      <member refid="struct_cv_stereo_b_m_state_1a6b00fa60f23fa1556dc85926f047a5e8" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>dbmin</name></member>
+      <member refid="struct_cv_stereo_b_m_state_1a44ac348e202fd808345395fde2b5b58a" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>disp</name></member>
+      <member refid="struct_cv_stereo_b_m_state_1a6e8adbd6b4c605a97319e95ccc1574dd" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>minDisparity</name></member>
+      <member refid="struct_cv_stereo_b_m_state_1ad9309c0a1d86ada87dc992adaf778f8f" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>numberOfDisparities</name></member>
+      <member refid="struct_cv_stereo_b_m_state_1a97497d8743ca96035a0342c124ba5722" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>preFilterCap</name></member>
+      <member refid="struct_cv_stereo_b_m_state_1a2f133a2c8eb9de753d957a23784f26dd" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>preFilteredImg0</name></member>
+      <member refid="struct_cv_stereo_b_m_state_1a71ec729ddd63b97da67d985f5d56c5f3" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>preFilteredImg1</name></member>
+      <member refid="struct_cv_stereo_b_m_state_1a285cf901700e024d349357e24eb56f5f" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>preFilterSize</name></member>
+      <member refid="struct_cv_stereo_b_m_state_1a40b1a3461c20acc310cb92d717d80349" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>preFilterType</name></member>
+      <member refid="struct_cv_stereo_b_m_state_1a4a9afba8bb5776a39272f6e1572b9287" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>SADWindowSize</name></member>
+      <member refid="struct_cv_stereo_b_m_state_1af07848cf3acc7faa9976ccd4a1ed5954" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>slidingSumBuf</name></member>
+      <member refid="struct_cv_stereo_b_m_state_1a65c679c2e73aca45135f5230eb264f4d" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>speckleRange</name></member>
+      <member refid="struct_cv_stereo_b_m_state_1a2c5539336775ae6521a050441a2a547a" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>speckleWindowSize</name></member>
+      <member refid="struct_cv_stereo_b_m_state_1af343293b2b824cc268224f27a5865251" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>textureThreshold</name></member>
+      <member refid="struct_cv_stereo_b_m_state_1a00d06afb9609f107340d970c936571d9" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>trySmallerWindows</name></member>
+      <member refid="struct_cv_stereo_b_m_state_1a6e34951a7f217bcdea3eadfb21197771" prot="public" virt="non-virtual"><scope>CvStereoBMState</scope><name>uniquenessRatio</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

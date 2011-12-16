@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="bind_2fifo_8h" kind="file">
+    <compoundname>Fifo.h</compoundname>
+    <innerclass refid="classlubyk_1_1_fifo_methods" prot="public">lubyk::FifoMethods</innerclass>
+    <innernamespace refid="namespacelubyk">lubyk</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">lubyk<sp/>{</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="classlubyk_1_1_fifo_methods" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlubyk_1_1_fifo_methods" kindref="compound">FifoMethods</ref><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_fifo_methods_1a90cabbc870222f2576ffefac24c4b551" kindref="member">fd</ref>();</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref><sp/><ref refid="classlubyk_1_1_fifo_methods_1a513f978861f28a8730dee59b3e98f4f6" kindref="member">pop</ref>(lua_State<sp/>*L);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/gaspard/git/lubyk/modules/lubyk/bind/Fifo.h"/>
+  </compounddef>
+</doxygen>

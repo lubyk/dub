@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classlubyk_1_1_mutex" kind="class" prot="public">
+    <compoundname>lubyk::Mutex</compoundname>
+    <basecompoundref refid="classlubyk_1_1_non_copyable" prot="private" virt="non-virtual">lubyk::NonCopyable</basecompoundref>
+    <derivedcompoundref refid="classlubyk_1_1_condition" prot="public" virt="non-virtual">lubyk::Condition</derivedcompoundref>
+    <derivedcompoundref refid="classlubyk_1_1_thread" prot="public" virt="non-virtual">lubyk::Thread</derivedcompoundref>
+    <derivedcompoundref refid="classmdns_1_1_abstract_browser" prot="public" virt="non-virtual">mdns::AbstractBrowser</derivedcompoundref>
+    <derivedcompoundref refid="classmdns_1_1_abstract_registration" prot="public" virt="non-virtual">mdns::AbstractRegistration</derivedcompoundref>
+    <includes refid="lubyk_2include_2lubyk_2_mutex_8h" local="no">mutex.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlubyk_1_1_mutex_1a378e316656a57c5397896f5ceddc9c5b" prot="private" static="no" mutable="no">
+        <type>pthread_mutex_t</type>
+        <definition>pthread_mutex_t lubyk::Mutex::mutex_</definition>
+        <argsstring></argsstring>
+        <name>mutex_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" line="45" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" bodystart="45" bodyend="-1"/>
+        <referencedby refid="classlubyk_1_1_mutex_1a74ee38ef2f9bf4e86a3871f5b60a31c3" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="67" endline="69">lock</referencedby>
+        <referencedby refid="classlubyk_1_1_mutex_1a8e93f428f3245e6b6528901f4599d0d7" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="48" endline="53">Mutex</referencedby>
+        <referencedby refid="classlubyk_1_1_mutex_1a83fead89eb5401b9dd1fbc6ecdd7e31c" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="72" endline="74">unlock</referencedby>
+        <referencedby refid="classlubyk_1_1_condition_1a9e1f35162eda86874b3548386cbeffd4" compoundref="condition_8h" startline="75" endline="79">lubyk::Condition::wait</referencedby>
+        <referencedby refid="classlubyk_1_1_mutex_1abca8268a2723750c3c9a31bc839a2912" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="56" endline="62">~Mutex</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classlubyk_1_1_mutex_1a0705c7682858f6dcf7fe85cba92f0a5c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class Condition</definition>
+        <argsstring></argsstring>
+        <name>Condition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" line="46" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlubyk_1_1_mutex_1a8e93f428f3245e6b6528901f4599d0d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lubyk::Mutex::Mutex</definition>
+        <argsstring>()</argsstring>
+        <name>Mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" line="48" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" bodystart="48" bodyend="53"/>
+        <references refid="classlubyk_1_1_mutex_1a378e316656a57c5397896f5ceddc9c5b" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="45">mutex_</references>
+        <references refid="cv_8h_1ae17b3c2584dab511e91d1c96644018bf" compoundref="cv_8h" startline="516">status</references>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_mutex_1abca8268a2723750c3c9a31bc839a2912" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual lubyk::Mutex::~Mutex</definition>
+        <argsstring>()</argsstring>
+        <name>~Mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" line="56" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" bodystart="56" bodyend="62"/>
+        <references refid="classlubyk_1_1_mutex_1a378e316656a57c5397896f5ceddc9c5b" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="45">mutex_</references>
+        <references refid="cv_8h_1ae17b3c2584dab511e91d1c96644018bf" compoundref="cv_8h" startline="516">status</references>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_mutex_1a74ee38ef2f9bf4e86a3871f5b60a31c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::Mutex::lock</definition>
+        <argsstring>()</argsstring>
+        <name>lock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>If the mutex is locked by another thread, waits until it is unlocked, lock and continue. If the mutex is not locked. Lock and continue. If this thread locked it: bang! </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" line="67" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" bodystart="67" bodyend="69"/>
+        <references refid="classlubyk_1_1_mutex_1a378e316656a57c5397896f5ceddc9c5b" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="45">mutex_</references>
+        <referencedby refid="classlubyk_1_1_r_mutex_1a63ad83c6e14efe863a139d972fc36e42" compoundref="rmutex_8h" startline="59" endline="68">lubyk::RMutex::lock</referencedby>
+        <referencedby refid="classlubyk_1_1_scoped_s_lock_1ad9e8704456baf5add9f325447ce19724" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="82" endline="84">lubyk::ScopedSLock::ScopedSLock</referencedby>
+        <referencedby refid="classlubyk_1_1_condition_1a9929b0d44e95c4986165759ec8f6e120" compoundref="condition_8h" startline="83" endline="90">lubyk::Condition::signal</referencedby>
+        <referencedby refid="classlubyk_1_1_thread_1aba8009d4d34824dc3b0f9e65f96b1469" compoundref="thread_8h" startline="55" endline="73">lubyk::Thread::startThread</referencedby>
+        <referencedby refid="classlubyk_1_1_scoped_s_unlock_1a30cfbbed06c7246ecd9eee03500c9b58" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="113" endline="115">lubyk::ScopedSUnlock::~ScopedSUnlock</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classlubyk_1_1_mutex_1a83fead89eb5401b9dd1fbc6ecdd7e31c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lubyk::Mutex::unlock</definition>
+        <argsstring>()</argsstring>
+        <name>unlock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Release the lock so others can work on the data. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" line="72" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" bodystart="72" bodyend="74"/>
+        <references refid="classlubyk_1_1_mutex_1a378e316656a57c5397896f5ceddc9c5b" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="45">mutex_</references>
+        <referencedby refid="classlubyk_1_1_scoped_s_unlock_1ab0d137cecef5efe8895b7537972e7a31" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="105" endline="107">lubyk::ScopedSUnlock::ScopedSUnlock</referencedby>
+        <referencedby refid="classlubyk_1_1_condition_1a9929b0d44e95c4986165759ec8f6e120" compoundref="condition_8h" startline="83" endline="90">lubyk::Condition::signal</referencedby>
+        <referencedby refid="classlubyk_1_1_r_mutex_1aea9fcfff855511d10784d718c82df6f8" compoundref="rmutex_8h" startline="71" endline="76">lubyk::RMutex::unlock</referencedby>
+        <referencedby refid="classlubyk_1_1_scoped_s_lock_1a9746b06b29cd2dfe36f7c365b72328e9" compoundref="lubyk_2include_2lubyk_2_mutex_8h" startline="90" endline="92">lubyk::ScopedSLock::~ScopedSLock</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Simple wrapper class for a fast mutex. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2272">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2277">
+        <label>mdns::AbstractRegistration</label>
+        <link refid="classmdns_1_1_abstract_registration"/>
+        <childnode refid="2271" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2275">
+        <label>mdns::AbstractBrowser</label>
+        <link refid="classmdns_1_1_abstract_browser"/>
+        <childnode refid="2271" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2274">
+        <label>lubyk::Thread</label>
+        <link refid="classlubyk_1_1_thread"/>
+        <childnode refid="2271" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2271">
+        <label>lubyk::Mutex</label>
+        <link refid="classlubyk_1_1_mutex"/>
+        <childnode refid="2272" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2273">
+        <label>lubyk::Condition</label>
+        <link refid="classlubyk_1_1_condition"/>
+        <childnode refid="2271" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2278">
+        <label>mdns::Registration</label>
+        <link refid="classmdns_1_1_registration"/>
+        <childnode refid="2277" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2276">
+        <label>mdns::Browser</label>
+        <link refid="classmdns_1_1_browser"/>
+        <childnode refid="2275" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2280">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2279">
+        <label>lubyk::Mutex</label>
+        <link refid="classlubyk_1_1_mutex"/>
+        <childnode refid="2280" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" line="44" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/mutex.h" bodystart="43" bodyend="75"/>
+    <listofallmembers>
+      <member refid="classlubyk_1_1_mutex_1a0705c7682858f6dcf7fe85cba92f0a5c" prot="private" virt="non-virtual"><scope>lubyk::Mutex</scope><name>Condition</name></member>
+      <member refid="classlubyk_1_1_mutex_1a74ee38ef2f9bf4e86a3871f5b60a31c3" prot="public" virt="non-virtual"><scope>lubyk::Mutex</scope><name>lock</name></member>
+      <member refid="classlubyk_1_1_mutex_1a8e93f428f3245e6b6528901f4599d0d7" prot="public" virt="non-virtual"><scope>lubyk::Mutex</scope><name>Mutex</name></member>
+      <member refid="classlubyk_1_1_mutex_1a378e316656a57c5397896f5ceddc9c5b" prot="private" virt="non-virtual"><scope>lubyk::Mutex</scope><name>mutex_</name></member>
+      <member refid="classlubyk_1_1_non_copyable_1a589ca6787b3fb8f88439cff31b249bf7" prot="private" virt="non-virtual"><scope>lubyk::Mutex</scope><name>NonCopyable</name></member>
+      <member refid="classlubyk_1_1_mutex_1a83fead89eb5401b9dd1fbc6ecdd7e31c" prot="public" virt="non-virtual"><scope>lubyk::Mutex</scope><name>unlock</name></member>
+      <member refid="classlubyk_1_1_mutex_1abca8268a2723750c3c9a31bc839a2912" prot="public" virt="virtual"><scope>lubyk::Mutex</scope><name>~Mutex</name></member>
+      <member refid="classlubyk_1_1_non_copyable_1a7efa456af3055dc86071f78c4bf1d1c3" prot="private" virt="non-virtual"><scope>lubyk::Mutex</scope><name>~NonCopyable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

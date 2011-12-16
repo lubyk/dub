@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_contact_velocity_constraint" kind="struct" prot="public">
+    <compoundname>b2ContactVelocityConstraint</compoundname>
+    <includes refid="b2_contact_solver_8h" local="no">b2ContactSolver.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_contact_velocity_constraint_1a549a4b6f915af5516234ece57b60e0dd" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_velocity_constraint_point" kindref="compound">b2VelocityConstraintPoint</ref></type>
+        <definition>b2VelocityConstraintPoint b2ContactVelocityConstraint::points[b2_maxManifoldPoints]</definition>
+        <argsstring>[b2_maxManifoldPoints]</argsstring>
+        <name>points</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="44" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_velocity_constraint_1a1da730d689f89bd89cab06c5792f9bf3" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2ContactVelocityConstraint::normal</definition>
+        <argsstring></argsstring>
+        <name>normal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="45" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_velocity_constraint_1a0ee46cdf9b9136484e6a2ca25ac7cd4b" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_mat22" kindref="compound">b2Mat22</ref></type>
+        <definition>b2Mat22 b2ContactVelocityConstraint::normalMass</definition>
+        <argsstring></argsstring>
+        <name>normalMass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="46" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_velocity_constraint_1a36c427f978d6f390552220b8ad21e1a9" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_mat22" kindref="compound">b2Mat22</ref></type>
+        <definition>b2Mat22 b2ContactVelocityConstraint::K</definition>
+        <argsstring></argsstring>
+        <name>K</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="47" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_velocity_constraint_1a44a5ddedc5058c2453e873b999acd547" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2ContactVelocityConstraint::indexA</definition>
+        <argsstring></argsstring>
+        <name>indexA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="48" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_velocity_constraint_1a55a9fd87a6e560fe83d81d6b9c14f356" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2ContactVelocityConstraint::indexB</definition>
+        <argsstring></argsstring>
+        <name>indexB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="49" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_velocity_constraint_1a529003546429532d186130ca35f2178e" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2ContactVelocityConstraint::invMassA</definition>
+        <argsstring></argsstring>
+        <name>invMassA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="50" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_velocity_constraint_1ac75c816e94402ed4d93f232d211d4f62" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2ContactVelocityConstraint::invMassB</definition>
+        <argsstring></argsstring>
+        <name>invMassB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="50" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_velocity_constraint_1ac6c18706a9ee89c5a682dc610e86e00f" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2ContactVelocityConstraint::invIA</definition>
+        <argsstring></argsstring>
+        <name>invIA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="51" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_velocity_constraint_1aae02d4fd8f60353385b9cc876dc78a81" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2ContactVelocityConstraint::invIB</definition>
+        <argsstring></argsstring>
+        <name>invIB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="51" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_velocity_constraint_1a11025786ae828eeeb60dfcd15358d934" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2ContactVelocityConstraint::friction</definition>
+        <argsstring></argsstring>
+        <name>friction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="52" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_velocity_constraint_1a6734f74c1970abc64ed7dcffd8737257" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2ContactVelocityConstraint::restitution</definition>
+        <argsstring></argsstring>
+        <name>restitution</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_velocity_constraint_1a1decd7bf6a5dc61bd72d4e87b070a660" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2ContactVelocityConstraint::pointCount</definition>
+        <argsstring></argsstring>
+        <name>pointCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="54" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_velocity_constraint_1a4c76b9292f28859e2f8c9d075e79b873" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2ContactVelocityConstraint::contactIndex</definition>
+        <argsstring></argsstring>
+        <name>contactIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="55" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="425">
+        <label>b2ContactVelocityConstraint</label>
+        <link refid="structb2_contact_velocity_constraint"/>
+        <childnode refid="426" relation="usage">
+          <edgelabel>normal</edgelabel>
+        </childnode>
+        <childnode refid="427" relation="usage">
+          <edgelabel>points</edgelabel>
+        </childnode>
+        <childnode refid="428" relation="usage">
+          <edgelabel>K</edgelabel>
+          <edgelabel>normalMass</edgelabel>
+        </childnode>
+      </node>
+      <node id="428">
+        <label>b2Mat22</label>
+        <link refid="structb2_mat22"/>
+        <childnode refid="426" relation="usage">
+          <edgelabel>ex</edgelabel>
+          <edgelabel>ey</edgelabel>
+        </childnode>
+      </node>
+      <node id="427">
+        <label>b2VelocityConstraintPoint</label>
+        <link refid="structb2_velocity_constraint_point"/>
+        <childnode refid="426" relation="usage">
+          <edgelabel>rA</edgelabel>
+          <edgelabel>rB</edgelabel>
+        </childnode>
+      </node>
+      <node id="426">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="43" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="42" bodyend="56"/>
+    <listofallmembers>
+      <member refid="structb2_contact_velocity_constraint_1a4c76b9292f28859e2f8c9d075e79b873" prot="public" virt="non-virtual"><scope>b2ContactVelocityConstraint</scope><name>contactIndex</name></member>
+      <member refid="structb2_contact_velocity_constraint_1a11025786ae828eeeb60dfcd15358d934" prot="public" virt="non-virtual"><scope>b2ContactVelocityConstraint</scope><name>friction</name></member>
+      <member refid="structb2_contact_velocity_constraint_1a44a5ddedc5058c2453e873b999acd547" prot="public" virt="non-virtual"><scope>b2ContactVelocityConstraint</scope><name>indexA</name></member>
+      <member refid="structb2_contact_velocity_constraint_1a55a9fd87a6e560fe83d81d6b9c14f356" prot="public" virt="non-virtual"><scope>b2ContactVelocityConstraint</scope><name>indexB</name></member>
+      <member refid="structb2_contact_velocity_constraint_1ac6c18706a9ee89c5a682dc610e86e00f" prot="public" virt="non-virtual"><scope>b2ContactVelocityConstraint</scope><name>invIA</name></member>
+      <member refid="structb2_contact_velocity_constraint_1aae02d4fd8f60353385b9cc876dc78a81" prot="public" virt="non-virtual"><scope>b2ContactVelocityConstraint</scope><name>invIB</name></member>
+      <member refid="structb2_contact_velocity_constraint_1a529003546429532d186130ca35f2178e" prot="public" virt="non-virtual"><scope>b2ContactVelocityConstraint</scope><name>invMassA</name></member>
+      <member refid="structb2_contact_velocity_constraint_1ac75c816e94402ed4d93f232d211d4f62" prot="public" virt="non-virtual"><scope>b2ContactVelocityConstraint</scope><name>invMassB</name></member>
+      <member refid="structb2_contact_velocity_constraint_1a36c427f978d6f390552220b8ad21e1a9" prot="public" virt="non-virtual"><scope>b2ContactVelocityConstraint</scope><name>K</name></member>
+      <member refid="structb2_contact_velocity_constraint_1a1da730d689f89bd89cab06c5792f9bf3" prot="public" virt="non-virtual"><scope>b2ContactVelocityConstraint</scope><name>normal</name></member>
+      <member refid="structb2_contact_velocity_constraint_1a0ee46cdf9b9136484e6a2ca25ac7cd4b" prot="public" virt="non-virtual"><scope>b2ContactVelocityConstraint</scope><name>normalMass</name></member>
+      <member refid="structb2_contact_velocity_constraint_1a1decd7bf6a5dc61bd72d4e87b070a660" prot="public" virt="non-virtual"><scope>b2ContactVelocityConstraint</scope><name>pointCount</name></member>
+      <member refid="structb2_contact_velocity_constraint_1a549a4b6f915af5516234ece57b60e0dd" prot="public" virt="non-virtual"><scope>b2ContactVelocityConstraint</scope><name>points</name></member>
+      <member refid="structb2_contact_velocity_constraint_1a6734f74c1970abc64ed7dcffd8737257" prot="public" virt="non-virtual"><scope>b2ContactVelocityConstraint</scope><name>restitution</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

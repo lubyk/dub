@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="dir_552c9b9bc4d43a4c205bbd34b2779561" kind="dir">
+    <compoundname>/Users/gaspard/git/lubyk/modules/lk/include/lk/</compoundname>
+    <innerfile refid="lk_2include_2lk_2constants_8h">constants.h</innerfile>
+    <innerfile refid="_debug_8h">Debug.h</innerfile>
+    <innerfile refid="_finalizer_8h">Finalizer.h</innerfile>
+    <innerfile refid="lk_2include_2lk_2_mutex_8h">Mutex.h</innerfile>
+    <innerfile refid="lk_2include_2lk_2_socket_8h">Socket.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/"/>
+  </compounddef>
+</doxygen>

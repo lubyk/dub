@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="b2_contact_solver_8h" kind="file">
+    <compoundname>b2ContactSolver.h</compoundname>
+    <includes local="no">Box2D/Common/b2Math.h</includes>
+    <includes local="no">Box2D/Collision/b2Collision.h</includes>
+    <includes local="no">Box2D/Dynamics/b2TimeStep.h</includes>
+    <incdepgraph>
+      <node id="42">
+        <label>/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h</label>
+        <link refid="b2ContactSolver.h"/>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>Box2D/Common/b2Math.h</label>
+      </node>
+      <node id="44">
+        <label>Box2D/Collision/b2Collision.h</label>
+      </node>
+      <node id="45">
+        <label>Box2D/Dynamics/b2TimeStep.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structb2_velocity_constraint_point" prot="public">b2VelocityConstraintPoint</innerclass>
+    <innerclass refid="structb2_contact_velocity_constraint" prot="public">b2ContactVelocityConstraint</innerclass>
+    <innerclass refid="structb2_contact_solver_def" prot="public">b2ContactSolverDef</innerclass>
+    <innerclass refid="classb2_contact_solver" prot="public">b2ContactSolver</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">*<sp/>Copyright<sp/>(c)<sp/>2006-2009<sp/>Erin<sp/>Catto<sp/>http://www.box2d.org</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">*<sp/>This<sp/>software<sp/>is<sp/>provided<sp/>&apos;as-is&apos;,<sp/>without<sp/>any<sp/>express<sp/>or<sp/>implied</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">*<sp/>warranty.<sp/><sp/>In<sp/>no<sp/>event<sp/>will<sp/>the<sp/>authors<sp/>be<sp/>held<sp/>liable<sp/>for<sp/>any<sp/>damages</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*<sp/>arising<sp/>from<sp/>the<sp/>use<sp/>of<sp/>this<sp/>software.</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">*<sp/>Permission<sp/>is<sp/>granted<sp/>to<sp/>anyone<sp/>to<sp/>use<sp/>this<sp/>software<sp/>for<sp/>any<sp/>purpose,</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">*<sp/>including<sp/>commercial<sp/>applications,<sp/>and<sp/>to<sp/>alter<sp/>it<sp/>and<sp/>redistribute<sp/>it</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">*<sp/>freely,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>restrictions:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">*<sp/>1.<sp/>The<sp/>origin<sp/>of<sp/>this<sp/>software<sp/>must<sp/>not<sp/>be<sp/>misrepresented;<sp/>you<sp/>must<sp/>not</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">*<sp/>claim<sp/>that<sp/>you<sp/>wrote<sp/>the<sp/>original<sp/>software.<sp/>If<sp/>you<sp/>use<sp/>this<sp/>software</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">*<sp/>in<sp/>a<sp/>product,<sp/>an<sp/>acknowledgment<sp/>in<sp/>the<sp/>product<sp/>documentation<sp/>would<sp/>be</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">*<sp/>appreciated<sp/>but<sp/>is<sp/>not<sp/>required.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">*<sp/>2.<sp/>Altered<sp/>source<sp/>versions<sp/>must<sp/>be<sp/>plainly<sp/>marked<sp/>as<sp/>such,<sp/>and<sp/>must<sp/>not<sp/>be</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">*<sp/>misrepresented<sp/>as<sp/>being<sp/>the<sp/>original<sp/>software.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">*<sp/>3.<sp/>This<sp/>notice<sp/>may<sp/>not<sp/>be<sp/>removed<sp/>or<sp/>altered<sp/>from<sp/>any<sp/>source<sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>B2_CONTACT_SOLVER_H</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>B2_CONTACT_SOLVER_H</highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Box2D/Common/b2Math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Box2D/Collision/b2Collision.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Box2D/Dynamics/b2TimeStep.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_contact" kindref="compound">b2Contact</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_body" kindref="compound" tooltip="A rigid body. These are created via b2World::CreateBody.">b2Body</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_stack_allocator" kindref="compound">b2StackAllocator</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">b2ContactPositionConstraint;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="structb2_velocity_constraint_point" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structb2_velocity_constraint_point" kindref="compound">b2VelocityConstraintPoint</ref></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33" refid="structb2_velocity_constraint_point_1a0be704259cd5d3902d8581e186546e5e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref><sp/><ref refid="structb2_velocity_constraint_point_1a0be704259cd5d3902d8581e186546e5e" kindref="member">rA</ref>;</highlight></codeline>
+<codeline lineno="34" refid="structb2_velocity_constraint_point_1ab5d1c98e09e2f859b71f6d0fda46c0d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref><sp/><ref refid="structb2_velocity_constraint_point_1ab5d1c98e09e2f859b71f6d0fda46c0d5" kindref="member">rB</ref>;</highlight></codeline>
+<codeline lineno="35" refid="structb2_velocity_constraint_point_1a304653be2ca1c1daa72d7b7868b37b11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="structb2_velocity_constraint_point_1a304653be2ca1c1daa72d7b7868b37b11" kindref="member">normalImpulse</ref>;</highlight></codeline>
+<codeline lineno="36" refid="structb2_velocity_constraint_point_1ac3e3be335d204bb6a89a7303831cc89b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="structb2_velocity_constraint_point_1ac3e3be335d204bb6a89a7303831cc89b" kindref="member">tangentImpulse</ref>;</highlight></codeline>
+<codeline lineno="37" refid="structb2_velocity_constraint_point_1a5997e9781cedbd86333a84a967b59c33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="structb2_velocity_constraint_point_1a5997e9781cedbd86333a84a967b59c33" kindref="member">normalMass</ref>;</highlight></codeline>
+<codeline lineno="38" refid="structb2_velocity_constraint_point_1a029692226a637f5e687022041b25043c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="structb2_velocity_constraint_point_1a029692226a637f5e687022041b25043c" kindref="member">tangentMass</ref>;</highlight></codeline>
+<codeline lineno="39" refid="structb2_velocity_constraint_point_1a81d492345d9b1c8f51ec10154ab840f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="structb2_velocity_constraint_point_1a81d492345d9b1c8f51ec10154ab840f2" kindref="member">velocityBias</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="structb2_contact_velocity_constraint" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structb2_contact_velocity_constraint" kindref="compound">b2ContactVelocityConstraint</ref></highlight></codeline>
+<codeline lineno="43"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="44" refid="structb2_contact_velocity_constraint_1a549a4b6f915af5516234ece57b60e0dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_velocity_constraint_point" kindref="compound">b2VelocityConstraintPoint</ref><sp/><ref refid="structb2_contact_velocity_constraint_1a549a4b6f915af5516234ece57b60e0dd" kindref="member">points</ref>[<ref refid="b2_settings_8h_1aa5f44cc9edf711433dea2b2ec94f3c42" kindref="member">b2_maxManifoldPoints</ref>];</highlight></codeline>
+<codeline lineno="45" refid="structb2_contact_velocity_constraint_1a1da730d689f89bd89cab06c5792f9bf3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref><sp/><ref refid="structb2_contact_velocity_constraint_1a1da730d689f89bd89cab06c5792f9bf3" kindref="member">normal</ref>;</highlight></codeline>
+<codeline lineno="46" refid="structb2_contact_velocity_constraint_1a0ee46cdf9b9136484e6a2ca25ac7cd4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_mat22" kindref="compound" tooltip="A 2-by-2 matrix. Stored in column-major order.">b2Mat22</ref><sp/><ref refid="structb2_contact_velocity_constraint_1a0ee46cdf9b9136484e6a2ca25ac7cd4b" kindref="member">normalMass</ref>;</highlight></codeline>
+<codeline lineno="47" refid="structb2_contact_velocity_constraint_1a36c427f978d6f390552220b8ad21e1a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_mat22" kindref="compound" tooltip="A 2-by-2 matrix. Stored in column-major order.">b2Mat22</ref><sp/><ref refid="structb2_contact_velocity_constraint_1a36c427f978d6f390552220b8ad21e1a9" kindref="member">K</ref>;</highlight></codeline>
+<codeline lineno="48" refid="structb2_contact_velocity_constraint_1a44a5ddedc5058c2453e873b999acd547" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="structb2_contact_velocity_constraint_1a44a5ddedc5058c2453e873b999acd547" kindref="member">indexA</ref>;</highlight></codeline>
+<codeline lineno="49" refid="structb2_contact_velocity_constraint_1a55a9fd87a6e560fe83d81d6b9c14f356" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="structb2_contact_velocity_constraint_1a55a9fd87a6e560fe83d81d6b9c14f356" kindref="member">indexB</ref>;</highlight></codeline>
+<codeline lineno="50" refid="structb2_contact_velocity_constraint_1ac75c816e94402ed4d93f232d211d4f62" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="structb2_contact_velocity_constraint_1a529003546429532d186130ca35f2178e" kindref="member">invMassA</ref>,<sp/><ref refid="structb2_contact_velocity_constraint_1ac75c816e94402ed4d93f232d211d4f62" kindref="member">invMassB</ref>;</highlight></codeline>
+<codeline lineno="51" refid="structb2_contact_velocity_constraint_1aae02d4fd8f60353385b9cc876dc78a81" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="structb2_contact_velocity_constraint_1ac6c18706a9ee89c5a682dc610e86e00f" kindref="member">invIA</ref>,<sp/><ref refid="structb2_contact_velocity_constraint_1aae02d4fd8f60353385b9cc876dc78a81" kindref="member">invIB</ref>;</highlight></codeline>
+<codeline lineno="52" refid="structb2_contact_velocity_constraint_1a11025786ae828eeeb60dfcd15358d934" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="structb2_contact_velocity_constraint_1a11025786ae828eeeb60dfcd15358d934" kindref="member">friction</ref>;</highlight></codeline>
+<codeline lineno="53" refid="structb2_contact_velocity_constraint_1a6734f74c1970abc64ed7dcffd8737257" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="structb2_contact_velocity_constraint_1a6734f74c1970abc64ed7dcffd8737257" kindref="member">restitution</ref>;</highlight></codeline>
+<codeline lineno="54" refid="structb2_contact_velocity_constraint_1a1decd7bf6a5dc61bd72d4e87b070a660" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="structb2_contact_velocity_constraint_1a1decd7bf6a5dc61bd72d4e87b070a660" kindref="member">pointCount</ref>;</highlight></codeline>
+<codeline lineno="55" refid="structb2_contact_velocity_constraint_1a4c76b9292f28859e2f8c9d075e79b873" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="structb2_contact_velocity_constraint_1a4c76b9292f28859e2f8c9d075e79b873" kindref="member">contactIndex</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="structb2_contact_solver_def" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structb2_contact_solver_def" kindref="compound">b2ContactSolverDef</ref></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60" refid="structb2_contact_solver_def_1a544604c01e6606ab54b8ccd5289a7ac7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_time_step" kindref="compound" tooltip="This is an internal structure.">b2TimeStep</ref><sp/><ref refid="structb2_contact_solver_def_1a544604c01e6606ab54b8ccd5289a7ac7" kindref="member">step</ref>;</highlight></codeline>
+<codeline lineno="61" refid="structb2_contact_solver_def_1a4b9d708e3122cab8d9dabeafefc7a9af" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_contact" kindref="compound">b2Contact</ref>**<sp/><ref refid="structb2_contact_solver_def_1a4b9d708e3122cab8d9dabeafefc7a9af" kindref="member">contacts</ref>;</highlight></codeline>
+<codeline lineno="62" refid="structb2_contact_solver_def_1ae977ea1cee4b7b9ee99210d9b66f88ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="structb2_contact_solver_def_1ae977ea1cee4b7b9ee99210d9b66f88ea" kindref="member">count</ref>;</highlight></codeline>
+<codeline lineno="63" refid="structb2_contact_solver_def_1aaf1432d040aa6279d91d8c9f24a4728a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_position" kindref="compound" tooltip="This is an internal structure.">b2Position</ref>*<sp/><ref refid="structb2_contact_solver_def_1aaf1432d040aa6279d91d8c9f24a4728a" kindref="member">positions</ref>;</highlight></codeline>
+<codeline lineno="64" refid="structb2_contact_solver_def_1ae839e5c5464aa54c1ad8ce1634b49a1f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_velocity" kindref="compound" tooltip="This is an internal structure.">b2Velocity</ref>*<sp/><ref refid="structb2_contact_solver_def_1ae839e5c5464aa54c1ad8ce1634b49a1f" kindref="member">velocities</ref>;</highlight></codeline>
+<codeline lineno="65" refid="structb2_contact_solver_def_1a54198ac9886a988b9ffd06cf28c4c45c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_stack_allocator" kindref="compound">b2StackAllocator</ref>*<sp/><ref refid="structb2_contact_solver_def_1a54198ac9886a988b9ffd06cf28c4c45c" kindref="member">allocator</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="classb2_contact_solver" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_contact_solver" kindref="compound">b2ContactSolver</ref></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_contact_solver_1ac89198165ed16eb6080d84f93229ea88" kindref="member">b2ContactSolver</ref>(<ref refid="structb2_contact_solver_def" kindref="compound">b2ContactSolverDef</ref>*<sp/>def);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_contact_solver_1a7a0c4249a7af3bd2c990dabc75096a47" kindref="member">~b2ContactSolver</ref>();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_contact_solver_1a56fc9a51a49879dc2dadd5c33ed70b0c" kindref="member">InitializeVelocityConstraints</ref>();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_contact_solver_1aa96052cd2f709bfc416148fefb028522" kindref="member">WarmStart</ref>();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_contact_solver_1abec74e1246fdbfddbd2236602da63e1f" kindref="member">SolveVelocityConstraints</ref>();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classb2_contact_solver_1aff5922a65bb5ccf473c425719bb8938d" kindref="member">StoreImpulses</ref>();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classb2_contact_solver_1a4696834a137001bc74faec643b117031" kindref="member">SolvePositionConstraints</ref>();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classb2_contact_solver_1a6604c8fc034f89ad2e3461f4b5c20844" kindref="member">SolveTOIPositionConstraints</ref>(<ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/>toiIndexA,<sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/>toiIndexB);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="classb2_contact_solver_1aac78600ba5fd3249bac20678cbc9f101" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_time_step" kindref="compound" tooltip="This is an internal structure.">b2TimeStep</ref><sp/><ref refid="classb2_contact_solver_1aac78600ba5fd3249bac20678cbc9f101" kindref="member">m_step</ref>;</highlight></codeline>
+<codeline lineno="84" refid="classb2_contact_solver_1a39b973c8311e522f44cda9053dcea5a8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_position" kindref="compound" tooltip="This is an internal structure.">b2Position</ref>*<sp/><ref refid="classb2_contact_solver_1a39b973c8311e522f44cda9053dcea5a8" kindref="member">m_positions</ref>;</highlight></codeline>
+<codeline lineno="85" refid="classb2_contact_solver_1aae6dae9341dbbd780e7b3ec6b1b332f9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_velocity" kindref="compound" tooltip="This is an internal structure.">b2Velocity</ref>*<sp/><ref refid="classb2_contact_solver_1aae6dae9341dbbd780e7b3ec6b1b332f9" kindref="member">m_velocities</ref>;</highlight></codeline>
+<codeline lineno="86" refid="classb2_contact_solver_1a6a2c9f5470a469e50d7f33f8d9095abe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_stack_allocator" kindref="compound">b2StackAllocator</ref>*<sp/><ref refid="classb2_contact_solver_1a6a2c9f5470a469e50d7f33f8d9095abe" kindref="member">m_allocator</ref>;</highlight></codeline>
+<codeline lineno="87" refid="classb2_contact_solver_1ac0f4106f7cf67d185a7a4f3fd5a4e4ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b2ContactPositionConstraint*<sp/><ref refid="classb2_contact_solver_1ac0f4106f7cf67d185a7a4f3fd5a4e4ce" kindref="member">m_positionConstraints</ref>;</highlight></codeline>
+<codeline lineno="88" refid="classb2_contact_solver_1a616319ffa7ceb509b8189f07a070f7c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_contact_velocity_constraint" kindref="compound">b2ContactVelocityConstraint</ref>*<sp/><ref refid="classb2_contact_solver_1a616319ffa7ceb509b8189f07a070f7c7" kindref="member">m_velocityConstraints</ref>;</highlight></codeline>
+<codeline lineno="89" refid="classb2_contact_solver_1aa1c7370d1d2681f9d49a494f9b0a38c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classb2_contact" kindref="compound">b2Contact</ref>**<sp/><ref refid="classb2_contact_solver_1aa1c7370d1d2681f9d49a494f9b0a38c6" kindref="member">m_contacts</ref>;</highlight></codeline>
+<codeline lineno="90" refid="classb2_contact_solver_1ab5b74c0fadf0d5d8997700b5ff91ea91" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classb2_contact_solver_1ab5b74c0fadf0d5d8997700b5ff91ea91" kindref="member">m_count</ref>;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="94"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_a_a_b_b" kind="struct" prot="public">
+    <compoundname>b2AABB</compoundname>
+    <includes refid="b2_collision_8h" local="no">b2Collision.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_a_a_b_b_1ab94b68fbad8348b22b0522469b11bdb5" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2AABB::lowerBound</definition>
+        <argsstring></argsstring>
+        <name>lowerBound</name>
+        <briefdescription>
+<para>the lower vertex </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" line="213" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" bodystart="213" bodyend="-1"/>
+        <referencedby refid="b2_collision_8h_1a3dea7a8a1115626c450a697f6c6bf97e" compoundref="b2_collision_8h" startline="261" endline="274">b2TestOverlap</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1ad551edba62d2ad6094672a9ba3e26496" compoundref="b2_collision_8h" startline="187" endline="191">Combine</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1aba5fc112e3c8d05e034a21d95fc37704" compoundref="b2_collision_8h" startline="201" endline="209">Contains</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1aa26703e234bd6fb30fd443cd5001795a" compoundref="b2_collision_8h" startline="167" endline="170">GetCenter</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1aff8b9aa64069a33fe45025299aa0e9b7" compoundref="b2_collision_8h" startline="173" endline="176">GetExtents</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1ace4448c60ef309726e59247a8ae67db5" compoundref="b2_collision_8h" startline="179" endline="184">GetPerimeter</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1a8d170a2de7a267c3e19f5365685b713d" compoundref="b2_collision_8h" startline="253" endline="259">IsValid</referencedby>
+        <referencedby refid="classb2_dynamic_tree_1abd7a5c6a5bc109dbbdb0ec3aae039648" compoundref="b2_dynamic_tree_8h" startline="199" endline="282">b2DynamicTree::RayCast</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_a_a_b_b_1ad4a8ec483ba13a2c02918b01d058a18f" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2AABB::upperBound</definition>
+        <argsstring></argsstring>
+        <name>upperBound</name>
+        <briefdescription>
+<para>the upper vertex </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" line="214" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" bodystart="214" bodyend="-1"/>
+        <referencedby refid="b2_collision_8h_1a3dea7a8a1115626c450a697f6c6bf97e" compoundref="b2_collision_8h" startline="261" endline="274">b2TestOverlap</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1ad551edba62d2ad6094672a9ba3e26496" compoundref="b2_collision_8h" startline="187" endline="191">Combine</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1aba5fc112e3c8d05e034a21d95fc37704" compoundref="b2_collision_8h" startline="201" endline="209">Contains</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1aa26703e234bd6fb30fd443cd5001795a" compoundref="b2_collision_8h" startline="167" endline="170">GetCenter</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1aff8b9aa64069a33fe45025299aa0e9b7" compoundref="b2_collision_8h" startline="173" endline="176">GetExtents</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1ace4448c60ef309726e59247a8ae67db5" compoundref="b2_collision_8h" startline="179" endline="184">GetPerimeter</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1a8d170a2de7a267c3e19f5365685b713d" compoundref="b2_collision_8h" startline="253" endline="259">IsValid</referencedby>
+        <referencedby refid="classb2_dynamic_tree_1abd7a5c6a5bc109dbbdb0ec3aae039648" compoundref="b2_dynamic_tree_8h" startline="199" endline="282">b2DynamicTree::RayCast</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structb2_a_a_b_b_1a8d170a2de7a267c3e19f5365685b713d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool b2AABB::IsValid</definition>
+        <argsstring>() const </argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+<para>Verify that the bounds are sorted. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" line="164" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" bodystart="253" bodyend="259"/>
+        <references refid="cv_8h_1a6f364afbe132c4ecfea48bde1b0618ba" compoundref="cv_8h" startline="1094">d</references>
+        <references refid="structb2_vec2_1aafb971cf7cc726f91fc3a8215fb0aa17" compoundref="b2_math_8h" startline="140" endline="143">b2Vec2::IsValid</references>
+        <references refid="structb2_a_a_b_b_1ab94b68fbad8348b22b0522469b11bdb5" compoundref="b2_collision_8h" startline="213">lowerBound</references>
+        <references refid="structb2_a_a_b_b_1ad4a8ec483ba13a2c02918b01d058a18f" compoundref="b2_collision_8h" startline="214">upperBound</references>
+        <references refid="structb2_vec2_1a07021c1c08c547868e3cce9c9ef2ea71" compoundref="b2_math_8h" startline="151">b2Vec2::x</references>
+        <references refid="structb2_vec2_1a880f573a9efe402ec207e9d132cb2a43" compoundref="b2_math_8h" startline="151">b2Vec2::y</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_a_a_b_b_1aa26703e234bd6fb30fd443cd5001795a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2AABB::GetCenter</definition>
+        <argsstring>() const </argsstring>
+        <name>GetCenter</name>
+        <briefdescription>
+<para>Get the center of the AABB. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" line="168" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" bodystart="167" bodyend="170"/>
+        <references refid="structb2_a_a_b_b_1ab94b68fbad8348b22b0522469b11bdb5" compoundref="b2_collision_8h" startline="213">lowerBound</references>
+        <references refid="structb2_a_a_b_b_1ad4a8ec483ba13a2c02918b01d058a18f" compoundref="b2_collision_8h" startline="214">upperBound</references>
+        <referencedby refid="classb2_dynamic_tree_1abd7a5c6a5bc109dbbdb0ec3aae039648" compoundref="b2_dynamic_tree_8h" startline="199" endline="282">b2DynamicTree::RayCast</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structb2_a_a_b_b_1aff8b9aa64069a33fe45025299aa0e9b7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2AABB::GetExtents</definition>
+        <argsstring>() const </argsstring>
+        <name>GetExtents</name>
+        <briefdescription>
+<para>Get the extents of the AABB (half-widths). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" line="174" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" bodystart="173" bodyend="176"/>
+        <references refid="structb2_a_a_b_b_1ab94b68fbad8348b22b0522469b11bdb5" compoundref="b2_collision_8h" startline="213">lowerBound</references>
+        <references refid="structb2_a_a_b_b_1ad4a8ec483ba13a2c02918b01d058a18f" compoundref="b2_collision_8h" startline="214">upperBound</references>
+        <referencedby refid="classb2_dynamic_tree_1abd7a5c6a5bc109dbbdb0ec3aae039648" compoundref="b2_dynamic_tree_8h" startline="199" endline="282">b2DynamicTree::RayCast</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structb2_a_a_b_b_1ace4448c60ef309726e59247a8ae67db5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2AABB::GetPerimeter</definition>
+        <argsstring>() const </argsstring>
+        <name>GetPerimeter</name>
+        <briefdescription>
+<para>Get the perimeter length. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" line="180" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" bodystart="179" bodyend="184"/>
+        <references refid="structb2_a_a_b_b_1ab94b68fbad8348b22b0522469b11bdb5" compoundref="b2_collision_8h" startline="213">lowerBound</references>
+        <references refid="structb2_a_a_b_b_1ad4a8ec483ba13a2c02918b01d058a18f" compoundref="b2_collision_8h" startline="214">upperBound</references>
+        <references refid="structb2_vec2_1a07021c1c08c547868e3cce9c9ef2ea71" compoundref="b2_math_8h" startline="151">b2Vec2::x</references>
+        <references refid="structb2_vec2_1a880f573a9efe402ec207e9d132cb2a43" compoundref="b2_math_8h" startline="151">b2Vec2::y</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_a_a_b_b_1ad551edba62d2ad6094672a9ba3e26496" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2AABB::Combine</definition>
+        <argsstring>(const b2AABB &amp;aabb)</argsstring>
+        <name>Combine</name>
+        <param>
+          <type>const <ref refid="structb2_a_a_b_b" kindref="compound">b2AABB</ref> &amp;</type>
+          <declname>aabb</declname>
+        </param>
+        <briefdescription>
+<para>Combine an AABB into this one. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" line="188" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" bodystart="187" bodyend="191"/>
+        <references refid="b2_math_8h_1ab35d30607cf554096fa67407304be217" compoundref="b2_math_8h" startline="654" endline="657">b2Max</references>
+        <references refid="b2_math_8h_1a169e88bf0dd7c5462555219dd725e11d" compoundref="b2_math_8h" startline="643" endline="646">b2Min</references>
+        <references refid="structb2_a_a_b_b_1ab94b68fbad8348b22b0522469b11bdb5" compoundref="b2_collision_8h" startline="213">lowerBound</references>
+        <references refid="structb2_a_a_b_b_1ad4a8ec483ba13a2c02918b01d058a18f" compoundref="b2_collision_8h" startline="214">upperBound</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_a_a_b_b_1a34b9c7d824df845c10caa9c12ae90452" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2AABB::Combine</definition>
+        <argsstring>(const b2AABB &amp;aabb1, const b2AABB &amp;aabb2)</argsstring>
+        <name>Combine</name>
+        <param>
+          <type>const <ref refid="structb2_a_a_b_b" kindref="compound">b2AABB</ref> &amp;</type>
+          <declname>aabb1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_a_a_b_b" kindref="compound">b2AABB</ref> &amp;</type>
+          <declname>aabb2</declname>
+        </param>
+        <briefdescription>
+<para>Combine two AABBs into this one. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" line="195" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" bodystart="194" bodyend="198"/>
+        <references refid="b2_math_8h_1ab35d30607cf554096fa67407304be217" compoundref="b2_math_8h" startline="654" endline="657">b2Max</references>
+        <references refid="b2_math_8h_1a169e88bf0dd7c5462555219dd725e11d" compoundref="b2_math_8h" startline="643" endline="646">b2Min</references>
+        <references refid="structb2_a_a_b_b_1ab94b68fbad8348b22b0522469b11bdb5" compoundref="b2_collision_8h" startline="213">lowerBound</references>
+        <references refid="structb2_a_a_b_b_1ad4a8ec483ba13a2c02918b01d058a18f" compoundref="b2_collision_8h" startline="214">upperBound</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_a_a_b_b_1aba5fc112e3c8d05e034a21d95fc37704" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool b2AABB::Contains</definition>
+        <argsstring>(const b2AABB &amp;aabb) const </argsstring>
+        <name>Contains</name>
+        <param>
+          <type>const <ref refid="structb2_a_a_b_b" kindref="compound">b2AABB</ref> &amp;</type>
+          <declname>aabb</declname>
+        </param>
+        <briefdescription>
+<para>Does this aabb contain the provided AABB. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" line="202" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" bodystart="201" bodyend="209"/>
+        <references refid="structb2_a_a_b_b_1ab94b68fbad8348b22b0522469b11bdb5" compoundref="b2_collision_8h" startline="213">lowerBound</references>
+        <references refid="cv_8h_1adf46fee3107905e425f34254cbce0d9a" compoundref="cv_8h" startline="418">result</references>
+        <references refid="structb2_a_a_b_b_1ad4a8ec483ba13a2c02918b01d058a18f" compoundref="b2_collision_8h" startline="214">upperBound</references>
+        <references refid="structb2_vec2_1a07021c1c08c547868e3cce9c9ef2ea71" compoundref="b2_math_8h" startline="151">b2Vec2::x</references>
+        <references refid="structb2_vec2_1a880f573a9efe402ec207e9d132cb2a43" compoundref="b2_math_8h" startline="151">b2Vec2::y</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_a_a_b_b_1a8a9a3dbc76c1175e80bb767437240ef5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool b2AABB::RayCast</definition>
+        <argsstring>(b2RayCastOutput *output, const b2RayCastInput &amp;input) const </argsstring>
+        <name>RayCast</name>
+        <param>
+          <type><ref refid="structb2_ray_cast_output" kindref="compound">b2RayCastOutput</ref> *</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_ray_cast_input" kindref="compound">b2RayCastInput</ref> &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" line="211"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>An axis aligned bounding box. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="51">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+      <node id="50">
+        <label>b2AABB</label>
+        <link refid="structb2_a_a_b_b"/>
+        <childnode refid="51" relation="usage">
+          <edgelabel>lowerBound</edgelabel>
+          <edgelabel>upperBound</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" line="162" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Collision.h" bodystart="161" bodyend="215"/>
+    <listofallmembers>
+      <member refid="structb2_a_a_b_b_1ad551edba62d2ad6094672a9ba3e26496" prot="public" virt="non-virtual"><scope>b2AABB</scope><name>Combine</name></member>
+      <member refid="structb2_a_a_b_b_1a34b9c7d824df845c10caa9c12ae90452" prot="public" virt="non-virtual"><scope>b2AABB</scope><name>Combine</name></member>
+      <member refid="structb2_a_a_b_b_1aba5fc112e3c8d05e034a21d95fc37704" prot="public" virt="non-virtual"><scope>b2AABB</scope><name>Contains</name></member>
+      <member refid="structb2_a_a_b_b_1aa26703e234bd6fb30fd443cd5001795a" prot="public" virt="non-virtual"><scope>b2AABB</scope><name>GetCenter</name></member>
+      <member refid="structb2_a_a_b_b_1aff8b9aa64069a33fe45025299aa0e9b7" prot="public" virt="non-virtual"><scope>b2AABB</scope><name>GetExtents</name></member>
+      <member refid="structb2_a_a_b_b_1ace4448c60ef309726e59247a8ae67db5" prot="public" virt="non-virtual"><scope>b2AABB</scope><name>GetPerimeter</name></member>
+      <member refid="structb2_a_a_b_b_1a8d170a2de7a267c3e19f5365685b713d" prot="public" virt="non-virtual"><scope>b2AABB</scope><name>IsValid</name></member>
+      <member refid="structb2_a_a_b_b_1ab94b68fbad8348b22b0522469b11bdb5" prot="public" virt="non-virtual"><scope>b2AABB</scope><name>lowerBound</name></member>
+      <member refid="structb2_a_a_b_b_1a8a9a3dbc76c1175e80bb767437240ef5" prot="public" virt="non-virtual"><scope>b2AABB</scope><name>RayCast</name></member>
+      <member refid="structb2_a_a_b_b_1ad4a8ec483ba13a2c02918b01d058a18f" prot="public" virt="non-virtual"><scope>b2AABB</scope><name>upperBound</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

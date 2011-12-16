@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_point3_d64f" kind="struct" prot="public">
+    <compoundname>CvPoint3D64f</compoundname>
+    <includes refid="cxtypes_8h" local="no">cxtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_point3_d64f_1adcf0f3259a824e37e34c8396060c5a72" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvPoint3D64f::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="1044" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="1044" bodyend="-1"/>
+        <referencedby refid="cxtypes_8h_1a0d099b13f7e4a5ee6114757dc6a0799c" compoundref="cxtypes_8h" startline="1051" endline="1060">cvPoint3D64f</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_point3_d64f_1a1feb4723ecdd53963ea4cbd498660f3e" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvPoint3D64f::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="1045" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="1045" bodyend="-1"/>
+        <referencedby refid="cxtypes_8h_1a0d099b13f7e4a5ee6114757dc6a0799c" compoundref="cxtypes_8h" startline="1051" endline="1060">cvPoint3D64f</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_point3_d64f_1a5fbe006d07307a468df4ab74d9f0df58" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvPoint3D64f::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="1046" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="1046" bodyend="-1"/>
+        <referencedby refid="cxtypes_8h_1a0d099b13f7e4a5ee6114757dc6a0799c" compoundref="cxtypes_8h" startline="1051" endline="1060">cvPoint3D64f</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="1043" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="1042" bodyend="1047"/>
+    <listofallmembers>
+      <member refid="struct_cv_point3_d64f_1adcf0f3259a824e37e34c8396060c5a72" prot="public" virt="non-virtual"><scope>CvPoint3D64f</scope><name>x</name></member>
+      <member refid="struct_cv_point3_d64f_1a1feb4723ecdd53963ea4cbd498660f3e" prot="public" virt="non-virtual"><scope>CvPoint3D64f</scope><name>y</name></member>
+      <member refid="struct_cv_point3_d64f_1a5fbe006d07307a468df4ab74d9f0df58" prot="public" virt="non-virtual"><scope>CvPoint3D64f</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

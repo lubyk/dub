@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_color" kind="struct" prot="public">
+    <compoundname>b2Color</compoundname>
+    <includes refid="b2_draw_8h" local="no">b2Draw.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_color_1a9ab6c9a910caee177d96980b74ffb00b" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Color::r</definition>
+        <argsstring></argsstring>
+        <name>r</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Draw.h" line="27" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Draw.h" bodystart="27" bodyend="-1"/>
+        <referencedby refid="structb2_color_1af35a718911e10a54fa8aaa86367a5b56" compoundref="b2_draw_8h" startline="26" endline="26">Set</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_color_1a241c742352403ec456b51ac5f2abe7d9" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Color::g</definition>
+        <argsstring></argsstring>
+        <name>g</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Draw.h" line="27" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Draw.h" bodystart="27" bodyend="-1"/>
+        <referencedby refid="structb2_color_1af35a718911e10a54fa8aaa86367a5b56" compoundref="b2_draw_8h" startline="26" endline="26">Set</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_color_1a9e7380d27a63010cfad49b97f66dcd26" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Color::b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Draw.h" line="27" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Draw.h" bodystart="27" bodyend="-1"/>
+        <referencedby refid="structb2_color_1af35a718911e10a54fa8aaa86367a5b56" compoundref="b2_draw_8h" startline="26" endline="26">Set</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structb2_color_1aab8716defcdf745729d1164cd8b08437" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2Color::b2Color</definition>
+        <argsstring>()</argsstring>
+        <name>b2Color</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Draw.h" line="24" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Draw.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="structb2_color_1abddfc60d402d691542a224921868bfb7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2Color::b2Color</definition>
+        <argsstring>(float32 r, float32 g, float32 b)</argsstring>
+        <name>b2Color</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Draw.h" line="25" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Draw.h" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="structb2_color_1af35a718911e10a54fa8aaa86367a5b56" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Color::Set</definition>
+        <argsstring>(float32 ri, float32 gi, float32 bi)</argsstring>
+        <name>Set</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>ri</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>gi</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>bi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Draw.h" line="26" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Draw.h" bodystart="26" bodyend="26"/>
+        <references refid="structb2_color_1a9e7380d27a63010cfad49b97f66dcd26" compoundref="b2_draw_8h" startline="27">b</references>
+        <references refid="structb2_color_1a241c742352403ec456b51ac5f2abe7d9" compoundref="b2_draw_8h" startline="27">g</references>
+        <references refid="structb2_color_1a9ab6c9a910caee177d96980b74ffb00b" compoundref="b2_draw_8h" startline="27">r</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Color for debug drawing. Each value has the range [0,1]. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Draw.h" line="23" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Draw.h" bodystart="22" bodyend="28"/>
+    <listofallmembers>
+      <member refid="structb2_color_1a9e7380d27a63010cfad49b97f66dcd26" prot="public" virt="non-virtual"><scope>b2Color</scope><name>b</name></member>
+      <member refid="structb2_color_1aab8716defcdf745729d1164cd8b08437" prot="public" virt="non-virtual"><scope>b2Color</scope><name>b2Color</name></member>
+      <member refid="structb2_color_1abddfc60d402d691542a224921868bfb7" prot="public" virt="non-virtual"><scope>b2Color</scope><name>b2Color</name></member>
+      <member refid="structb2_color_1a241c742352403ec456b51ac5f2abe7d9" prot="public" virt="non-virtual"><scope>b2Color</scope><name>g</name></member>
+      <member refid="structb2_color_1a9ab6c9a910caee177d96980b74ffb00b" prot="public" virt="non-virtual"><scope>b2Color</scope><name>r</name></member>
+      <member refid="structb2_color_1af35a718911e10a54fa8aaa86367a5b56" prot="public" virt="non-virtual"><scope>b2Color</scope><name>Set</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

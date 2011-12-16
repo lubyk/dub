@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structmsgpack__sbuffer" kind="struct" prot="public">
+    <compoundname>msgpack_sbuffer</compoundname>
+    <includes refid="msgpack_8h" local="no">msgpack.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmsgpack__sbuffer_1a7779f75edb79f38b4f987e04985011f3" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t msgpack_sbuffer::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/msgpack.h" line="40" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/msgpack.h" bodystart="40" bodyend="-1"/>
+        <referencedby refid="classzmq_1_1_socket_1a9d6e15efa968134db3ceaf2c6516f4ad" compoundref="zmq_2include_2zmq_2_socket_8h" startline="292" endline="357">zmq::Socket::request</referencedby>
+        <referencedby refid="classzmq_1_1_socket_1a8c9e876a842883a8a25c4647ec1039c7" compoundref="zmq_2include_2zmq_2_socket_8h" startline="255" endline="270">zmq::Socket::send</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structmsgpack__sbuffer_1a2dc6fcda73b0e59f3dcaa61b7e85837d" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msgpack_sbuffer::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/msgpack.h" line="41" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/msgpack.h" bodystart="41" bodyend="-1"/>
+        <referencedby refid="classzmq_1_1_socket_1a9d6e15efa968134db3ceaf2c6516f4ad" compoundref="zmq_2include_2zmq_2_socket_8h" startline="292" endline="357">zmq::Socket::request</referencedby>
+        <referencedby refid="classzmq_1_1_socket_1a8c9e876a842883a8a25c4647ec1039c7" compoundref="zmq_2include_2zmq_2_socket_8h" startline="255" endline="270">zmq::Socket::send</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structmsgpack__sbuffer_1a88402032cb871f09a8aac19c249e273c" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t msgpack_sbuffer::alloc</definition>
+        <argsstring></argsstring>
+        <name>alloc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/msgpack.h" line="42" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/msgpack.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/msgpack.h" line="39" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/msgpack.h" bodystart="39" bodyend="43"/>
+    <listofallmembers>
+      <member refid="structmsgpack__sbuffer_1a88402032cb871f09a8aac19c249e273c" prot="public" virt="non-virtual"><scope>msgpack_sbuffer</scope><name>alloc</name></member>
+      <member refid="structmsgpack__sbuffer_1a2dc6fcda73b0e59f3dcaa61b7e85837d" prot="public" virt="non-virtual"><scope>msgpack_sbuffer</scope><name>data</name></member>
+      <member refid="structmsgpack__sbuffer_1a7779f75edb79f38b4f987e04985011f3" prot="public" virt="non-virtual"><scope>msgpack_sbuffer</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

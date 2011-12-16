@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_position" kind="struct" prot="public">
+    <compoundname>b2Position</compoundname>
+    <includes refid="b2_time_step_8h" local="no">b2TimeStep.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_position_1a64b6d764d272385f84e4cac5ceb5af27" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2Position::c</definition>
+        <argsstring></argsstring>
+        <name>c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2TimeStep.h" line="51" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2TimeStep.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_position_1a19d9362011e8c080059ac7f692cc7d8f" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Position::a</definition>
+        <argsstring></argsstring>
+        <name>a</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2TimeStep.h" line="52" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2TimeStep.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This is an internal structure. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1160">
+        <label>b2Position</label>
+        <link refid="structb2_position"/>
+        <childnode refid="1161" relation="usage">
+          <edgelabel>c</edgelabel>
+        </childnode>
+      </node>
+      <node id="1161">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2TimeStep.h" line="50" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2TimeStep.h" bodystart="49" bodyend="53"/>
+    <listofallmembers>
+      <member refid="structb2_position_1a19d9362011e8c080059ac7f692cc7d8f" prot="public" virt="non-virtual"><scope>b2Position</scope><name>a</name></member>
+      <member refid="structb2_position_1a64b6d764d272385f84e4cac5ceb5af27" prot="public" virt="non-virtual"><scope>b2Position</scope><name>c</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

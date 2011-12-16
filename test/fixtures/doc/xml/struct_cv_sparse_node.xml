@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_sparse_node" kind="struct" prot="public">
+    <compoundname>CvSparseNode</compoundname>
+    <includes refid="cxtypes_8h" local="no">cxtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_sparse_node_1a8ebe6d566adbf646fbf08f4f5271c3e4" prot="public" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned CvSparseNode::hashval</definition>
+        <argsstring></argsstring>
+        <name>hashval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="812" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="812" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_sparse_node_1a9031199ebada6f82597991e86967dc6a" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_cv_sparse_node" kindref="compound">CvSparseNode</ref> *</type>
+        <definition>struct CvSparseNode* CvSparseNode::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="813" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="813" bodyend="-1"/>
+        <referencedby refid="cxcore_8h_1ad81dbc49fc00afa793e96f38ce32cb14" compoundref="cxcore_8h" startline="270" endline="288">cvGetNextSparseNode</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2014">
+        <label>CvSparseNode</label>
+        <link refid="struct_cv_sparse_node"/>
+        <childnode refid="2014" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="811" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="810" bodyend="814"/>
+    <listofallmembers>
+      <member refid="struct_cv_sparse_node_1a8ebe6d566adbf646fbf08f4f5271c3e4" prot="public" virt="non-virtual"><scope>CvSparseNode</scope><name>hashval</name></member>
+      <member refid="struct_cv_sparse_node_1a9031199ebada6f82597991e86967dc6a" prot="public" virt="non-virtual"><scope>CvSparseNode</scope><name>next</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

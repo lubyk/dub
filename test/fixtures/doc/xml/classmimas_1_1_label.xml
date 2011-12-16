@@ -1,0 +1,459 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmimas_1_1_label" kind="class" prot="public">
+    <compoundname>mimas::Label</compoundname>
+    <basecompoundref refid="classlubyk_1_1_lua_object" prot="public" virt="non-virtual">lubyk::LuaObject</basecompoundref>
+    <includes refid="_label_8h" local="no">Label.h</includes>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="classmimas_1_1_label_1ae21875140b7c7f2b3e5e985598d3b653" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+        <type>QString</type>
+        <definition>QString mimas::Label::class</definition>
+        <argsstring></argsstring>
+        <name>class</name>
+        <read>cssClass</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="46" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmimas_1_1_label_1aabc15d01070ca03f180088931257757d" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float mimas::Label::hue_</definition>
+        <argsstring></argsstring>
+        <name>hue_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The component&apos;s color. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="144" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="144" bodyend="-1"/>
+        <referencedby refid="classmimas_1_1_label_1a8a27a3d84e92d1561bb5d7159d8d03be" compoundref="_label_8h" startline="128" endline="130">hue</referencedby>
+        <referencedby refid="classmimas_1_1_label_1a3e4b6e1e4c4f543f82bea7d1b7826a2f" compoundref="_label_8h" startline="123" endline="126">setHue</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmimas_1_1_label_1ab7e627990d1bcc2e3b597ecc0ffd7b0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Label::Label</definition>
+        <argsstring>(const char *title=NULL)</argsstring>
+        <name>Label</name>
+        <param>
+          <type>const char *</type>
+          <declname>title</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="50" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="48" bodyend="52"/>
+        <references refid="mimas_8h_1abf7761995db91711f1c2001b3ea81ae7" compoundref="mimas_8h" startline="37">MIMAS_DEBUG_CC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1af86b03d5ffa579bac92f54be1f2c148c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Label::Label</definition>
+        <argsstring>(const char *title, QWidget *parent)</argsstring>
+        <name>Label</name>
+        <param>
+          <type>const char *</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type><ref refid="classmimas_1_1_q_widget" kindref="compound">QWidget</ref> *</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="56" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="54" bodyend="58"/>
+        <references refid="mimas_8h_1abf7761995db91711f1c2001b3ea81ae7" compoundref="mimas_8h" startline="37">MIMAS_DEBUG_CC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1ad5ecacb3f019373c97be547f3ec14860" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Label::~Label</definition>
+        <argsstring>()</argsstring>
+        <name>~Label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="60" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="60" bodyend="62"/>
+        <references refid="mimas_8h_1a9d2f1addda3f00a2c1d2e3e2b6e4b5b5" compoundref="mimas_8h" startline="38">MIMAS_DEBUG_GC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1a9ad4c8abb16d21f9af8264dc8f5f4569" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString mimas::Label::cssClass</definition>
+        <argsstring>() const </argsstring>
+        <name>cssClass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="66" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="66" bodyend="68"/>
+        <referencedby refid="classmimas_1_1_label_1a53eba4260dc942a7c54c79b5c421af82" compoundref="_label_8h" startline="115" endline="117">setStyle</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1a523ea3ae0e44b9c6ac9899c37b8059e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmimas_1_1_q_widget" kindref="compound">QWidget</ref> *</type>
+        <definition>QWidget* mimas::Label::widget</definition>
+        <argsstring>()</argsstring>
+        <name>widget</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="70" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="70" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1a9233509e3b21179c22eb2324df66ecb6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmimas_1_1_q_object" kindref="compound">QObject</ref> *</type>
+        <definition>QObject* mimas::Label::object</definition>
+        <argsstring>()</argsstring>
+        <name>object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="74" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="74" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1a512745c469a6f0e0d28ebafb588f1509" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize mimas::Label::name</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>name</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the widget&apos;s name. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="80" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="80" bodyend="83"/>
+        <references refid="cv_8h_1acd1647952fba31484ea63d6f1140e509" compoundref="cv_8h" startline="841">data</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1ad49587fff1a567703a0869fd79f179a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Label::setName</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>setName</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the widget&apos;s name. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="87" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="87" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1acdf70acffdc4c6635c5961c7b92b3f39" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Label::move</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>move</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="91" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="91" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1aebc50e799ace726817b512fb1601b86b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Label::resize</definition>
+        <argsstring>(int w, int h)</argsstring>
+        <name>resize</name>
+        <param>
+          <type>int</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="95" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="95" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1a8a50fcfcc7c210d8db6287e3dabc81ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::Label::x</definition>
+        <argsstring>()</argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="99" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="99" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1a337f179e169cac13d6fa5cb68dc4e104" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::Label::y</definition>
+        <argsstring>()</argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="103" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="103" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1a82a2f28fac23fd25928b7de227f4652c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::Label::width</definition>
+        <argsstring>()</argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="107" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="107" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1a6615c21d33ee49b95fbd2798b329ad54" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::Label::height</definition>
+        <argsstring>()</argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="111" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="111" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1a53eba4260dc942a7c54c79b5c421af82" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Label::setStyle</definition>
+        <argsstring>(const char *text)</argsstring>
+        <name>setStyle</name>
+        <param>
+          <type>const char *</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="115" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="115" bodyend="117"/>
+        <references refid="classmimas_1_1_label_1a9ad4c8abb16d21f9af8264dc8f5f4569" compoundref="_label_8h" startline="66" endline="68">cssClass</references>
+        <references refid="classmimas_1_1_label_1afa80de40ae8d015175457fe69d2f2eca" compoundref="_label_8h" startline="119" endline="121">setStyleSheet</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1afa80de40ae8d015175457fe69d2f2eca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Label::setStyleSheet</definition>
+        <argsstring>(const char *text)</argsstring>
+        <name>setStyleSheet</name>
+        <param>
+          <type>const char *</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="119" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="119" bodyend="121"/>
+        <referencedby refid="classmimas_1_1_label_1a53eba4260dc942a7c54c79b5c421af82" compoundref="_label_8h" startline="115" endline="117">setStyle</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1a3e4b6e1e4c4f543f82bea7d1b7826a2f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Label::setHue</definition>
+        <argsstring>(float hue)</argsstring>
+        <name>setHue</name>
+        <param>
+          <type>float</type>
+          <declname>hue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="123" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="123" bodyend="126"/>
+        <references refid="classmimas_1_1_label_1a8a27a3d84e92d1561bb5d7159d8d03be" compoundref="_label_8h" startline="128" endline="130">hue</references>
+        <references refid="classmimas_1_1_label_1aabc15d01070ca03f180088931257757d" compoundref="_label_8h" startline="144">hue_</references>
+        <references refid="classmimas_1_1_q_widget_1abbb4a63f897a8f4fb253ee4034e955d0">mimas::QWidget::update</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1a8a27a3d84e92d1561bb5d7159d8d03be" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float mimas::Label::hue</definition>
+        <argsstring>()</argsstring>
+        <name>hue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="128" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="128" bodyend="130"/>
+        <references refid="classmimas_1_1_label_1aabc15d01070ca03f180088931257757d" compoundref="_label_8h" startline="144">hue_</references>
+        <referencedby refid="classmimas_1_1_label_1a3e4b6e1e4c4f543f82bea7d1b7826a2f" compoundref="_label_8h" startline="123" endline="126">setHue</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_label_1a2653ba76b9a225258bf554bc39c3776e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Label::setText</definition>
+        <argsstring>(const char *text)</argsstring>
+        <name>setText</name>
+        <param>
+          <type>const char *</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="134" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="134" bodyend="137"/>
+        <references refid="classmimas_1_1_q_widget_1abbb4a63f897a8f4fb253ee4034e955d0">mimas::QWidget::update</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmimas_1_1_label_1ace5bb5dc0f8de68108118e53555c7de4" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Label::paintEvent</definition>
+        <argsstring>(QPaintEvent *event)</argsstring>
+        <name>paintEvent</name>
+        <param>
+          <type>QPaintEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="140"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classmimas_1_1_label" kindref="compound">Label</ref> widget. <simplesect kind="par"><title>Bindings info:</title><para>lib_name:&apos;Label_core&apos; destructor: &apos;luaDestroy&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2159">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="2158">
+        <label>mimas::Label</label>
+        <link refid="classmimas_1_1_label"/>
+        <childnode refid="2159" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2162">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="2163" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2164">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2161">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="2162" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2163">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="2164" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2160">
+        <label>mimas::Label</label>
+        <link refid="classmimas_1_1_label"/>
+        <childnode refid="2161" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" line="44" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h" bodystart="43" bodyend="145"/>
+    <listofallmembers>
+      <member refid="classmimas_1_1_label_1ae21875140b7c7f2b3e5e985598d3b653" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>class</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>mimas::Label</scope><name>class_name_</name></member>
+      <member refid="classmimas_1_1_label_1a9ad4c8abb16d21f9af8264dc8f5f4569" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>cssClass</name></member>
+      <member refid="classmimas_1_1_label_1a6615c21d33ee49b95fbd2798b329ad54" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>height</name></member>
+      <member refid="classmimas_1_1_label_1a8a27a3d84e92d1561bb5d7159d8d03be" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>hue</name></member>
+      <member refid="classmimas_1_1_label_1aabc15d01070ca03f180088931257757d" prot="private" virt="non-virtual"><scope>mimas::Label</scope><name>hue_</name></member>
+      <member refid="classmimas_1_1_label_1ab7e627990d1bcc2e3b597ecc0ffd7b0a" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>Label</name></member>
+      <member refid="classmimas_1_1_label_1af86b03d5ffa579bac92f54be1f2c148c" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>Label</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>mimas::Label</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>luaDestroy</name></member>
+      <member refid="classlubyk_1_1_lua_object_1afc36a0ff048ab6ebe7e43b4717d45bec" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>LuaObject</name></member>
+      <member refid="classmimas_1_1_label_1acdf70acffdc4c6635c5961c7b92b3f39" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>move</name></member>
+      <member refid="classmimas_1_1_label_1a512745c469a6f0e0d28ebafb588f1509" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>name</name></member>
+      <member refid="classmimas_1_1_label_1a9233509e3b21179c22eb2324df66ecb6" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>object</name></member>
+      <member refid="classmimas_1_1_label_1ace5bb5dc0f8de68108118e53555c7de4" prot="private" virt="virtual"><scope>mimas::Label</scope><name>paintEvent</name></member>
+      <member refid="classmimas_1_1_label_1aebc50e799ace726817b512fb1601b86b" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>resize</name></member>
+      <member refid="classmimas_1_1_label_1a3e4b6e1e4c4f543f82bea7d1b7826a2f" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>setHue</name></member>
+      <member refid="classmimas_1_1_label_1ad49587fff1a567703a0869fd79f179a2" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>setName</name></member>
+      <member refid="classmimas_1_1_label_1a53eba4260dc942a7c54c79b5c421af82" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>setStyle</name></member>
+      <member refid="classmimas_1_1_label_1afa80de40ae8d015175457fe69d2f2eca" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>setStyleSheet</name></member>
+      <member refid="classmimas_1_1_label_1a2653ba76b9a225258bf554bc39c3776e" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>setText</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>mimas::Label</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>mimas::Label</scope><name>setupSuper</name></member>
+      <member refid="classmimas_1_1_label_1a523ea3ae0e44b9c6ac9899c37b8059e0" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>widget</name></member>
+      <member refid="classmimas_1_1_label_1a82a2f28fac23fd25928b7de227f4652c" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>width</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>worker_</name></member>
+      <member refid="classmimas_1_1_label_1a8a50fcfcc7c210d8db6287e3dabc81ab" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>x</name></member>
+      <member refid="classmimas_1_1_label_1a337f179e169cac13d6fa5cb68dc4e104" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>y</name></member>
+      <member refid="classmimas_1_1_label_1ad5ecacb3f019373c97be547f3ec14860" prot="public" virt="non-virtual"><scope>mimas::Label</scope><name>~Label</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>mimas::Label</scope><name>~LuaObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,321 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmimas_1_1_button" kind="class" prot="public">
+    <compoundname>mimas::Button</compoundname>
+    <basecompoundref refid="classlubyk_1_1_threaded_lua_object" prot="public" virt="non-virtual">lubyk::ThreadedLuaObject</basecompoundref>
+    <includes refid="_button_8h" local="no">Button.h</includes>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="classmimas_1_1_button_1ac780eefe9b5eabdf6bf2c4483592eecf" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+        <type>QString</type>
+        <definition>QString mimas::Button::class</definition>
+        <argsstring></argsstring>
+        <name>class</name>
+        <read>cssClass</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classmimas_1_1_button_1a5b3e31498a22abf8b8d9379740e7b4e8" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+        <type>float</type>
+        <definition>float mimas::Button::hue</definition>
+        <argsstring></argsstring>
+        <name>hue</name>
+        <read>hue</read>
+        <write>setHue</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" line="54" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmimas_1_1_button_1a1d9988778189a47ce3a36bddfae170c1" prot="public" static="no" mutable="no">
+        <type>QSize</type>
+        <definition>QSize mimas::Button::size_hint_</definition>
+        <argsstring></argsstring>
+        <name>size_hint_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" line="70" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmimas_1_1_button_1a2c4a183c67c22cd68da29aade45c2564" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float mimas::Button::hue_</definition>
+        <argsstring></argsstring>
+        <name>hue_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" line="103" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmimas_1_1_button_1a9ec5cf48230a3d3740ba24dfdb181f90" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Button::Button</definition>
+        <argsstring>(const char *title=NULL, QWidget *parent=NULL)</argsstring>
+        <name>Button</name>
+        <param>
+          <type>const char *</type>
+          <declname>title</declname>
+          <defval>NULL</defval>
+        </param>
+        <param>
+          <type><ref refid="classmimas_1_1_q_widget" kindref="compound">QWidget</ref> *</type>
+          <declname>parent</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" line="58" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" bodystart="57" bodyend="60"/>
+        <references refid="mimas_8h_1abf7761995db91711f1c2001b3ea81ae7" compoundref="mimas_8h" startline="37">MIMAS_DEBUG_CC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_button_1ae7e23c8b80f83c52b6b6089db46fe055" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Button::~Button</definition>
+        <argsstring>()</argsstring>
+        <name>~Button</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" line="62" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" bodystart="62" bodyend="64"/>
+        <references refid="mimas_8h_1a9d2f1addda3f00a2c1d2e3e2b6e4b5b5" compoundref="mimas_8h" startline="38">MIMAS_DEBUG_GC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_button_1af1b15680d118ac6ed1bd264fcaa63c48" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString mimas::Button::cssClass</definition>
+        <argsstring>() const </argsstring>
+        <name>cssClass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" line="66" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" bodystart="66" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_button_1ac4c5829255e1fa8580b205b1f6c0bae3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Button::setHue</definition>
+        <argsstring>(float hue)</argsstring>
+        <name>setHue</name>
+        <param>
+          <type>float</type>
+          <declname>hue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" line="72" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" bodystart="72" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_button_1a66aeb7d7972cf22ab5be097ba6ba760a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float mimas::Button::hue</definition>
+        <argsstring>()</argsstring>
+        <name>hue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" line="77" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" bodystart="77" bodyend="79"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmimas_1_1_button_1aa5d38309d13a0f6cc46ef7b83e352abb" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Button::mousePressEvent</definition>
+        <argsstring>(QMouseEvent *event)</argsstring>
+        <name>mousePressEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" line="82" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" bodystart="82" bodyend="86"/>
+        <references refid="namespacemimas_1ac511138d28d71a62e97f1639d18c08a6a53a1fecfaa3461c5fa343cccce94322d" compoundref="mimas_2include_2mimas_2constants_8h" startline="137">mimas::MousePress</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_button_1a271089fe6450396db328f20b061b41de" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Button::mouseDoubleClickEvent</definition>
+        <argsstring>(QMouseEvent *event)</argsstring>
+        <name>mouseDoubleClickEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" line="88" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" bodystart="88" bodyend="92"/>
+        <references refid="namespacemimas_1ac511138d28d71a62e97f1639d18c08a6a79efc10f470f89403cfc8c847cffc397" compoundref="mimas_2include_2mimas_2constants_8h" startline="139">mimas::DoubleClick</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_button_1a4b4a1e275dd15043789217a7a529501a" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Button::mouseReleaseEvent</definition>
+        <argsstring>(QMouseEvent *event)</argsstring>
+        <name>mouseReleaseEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" line="94" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" bodystart="94" bodyend="98"/>
+        <references refid="namespacemimas_1ac511138d28d71a62e97f1639d18c08a6a07cdb56d9783986895cc0ee3a3150b73" compoundref="mimas_2include_2mimas_2constants_8h" startline="138">mimas::MouseRelease</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmimas_1_1_button_1a231282f2ce293b6de477c8a30de370ed" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mimas::Button::click</definition>
+        <argsstring>(QMouseEvent *event, int type)</argsstring>
+        <name>click</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" line="101"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classmimas_1_1_button" kindref="compound">Button</ref> widget.</para><para><simplesect kind="par"><title>Bindings info:</title><para>lib_name:&apos;Button_core&apos; destructor: &apos;luaDestroy&apos; super: &apos;QWidget&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="1739">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="1738">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="1739" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1737">
+        <label>mimas::Button</label>
+        <link refid="classmimas_1_1_button"/>
+        <childnode refid="1738" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1743">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="1744" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1745">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="1742">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="1743" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1741">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="1742" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1744">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="1745" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="1740">
+        <label>mimas::Button</label>
+        <link refid="classmimas_1_1_button"/>
+        <childnode refid="1741" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" line="51" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h" bodystart="51" bodyend="104"/>
+    <listofallmembers>
+      <member refid="classmimas_1_1_button_1a9ec5cf48230a3d3740ba24dfdb181f90" prot="public" virt="non-virtual"><scope>mimas::Button</scope><name>Button</name></member>
+      <member refid="classmimas_1_1_button_1ac780eefe9b5eabdf6bf2c4483592eecf" prot="public" virt="non-virtual"><scope>mimas::Button</scope><name>class</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>mimas::Button</scope><name>class_name_</name></member>
+      <member refid="classmimas_1_1_button_1a231282f2ce293b6de477c8a30de370ed" prot="private" virt="non-virtual"><scope>mimas::Button</scope><name>click</name></member>
+      <member refid="classmimas_1_1_button_1af1b15680d118ac6ed1bd264fcaa63c48" prot="public" virt="non-virtual"><scope>mimas::Button</scope><name>cssClass</name></member>
+      <member refid="classmimas_1_1_button_1a5b3e31498a22abf8b8d9379740e7b4e8" prot="public" virt="non-virtual"><scope>mimas::Button</scope><name>hue</name></member>
+      <member refid="classmimas_1_1_button_1a66aeb7d7972cf22ab5be097ba6ba760a" prot="public" virt="non-virtual"><scope>mimas::Button</scope><name>hue</name></member>
+      <member refid="classmimas_1_1_button_1a2c4a183c67c22cd68da29aade45c2564" prot="private" virt="non-virtual"><scope>mimas::Button</scope><name>hue_</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" prot="public" virt="non-virtual"><scope>mimas::Button</scope><name>lua_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>mimas::Button</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>mimas::Button</scope><name>luaDestroy</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a1351dd8c5053c7df8e0a29b2887ddb8e" prot="public" virt="non-virtual"><scope>mimas::Button</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>mimas::Button</scope><name>LuaObject</name></member>
+      <member refid="classmimas_1_1_button_1a271089fe6450396db328f20b061b41de" prot="protected" virt="virtual"><scope>mimas::Button</scope><name>mouseDoubleClickEvent</name></member>
+      <member refid="classmimas_1_1_button_1aa5d38309d13a0f6cc46ef7b83e352abb" prot="protected" virt="virtual"><scope>mimas::Button</scope><name>mousePressEvent</name></member>
+      <member refid="classmimas_1_1_button_1a4b4a1e275dd15043789217a7a529501a" prot="protected" virt="virtual"><scope>mimas::Button</scope><name>mouseReleaseEvent</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1af9f7e3d5717357958461b2634742475f" prot="protected" virt="non-virtual"><scope>mimas::Button</scope><name>pushLuaCallbackl</name></member>
+      <member refid="classmimas_1_1_button_1ac4c5829255e1fa8580b205b1f6c0bae3" prot="public" virt="non-virtual"><scope>mimas::Button</scope><name>setHue</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1ad533909af126d2aa2b058dea6b0d91f0" prot="protected" virt="non-virtual"><scope>mimas::Button</scope><name>setupLuaThread</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>mimas::Button</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>mimas::Button</scope><name>setupSuper</name></member>
+      <member refid="classmimas_1_1_button_1a1d9988778189a47ce3a36bddfae170c1" prot="public" virt="non-virtual"><scope>mimas::Button</scope><name>size_hint_</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a68147ed0f2048d29f6adf5316992ad69" prot="public" virt="non-virtual"><scope>mimas::Button</scope><name>ThreadedLuaObject</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>mimas::Button</scope><name>worker_</name></member>
+      <member refid="classmimas_1_1_button_1ae7e23c8b80f83c52b6b6089db46fe055" prot="public" virt="non-virtual"><scope>mimas::Button</scope><name>~Button</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>mimas::Button</scope><name>~LuaObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

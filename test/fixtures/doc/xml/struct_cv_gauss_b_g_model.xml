@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_gauss_b_g_model" kind="struct" prot="public">
+    <compoundname>CvGaussBGModel</compoundname>
+    <includes refid="cvaux_8h" local="no">cvaux.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_gauss_b_g_model_1a4e96ac84bc0a35bfa107a6aae2b8cc32" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_gauss_b_g_stat_model_params" kindref="compound">CvGaussBGStatModelParams</ref></type>
+        <definition>CvGaussBGStatModelParams CvGaussBGModel::params</definition>
+        <argsstring></argsstring>
+        <name>params</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1384" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1384" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_gauss_b_g_model_1ad195ebed0bd02c766fb6c64be83a7e16" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_gauss_b_g_point" kindref="compound">CvGaussBGPoint</ref> *</type>
+        <definition>CvGaussBGPoint* CvGaussBGModel::g_point</definition>
+        <argsstring></argsstring>
+        <name>g_point</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1385" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1385" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_gauss_b_g_model_1ac50839a9b69f645df2510c124463bf12" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvGaussBGModel::countFrames</definition>
+        <argsstring></argsstring>
+        <name>countFrames</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1386" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1386" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_cv_gauss_b_g_model_1aa5ecb4c83e07301bc3b6f357d6b6e8ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CvGaussBGModel::CV_BG_STAT_MODEL_FIELDS</definition>
+        <argsstring>()</argsstring>
+        <name>CV_BG_STAT_MODEL_FIELDS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1383"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1872">
+        <label>CvGaussBGValues</label>
+        <link refid="struct_cv_gauss_b_g_values"/>
+      </node>
+      <node id="1869">
+        <label>CvGaussBGModel</label>
+        <link refid="struct_cv_gauss_b_g_model"/>
+        <childnode refid="1870" relation="usage">
+          <edgelabel>params</edgelabel>
+        </childnode>
+        <childnode refid="1871" relation="usage">
+          <edgelabel>g_point</edgelabel>
+        </childnode>
+      </node>
+      <node id="1871">
+        <label>CvGaussBGPoint</label>
+        <link refid="struct_cv_gauss_b_g_point"/>
+        <childnode refid="1872" relation="usage">
+          <edgelabel>g_values</edgelabel>
+        </childnode>
+      </node>
+      <node id="1870">
+        <label>CvGaussBGStatModelParams</label>
+        <link refid="struct_cv_gauss_b_g_stat_model_params"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1382" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1381" bodyend="1387"/>
+    <listofallmembers>
+      <member refid="struct_cv_gauss_b_g_model_1ac50839a9b69f645df2510c124463bf12" prot="public" virt="non-virtual"><scope>CvGaussBGModel</scope><name>countFrames</name></member>
+      <member refid="struct_cv_gauss_b_g_model_1aa5ecb4c83e07301bc3b6f357d6b6e8ac" prot="public" virt="non-virtual"><scope>CvGaussBGModel</scope><name>CV_BG_STAT_MODEL_FIELDS</name></member>
+      <member refid="struct_cv_gauss_b_g_model_1ad195ebed0bd02c766fb6c64be83a7e16" prot="public" virt="non-virtual"><scope>CvGaussBGModel</scope><name>g_point</name></member>
+      <member refid="struct_cv_gauss_b_g_model_1a4e96ac84bc0a35bfa107a6aae2b8cc32" prot="public" virt="non-virtual"><scope>CvGaussBGModel</scope><name>params</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

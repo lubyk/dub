@@ -1,0 +1,454 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_mouse_joint_def" kind="struct" prot="public">
+    <compoundname>b2MouseJointDef</compoundname>
+    <basecompoundref refid="structb2_joint_def" prot="public" virt="non-virtual">b2JointDef</basecompoundref>
+    <includes refid="b2_mouse_joint_8h" local="no">b2MouseJoint.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_mouse_joint_def_1aa1b76f72df9aca8d42bdc3e9922e310a" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2MouseJointDef::target</definition>
+        <argsstring></argsstring>
+        <name>target</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The initial world target point. This is assumed to coincide with the body anchor initially. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="39" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="39" bodyend="-1"/>
+        <referencedby refid="structb2_mouse_joint_def_1ac367e7d89eadeeac53473f248f4dcdf7" compoundref="b2_mouse_joint_8h" startline="28" endline="35">b2MouseJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_mouse_joint_def_1ae9c52b3afda8ed006eb62fad163cdc3b" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2MouseJointDef::maxForce</definition>
+        <argsstring></argsstring>
+        <name>maxForce</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The maximum constraint force that can be exerted to move the candidate body. Usually you will express as some multiple of the weight (multiplier * mass * gravity). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="44" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="44" bodyend="-1"/>
+        <referencedby refid="structb2_mouse_joint_def_1ac367e7d89eadeeac53473f248f4dcdf7" compoundref="b2_mouse_joint_8h" startline="28" endline="35">b2MouseJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_mouse_joint_def_1a61e9017eb928608f75edddb6e0ca7f63" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2MouseJointDef::frequencyHz</definition>
+        <argsstring></argsstring>
+        <name>frequencyHz</name>
+        <briefdescription>
+<para>The response speed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="47" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="47" bodyend="-1"/>
+        <referencedby refid="structb2_mouse_joint_def_1ac367e7d89eadeeac53473f248f4dcdf7" compoundref="b2_mouse_joint_8h" startline="28" endline="35">b2MouseJointDef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_mouse_joint_def_1aee42888dab204a5c5745ba61acbfb7d6" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2MouseJointDef::dampingRatio</definition>
+        <argsstring></argsstring>
+        <name>dampingRatio</name>
+        <briefdescription>
+<para>The damping ratio. 0 = no damping, 1 = critical damping. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="50" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="50" bodyend="-1"/>
+        <referencedby refid="structb2_mouse_joint_def_1ac367e7d89eadeeac53473f248f4dcdf7" compoundref="b2_mouse_joint_8h" startline="28" endline="35">b2MouseJointDef</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structb2_mouse_joint_def_1ac367e7d89eadeeac53473f248f4dcdf7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2MouseJointDef::b2MouseJointDef</definition>
+        <argsstring>()</argsstring>
+        <name>b2MouseJointDef</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="29" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="28" bodyend="35"/>
+        <references refid="structb2_mouse_joint_def_1aee42888dab204a5c5745ba61acbfb7d6" compoundref="b2_mouse_joint_8h" startline="50">dampingRatio</references>
+        <references refid="b2_joint_8h_1a0bb202d8a286c888a11985b07b2272aba7a050a9b6d2981a3c77aac2f62a94cab" compoundref="b2_joint_8h" startline="36">e_mouseJoint</references>
+        <references refid="structb2_mouse_joint_def_1a61e9017eb928608f75edddb6e0ca7f63" compoundref="b2_mouse_joint_8h" startline="47">frequencyHz</references>
+        <references refid="structb2_mouse_joint_def_1ae9c52b3afda8ed006eb62fad163cdc3b" compoundref="b2_mouse_joint_8h" startline="44">maxForce</references>
+        <references refid="structb2_vec2_1a4d61640a645e470a50b451307d8e94c3" compoundref="b2_math_8h" startline="76" endline="76">b2Vec2::Set</references>
+        <references refid="structb2_mouse_joint_def_1aa1b76f72df9aca8d42bdc3e9922e310a" compoundref="b2_mouse_joint_8h" startline="39">target</references>
+        <references refid="structb2_joint_def_1a470f2879b24adb05facbd49f338856fb" compoundref="b2_joint_8h" startline="85">b2JointDef::type</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Mouse joint definition. This requires a world target point, tuning parameters, and the time step. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="1044">
+        <label>b2JointDef</label>
+        <link refid="structb2_joint_def"/>
+      </node>
+      <node id="1043">
+        <label>b2MouseJointDef</label>
+        <link refid="structb2_mouse_joint_def"/>
+        <childnode refid="1044" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1067">
+        <label>b2Draw</label>
+        <link refid="classb2_draw"/>
+      </node>
+      <node id="1074">
+        <label>b2DynamicTree</label>
+        <link refid="classb2_dynamic_tree"/>
+        <childnode refid="1075" relation="usage">
+          <edgelabel>m_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="1072">
+        <label>b2BroadPhase</label>
+        <link refid="classb2_broad_phase"/>
+        <childnode refid="1073" relation="usage">
+          <edgelabel>m_pairBuffer</edgelabel>
+        </childnode>
+        <childnode refid="1074" relation="usage">
+          <edgelabel>m_tree</edgelabel>
+        </childnode>
+      </node>
+      <node id="1077">
+        <label>b2ContactListener</label>
+        <link refid="classb2_contact_listener"/>
+      </node>
+      <node id="1055">
+        <label>b2Contact</label>
+        <link refid="classb2_contact"/>
+        <childnode refid="1056" relation="usage">
+          <edgelabel>s_registers</edgelabel>
+        </childnode>
+        <childnode refid="1055" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="1057" relation="usage">
+          <edgelabel>m_manifold</edgelabel>
+        </childnode>
+        <childnode refid="1061" relation="usage">
+          <edgelabel>m_fixtureA</edgelabel>
+          <edgelabel>m_fixtureB</edgelabel>
+        </childnode>
+        <childnode refid="1054" relation="usage">
+          <edgelabel>m_nodeA</edgelabel>
+          <edgelabel>m_nodeB</edgelabel>
+        </childnode>
+      </node>
+      <node id="1068">
+        <label>b2Profile</label>
+        <link refid="structb2_profile"/>
+      </node>
+      <node id="1047">
+        <label>b2Body</label>
+        <link refid="classb2_body"/>
+        <childnode refid="1047" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="1048" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+        <childnode refid="1050" relation="usage">
+          <edgelabel>m_linearVelocity</edgelabel>
+          <edgelabel>m_force</edgelabel>
+        </childnode>
+        <childnode refid="1051" relation="usage">
+          <edgelabel>m_sweep</edgelabel>
+        </childnode>
+        <childnode refid="1052" relation="usage">
+          <edgelabel>m_xf</edgelabel>
+        </childnode>
+        <childnode refid="1054" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="1061" relation="usage">
+          <edgelabel>m_fixtureList</edgelabel>
+        </childnode>
+        <childnode refid="1066" relation="usage">
+          <edgelabel>m_world</edgelabel>
+        </childnode>
+      </node>
+      <node id="1060">
+        <label>b2ContactFeature</label>
+        <link refid="structb2_contact_feature"/>
+      </node>
+      <node id="1054">
+        <label>b2ContactEdge</label>
+        <link refid="structb2_contact_edge"/>
+        <childnode refid="1047" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="1055" relation="usage">
+          <edgelabel>contact</edgelabel>
+        </childnode>
+        <childnode refid="1054" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1057">
+        <label>b2Manifold</label>
+        <link refid="structb2_manifold"/>
+        <childnode refid="1050" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+          <edgelabel>localNormal</edgelabel>
+        </childnode>
+        <childnode refid="1058" relation="usage">
+          <edgelabel>points</edgelabel>
+        </childnode>
+      </node>
+      <node id="1069">
+        <label>b2BlockAllocator</label>
+        <link refid="classb2_block_allocator"/>
+      </node>
+      <node id="1070">
+        <label>b2DestructionListener</label>
+        <link refid="classb2_destruction_listener"/>
+      </node>
+      <node id="1066">
+        <label>b2World</label>
+        <link refid="classb2_world"/>
+        <childnode refid="1047" relation="usage">
+          <edgelabel>m_bodyList</edgelabel>
+        </childnode>
+        <childnode refid="1067" relation="usage">
+          <edgelabel>m_debugDraw</edgelabel>
+        </childnode>
+        <childnode refid="1050" relation="usage">
+          <edgelabel>m_gravity</edgelabel>
+        </childnode>
+        <childnode refid="1068" relation="usage">
+          <edgelabel>m_profile</edgelabel>
+        </childnode>
+        <childnode refid="1069" relation="usage">
+          <edgelabel>m_blockAllocator</edgelabel>
+        </childnode>
+        <childnode refid="1070" relation="usage">
+          <edgelabel>m_destructionListener</edgelabel>
+        </childnode>
+        <childnode refid="1071" relation="usage">
+          <edgelabel>m_contactManager</edgelabel>
+        </childnode>
+        <childnode refid="1078" relation="usage">
+          <edgelabel>m_stackAllocator</edgelabel>
+        </childnode>
+        <childnode refid="1049" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+      </node>
+      <node id="1079">
+        <label>b2StackEntry</label>
+        <link refid="structb2_stack_entry"/>
+      </node>
+      <node id="1046">
+        <label>b2JointDef</label>
+        <link refid="structb2_joint_def"/>
+        <childnode refid="1047" relation="usage">
+          <edgelabel>bodyA</edgelabel>
+          <edgelabel>bodyB</edgelabel>
+        </childnode>
+      </node>
+      <node id="1062">
+        <label>b2FixtureProxy</label>
+        <link refid="structb2_fixture_proxy"/>
+        <childnode refid="1063" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+        <childnode refid="1061" relation="usage">
+          <edgelabel>fixture</edgelabel>
+        </childnode>
+      </node>
+      <node id="1073">
+        <label>b2Pair</label>
+        <link refid="structb2_pair"/>
+      </node>
+      <node id="1045">
+        <label>b2MouseJointDef</label>
+        <link refid="structb2_mouse_joint_def"/>
+        <childnode refid="1046" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1050" relation="usage">
+          <edgelabel>target</edgelabel>
+        </childnode>
+      </node>
+      <node id="1051">
+        <label>b2Sweep</label>
+        <link refid="structb2_sweep"/>
+        <childnode refid="1050" relation="usage">
+          <edgelabel>c0</edgelabel>
+          <edgelabel>localCenter</edgelabel>
+          <edgelabel>c</edgelabel>
+        </childnode>
+      </node>
+      <node id="1052">
+        <label>b2Transform</label>
+        <link refid="structb2_transform"/>
+        <childnode refid="1050" relation="usage">
+          <edgelabel>p</edgelabel>
+        </childnode>
+        <childnode refid="1053" relation="usage">
+          <edgelabel>q</edgelabel>
+        </childnode>
+      </node>
+      <node id="1078">
+        <label>b2StackAllocator</label>
+        <link refid="classb2_stack_allocator"/>
+        <childnode refid="1079" relation="usage">
+          <edgelabel>m_entries</edgelabel>
+        </childnode>
+      </node>
+      <node id="1065">
+        <label>b2Filter</label>
+        <link refid="structb2_filter"/>
+      </node>
+      <node id="1048">
+        <label>b2JointEdge</label>
+        <link refid="structb2_joint_edge"/>
+        <childnode refid="1047" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="1048" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="1049" relation="usage">
+          <edgelabel>joint</edgelabel>
+        </childnode>
+      </node>
+      <node id="1076">
+        <label>b2ContactFilter</label>
+        <link refid="classb2_contact_filter"/>
+      </node>
+      <node id="1049">
+        <label>b2Joint</label>
+        <link refid="classb2_joint"/>
+        <childnode refid="1047" relation="usage">
+          <edgelabel>m_bodyA</edgelabel>
+          <edgelabel>m_bodyB</edgelabel>
+        </childnode>
+        <childnode refid="1048" relation="usage">
+          <edgelabel>m_edgeB</edgelabel>
+          <edgelabel>m_edgeA</edgelabel>
+        </childnode>
+        <childnode refid="1049" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1050">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+      <node id="1059">
+        <label>b2ContactID</label>
+        <link refid="unionb2_contact_i_d"/>
+        <childnode refid="1060" relation="usage">
+          <edgelabel>cf</edgelabel>
+        </childnode>
+      </node>
+      <node id="1064">
+        <label>b2Shape</label>
+        <link refid="classb2_shape"/>
+      </node>
+      <node id="1075">
+        <label>b2TreeNode</label>
+        <link refid="structb2_tree_node"/>
+        <childnode refid="1063" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+      </node>
+      <node id="1063">
+        <label>b2AABB</label>
+        <link refid="structb2_a_a_b_b"/>
+        <childnode refid="1050" relation="usage">
+          <edgelabel>lowerBound</edgelabel>
+          <edgelabel>upperBound</edgelabel>
+        </childnode>
+      </node>
+      <node id="1053">
+        <label>b2Rot</label>
+        <link refid="structb2_rot"/>
+      </node>
+      <node id="1071">
+        <label>b2ContactManager</label>
+        <link refid="classb2_contact_manager"/>
+        <childnode refid="1069" relation="usage">
+          <edgelabel>m_allocator</edgelabel>
+        </childnode>
+        <childnode refid="1055" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="1072" relation="usage">
+          <edgelabel>m_broadPhase</edgelabel>
+        </childnode>
+        <childnode refid="1076" relation="usage">
+          <edgelabel>m_contactFilter</edgelabel>
+        </childnode>
+        <childnode refid="1077" relation="usage">
+          <edgelabel>m_contactListener</edgelabel>
+        </childnode>
+      </node>
+      <node id="1061">
+        <label>b2Fixture</label>
+        <link refid="classb2_fixture"/>
+        <childnode refid="1047" relation="usage">
+          <edgelabel>m_body</edgelabel>
+        </childnode>
+        <childnode refid="1062" relation="usage">
+          <edgelabel>m_proxies</edgelabel>
+        </childnode>
+        <childnode refid="1064" relation="usage">
+          <edgelabel>m_shape</edgelabel>
+        </childnode>
+        <childnode refid="1065" relation="usage">
+          <edgelabel>m_filter</edgelabel>
+        </childnode>
+        <childnode refid="1061" relation="usage">
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1056">
+        <label>b2ContactRegister</label>
+        <link refid="structb2_contact_register"/>
+      </node>
+      <node id="1058">
+        <label>b2ManifoldPoint</label>
+        <link refid="structb2_manifold_point"/>
+        <childnode refid="1050" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+        </childnode>
+        <childnode refid="1059" relation="usage">
+          <edgelabel>id</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="27" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="26" bodyend="51"/>
+    <listofallmembers>
+      <member refid="structb2_joint_def_1a1fdb44829d4fd13c72edb1daacb72f89" prot="public" virt="non-virtual"><scope>b2MouseJointDef</scope><name>b2JointDef</name></member>
+      <member refid="structb2_mouse_joint_def_1ac367e7d89eadeeac53473f248f4dcdf7" prot="public" virt="non-virtual"><scope>b2MouseJointDef</scope><name>b2MouseJointDef</name></member>
+      <member refid="structb2_joint_def_1a8cd54c93da396be75a9788f2c6897f05" prot="public" virt="non-virtual"><scope>b2MouseJointDef</scope><name>bodyA</name></member>
+      <member refid="structb2_joint_def_1aa4f4dee2fbcd12187b19506b60e68e3d" prot="public" virt="non-virtual"><scope>b2MouseJointDef</scope><name>bodyB</name></member>
+      <member refid="structb2_joint_def_1aef099a1f89b64e230173b6016848ea9b" prot="public" virt="non-virtual"><scope>b2MouseJointDef</scope><name>collideConnected</name></member>
+      <member refid="structb2_mouse_joint_def_1aee42888dab204a5c5745ba61acbfb7d6" prot="public" virt="non-virtual"><scope>b2MouseJointDef</scope><name>dampingRatio</name></member>
+      <member refid="structb2_mouse_joint_def_1a61e9017eb928608f75edddb6e0ca7f63" prot="public" virt="non-virtual"><scope>b2MouseJointDef</scope><name>frequencyHz</name></member>
+      <member refid="structb2_mouse_joint_def_1ae9c52b3afda8ed006eb62fad163cdc3b" prot="public" virt="non-virtual"><scope>b2MouseJointDef</scope><name>maxForce</name></member>
+      <member refid="structb2_mouse_joint_def_1aa1b76f72df9aca8d42bdc3e9922e310a" prot="public" virt="non-virtual"><scope>b2MouseJointDef</scope><name>target</name></member>
+      <member refid="structb2_joint_def_1a470f2879b24adb05facbd49f338856fb" prot="public" virt="non-virtual"><scope>b2MouseJointDef</scope><name>type</name></member>
+      <member refid="structb2_joint_def_1a07eb150daaaa52fc09c3bcf402b295fe" prot="public" virt="non-virtual"><scope>b2MouseJointDef</scope><name>userData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

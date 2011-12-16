@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmdns_1_1_browser" kind="class" prot="public">
+    <compoundname>mdns::Browser</compoundname>
+    <basecompoundref refid="classmdns_1_1_abstract_browser" prot="public" virt="non-virtual">mdns::AbstractBrowser</basecompoundref>
+    <basecompoundref refid="classlubyk_1_1_lua_object" prot="public" virt="non-virtual">lubyk::LuaObject</basecompoundref>
+    <includes refid="mdns_2include_2mdns_2_browser_8h" local="no">Browser.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmdns_1_1_browser_1a9100648bcc89b5b19f1d7f2f45bfc440" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mdns::Browser::Browser</definition>
+        <argsstring>(const char *service_type)</argsstring>
+        <name>Browser</name>
+        <param>
+          <type>const char *</type>
+          <declname>service_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h" line="52" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h" bodystart="51" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classmdns_1_1_browser_1a9889abf6506fa98f441569ca8dffddf2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mdns::Browser::~Browser</definition>
+        <argsstring>()</argsstring>
+        <name>~Browser</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h" line="54" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classmdns_1_1_browser_1ae06106bbaa5a30ef0717cdf83307dd49" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* mdns::Browser::serviceType</definition>
+        <argsstring>()</argsstring>
+        <name>serviceType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h" line="56" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h" bodystart="56" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classmdns_1_1_browser_1a91d6b28d80a85db97b5a4035fc6cbfb5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mdns::Browser::fd</definition>
+        <argsstring>()</argsstring>
+        <name>fd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the mDNS browser&apos;s filedescriptor. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h" line="62" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h" bodystart="62" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classmdns_1_1_browser_1a2740fedf09e21808bb6b6a4ca24e6775" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mdns::Browser::getServices</definition>
+        <argsstring>()</argsstring>
+        <name>getServices</name>
+        <reimplements refid="classmdns_1_1_abstract_browser_1a35ef85da7026e3497b3ad278f87726c2">getServices</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Load found services (must be called after waitRead or it blocks). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h" line="68" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h" bodystart="68" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classmdns_1_1_browser_1ae43e4fd920ed330ab69f7d58a35ed173" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize mdns::Browser::nextService</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>nextService</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get next found service. Must call getServices after scheduler waitRead and before nextService. <simplesect kind="return"><para>nil if there is nothing left. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h" line="76" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h" bodystart="76" bodyend="118"/>
+        <references refid="classmdns_1_1_location_1a0574635f96aa4ff2771479160c992c8b" compoundref="_location_8h" startline="130" endline="132">mdns::Location::host</references>
+        <references refid="classmdns_1_1_location_1a39023146cc764d74f182bbfde284f93f" compoundref="_location_8h" startline="142" endline="144">mdns::Location::interface</references>
+        <references refid="classmdns_1_1_location_1a3a1535700ea6936fc89426d9d5b69e3c" compoundref="_location_8h" startline="134" endline="136">mdns::Location::ip</references>
+        <references refid="classmdns_1_1_abstract_browser_1_1_service_1a7802d5c8c1e27e415584f925583ca54b" compoundref="_abstract_browser_8h" startline="59">mdns::AbstractBrowser::Service::is_add_</references>
+        <references refid="classmdns_1_1_location_1a6936e532f176330df7ed1f67cf37c0a1" compoundref="_location_8h" startline="126" endline="128">mdns::Location::name</references>
+        <references refid="classmdns_1_1_location_1a5f6b965bfcf74768a870a12c9473dcae">mdns::Location::name_from_ip</references>
+        <references refid="classmdns_1_1_location_1a41ef82bbf614db381369221540e719d9" compoundref="_location_8h" startline="138" endline="140">mdns::Location::port</references>
+        <references refid="classmdns_1_1_abstract_browser_1_1_service_1af4b3dbe71393a155e80eed702a48c76e" compoundref="_abstract_browser_8h" startline="58">mdns::AbstractBrowser::Service::txt_</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmdns_1_1_browser_1aff740bedabd7df692ffd5a67d6508ed3" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mdns::Browser::pushTxtRecord</definition>
+        <argsstring>(lua_State *L, const std::string &amp;txt)</argsstring>
+        <name>pushTxtRecord</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>txt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h" line="121" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h" bodystart="121" bodyend="152"/>
+        <references refid="cxcore_8h_1a68cf695b604d08c0b6f6f6bb282a6586" compoundref="cxcore_8h" startline="1660">key</references>
+        <references refid="cv_8h_1a60e47d98d27b2fd9a0666c7d53824d56" compoundref="cv_8h" startline="1058">line</references>
+        <references refid="cxcore_8h_1a6492959798ef439146ab2816fe754d81" compoundref="cxcore_8h" startline="958">pos</references>
+        <references refid="cxcore_8h_1ad4670c92695d4327c21292905a803901" compoundref="cxcore_8h" startline="365">value</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Browse for devices matching a give service type. Call a lua function when devices are added or removed.</para><para><simplesect kind="par"><title>Bindings info:</title><para>string_format:&apos;%s&apos; string_args:&apos;(*userdata)-&gt;<ref refid="classmdns_1_1_browser_1ae06106bbaa5a30ef0717cdf83307dd49" kindref="member">serviceType()</ref>&apos; lib_name:&apos;Browser_core&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="1719">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="1720">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="1717">
+        <label>mdns::AbstractBrowser</label>
+        <link refid="classmdns_1_1_abstract_browser"/>
+        <childnode refid="1718" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1718">
+        <label>lubyk::Mutex</label>
+        <link refid="classlubyk_1_1_mutex"/>
+        <childnode refid="1719" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="1716">
+        <label>mdns::Browser</label>
+        <link refid="classmdns_1_1_browser"/>
+        <childnode refid="1717" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1720" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1726">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="1727" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1724">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="1725">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="1726" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1727">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="1724" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="1722">
+        <label>mdns::AbstractBrowser</label>
+        <link refid="classmdns_1_1_abstract_browser"/>
+        <childnode refid="1723" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1723">
+        <label>lubyk::Mutex</label>
+        <link refid="classlubyk_1_1_mutex"/>
+        <childnode refid="1724" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="1721">
+        <label>mdns::Browser</label>
+        <link refid="classmdns_1_1_browser"/>
+        <childnode refid="1722" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1725" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h" line="49" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/Browser.h" bodystart="48" bodyend="153"/>
+    <listofallmembers>
+      <member refid="classmdns_1_1_abstract_browser_1a6cf080d5f5f030ba2255b244e6f41186" prot="public" virt="non-virtual"><scope>mdns::Browser</scope><name>AbstractBrowser</name></member>
+      <member refid="classmdns_1_1_browser_1a9100648bcc89b5b19f1d7f2f45bfc440" prot="public" virt="non-virtual"><scope>mdns::Browser</scope><name>Browser</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>mdns::Browser</scope><name>class_name_</name></member>
+      <member refid="classmdns_1_1_browser_1a91d6b28d80a85db97b5a4035fc6cbfb5" prot="public" virt="non-virtual"><scope>mdns::Browser</scope><name>fd</name></member>
+      <member refid="classmdns_1_1_abstract_browser_1a9b7b71c862ead555108b63846b28e2bc" prot="protected" virt="non-virtual"><scope>mdns::Browser</scope><name>fd_</name></member>
+      <member refid="classmdns_1_1_abstract_browser_1ad8cc94c774fcdee55224fed397e1b5e8" prot="protected" virt="non-virtual"><scope>mdns::Browser</scope><name>found_services_</name></member>
+      <member refid="classmdns_1_1_browser_1a2740fedf09e21808bb6b6a4ca24e6775" prot="public" virt="non-virtual"><scope>mdns::Browser</scope><name>getServices</name></member>
+      <member refid="classmdns_1_1_abstract_browser_1aae259fc8c284aa45e9915e8ac7432e05" prot="protected" virt="non-virtual"><scope>mdns::Browser</scope><name>is_add_</name></member>
+      <member refid="classlubyk_1_1_mutex_1a74ee38ef2f9bf4e86a3871f5b60a31c3" prot="public" virt="non-virtual"><scope>mdns::Browser</scope><name>lock</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>mdns::Browser</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>mdns::Browser</scope><name>luaDestroy</name></member>
+      <member refid="classlubyk_1_1_lua_object_1afc36a0ff048ab6ebe7e43b4717d45bec" prot="public" virt="non-virtual"><scope>mdns::Browser</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>mdns::Browser</scope><name>LuaObject</name></member>
+      <member refid="classlubyk_1_1_mutex_1a8e93f428f3245e6b6528901f4599d0d7" prot="public" virt="non-virtual"><scope>mdns::Browser</scope><name>Mutex</name></member>
+      <member refid="classmdns_1_1_browser_1ae43e4fd920ed330ab69f7d58a35ed173" prot="public" virt="non-virtual"><scope>mdns::Browser</scope><name>nextService</name></member>
+      <member refid="classmdns_1_1_abstract_browser_1a3ec14111f0a3cf78dd369e3c8caf0a13" prot="protected" virt="non-virtual"><scope>mdns::Browser</scope><name>protocol_</name></member>
+      <member refid="classmdns_1_1_browser_1aff740bedabd7df692ffd5a67d6508ed3" prot="private" virt="non-virtual"><scope>mdns::Browser</scope><name>pushTxtRecord</name></member>
+      <member refid="classmdns_1_1_abstract_browser_1a20f42138ecdb0fa64a589b6cbf98a673" prot="protected" virt="non-virtual"><scope>mdns::Browser</scope><name>service_type_</name></member>
+      <member refid="classmdns_1_1_browser_1ae06106bbaa5a30ef0717cdf83307dd49" prot="public" virt="non-virtual"><scope>mdns::Browser</scope><name>serviceType</name></member>
+      <member refid="classmdns_1_1_abstract_browser_1ace7a1b172c1cf357d55f4587d26e2bfe" prot="protected" virt="non-virtual"><scope>mdns::Browser</scope><name>setProtocolFromServiceType</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>mdns::Browser</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>mdns::Browser</scope><name>setupSuper</name></member>
+      <member refid="classlubyk_1_1_mutex_1a83fead89eb5401b9dd1fbc6ecdd7e31c" prot="public" virt="non-virtual"><scope>mdns::Browser</scope><name>unlock</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>mdns::Browser</scope><name>worker_</name></member>
+      <member refid="classmdns_1_1_abstract_browser_1a67efda8cd90d2186251116d5c299a09e" prot="public" virt="virtual"><scope>mdns::Browser</scope><name>~AbstractBrowser</name></member>
+      <member refid="classmdns_1_1_browser_1a9889abf6506fa98f441569ca8dffddf2" prot="public" virt="non-virtual"><scope>mdns::Browser</scope><name>~Browser</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>mdns::Browser</scope><name>~LuaObject</name></member>
+      <member refid="classlubyk_1_1_mutex_1abca8268a2723750c3c9a31bc839a2912" prot="public" virt="virtual"><scope>mdns::Browser</scope><name>~Mutex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

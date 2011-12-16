@@ -1,0 +1,932 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classb2_mouse_joint" kind="class" prot="public">
+    <compoundname>b2MouseJoint</compoundname>
+    <basecompoundref refid="classb2_joint" prot="public" virt="non-virtual">b2Joint</basecompoundref>
+    <includes refid="b2_mouse_joint_8h" local="no">b2MouseJoint.h</includes>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classb2_mouse_joint_1a54ade8ed3d794298108d7f4c4e4793fa" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class b2Joint</definition>
+        <argsstring></argsstring>
+        <name>b2Joint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="96" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classb2_mouse_joint_1a11564027dbf4ecbe593d6b8c3b634ea8" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2MouseJoint::m_localAnchorB</definition>
+        <argsstring></argsstring>
+        <name>m_localAnchorB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="104" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_mouse_joint_1a4196e32b3b8dfca298e37b7787245c6f" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2MouseJoint::m_targetA</definition>
+        <argsstring></argsstring>
+        <name>m_targetA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="105" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_mouse_joint_1a17a95ce26e366e288ca19e65abf6fd6b" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2MouseJoint::m_frequencyHz</definition>
+        <argsstring></argsstring>
+        <name>m_frequencyHz</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="106" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_mouse_joint_1afdd1fd651a936ce0afc85decd67b7e1c" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2MouseJoint::m_dampingRatio</definition>
+        <argsstring></argsstring>
+        <name>m_dampingRatio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="107" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_mouse_joint_1afb358e67d625526316bc2f53a1e3cae0" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2MouseJoint::m_beta</definition>
+        <argsstring></argsstring>
+        <name>m_beta</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="108" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_mouse_joint_1ae35319e2e64dbf3c48dd20fe8c031ebd" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2MouseJoint::m_impulse</definition>
+        <argsstring></argsstring>
+        <name>m_impulse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="111" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_mouse_joint_1a4659e3fee0beaeac207a013095748bc1" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2MouseJoint::m_maxForce</definition>
+        <argsstring></argsstring>
+        <name>m_maxForce</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="112" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_mouse_joint_1a63257ae0faad5c8ff00c92a4eaac50e0" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2MouseJoint::m_gamma</definition>
+        <argsstring></argsstring>
+        <name>m_gamma</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="113" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_mouse_joint_1ae6f4a011469a55cd2c61e8338fbd4994" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2MouseJoint::m_indexA</definition>
+        <argsstring></argsstring>
+        <name>m_indexA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="116" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_mouse_joint_1a5b2c7802674942419c89f140c7db85b3" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2MouseJoint::m_indexB</definition>
+        <argsstring></argsstring>
+        <name>m_indexB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="117" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_mouse_joint_1a00510096c1433e6d7e671cf5bbb1c118" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2MouseJoint::m_rB</definition>
+        <argsstring></argsstring>
+        <name>m_rB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="118" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_mouse_joint_1ad9947876df55f4b4e7d435941234e22e" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2MouseJoint::m_localCenterB</definition>
+        <argsstring></argsstring>
+        <name>m_localCenterB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="119" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_mouse_joint_1a84c405322a35b0f2649071cdcd7be0fb" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2MouseJoint::m_invMassB</definition>
+        <argsstring></argsstring>
+        <name>m_invMassB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="120" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_mouse_joint_1a0a4959ae588d0071d97424e36f15228e" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2MouseJoint::m_invIB</definition>
+        <argsstring></argsstring>
+        <name>m_invIB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="121" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_mouse_joint_1a628b7a7a2cd2b50313daea30baf47c4e" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_mat22" kindref="compound">b2Mat22</ref></type>
+        <definition>b2Mat22 b2MouseJoint::m_mass</definition>
+        <argsstring></argsstring>
+        <name>m_mass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="122" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_mouse_joint_1a7ea02e17cdde70717e84bf44614275fb" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2MouseJoint::m_C</definition>
+        <argsstring></argsstring>
+        <name>m_C</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="123" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classb2_mouse_joint_1a9db1c131fde2d11e61c6ccee9c28219b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2MouseJoint::GetAnchorA</definition>
+        <argsstring>() const </argsstring>
+        <name>GetAnchorA</name>
+        <reimplements refid="classb2_joint_1abe46ca3aad5db73909a9b5a7b2117447">GetAnchorA</reimplements>
+        <briefdescription>
+<para>Implements <ref refid="classb2_joint" kindref="compound">b2Joint</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_mouse_joint_1a0db991ec36238105eb481f75e9b6161a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2MouseJoint::GetAnchorB</definition>
+        <argsstring>() const </argsstring>
+        <name>GetAnchorB</name>
+        <reimplements refid="classb2_joint_1a88e947c65d4ea26fe539f02a8cb7f7a9">GetAnchorB</reimplements>
+        <briefdescription>
+<para>Implements <ref refid="classb2_joint" kindref="compound">b2Joint</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_mouse_joint_1ab8e07dbed9d24c1c046d1ede60930c52" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2MouseJoint::GetReactionForce</definition>
+        <argsstring>(float32 inv_dt) const </argsstring>
+        <name>GetReactionForce</name>
+        <reimplements refid="classb2_joint_1a7e0eddefb9b69ad050b8ef6425838a74">GetReactionForce</reimplements>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>inv_dt</declname>
+        </param>
+        <briefdescription>
+<para>Implements <ref refid="classb2_joint" kindref="compound">b2Joint</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_mouse_joint_1a68efbc617aa7f0a41578e0aea988d662" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2MouseJoint::GetReactionTorque</definition>
+        <argsstring>(float32 inv_dt) const </argsstring>
+        <name>GetReactionTorque</name>
+        <reimplements refid="classb2_joint_1ae355e441c2aa842777dc04e24f15ced0">GetReactionTorque</reimplements>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>inv_dt</declname>
+        </param>
+        <briefdescription>
+<para>Implements <ref refid="classb2_joint" kindref="compound">b2Joint</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_mouse_joint_1a96f34c1c990407eddbadf07ae359b1f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2MouseJoint::SetTarget</definition>
+        <argsstring>(const b2Vec2 &amp;target)</argsstring>
+        <name>SetTarget</name>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+<para>Use this to update the target point. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_mouse_joint_1a1261aba7d24d2c248b682ef8bdf2c585" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+        <definition>const b2Vec2&amp; b2MouseJoint::GetTarget</definition>
+        <argsstring>() const </argsstring>
+        <name>GetTarget</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_mouse_joint_1a4beba6ea0827960fac2474563591c03a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2MouseJoint::SetMaxForce</definition>
+        <argsstring>(float32 force)</argsstring>
+        <name>SetMaxForce</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+<para>Set/get the maximum force in Newtons. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_mouse_joint_1a30bf839765e997a424dd273f3f2d2027" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2MouseJoint::GetMaxForce</definition>
+        <argsstring>() const </argsstring>
+        <name>GetMaxForce</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_mouse_joint_1a8b37706535923637ca280c5a0467b14d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2MouseJoint::SetFrequency</definition>
+        <argsstring>(float32 hz)</argsstring>
+        <name>SetFrequency</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>hz</declname>
+        </param>
+        <briefdescription>
+<para>Set/get the frequency in Hertz. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_mouse_joint_1abd5a3eb593de976cd0cbf6c122bf50b2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2MouseJoint::GetFrequency</definition>
+        <argsstring>() const </argsstring>
+        <name>GetFrequency</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_mouse_joint_1a648c8f3ecb82f4887c0eefcfe48cbd37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2MouseJoint::SetDampingRatio</definition>
+        <argsstring>(float32 ratio)</argsstring>
+        <name>SetDampingRatio</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>ratio</declname>
+        </param>
+        <briefdescription>
+<para>Set/get the damping ratio (dimensionless). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_mouse_joint_1a1eca2ecc7a362abe48237440d4854b55" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2MouseJoint::GetDampingRatio</definition>
+        <argsstring>() const </argsstring>
+        <name>GetDampingRatio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_mouse_joint_1ae3d3a46a0032c0e50f346e7f7129617f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void b2MouseJoint::Dump</definition>
+        <argsstring>()</argsstring>
+        <name>Dump</name>
+        <reimplements refid="classb2_joint_1abd35e7316017ad9a40d5dbf9b5ba3f36">Dump</reimplements>
+        <briefdescription>
+<para>The mouse joint does not support dumping. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="93" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="93" bodyend="93"/>
+        <references refid="b2_settings_8h_1a9f10095d05c74eebfe535931c9061ab2">b2Log</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classb2_mouse_joint_1ad147d7989d884952c3389f7e5e3acf68" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>b2MouseJoint::b2MouseJoint</definition>
+        <argsstring>(const b2MouseJointDef *def)</argsstring>
+        <name>b2MouseJoint</name>
+        <param>
+          <type>const <ref refid="structb2_mouse_joint_def" kindref="compound">b2MouseJointDef</ref> *</type>
+          <declname>def</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_mouse_joint_1a81fbb58a52c3cea00fb25817d04d16e6" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void b2MouseJoint::InitVelocityConstraints</definition>
+        <argsstring>(const b2SolverData &amp;data)</argsstring>
+        <name>InitVelocityConstraints</name>
+        <reimplements refid="classb2_joint_1a599c013de5514e02684b958b31dd76a4">InitVelocityConstraints</reimplements>
+        <param>
+          <type>const <ref refid="structb2_solver_data" kindref="compound">b2SolverData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_mouse_joint_1a94efc95b4ab292d1cc193c6edbb362a2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void b2MouseJoint::SolveVelocityConstraints</definition>
+        <argsstring>(const b2SolverData &amp;data)</argsstring>
+        <name>SolveVelocityConstraints</name>
+        <reimplements refid="classb2_joint_1ad302c8d02efcfe934158de0dc429348d">SolveVelocityConstraints</reimplements>
+        <param>
+          <type>const <ref refid="structb2_solver_data" kindref="compound">b2SolverData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_mouse_joint_1a990ed3aaa5092ab92180b8ec3c3df342" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool b2MouseJoint::SolvePositionConstraints</definition>
+        <argsstring>(const b2SolverData &amp;data)</argsstring>
+        <name>SolvePositionConstraints</name>
+        <reimplements refid="classb2_joint_1af767ac9aa494bd15cdf83dfe3e487d9c">SolvePositionConstraints</reimplements>
+        <param>
+          <type>const <ref refid="structb2_solver_data" kindref="compound">b2SolverData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="102"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A mouse joint is used to make a point on a body track a specified world point. This a soft constraint with a maximum force. This allows the constraint to stretch and without applying huge forces. NOTE: this joint is not documented in the manual because it was developed to be used in the testbed. If you want to learn how to use the mouse joint, look at the testbed. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="1007">
+        <label>b2Joint</label>
+        <link refid="classb2_joint"/>
+      </node>
+      <node id="1006">
+        <label>b2MouseJoint</label>
+        <link refid="classb2_mouse_joint"/>
+        <childnode refid="1007" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1029">
+        <label>b2Draw</label>
+        <link refid="classb2_draw"/>
+      </node>
+      <node id="1036">
+        <label>b2DynamicTree</label>
+        <link refid="classb2_dynamic_tree"/>
+        <childnode refid="1037" relation="usage">
+          <edgelabel>m_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="1034">
+        <label>b2BroadPhase</label>
+        <link refid="classb2_broad_phase"/>
+        <childnode refid="1035" relation="usage">
+          <edgelabel>m_pairBuffer</edgelabel>
+        </childnode>
+        <childnode refid="1036" relation="usage">
+          <edgelabel>m_tree</edgelabel>
+        </childnode>
+      </node>
+      <node id="1039">
+        <label>b2ContactListener</label>
+        <link refid="classb2_contact_listener"/>
+      </node>
+      <node id="1017">
+        <label>b2Contact</label>
+        <link refid="classb2_contact"/>
+        <childnode refid="1018" relation="usage">
+          <edgelabel>s_registers</edgelabel>
+        </childnode>
+        <childnode refid="1017" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="1019" relation="usage">
+          <edgelabel>m_manifold</edgelabel>
+        </childnode>
+        <childnode refid="1023" relation="usage">
+          <edgelabel>m_fixtureA</edgelabel>
+          <edgelabel>m_fixtureB</edgelabel>
+        </childnode>
+        <childnode refid="1016" relation="usage">
+          <edgelabel>m_nodeA</edgelabel>
+          <edgelabel>m_nodeB</edgelabel>
+        </childnode>
+      </node>
+      <node id="1030">
+        <label>b2Profile</label>
+        <link refid="structb2_profile"/>
+      </node>
+      <node id="1010">
+        <label>b2Body</label>
+        <link refid="classb2_body"/>
+        <childnode refid="1010" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="1011" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+        <childnode refid="1012" relation="usage">
+          <edgelabel>m_linearVelocity</edgelabel>
+          <edgelabel>m_force</edgelabel>
+        </childnode>
+        <childnode refid="1013" relation="usage">
+          <edgelabel>m_sweep</edgelabel>
+        </childnode>
+        <childnode refid="1014" relation="usage">
+          <edgelabel>m_xf</edgelabel>
+        </childnode>
+        <childnode refid="1016" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="1023" relation="usage">
+          <edgelabel>m_fixtureList</edgelabel>
+        </childnode>
+        <childnode refid="1028" relation="usage">
+          <edgelabel>m_world</edgelabel>
+        </childnode>
+      </node>
+      <node id="1022">
+        <label>b2ContactFeature</label>
+        <link refid="structb2_contact_feature"/>
+      </node>
+      <node id="1016">
+        <label>b2ContactEdge</label>
+        <link refid="structb2_contact_edge"/>
+        <childnode refid="1010" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="1017" relation="usage">
+          <edgelabel>contact</edgelabel>
+        </childnode>
+        <childnode refid="1016" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1019">
+        <label>b2Manifold</label>
+        <link refid="structb2_manifold"/>
+        <childnode refid="1012" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+          <edgelabel>localNormal</edgelabel>
+        </childnode>
+        <childnode refid="1020" relation="usage">
+          <edgelabel>points</edgelabel>
+        </childnode>
+      </node>
+      <node id="1031">
+        <label>b2BlockAllocator</label>
+        <link refid="classb2_block_allocator"/>
+      </node>
+      <node id="1032">
+        <label>b2DestructionListener</label>
+        <link refid="classb2_destruction_listener"/>
+      </node>
+      <node id="1028">
+        <label>b2World</label>
+        <link refid="classb2_world"/>
+        <childnode refid="1010" relation="usage">
+          <edgelabel>m_bodyList</edgelabel>
+        </childnode>
+        <childnode refid="1029" relation="usage">
+          <edgelabel>m_debugDraw</edgelabel>
+        </childnode>
+        <childnode refid="1012" relation="usage">
+          <edgelabel>m_gravity</edgelabel>
+        </childnode>
+        <childnode refid="1030" relation="usage">
+          <edgelabel>m_profile</edgelabel>
+        </childnode>
+        <childnode refid="1031" relation="usage">
+          <edgelabel>m_blockAllocator</edgelabel>
+        </childnode>
+        <childnode refid="1032" relation="usage">
+          <edgelabel>m_destructionListener</edgelabel>
+        </childnode>
+        <childnode refid="1033" relation="usage">
+          <edgelabel>m_contactManager</edgelabel>
+        </childnode>
+        <childnode refid="1040" relation="usage">
+          <edgelabel>m_stackAllocator</edgelabel>
+        </childnode>
+        <childnode refid="1009" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+      </node>
+      <node id="1041">
+        <label>b2StackEntry</label>
+        <link refid="structb2_stack_entry"/>
+      </node>
+      <node id="1024">
+        <label>b2FixtureProxy</label>
+        <link refid="structb2_fixture_proxy"/>
+        <childnode refid="1025" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+        <childnode refid="1023" relation="usage">
+          <edgelabel>fixture</edgelabel>
+        </childnode>
+      </node>
+      <node id="1042">
+        <label>b2Mat22</label>
+        <link refid="structb2_mat22"/>
+        <childnode refid="1012" relation="usage">
+          <edgelabel>ex</edgelabel>
+          <edgelabel>ey</edgelabel>
+        </childnode>
+      </node>
+      <node id="1035">
+        <label>b2Pair</label>
+        <link refid="structb2_pair"/>
+      </node>
+      <node id="1013">
+        <label>b2Sweep</label>
+        <link refid="structb2_sweep"/>
+        <childnode refid="1012" relation="usage">
+          <edgelabel>c0</edgelabel>
+          <edgelabel>localCenter</edgelabel>
+          <edgelabel>c</edgelabel>
+        </childnode>
+      </node>
+      <node id="1014">
+        <label>b2Transform</label>
+        <link refid="structb2_transform"/>
+        <childnode refid="1012" relation="usage">
+          <edgelabel>p</edgelabel>
+        </childnode>
+        <childnode refid="1015" relation="usage">
+          <edgelabel>q</edgelabel>
+        </childnode>
+      </node>
+      <node id="1040">
+        <label>b2StackAllocator</label>
+        <link refid="classb2_stack_allocator"/>
+        <childnode refid="1041" relation="usage">
+          <edgelabel>m_entries</edgelabel>
+        </childnode>
+      </node>
+      <node id="1027">
+        <label>b2Filter</label>
+        <link refid="structb2_filter"/>
+      </node>
+      <node id="1011">
+        <label>b2JointEdge</label>
+        <link refid="structb2_joint_edge"/>
+        <childnode refid="1010" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="1011" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="1009" relation="usage">
+          <edgelabel>joint</edgelabel>
+        </childnode>
+      </node>
+      <node id="1038">
+        <label>b2ContactFilter</label>
+        <link refid="classb2_contact_filter"/>
+      </node>
+      <node id="1009">
+        <label>b2Joint</label>
+        <link refid="classb2_joint"/>
+        <childnode refid="1010" relation="usage">
+          <edgelabel>m_bodyA</edgelabel>
+          <edgelabel>m_bodyB</edgelabel>
+        </childnode>
+        <childnode refid="1011" relation="usage">
+          <edgelabel>m_edgeB</edgelabel>
+          <edgelabel>m_edgeA</edgelabel>
+        </childnode>
+        <childnode refid="1009" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1008">
+        <label>b2MouseJoint</label>
+        <link refid="classb2_mouse_joint"/>
+        <childnode refid="1009" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1012" relation="usage">
+          <edgelabel>m_targetA</edgelabel>
+          <edgelabel>m_localAnchorB</edgelabel>
+          <edgelabel>m_rB</edgelabel>
+          <edgelabel>m_C</edgelabel>
+          <edgelabel>m_localCenterB</edgelabel>
+          <edgelabel>m_impulse</edgelabel>
+        </childnode>
+        <childnode refid="1042" relation="usage">
+          <edgelabel>m_mass</edgelabel>
+        </childnode>
+      </node>
+      <node id="1012">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+      <node id="1021">
+        <label>b2ContactID</label>
+        <link refid="unionb2_contact_i_d"/>
+        <childnode refid="1022" relation="usage">
+          <edgelabel>cf</edgelabel>
+        </childnode>
+      </node>
+      <node id="1026">
+        <label>b2Shape</label>
+        <link refid="classb2_shape"/>
+      </node>
+      <node id="1037">
+        <label>b2TreeNode</label>
+        <link refid="structb2_tree_node"/>
+        <childnode refid="1025" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+      </node>
+      <node id="1025">
+        <label>b2AABB</label>
+        <link refid="structb2_a_a_b_b"/>
+        <childnode refid="1012" relation="usage">
+          <edgelabel>lowerBound</edgelabel>
+          <edgelabel>upperBound</edgelabel>
+        </childnode>
+      </node>
+      <node id="1015">
+        <label>b2Rot</label>
+        <link refid="structb2_rot"/>
+      </node>
+      <node id="1033">
+        <label>b2ContactManager</label>
+        <link refid="classb2_contact_manager"/>
+        <childnode refid="1031" relation="usage">
+          <edgelabel>m_allocator</edgelabel>
+        </childnode>
+        <childnode refid="1017" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="1034" relation="usage">
+          <edgelabel>m_broadPhase</edgelabel>
+        </childnode>
+        <childnode refid="1038" relation="usage">
+          <edgelabel>m_contactFilter</edgelabel>
+        </childnode>
+        <childnode refid="1039" relation="usage">
+          <edgelabel>m_contactListener</edgelabel>
+        </childnode>
+      </node>
+      <node id="1023">
+        <label>b2Fixture</label>
+        <link refid="classb2_fixture"/>
+        <childnode refid="1010" relation="usage">
+          <edgelabel>m_body</edgelabel>
+        </childnode>
+        <childnode refid="1024" relation="usage">
+          <edgelabel>m_proxies</edgelabel>
+        </childnode>
+        <childnode refid="1026" relation="usage">
+          <edgelabel>m_shape</edgelabel>
+        </childnode>
+        <childnode refid="1027" relation="usage">
+          <edgelabel>m_filter</edgelabel>
+        </childnode>
+        <childnode refid="1023" relation="usage">
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1018">
+        <label>b2ContactRegister</label>
+        <link refid="structb2_contact_register"/>
+      </node>
+      <node id="1020">
+        <label>b2ManifoldPoint</label>
+        <link refid="structb2_manifold_point"/>
+        <childnode refid="1012" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+        </childnode>
+        <childnode refid="1021" relation="usage">
+          <edgelabel>id</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" line="61" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2MouseJoint.h" bodystart="60" bodyend="124"/>
+    <listofallmembers>
+      <member refid="classb2_joint_1a010ab52de250e5fe30a45d642f46405b" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>b2Body</name></member>
+      <member refid="classb2_joint_1a13c275221e30bb485e17e4e04553cb71" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>b2GearJoint</name></member>
+      <member refid="classb2_joint_1afc682950b8c4f251804fc1938663098b" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>b2Island</name></member>
+      <member refid="classb2_mouse_joint_1a54ade8ed3d794298108d7f4c4e4793fa" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>b2Joint</name></member>
+      <member refid="classb2_joint_1a8d6cce91546335fe95325d5e29c06a19" prot="protected" virt="non-virtual" ambiguityscope="b2Joint::"><scope>b2MouseJoint</scope><name>b2Joint</name></member>
+      <member refid="classb2_mouse_joint_1ad147d7989d884952c3389f7e5e3acf68" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>b2MouseJoint</name></member>
+      <member refid="classb2_joint_1a4bd536c5a7c0587913765bbc2693ceea" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>b2World</name></member>
+      <member refid="classb2_joint_1afb5e48309bffa83a01d3f8a703269602" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>Create</name></member>
+      <member refid="classb2_joint_1adfb955de2abe370a973a7158557e26be" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>Destroy</name></member>
+      <member refid="classb2_mouse_joint_1ae3d3a46a0032c0e50f346e7f7129617f" prot="public" virt="virtual"><scope>b2MouseJoint</scope><name>Dump</name></member>
+      <member refid="classb2_mouse_joint_1a9db1c131fde2d11e61c6ccee9c28219b" prot="public" virt="virtual"><scope>b2MouseJoint</scope><name>GetAnchorA</name></member>
+      <member refid="classb2_mouse_joint_1a0db991ec36238105eb481f75e9b6161a" prot="public" virt="virtual"><scope>b2MouseJoint</scope><name>GetAnchorB</name></member>
+      <member refid="classb2_joint_1a2ed5eca3dbdce48665c14452b280613f" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>GetBodyA</name></member>
+      <member refid="classb2_joint_1a700b3d4c87f34f456151b9598e4641a0" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>GetBodyB</name></member>
+      <member refid="classb2_joint_1a09c6bdfa5842522ba381bac8dd559f4d" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>GetCollideConnected</name></member>
+      <member refid="classb2_mouse_joint_1a1eca2ecc7a362abe48237440d4854b55" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>GetDampingRatio</name></member>
+      <member refid="classb2_mouse_joint_1abd5a3eb593de976cd0cbf6c122bf50b2" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>GetFrequency</name></member>
+      <member refid="classb2_mouse_joint_1a30bf839765e997a424dd273f3f2d2027" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>GetMaxForce</name></member>
+      <member refid="classb2_joint_1a1a0e2137b631010750c728cb4e276e5d" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>GetNext</name></member>
+      <member refid="classb2_joint_1a1ac83edb39806085608c9d549dd98550" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>GetNext</name></member>
+      <member refid="classb2_mouse_joint_1ab8e07dbed9d24c1c046d1ede60930c52" prot="public" virt="virtual"><scope>b2MouseJoint</scope><name>GetReactionForce</name></member>
+      <member refid="classb2_mouse_joint_1a68efbc617aa7f0a41578e0aea988d662" prot="public" virt="virtual"><scope>b2MouseJoint</scope><name>GetReactionTorque</name></member>
+      <member refid="classb2_mouse_joint_1a1261aba7d24d2c248b682ef8bdf2c585" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>GetTarget</name></member>
+      <member refid="classb2_joint_1a37a2ca3f0d41c6903d2cc73757f02be2" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>GetType</name></member>
+      <member refid="classb2_joint_1a505ab02c234f1cc20aa3375f3ab7b587" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>GetUserData</name></member>
+      <member refid="classb2_mouse_joint_1a81fbb58a52c3cea00fb25817d04d16e6" prot="protected" virt="virtual"><scope>b2MouseJoint</scope><name>InitVelocityConstraints</name></member>
+      <member refid="classb2_joint_1a825d3a6abb32014f31fd622f2bfc0363" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>IsActive</name></member>
+      <member refid="classb2_mouse_joint_1afb358e67d625526316bc2f53a1e3cae0" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_beta</name></member>
+      <member refid="classb2_joint_1abaebb784a51abb7d66de302ba07a4467" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_bodyA</name></member>
+      <member refid="classb2_joint_1a1fd77fcbcb8a8a3729c7dc5b790d7200" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_bodyB</name></member>
+      <member refid="classb2_mouse_joint_1a7ea02e17cdde70717e84bf44614275fb" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_C</name></member>
+      <member refid="classb2_joint_1ac1a93c14c8dd666bb487db6c98daad33" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_collideConnected</name></member>
+      <member refid="classb2_mouse_joint_1afdd1fd651a936ce0afc85decd67b7e1c" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_dampingRatio</name></member>
+      <member refid="classb2_joint_1a406ea423db1fe6484408d73df647f7b2" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_edgeA</name></member>
+      <member refid="classb2_joint_1a1041219dcd353ea815ebd78f904af547" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_edgeB</name></member>
+      <member refid="classb2_mouse_joint_1a17a95ce26e366e288ca19e65abf6fd6b" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_frequencyHz</name></member>
+      <member refid="classb2_mouse_joint_1a63257ae0faad5c8ff00c92a4eaac50e0" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_gamma</name></member>
+      <member refid="classb2_mouse_joint_1ae35319e2e64dbf3c48dd20fe8c031ebd" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_impulse</name></member>
+      <member refid="classb2_joint_1ae207295484bc040b6b52d96d63f1369f" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_index</name></member>
+      <member refid="classb2_mouse_joint_1ae6f4a011469a55cd2c61e8338fbd4994" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_indexA</name></member>
+      <member refid="classb2_mouse_joint_1a5b2c7802674942419c89f140c7db85b3" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_indexB</name></member>
+      <member refid="classb2_mouse_joint_1a0a4959ae588d0071d97424e36f15228e" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_invIB</name></member>
+      <member refid="classb2_mouse_joint_1a84c405322a35b0f2649071cdcd7be0fb" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_invMassB</name></member>
+      <member refid="classb2_joint_1a777e45428d9a74d626f4afa1b45e1975" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_islandFlag</name></member>
+      <member refid="classb2_mouse_joint_1a11564027dbf4ecbe593d6b8c3b634ea8" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_localAnchorB</name></member>
+      <member refid="classb2_mouse_joint_1ad9947876df55f4b4e7d435941234e22e" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_localCenterB</name></member>
+      <member refid="classb2_mouse_joint_1a628b7a7a2cd2b50313daea30baf47c4e" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_mass</name></member>
+      <member refid="classb2_mouse_joint_1a4659e3fee0beaeac207a013095748bc1" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_maxForce</name></member>
+      <member refid="classb2_joint_1aad16778ba9c51cebb767ff7df6ed80b5" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_next</name></member>
+      <member refid="classb2_joint_1a940166e7b5d87cec1ad0603e0388854a" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_prev</name></member>
+      <member refid="classb2_mouse_joint_1a00510096c1433e6d7e671cf5bbb1c118" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_rB</name></member>
+      <member refid="classb2_mouse_joint_1a4196e32b3b8dfca298e37b7787245c6f" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_targetA</name></member>
+      <member refid="classb2_joint_1a3fd3f2532d108d81df81427815210a59" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_type</name></member>
+      <member refid="classb2_joint_1ae8a31b6d5d6e76ccf7c975b2b3ae7366" prot="protected" virt="non-virtual"><scope>b2MouseJoint</scope><name>m_userData</name></member>
+      <member refid="classb2_mouse_joint_1a648c8f3ecb82f4887c0eefcfe48cbd37" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>SetDampingRatio</name></member>
+      <member refid="classb2_mouse_joint_1a8b37706535923637ca280c5a0467b14d" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>SetFrequency</name></member>
+      <member refid="classb2_mouse_joint_1a4beba6ea0827960fac2474563591c03a" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>SetMaxForce</name></member>
+      <member refid="classb2_mouse_joint_1a96f34c1c990407eddbadf07ae359b1f3" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>SetTarget</name></member>
+      <member refid="classb2_joint_1a492f2d02496437572aaec6013ebdc1c8" prot="public" virt="non-virtual"><scope>b2MouseJoint</scope><name>SetUserData</name></member>
+      <member refid="classb2_mouse_joint_1a990ed3aaa5092ab92180b8ec3c3df342" prot="protected" virt="virtual"><scope>b2MouseJoint</scope><name>SolvePositionConstraints</name></member>
+      <member refid="classb2_mouse_joint_1a94efc95b4ab292d1cc193c6edbb362a2" prot="protected" virt="virtual"><scope>b2MouseJoint</scope><name>SolveVelocityConstraints</name></member>
+      <member refid="classb2_joint_1ab44cde7b81c3e77540400e0da90d6ceb" prot="protected" virt="virtual"><scope>b2MouseJoint</scope><name>~b2Joint</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

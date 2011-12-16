@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="dir_c15aa399d67699e418ae0e9273cd3856" kind="dir">
+    <compoundname>/Users/gaspard/git/lubyk/modules/mimas/</compoundname>
+    <innerdir refid="dir_6fce68c0b9f72a88ce64c6cab14ec5b1">/Users/gaspard/git/lubyk/modules/mimas/bind/</innerdir>
+    <innerdir refid="dir_9575bec6758e3e46b4316f9b2af990a2">/Users/gaspard/git/lubyk/modules/mimas/include/</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/"/>
+  </compounddef>
+</doxygen>

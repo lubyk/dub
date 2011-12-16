@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_s_u_r_f_point" kind="struct" prot="public">
+    <compoundname>CvSURFPoint</compoundname>
+    <includes refid="cv_8h" local="no">cv.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_s_u_r_f_point_1a60dfd069a42d57a2259d862b14f287c1" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_point2_d32f" kindref="compound">CvPoint2D32f</ref></type>
+        <definition>CvPoint2D32f CvSURFPoint::pt</definition>
+        <argsstring></argsstring>
+        <name>pt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1124" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1124" bodyend="-1"/>
+        <referencedby refid="cv_8h_1a43ee74763557157d5deb0259585bb006" compoundref="cv_8h" startline="1131" endline="1142">cvSURFPoint</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_s_u_r_f_point_1a584a2aa3e1c046b3e57b2a9c0d82c73d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvSURFPoint::laplacian</definition>
+        <argsstring></argsstring>
+        <name>laplacian</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1125" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1125" bodyend="-1"/>
+        <referencedby refid="cv_8h_1a43ee74763557157d5deb0259585bb006" compoundref="cv_8h" startline="1131" endline="1142">cvSURFPoint</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_s_u_r_f_point_1a0f46678907ba7a867a9eb2ade22a80eb" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvSURFPoint::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1126" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1126" bodyend="-1"/>
+        <referencedby refid="cv_8h_1a43ee74763557157d5deb0259585bb006" compoundref="cv_8h" startline="1131" endline="1142">cvSURFPoint</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_s_u_r_f_point_1a08e42d76fd78454974c1a2ce38e05c53" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvSURFPoint::dir</definition>
+        <argsstring></argsstring>
+        <name>dir</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1127" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1127" bodyend="-1"/>
+        <referencedby refid="cv_8h_1a43ee74763557157d5deb0259585bb006" compoundref="cv_8h" startline="1131" endline="1142">cvSURFPoint</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_s_u_r_f_point_1ae24f023d123a23323684928d6bb423c6" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvSURFPoint::hessian</definition>
+        <argsstring></argsstring>
+        <name>hessian</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1128" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1128" bodyend="-1"/>
+        <referencedby refid="cv_8h_1a43ee74763557157d5deb0259585bb006" compoundref="cv_8h" startline="1131" endline="1142">cvSURFPoint</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2047">
+        <label>CvSURFPoint</label>
+        <link refid="struct_cv_s_u_r_f_point"/>
+        <childnode refid="2048" relation="usage">
+          <edgelabel>pt</edgelabel>
+        </childnode>
+      </node>
+      <node id="2048">
+        <label>CvPoint2D32f</label>
+        <link refid="struct_cv_point2_d32f"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" line="1123" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h" bodystart="1122" bodyend="1129"/>
+    <listofallmembers>
+      <member refid="struct_cv_s_u_r_f_point_1a08e42d76fd78454974c1a2ce38e05c53" prot="public" virt="non-virtual"><scope>CvSURFPoint</scope><name>dir</name></member>
+      <member refid="struct_cv_s_u_r_f_point_1ae24f023d123a23323684928d6bb423c6" prot="public" virt="non-virtual"><scope>CvSURFPoint</scope><name>hessian</name></member>
+      <member refid="struct_cv_s_u_r_f_point_1a584a2aa3e1c046b3e57b2a9c0d82c73d" prot="public" virt="non-virtual"><scope>CvSURFPoint</scope><name>laplacian</name></member>
+      <member refid="struct_cv_s_u_r_f_point_1a60dfd069a42d57a2259d862b14f287c1" prot="public" virt="non-virtual"><scope>CvSURFPoint</scope><name>pt</name></member>
+      <member refid="struct_cv_s_u_r_f_point_1a0f46678907ba7a867a9eb2ade22a80eb" prot="public" virt="non-virtual"><scope>CvSURFPoint</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

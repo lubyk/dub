@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmimas_1_1_q_action" kind="class" prot="public">
+    <compoundname>mimas::QAction</compoundname>
+    <derivedcompoundref refid="classmimas_1_1_action" prot="public" virt="non-virtual">mimas::Action</derivedcompoundref>
+    <includes refid="_q_action_8h" local="no">QAction.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmimas_1_1_q_action_1ae999beb2127c390ebbfb0fd244525da8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QAction::text</definition>
+        <argsstring>()</argsstring>
+        <name>text</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QAction.h" line="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_q_action_1aa40ad8a315d967abf320535d07d7e1ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::QAction::setText</definition>
+        <argsstring>(const char *text)</argsstring>
+        <name>setText</name>
+        <param>
+          <type>const char *</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QAction.h" line="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This is a dummy class to create bindings for objects inheriting from Qt&apos;s <ref refid="classmimas_1_1_q_action" kindref="compound">QAction</ref>.</para><para><simplesect kind="see"><para><ref refid="classmimas_1_1_action" kindref="compound">Action</ref> </para><simplesectsep/><para><ref refid="classmimas_1_1_q_object" kindref="compound">QObject</ref> </para></simplesect>
+<simplesect kind="par"><title>Bindings info:</title><para>super: &apos;QObject&apos; bind: &apos;QAction.yml&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2323">
+        <label>mimas::QAction</label>
+        <link refid="classmimas_1_1_q_action"/>
+      </node>
+      <node id="2324">
+        <label>mimas::Action</label>
+        <link refid="classmimas_1_1_action"/>
+        <childnode refid="2323" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/bind/QAction.h" line="11" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/bind/QAction.h" bodystart="11" bodyend="15"/>
+    <listofallmembers>
+      <member refid="classmimas_1_1_q_action_1aa40ad8a315d967abf320535d07d7e1ab" prot="public" virt="non-virtual"><scope>mimas::QAction</scope><name>setText</name></member>
+      <member refid="classmimas_1_1_q_action_1ae999beb2127c390ebbfb0fd244525da8" prot="public" virt="non-virtual"><scope>mimas::QAction</scope><name>text</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

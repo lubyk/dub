@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_mass_data" kind="struct" prot="public">
+    <compoundname>b2MassData</compoundname>
+    <includes refid="b2_shape_8h" local="no">b2Shape.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_mass_data_1aea85d9595a38d2eed05b8d2ea80d97b1" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2MassData::mass</definition>
+        <argsstring></argsstring>
+        <name>mass</name>
+        <briefdescription>
+<para>The mass of the shape, usually in kilograms. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Shape.h" line="30" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Shape.h" bodystart="30" bodyend="-1"/>
+        <referencedby refid="classb2_body_1ad0a90df7e2617a8572cd476267f95417" compoundref="b2_body_8h" startline="543" endline="548">b2Body::GetMassData</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_mass_data_1a1d59bebc7030c4dded0c2febc57ebdd7" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2MassData::center</definition>
+        <argsstring></argsstring>
+        <name>center</name>
+        <briefdescription>
+<para>The position of the shape&apos;s centroid relative to the shape&apos;s origin. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Shape.h" line="33" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Shape.h" bodystart="33" bodyend="-1"/>
+        <referencedby refid="classb2_body_1ad0a90df7e2617a8572cd476267f95417" compoundref="b2_body_8h" startline="543" endline="548">b2Body::GetMassData</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_mass_data_1ad2d06e96e2d79d895df16ae0e5fe0376" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2MassData::I</definition>
+        <argsstring></argsstring>
+        <name>I</name>
+        <briefdescription>
+<para>The rotational inertia of the shape about the local origin. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Shape.h" line="36" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Shape.h" bodystart="36" bodyend="-1"/>
+        <referencedby refid="classb2_body_1ad0a90df7e2617a8572cd476267f95417" compoundref="b2_body_8h" startline="543" endline="548">b2Body::GetMassData</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This holds the mass data computed for a shape. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="998">
+        <label>b2MassData</label>
+        <link refid="structb2_mass_data"/>
+        <childnode refid="999" relation="usage">
+          <edgelabel>center</edgelabel>
+        </childnode>
+      </node>
+      <node id="999">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Shape.h" line="28" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Shape.h" bodystart="27" bodyend="37"/>
+    <listofallmembers>
+      <member refid="structb2_mass_data_1a1d59bebc7030c4dded0c2febc57ebdd7" prot="public" virt="non-virtual"><scope>b2MassData</scope><name>center</name></member>
+      <member refid="structb2_mass_data_1ad2d06e96e2d79d895df16ae0e5fe0376" prot="public" virt="non-virtual"><scope>b2MassData</scope><name>I</name></member>
+      <member refid="structb2_mass_data_1aea85d9595a38d2eed05b8d2ea80d97b1" prot="public" virt="non-virtual"><scope>b2MassData</scope><name>mass</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

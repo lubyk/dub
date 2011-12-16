@@ -1,0 +1,456 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_contact_solver_def" kind="struct" prot="public">
+    <compoundname>b2ContactSolverDef</compoundname>
+    <includes refid="b2_contact_solver_8h" local="no">b2ContactSolver.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_contact_solver_def_1a544604c01e6606ab54b8ccd5289a7ac7" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_time_step" kindref="compound">b2TimeStep</ref></type>
+        <definition>b2TimeStep b2ContactSolverDef::step</definition>
+        <argsstring></argsstring>
+        <name>step</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="60" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_solver_def_1a4b9d708e3122cab8d9dabeafefc7a9af" prot="public" static="no" mutable="no">
+        <type><ref refid="classb2_contact" kindref="compound">b2Contact</ref> **</type>
+        <definition>b2Contact** b2ContactSolverDef::contacts</definition>
+        <argsstring></argsstring>
+        <name>contacts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="61" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_solver_def_1ae977ea1cee4b7b9ee99210d9b66f88ea" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2ContactSolverDef::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="62" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_solver_def_1aaf1432d040aa6279d91d8c9f24a4728a" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_position" kindref="compound">b2Position</ref> *</type>
+        <definition>b2Position* b2ContactSolverDef::positions</definition>
+        <argsstring></argsstring>
+        <name>positions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="63" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_solver_def_1ae839e5c5464aa54c1ad8ce1634b49a1f" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_velocity" kindref="compound">b2Velocity</ref> *</type>
+        <definition>b2Velocity* b2ContactSolverDef::velocities</definition>
+        <argsstring></argsstring>
+        <name>velocities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="64" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_contact_solver_def_1a54198ac9886a988b9ffd06cf28c4c45c" prot="public" static="no" mutable="no">
+        <type><ref refid="classb2_stack_allocator" kindref="compound">b2StackAllocator</ref> *</type>
+        <definition>b2StackAllocator* b2ContactSolverDef::allocator</definition>
+        <argsstring></argsstring>
+        <name>allocator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="65" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="389">
+        <label>b2Velocity</label>
+        <link refid="structb2_velocity"/>
+        <childnode refid="390" relation="usage">
+          <edgelabel>v</edgelabel>
+        </childnode>
+      </node>
+      <node id="407">
+        <label>b2Draw</label>
+        <link refid="classb2_draw"/>
+      </node>
+      <node id="414">
+        <label>b2DynamicTree</label>
+        <link refid="classb2_dynamic_tree"/>
+        <childnode refid="415" relation="usage">
+          <edgelabel>m_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="412">
+        <label>b2BroadPhase</label>
+        <link refid="classb2_broad_phase"/>
+        <childnode refid="413" relation="usage">
+          <edgelabel>m_pairBuffer</edgelabel>
+        </childnode>
+        <childnode refid="414" relation="usage">
+          <edgelabel>m_tree</edgelabel>
+        </childnode>
+      </node>
+      <node id="418">
+        <label>b2ContactListener</label>
+        <link refid="classb2_contact_listener"/>
+      </node>
+      <node id="392">
+        <label>b2Contact</label>
+        <link refid="classb2_contact"/>
+        <childnode refid="393" relation="usage">
+          <edgelabel>s_registers</edgelabel>
+        </childnode>
+        <childnode refid="392" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="394" relation="usage">
+          <edgelabel>m_manifold</edgelabel>
+        </childnode>
+        <childnode refid="398" relation="usage">
+          <edgelabel>m_fixtureA</edgelabel>
+          <edgelabel>m_fixtureB</edgelabel>
+        </childnode>
+        <childnode refid="405" relation="usage">
+          <edgelabel>m_nodeA</edgelabel>
+          <edgelabel>m_nodeB</edgelabel>
+        </childnode>
+      </node>
+      <node id="408">
+        <label>b2Profile</label>
+        <link refid="structb2_profile"/>
+      </node>
+      <node id="399">
+        <label>b2Body</label>
+        <link refid="classb2_body"/>
+        <childnode refid="399" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="400" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+        <childnode refid="390" relation="usage">
+          <edgelabel>m_linearVelocity</edgelabel>
+          <edgelabel>m_force</edgelabel>
+        </childnode>
+        <childnode refid="402" relation="usage">
+          <edgelabel>m_sweep</edgelabel>
+        </childnode>
+        <childnode refid="403" relation="usage">
+          <edgelabel>m_xf</edgelabel>
+        </childnode>
+        <childnode refid="405" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="398" relation="usage">
+          <edgelabel>m_fixtureList</edgelabel>
+        </childnode>
+        <childnode refid="406" relation="usage">
+          <edgelabel>m_world</edgelabel>
+        </childnode>
+      </node>
+      <node id="397">
+        <label>b2ContactFeature</label>
+        <link refid="structb2_contact_feature"/>
+      </node>
+      <node id="405">
+        <label>b2ContactEdge</label>
+        <link refid="structb2_contact_edge"/>
+        <childnode refid="399" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="392" relation="usage">
+          <edgelabel>contact</edgelabel>
+        </childnode>
+        <childnode refid="405" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="394">
+        <label>b2Manifold</label>
+        <link refid="structb2_manifold"/>
+        <childnode refid="390" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+          <edgelabel>localNormal</edgelabel>
+        </childnode>
+        <childnode refid="395" relation="usage">
+          <edgelabel>points</edgelabel>
+        </childnode>
+      </node>
+      <node id="388">
+        <label>b2TimeStep</label>
+        <link refid="structb2_time_step"/>
+      </node>
+      <node id="409">
+        <label>b2BlockAllocator</label>
+        <link refid="classb2_block_allocator"/>
+      </node>
+      <node id="410">
+        <label>b2DestructionListener</label>
+        <link refid="classb2_destruction_listener"/>
+      </node>
+      <node id="406">
+        <label>b2World</label>
+        <link refid="classb2_world"/>
+        <childnode refid="399" relation="usage">
+          <edgelabel>m_bodyList</edgelabel>
+        </childnode>
+        <childnode refid="407" relation="usage">
+          <edgelabel>m_debugDraw</edgelabel>
+        </childnode>
+        <childnode refid="390" relation="usage">
+          <edgelabel>m_gravity</edgelabel>
+        </childnode>
+        <childnode refid="408" relation="usage">
+          <edgelabel>m_profile</edgelabel>
+        </childnode>
+        <childnode refid="409" relation="usage">
+          <edgelabel>m_blockAllocator</edgelabel>
+        </childnode>
+        <childnode refid="410" relation="usage">
+          <edgelabel>m_destructionListener</edgelabel>
+        </childnode>
+        <childnode refid="411" relation="usage">
+          <edgelabel>m_contactManager</edgelabel>
+        </childnode>
+        <childnode refid="419" relation="usage">
+          <edgelabel>m_stackAllocator</edgelabel>
+        </childnode>
+        <childnode refid="401" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+      </node>
+      <node id="387">
+        <label>b2ContactSolverDef</label>
+        <link refid="structb2_contact_solver_def"/>
+        <childnode refid="388" relation="usage">
+          <edgelabel>step</edgelabel>
+        </childnode>
+        <childnode refid="389" relation="usage">
+          <edgelabel>velocities</edgelabel>
+        </childnode>
+        <childnode refid="391" relation="usage">
+          <edgelabel>positions</edgelabel>
+        </childnode>
+        <childnode refid="392" relation="usage">
+          <edgelabel>contacts</edgelabel>
+        </childnode>
+        <childnode refid="419" relation="usage">
+          <edgelabel>allocator</edgelabel>
+        </childnode>
+      </node>
+      <node id="420">
+        <label>b2StackEntry</label>
+        <link refid="structb2_stack_entry"/>
+      </node>
+      <node id="421">
+        <label>b2FixtureProxy</label>
+        <link refid="structb2_fixture_proxy"/>
+        <childnode refid="416" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+        <childnode refid="398" relation="usage">
+          <edgelabel>fixture</edgelabel>
+        </childnode>
+      </node>
+      <node id="391">
+        <label>b2Position</label>
+        <link refid="structb2_position"/>
+        <childnode refid="390" relation="usage">
+          <edgelabel>c</edgelabel>
+        </childnode>
+      </node>
+      <node id="413">
+        <label>b2Pair</label>
+        <link refid="structb2_pair"/>
+      </node>
+      <node id="402">
+        <label>b2Sweep</label>
+        <link refid="structb2_sweep"/>
+        <childnode refid="390" relation="usage">
+          <edgelabel>c0</edgelabel>
+          <edgelabel>localCenter</edgelabel>
+          <edgelabel>c</edgelabel>
+        </childnode>
+      </node>
+      <node id="403">
+        <label>b2Transform</label>
+        <link refid="structb2_transform"/>
+        <childnode refid="390" relation="usage">
+          <edgelabel>p</edgelabel>
+        </childnode>
+        <childnode refid="404" relation="usage">
+          <edgelabel>q</edgelabel>
+        </childnode>
+      </node>
+      <node id="419">
+        <label>b2StackAllocator</label>
+        <link refid="classb2_stack_allocator"/>
+        <childnode refid="420" relation="usage">
+          <edgelabel>m_entries</edgelabel>
+        </childnode>
+      </node>
+      <node id="423">
+        <label>b2Filter</label>
+        <link refid="structb2_filter"/>
+      </node>
+      <node id="400">
+        <label>b2JointEdge</label>
+        <link refid="structb2_joint_edge"/>
+        <childnode refid="399" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="400" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="401" relation="usage">
+          <edgelabel>joint</edgelabel>
+        </childnode>
+      </node>
+      <node id="417">
+        <label>b2ContactFilter</label>
+        <link refid="classb2_contact_filter"/>
+      </node>
+      <node id="401">
+        <label>b2Joint</label>
+        <link refid="classb2_joint"/>
+        <childnode refid="399" relation="usage">
+          <edgelabel>m_bodyA</edgelabel>
+          <edgelabel>m_bodyB</edgelabel>
+        </childnode>
+        <childnode refid="400" relation="usage">
+          <edgelabel>m_edgeB</edgelabel>
+          <edgelabel>m_edgeA</edgelabel>
+        </childnode>
+        <childnode refid="401" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="390">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+      <node id="396">
+        <label>b2ContactID</label>
+        <link refid="unionb2_contact_i_d"/>
+        <childnode refid="397" relation="usage">
+          <edgelabel>cf</edgelabel>
+        </childnode>
+      </node>
+      <node id="422">
+        <label>b2Shape</label>
+        <link refid="classb2_shape"/>
+      </node>
+      <node id="415">
+        <label>b2TreeNode</label>
+        <link refid="structb2_tree_node"/>
+        <childnode refid="416" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+      </node>
+      <node id="416">
+        <label>b2AABB</label>
+        <link refid="structb2_a_a_b_b"/>
+        <childnode refid="390" relation="usage">
+          <edgelabel>lowerBound</edgelabel>
+          <edgelabel>upperBound</edgelabel>
+        </childnode>
+      </node>
+      <node id="404">
+        <label>b2Rot</label>
+        <link refid="structb2_rot"/>
+      </node>
+      <node id="411">
+        <label>b2ContactManager</label>
+        <link refid="classb2_contact_manager"/>
+        <childnode refid="409" relation="usage">
+          <edgelabel>m_allocator</edgelabel>
+        </childnode>
+        <childnode refid="392" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="412" relation="usage">
+          <edgelabel>m_broadPhase</edgelabel>
+        </childnode>
+        <childnode refid="417" relation="usage">
+          <edgelabel>m_contactFilter</edgelabel>
+        </childnode>
+        <childnode refid="418" relation="usage">
+          <edgelabel>m_contactListener</edgelabel>
+        </childnode>
+      </node>
+      <node id="398">
+        <label>b2Fixture</label>
+        <link refid="classb2_fixture"/>
+        <childnode refid="399" relation="usage">
+          <edgelabel>m_body</edgelabel>
+        </childnode>
+        <childnode refid="421" relation="usage">
+          <edgelabel>m_proxies</edgelabel>
+        </childnode>
+        <childnode refid="422" relation="usage">
+          <edgelabel>m_shape</edgelabel>
+        </childnode>
+        <childnode refid="423" relation="usage">
+          <edgelabel>m_filter</edgelabel>
+        </childnode>
+        <childnode refid="398" relation="usage">
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="393">
+        <label>b2ContactRegister</label>
+        <link refid="structb2_contact_register"/>
+      </node>
+      <node id="395">
+        <label>b2ManifoldPoint</label>
+        <link refid="structb2_manifold_point"/>
+        <childnode refid="390" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+        </childnode>
+        <childnode refid="396" relation="usage">
+          <edgelabel>id</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" line="59" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2ContactSolver.h" bodystart="58" bodyend="66"/>
+    <listofallmembers>
+      <member refid="structb2_contact_solver_def_1a54198ac9886a988b9ffd06cf28c4c45c" prot="public" virt="non-virtual"><scope>b2ContactSolverDef</scope><name>allocator</name></member>
+      <member refid="structb2_contact_solver_def_1a4b9d708e3122cab8d9dabeafefc7a9af" prot="public" virt="non-virtual"><scope>b2ContactSolverDef</scope><name>contacts</name></member>
+      <member refid="structb2_contact_solver_def_1ae977ea1cee4b7b9ee99210d9b66f88ea" prot="public" virt="non-virtual"><scope>b2ContactSolverDef</scope><name>count</name></member>
+      <member refid="structb2_contact_solver_def_1aaf1432d040aa6279d91d8c9f24a4728a" prot="public" virt="non-virtual"><scope>b2ContactSolverDef</scope><name>positions</name></member>
+      <member refid="structb2_contact_solver_def_1a544604c01e6606ab54b8ccd5289a7ac7" prot="public" virt="non-virtual"><scope>b2ContactSolverDef</scope><name>step</name></member>
+      <member refid="structb2_contact_solver_def_1ae839e5c5464aa54c1ad8ce1634b49a1f" prot="public" virt="non-virtual"><scope>b2ContactSolverDef</scope><name>velocities</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

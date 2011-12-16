@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_con_densation" kind="struct" prot="public">
+    <compoundname>CvConDensation</compoundname>
+    <includes refid="cvaux_8h" local="no">cvaux.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_con_densation_1aaf20064b655233feecf1fbb351c8d958" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvConDensation::MP</definition>
+        <argsstring></argsstring>
+        <name>MP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1442" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1442" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_con_densation_1a43b9bf49588e345a91c3329e2320de37" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvConDensation::DP</definition>
+        <argsstring></argsstring>
+        <name>DP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1443" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1443" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_con_densation_1a511b6ad31e2d2958ba2693299f6f2082" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvConDensation::DynamMatr</definition>
+        <argsstring></argsstring>
+        <name>DynamMatr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1444" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1444" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_con_densation_1ae20ded637cab2f5d7415914a5c1b1278" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvConDensation::State</definition>
+        <argsstring></argsstring>
+        <name>State</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1445" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1445" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_con_densation_1a5607457e894fd6dc74a3c69d3a608821" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvConDensation::SamplesNum</definition>
+        <argsstring></argsstring>
+        <name>SamplesNum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1446" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1446" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_con_densation_1a82334e3d4b15191e9d4527ffdd33815c" prot="public" static="no" mutable="no">
+        <type>float **</type>
+        <definition>float** CvConDensation::flSamples</definition>
+        <argsstring></argsstring>
+        <name>flSamples</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1447" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1447" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_con_densation_1a5d14f16db70d33113b4840eebdee136f" prot="public" static="no" mutable="no">
+        <type>float **</type>
+        <definition>float** CvConDensation::flNewSamples</definition>
+        <argsstring></argsstring>
+        <name>flNewSamples</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1448" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1448" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_con_densation_1a495e8f03977700a19bbc3096f79ab713" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvConDensation::flConfidence</definition>
+        <argsstring></argsstring>
+        <name>flConfidence</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1449" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1449" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_con_densation_1a78a0d99ab85f57c1a9f69b6dfd5ac150" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvConDensation::flCumulative</definition>
+        <argsstring></argsstring>
+        <name>flCumulative</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1450" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1450" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_con_densation_1a5c358b1adb2685490cfb43dec24d51ee" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvConDensation::Temp</definition>
+        <argsstring></argsstring>
+        <name>Temp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1451" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1451" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_con_densation_1a712403785f8c84c01543e705d003b083" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvConDensation::RandomSample</definition>
+        <argsstring></argsstring>
+        <name>RandomSample</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1452" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1452" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_con_densation_1ae06c202a93a2f06a8664dd33241afb20" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_cv_rand_state" kindref="compound">CvRandState</ref> *</type>
+        <definition>struct CvRandState* CvConDensation::RandS</definition>
+        <argsstring></argsstring>
+        <name>RandS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1453" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1453" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1823">
+        <label>CvRandState</label>
+        <link refid="struct_cv_rand_state"/>
+        <childnode refid="1824" relation="usage">
+          <edgelabel>param</edgelabel>
+        </childnode>
+      </node>
+      <node id="1822">
+        <label>CvConDensation</label>
+        <link refid="struct_cv_con_densation"/>
+        <childnode refid="1823" relation="usage">
+          <edgelabel>RandS</edgelabel>
+        </childnode>
+      </node>
+      <node id="1824">
+        <label>CvScalar</label>
+        <link refid="struct_cv_scalar"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="1441" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="1440" bodyend="1454"/>
+    <listofallmembers>
+      <member refid="struct_cv_con_densation_1a43b9bf49588e345a91c3329e2320de37" prot="public" virt="non-virtual"><scope>CvConDensation</scope><name>DP</name></member>
+      <member refid="struct_cv_con_densation_1a511b6ad31e2d2958ba2693299f6f2082" prot="public" virt="non-virtual"><scope>CvConDensation</scope><name>DynamMatr</name></member>
+      <member refid="struct_cv_con_densation_1a495e8f03977700a19bbc3096f79ab713" prot="public" virt="non-virtual"><scope>CvConDensation</scope><name>flConfidence</name></member>
+      <member refid="struct_cv_con_densation_1a78a0d99ab85f57c1a9f69b6dfd5ac150" prot="public" virt="non-virtual"><scope>CvConDensation</scope><name>flCumulative</name></member>
+      <member refid="struct_cv_con_densation_1a5d14f16db70d33113b4840eebdee136f" prot="public" virt="non-virtual"><scope>CvConDensation</scope><name>flNewSamples</name></member>
+      <member refid="struct_cv_con_densation_1a82334e3d4b15191e9d4527ffdd33815c" prot="public" virt="non-virtual"><scope>CvConDensation</scope><name>flSamples</name></member>
+      <member refid="struct_cv_con_densation_1aaf20064b655233feecf1fbb351c8d958" prot="public" virt="non-virtual"><scope>CvConDensation</scope><name>MP</name></member>
+      <member refid="struct_cv_con_densation_1a712403785f8c84c01543e705d003b083" prot="public" virt="non-virtual"><scope>CvConDensation</scope><name>RandomSample</name></member>
+      <member refid="struct_cv_con_densation_1ae06c202a93a2f06a8664dd33241afb20" prot="public" virt="non-virtual"><scope>CvConDensation</scope><name>RandS</name></member>
+      <member refid="struct_cv_con_densation_1a5607457e894fd6dc74a3c69d3a608821" prot="public" virt="non-virtual"><scope>CvConDensation</scope><name>SamplesNum</name></member>
+      <member refid="struct_cv_con_densation_1ae20ded637cab2f5d7415914a5c1b1278" prot="public" virt="non-virtual"><scope>CvConDensation</scope><name>State</name></member>
+      <member refid="struct_cv_con_densation_1a5c358b1adb2685490cfb43dec24d51ee" prot="public" virt="non-virtual"><scope>CvConDensation</scope><name>Temp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmimas_1_1_data_source" kind="class" prot="public">
+    <compoundname>mimas::DataSource</compoundname>
+    <basecompoundref refid="classlubyk_1_1_threaded_lua_object" prot="public" virt="non-virtual">lubyk::ThreadedLuaObject</basecompoundref>
+    <includes refid="_data_source_8h" local="no">DataSource.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmimas_1_1_data_source_1a4241c45df96c7caa664a25bb6f4c3ecc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::DataSource::DataSource</definition>
+        <argsstring>()</argsstring>
+        <name>DataSource</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" line="57" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" bodystart="57" bodyend="59"/>
+        <references refid="mimas_8h_1abf7761995db91711f1c2001b3ea81ae7" compoundref="mimas_8h" startline="37">MIMAS_DEBUG_CC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_data_source_1a77c1cdecae6c3584d69766a381220d99" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::DataSource::~DataSource</definition>
+        <argsstring>()</argsstring>
+        <name>~DataSource</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" line="61" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" bodystart="61" bodyend="63"/>
+        <references refid="mimas_8h_1a9d2f1addda3f00a2c1d2e3e2b6e4b5b5" compoundref="mimas_8h" startline="38">MIMAS_DEBUG_GC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_data_source_1ade5c444507f94b8daf33f4cec8a6d9f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::DataSource::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" line="65" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" bodystart="65" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_data_source_1a33da95ddf2c9aa99b92e3f94e7aa1fa2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::DataSource::emitLayoutChanged</definition>
+        <argsstring>()</argsstring>
+        <name>emitLayoutChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" line="71" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" bodystart="71" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_data_source_1a1ab4232834ded79ab03232fdd76cec7e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QModelIndex</type>
+        <definition>virtual QModelIndex mimas::DataSource::index</definition>
+        <argsstring>(int row, int column, const QModelIndex &amp;parent=QModelIndex()) const </argsstring>
+        <name>index</name>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>column</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" line="76" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" bodystart="76" bodyend="79"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmimas_1_1_data_source_1af14893554f25eacf9dec7ef2899b45d3" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QModelIndex</type>
+        <definition>virtual QModelIndex mimas::DataSource::parent</definition>
+        <argsstring>(const QModelIndex &amp;child) const </argsstring>
+        <name>parent</name>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>child</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" line="81" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" bodystart="81" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_data_source_1acadd141b92414f734692aa93d73b4782" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>int</type>
+        <definition>virtual int mimas::DataSource::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const </argsstring>
+        <name>rowCount</name>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" line="85" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" bodystart="85" bodyend="102"/>
+        <references refid="cv_8h_1a2e751d0e4002c0a0e2779e2ad4dae90f" compoundref="cv_8h" startline="516">count</references>
+        <references refid="lua__object_8h_1a1095d349e93aa25cf9ddf8d07cbb6eea" compoundref="lua__object_8h" startline="34">pushLuaCallback</references>
+        <references refid="cv_8h_1ae17b3c2584dab511e91d1c96644018bf" compoundref="cv_8h" startline="516">status</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_data_source_1af7162dae7617460f235bbc2a88865142" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>int</type>
+        <definition>virtual int mimas::DataSource::columnCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const </argsstring>
+        <name>columnCount</name>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" line="104" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" bodystart="104" bodyend="119"/>
+        <references refid="cv_8h_1a2e751d0e4002c0a0e2779e2ad4dae90f" compoundref="cv_8h" startline="516">count</references>
+        <references refid="lua__object_8h_1a1095d349e93aa25cf9ddf8d07cbb6eea" compoundref="lua__object_8h" startline="34">pushLuaCallback</references>
+        <references refid="cv_8h_1ae17b3c2584dab511e91d1c96644018bf" compoundref="cv_8h" startline="516">status</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_data_source_1ad8f4fcf00bf511c0261ef63333f94f37" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QVariant</type>
+        <definition>virtual QVariant mimas::DataSource::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const </argsstring>
+        <name>data</name>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::DisplayRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" line="121" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" bodystart="121" bodyend="138"/>
+        <references refid="lua__object_8h_1a1095d349e93aa25cf9ddf8d07cbb6eea" compoundref="lua__object_8h" startline="34">pushLuaCallback</references>
+        <references refid="cv_8h_1ae17b3c2584dab511e91d1c96644018bf" compoundref="cv_8h" startline="516">status</references>
+        <references refid="namespacemimas_1a645a656c9e3b876d7962fd33562b0cf3">mimas::variantFromLua</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_data_source_1a967f4af632dd00a25ff5167e92de7adf" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QVariant</type>
+        <definition>virtual QVariant mimas::DataSource::headerData</definition>
+        <argsstring>(int section, Qt::Orientation orientation, int role=Qt::DisplayRole) const </argsstring>
+        <name>headerData</name>
+        <param>
+          <type>int</type>
+          <declname>section</declname>
+        </param>
+        <param>
+          <type>Qt::Orientation</type>
+          <declname>orientation</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::DisplayRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" line="140" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" bodystart="140" bodyend="157"/>
+        <references refid="lua__object_8h_1a1095d349e93aa25cf9ddf8d07cbb6eea" compoundref="lua__object_8h" startline="34">pushLuaCallback</references>
+        <references refid="cv_8h_1ae17b3c2584dab511e91d1c96644018bf" compoundref="cv_8h" startline="516">status</references>
+        <references refid="namespacemimas_1a645a656c9e3b876d7962fd33562b0cf3">mimas::variantFromLua</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classmimas_1_1_data_source" kindref="compound">DataSource</ref> is used to provide data to Views such as <ref refid="classmimas_1_1_table_view" kindref="compound">TableView</ref>, <ref refid="classmimas_1_1_list_view" kindref="compound">ListView</ref> or TreeView.</para><para><simplesect kind="par"><title>Bindings info:</title><para>destructor: &apos;luaDestroy&apos; ignore: &apos;index&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2071">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="2070">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2071" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2069">
+        <label>mimas::DataSource</label>
+        <link refid="classmimas_1_1_data_source"/>
+        <childnode refid="2070" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2075">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="2076" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2077">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2074">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="2075" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2073">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2074" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2076">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="2077" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2072">
+        <label>mimas::DataSource</label>
+        <link refid="classmimas_1_1_data_source"/>
+        <childnode refid="2073" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h" bodystart="52" bodyend="158"/>
+    <listofallmembers>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>mimas::DataSource</scope><name>class_name_</name></member>
+      <member refid="classmimas_1_1_data_source_1af7162dae7617460f235bbc2a88865142" prot="protected" virt="virtual"><scope>mimas::DataSource</scope><name>columnCount</name></member>
+      <member refid="classmimas_1_1_data_source_1ad8f4fcf00bf511c0261ef63333f94f37" prot="protected" virt="virtual"><scope>mimas::DataSource</scope><name>data</name></member>
+      <member refid="classmimas_1_1_data_source_1a4241c45df96c7caa664a25bb6f4c3ecc" prot="public" virt="non-virtual"><scope>mimas::DataSource</scope><name>DataSource</name></member>
+      <member refid="classmimas_1_1_data_source_1a33da95ddf2c9aa99b92e3f94e7aa1fa2" prot="public" virt="non-virtual"><scope>mimas::DataSource</scope><name>emitLayoutChanged</name></member>
+      <member refid="classmimas_1_1_data_source_1a967f4af632dd00a25ff5167e92de7adf" prot="protected" virt="virtual"><scope>mimas::DataSource</scope><name>headerData</name></member>
+      <member refid="classmimas_1_1_data_source_1a1ab4232834ded79ab03232fdd76cec7e" prot="public" virt="virtual"><scope>mimas::DataSource</scope><name>index</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" prot="public" virt="non-virtual"><scope>mimas::DataSource</scope><name>lua_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>mimas::DataSource</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>mimas::DataSource</scope><name>luaDestroy</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a1351dd8c5053c7df8e0a29b2887ddb8e" prot="public" virt="non-virtual"><scope>mimas::DataSource</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>mimas::DataSource</scope><name>LuaObject</name></member>
+      <member refid="classmimas_1_1_data_source_1af14893554f25eacf9dec7ef2899b45d3" prot="protected" virt="virtual"><scope>mimas::DataSource</scope><name>parent</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1af9f7e3d5717357958461b2634742475f" prot="protected" virt="non-virtual"><scope>mimas::DataSource</scope><name>pushLuaCallbackl</name></member>
+      <member refid="classmimas_1_1_data_source_1ade5c444507f94b8daf33f4cec8a6d9f1" prot="public" virt="non-virtual"><scope>mimas::DataSource</scope><name>reset</name></member>
+      <member refid="classmimas_1_1_data_source_1acadd141b92414f734692aa93d73b4782" prot="protected" virt="virtual"><scope>mimas::DataSource</scope><name>rowCount</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1ad533909af126d2aa2b058dea6b0d91f0" prot="protected" virt="non-virtual"><scope>mimas::DataSource</scope><name>setupLuaThread</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>mimas::DataSource</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>mimas::DataSource</scope><name>setupSuper</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a68147ed0f2048d29f6adf5316992ad69" prot="public" virt="non-virtual"><scope>mimas::DataSource</scope><name>ThreadedLuaObject</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>mimas::DataSource</scope><name>worker_</name></member>
+      <member refid="classmimas_1_1_data_source_1a77c1cdecae6c3584d69766a381220d99" prot="public" virt="non-virtual"><scope>mimas::DataSource</scope><name>~DataSource</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>mimas::DataSource</scope><name>~LuaObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

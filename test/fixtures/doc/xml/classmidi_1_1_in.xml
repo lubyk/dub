@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmidi_1_1_in" kind="class" prot="public">
+    <compoundname>midi::In</compoundname>
+    <basecompoundref refid="classlubyk_1_1_fifo" prot="public" virt="non-virtual">lubyk::Fifo&lt; MsgVector &gt;</basecompoundref>
+    <basecompoundref refid="classlubyk_1_1_lua_object" prot="public" virt="non-virtual">lubyk::LuaObject</basecompoundref>
+    <includes refid="_in_8h" local="no">In.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmidi_1_1_in_1af456f54efbe79010e786bed22bb52e15" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int midi::In::port_id_</definition>
+        <argsstring></argsstring>
+        <name>port_id_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Midi port id to which the element is connected. If the value is -1 this means it has opened its own virtual port. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" line="258" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmidi_1_1_in_1a2fa9b07385f7320793d72f5263c2e61b" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string midi::In::port_name_</definition>
+        <argsstring></argsstring>
+        <name>port_name_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The connected port name. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" line="262" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmidi_1_1_in_1a8668c59421e6c5b3d4291179a86758d5" prot="private" static="no" mutable="no">
+        <type>RtMidiIn *</type>
+        <definition>RtMidiIn* midi::In::midi_in_</definition>
+        <argsstring></argsstring>
+        <name>midi_in_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to our RtMidiIn instance (<ref refid="classmidi_1_1_in" kindref="compound">midi::In</ref> is just a wrapper around RtMidiIn). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" line="267" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" bodystart="267" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmidi_1_1_in_1aecf9d297b22978f3e1de194aff1d9076" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>midi::In::In</definition>
+        <argsstring>()</argsstring>
+        <name>In</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" line="56" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" bodystart="53" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classmidi_1_1_in_1ac86d25f87596997b57d79700398672f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>midi::In::~In</definition>
+        <argsstring>()</argsstring>
+        <name>~In</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" line="64" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classmidi_1_1_in_1a34445bdf798eb249d468832652dcae4b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int midi::In::port</definition>
+        <argsstring>() const </argsstring>
+        <name>port</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" line="66" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" bodystart="66" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classmidi_1_1_in_1a1d88ef6570ad37fccc400737c0e1ff43" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* midi::In::portName</definition>
+        <argsstring>() const </argsstring>
+        <name>portName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" line="70" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" bodystart="70" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classmidi_1_1_in_1aa538cfa89689ee11fe0c3082683af3ac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void midi::In::openPort</definition>
+        <argsstring>(int port, lua_State *L)</argsstring>
+        <name>openPort</name>
+        <param>
+          <type>int</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" line="74" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" bodystart="74" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classmidi_1_1_in_1abf79c19c249adcc85142b7bc22ac8255" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void midi::In::openPort</definition>
+        <argsstring>(const char *port_name, lua_State *L)</argsstring>
+        <name>openPort</name>
+        <param>
+          <type>const char *</type>
+          <declname>port_name</declname>
+        </param>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" line="92" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" bodystart="92" bodyend="105"/>
+        <references refid="cxcore_8h_1add928d8eb85ea33a25a67db3406d4887" compoundref="cxcore_8h" startline="1614">name</references>
+      </memberdef>
+      <memberdef kind="function" id="classmidi_1_1_in_1abf4526b4e767ed986baa81b765d195e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void midi::In::virtualPort</definition>
+        <argsstring>(const char *port_name, lua_State *L)</argsstring>
+        <name>virtualPort</name>
+        <param>
+          <type>const char *</type>
+          <declname>port_name</declname>
+        </param>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" line="107" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" bodystart="107" bodyend="110"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmidi_1_1_in_1a69543a823634e892e9341dcea967ff22" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>virtual LuaStackSize midi::In::unpack</definition>
+        <argsstring>(lua_State *L, MsgVector *message)</argsstring>
+        <name>unpack</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacemidi_1ae995be3a77e8a63c8091a888fb0bf0be" kindref="member">MsgVector</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" line="114" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" bodystart="114" bodyend="207"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmidi_1_1_in_1a938ceaa8e2746d7caa23b8c04ff25d6e" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void midi::In::s_callback</definition>
+        <argsstring>(double timestamp, MsgVector *message, void *data)</argsstring>
+        <name>s_callback</name>
+        <param>
+          <type>double</type>
+          <declname>timestamp</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacemidi_1ae995be3a77e8a63c8091a888fb0bf0be" kindref="member">MsgVector</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Static callback to trigger when new messages arrive. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" line="213" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" bodystart="213" bodyend="215"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmidi_1_1_in_1a8ea853895cbc8356f3175904a7e0d01a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void midi::In::receive</definition>
+        <argsstring>(double timestamp, MsgVector *message)</argsstring>
+        <name>receive</name>
+        <param>
+          <type>double</type>
+          <declname>timestamp</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacemidi_1ae995be3a77e8a63c8091a888fb0bf0be" kindref="member">MsgVector</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" line="217" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" bodystart="217" bodyend="222"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class lets you receive midi events through virtual ports (where possible) or connect to midi senders and receive midi data from them.</para><para><simplesect kind="par"><title>Bindings info:</title><para>lib_name:&apos;In_core&apos; string_format:&apos;%s (%f)&apos; string_args:&apos;(*userdata)-&gt;<ref refid="classmidi_1_1_in_1a1d88ef6570ad37fccc400737c0e1ff43" kindref="member">portName()</ref>, (*userdata)-&gt;<ref refid="classmidi_1_1_in_1a34445bdf798eb249d468832652dcae4b" kindref="member">port()</ref>&apos; super: &apos;lubyk.FifoMethods&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2150">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2151">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="2148">
+        <label>midi::In</label>
+        <link refid="classmidi_1_1_in"/>
+        <childnode refid="2149" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2151" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2149">
+        <label>lubyk::Fifo&lt; MsgVector &gt;</label>
+        <link refid="classlubyk_1_1_fifo"/>
+        <childnode refid="2150" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2156">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="2157" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2154">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2155">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="2156" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2157">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="2154" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2152">
+        <label>midi::In</label>
+        <link refid="classmidi_1_1_in"/>
+        <childnode refid="2153" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2155" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2153">
+        <label>lubyk::Fifo&lt; MsgVector &gt;</label>
+        <link refid="classlubyk_1_1_fifo"/>
+        <childnode refid="2154" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" line="50" bodyfile="/Users/gaspard/git/lubyk/modules/midi/include/midi/In.h" bodystart="50" bodyend="268"/>
+    <listofallmembers>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>midi::In</scope><name>class_name_</name></member>
+      <member refid="classlubyk_1_1_fifo_1af528d8b811e015215c3a8e1bae391fb2" prot="public" virt="non-virtual"><scope>midi::In</scope><name>fd</name></member>
+      <member refid="classlubyk_1_1_fifo_1ac1482af8ee456e929e46bafb70af0a0e" prot="public" virt="non-virtual"><scope>midi::In</scope><name>Fifo</name></member>
+      <member refid="classmidi_1_1_in_1aecf9d297b22978f3e1de194aff1d9076" prot="public" virt="non-virtual"><scope>midi::In</scope><name>In</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>midi::In</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>midi::In</scope><name>luaDestroy</name></member>
+      <member refid="classlubyk_1_1_lua_object_1afc36a0ff048ab6ebe7e43b4717d45bec" prot="public" virt="non-virtual"><scope>midi::In</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>midi::In</scope><name>LuaObject</name></member>
+      <member refid="classmidi_1_1_in_1a8668c59421e6c5b3d4291179a86758d5" prot="private" virt="non-virtual"><scope>midi::In</scope><name>midi_in_</name></member>
+      <member refid="classmidi_1_1_in_1aa538cfa89689ee11fe0c3082683af3ac" prot="public" virt="non-virtual"><scope>midi::In</scope><name>openPort</name></member>
+      <member refid="classmidi_1_1_in_1abf79c19c249adcc85142b7bc22ac8255" prot="public" virt="non-virtual"><scope>midi::In</scope><name>openPort</name></member>
+      <member refid="classlubyk_1_1_fifo_1a4d9a3be0e5c06021bbd93386b5972f60" prot="public" virt="non-virtual"><scope>midi::In</scope><name>pop</name></member>
+      <member refid="classmidi_1_1_in_1a34445bdf798eb249d468832652dcae4b" prot="public" virt="non-virtual"><scope>midi::In</scope><name>port</name></member>
+      <member refid="classmidi_1_1_in_1af456f54efbe79010e786bed22bb52e15" prot="private" virt="non-virtual"><scope>midi::In</scope><name>port_id_</name></member>
+      <member refid="classmidi_1_1_in_1a2fa9b07385f7320793d72f5263c2e61b" prot="private" virt="non-virtual"><scope>midi::In</scope><name>port_name_</name></member>
+      <member refid="classmidi_1_1_in_1a1d88ef6570ad37fccc400737c0e1ff43" prot="public" virt="non-virtual"><scope>midi::In</scope><name>portName</name></member>
+      <member refid="classlubyk_1_1_fifo_1ae7c39e88d6528314a4a8f27598ede7dd" prot="protected" virt="non-virtual"><scope>midi::In</scope><name>push</name></member>
+      <member refid="classmidi_1_1_in_1a8ea853895cbc8356f3175904a7e0d01a" prot="private" virt="non-virtual"><scope>midi::In</scope><name>receive</name></member>
+      <member refid="classmidi_1_1_in_1a938ceaa8e2746d7caa23b8c04ff25d6e" prot="private" virt="non-virtual"><scope>midi::In</scope><name>s_callback</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>midi::In</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>midi::In</scope><name>setupSuper</name></member>
+      <member refid="classmidi_1_1_in_1a69543a823634e892e9341dcea967ff22" prot="protected" virt="virtual"><scope>midi::In</scope><name>unpack</name></member>
+      <member refid="classlubyk_1_1_fifo_1a211d75991af18eb935598966e4428eb5" prot="protected" virt="pure-virtual" ambiguityscope="Fifo&lt; MsgVector &gt;::"><scope>midi::In</scope><name>unpack</name></member>
+      <member refid="classmidi_1_1_in_1abf4526b4e767ed986baa81b765d195e2" prot="public" virt="non-virtual"><scope>midi::In</scope><name>virtualPort</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>midi::In</scope><name>worker_</name></member>
+      <member refid="classlubyk_1_1_fifo_1aa99834fbbf69e2ef1690f9b9e6c2981b" prot="public" virt="virtual"><scope>midi::In</scope><name>~Fifo</name></member>
+      <member refid="classmidi_1_1_in_1ac86d25f87596997b57d79700398672f8" prot="public" virt="non-virtual"><scope>midi::In</scope><name>~In</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>midi::In</scope><name>~LuaObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

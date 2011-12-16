@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classlk_1_1_mutex" kind="class" prot="public">
+    <compoundname>lk::Mutex</compoundname>
+    <basecompoundref refid="classlubyk_1_1_r_mutex" prot="public" virt="non-virtual">lubyk::RMutex</basecompoundref>
+    <includes refid="lk_2include_2lk_2_mutex_8h" local="no">Mutex.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlk_1_1_mutex_1a3abc6f585c9e3a51158ba9ee69f3074f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lk::Mutex::Mutex</definition>
+        <argsstring>()</argsstring>
+        <name>Mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Mutex.h" line="40" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Mutex.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_mutex_1abeb0351ba089c71991ab8bd9e60a649d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lk::Mutex::lock</definition>
+        <argsstring>()</argsstring>
+        <name>lock</name>
+        <reimplements refid="classlubyk_1_1_r_mutex_1a63ad83c6e14efe863a139d972fc36e42">lock</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Lock mutex (hangs if mutex is locked by another thread). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Mutex.h" line="44" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Mutex.h" bodystart="44" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_mutex_1a9572d1bbf2813fa7e7f6dcc4fd3686b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lk::Mutex::unlock</definition>
+        <argsstring>()</argsstring>
+        <name>unlock</name>
+        <reimplements refid="classlubyk_1_1_r_mutex_1aea9fcfff855511d10784d718c82df6f8">unlock</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Unlock mutex (can only be called by owning thread). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Mutex.h" line="50" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Mutex.h" bodystart="50" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classlk_1_1_mutex_1a5aa5ca06547a0b0b2cdd181d1b787f5c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int lk::Mutex::lockCount</definition>
+        <argsstring>()</argsstring>
+        <name>lockCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the lock count. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Mutex.h" line="56" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Mutex.h" bodystart="56" bodyend="58"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The sole purpose of this class is to ease mutex testing from Lua. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2266">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2264">
+        <label>lk::Mutex</label>
+        <link refid="classlk_1_1_mutex"/>
+        <childnode refid="2265" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2265">
+        <label>lubyk::RMutex</label>
+        <link refid="classlubyk_1_1_r_mutex"/>
+        <childnode refid="2266" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2269">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2267">
+        <label>lk::Mutex</label>
+        <link refid="classlk_1_1_mutex"/>
+        <childnode refid="2268" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2268">
+        <label>lubyk::RMutex</label>
+        <link refid="classlubyk_1_1_r_mutex"/>
+        <childnode refid="2269" relation="private-inheritance">
+        </childnode>
+        <childnode refid="2270" relation="usage">
+          <edgelabel>mutex_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2270">
+        <label>lubyk::Mutex</label>
+        <link refid="classlubyk_1_1_mutex"/>
+        <childnode refid="2269" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/lk/include/lk/Mutex.h" line="38" bodyfile="/Users/gaspard/git/lubyk/modules/lk/include/lk/Mutex.h" bodystart="37" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classlk_1_1_mutex_1abeb0351ba089c71991ab8bd9e60a649d" prot="public" virt="non-virtual"><scope>lk::Mutex</scope><name>lock</name></member>
+      <member refid="classlk_1_1_mutex_1a5aa5ca06547a0b0b2cdd181d1b787f5c" prot="public" virt="non-virtual"><scope>lk::Mutex</scope><name>lockCount</name></member>
+      <member refid="classlubyk_1_1_r_mutex_1a80b858a3e7a1747c3678a1e52a49ad24" prot="protected" virt="non-virtual" ambiguityscope="lubyk::RMutex::"><scope>lk::Mutex</scope><name>lockCount</name></member>
+      <member refid="classlk_1_1_mutex_1a3abc6f585c9e3a51158ba9ee69f3074f" prot="public" virt="non-virtual"><scope>lk::Mutex</scope><name>Mutex</name></member>
+      <member refid="classlubyk_1_1_r_mutex_1a25061c60abad8f98b813ebfe1a358ad0" prot="public" virt="non-virtual"><scope>lk::Mutex</scope><name>RMutex</name></member>
+      <member refid="classlk_1_1_mutex_1a9572d1bbf2813fa7e7f6dcc4fd3686b3" prot="public" virt="non-virtual"><scope>lk::Mutex</scope><name>unlock</name></member>
+      <member refid="classlubyk_1_1_r_mutex_1a57f8cc4e13e6286a7e41cc5d7212a08b" prot="public" virt="non-virtual"><scope>lk::Mutex</scope><name>~RMutex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

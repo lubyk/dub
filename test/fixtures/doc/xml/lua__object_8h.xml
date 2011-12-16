@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="lua__object_8h" kind="file">
+    <compoundname>lua_object.h</compoundname>
+    <includes local="yes">lubyk.h</includes>
+    <incdepgraph>
+      <node id="435">
+        <label>/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h</label>
+        <link refid="lua_object.h"/>
+        <childnode refid="436" relation="include">
+        </childnode>
+      </node>
+      <node id="436">
+        <label>lubyk.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classlubyk_1_1_lua_object" prot="public">lubyk::LuaObject</innerclass>
+    <innerclass refid="classlubyk_1_1_threaded_lua_object" prot="public">lubyk::ThreadedLuaObject</innerclass>
+    <innernamespace refid="namespacelubyk">lubyk</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="lua__object_8h_1a1095d349e93aa25cf9ddf8d07cbb6eea" prot="public" static="no">
+        <name>pushLuaCallback</name>
+        <param><defname>s</defname></param>
+        <initializer>pushLuaCallbackl(s, strlen(s))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" line="34" bodyfile="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h" bodystart="34" bodyend="-1"/>
+        <referencedby refid="classwii_1_1_remote_1a2a1c92c16be20798502c05749b2ac0c9" compoundref="_remote_8h" startline="71" endline="85">wii::Remote::acceleration</referencedby>
+        <referencedby refid="classmimas_1_1_socket_notifier_1aad89dac8234490a49ad318bc74f9319b" compoundref="_socket_notifier_8h" startline="81" endline="104">mimas::SocketNotifier::activatedSlot</referencedby>
+        <referencedby refid="classwii_1_1_remote_1a9a54507416f3741410a94734905b95f2" compoundref="_remote_8h" startline="89" endline="101">wii::Remote::button</referencedby>
+        <referencedby refid="classdummy_1_1_dummy_1afec342700e35d57079ef135c88af7863" compoundref="dummy_8h" startline="48" endline="63">dummy::Dummy::callback</referencedby>
+        <referencedby refid="classmimas_1_1_callback_1a4038e26728479049d4b90ce1ee4d90e5" compoundref="_callback_8h" startline="84" endline="95">mimas::Callback::callback</referencedby>
+        <referencedby refid="classmimas_1_1_data_source_1af7162dae7617460f235bbc2a88865142" compoundref="_data_source_8h" startline="104" endline="119">mimas::DataSource::columnCount</referencedby>
+        <referencedby refid="classwii_1_1_remote_1ab6e4067e9c6b078f36a24338370cafc8" compoundref="_remote_8h" startline="119" endline="135">wii::Remote::connected</referencedby>
+        <referencedby refid="classmimas_1_1_data_source_1ad8f4fcf00bf511c0261ef63333f94f37" compoundref="_data_source_8h" startline="121" endline="138">mimas::DataSource::data</referencedby>
+        <referencedby refid="classwii_1_1_remote_1a580109833263d453e1dab94f3229e54e" compoundref="_remote_8h" startline="105" endline="115">wii::Remote::disconnected</referencedby>
+        <referencedby refid="classwii_1_1_browser_1af6706ff70ac8a361bcee3a2802012767" compoundref="wii_2include_2wii_2_browser_8h" startline="62" endline="95">wii::Browser::found</referencedby>
+        <referencedby refid="classmimas_1_1_data_source_1a967f4af632dd00a25ff5167e92de7adf" compoundref="_data_source_8h" startline="140" endline="157">mimas::DataSource::headerData</referencedby>
+        <referencedby refid="classmimas_1_1_g_l_widget_1a396f84ded6381480094ef8d6c6fbd862" compoundref="_g_l_widget_8h" startline="125" endline="135">mimas::GLWidget::initializeGL</referencedby>
+        <referencedby refid="classmimas_1_1_g_l_widget_1ab4777ee1eb8e0c71e46132df978a7aa4" compoundref="_g_l_widget_8h" startline="216" endline="229">mimas::GLWidget::keyboard</referencedby>
+        <referencedby refid="classmimas_1_1_main_window_1a5023cc44e8cb866884ca9bb63b7bb437" compoundref="_main_window_8h" startline="106" endline="119">mimas::MainWindow::moveEvent</referencedby>
+        <referencedby refid="classmimas_1_1_widget_1af33b100e20262919942a9b7ab0f6bc2e" compoundref="_widget_8h" startline="114" endline="127">mimas::Widget::moveEvent</referencedby>
+        <referencedby refid="classmimas_1_1_g_l_widget_1a982b6e549b56e58925965ebdfa0b7f12" compoundref="_g_l_widget_8h" startline="151" endline="161">mimas::GLWidget::paintGL</referencedby>
+        <referencedby refid="classmimas_1_1_file_observer_1a0db3349d9e5581bb87d34fee09d9ee4b" compoundref="_file_observer_8h" startline="78" endline="90">mimas::FileObserver::pathChangedSlot</referencedby>
+        <referencedby refid="classmimas_1_1_g_l_widget_1a6562667ff342a27a9c7fa7d5695b8243" compoundref="_g_l_widget_8h" startline="137" endline="149">mimas::GLWidget::resizeGL</referencedby>
+        <referencedby refid="classmimas_1_1_data_source_1acadd141b92414f734692aa93d73b4782" compoundref="_data_source_8h" startline="85" endline="102">mimas::DataSource::rowCount</referencedby>
+        <referencedby refid="classmimas_1_1_slider_1a87abc69f61015112e57c356591d7167b" compoundref="_slider_8h" startline="189" endline="200">mimas::Slider::sliderChangedSlot</referencedby>
+        <referencedby refid="classmimas_1_1_timer_1ae8914f6922e6622db4653e255f249ba4" compoundref="mimas_2include_2mimas_2timer_8h" startline="84" endline="97">mimas::Timer::timeoutSlot</referencedby>
+        <referencedby refid="classmimas_1_1_action_1a6918d345a7ddef2289ca8866821e33b3" compoundref="_action_8h" startline="74" endline="85">mimas::Action::triggeredSlot</referencedby>
+        <referencedby refid="classlk_1_1_debug_1ad68b9f2b810c0f5c34a6650443ee2c79" compoundref="_debug_8h" startline="62" endline="71">lk::Debug::~Debug</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>==============================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>LUBYK<sp/>project<sp/>(http://lubyk.org)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/>Copyright<sp/>(c)<sp/>2007-2011<sp/>by<sp/>Gaspard<sp/>Bucher<sp/>(http://teti.ch).</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"></highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/>------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"></highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/>of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/>in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/><sp/><sp/>to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/><sp/><sp/>copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/><sp/><sp/>furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/><sp/><sp/>all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/><sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/><sp/><sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/><sp/><sp/>AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/><sp/><sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/><sp/><sp/>OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/>THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"></highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/>==============================================================================</highlight></codeline>
+<codeline lineno="28"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>LUBYK_INCLUDE_LUBYK_LUA_OBJECT_H_</highlight></codeline>
+<codeline lineno="30"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>LUBYK_INCLUDE_LUBYK_LUA_OBJECT_H_</highlight></codeline>
+<codeline lineno="31"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lubyk.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="lua__object_8h_1a1095d349e93aa25cf9ddf8d07cbb6eea" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>pushLuaCallback(s)<sp/>pushLuaCallbackl(s,<sp/>strlen(s))</highlight></codeline>
+<codeline lineno="35"><highlight class="preprocessor"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">lubyk<sp/>{</highlight></codeline>
+<codeline lineno="38" refid="classlubyk_1_1_lua_object" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlubyk_1_1_lua_object" kindref="compound">LuaObject</ref></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43" refid="classlubyk_1_1_lua_object_1ae8c296083afd5f587cdf4ed25d81093f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**<ref refid="classlubyk_1_1_lua_object_1ae8c296083afd5f587cdf4ed25d81093f" kindref="member">userdata_</ref>;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><ref refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" kindref="member">LuaObject</ref>()<sp/>throw();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_lua_object_1afc36a0ff048ab6ebe7e43b4717d45bec" kindref="member">luaInit</ref>(lua_State<sp/>*L,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="cxcore_8h_1a166529da793cc1ef241cff347f3db5a5" kindref="member">ptr</ref>,<sp/>const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*type_name)<sp/>throw();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>virtual<sp/>~<ref refid="classlubyk_1_1_lua_object" kindref="compound">LuaObject</ref>();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" kindref="member">luaDestroy</ref>();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" refkind="member"><highlight class="normal"><sp/><sp/>lubyk::<ref refid="classlubyk_1_1_worker" kindref="compound">Worker</ref><sp/>*<ref refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" kindref="member">worker_</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal">protected:</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" kindref="member">luaCleanup</ref>();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" kindref="member">setupSuper</ref>(lua_State<sp/>*L,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*ptr)<sp/>throw();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" kindref="member">setupMetatable</ref>(lua_State<sp/>*L,<sp/>const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*type_name)<sp/>throw()<sp/>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" refkind="member"><highlight class="normal"><sp/><sp/>const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" kindref="member">class_name_</ref>;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="classlubyk_1_1_threaded_lua_object" refkind="compound"><highlight class="normal">class<sp/><ref refid="classlubyk_1_1_threaded_lua_object" kindref="compound">ThreadedLuaObject</ref><sp/>:<sp/>public<sp/>LuaObject<sp/>{</highlight></codeline>
+<codeline lineno="77" refid="classlubyk_1_1_threaded_lua_object_1a8bd7d3017ffd4fbe7bef3b5f3335a837" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_threaded_lua_object_1a8bd7d3017ffd4fbe7bef3b5f3335a837" kindref="member">thread_in_env_idx_</ref>;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="79" refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" refkind="member"><highlight class="normal"><sp/><sp/>lua_State<sp/>*<ref refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" kindref="member">lua_</ref>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><ref refid="classlubyk_1_1_threaded_lua_object" kindref="compound">ThreadedLuaObject</ref>()<sp/>throw();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlubyk_1_1_lua_object_1afc36a0ff048ab6ebe7e43b4717d45bec" kindref="member">luaInit</ref>(lua_State<sp/>*L,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*ptr,<sp/>const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*type_name)<sp/>throw();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal">protected:</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>pushLuaCallbackl(const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="cv_8h_1ab9b9819cc20b34aa0ae2bfa4486e7a65" kindref="member">method</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="cxcore_8h_1accb79be93f4fbcaa15b5a7670569c9f8" kindref="member">len</ref>)<sp/>const;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setupLuaThread(lua_State<sp/>*L)<sp/>throw();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>lubyk</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>LUBYK_INCLUDE_LUBYK_LUA_OBJECT_H_</highlight></codeline>
+    </programlisting>
+    <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/lua_object.h"/>
+  </compounddef>
+</doxygen>

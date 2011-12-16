@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="msgpack_8h" kind="file">
+    <compoundname>msgpack.h</compoundname>
+    <includes local="yes">lubyk.h</includes>
+    <includedby refid="lk_2include_2lk_2_socket_8h" local="yes">/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h</includedby>
+    <includedby refid="_poller_8h" local="yes">/Users/gaspard/git/lubyk/modules/zmq/include/zmq/Poller.h</includedby>
+    <includedby refid="zmq_2include_2zmq_2_socket_8h" local="yes">/Users/gaspard/git/lubyk/modules/zmq/include/zmq/Socket.h</includedby>
+    <incdepgraph>
+      <node id="442">
+        <label>lubyk.h</label>
+      </node>
+      <node id="441">
+        <label>/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/msgpack.h</label>
+        <link refid="msgpack.h"/>
+        <childnode refid="442" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="446">
+        <label>/Users/gaspard/git/lubyk/modules/zmq/include/zmq/Socket.h</label>
+        <link refid="zmq_2include_2zmq_2_socket_8h"/>
+        <childnode refid="445" relation="include">
+        </childnode>
+      </node>
+      <node id="444">
+        <label>/Users/gaspard/git/lubyk/modules/lk/include/lk/Socket.h</label>
+        <link refid="lk_2include_2lk_2_socket_8h"/>
+      </node>
+      <node id="443">
+        <label>/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/msgpack.h</label>
+        <link refid="msgpack.h"/>
+        <childnode refid="444" relation="include">
+        </childnode>
+        <childnode refid="445" relation="include">
+        </childnode>
+        <childnode refid="446" relation="include">
+        </childnode>
+      </node>
+      <node id="445">
+        <label>/Users/gaspard/git/lubyk/modules/zmq/include/zmq/Poller.h</label>
+        <link refid="_poller_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structmsgpack__sbuffer" prot="public">msgpack_sbuffer</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="msgpack_8h_1afb14e3b3135a7a277b9cf9db166239da" prot="public" static="no">
+        <type>struct <ref refid="structmsgpack__sbuffer" kindref="compound">msgpack_sbuffer</ref></type>
+        <definition>typedef struct msgpack_sbuffer  msgpack_sbuffer</definition>
+        <argsstring></argsstring>
+        <name>msgpack_sbuffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/msgpack.h" line="43"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="msgpack_8h_1a1dd8a74096eebc9fda9e552668ce3df1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void msgpack_lua_to_bin</definition>
+        <argsstring>(lua_State *L, msgpack_sbuffer **buffer, int skip_index=0)</argsstring>
+        <name>msgpack_lua_to_bin</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type><ref refid="structmsgpack__sbuffer" kindref="compound">msgpack_sbuffer</ref> **</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>skip_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/msgpack.h" line="45"/>
+        <referencedby refid="classzmq_1_1_socket_1a9d6e15efa968134db3ceaf2c6516f4ad" compoundref="zmq_2include_2zmq_2_socket_8h" startline="292" endline="357">zmq::Socket::request</referencedby>
+        <referencedby refid="classzmq_1_1_socket_1a8c9e876a842883a8a25c4647ec1039c7" compoundref="zmq_2include_2zmq_2_socket_8h" startline="255" endline="270">zmq::Socket::send</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="msgpack_8h_1ac85382666450aa97773427832b79652d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int msgpack_bin_to_lua</definition>
+        <argsstring>(lua_State *L, void *msg, size_t msg_len)</argsstring>
+        <name>msgpack_bin_to_lua</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>msg_len</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/msgpack.h" line="46"/>
+        <referencedby refid="classzmq_1_1_socket_1ac9afea253b7419e252a348b06a09fb46" compoundref="zmq_2include_2zmq_2_socket_8h" startline="235" endline="249">zmq::Socket::recv</referencedby>
+        <referencedby refid="classzmq_1_1_socket_1a9d6e15efa968134db3ceaf2c6516f4ad" compoundref="zmq_2include_2zmq_2_socket_8h" startline="292" endline="357">zmq::Socket::request</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="msgpack_8h_1acb585ec742d4be93f13cc8731f734d28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void free_msgpack_msg</definition>
+        <argsstring>(void *data, void *buffer)</argsstring>
+        <name>free_msgpack_msg</name>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/msgpack.h" line="47"/>
+        <referencedby refid="classzmq_1_1_socket_1a9d6e15efa968134db3ceaf2c6516f4ad" compoundref="zmq_2include_2zmq_2_socket_8h" startline="292" endline="357">zmq::Socket::request</referencedby>
+        <referencedby refid="classzmq_1_1_socket_1a8c9e876a842883a8a25c4647ec1039c7" compoundref="zmq_2include_2zmq_2_socket_8h" startline="255" endline="270">zmq::Socket::send</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>==============================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>LUBYK<sp/>project<sp/>(http://lubyk.org)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/>Copyright<sp/>(c)<sp/>2007-2011<sp/>by<sp/>Gaspard<sp/>Bucher<sp/>(http://teti.ch).</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"></highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/>------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"></highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/>of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/>in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/><sp/><sp/>to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/><sp/><sp/>copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/><sp/><sp/>furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/><sp/><sp/>all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/><sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/><sp/><sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/><sp/><sp/>AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/><sp/><sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/><sp/><sp/>OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/>THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"></highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/>==============================================================================</highlight></codeline>
+<codeline lineno="28"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>LUBYK_INCLUDE_LUBYK_MSGPACK_H_</highlight></codeline>
+<codeline lineno="30"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>LUBYK_INCLUDE_LUBYK_MSGPACK_H_</highlight></codeline>
+<codeline lineno="31"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lubyk.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>header<sp/>only<sp/>declares<sp/>msgpack_bin_to_lua<sp/>and<sp/>msgpack_lua_to_bin<sp/>with</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/>the<sp/>minimal<sp/>other<sp/>information<sp/>needed<sp/>to<sp/>use<sp/>these.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//<sp/>If<sp/>you<sp/>need<sp/>to<sp/>manually<sp/>pack/unpack<sp/>data,<sp/>please<sp/>include<sp/>&apos;msgpack/msgpack.h&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/>methods<sp/>defined<sp/>in<sp/>msgpack/vendor/lubyk.c</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="39" refid="structmsgpack__sbuffer" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structmsgpack__sbuffer" kindref="compound">msgpack_sbuffer</ref><sp/>{</highlight></codeline>
+<codeline lineno="40" refid="structmsgpack__sbuffer_1a7779f75edb79f38b4f987e04985011f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structmsgpack__sbuffer_1a7779f75edb79f38b4f987e04985011f3" kindref="member">size</ref>;</highlight></codeline>
+<codeline lineno="41" refid="structmsgpack__sbuffer_1a2dc6fcda73b0e59f3dcaa61b7e85837d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="structmsgpack__sbuffer_1a2dc6fcda73b0e59f3dcaa61b7e85837d" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="42" refid="structmsgpack__sbuffer_1a88402032cb871f09a8aac19c249e273c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structmsgpack__sbuffer_1a88402032cb871f09a8aac19c249e273c" kindref="member">alloc</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>}<sp/><ref refid="msgpack_8h_1afb14e3b3135a7a277b9cf9db166239da" kindref="member">msgpack_sbuffer</ref>;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="msgpack_8h_1a1dd8a74096eebc9fda9e552668ce3df1" kindref="member">msgpack_lua_to_bin</ref>(lua_State<sp/>*L,<sp/><ref refid="structmsgpack__sbuffer" kindref="compound">msgpack_sbuffer</ref><sp/>**<ref refid="cv_8h_1ac9db6ccf8d1a2abfd9a0a162547f9666" kindref="member">buffer</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>skip_index<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><ref refid="msgpack_8h_1ac85382666450aa97773427832b79652d" kindref="member">msgpack_bin_to_lua</ref>(lua_State<sp/>*L,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*msg,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>msg_len);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="msgpack_8h_1acb585ec742d4be93f13cc8731f734d28" kindref="member">free_msgpack_msg</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="cv_8h_1acd1647952fba31484ea63d6f1140e509" kindref="member">data</ref>,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="cv_8h_1ac9db6ccf8d1a2abfd9a0a162547f9666" kindref="member">buffer</ref>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>LUBYK_INCLUDE_LUBYK_MSGPACK_H_</highlight></codeline>
+    </programlisting>
+    <location file="/Users/gaspard/git/lubyk/modules/lubyk/include/lubyk/msgpack.h"/>
+  </compounddef>
+</doxygen>

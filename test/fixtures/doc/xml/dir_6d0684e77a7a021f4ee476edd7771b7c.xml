@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="dir_6d0684e77a7a021f4ee476edd7771b7c" kind="dir">
+    <compoundname>/Users/gaspard/git/lubyk/modules/mdns/include/mdns/</compoundname>
+    <innerfile refid="_abstract_browser_8h">AbstractBrowser.h</innerfile>
+    <innerfile refid="_abstract_registration_8h">AbstractRegistration.h</innerfile>
+    <innerfile refid="mdns_2include_2mdns_2_browser_8h">Browser.h</innerfile>
+    <innerfile refid="_location_8h">Location.h</innerfile>
+    <innerfile refid="_registration_8h">Registration.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/"/>
+  </compounddef>
+</doxygen>

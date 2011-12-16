@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="dir_fc9beb5b99a185e1037ba7102ea74eab" kind="dir">
+    <compoundname>/Users/gaspard/git/lubyk/modules/cv/include/</compoundname>
+    <innerdir refid="dir_76b0031a5123a5e03418e18c9742b95b">/Users/gaspard/git/lubyk/modules/cv/include/cv/</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/"/>
+  </compounddef>
+</doxygen>

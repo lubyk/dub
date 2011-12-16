@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_big_func_table" kind="struct" prot="public">
+    <compoundname>CvBigFuncTable</compoundname>
+    <includes refid="cxmisc_8h" local="no">cxmisc.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_big_func_table_1a15a8bf72d987be45292ea9854e5b03ea" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* CvBigFuncTable::fn_2d[CV_DEPTH_MAX *CV_CN_MAX]</definition>
+        <argsstring>[CV_DEPTH_MAX *CV_CN_MAX]</argsstring>
+        <name>fn_2d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxmisc.h" line="522" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxmisc.h" bodystart="522" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxmisc.h" line="521" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxmisc.h" bodystart="520" bodyend="523"/>
+    <listofallmembers>
+      <member refid="struct_cv_big_func_table_1a15a8bf72d987be45292ea9854e5b03ea" prot="public" virt="non-virtual"><scope>CvBigFuncTable</scope><name>fn_2d</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

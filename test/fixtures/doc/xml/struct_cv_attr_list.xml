@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_attr_list" kind="struct" prot="public">
+    <compoundname>CvAttrList</compoundname>
+    <includes refid="cxtypes_8h" local="no">cxtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_attr_list_1a6f1c7bf36d46bb57721a4dedbcb7c8d3" prot="public" static="no" mutable="no">
+        <type>const char **</type>
+        <definition>const char** CvAttrList::attr</definition>
+        <argsstring></argsstring>
+        <name>attr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="1680" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="1680" bodyend="-1"/>
+        <referencedby refid="cxtypes_8h_1a678df8d29bbf1c3a7555dd82fd3800bd" compoundref="cxtypes_8h" startline="1685" endline="1693">cvAttrList</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_attr_list_1a6e5fd12be3afc5cb81a083f6aaba32cc" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_cv_attr_list" kindref="compound">CvAttrList</ref> *</type>
+        <definition>struct CvAttrList* CvAttrList::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="1681" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="1681" bodyend="-1"/>
+        <referencedby refid="cxtypes_8h_1a678df8d29bbf1c3a7555dd82fd3800bd" compoundref="cxtypes_8h" startline="1685" endline="1693">cvAttrList</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1782">
+        <label>CvAttrList</label>
+        <link refid="struct_cv_attr_list"/>
+        <childnode refid="1782" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="1679" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="1678" bodyend="1682"/>
+    <listofallmembers>
+      <member refid="struct_cv_attr_list_1a6f1c7bf36d46bb57721a4dedbcb7c8d3" prot="public" virt="non-virtual"><scope>CvAttrList</scope><name>attr</name></member>
+      <member refid="struct_cv_attr_list_1a6e5fd12be3afc5cb81a083f6aaba32cc" prot="public" virt="non-virtual"><scope>CvAttrList</scope><name>next</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_solver_data" kind="struct" prot="public">
+    <compoundname>b2SolverData</compoundname>
+    <includes refid="b2_time_step_8h" local="no">b2TimeStep.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_solver_data_1a99998296de1b4f128c396def56392eea" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_time_step" kindref="compound">b2TimeStep</ref></type>
+        <definition>b2TimeStep b2SolverData::step</definition>
+        <argsstring></argsstring>
+        <name>step</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2TimeStep.h" line="65" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2TimeStep.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_solver_data_1a5eb6ee68b42d96164579a4a0df8be04b" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_position" kindref="compound">b2Position</ref> *</type>
+        <definition>b2Position* b2SolverData::positions</definition>
+        <argsstring></argsstring>
+        <name>positions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2TimeStep.h" line="66" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2TimeStep.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_solver_data_1a1072627a3e962a8bc7088657a512191c" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_velocity" kindref="compound">b2Velocity</ref> *</type>
+        <definition>b2Velocity* b2SolverData::velocities</definition>
+        <argsstring></argsstring>
+        <name>velocities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2TimeStep.h" line="67" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2TimeStep.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Solver Data. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1489">
+        <label>b2Velocity</label>
+        <link refid="structb2_velocity"/>
+        <childnode refid="1490" relation="usage">
+          <edgelabel>v</edgelabel>
+        </childnode>
+      </node>
+      <node id="1487">
+        <label>b2SolverData</label>
+        <link refid="structb2_solver_data"/>
+        <childnode refid="1488" relation="usage">
+          <edgelabel>step</edgelabel>
+        </childnode>
+        <childnode refid="1489" relation="usage">
+          <edgelabel>velocities</edgelabel>
+        </childnode>
+        <childnode refid="1491" relation="usage">
+          <edgelabel>positions</edgelabel>
+        </childnode>
+      </node>
+      <node id="1488">
+        <label>b2TimeStep</label>
+        <link refid="structb2_time_step"/>
+      </node>
+      <node id="1491">
+        <label>b2Position</label>
+        <link refid="structb2_position"/>
+        <childnode refid="1490" relation="usage">
+          <edgelabel>c</edgelabel>
+        </childnode>
+      </node>
+      <node id="1490">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2TimeStep.h" line="64" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2TimeStep.h" bodystart="63" bodyend="68"/>
+    <listofallmembers>
+      <member refid="structb2_solver_data_1a5eb6ee68b42d96164579a4a0df8be04b" prot="public" virt="non-virtual"><scope>b2SolverData</scope><name>positions</name></member>
+      <member refid="structb2_solver_data_1a99998296de1b4f128c396def56392eea" prot="public" virt="non-virtual"><scope>b2SolverData</scope><name>step</name></member>
+      <member refid="structb2_solver_data_1a1072627a3e962a8bc7088657a512191c" prot="public" virt="non-virtual"><scope>b2SolverData</scope><name>velocities</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

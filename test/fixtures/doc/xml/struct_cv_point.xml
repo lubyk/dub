@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_point" kind="struct" prot="public">
+    <compoundname>CvPoint</compoundname>
+    <includes refid="cxtypes_8h" local="no">cxtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_point_1ae7d5caa428c4bcff450a49bea1ea2333" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvPoint::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="950" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="950" bodyend="-1"/>
+        <referencedby refid="cxtypes_8h_1a52acfee56f24f5d9c08651861fa675e9" compoundref="cxtypes_8h" startline="956" endline="964">cvPoint</referencedby>
+        <referencedby refid="cxtypes_8h_1a94ef665f47823a9d6197282cf89f8d73" compoundref="cxtypes_8h" startline="992" endline="999">cvPointFrom32f</referencedby>
+        <referencedby refid="cxtypes_8h_1a6bee3cd67a31bfab8ee8d1b582114501" compoundref="cxtypes_8h" startline="986" endline="989">cvPointTo32f</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_point_1ac8acb40c59ac618353b5eac9c8583f3d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvPoint::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="951" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="951" bodyend="-1"/>
+        <referencedby refid="cxtypes_8h_1a52acfee56f24f5d9c08651861fa675e9" compoundref="cxtypes_8h" startline="956" endline="964">cvPoint</referencedby>
+        <referencedby refid="cxtypes_8h_1a94ef665f47823a9d6197282cf89f8d73" compoundref="cxtypes_8h" startline="992" endline="999">cvPointFrom32f</referencedby>
+        <referencedby refid="cxtypes_8h_1a6bee3cd67a31bfab8ee8d1b582114501" compoundref="cxtypes_8h" startline="986" endline="989">cvPointTo32f</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="949" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="948" bodyend="952"/>
+    <listofallmembers>
+      <member refid="struct_cv_point_1ae7d5caa428c4bcff450a49bea1ea2333" prot="public" virt="non-virtual"><scope>CvPoint</scope><name>x</name></member>
+      <member refid="struct_cv_point_1ac8acb40c59ac618353b5eac9c8583f3d" prot="public" virt="non-virtual"><scope>CvPoint</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

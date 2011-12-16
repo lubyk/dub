@@ -1,0 +1,378 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_vec2" kind="struct" prot="public">
+    <compoundname>b2Vec2</compoundname>
+    <includes refid="b2_math_8h" local="no">b2Math.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_vec2_1a07021c1c08c547868e3cce9c9ef2ea71" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Vec2::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="151" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="151" bodyend="-1"/>
+        <referencedby refid="b2_math_8h_1a9a96bf0b2b574a8b88346e631ce85312" compoundref="b2_math_8h" startline="632" endline="635">b2Abs</referencedby>
+        <referencedby refid="b2_math_8h_1a33b1b80b1114eb2d03c307b02ca6fdf6" compoundref="b2_math_8h" startline="423" endline="426">b2Cross</referencedby>
+        <referencedby refid="b2_math_8h_1a70b92f24af9112e7951ced79045363f1" compoundref="b2_math_8h" startline="417" endline="420">b2Dot</referencedby>
+        <referencedby refid="classb2_edge_shape_1ab1a6b6e22c725215c3bbbe093a7d44c0" compoundref="b2_edge_shape_8h" startline="62" endline="72">b2EdgeShape::b2EdgeShape</referencedby>
+        <referencedby refid="structb2_mat22_1a41d5d8743bda32cb8c6e212528934810" compoundref="b2_math_8h" startline="207" endline="211">b2Mat22::b2Mat22</referencedby>
+        <referencedby refid="b2_math_8h_1adf07fe44a1bfc17daef355f8f1281b00" compoundref="b2_math_8h" startline="659" endline="662">b2Max</referencedby>
+        <referencedby refid="b2_math_8h_1a87b278b32677b28124d594008742f8c7" compoundref="b2_math_8h" startline="648" endline="651">b2Min</referencedby>
+        <referencedby refid="b2_math_8h_1a12738edb3f24ad9d872421f4e6898de9" compoundref="b2_math_8h" startline="444" endline="447">b2Mul</referencedby>
+        <referencedby refid="b2_math_8h_1a598e4404e88fde61e4be408721663193" compoundref="b2_math_8h" startline="545" endline="548">b2Mul22</referencedby>
+        <referencedby refid="b2_math_8h_1a61bc6ce555c51823d7c0747bc7b010b9" compoundref="b2_math_8h" startline="583" endline="586">b2MulT</referencedby>
+        <referencedby refid="b2_collision_8h_1a3dea7a8a1115626c450a697f6c6bf97e" compoundref="b2_collision_8h" startline="261" endline="274">b2TestOverlap</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1aba5fc112e3c8d05e034a21d95fc37704" compoundref="b2_collision_8h" startline="201" endline="209">b2AABB::Contains</referencedby>
+        <referencedby refid="structb2_mat22_1af8d14ac8f48feb282cdd669f36ac8070" compoundref="b2_math_8h" startline="234" endline="246">b2Mat22::GetInverse</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1ace4448c60ef309726e59247a8ae67db5" compoundref="b2_collision_8h" startline="179" endline="184">b2AABB::GetPerimeter</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1a8d170a2de7a267c3e19f5365685b713d" compoundref="b2_collision_8h" startline="253" endline="259">b2AABB::IsValid</referencedby>
+        <referencedby refid="b2_math_8h_1a8a3ec3a803ef689abd6674c943eb358b" compoundref="b2_math_8h" startline="468" endline="471">operator*</referencedby>
+        <referencedby refid="b2_math_8h_1aabe5cfd3c0c2436622fe392122f3504d" compoundref="b2_math_8h" startline="457" endline="460">operator+</referencedby>
+        <referencedby refid="structb2_vec2_1a590789342e22ac1e7f9c1a63a2778b6d" compoundref="b2_math_8h" startline="94" endline="97">operator+=</referencedby>
+        <referencedby refid="b2_math_8h_1a42a4d381fdfdde9aa5a3078b13f6b76b" compoundref="b2_math_8h" startline="463" endline="466">operator-</referencedby>
+        <referencedby refid="structb2_vec2_1a6b48cab4695a979ae40b7613aedc8b17" compoundref="b2_math_8h" startline="100" endline="103">operator-=</referencedby>
+        <referencedby refid="b2_math_8h_1af7e4f3ac0ffef6bbd586543e2e1b04d5" compoundref="b2_math_8h" startline="473" endline="476">operator==</referencedby>
+        <referencedby refid="structb2_mat22_1a7192f063b771ac9ded060e41df890509" compoundref="b2_math_8h" startline="221" endline="225">b2Mat22::SetIdentity</referencedby>
+        <referencedby refid="structb2_mat22_1aaeae95f61cf3171ffb94703980e3594b" compoundref="b2_math_8h" startline="228" endline="232">b2Mat22::SetZero</referencedby>
+        <referencedby refid="structb2_mat22_1ab511ad33f5abf87351581842628a9dc3" compoundref="b2_math_8h" startline="250" endline="262">b2Mat22::Solve</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_vec2_1a880f573a9efe402ec207e9d132cb2a43" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Vec2::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="151" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="151" bodyend="-1"/>
+        <referencedby refid="b2_math_8h_1a9a96bf0b2b574a8b88346e631ce85312" compoundref="b2_math_8h" startline="632" endline="635">b2Abs</referencedby>
+        <referencedby refid="b2_math_8h_1a33b1b80b1114eb2d03c307b02ca6fdf6" compoundref="b2_math_8h" startline="423" endline="426">b2Cross</referencedby>
+        <referencedby refid="b2_math_8h_1a70b92f24af9112e7951ced79045363f1" compoundref="b2_math_8h" startline="417" endline="420">b2Dot</referencedby>
+        <referencedby refid="classb2_edge_shape_1ab1a6b6e22c725215c3bbbe093a7d44c0" compoundref="b2_edge_shape_8h" startline="62" endline="72">b2EdgeShape::b2EdgeShape</referencedby>
+        <referencedby refid="structb2_mat22_1a41d5d8743bda32cb8c6e212528934810" compoundref="b2_math_8h" startline="207" endline="211">b2Mat22::b2Mat22</referencedby>
+        <referencedby refid="b2_math_8h_1adf07fe44a1bfc17daef355f8f1281b00" compoundref="b2_math_8h" startline="659" endline="662">b2Max</referencedby>
+        <referencedby refid="b2_math_8h_1a87b278b32677b28124d594008742f8c7" compoundref="b2_math_8h" startline="648" endline="651">b2Min</referencedby>
+        <referencedby refid="b2_math_8h_1a12738edb3f24ad9d872421f4e6898de9" compoundref="b2_math_8h" startline="444" endline="447">b2Mul</referencedby>
+        <referencedby refid="b2_math_8h_1a598e4404e88fde61e4be408721663193" compoundref="b2_math_8h" startline="545" endline="548">b2Mul22</referencedby>
+        <referencedby refid="b2_math_8h_1a61bc6ce555c51823d7c0747bc7b010b9" compoundref="b2_math_8h" startline="583" endline="586">b2MulT</referencedby>
+        <referencedby refid="b2_collision_8h_1a3dea7a8a1115626c450a697f6c6bf97e" compoundref="b2_collision_8h" startline="261" endline="274">b2TestOverlap</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1aba5fc112e3c8d05e034a21d95fc37704" compoundref="b2_collision_8h" startline="201" endline="209">b2AABB::Contains</referencedby>
+        <referencedby refid="structb2_mat22_1af8d14ac8f48feb282cdd669f36ac8070" compoundref="b2_math_8h" startline="234" endline="246">b2Mat22::GetInverse</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1ace4448c60ef309726e59247a8ae67db5" compoundref="b2_collision_8h" startline="179" endline="184">b2AABB::GetPerimeter</referencedby>
+        <referencedby refid="structb2_a_a_b_b_1a8d170a2de7a267c3e19f5365685b713d" compoundref="b2_collision_8h" startline="253" endline="259">b2AABB::IsValid</referencedby>
+        <referencedby refid="structb2_vec2_1af66641b887488490e2168bfafc5a7e36" compoundref="b2_math_8h" startline="119" endline="122">LengthSquared</referencedby>
+        <referencedby refid="b2_math_8h_1a8a3ec3a803ef689abd6674c943eb358b" compoundref="b2_math_8h" startline="468" endline="471">operator*</referencedby>
+        <referencedby refid="b2_math_8h_1aabe5cfd3c0c2436622fe392122f3504d" compoundref="b2_math_8h" startline="457" endline="460">operator+</referencedby>
+        <referencedby refid="structb2_vec2_1a590789342e22ac1e7f9c1a63a2778b6d" compoundref="b2_math_8h" startline="94" endline="97">operator+=</referencedby>
+        <referencedby refid="b2_math_8h_1a42a4d381fdfdde9aa5a3078b13f6b76b" compoundref="b2_math_8h" startline="463" endline="466">operator-</referencedby>
+        <referencedby refid="structb2_vec2_1a6b48cab4695a979ae40b7613aedc8b17" compoundref="b2_math_8h" startline="100" endline="103">operator-=</referencedby>
+        <referencedby refid="b2_math_8h_1af7e4f3ac0ffef6bbd586543e2e1b04d5" compoundref="b2_math_8h" startline="473" endline="476">operator==</referencedby>
+        <referencedby refid="structb2_mat22_1a7192f063b771ac9ded060e41df890509" compoundref="b2_math_8h" startline="221" endline="225">b2Mat22::SetIdentity</referencedby>
+        <referencedby refid="structb2_mat22_1aaeae95f61cf3171ffb94703980e3594b" compoundref="b2_math_8h" startline="228" endline="232">b2Mat22::SetZero</referencedby>
+        <referencedby refid="structb2_mat22_1ab511ad33f5abf87351581842628a9dc3" compoundref="b2_math_8h" startline="250" endline="262">b2Mat22::Solve</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structb2_vec2_1a9171b31deb83af96872f99689939a12f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2Vec2::b2Vec2</definition>
+        <argsstring>()</argsstring>
+        <name>b2Vec2</name>
+        <briefdescription>
+<para>Default constructor does nothing (for performance). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="67" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="67" bodyend="67"/>
+        <referencedby refid="structb2_vec2_1a8f2c6e60cb5898bc239801bd19e2d619" compoundref="b2_math_8h" startline="146" endline="149">Skew</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structb2_vec2_1aa8a2f026420a84bbbc62f3a3de2041d6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2Vec2::b2Vec2</definition>
+        <argsstring>(float32 x, float32 y)</argsstring>
+        <name>b2Vec2</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Construct using coordinates. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="70" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="structb2_vec2_1a5c6cbe27cfb29c6dbb29b9a3285b88d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Vec2::SetZero</definition>
+        <argsstring>()</argsstring>
+        <name>SetZero</name>
+        <briefdescription>
+<para>Set this vector to all zeros. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="73" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="73" bodyend="73"/>
+        <referencedby refid="classb2_circle_shape_1a73bb9f0ea1c28d772db1192c52572018" compoundref="b2_circle_shape_8h" startline="65" endline="70">b2CircleShape::b2CircleShape</referencedby>
+        <referencedby refid="structb2_friction_joint_def_1a40c1092cc8b3b348cdf2f8d445e835e6" compoundref="b2_friction_joint_8h" startline="27" endline="34">b2FrictionJointDef::b2FrictionJointDef</referencedby>
+        <referencedby refid="classb2_polygon_shape_1a76d778e6b374e4d22167a609dc0333a4" compoundref="b2_polygon_shape_8h" startline="81" endline="87">b2PolygonShape::b2PolygonShape</referencedby>
+        <referencedby refid="structb2_prismatic_joint_def_1aed2cd56b9d870058413f9bd33ee915b9" compoundref="b2_prismatic_joint_8h" startline="32" endline="45">b2PrismaticJointDef::b2PrismaticJointDef</referencedby>
+        <referencedby refid="structb2_rope_def_1a180ccb1c45c5e979e08ce6d0484638fd" compoundref="b2_rope_8h" startline="29" endline="38">b2RopeDef::b2RopeDef</referencedby>
+        <referencedby refid="structb2_wheel_joint_def_1a3da0f9e8e69eb228c6b24b851802da88" compoundref="b2_wheel_joint_8h" startline="32" endline="43">b2WheelJointDef::b2WheelJointDef</referencedby>
+        <referencedby refid="classb2_body_1ac72ed3df52a26c33db82252ab57399af" compoundref="b2_body_8h" startline="627" endline="646">b2Body::SetAwake</referencedby>
+        <referencedby refid="structb2_transform_1af92af4ec6833552b1b22a6ca6d4f5644" compoundref="b2_math_8h" startline="370" endline="374">b2Transform::SetIdentity</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structb2_vec2_1a4d61640a645e470a50b451307d8e94c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Vec2::Set</definition>
+        <argsstring>(float32 x_, float32 y_)</argsstring>
+        <name>Set</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>x_</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>y_</declname>
+        </param>
+        <briefdescription>
+<para>Set this vector to some specified coordinates. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="76" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="76" bodyend="76"/>
+        <referencedby refid="structb2_body_def_1a87bee47596b3b3eced0d9dd1f4c18fee" compoundref="b2_body_8h" startline="54" endline="70">b2BodyDef::b2BodyDef</referencedby>
+        <referencedby refid="structb2_distance_joint_def_1a91925a15ed268144ddc9df04f935801c" compoundref="b2_distance_joint_8h" startline="32" endline="40">b2DistanceJointDef::b2DistanceJointDef</referencedby>
+        <referencedby refid="structb2_mouse_joint_def_1ac367e7d89eadeeac53473f248f4dcdf7" compoundref="b2_mouse_joint_8h" startline="28" endline="35">b2MouseJointDef::b2MouseJointDef</referencedby>
+        <referencedby refid="structb2_prismatic_joint_def_1aed2cd56b9d870058413f9bd33ee915b9" compoundref="b2_prismatic_joint_8h" startline="32" endline="45">b2PrismaticJointDef::b2PrismaticJointDef</referencedby>
+        <referencedby refid="structb2_pulley_joint_def_1ab006bb8b7ea6bea6e0fd8cbaaacb33b0" compoundref="b2_pulley_joint_8h" startline="30" endline="41">b2PulleyJointDef::b2PulleyJointDef</referencedby>
+        <referencedby refid="structb2_revolute_joint_def_1a20296c13c3102d03eb8787e463ff63d1" compoundref="b2_revolute_joint_8h" startline="37" endline="49">b2RevoluteJointDef::b2RevoluteJointDef</referencedby>
+        <referencedby refid="structb2_rope_joint_def_1abb2efd3b2edbd4df73dbbc32a2f01f92" compoundref="b2_rope_joint_8h" startline="30" endline="36">b2RopeJointDef::b2RopeJointDef</referencedby>
+        <referencedby refid="structb2_weld_joint_def_1a18f4a2f33109edc37a3a977c6296bc31" compoundref="b2_weld_joint_8h" startline="29" endline="37">b2WeldJointDef::b2WeldJointDef</referencedby>
+        <referencedby refid="structb2_wheel_joint_def_1a3da0f9e8e69eb228c6b24b851802da88" compoundref="b2_wheel_joint_8h" startline="32" endline="43">b2WheelJointDef::b2WheelJointDef</referencedby>
+        <referencedby refid="structb2_vec2_1ab1f648091d3cba00b4c132758fcf4450" compoundref="b2_math_8h" startline="79" endline="79">operator-</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structb2_vec2_1ab1f648091d3cba00b4c132758fcf4450" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2Vec2::operator-</definition>
+        <argsstring>() const </argsstring>
+        <name>operator-</name>
+        <briefdescription>
+<para>Negate this vector. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="79" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="79" bodyend="79"/>
+        <references refid="structb2_vec2_1a4d61640a645e470a50b451307d8e94c3" compoundref="b2_math_8h" startline="76" endline="76">Set</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_vec2_1a9cb67b5f755b82d40673337a3652d81f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Vec2::operator()</definition>
+        <argsstring>(int32 i) const </argsstring>
+        <name>operator()</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Read from and indexed element. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="83" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="82" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="structb2_vec2_1a50b39580d9f479e17b23ce3cb8efbac6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref> &amp;</type>
+        <definition>float32&amp; b2Vec2::operator()</definition>
+        <argsstring>(int32 i)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Write to an indexed element. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="89" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="88" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="structb2_vec2_1a590789342e22ac1e7f9c1a63a2778b6d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Vec2::operator+=</definition>
+        <argsstring>(const b2Vec2 &amp;v)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Add a vector to this vector. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="95" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="94" bodyend="97"/>
+        <references refid="structb2_vec2_1a07021c1c08c547868e3cce9c9ef2ea71" compoundref="b2_math_8h" startline="151">x</references>
+        <references refid="structb2_vec2_1a880f573a9efe402ec207e9d132cb2a43" compoundref="b2_math_8h" startline="151">y</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_vec2_1a6b48cab4695a979ae40b7613aedc8b17" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Vec2::operator-=</definition>
+        <argsstring>(const b2Vec2 &amp;v)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Subtract a vector from this vector. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="101" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="100" bodyend="103"/>
+        <references refid="structb2_vec2_1a07021c1c08c547868e3cce9c9ef2ea71" compoundref="b2_math_8h" startline="151">x</references>
+        <references refid="structb2_vec2_1a880f573a9efe402ec207e9d132cb2a43" compoundref="b2_math_8h" startline="151">y</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_vec2_1a7097696dce578322928f4535b34f1c6b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Vec2::operator*=</definition>
+        <argsstring>(float32 a)</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Multiply this vector by a scalar. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="107" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="106" bodyend="109"/>
+        <references refid="cvaux_8h_1a1031d0e0a97a340abfe0a6ab9e831045" compoundref="cvaux_8h" startline="602">a</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_vec2_1afb1c498214b88874fcb07eb6322374da" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Vec2::Length</definition>
+        <argsstring>() const </argsstring>
+        <name>Length</name>
+        <briefdescription>
+<para>Get the length of this vector (the norm). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="113" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="112" bodyend="115"/>
+        <references refid="b2_math_8h_1a58e7c8ed67b5f0f98a0873cfb0035076" compoundref="b2_math_8h" startline="60">b2Sqrt</references>
+        <referencedby refid="b2_math_8h_1a55ee8f478626440779e88f2343c698b1" compoundref="b2_math_8h" startline="478" endline="482">b2Distance</referencedby>
+        <referencedby refid="structb2_vec2_1adda78c92f318fe53d8a53f9b5cfd8e41" compoundref="b2_math_8h" startline="125" endline="137">Normalize</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structb2_vec2_1af66641b887488490e2168bfafc5a7e36" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Vec2::LengthSquared</definition>
+        <argsstring>() const </argsstring>
+        <name>LengthSquared</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the length squared. For performance, use this instead of <ref refid="structb2_vec2_1afb1c498214b88874fcb07eb6322374da" kindref="member">b2Vec2::Length</ref> (if possible). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="120" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="119" bodyend="122"/>
+        <references refid="structb2_vec2_1a880f573a9efe402ec207e9d132cb2a43" compoundref="b2_math_8h" startline="151">y</references>
+        <referencedby refid="classb2_dynamic_tree_1abd7a5c6a5bc109dbbdb0ec3aae039648" compoundref="b2_dynamic_tree_8h" startline="199" endline="282">b2DynamicTree::RayCast</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structb2_vec2_1adda78c92f318fe53d8a53f9b5cfd8e41" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Vec2::Normalize</definition>
+        <argsstring>()</argsstring>
+        <name>Normalize</name>
+        <briefdescription>
+<para>Convert this vector into a unit vector. Returns the length. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="126" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="125" bodyend="137"/>
+        <references refid="b2_settings_8h_1ae6bc48338c82daa4598d38f8ebc6f075" compoundref="b2_settings_8h" startline="38">b2_epsilon</references>
+        <references refid="structb2_vec2_1afb1c498214b88874fcb07eb6322374da" compoundref="b2_math_8h" startline="112" endline="115">Length</references>
+        <references refid="cv_8h_1ae6e9777096c69325d9685fc0a8430685" compoundref="cv_8h" startline="925">length</references>
+        <referencedby refid="classb2_dynamic_tree_1abd7a5c6a5bc109dbbdb0ec3aae039648" compoundref="b2_dynamic_tree_8h" startline="199" endline="282">b2DynamicTree::RayCast</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structb2_vec2_1aafb971cf7cc726f91fc3a8215fb0aa17" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool b2Vec2::IsValid</definition>
+        <argsstring>() const </argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+<para>Does this vector contain finite coordinates? </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="141" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="140" bodyend="143"/>
+        <references refid="b2_math_8h_1a6e846de254fa783f9618ed93bcf8a394" compoundref="b2_math_8h" startline="31" endline="41">b2IsValid</references>
+        <referencedby refid="structb2_a_a_b_b_1a8d170a2de7a267c3e19f5365685b713d" compoundref="b2_collision_8h" startline="253" endline="259">b2AABB::IsValid</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structb2_vec2_1a8f2c6e60cb5898bc239801bd19e2d619" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2Vec2::Skew</definition>
+        <argsstring>() const </argsstring>
+        <name>Skew</name>
+        <briefdescription>
+<para>Get the skew vector such that dot(skew_vec, other) == cross(vec, other) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="147" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="146" bodyend="149"/>
+        <references refid="structb2_vec2_1a9171b31deb83af96872f99689939a12f" compoundref="b2_math_8h" startline="67" endline="67">b2Vec2</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A 2D column vector. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="65" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="64" bodyend="152"/>
+    <listofallmembers>
+      <member refid="structb2_vec2_1a9171b31deb83af96872f99689939a12f" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>b2Vec2</name></member>
+      <member refid="structb2_vec2_1aa8a2f026420a84bbbc62f3a3de2041d6" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>b2Vec2</name></member>
+      <member refid="structb2_vec2_1aafb971cf7cc726f91fc3a8215fb0aa17" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>IsValid</name></member>
+      <member refid="structb2_vec2_1afb1c498214b88874fcb07eb6322374da" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>Length</name></member>
+      <member refid="structb2_vec2_1af66641b887488490e2168bfafc5a7e36" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>LengthSquared</name></member>
+      <member refid="structb2_vec2_1adda78c92f318fe53d8a53f9b5cfd8e41" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>Normalize</name></member>
+      <member refid="structb2_vec2_1a9cb67b5f755b82d40673337a3652d81f" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>operator()</name></member>
+      <member refid="structb2_vec2_1a50b39580d9f479e17b23ce3cb8efbac6" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>operator()</name></member>
+      <member refid="structb2_vec2_1a7097696dce578322928f4535b34f1c6b" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>operator*=</name></member>
+      <member refid="structb2_vec2_1a590789342e22ac1e7f9c1a63a2778b6d" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>operator+=</name></member>
+      <member refid="structb2_vec2_1ab1f648091d3cba00b4c132758fcf4450" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>operator-</name></member>
+      <member refid="structb2_vec2_1a6b48cab4695a979ae40b7613aedc8b17" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>operator-=</name></member>
+      <member refid="structb2_vec2_1a4d61640a645e470a50b451307d8e94c3" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>Set</name></member>
+      <member refid="structb2_vec2_1a5c6cbe27cfb29c6dbb29b9a3285b88d0" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>SetZero</name></member>
+      <member refid="structb2_vec2_1a8f2c6e60cb5898bc239801bd19e2d619" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>Skew</name></member>
+      <member refid="structb2_vec2_1a07021c1c08c547868e3cce9c9ef2ea71" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>x</name></member>
+      <member refid="structb2_vec2_1a880f573a9efe402ec207e9d132cb2a43" prot="public" virt="non-virtual"><scope>b2Vec2</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

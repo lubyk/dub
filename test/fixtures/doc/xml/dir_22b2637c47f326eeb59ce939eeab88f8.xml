@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="dir_22b2637c47f326eeb59ce939eeab88f8" kind="dir">
+    <compoundname>/Users/gaspard/git/lubyk/modules/wii/</compoundname>
+    <innerdir refid="dir_6eae07e0c3dfd95f84107c3c287f7b70">/Users/gaspard/git/lubyk/modules/wii/include/</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/wii/"/>
+  </compounddef>
+</doxygen>

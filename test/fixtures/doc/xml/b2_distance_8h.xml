@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="b2_distance_8h" kind="file">
+    <compoundname>b2Distance.h</compoundname>
+    <includes local="no">Box2D/Common/b2Math.h</includes>
+    <incdepgraph>
+      <node id="47">
+        <label>/Users/gaspard/git/lubyk/modules/b2/bind/b2Distance.h</label>
+        <link refid="b2Distance.h"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>Box2D/Common/b2Math.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structb2_distance_proxy" prot="public">b2DistanceProxy</innerclass>
+    <innerclass refid="structb2_simplex_cache" prot="public">b2SimplexCache</innerclass>
+    <innerclass refid="structb2_distance_input" prot="public">b2DistanceInput</innerclass>
+    <innerclass refid="structb2_distance_output" prot="public">b2DistanceOutput</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="b2_distance_8h_1af8aa0d6b55c276763e2d2d8854400a8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Distance</definition>
+        <argsstring>(b2DistanceOutput *output, b2SimplexCache *cache, const b2DistanceInput *input)</argsstring>
+        <name>b2Distance</name>
+        <param>
+          <type><ref refid="structb2_distance_output" kindref="compound">b2DistanceOutput</ref> *</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="structb2_simplex_cache" kindref="compound">b2SimplexCache</ref> *</type>
+          <declname>cache</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_distance_input" kindref="compound">b2DistanceInput</ref> *</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the closest points between two shapes. Supports any combination of: <ref refid="classb2_circle_shape" kindref="compound">b2CircleShape</ref>, <ref refid="classb2_polygon_shape" kindref="compound">b2PolygonShape</ref>, <ref refid="classb2_edge_shape" kindref="compound">b2EdgeShape</ref>. The simplex cache is input/output. On the first call set <ref refid="structb2_simplex_cache_1a5ef63839988cc06210ae76bcef96f56c" kindref="member">b2SimplexCache.count</ref> to zero. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Distance.h" line="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">*<sp/>Copyright<sp/>(c)<sp/>2006-2009<sp/>Erin<sp/>Catto<sp/>http://www.box2d.org</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">*<sp/>This<sp/>software<sp/>is<sp/>provided<sp/>&apos;as-is&apos;,<sp/>without<sp/>any<sp/>express<sp/>or<sp/>implied</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*<sp/>warranty.<sp/><sp/>In<sp/>no<sp/>event<sp/>will<sp/>the<sp/>authors<sp/>be<sp/>held<sp/>liable<sp/>for<sp/>any<sp/>damages</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">*<sp/>arising<sp/>from<sp/>the<sp/>use<sp/>of<sp/>this<sp/>software.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">*<sp/>Permission<sp/>is<sp/>granted<sp/>to<sp/>anyone<sp/>to<sp/>use<sp/>this<sp/>software<sp/>for<sp/>any<sp/>purpose,</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">*<sp/>including<sp/>commercial<sp/>applications,<sp/>and<sp/>to<sp/>alter<sp/>it<sp/>and<sp/>redistribute<sp/>it</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">*<sp/>freely,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>restrictions:</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">*<sp/>1.<sp/>The<sp/>origin<sp/>of<sp/>this<sp/>software<sp/>must<sp/>not<sp/>be<sp/>misrepresented;<sp/>you<sp/>must<sp/>not</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">*<sp/>claim<sp/>that<sp/>you<sp/>wrote<sp/>the<sp/>original<sp/>software.<sp/>If<sp/>you<sp/>use<sp/>this<sp/>software</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">*<sp/>in<sp/>a<sp/>product,<sp/>an<sp/>acknowledgment<sp/>in<sp/>the<sp/>product<sp/>documentation<sp/>would<sp/>be</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">*<sp/>appreciated<sp/>but<sp/>is<sp/>not<sp/>required.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">*<sp/>2.<sp/>Altered<sp/>source<sp/>versions<sp/>must<sp/>be<sp/>plainly<sp/>marked<sp/>as<sp/>such,<sp/>and<sp/>must<sp/>not<sp/>be</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">*<sp/>misrepresented<sp/>as<sp/>being<sp/>the<sp/>original<sp/>software.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">*<sp/>3.<sp/>This<sp/>notice<sp/>may<sp/>not<sp/>be<sp/>removed<sp/>or<sp/>altered<sp/>from<sp/>any<sp/>source<sp/>distribution.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>B2_DISTANCE_H</highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>B2_DISTANCE_H</highlight></codeline>
+<codeline lineno="22"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Box2D/Common/b2Math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classb2_shape" kindref="compound">b2Shape</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="structb2_distance_proxy" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structb2_distance_proxy" kindref="compound">b2DistanceProxy</ref></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31" refid="structb2_distance_proxy_1ae3b74189ecd4d85b078a9386274dd9b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_distance_proxy_1ae3b74189ecd4d85b078a9386274dd9b6" kindref="member">b2DistanceProxy</ref>()<sp/>:<sp/><ref refid="structb2_distance_proxy_1abaf1495b8214b74d944b57170a762f32" kindref="member">m_vertices</ref>(NULL),<sp/><ref refid="structb2_distance_proxy_1ae36efab1361bb1f94e32f9b956c6f1b3" kindref="member">m_count</ref>(0),<sp/><ref refid="structb2_distance_proxy_1a459c93f35b1e62d583bd73d8c478ce89" kindref="member">m_radius</ref>(0.0f)<sp/>{}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structb2_distance_proxy_1a80a59a9c9e952482a8fc6db4b883365d" kindref="member">Set</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classb2_shape" kindref="compound">b2Shape</ref>*<sp/><ref refid="cv_8h_1a9441d55ee8217146ade7775f35b642c3" kindref="member">shape</ref>,<sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="cxcore_8h_1a750b5d744c39a06bfb13e6eb010e35d0" kindref="member">index</ref>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="structb2_distance_proxy_1ad763543846db0c220e6b0a29275d723e" kindref="member" tooltip="Get the supporting vertex index in the given direction.">GetSupport</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref>&amp;<sp/><ref refid="cv_8h_1a6f364afbe132c4ecfea48bde1b0618ba" kindref="member">d</ref>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref>&amp;<sp/><ref refid="structb2_distance_proxy_1ad98a909b9aee9e42ba184b1e6bd526ba" kindref="member" tooltip="Get the supporting vertex in the given direction.">GetSupportVertex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref>&amp;<sp/><ref refid="cv_8h_1a6f364afbe132c4ecfea48bde1b0618ba" kindref="member">d</ref>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="structb2_distance_proxy_1a43c51168f2829c55dacc8b9adbd90206" kindref="member" tooltip="Get the vertex count.">GetVertexCount</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref>&amp;<sp/><ref refid="structb2_distance_proxy_1ac5ecae62c2a96afdf220074118c71a92" kindref="member" tooltip="Get a vertex by index. Used by b2Distance.">GetVertex</ref>(<ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="cxcore_8h_1a750b5d744c39a06bfb13e6eb010e35d0" kindref="member">index</ref>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="structb2_distance_proxy_1a3fc5ebfa3d34ac66390b88f9277fb330" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref><sp/><ref refid="structb2_distance_proxy_1a3fc5ebfa3d34ac66390b88f9277fb330" kindref="member">m_buffer</ref>[2];</highlight></codeline>
+<codeline lineno="50" refid="structb2_distance_proxy_1abaf1495b8214b74d944b57170a762f32" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref>*<sp/><ref refid="structb2_distance_proxy_1abaf1495b8214b74d944b57170a762f32" kindref="member">m_vertices</ref>;</highlight></codeline>
+<codeline lineno="51" refid="structb2_distance_proxy_1ae36efab1361bb1f94e32f9b956c6f1b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="structb2_distance_proxy_1ae36efab1361bb1f94e32f9b956c6f1b3" kindref="member">m_count</ref>;</highlight></codeline>
+<codeline lineno="52" refid="structb2_distance_proxy_1a459c93f35b1e62d583bd73d8c478ce89" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="structb2_distance_proxy_1a459c93f35b1e62d583bd73d8c478ce89" kindref="member">m_radius</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="structb2_simplex_cache" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structb2_simplex_cache" kindref="compound">b2SimplexCache</ref></highlight></codeline>
+<codeline lineno="58"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="59" refid="structb2_simplex_cache_1a018e0a500b417d79bfed3f21310b15a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="structb2_simplex_cache_1a018e0a500b417d79bfed3f21310b15a2" kindref="member" tooltip="length or area">metric</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60" refid="structb2_simplex_cache_1a5ef63839988cc06210ae76bcef96f56c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a05f6b0ae8f6a6e135b0e290c25fe0e4e" kindref="member">uint16</ref><sp/><ref refid="structb2_simplex_cache_1a5ef63839988cc06210ae76bcef96f56c" kindref="member">count</ref>;</highlight></codeline>
+<codeline lineno="61" refid="structb2_simplex_cache_1ab574159e69dda7e14ead8de848ca6b67" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1adde6aaee8457bee49c2a92621fe22b79" kindref="member">uint8</ref><sp/><ref refid="structb2_simplex_cache_1ab574159e69dda7e14ead8de848ca6b67" kindref="member" tooltip="vertices on shape A">indexA</ref>[3];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="62" refid="structb2_simplex_cache_1ab7586465ee2c5f7c3bdd8f80d5e256a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1adde6aaee8457bee49c2a92621fe22b79" kindref="member">uint8</ref><sp/><ref refid="structb2_simplex_cache_1ab7586465ee2c5f7c3bdd8f80d5e256a7" kindref="member" tooltip="vertices on shape B">indexB</ref>[3];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="structb2_distance_input" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structb2_distance_input" kindref="compound">b2DistanceInput</ref></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70" refid="structb2_distance_input_1a84d378f4f0e2f06fbe03d413e9dfbbd9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_distance_proxy" kindref="compound">b2DistanceProxy</ref><sp/><ref refid="structb2_distance_input_1a84d378f4f0e2f06fbe03d413e9dfbbd9" kindref="member">proxyA</ref>;</highlight></codeline>
+<codeline lineno="71" refid="structb2_distance_input_1ad08521a9cdf9d418ececfd44de83a5d3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_distance_proxy" kindref="compound">b2DistanceProxy</ref><sp/><ref refid="structb2_distance_input_1ad08521a9cdf9d418ececfd44de83a5d3" kindref="member">proxyB</ref>;</highlight></codeline>
+<codeline lineno="72" refid="structb2_distance_input_1a0889c2f7120ba521d6e40e2a22834ddb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_transform" kindref="compound">b2Transform</ref><sp/><ref refid="structb2_distance_input_1a0889c2f7120ba521d6e40e2a22834ddb" kindref="member">transformA</ref>;</highlight></codeline>
+<codeline lineno="73" refid="structb2_distance_input_1a47352d7c5b3db80b2fb8cf338f1c1895" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_transform" kindref="compound">b2Transform</ref><sp/><ref refid="structb2_distance_input_1a47352d7c5b3db80b2fb8cf338f1c1895" kindref="member">transformB</ref>;</highlight></codeline>
+<codeline lineno="74" refid="structb2_distance_input_1ab72a770be4a91997d00112409de5fea7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structb2_distance_input_1ab72a770be4a91997d00112409de5fea7" kindref="member">useRadii</ref>;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="structb2_distance_output" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structb2_distance_output" kindref="compound" tooltip="Output for b2Distance.">b2DistanceOutput</ref></highlight></codeline>
+<codeline lineno="79"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="80" refid="structb2_distance_output_1a7e0f1f44a64e596dc7d37570c69eefce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref><sp/><ref refid="structb2_distance_output_1a7e0f1f44a64e596dc7d37570c69eefce" kindref="member" tooltip="closest point on shapeA">pointA</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="81" refid="structb2_distance_output_1aa85beca17337a506cd4a924d0c6f92cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref><sp/><ref refid="structb2_distance_output_1aa85beca17337a506cd4a924d0c6f92cc" kindref="member" tooltip="closest point on shapeB">pointB</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="82" refid="structb2_distance_output_1ae67f480ff37d4ab732e6366f485c7f55" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="structb2_distance_output_1ae67f480ff37d4ab732e6366f485c7f55" kindref="member">distance</ref>;</highlight></codeline>
+<codeline lineno="83" refid="structb2_distance_output_1ae2d4c84dd3d05ea4f4d20c91099ec8d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="structb2_distance_output_1ae2d4c84dd3d05ea4f4d20c91099ec8d5" kindref="member" tooltip="number of GJK iterations used">iterations</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="b2_distance_8h_1af8aa0d6b55c276763e2d2d8854400a8e" kindref="member">b2Distance</ref>(<ref refid="structb2_distance_output" kindref="compound" tooltip="Output for b2Distance.">b2DistanceOutput</ref>*<sp/><ref refid="cvaux_8h_1ad2a91d797896d7d86e0c03dc705a4abc" kindref="member">output</ref>,</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structb2_simplex_cache" kindref="compound">b2SimplexCache</ref>*<sp/>cache,<sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_distance_input" kindref="compound">b2DistanceInput</ref>*<sp/><ref refid="cvaux_8h_1a8f45a3157cd8bdbb30d638b20fd31f1a" kindref="member">input</ref>);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="structb2_distance_proxy_1a43c51168f2829c55dacc8b9adbd90206" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="structb2_distance_proxy_1a43c51168f2829c55dacc8b9adbd90206" kindref="member" tooltip="Get the vertex count.">b2DistanceProxy::GetVertexCount</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="97"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structb2_distance_proxy_1ae36efab1361bb1f94e32f9b956c6f1b3" kindref="member">m_count</ref>;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="structb2_distance_proxy_1ac5ecae62c2a96afdf220074118c71a92" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref>&amp;<sp/><ref refid="structb2_distance_proxy_1ac5ecae62c2a96afdf220074118c71a92" kindref="member" tooltip="Get a vertex by index. Used by b2Distance.">b2DistanceProxy::GetVertex</ref>(<ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="cxcore_8h_1a750b5d744c39a06bfb13e6eb010e35d0" kindref="member">index</ref>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="102"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1ab3fe3791ea4d700d5cc1f8124d2edf33" kindref="member">b2Assert</ref>(0<sp/>&lt;=<sp/>index<sp/>&amp;&amp;<sp/>index<sp/>&lt;<sp/><ref refid="structb2_distance_proxy_1ae36efab1361bb1f94e32f9b956c6f1b3" kindref="member">m_count</ref>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structb2_distance_proxy_1abaf1495b8214b74d944b57170a762f32" kindref="member">m_vertices</ref>[<ref refid="cxcore_8h_1a750b5d744c39a06bfb13e6eb010e35d0" kindref="member">index</ref>];</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="structb2_distance_proxy_1ad763543846db0c220e6b0a29275d723e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/><ref refid="structb2_distance_proxy_1ad763543846db0c220e6b0a29275d723e" kindref="member" tooltip="Get the supporting vertex index in the given direction.">b2DistanceProxy::GetSupport</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref>&amp;<sp/><ref refid="cv_8h_1a6f364afbe132c4ecfea48bde1b0618ba" kindref="member">d</ref>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="108"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/>bestIndex<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/>bestValue<sp/>=<sp/><ref refid="b2_math_8h_1a70b92f24af9112e7951ced79045363f1" kindref="member" tooltip="Perform the dot product on two vectors.">b2Dot</ref>(<ref refid="structb2_distance_proxy_1abaf1495b8214b74d944b57170a762f32" kindref="member">m_vertices</ref>[0],<sp/>d);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/>i<sp/>=<sp/>1;<sp/>i<sp/>&lt;<sp/><ref refid="structb2_distance_proxy_1ae36efab1361bb1f94e32f9b956c6f1b3" kindref="member">m_count</ref>;<sp/>++i)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="cxcore_8h_1ad4670c92695d4327c21292905a803901" kindref="member">value</ref><sp/>=<sp/><ref refid="b2_math_8h_1a70b92f24af9112e7951ced79045363f1" kindref="member" tooltip="Perform the dot product on two vectors.">b2Dot</ref>(<ref refid="structb2_distance_proxy_1abaf1495b8214b74d944b57170a762f32" kindref="member">m_vertices</ref>[i],<sp/>d);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(value<sp/>&gt;<sp/>bestValue)</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bestIndex<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bestValue<sp/>=<sp/><ref refid="cxcore_8h_1ad4670c92695d4327c21292905a803901" kindref="member">value</ref>;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bestIndex;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124" refid="structb2_distance_proxy_1ad98a909b9aee9e42ba184b1e6bd526ba" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref>&amp;<sp/><ref refid="structb2_distance_proxy_1ad98a909b9aee9e42ba184b1e6bd526ba" kindref="member" tooltip="Get the supporting vertex in the given direction.">b2DistanceProxy::GetSupportVertex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structb2_vec2" kindref="compound" tooltip="A 2D column vector.">b2Vec2</ref>&amp;<sp/><ref refid="cv_8h_1a6f364afbe132c4ecfea48bde1b0618ba" kindref="member">d</ref>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="125"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/>bestIndex<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/>bestValue<sp/>=<sp/><ref refid="b2_math_8h_1a70b92f24af9112e7951ced79045363f1" kindref="member" tooltip="Perform the dot product on two vectors.">b2Dot</ref>(<ref refid="structb2_distance_proxy_1abaf1495b8214b74d944b57170a762f32" kindref="member">m_vertices</ref>[0],<sp/>d);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref><sp/>i<sp/>=<sp/>1;<sp/>i<sp/>&lt;<sp/><ref refid="structb2_distance_proxy_1ae36efab1361bb1f94e32f9b956c6f1b3" kindref="member">m_count</ref>;<sp/>++i)</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref><sp/><ref refid="cxcore_8h_1ad4670c92695d4327c21292905a803901" kindref="member">value</ref><sp/>=<sp/><ref refid="b2_math_8h_1a70b92f24af9112e7951ced79045363f1" kindref="member" tooltip="Perform the dot product on two vectors.">b2Dot</ref>(<ref refid="structb2_distance_proxy_1abaf1495b8214b74d944b57170a762f32" kindref="member">m_vertices</ref>[i],<sp/>d);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(value<sp/>&gt;<sp/>bestValue)</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bestIndex<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bestValue<sp/>=<sp/><ref refid="cxcore_8h_1ad4670c92695d4327c21292905a803901" kindref="member">value</ref>;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structb2_distance_proxy_1abaf1495b8214b74d944b57170a762f32" kindref="member">m_vertices</ref>[bestIndex];</highlight></codeline>
+<codeline lineno="139"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Distance.h"/>
+  </compounddef>
+</doxygen>

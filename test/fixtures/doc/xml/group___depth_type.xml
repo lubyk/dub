@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="group___depth_type" kind="group">
+    <compoundname>DepthType</compoundname>
+    <title>DepthType</title>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___depth_type_1ga32b18d904ee2b1731a9416a8eef67d06" prot="public" static="no">
+        <name>CV_8U</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="491" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="491" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___depth_type_1ga26f5e76cbfb2fd9c2ba6fadc6cc19ce3" prot="public" static="no">
+        <name>CV_8S</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="492" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="492" bodyend="-1"/>
+        <referencedby refid="cxtypes_8h_1ae975a34317008c4d03be7f359bb7b454" compoundref="cxtypes_8h" startline="725" endline="730">cvIplDepth</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="group___depth_type_1gaf55ae5a94c48cae66b96979877576f12" prot="public" static="no">
+        <name>CV_16U</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="493" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="493" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___depth_type_1ga9d2ee1a8334733dea7482a47a88e0f87" prot="public" static="no">
+        <name>CV_16S</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="494" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="494" bodyend="-1"/>
+        <referencedby refid="cxtypes_8h_1ae975a34317008c4d03be7f359bb7b454" compoundref="cxtypes_8h" startline="725" endline="730">cvIplDepth</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="group___depth_type_1ga4067910fc388075c3ea3aa14393e83b9" prot="public" static="no">
+        <name>CV_32S</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="495" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="495" bodyend="-1"/>
+        <referencedby refid="cxtypes_8h_1ae975a34317008c4d03be7f359bb7b454" compoundref="cxtypes_8h" startline="725" endline="730">cvIplDepth</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="group___depth_type_1ga4a3def5d72b74bed31f5f8ab7676099c" prot="public" static="no">
+        <name>CV_32F</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="496" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="496" bodyend="-1"/>
+        <referencedby refid="cvcompat_8h_1a714ad58ee805ee471c5001670a730494" compoundref="cvcompat_8h" startline="255" endline="268">cvbCartToPolar</referencedby>
+        <referencedby refid="cvcompat_8h_1a79084e09cc99d3fbe2f87ffc92bb2795" compoundref="cvcompat_8h" startline="271" endline="282">cvbFastArctan</referencedby>
+        <referencedby refid="cvcompat_8h_1a2aafde0dd922687686d09919ac31cd5f" compoundref="cvcompat_8h" startline="315" endline="320">cvbFastExp</referencedby>
+        <referencedby refid="cvcompat_8h_1a395b504dafc8ba9e416dabbc0550aa7e" compoundref="cvcompat_8h" startline="323" endline="328">cvbFastLog</referencedby>
+        <referencedby refid="cvcompat_8h_1a57b658443fe725181bc021ad1f4a21db" compoundref="cvcompat_8h" startline="295" endline="302">cvbInvSqrt</referencedby>
+        <referencedby refid="cvcompat_8h_1abe0d33f85d89de954d363219af345d4e" compoundref="cvcompat_8h" startline="248" endline="252">cvbRand</referencedby>
+        <referencedby refid="cvcompat_8h_1a68afe9f6ce445b5c10346f6380c67ec2" compoundref="cvcompat_8h" startline="305" endline="312">cvbReciprocal</referencedby>
+        <referencedby refid="cvcompat_8h_1aae0d2d301633250c32cee2c186554686" compoundref="cvcompat_8h" startline="285" endline="292">cvbSqrt</referencedby>
+        <referencedby refid="cvcompat_8h_1a446261304da8c527353739322337403e" compoundref="cvcompat_8h" startline="541" endline="568">cvFindFundamentalMatrix</referencedby>
+        <referencedby refid="cvcompat_8h_1a1727ca923804ed90024ae543b232c8cc" compoundref="cvcompat_8h" startline="460" endline="474">cvProject3D</referencedby>
+        <referencedby refid="cvcompat_8h_1ae09d95e6ef3121b5f7df68a68ae87c77" compoundref="cvcompat_8h" startline="754" endline="762">cvUnDistortOnce</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="group___depth_type_1ga30a562691cc5987bc88eb7bb7a8faf2b" prot="public" static="no">
+        <name>CV_64F</name>
+        <initializer>6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="497" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="497" bodyend="-1"/>
+        <referencedby refid="cvcompat_8h_1a2aafde0dd922687686d09919ac31cd5f" compoundref="cvcompat_8h" startline="315" endline="320">cvbFastExp</referencedby>
+        <referencedby refid="cvcompat_8h_1a395b504dafc8ba9e416dabbc0550aa7e" compoundref="cvcompat_8h" startline="323" endline="328">cvbFastLog</referencedby>
+        <referencedby refid="cvcompat_8h_1a446261304da8c527353739322337403e" compoundref="cvcompat_8h" startline="541" endline="568">cvFindFundamentalMatrix</referencedby>
+        <referencedby refid="cxtypes_8h_1a15cc972ecb9e21c60bce5b38bb4bf1f6" compoundref="cxtypes_8h" startline="660" endline="675">cvMat</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="group___depth_type_1gade5b0078a2fa63ca46144696b126649e" prot="public" static="no">
+        <name>CV_USRTYPE1</name>
+        <initializer>7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="498" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="498" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The depth is part of the <ref refid="group___magic_type" kindref="compound">MagicType</ref> and represents the value size. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

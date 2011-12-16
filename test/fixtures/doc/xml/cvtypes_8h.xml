@@ -1,0 +1,1288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="cvtypes_8h" kind="file">
+    <compoundname>cvtypes.h</compoundname>
+    <includes local="no">assert.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includedby refid="cv_8h" local="yes">/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h</includedby>
+    <incdepgraph>
+      <node id="205">
+        <label>assert.h</label>
+      </node>
+      <node id="206">
+        <label>stdlib.h</label>
+      </node>
+      <node id="204">
+        <label>/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h</label>
+        <link refid="cvtypes.h"/>
+        <childnode refid="205" relation="include">
+        </childnode>
+        <childnode refid="206" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="207">
+        <label>/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h</label>
+        <link refid="cvtypes.h"/>
+        <childnode refid="208" relation="include">
+        </childnode>
+      </node>
+      <node id="209">
+        <label>/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h</label>
+        <link refid="cvaux_8h"/>
+      </node>
+      <node id="208">
+        <label>/Users/gaspard/git/lubyk/modules/cv/include/cv/cv.h</label>
+        <link refid="cv_8h"/>
+        <childnode refid="209" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_cv_moments" prot="public">CvMoments</innerclass>
+    <innerclass refid="struct_cv_hu_moments" prot="public">CvHuMoments</innerclass>
+    <innerclass refid="struct_cv_connected_comp" prot="public">CvConnectedComp</innerclass>
+    <innerclass refid="struct_cv_chain_pt_reader" prot="public">CvChainPtReader</innerclass>
+    <innerclass refid="struct_cv_contour_tree" prot="public">CvContourTree</innerclass>
+    <innerclass refid="struct_cv_convexity_defect" prot="public">CvConvexityDefect</innerclass>
+    <innerclass refid="struct_cv_quad_edge2_d" prot="public">CvQuadEdge2D</innerclass>
+    <innerclass refid="struct_cv_subdiv2_d_point" prot="public">CvSubdiv2DPoint</innerclass>
+    <innerclass refid="struct_cv_subdiv2_d" prot="public">CvSubdiv2D</innerclass>
+    <innerclass refid="struct_cv_matrix3" prot="public">CvMatrix3</innerclass>
+    <innerclass refid="struct_cv_kalman" prot="public">CvKalman</innerclass>
+    <innerclass refid="struct_cv_haar_feature" prot="public">CvHaarFeature</innerclass>
+    <innerclass refid="struct_cv_haar_classifier" prot="public">CvHaarClassifier</innerclass>
+    <innerclass refid="struct_cv_haar_stage_classifier" prot="public">CvHaarStageClassifier</innerclass>
+    <innerclass refid="struct_cv_haar_classifier_cascade" prot="public">CvHaarClassifierCascade</innerclass>
+    <innerclass refid="struct_cv_avg_comp" prot="public">CvAvgComp</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="cvtypes_8h_1a576092de87c13951f5ae4bc3cf280d17" prot="public" static="no">
+        <name>CV_RETR_EXTERNAL</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="85" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1a687a6bc73870eadc74a35c93eac8a2d8" prot="public" static="no">
+        <name>CV_RETR_LIST</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="86" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1ab6a1e6f9d65a39167e3b50b69c6a4d65" prot="public" static="no">
+        <name>CV_RETR_CCOMP</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="87" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1addd9bd0bee6677fa28925c0443e8ecd8" prot="public" static="no">
+        <name>CV_RETR_TREE</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="88" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1a7bd5347c802986f658b25a4f9e6a53ac" prot="public" static="no">
+        <name>CV_CHAIN_CODE</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="91" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1aabe240e50bb63710ebe995cf81924ac6" prot="public" static="no">
+        <name>CV_CHAIN_APPROX_NONE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="92" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1a712bb9fa6f06d9864742a2321e19f1b4" prot="public" static="no">
+        <name>CV_CHAIN_APPROX_SIMPLE</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="93" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1a22576fe46e011c5fcc75d0850a6f743e" prot="public" static="no">
+        <name>CV_CHAIN_APPROX_TC89_L1</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="94" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1acf06a3ef5f5872bdfe337296fe28ded6" prot="public" static="no">
+        <name>CV_CHAIN_APPROX_TC89_KCOS</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="95" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1aed3e1430ec978948fe09b71409d94269" prot="public" static="no">
+        <name>CV_LINK_RUNS</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="96" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1add47b69c3f9fc86ba30c92488645229d" prot="public" static="no">
+        <name>CV_INIT_3X3_DELTAS</name>
+        <param><defname>deltas</defname></param>
+        <param><defname>step</defname></param>
+        <param><defname>nch</defname></param>
+        <initializer>((deltas)[0] =  (nch),  (deltas)[1] = -(<ref refid="cxcore_8h_1aa7cdf40a6d11ff4cbc59e7cebd6857df" kindref="member">step</ref>) + (nch),  \
+     (deltas)[2] = -(<ref refid="cxcore_8h_1aa7cdf40a6d11ff4cbc59e7cebd6857df" kindref="member">step</ref>), (deltas)[3] = -(<ref refid="cxcore_8h_1aa7cdf40a6d11ff4cbc59e7cebd6857df" kindref="member">step</ref>) - (nch),  \
+     (deltas)[4] = -(nch),  (deltas)[5] =  (<ref refid="cxcore_8h_1aa7cdf40a6d11ff4cbc59e7cebd6857df" kindref="member">step</ref>) - (nch),  \
+     (deltas)[6] =  (<ref refid="cxcore_8h_1aa7cdf40a6d11ff4cbc59e7cebd6857df" kindref="member">step</ref>), (deltas)[7] =  (<ref refid="cxcore_8h_1aa7cdf40a6d11ff4cbc59e7cebd6857df" kindref="member">step</ref>) + (nch))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="113" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1ae464ae069cd5fdde3e26841ff1eb67e6" prot="public" static="no">
+        <name>CV_QUADEDGE2D_FIELDS</name>
+        <param></param>
+        <initializer>int <ref refid="highgui_8h_1a03603936e25f729b5913782c2072780b" kindref="member">flags</ref>;                     \
+    struct <ref refid="struct_cv_subdiv2_d_point" kindref="compound">CvSubdiv2DPoint</ref>* <ref refid="cv_8h_1a69c6090aa56793ec8ef2457bc6d45b45" kindref="member">pt</ref>[4]; \
+    <ref refid="cvtypes_8h_1a902e2556fb0a0610cf2ff8d237cdc124" kindref="member">CvSubdiv2DEdge</ref>  <ref refid="cv_8h_1a271d716db1f200e7bc0483683c5c7fa7" kindref="member">next</ref>[4];</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="141" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1a56da25fea1f00a61b554908c761016db" prot="public" static="no">
+        <name>CV_SUBDIV2D_POINT_FIELDS</name>
+        <param></param>
+        <initializer>int            <ref refid="highgui_8h_1a03603936e25f729b5913782c2072780b" kindref="member">flags</ref>;      \
+    <ref refid="cvtypes_8h_1a902e2556fb0a0610cf2ff8d237cdc124" kindref="member">CvSubdiv2DEdge</ref> <ref refid="cxcore_8h_1a722862d2de648205197a2abecbf7d276" kindref="member">first</ref>;      \
+    <ref refid="struct_cv_point2_d32f" kindref="compound">CvPoint2D32f</ref>   <ref refid="cv_8h_1a69c6090aa56793ec8ef2457bc6d45b45" kindref="member">pt</ref>;         \
+	int id;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="147" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1a7ae3a427ac09c9a081019355bb20673d" prot="public" static="no">
+        <name>CV_SUBDIV2D_VIRTUAL_POINT_FLAG</name>
+        <initializer>(1 &lt;&lt; 30)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="149" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1ae3d1ee33048aaf6b64b7b0988acc01d7" prot="public" static="no">
+        <name>CV_SUBDIV2D_FIELDS</name>
+        <param></param>
+        <initializer>CV_GRAPH_FIELDS()           \
+    int  quad_edges;            \
+    int  is_geometry_valid;     \
+    <ref refid="cvtypes_8h_1a902e2556fb0a0610cf2ff8d237cdc124" kindref="member">CvSubdiv2DEdge</ref> recent_edge; \
+    <ref refid="struct_cv_point2_d32f" kindref="compound">CvPoint2D32f</ref>  topleft;      \
+    <ref refid="struct_cv_point2_d32f" kindref="compound">CvPoint2D32f</ref>  bottomright;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="169" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1aed7cb132df3f51b2e93b490a7197120e" prot="public" static="no">
+        <name>CV_SUBDIV2D_NEXT_EDGE</name>
+        <param><defname>edge</defname></param>
+        <initializer>(((<ref refid="struct_cv_quad_edge2_d" kindref="compound">CvQuadEdge2D</ref>*)((<ref refid="cv_8h_1a0f302ec6af7c8d3a162e6e0a217713eb" kindref="member">edge</ref>) &amp; ~3))-&gt;<ref refid="cv_8h_1a271d716db1f200e7bc0483683c5c7fa7" kindref="member">next</ref>[(<ref refid="cv_8h_1a0f302ec6af7c8d3a162e6e0a217713eb" kindref="member">edge</ref>)&amp;3])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="202" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="202" bodyend="-1"/>
+        <referencedby refid="cv_8h_1a1425f1ed71358d072fac3df7183fc894" compoundref="cv_8h" startline="684" endline="687">cvSubdiv2DNextEdge</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1aae4eea49b2cb982c1630c0d7fd649838" prot="public" static="no">
+        <name>CV_DIST_USER</name>
+        <initializer>-1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="206" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="206" bodyend="-1"/>
+        <referencedby refid="cvcompat_8h_1ab23872e80dd671df6739afe1ff043b4d" compoundref="cvcompat_8h" startline="442" endline="449">cvFitLine2D</referencedby>
+        <referencedby refid="cvcompat_8h_1a74b984cde388533117775626680b18e9" compoundref="cvcompat_8h" startline="432" endline="439">cvFitLine3D</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1aa10c0a712b759a584121b8a47ce604b9" prot="public" static="no">
+        <name>CV_DIST_L1</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="207" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1aa8adf7dcddcbf3b2a6726e4526033a24" prot="public" static="no">
+        <name>CV_DIST_L2</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="208" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1ad9524ad0341ed985658352cb966b0550" prot="public" static="no">
+        <name>CV_DIST_C</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="209" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1aa668a17b6b51078b29a5a47b17dfd636" prot="public" static="no">
+        <name>CV_DIST_L12</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="210" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1a7dcfb3e6ec65a8cb8fa84485b55b6109" prot="public" static="no">
+        <name>CV_DIST_FAIR</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="211" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1af35cfb195257d5ed4f01de8348eedf05" prot="public" static="no">
+        <name>CV_DIST_WELSCH</name>
+        <initializer>6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="212" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1a1ca3af6508059cdc7eb0899365fb369c" prot="public" static="no">
+        <name>CV_DIST_HUBER</name>
+        <initializer>7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="213" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1acd8ee8b3cdc5253a300a3b786ff762b0" prot="public" static="no">
+        <name>CV_HAAR_MAGIC_VAL</name>
+        <initializer>0x42500000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="303" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1a895619ab5b7eb5cd3e4a27a7f2dffc67" prot="public" static="no">
+        <name>CV_TYPE_NAME_HAAR</name>
+        <initializer>&quot;opencv-haar-classifier&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="304" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1a1d7f2403319efc32466187eaedec6ce7" prot="public" static="no">
+        <name>CV_IS_HAAR_CLASSIFIER</name>
+        <param><defname>haar</defname></param>
+        <initializer>((haar) != NULL &amp;&amp;                                                                   \
+    (((const <ref refid="struct_cv_haar_classifier_cascade" kindref="compound">CvHaarClassifierCascade</ref>*)(haar))-&gt;<ref refid="highgui_8h_1a03603936e25f729b5913782c2072780b" kindref="member">flags</ref> &amp; CV_MAGIC_MASK)==CV_HAAR_MAGIC_VAL)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="308" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="306" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cvtypes_8h_1a54d742542c40513ae056b7eca665bd25" prot="public" static="no">
+        <name>CV_HAAR_FEATURE_MAX</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="310" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34" prot="public" static="no">
+        <name>CvSubdiv2DPointLocation</name>
+        <enumvalue id="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34a3593c785df8d4d67dc8451039a227a31" prot="public">
+          <name>CV_PTLOC_ERROR</name>
+          <initializer> -2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34af1ff358d0a08556e9d42e59db3c77782" prot="public">
+          <name>CV_PTLOC_OUTSIDE_RECT</name>
+          <initializer> -1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34a59c891dcd2b47bf44e90995cbaa069be" prot="public">
+          <name>CV_PTLOC_INSIDE</name>
+          <initializer> 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34a534192f82edc7c7b74aedddc87fe2aa6" prot="public">
+          <name>CV_PTLOC_VERTEX</name>
+          <initializer> 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34abd4658ff0c59793afa4a3842046d5206" prot="public">
+          <name>CV_PTLOC_ON_EDGE</name>
+          <initializer> 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="179" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="178" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="enum" id="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136" prot="public" static="no">
+        <name>CvNextEdgeType</name>
+        <enumvalue id="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136a60a99d2f015d1045802ea4d516aaee8a" prot="public">
+          <name>CV_NEXT_AROUND_ORG</name>
+          <initializer> 0x00</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136a0e44f4ec4293c465c9e043baab2d7040" prot="public">
+          <name>CV_NEXT_AROUND_DST</name>
+          <initializer> 0x22</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136abf69daa0960e82699aef0531aa64e5db" prot="public">
+          <name>CV_PREV_AROUND_ORG</name>
+          <initializer> 0x11</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136a4160900d7169297693a5873c86582b16" prot="public">
+          <name>CV_PREV_AROUND_DST</name>
+          <initializer> 0x33</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136a004267d19ee8b5f698d4c8e45331e9a5" prot="public">
+          <name>CV_NEXT_AROUND_LEFT</name>
+          <initializer> 0x13</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136ae04c690c3482f6f86fbd45c656a6e4a7" prot="public">
+          <name>CV_NEXT_AROUND_RIGHT</name>
+          <initializer> 0x31</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136acd83d46274f1a29e42460693674abe7d" prot="public">
+          <name>CV_PREV_AROUND_LEFT</name>
+          <initializer> 0x20</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136a5e968bc0e00e7ca43f4a13ce26cbacb2" prot="public">
+          <name>CV_PREV_AROUND_RIGHT</name>
+          <initializer> 0x02</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="189" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="188" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="enum" id="cvtypes_8h_1a6a94c4c10b6a62e341c4cee25bd759cc" prot="public" static="no">
+        <name>CvFilter</name>
+        <enumvalue id="cvtypes_8h_1a6a94c4c10b6a62e341c4cee25bd759cca461568e540348c092e31bd2508f4ac37" prot="public">
+          <name>CV_GAUSSIAN_5x5</name>
+          <initializer> 7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="218" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="217" bodyend="220"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="cvtypes_8h_1a738efca5ab93feb8333bbe24f8d57839" prot="public" static="no">
+        <type>struct <ref refid="struct_cv_moments" kindref="compound">CvMoments</ref></type>
+        <definition>typedef struct CvMoments
+ CvMoments</definition>
+        <argsstring></argsstring>
+        <name>CvMoments</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="57"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a85a4d1d82e0dd8e0faa464584472747a" prot="public" static="no">
+        <type>struct <ref refid="struct_cv_hu_moments" kindref="compound">CvHuMoments</ref></type>
+        <definition>typedef struct CvHuMoments
+ CvHuMoments</definition>
+        <argsstring></argsstring>
+        <name>CvHuMoments</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="64"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1ae187bc007c9e041da9b97dcfe0431b64" prot="public" static="no">
+        <type>struct <ref refid="struct_cv_connected_comp" kindref="compound">CvConnectedComp</ref></type>
+        <definition>typedef struct CvConnectedComp
+ CvConnectedComp</definition>
+        <argsstring></argsstring>
+        <name>CvConnectedComp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="76"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a11d28023276f66bd42d8a7f97a0712ae" prot="public" static="no">
+        <type>struct _CvContourScanner *</type>
+        <definition>typedef struct _CvContourScanner* CvContourScanner</definition>
+        <argsstring></argsstring>
+        <name>CvContourScanner</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="82" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a126c3960af8241b0065211bcb0c4c4ee" prot="public" static="no">
+        <type>struct <ref refid="struct_cv_chain_pt_reader" kindref="compound">CvChainPtReader</ref></type>
+        <definition>typedef struct CvChainPtReader
+ CvChainPtReader</definition>
+        <argsstring></argsstring>
+        <name>CvChainPtReader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="106"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1ab1d868b3185ea046659144e01dac8f02" prot="public" static="no">
+        <type>struct <ref refid="struct_cv_contour_tree" kindref="compound">CvContourTree</ref></type>
+        <definition>typedef struct CvContourTree
+ CvContourTree</definition>
+        <argsstring></argsstring>
+        <name>CvContourTree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="122"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a4ff805453f36a6307fd6d7346bd951c9" prot="public" static="no">
+        <type>struct <ref refid="struct_cv_convexity_defect" kindref="compound">CvConvexityDefect</ref></type>
+        <definition>typedef struct CvConvexityDefect
+ CvConvexityDefect</definition>
+        <argsstring></argsstring>
+        <name>CvConvexityDefect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="132"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a902e2556fb0a0610cf2ff8d237cdc124" prot="public" static="no">
+        <type>size_t</type>
+        <definition>typedef size_t CvSubdiv2DEdge</definition>
+        <argsstring></argsstring>
+        <name>CvSubdiv2DEdge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="136" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a9d614aa1584457360ec59406b3324726" prot="public" static="no">
+        <type>struct <ref refid="struct_cv_quad_edge2_d" kindref="compound">CvQuadEdge2D</ref></type>
+        <definition>typedef struct CvQuadEdge2D
+ CvQuadEdge2D</definition>
+        <argsstring></argsstring>
+        <name>CvQuadEdge2D</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="155"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a2e33cc755595ff02a1a6aca9f3f7dd04" prot="public" static="no">
+        <type>struct <ref refid="struct_cv_subdiv2_d_point" kindref="compound">CvSubdiv2DPoint</ref></type>
+        <definition>typedef struct CvSubdiv2DPoint
+ CvSubdiv2DPoint</definition>
+        <argsstring></argsstring>
+        <name>CvSubdiv2DPoint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="161"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a90dccb8a96cedf002e70b3ceb758040e" prot="public" static="no">
+        <type>struct <ref refid="struct_cv_subdiv2_d" kindref="compound">CvSubdiv2D</ref></type>
+        <definition>typedef struct CvSubdiv2D
+ CvSubdiv2D</definition>
+        <argsstring></argsstring>
+        <name>CvSubdiv2D</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="175"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a744689fc2cbb539b130e29b20abc1da0" prot="public" static="no">
+        <type>enum <ref refid="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34" kindref="member">CvSubdiv2DPointLocation</ref></type>
+        <definition>typedef enum CvSubdiv2DPointLocation
+ CvSubdiv2DPointLocation</definition>
+        <argsstring></argsstring>
+        <name>CvSubdiv2DPointLocation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="186"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a1643b90b20ca4685c873de9897aa2ecd" prot="public" static="no">
+        <type>enum <ref refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136" kindref="member">CvNextEdgeType</ref></type>
+        <definition>typedef enum CvNextEdgeType
+ CvNextEdgeType</definition>
+        <argsstring></argsstring>
+        <name>CvNextEdgeType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="199"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a555661464b6035bc5fccac80d65c23ea" prot="public" static="no">
+        <type>enum <ref refid="cvtypes_8h_1a6a94c4c10b6a62e341c4cee25bd759cc" kindref="member">CvFilter</ref></type>
+        <definition>typedef enum CvFilter
+ CvFilter</definition>
+        <argsstring></argsstring>
+        <name>CvFilter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="221"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a0695a164361a2a8d2f62620465481af3" prot="public" static="no">
+        <type>float *</type>
+        <definition>typedef float* CvVect32f</definition>
+        <argsstring></argsstring>
+        <name>CvVect32f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="227" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1ac28a78bb52f796748c0a95fffef1ce8c" prot="public" static="no">
+        <type>float *</type>
+        <definition>typedef float* CvMatr32f</definition>
+        <argsstring></argsstring>
+        <name>CvMatr32f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="228" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="228" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1ae3c6bc6d955076b9b8afcda108d4c374" prot="public" static="no">
+        <type>double *</type>
+        <definition>typedef double* CvVect64d</definition>
+        <argsstring></argsstring>
+        <name>CvVect64d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="229" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a4535cb1ff63584db410f38b9cf59c80c" prot="public" static="no">
+        <type>double *</type>
+        <definition>typedef double* CvMatr64d</definition>
+        <argsstring></argsstring>
+        <name>CvMatr64d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="230" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1aaccebe9163bf54e94c6d4d1eef3afe12" prot="public" static="no">
+        <type>struct <ref refid="struct_cv_matrix3" kindref="compound">CvMatrix3</ref></type>
+        <definition>typedef struct CvMatrix3
+ CvMatrix3</definition>
+        <argsstring></argsstring>
+        <name>CvMatrix3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="236"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1afbcc20461f70dd89ba40f764a1ef4123" prot="public" static="no">
+        <type>float(CV_CDECL *</type>
+        <definition>typedef float(CV_CDECL * CvDistanceFunction)(const float *a, const float *b, void *user_param)</definition>
+        <argsstring>)(const float *a, const float *b, void *user_param)</argsstring>
+        <name>CvDistanceFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="243" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1ab6d96f1980f7d9733551236aabbdbb92" prot="public" static="no">
+        <type>struct <ref refid="struct_cv_kalman" kindref="compound">CvKalman</ref></type>
+        <definition>typedef struct CvKalman
+ CvKalman</definition>
+        <argsstring></argsstring>
+        <name>CvKalman</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="299"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a3c00a4b3abe0fc81962828c70b053310" prot="public" static="no">
+        <type>struct <ref refid="struct_cv_haar_feature" kindref="compound">CvHaarFeature</ref></type>
+        <definition>typedef struct CvHaarFeature
+ CvHaarFeature</definition>
+        <argsstring></argsstring>
+        <name>CvHaarFeature</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="321"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a351e7a96bb32370ec32e4282959d5860" prot="public" static="no">
+        <type>struct <ref refid="struct_cv_haar_classifier" kindref="compound">CvHaarClassifier</ref></type>
+        <definition>typedef struct CvHaarClassifier
+ CvHaarClassifier</definition>
+        <argsstring></argsstring>
+        <name>CvHaarClassifier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="332"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1acd8a7e7621f8ee6f335084ea08dab275" prot="public" static="no">
+        <type>struct <ref refid="struct_cv_haar_stage_classifier" kindref="compound">CvHaarStageClassifier</ref></type>
+        <definition>typedef struct CvHaarStageClassifier
+ CvHaarStageClassifier</definition>
+        <argsstring></argsstring>
+        <name>CvHaarStageClassifier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="344"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1aa2cff51069a20252ece5d11554c178be" prot="public" static="no">
+        <type>struct <ref refid="cvtypes_8h_1aa2cff51069a20252ece5d11554c178be" kindref="member">CvHidHaarClassifierCascade</ref></type>
+        <definition>typedef struct CvHidHaarClassifierCascade CvHidHaarClassifierCascade</definition>
+        <argsstring></argsstring>
+        <name>CvHidHaarClassifierCascade</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="346" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a3b59731d60606e04e84b5dbaca4a337f" prot="public" static="no">
+        <type>struct <ref refid="struct_cv_haar_classifier_cascade" kindref="compound">CvHaarClassifierCascade</ref></type>
+        <definition>typedef struct CvHaarClassifierCascade
+ CvHaarClassifierCascade</definition>
+        <argsstring></argsstring>
+        <name>CvHaarClassifierCascade</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="358"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cvtypes_8h_1a43eb1635cafd5c393526e9aeadca2227" prot="public" static="no">
+        <type>struct <ref refid="struct_cv_avg_comp" kindref="compound">CvAvgComp</ref></type>
+        <definition>typedef struct CvAvgComp
+ CvAvgComp</definition>
+        <argsstring></argsstring>
+        <name>CvAvgComp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="365"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*M///////////////////////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">//<sp/><sp/>IMPORTANT:<sp/>READ<sp/>BEFORE<sp/>DOWNLOADING,<sp/>COPYING,<sp/>INSTALLING<sp/>OR<sp/>USING.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">//<sp/><sp/>By<sp/>downloading,<sp/>copying,<sp/>installing<sp/>or<sp/>using<sp/>the<sp/>software<sp/>you<sp/>agree<sp/>to<sp/>this<sp/>license.</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">//<sp/><sp/>If<sp/>you<sp/>do<sp/>not<sp/>agree<sp/>to<sp/>this<sp/>license,<sp/>do<sp/>not<sp/>download,<sp/>install,</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">//<sp/><sp/>copy<sp/>or<sp/>use<sp/>the<sp/>software.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Intel<sp/>License<sp/>Agreement</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>For<sp/>Open<sp/>Source<sp/>Computer<sp/>Vision<sp/>Library</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">//<sp/>Copyright<sp/>(C)<sp/>2000,<sp/>Intel<sp/>Corporation,<sp/>all<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">//<sp/>Third<sp/>party<sp/>copyrights<sp/>are<sp/>property<sp/>of<sp/>their<sp/>respective<sp/>owners.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">//<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without<sp/>modification,</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">//<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">//<sp/><sp/><sp/>*<sp/>Redistribution&apos;s<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">//<sp/><sp/><sp/>*<sp/>Redistribution&apos;s<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright<sp/>notice,</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the<sp/>documentation</highlight></codeline>
+<codeline lineno="24"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="25"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="26"><highlight class="comment">//<sp/><sp/><sp/>*<sp/>The<sp/>name<sp/>of<sp/>Intel<sp/>Corporation<sp/>may<sp/>not<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products</highlight></codeline>
+<codeline lineno="27"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>derived<sp/>from<sp/>this<sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="28"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="29"><highlight class="comment">//<sp/>This<sp/>software<sp/>is<sp/>provided<sp/>by<sp/>the<sp/>copyright<sp/>holders<sp/>and<sp/>contributors<sp/>&quot;as<sp/>is&quot;<sp/>and</highlight></codeline>
+<codeline lineno="30"><highlight class="comment">//<sp/>any<sp/>express<sp/>or<sp/>implied<sp/>warranties,<sp/>including,<sp/>but<sp/>not<sp/>limited<sp/>to,<sp/>the<sp/>implied</highlight></codeline>
+<codeline lineno="31"><highlight class="comment">//<sp/>warranties<sp/>of<sp/>merchantability<sp/>and<sp/>fitness<sp/>for<sp/>a<sp/>particular<sp/>purpose<sp/>are<sp/>disclaimed.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment">//<sp/>In<sp/>no<sp/>event<sp/>shall<sp/>the<sp/>Intel<sp/>Corporation<sp/>or<sp/>contributors<sp/>be<sp/>liable<sp/>for<sp/>any<sp/>direct,</highlight></codeline>
+<codeline lineno="33"><highlight class="comment">//<sp/>indirect,<sp/>incidental,<sp/>special,<sp/>exemplary,<sp/>or<sp/>consequential<sp/>damages</highlight></codeline>
+<codeline lineno="34"><highlight class="comment">//<sp/>(including,<sp/>but<sp/>not<sp/>limited<sp/>to,<sp/>procurement<sp/>of<sp/>substitute<sp/>goods<sp/>or<sp/>services;</highlight></codeline>
+<codeline lineno="35"><highlight class="comment">//<sp/>loss<sp/>of<sp/>use,<sp/>data,<sp/>or<sp/>profits;<sp/>or<sp/>business<sp/>interruption)<sp/>however<sp/>caused</highlight></codeline>
+<codeline lineno="36"><highlight class="comment">//<sp/>and<sp/>on<sp/>any<sp/>theory<sp/>of<sp/>liability,<sp/>whether<sp/>in<sp/>contract,<sp/>strict<sp/>liability,</highlight></codeline>
+<codeline lineno="37"><highlight class="comment">//<sp/>or<sp/>tort<sp/>(including<sp/>negligence<sp/>or<sp/>otherwise)<sp/>arising<sp/>in<sp/>any<sp/>way<sp/>out<sp/>of</highlight></codeline>
+<codeline lineno="38"><highlight class="comment">//<sp/>the<sp/>use<sp/>of<sp/>this<sp/>software,<sp/>even<sp/>if<sp/>advised<sp/>of<sp/>the<sp/>possibility<sp/>of<sp/>such<sp/>damage.</highlight></codeline>
+<codeline lineno="39"><highlight class="comment">//</highlight></codeline>
+<codeline lineno="40"><highlight class="comment">//M*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_CVTYPES_H_</highlight></codeline>
+<codeline lineno="43"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_CVTYPES_H_</highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SKIP_INCLUDES</highlight></codeline>
+<codeline lineno="46"><highlight class="preprocessor"></highlight><highlight class="preprocessor"><sp/><sp/>#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>spatial<sp/>and<sp/>central<sp/>moments<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="struct_cv_moments" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cv_moments" kindref="compound">CvMoments</ref></highlight></codeline>
+<codeline lineno="52"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="53" refid="struct_cv_moments_1a06450b2c72eeac634462622edf33e905" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><ref refid="struct_cv_moments_1af8990a23161b5e58cf5823a1ea824b58" kindref="member">m00</ref>,<sp/><ref refid="struct_cv_moments_1a2ecba768610f42190605fb63f63bc12e" kindref="member">m10</ref>,<sp/><ref refid="struct_cv_moments_1a7ebd6af845050990ceda665a685e95c4" kindref="member">m01</ref>,<sp/><ref refid="struct_cv_moments_1a8ba6f3f8d0fba50aa5c5a06ece09904a" kindref="member">m20</ref>,<sp/><ref refid="struct_cv_moments_1a6ad25d9398f6bc1a69abb1568286847b" kindref="member">m11</ref>,<sp/><ref refid="struct_cv_moments_1ad6733062576919dac6c2c7f1d6f55fbd" kindref="member">m02</ref>,<sp/><ref refid="struct_cv_moments_1a06450b2c72eeac634462622edf33e905" kindref="member">m30</ref>,<sp/><ref refid="struct_cv_moments_1ab02c25185eeb6943c6544526fdd6ed00" kindref="member">m21</ref>,<sp/><ref refid="struct_cv_moments_1a7e7a320f1c3061d2f282ef2183a9044f" kindref="member">m12</ref>,<sp/><ref refid="struct_cv_moments_1a5da611e29d5c86cb34cfc99a288fb60d" kindref="member">m03</ref>;<sp/></highlight><highlight class="comment">/*<sp/>spatial<sp/>moments<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="struct_cv_moments_1a8c4cfe0c724576018e73b2ec7a724470" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><ref refid="struct_cv_moments_1aa20e267058657184b5ca4c5491c12e10" kindref="member">mu20</ref>,<sp/><ref refid="struct_cv_moments_1a029e8765b2dabc92ced26c18ae7f6439" kindref="member">mu11</ref>,<sp/><ref refid="struct_cv_moments_1add6e9dfde50187ed89c48114e7106fba" kindref="member">mu02</ref>,<sp/><ref refid="struct_cv_moments_1a8c4cfe0c724576018e73b2ec7a724470" kindref="member">mu30</ref>,<sp/><ref refid="struct_cv_moments_1a429d624a00bc859472d13a68ce073f85" kindref="member">mu21</ref>,<sp/><ref refid="struct_cv_moments_1a339627399f6f3a6d10a7ae2a38d2a8ea" kindref="member">mu12</ref>,<sp/><ref refid="struct_cv_moments_1a4bc33c2f551d6a3e847eb1c1863e6e60" kindref="member">mu03</ref>;<sp/></highlight><highlight class="comment">/*<sp/>central<sp/>moments<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="struct_cv_moments_1ad08a81f43610187c2e0c430cb13f24ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><ref refid="struct_cv_moments_1ad08a81f43610187c2e0c430cb13f24ae" kindref="member">inv_sqrt_m00</ref>;<sp/></highlight><highlight class="comment">/*<sp/>m00<sp/>!=<sp/>0<sp/>?<sp/>1/sqrt(m00)<sp/>:<sp/>0<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><ref refid="cvtypes_8h_1a738efca5ab93feb8333bbe24f8d57839" kindref="member">CvMoments</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Hu<sp/>invariants<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="struct_cv_hu_moments" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cv_hu_moments" kindref="compound">CvHuMoments</ref></highlight></codeline>
+<codeline lineno="61"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62" refid="struct_cv_hu_moments_1ab50830c8592726d4b0d12b6a1d60e6cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_cv_hu_moments_1aa450f3037cf35f767b4159b67e6adb8f" kindref="member">hu1</ref>,<sp/><ref refid="struct_cv_hu_moments_1a1f87365eec104c58b5bf26e36fed7f0e" kindref="member">hu2</ref>,<sp/><ref refid="struct_cv_hu_moments_1a44baeeb2c6cef51d5000fa1bd21777aa" kindref="member">hu3</ref>,<sp/><ref refid="struct_cv_hu_moments_1a3eb32d23887e8da1425f412b514cb98d" kindref="member">hu4</ref>,<sp/><ref refid="struct_cv_hu_moments_1a9a03659c41d3bca145239fee5334a9bf" kindref="member">hu5</ref>,<sp/><ref refid="struct_cv_hu_moments_1a1a16e0bde3e4b3b5f5245240c76f3387" kindref="member">hu6</ref>,<sp/><ref refid="struct_cv_hu_moments_1ab50830c8592726d4b0d12b6a1d60e6cc" kindref="member">hu7</ref>;<sp/></highlight><highlight class="comment">/*<sp/>Hu<sp/>invariants<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><ref refid="cvtypes_8h_1a85a4d1d82e0dd8e0faa464584472747a" kindref="member">CvHuMoments</ref>;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment">/****************************<sp/>Connected<sp/>Component<sp/><sp/>**************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="struct_cv_connected_comp" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cv_connected_comp" kindref="compound">CvConnectedComp</ref></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70" refid="struct_cv_connected_comp_1affec9c260f6ca4fd3fae028f0ad3d9a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_cv_connected_comp_1affec9c260f6ca4fd3fae028f0ad3d9a4" kindref="member">area</ref>;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>area<sp/>of<sp/>the<sp/>connected<sp/>component<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="struct_cv_connected_comp_1aacf4c20a51f3fc7d8a71c95b46820902" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_scalar" kindref="compound">CvScalar</ref><sp/><ref refid="struct_cv_connected_comp_1aacf4c20a51f3fc7d8a71c95b46820902" kindref="member">value</ref>;<sp/></highlight><highlight class="comment">/*<sp/>average<sp/>color<sp/>of<sp/>the<sp/>connected<sp/>component<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="struct_cv_connected_comp_1a1f86bb7ed32ddf315d19521e20beabcc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_rect" kindref="compound">CvRect</ref><sp/><ref refid="struct_cv_connected_comp_1a1f86bb7ed32ddf315d19521e20beabcc" kindref="member">rect</ref>;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>ROI<sp/>of<sp/>the<sp/>component<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="struct_cv_connected_comp_1ae4f461290aa042a2dcd3b45ae03d9feb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_seq" kindref="compound">CvSeq</ref>*<sp/><ref refid="struct_cv_connected_comp_1ae4f461290aa042a2dcd3b45ae03d9feb" kindref="member">contour</ref>;<sp/></highlight><highlight class="comment">/*<sp/>optional<sp/>component<sp/>boundary</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(the<sp/>contour<sp/>might<sp/>have<sp/>child<sp/>contours<sp/>corresponding<sp/>to<sp/>the<sp/>holes)*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><ref refid="cvtypes_8h_1ae187bc007c9e041da9b97dcfe0431b64" kindref="member">CvConnectedComp</ref>;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="79"><highlight class="comment">Internal<sp/>structure<sp/>that<sp/>is<sp/>used<sp/>for<sp/>sequental<sp/>retrieving<sp/>contours<sp/>from<sp/>the<sp/>image.</highlight></codeline>
+<codeline lineno="80"><highlight class="comment">It<sp/>supports<sp/>both<sp/>hierarchical<sp/>and<sp/>plane<sp/>variants<sp/>of<sp/>Suzuki<sp/>algorithm.</highlight></codeline>
+<codeline lineno="81"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="cvtypes_8h_1a11d28023276f66bd42d8a7f97a0712ae" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">_CvContourScanner*<sp/><ref refid="cvtypes_8h_1a11d28023276f66bd42d8a7f97a0712ae" kindref="member">CvContourScanner</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>contour<sp/>retrieval<sp/>mode<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="cvtypes_8h_1a576092de87c13951f5ae4bc3cf280d17" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_RETR_EXTERNAL<sp/>0</highlight></codeline>
+<codeline lineno="86" refid="cvtypes_8h_1a687a6bc73870eadc74a35c93eac8a2d8" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CV_RETR_LIST<sp/><sp/><sp/><sp/><sp/>1</highlight></codeline>
+<codeline lineno="87" refid="cvtypes_8h_1ab6a1e6f9d65a39167e3b50b69c6a4d65" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CV_RETR_CCOMP<sp/><sp/><sp/><sp/>2</highlight></codeline>
+<codeline lineno="88" refid="cvtypes_8h_1addd9bd0bee6677fa28925c0443e8ecd8" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CV_RETR_TREE<sp/><sp/><sp/><sp/><sp/>3</highlight></codeline>
+<codeline lineno="89"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>contour<sp/>approximation<sp/>method<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="cvtypes_8h_1a7bd5347c802986f658b25a4f9e6a53ac" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_CHAIN_CODE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight></codeline>
+<codeline lineno="92" refid="cvtypes_8h_1aabe240e50bb63710ebe995cf81924ac6" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CV_CHAIN_APPROX_NONE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight></codeline>
+<codeline lineno="93" refid="cvtypes_8h_1a712bb9fa6f06d9864742a2321e19f1b4" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CV_CHAIN_APPROX_SIMPLE<sp/><sp/><sp/><sp/><sp/><sp/>2</highlight></codeline>
+<codeline lineno="94" refid="cvtypes_8h_1a22576fe46e011c5fcc75d0850a6f743e" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CV_CHAIN_APPROX_TC89_L1<sp/><sp/><sp/><sp/><sp/>3</highlight></codeline>
+<codeline lineno="95" refid="cvtypes_8h_1acf06a3ef5f5872bdfe337296fe28ded6" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CV_CHAIN_APPROX_TC89_KCOS<sp/><sp/><sp/>4</highlight></codeline>
+<codeline lineno="96" refid="cvtypes_8h_1aed3e1430ec978948fe09b71409d94269" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CV_LINK_RUNS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>5</highlight></codeline>
+<codeline lineno="97"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Freeman<sp/>chain<sp/>reader<sp/>state<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="struct_cv_chain_pt_reader" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cv_chain_pt_reader" kindref="compound">CvChainPtReader</ref></highlight></codeline>
+<codeline lineno="100"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cxtypes_8h_1a32c178732ea99af712416f09fcb6f87a" kindref="member">CV_SEQ_READER_FIELDS</ref>()</highlight></codeline>
+<codeline lineno="102" refid="struct_cv_chain_pt_reader_1a9c1efd4be0f72928c9b984a90d3a2028" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>char<sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_cv_chain_pt_reader_1a9c1efd4be0f72928c9b984a90d3a2028" kindref="member">code</ref>;</highlight></codeline>
+<codeline lineno="103" refid="struct_cv_chain_pt_reader_1a0b44d7d5a0cb6d768b95caf4022c35a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_point" kindref="compound">CvPoint</ref><sp/><sp/><sp/><ref refid="struct_cv_chain_pt_reader_1a0b44d7d5a0cb6d768b95caf4022c35a4" kindref="member">pt</ref>;</highlight></codeline>
+<codeline lineno="104" refid="struct_cv_chain_pt_reader_1a3c70d6cc005e5da1eae1fa9f2e7d5353" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cxtypes_8h_1a0fd9ce9d735064461bebfe6037026093" kindref="member">schar</ref><sp/><sp/><sp/><sp/><sp/><ref refid="struct_cv_chain_pt_reader_1a3c70d6cc005e5da1eae1fa9f2e7d5353" kindref="member">deltas</ref>[8][2];</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><ref refid="struct_cv_chain_pt_reader" kindref="compound">CvChainPtReader</ref>;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>initializes<sp/>8-element<sp/>array<sp/>for<sp/>fast<sp/>access<sp/>to<sp/>3x3<sp/>neighborhood<sp/>of<sp/>a<sp/>pixel<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="cvtypes_8h_1add47b69c3f9fc86ba30c92488645229d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/><sp/>CV_INIT_3X3_DELTAS(<sp/>deltas,<sp/>step,<sp/>nch<sp/>)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="110"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>((deltas)[0]<sp/>=<sp/><sp/>(nch),<sp/><sp/>(deltas)[1]<sp/>=<sp/>-(step)<sp/>+<sp/>(nch),<sp/><sp/>\</highlight></codeline>
+<codeline lineno="111"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/>(deltas)[2]<sp/>=<sp/>-(step),<sp/>(deltas)[3]<sp/>=<sp/>-(step)<sp/>-<sp/>(nch),<sp/><sp/>\</highlight></codeline>
+<codeline lineno="112"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/>(deltas)[4]<sp/>=<sp/>-(nch),<sp/><sp/>(deltas)[5]<sp/>=<sp/><sp/>(step)<sp/>-<sp/>(nch),<sp/><sp/>\</highlight></codeline>
+<codeline lineno="113"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/>(deltas)[6]<sp/>=<sp/><sp/>(step),<sp/>(deltas)[7]<sp/>=<sp/><sp/>(step)<sp/>+<sp/>(nch))</highlight></codeline>
+<codeline lineno="114"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Contour<sp/>tree<sp/>header<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="struct_cv_contour_tree" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cv_contour_tree" kindref="compound">CvContourTree</ref></highlight></codeline>
+<codeline lineno="117"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cxtypes_8h_1a3f5852a742b680f784f3d05eb1a40f59" kindref="member">CV_SEQUENCE_FIELDS</ref>()</highlight></codeline>
+<codeline lineno="119" refid="struct_cv_contour_tree_1ae93d5eaff425a4d30c518490f2345888" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_point" kindref="compound">CvPoint</ref><sp/>p1;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>the<sp/>first<sp/>point<sp/>of<sp/>the<sp/>binary<sp/>tree<sp/>root<sp/>segment<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="struct_cv_contour_tree_1aa2e801818ebee167017c5dc7c7148858" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_point" kindref="compound">CvPoint</ref><sp/><ref refid="cvaux_8h_1aaed7591dd18d92f8033f952b64ae30f5" kindref="member">p2</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>the<sp/>last<sp/>point<sp/>of<sp/>the<sp/>binary<sp/>tree<sp/>root<sp/>segment<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><ref refid="struct_cv_contour_tree" kindref="compound">CvContourTree</ref>;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Finds<sp/>a<sp/>sequence<sp/>of<sp/>convexity<sp/>defects<sp/>of<sp/>given<sp/>contour<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125" refid="struct_cv_convexity_defect" refkind="compound"><highlight class="normal">typedef<sp/>struct<sp/><ref refid="struct_cv_convexity_defect" kindref="compound">CvConvexityDefect</ref></highlight></codeline>
+<codeline lineno="126"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="127" refid="struct_cv_convexity_defect_1a77610777f5d9932bc370db1c80476993" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_point" kindref="compound">CvPoint</ref>*<sp/><ref refid="struct_cv_convexity_defect_1a77610777f5d9932bc370db1c80476993" kindref="member">start</ref>;<sp/></highlight><highlight class="comment">/*<sp/>point<sp/>of<sp/>the<sp/>contour<sp/>where<sp/>the<sp/>defect<sp/>begins<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128" refid="struct_cv_convexity_defect_1ac0e20e337f3a9eeaf845f1e45f0d8529" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_point" kindref="compound">CvPoint</ref>*<sp/><ref refid="struct_cv_convexity_defect_1ac0e20e337f3a9eeaf845f1e45f0d8529" kindref="member">end</ref>;<sp/></highlight><highlight class="comment">/*<sp/>point<sp/>of<sp/>the<sp/>contour<sp/>where<sp/>the<sp/>defect<sp/>ends<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="struct_cv_convexity_defect_1a36b87ca2851365c18ad6b9c361b820f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_point" kindref="compound">CvPoint</ref>*<sp/><ref refid="struct_cv_convexity_defect_1a36b87ca2851365c18ad6b9c361b820f1" kindref="member">depth_point</ref>;<sp/></highlight><highlight class="comment">/*<sp/>the<sp/>farthest<sp/>from<sp/>the<sp/>convex<sp/>hull<sp/>point<sp/>within<sp/>the<sp/>defect<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130" refid="struct_cv_convexity_defect_1aa176ccc3afe0af7aa25e65f1ec849cc4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_cv_convexity_defect_1aa176ccc3afe0af7aa25e65f1ec849cc4" kindref="member">depth</ref>;<sp/></highlight><highlight class="comment">/*<sp/>distance<sp/>between<sp/>the<sp/>farthest<sp/>point<sp/>and<sp/>the<sp/>convex<sp/>hull<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><ref refid="cvtypes_8h_1a4ff805453f36a6307fd6d7346bd951c9" kindref="member">CvConvexityDefect</ref>;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment">/************<sp/>Data<sp/>structures<sp/>and<sp/>related<sp/>enumerations<sp/>for<sp/>Planar<sp/>Subdivisions<sp/>************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136" refid="cvtypes_8h_1a902e2556fb0a0610cf2ff8d237cdc124" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="cvtypes_8h_1a902e2556fb0a0610cf2ff8d237cdc124" kindref="member">CvSubdiv2DEdge</ref>;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="cvtypes_8h_1ae464ae069cd5fdde3e26841ff1eb67e6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_QUADEDGE2D_FIELDS()<sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="139"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>flags;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="140"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>struct<sp/>CvSubdiv2DPoint*<sp/>pt[4];<sp/>\</highlight></codeline>
+<codeline lineno="141"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>CvSubdiv2DEdge<sp/><sp/>next[4];</highlight></codeline>
+<codeline lineno="142"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143" refid="cvtypes_8h_1a56da25fea1f00a61b554908c761016db" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_SUBDIV2D_POINT_FIELDS()\</highlight></codeline>
+<codeline lineno="144"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>flags;<sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="145"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>CvSubdiv2DEdge<sp/>first;<sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="146"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>CvPoint2D32f<sp/><sp/><sp/>pt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="147"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>id;</highlight></codeline>
+<codeline lineno="148"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149" refid="cvtypes_8h_1a7ae3a427ac09c9a081019355bb20673d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_SUBDIV2D_VIRTUAL_POINT_FLAG<sp/>(1<sp/>&lt;&lt;<sp/>30)</highlight></codeline>
+<codeline lineno="150"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151" refid="struct_cv_quad_edge2_d" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cv_quad_edge2_d" kindref="compound">CvQuadEdge2D</ref></highlight></codeline>
+<codeline lineno="152"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1ae464ae069cd5fdde3e26841ff1eb67e6" kindref="member">CV_QUADEDGE2D_FIELDS</ref>()</highlight></codeline>
+<codeline lineno="154"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><ref refid="cvtypes_8h_1a9d614aa1584457360ec59406b3324726" kindref="member">CvQuadEdge2D</ref>;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157" refid="struct_cv_subdiv2_d_point" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cv_subdiv2_d_point" kindref="compound">CvSubdiv2DPoint</ref></highlight></codeline>
+<codeline lineno="158"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1a56da25fea1f00a61b554908c761016db" kindref="member">CV_SUBDIV2D_POINT_FIELDS</ref>()</highlight></codeline>
+<codeline lineno="160"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><ref refid="cvtypes_8h_1a2e33cc755595ff02a1a6aca9f3f7dd04" kindref="member">CvSubdiv2DPoint</ref>;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163" refid="cvtypes_8h_1ae3d1ee33048aaf6b64b7b0988acc01d7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_SUBDIV2D_FIELDS()<sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="164"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>CV_GRAPH_FIELDS()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="165"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/><sp/>quad_edges;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="166"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/><sp/>is_geometry_valid;<sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="167"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>CvSubdiv2DEdge<sp/>recent_edge;<sp/>\</highlight></codeline>
+<codeline lineno="168"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>CvPoint2D32f<sp/><sp/>topleft;<sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="169"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>CvPoint2D32f<sp/><sp/>bottomright;</highlight></codeline>
+<codeline lineno="170"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171" refid="struct_cv_subdiv2_d" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cv_subdiv2_d" kindref="compound">CvSubdiv2D</ref></highlight></codeline>
+<codeline lineno="172"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1ae3d1ee33048aaf6b64b7b0988acc01d7" kindref="member">CV_SUBDIV2D_FIELDS</ref>()</highlight></codeline>
+<codeline lineno="174"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><ref refid="cvtypes_8h_1a90dccb8a96cedf002e70b3ceb758040e" kindref="member">CvSubdiv2D</ref>;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178" refid="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34" kindref="member">CvSubdiv2DPointLocation</ref></highlight></codeline>
+<codeline lineno="179"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="180" refid="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34a3593c785df8d4d67dc8451039a227a31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34a3593c785df8d4d67dc8451039a227a31" kindref="member">CV_PTLOC_ERROR</ref><sp/>=<sp/>-2,</highlight></codeline>
+<codeline lineno="181" refid="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34af1ff358d0a08556e9d42e59db3c77782" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34af1ff358d0a08556e9d42e59db3c77782" kindref="member">CV_PTLOC_OUTSIDE_RECT</ref><sp/>=<sp/>-1,</highlight></codeline>
+<codeline lineno="182" refid="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34a59c891dcd2b47bf44e90995cbaa069be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34a59c891dcd2b47bf44e90995cbaa069be" kindref="member">CV_PTLOC_INSIDE</ref><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="183" refid="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34a534192f82edc7c7b74aedddc87fe2aa6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34a534192f82edc7c7b74aedddc87fe2aa6" kindref="member">CV_PTLOC_VERTEX</ref><sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="184" refid="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34abd4658ff0c59793afa4a3842046d5206" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34abd4658ff0c59793afa4a3842046d5206" kindref="member">CV_PTLOC_ON_EDGE</ref><sp/>=<sp/>2</highlight></codeline>
+<codeline lineno="185"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><ref refid="cvtypes_8h_1a968aa39d10c8ee30820fc2cf3008ff34" kindref="member">CvSubdiv2DPointLocation</ref>;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188" refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136" kindref="member">CvNextEdgeType</ref></highlight></codeline>
+<codeline lineno="189"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="190" refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136a60a99d2f015d1045802ea4d516aaee8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136a60a99d2f015d1045802ea4d516aaee8a" kindref="member">CV_NEXT_AROUND_ORG</ref><sp/><sp/><sp/>=<sp/>0x00,</highlight></codeline>
+<codeline lineno="191" refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136a0e44f4ec4293c465c9e043baab2d7040" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136a0e44f4ec4293c465c9e043baab2d7040" kindref="member">CV_NEXT_AROUND_DST</ref><sp/><sp/><sp/>=<sp/>0x22,</highlight></codeline>
+<codeline lineno="192" refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136abf69daa0960e82699aef0531aa64e5db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136abf69daa0960e82699aef0531aa64e5db" kindref="member">CV_PREV_AROUND_ORG</ref><sp/><sp/><sp/>=<sp/>0x11,</highlight></codeline>
+<codeline lineno="193" refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136a4160900d7169297693a5873c86582b16" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136a4160900d7169297693a5873c86582b16" kindref="member">CV_PREV_AROUND_DST</ref><sp/><sp/><sp/>=<sp/>0x33,</highlight></codeline>
+<codeline lineno="194" refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136a004267d19ee8b5f698d4c8e45331e9a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136a004267d19ee8b5f698d4c8e45331e9a5" kindref="member">CV_NEXT_AROUND_LEFT</ref><sp/><sp/>=<sp/>0x13,</highlight></codeline>
+<codeline lineno="195" refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136ae04c690c3482f6f86fbd45c656a6e4a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136ae04c690c3482f6f86fbd45c656a6e4a7" kindref="member">CV_NEXT_AROUND_RIGHT</ref><sp/>=<sp/>0x31,</highlight></codeline>
+<codeline lineno="196" refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136acd83d46274f1a29e42460693674abe7d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136acd83d46274f1a29e42460693674abe7d" kindref="member">CV_PREV_AROUND_LEFT</ref><sp/><sp/>=<sp/>0x20,</highlight></codeline>
+<codeline lineno="197" refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136a5e968bc0e00e7ca43f4a13ce26cbacb2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136a5e968bc0e00e7ca43f4a13ce26cbacb2" kindref="member">CV_PREV_AROUND_RIGHT</ref><sp/>=<sp/>0x02</highlight></codeline>
+<codeline lineno="198"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><ref refid="cvtypes_8h_1a50323bd233c90e19e43e0f42e43c6136" kindref="member">CvNextEdgeType</ref>;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>get<sp/>the<sp/>next<sp/>edge<sp/>with<sp/>the<sp/>same<sp/>origin<sp/>point<sp/>(counterwise)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202" refid="cvtypes_8h_1aed7cb132df3f51b2e93b490a7197120e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/><sp/>CV_SUBDIV2D_NEXT_EDGE(<sp/>edge<sp/>)<sp/><sp/>(((CvQuadEdge2D*)((edge)<sp/>&amp;<sp/>~3))-&gt;next[(edge)&amp;3])</highlight></codeline>
+<codeline lineno="203"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Defines<sp/>for<sp/>Distance<sp/>Transform<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206" refid="cvtypes_8h_1aae4eea49b2cb982c1630c0d7fd649838" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_DIST_USER<sp/><sp/><sp/><sp/>-1<sp/><sp/></highlight><highlight class="comment">/*<sp/>User<sp/>defined<sp/>distance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207" refid="cvtypes_8h_1aa10c0a712b759a584121b8a47ce604b9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_DIST_L1<sp/><sp/><sp/><sp/><sp/><sp/>1<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>distance<sp/>=<sp/>|x1-x2|<sp/>+<sp/>|y1-y2|<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208" refid="cvtypes_8h_1aa8adf7dcddcbf3b2a6726e4526033a24" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_DIST_L2<sp/><sp/><sp/><sp/><sp/><sp/>2<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>the<sp/>simple<sp/>euclidean<sp/>distance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209" refid="cvtypes_8h_1ad9524ad0341ed985658352cb966b0550" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_DIST_C<sp/><sp/><sp/><sp/><sp/><sp/><sp/>3<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>distance<sp/>=<sp/>max(|x1-x2|,|y1-y2|)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210" refid="cvtypes_8h_1aa668a17b6b51078b29a5a47b17dfd636" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_DIST_L12<sp/><sp/><sp/><sp/><sp/>4<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>L1-L2<sp/>metric:<sp/>distance<sp/>=<sp/>2(sqrt(1+x*x/2)<sp/>-<sp/>1))<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211" refid="cvtypes_8h_1a7dcfb3e6ec65a8cb8fa84485b55b6109" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_DIST_FAIR<sp/><sp/><sp/><sp/>5<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>distance<sp/>=<sp/>c^2(|x|/c-log(1+|x|/c)),<sp/>c<sp/>=<sp/>1.3998<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212" refid="cvtypes_8h_1af35cfb195257d5ed4f01de8348eedf05" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_DIST_WELSCH<sp/><sp/>6<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>distance<sp/>=<sp/>c^2/2(1-exp(-(x/c)^2)),<sp/>c<sp/>=<sp/>2.9846<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213" refid="cvtypes_8h_1a1ca3af6508059cdc7eb0899365fb369c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_DIST_HUBER<sp/><sp/><sp/>7<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>distance<sp/>=<sp/>|x|&lt;c<sp/>?<sp/>x^2/2<sp/>:<sp/>c(|x|-c/2),<sp/>c=1.345<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Filters<sp/>used<sp/>in<sp/>pyramid<sp/>decomposition<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217" refid="cvtypes_8h_1a6a94c4c10b6a62e341c4cee25bd759cc" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="cvtypes_8h_1a6a94c4c10b6a62e341c4cee25bd759cc" kindref="member">CvFilter</ref></highlight></codeline>
+<codeline lineno="218"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="219" refid="cvtypes_8h_1a6a94c4c10b6a62e341c4cee25bd759cca461568e540348c092e31bd2508f4ac37" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1a6a94c4c10b6a62e341c4cee25bd759cca461568e540348c092e31bd2508f4ac37" kindref="member">CV_GAUSSIAN_5x5</ref><sp/>=<sp/>7</highlight></codeline>
+<codeline lineno="220"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><ref refid="cvtypes_8h_1a6a94c4c10b6a62e341c4cee25bd759cc" kindref="member">CvFilter</ref>;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight><highlight class="comment">/****************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Older<sp/>definitions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight><highlight class="comment">/****************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227" refid="cvtypes_8h_1a0695a164361a2a8d2f62620465481af3" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><sp/><sp/><ref refid="cvtypes_8h_1a0695a164361a2a8d2f62620465481af3" kindref="member">CvVect32f</ref>;</highlight></codeline>
+<codeline lineno="228" refid="cvtypes_8h_1ac28a78bb52f796748c0a95fffef1ce8c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><sp/><sp/><ref refid="cvtypes_8h_1ac28a78bb52f796748c0a95fffef1ce8c" kindref="member">CvMatr32f</ref>;</highlight></codeline>
+<codeline lineno="229" refid="cvtypes_8h_1ae3c6bc6d955076b9b8afcda108d4c374" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/><sp/><ref refid="cvtypes_8h_1ae3c6bc6d955076b9b8afcda108d4c374" kindref="member">CvVect64d</ref>;</highlight></codeline>
+<codeline lineno="230" refid="cvtypes_8h_1a4535cb1ff63584db410f38b9cf59c80c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/><sp/><ref refid="cvtypes_8h_1a4535cb1ff63584db410f38b9cf59c80c" kindref="member">CvMatr64d</ref>;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232" refid="struct_cv_matrix3" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cv_matrix3" kindref="compound">CvMatrix3</ref></highlight></codeline>
+<codeline lineno="233"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="234" refid="struct_cv_matrix3_1a6c29129422d217bbddb7489cf1333c65" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>m[3][3];</highlight></codeline>
+<codeline lineno="235"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><ref refid="cvtypes_8h_1aaccebe9163bf54e94c6d4d1eef3afe12" kindref="member">CvMatrix3</ref>;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="240"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="242"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243" refid="cvtypes_8h_1afbcc20461f70dd89ba40f764a1ef4123" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>float<sp/>(<ref refid="cxtypes_8h_1a7890067b22f553f61def418f6fcbb5f5" kindref="member">CV_CDECL</ref><sp/>*<sp/><ref refid="cvtypes_8h_1afbcc20461f70dd89ba40f764a1ef4123" kindref="member">CvDistanceFunction</ref>)(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="cvaux_8h_1a1031d0e0a97a340abfe0a6ab9e831045" kindref="member">a</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="cvaux_8h_1ac04272e8ca865b8fba18d36edae9fd2a" kindref="member">b</ref>,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>user_param<sp/>);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="246"><highlight class="preprocessor"></highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="248"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="251"><highlight class="comment">standard<sp/>Kalman<sp/>filter<sp/>(in<sp/>G.<sp/>Welch&apos;<sp/>and<sp/>G.<sp/>Bishop&apos;s<sp/>notation):</highlight></codeline>
+<codeline lineno="252"><highlight class="comment"></highlight></codeline>
+<codeline lineno="253"><highlight class="comment"><sp/><sp/>x(k)=A*x(k-1)+B*u(k)+w(k)<sp/><sp/>p(w)~N(0,Q)</highlight></codeline>
+<codeline lineno="254"><highlight class="comment"><sp/><sp/>z(k)=H*x(k)+v(k),<sp/><sp/><sp/>p(v)~N(0,R)</highlight></codeline>
+<codeline lineno="255"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256" refid="struct_cv_kalman" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cv_kalman" kindref="compound">CvKalman</ref></highlight></codeline>
+<codeline lineno="257"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="258" refid="struct_cv_kalman_1a1e9c56ae3f138a19c67d607379e445d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_cv_kalman_1a1e9c56ae3f138a19c67d607379e445d9" kindref="member">MP</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>number<sp/>of<sp/>measurement<sp/>vector<sp/>dimensions<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259" refid="struct_cv_kalman_1a0202618820441a41c5188efddae52a43" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_cv_kalman_1a0202618820441a41c5188efddae52a43" kindref="member">DP</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>number<sp/>of<sp/>state<sp/>vector<sp/>dimensions<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260" refid="struct_cv_kalman_1a0a505ce26c5a6e310cd37f1694c2f782" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_cv_kalman_1a0a505ce26c5a6e310cd37f1694c2f782" kindref="member">CP</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>number<sp/>of<sp/>control<sp/>vector<sp/>dimensions<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>backward<sp/>compatibility<sp/>fields<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>1</highlight></codeline>
+<codeline lineno="264" refid="struct_cv_kalman_1a39b06cee56cb2209c3a5053123652976" refkind="member"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cv_kalman_1a39b06cee56cb2209c3a5053123652976" kindref="member">PosterState</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>=state_pre-&gt;data.fl<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265" refid="struct_cv_kalman_1a416cb36df4c9775a930f3a6a8dc19d7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cv_kalman_1a416cb36df4c9775a930f3a6a8dc19d7e" kindref="member">PriorState</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>=state_post-&gt;data.fl<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266" refid="struct_cv_kalman_1ae45757e0a85d1f1af2f3fa61850fc067" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cv_kalman_1ae45757e0a85d1f1af2f3fa61850fc067" kindref="member">DynamMatr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>=transition_matrix-&gt;data.fl<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="267" refid="struct_cv_kalman_1a1152831760f263f51612dd364e3f4a22" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cv_kalman_1a1152831760f263f51612dd364e3f4a22" kindref="member">MeasurementMatr</ref>;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>=measurement_matrix-&gt;data.fl<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="268" refid="struct_cv_kalman_1aba4fdb4f915c18e278ee33296586cf74" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cv_kalman_1aba4fdb4f915c18e278ee33296586cf74" kindref="member">MNCovariance</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>=measurement_noise_cov-&gt;data.fl<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269" refid="struct_cv_kalman_1a01e5ed7f67dbcb0f1c774f294795b993" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cv_kalman_1a01e5ed7f67dbcb0f1c774f294795b993" kindref="member">PNCovariance</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>=process_noise_cov-&gt;data.fl<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270" refid="struct_cv_kalman_1a3dab3b4d870cf1dfafc087d6a25824ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cv_kalman_1a3dab3b4d870cf1dfafc087d6a25824ad" kindref="member">KalmGainMatr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>=gain-&gt;data.fl<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271" refid="struct_cv_kalman_1af11cb151f1294a1c319e075493c70025" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cv_kalman_1af11cb151f1294a1c319e075493c70025" kindref="member">PriorErrorCovariance</ref>;</highlight><highlight class="comment">/*<sp/>=error_cov_pre-&gt;data.fl<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272" refid="struct_cv_kalman_1a15dd932449d473a021634bca219404be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cv_kalman_1a15dd932449d473a021634bca219404be" kindref="member">PosterErrorCovariance</ref>;</highlight><highlight class="comment">/*<sp/>=error_cov_post-&gt;data.fl<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273" refid="struct_cv_kalman_1a0b5456e55bf064a623ff71c9346c905d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cv_kalman_1a0b5456e55bf064a623ff71c9346c905d" kindref="member">Temp1</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>temp1-&gt;data.fl<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="274" refid="struct_cv_kalman_1a35ee9fe1dabc5b27df89a423f9801c8b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cv_kalman_1a35ee9fe1dabc5b27df89a423f9801c8b" kindref="member">Temp2</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>temp2-&gt;data.fl<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="276"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="277" refid="struct_cv_kalman_1a7ce8d18d6af3a2d919886de2ecbea961" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_mat" kindref="compound">CvMat</ref>*<sp/><ref refid="struct_cv_kalman_1a7ce8d18d6af3a2d919886de2ecbea961" kindref="member">state_pre</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>predicted<sp/>state<sp/>(x&apos;(k)):</highlight></codeline>
+<codeline lineno="278"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x(k)=A*x(k-1)+B*u(k)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="279" refid="struct_cv_kalman_1a2dcade041ae355d1db793bddc7b8291b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_mat" kindref="compound">CvMat</ref>*<sp/><ref refid="struct_cv_kalman_1a2dcade041ae355d1db793bddc7b8291b" kindref="member">state_post</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>corrected<sp/>state<sp/>(x(k)):</highlight></codeline>
+<codeline lineno="280"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x(k)=x&apos;(k)+K(k)*(z(k)-H*x&apos;(k))<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281" refid="struct_cv_kalman_1a9bc599a7f1197f20cbe93ed6ea3611ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_mat" kindref="compound">CvMat</ref>*<sp/><ref refid="struct_cv_kalman_1a9bc599a7f1197f20cbe93ed6ea3611ac" kindref="member">transition_matrix</ref>;<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>state<sp/>transition<sp/>matrix<sp/>(A)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282" refid="struct_cv_kalman_1a4ed646de106c90cdee32abb0d0647b77" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_mat" kindref="compound">CvMat</ref>*<sp/><ref refid="struct_cv_kalman_1a4ed646de106c90cdee32abb0d0647b77" kindref="member">control_matrix</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>control<sp/>matrix<sp/>(B)</highlight></codeline>
+<codeline lineno="283"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(it<sp/>is<sp/>not<sp/>used<sp/>if<sp/>there<sp/>is<sp/>no<sp/>control)*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="284" refid="struct_cv_kalman_1af5574f13474afd7ba62069b5835354a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_mat" kindref="compound">CvMat</ref>*<sp/><ref refid="struct_cv_kalman_1af5574f13474afd7ba62069b5835354a9" kindref="member">measurement_matrix</ref>;<sp/><sp/></highlight><highlight class="comment">/*<sp/>measurement<sp/>matrix<sp/>(H)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="285" refid="struct_cv_kalman_1a81abc95603757cab3faed0dafab54685" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_mat" kindref="compound">CvMat</ref>*<sp/><ref refid="struct_cv_kalman_1a81abc95603757cab3faed0dafab54685" kindref="member">process_noise_cov</ref>;<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>process<sp/>noise<sp/>covariance<sp/>matrix<sp/>(Q)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="286" refid="struct_cv_kalman_1a9d9f6f208edab2a4202556a4fee73768" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_mat" kindref="compound">CvMat</ref>*<sp/><ref refid="struct_cv_kalman_1a9d9f6f208edab2a4202556a4fee73768" kindref="member">measurement_noise_cov</ref>;<sp/></highlight><highlight class="comment">/*<sp/>measurement<sp/>noise<sp/>covariance<sp/>matrix<sp/>(R)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="287" refid="struct_cv_kalman_1a7b31d7f98e9bc325f20d329b6b8c36c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_mat" kindref="compound">CvMat</ref>*<sp/><ref refid="struct_cv_kalman_1a7b31d7f98e9bc325f20d329b6b8c36c4" kindref="member">error_cov_pre</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>priori<sp/>error<sp/>estimate<sp/>covariance<sp/>matrix<sp/>(P&apos;(k)):</highlight></codeline>
+<codeline lineno="288"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>P&apos;(k)=A*P(k-1)*At<sp/>+<sp/>Q)*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="289" refid="struct_cv_kalman_1a2896f77c90affaf8a9ed3ba27f1e8337" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_mat" kindref="compound">CvMat</ref>*<sp/><ref refid="struct_cv_kalman_1a2896f77c90affaf8a9ed3ba27f1e8337" kindref="member">gain</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Kalman<sp/>gain<sp/>matrix<sp/>(K(k)):</highlight></codeline>
+<codeline lineno="290"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>K(k)=P&apos;(k)*Ht*inv(H*P&apos;(k)*Ht+R)*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="291" refid="struct_cv_kalman_1af4f76ef05f89ffce977a35e731d9a329" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_mat" kindref="compound">CvMat</ref>*<sp/><ref refid="struct_cv_kalman_1af4f76ef05f89ffce977a35e731d9a329" kindref="member">error_cov_post</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>posteriori<sp/>error<sp/>estimate<sp/>covariance<sp/>matrix<sp/>(P(k)):</highlight></codeline>
+<codeline lineno="292"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>P(k)=(I-K(k)*H)*P&apos;(k)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="293" refid="struct_cv_kalman_1a69279dc4f91f2e812c1ac36f018fa78c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_mat" kindref="compound">CvMat</ref>*<sp/><ref refid="struct_cv_kalman_1a69279dc4f91f2e812c1ac36f018fa78c" kindref="member">temp1</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>temporary<sp/>matrices<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="294" refid="struct_cv_kalman_1ac4977920e1427681f8cc9f6809fe5827" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_mat" kindref="compound">CvMat</ref>*<sp/><ref refid="struct_cv_kalman_1ac4977920e1427681f8cc9f6809fe5827" kindref="member">temp2</ref>;</highlight></codeline>
+<codeline lineno="295" refid="struct_cv_kalman_1a2e0a06d409a0e5584de0566113398bf3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_mat" kindref="compound">CvMat</ref>*<sp/><ref refid="struct_cv_kalman_1a2e0a06d409a0e5584de0566113398bf3" kindref="member">temp3</ref>;</highlight></codeline>
+<codeline lineno="296" refid="struct_cv_kalman_1ae65fae2a986ffbfdeda3c0d30fd1aefc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_mat" kindref="compound">CvMat</ref>*<sp/><ref refid="struct_cv_kalman_1ae65fae2a986ffbfdeda3c0d30fd1aefc" kindref="member">temp4</ref>;</highlight></codeline>
+<codeline lineno="297" refid="struct_cv_kalman_1a094d6fae600bbbe2cc7b85ab4cfffa9e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_mat" kindref="compound">CvMat</ref>*<sp/><ref refid="struct_cv_kalman_1a094d6fae600bbbe2cc7b85ab4cfffa9e" kindref="member">temp5</ref>;</highlight></codeline>
+<codeline lineno="298"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><ref refid="cvtypes_8h_1ab6d96f1980f7d9733551236aabbdbb92" kindref="member">CvKalman</ref>;</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight><highlight class="comment">/***********************<sp/>Haar-like<sp/>Object<sp/>Detection<sp/>structures<sp/>**************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="303" refid="cvtypes_8h_1acd8ee8b3cdc5253a300a3b786ff762b0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_HAAR_MAGIC_VAL<sp/><sp/><sp/><sp/>0x42500000</highlight></codeline>
+<codeline lineno="304" refid="cvtypes_8h_1a895619ab5b7eb5cd3e4a27a7f2dffc67" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CV_TYPE_NAME_HAAR<sp/><sp/><sp/><sp/>&quot;opencv-haar-classifier&quot;</highlight></codeline>
+<codeline lineno="305"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="306" refid="cvtypes_8h_1a1d7f2403319efc32466187eaedec6ce7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_IS_HAAR_CLASSIFIER(<sp/>haar<sp/>)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="307"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>((haar)<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="308"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(((const<sp/>CvHaarClassifierCascade*)(haar))-&gt;flags<sp/>&amp;<sp/>CV_MAGIC_MASK)==CV_HAAR_MAGIC_VAL)</highlight></codeline>
+<codeline lineno="309"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="310" refid="cvtypes_8h_1a54d742542c40513ae056b7eca665bd25" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CV_HAAR_FEATURE_MAX<sp/><sp/>3</highlight></codeline>
+<codeline lineno="311"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="312" refid="struct_cv_haar_feature" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cv_haar_feature" kindref="compound">CvHaarFeature</ref></highlight></codeline>
+<codeline lineno="313"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="314" refid="struct_cv_haar_feature_1a8640a958583ac7462cbef6d818025646" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><ref refid="struct_cv_haar_feature_1a8640a958583ac7462cbef6d818025646" kindref="member">tilted</ref>;</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="317" refid="struct_cv_haar_feature_1a8e045f727beedf2d052ad1a60acb6026" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_cv_rect" kindref="compound">CvRect</ref><sp/><ref refid="struct_cv_haar_feature_1a8e045f727beedf2d052ad1a60acb6026" kindref="member">r</ref>;</highlight></codeline>
+<codeline lineno="318" refid="struct_cv_haar_feature_1a7b402c0924b72d0b4012223a52ca97ab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_cv_haar_feature_1a7b402c0924b72d0b4012223a52ca97ab" kindref="member">weight</ref>;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><ref refid="cv_8h_1a530a78d59bfb8d13c3013626ebb95c2e" kindref="member">rect</ref>[<ref refid="cvtypes_8h_1a54d742542c40513ae056b7eca665bd25" kindref="member">CV_HAAR_FEATURE_MAX</ref>];</highlight></codeline>
+<codeline lineno="320"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><ref refid="cvtypes_8h_1a3c00a4b3abe0fc81962828c70b053310" kindref="member">CvHaarFeature</ref>;</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="323" refid="struct_cv_haar_classifier" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cv_haar_classifier" kindref="compound">CvHaarClassifier</ref></highlight></codeline>
+<codeline lineno="324"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="325" refid="struct_cv_haar_classifier_1a3ba787f11eefe63769d5a0022637ce4e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_cv_haar_classifier_1a3ba787f11eefe63769d5a0022637ce4e" kindref="member">count</ref>;</highlight></codeline>
+<codeline lineno="326" refid="struct_cv_haar_classifier_1af725c589aa9dca1f885e7325344c5e2a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_haar_feature" kindref="compound">CvHaarFeature</ref>*<sp/><ref refid="struct_cv_haar_classifier_1af725c589aa9dca1f885e7325344c5e2a" kindref="member">haar_feature</ref>;</highlight></codeline>
+<codeline lineno="327" refid="struct_cv_haar_classifier_1ace474e46e89bd798e5b6876a0e7e7b49" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cv_haar_classifier_1ace474e46e89bd798e5b6876a0e7e7b49" kindref="member">threshold</ref>;</highlight></codeline>
+<codeline lineno="328" refid="struct_cv_haar_classifier_1a18f94870d89d594a11331a7a1c87a9f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_cv_haar_classifier_1a18f94870d89d594a11331a7a1c87a9f5" kindref="member">left</ref>;</highlight></codeline>
+<codeline lineno="329" refid="struct_cv_haar_classifier_1a66d9f903380ac8e6fd69dfcfde987b76" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_cv_haar_classifier_1a66d9f903380ac8e6fd69dfcfde987b76" kindref="member">right</ref>;</highlight></codeline>
+<codeline lineno="330" refid="struct_cv_haar_classifier_1a88adaa53db275db0896d27a3950d8923" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cv_haar_classifier_1a88adaa53db275db0896d27a3950d8923" kindref="member">alpha</ref>;</highlight></codeline>
+<codeline lineno="331"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><ref refid="cvtypes_8h_1a351e7a96bb32370ec32e4282959d5860" kindref="member">CvHaarClassifier</ref>;</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"></highlight></codeline>
+<codeline lineno="334" refid="struct_cv_haar_stage_classifier" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cv_haar_stage_classifier" kindref="compound">CvHaarStageClassifier</ref></highlight></codeline>
+<codeline lineno="335"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="336" refid="struct_cv_haar_stage_classifier_1aa2ab0af71780c68bf95b298011300cb7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><ref refid="struct_cv_haar_stage_classifier_1aa2ab0af71780c68bf95b298011300cb7" kindref="member">count</ref>;</highlight></codeline>
+<codeline lineno="337" refid="struct_cv_haar_stage_classifier_1ae0403def5cc2c27348b0353bbfab3da6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_cv_haar_stage_classifier_1ae0403def5cc2c27348b0353bbfab3da6" kindref="member">threshold</ref>;</highlight></codeline>
+<codeline lineno="338" refid="struct_cv_haar_stage_classifier_1a51af605e7e7c54c854abfd479b7bd3c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_haar_classifier" kindref="compound">CvHaarClassifier</ref>*<sp/><ref refid="struct_cv_haar_stage_classifier_1a51af605e7e7c54c854abfd479b7bd3c6" kindref="member">classifier</ref>;</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"></highlight></codeline>
+<codeline lineno="340" refid="struct_cv_haar_stage_classifier_1a7e97b1340023ff302510413314317edf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_cv_haar_stage_classifier_1a7e97b1340023ff302510413314317edf" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="341" refid="struct_cv_haar_stage_classifier_1a0ba4274d0eea94c4e2c9e856a587f66d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_cv_haar_stage_classifier_1a0ba4274d0eea94c4e2c9e856a587f66d" kindref="member">child</ref>;</highlight></codeline>
+<codeline lineno="342" refid="struct_cv_haar_stage_classifier_1aec7d53a6aff0f86a244d85c266cbb98d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_cv_haar_stage_classifier_1aec7d53a6aff0f86a244d85c266cbb98d" kindref="member">parent</ref>;</highlight></codeline>
+<codeline lineno="343"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><ref refid="cvtypes_8h_1acd8a7e7621f8ee6f335084ea08dab275" kindref="member">CvHaarStageClassifier</ref>;</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight></codeline>
+<codeline lineno="346" refid="cvtypes_8h_1aa2cff51069a20252ece5d11554c178be" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="cvtypes_8h_1aa2cff51069a20252ece5d11554c178be" kindref="member">CvHidHaarClassifierCascade</ref><sp/><ref refid="cvtypes_8h_1aa2cff51069a20252ece5d11554c178be" kindref="member">CvHidHaarClassifierCascade</ref>;</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"></highlight></codeline>
+<codeline lineno="348" refid="struct_cv_haar_classifier_cascade" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cv_haar_classifier_cascade" kindref="compound">CvHaarClassifierCascade</ref></highlight></codeline>
+<codeline lineno="349"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="350" refid="struct_cv_haar_classifier_cascade_1aaf6347a08a65f141a0a4df631b2e2b84" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><ref refid="struct_cv_haar_classifier_cascade_1aaf6347a08a65f141a0a4df631b2e2b84" kindref="member">flags</ref>;</highlight></codeline>
+<codeline lineno="351" refid="struct_cv_haar_classifier_cascade_1aa9c7a58dc90dc51577887eea9d2d3611" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><ref refid="struct_cv_haar_classifier_cascade_1aa9c7a58dc90dc51577887eea9d2d3611" kindref="member">count</ref>;</highlight></codeline>
+<codeline lineno="352" refid="struct_cv_haar_classifier_cascade_1ae76300517ac3267abdbab4a94748cad4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_size" kindref="compound">CvSize</ref><sp/><ref refid="struct_cv_haar_classifier_cascade_1ae76300517ac3267abdbab4a94748cad4" kindref="member">orig_window_size</ref>;</highlight></codeline>
+<codeline lineno="353" refid="struct_cv_haar_classifier_cascade_1aa2fe8931f5ddca5226afdb32cea3009e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_size" kindref="compound">CvSize</ref><sp/><ref refid="struct_cv_haar_classifier_cascade_1aa2fe8931f5ddca5226afdb32cea3009e" kindref="member">real_window_size</ref>;</highlight></codeline>
+<codeline lineno="354" refid="struct_cv_haar_classifier_cascade_1a4f8094de0e583edc4111ef2dec7635cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_cv_haar_classifier_cascade_1a4f8094de0e583edc4111ef2dec7635cd" kindref="member">scale</ref>;</highlight></codeline>
+<codeline lineno="355" refid="struct_cv_haar_classifier_cascade_1ac8144272b80ea6e240df6c827336004b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_haar_stage_classifier" kindref="compound">CvHaarStageClassifier</ref>*<sp/><ref refid="struct_cv_haar_classifier_cascade_1ac8144272b80ea6e240df6c827336004b" kindref="member">stage_classifier</ref>;</highlight></codeline>
+<codeline lineno="356" refid="struct_cv_haar_classifier_cascade_1a2738077428d6d332dfc13cd0cb316b45" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cvtypes_8h_1aa2cff51069a20252ece5d11554c178be" kindref="member">CvHidHaarClassifierCascade</ref>*<sp/><ref refid="struct_cv_haar_classifier_cascade_1a2738077428d6d332dfc13cd0cb316b45" kindref="member">hid_cascade</ref>;</highlight></codeline>
+<codeline lineno="357"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><ref refid="cvtypes_8h_1a3b59731d60606e04e84b5dbaca4a337f" kindref="member">CvHaarClassifierCascade</ref>;</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"></highlight></codeline>
+<codeline lineno="360" refid="struct_cv_avg_comp" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cv_avg_comp" kindref="compound">CvAvgComp</ref></highlight></codeline>
+<codeline lineno="361"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="362" refid="struct_cv_avg_comp_1ae2dc3247595d03a8a25e46ae52ef8b84" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cv_rect" kindref="compound">CvRect</ref><sp/><ref refid="struct_cv_avg_comp_1ae2dc3247595d03a8a25e46ae52ef8b84" kindref="member">rect</ref>;</highlight></codeline>
+<codeline lineno="363" refid="struct_cv_avg_comp_1ab4036e356627ac97ef3314354be7e3d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_cv_avg_comp_1ab4036e356627ac97ef3314354be7e3d0" kindref="member">neighbors</ref>;</highlight></codeline>
+<codeline lineno="364"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><ref refid="cvtypes_8h_1a43eb1635cafd5c393526e9aeadca2227" kindref="member">CvAvgComp</ref>;</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"></highlight></codeline>
+<codeline lineno="367"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">CvFeatureTree;</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"></highlight></codeline>
+<codeline lineno="369"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*_CVTYPES_H_*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="370"><highlight class="normal"></highlight></codeline>
+<codeline lineno="371"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>End<sp/>of<sp/>file.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h"/>
+  </compounddef>
+</doxygen>

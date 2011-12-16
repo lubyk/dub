@@ -1,0 +1,1167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classb2_fixture" kind="class" prot="public">
+    <compoundname>b2Fixture</compoundname>
+    <includes refid="b2_fixture_8h" local="no">b2Fixture.h</includes>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classb2_fixture_1a010ab52de250e5fe30a45d642f46405b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class b2Body</definition>
+        <argsstring></argsstring>
+        <name>b2Body</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="200" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classb2_fixture_1a4bd536c5a7c0587913765bbc2693ceea" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class b2World</definition>
+        <argsstring></argsstring>
+        <name>b2World</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="201" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classb2_fixture_1a6c4ac5df27ec498dd9e4281352b7a789" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class b2Contact</definition>
+        <argsstring></argsstring>
+        <name>b2Contact</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="202" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classb2_fixture_1aece264d42f69aed410f5eb3beba6ddf2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class b2ContactManager</definition>
+        <argsstring></argsstring>
+        <name>b2ContactManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="203" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classb2_fixture_1ab8c388182fc7d58d930f6b0aa21d5c60" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Fixture::m_density</definition>
+        <argsstring></argsstring>
+        <name>m_density</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="218" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="218" bodyend="-1"/>
+        <referencedby refid="classb2_fixture_1a5deb4acfb464f3dcb668f081a2c44ff4" compoundref="b2_fixture_8h" startline="299" endline="302">GetDensity</referencedby>
+        <referencedby refid="classb2_fixture_1adbfb9b64006abaaa0ca01e6d9e06deea" compoundref="b2_fixture_8h" startline="334" endline="337">GetMassData</referencedby>
+        <referencedby refid="classb2_fixture_1ad4e1d9323103975c8931d022b952d04a" compoundref="b2_fixture_8h" startline="293" endline="297">SetDensity</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_fixture_1ac5c9fbdf66290e2608db1ffcea2316b0" prot="protected" static="no" mutable="no">
+        <type><ref refid="classb2_fixture" kindref="compound">b2Fixture</ref> *</type>
+        <definition>b2Fixture* b2Fixture::m_next</definition>
+        <argsstring></argsstring>
+        <name>m_next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="220" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="220" bodyend="-1"/>
+        <referencedby refid="classb2_fixture_1a0241952461f6f1a04a3c850306390fd2" compoundref="b2_fixture_8h" startline="283" endline="286">GetNext</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_fixture_1a480026124a6b7e88f2ed89832a08d191" prot="protected" static="no" mutable="no">
+        <type><ref refid="classb2_body" kindref="compound">b2Body</ref> *</type>
+        <definition>b2Body* b2Fixture::m_body</definition>
+        <argsstring></argsstring>
+        <name>m_body</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="221" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="221" bodyend="-1"/>
+        <referencedby refid="classb2_fixture_1a9d6536ef274d768e86ab0a8330921535" compoundref="b2_fixture_8h" startline="273" endline="276">GetBody</referencedby>
+        <referencedby refid="classb2_fixture_1a614e84f47e8b32b503fa719099ecba79" compoundref="b2_fixture_8h" startline="329" endline="332">RayCast</referencedby>
+        <referencedby refid="classb2_fixture_1ab875147c7a9df4ff94d224f6aa81a7a9" compoundref="b2_fixture_8h" startline="324" endline="327">TestPoint</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_fixture_1a54fa48dfc8b70a435c8f17f8b7720828" prot="protected" static="no" mutable="no">
+        <type><ref refid="classb2_shape" kindref="compound">b2Shape</ref> *</type>
+        <definition>b2Shape* b2Fixture::m_shape</definition>
+        <argsstring></argsstring>
+        <name>m_shape</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="223" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="223" bodyend="-1"/>
+        <referencedby refid="classb2_fixture_1adbfb9b64006abaaa0ca01e6d9e06deea" compoundref="b2_fixture_8h" startline="334" endline="337">GetMassData</referencedby>
+        <referencedby refid="classb2_fixture_1aaa2b73fa212fa53b1c800cccd7a1d31e" compoundref="b2_fixture_8h" startline="243" endline="246">GetShape</referencedby>
+        <referencedby refid="classb2_fixture_1ab0e1d6bc1c42e6f779e77db408ab2d24" compoundref="b2_fixture_8h" startline="238" endline="241">GetType</referencedby>
+        <referencedby refid="classb2_fixture_1a614e84f47e8b32b503fa719099ecba79" compoundref="b2_fixture_8h" startline="329" endline="332">RayCast</referencedby>
+        <referencedby refid="classb2_fixture_1ab875147c7a9df4ff94d224f6aa81a7a9" compoundref="b2_fixture_8h" startline="324" endline="327">TestPoint</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_fixture_1a314118ee973ebd14e083553fed1e0212" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Fixture::m_friction</definition>
+        <argsstring></argsstring>
+        <name>m_friction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="225" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="225" bodyend="-1"/>
+        <referencedby refid="classb2_fixture_1a31253b90b87f1fec7256bba92aeb4645" compoundref="b2_fixture_8h" startline="304" endline="307">GetFriction</referencedby>
+        <referencedby refid="classb2_contact_1ad66d9290da187cef4c9f48c5766d4460" compoundref="b2_contact_8h" startline="311" endline="314">b2Contact::ResetFriction</referencedby>
+        <referencedby refid="classb2_fixture_1ad0cd91eef5858c8ef1d6b62cc2a34ea2" compoundref="b2_fixture_8h" startline="309" endline="312">SetFriction</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_fixture_1a343a35683ce4a79d2151761611027d66" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Fixture::m_restitution</definition>
+        <argsstring></argsstring>
+        <name>m_restitution</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="226" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="226" bodyend="-1"/>
+        <referencedby refid="classb2_fixture_1a6ce4d949ffff6201a117f1e3833953f8" compoundref="b2_fixture_8h" startline="314" endline="317">GetRestitution</referencedby>
+        <referencedby refid="classb2_contact_1a243501bc5c146e9eb1296162d328aef1" compoundref="b2_contact_8h" startline="326" endline="329">b2Contact::ResetRestitution</referencedby>
+        <referencedby refid="classb2_fixture_1a19c507332e4f7bd04a05f00426f11ee4" compoundref="b2_fixture_8h" startline="319" endline="322">SetRestitution</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_fixture_1a0056031e2b2b53e6a4c0ef7a0c87821a" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_fixture_proxy" kindref="compound">b2FixtureProxy</ref> *</type>
+        <definition>b2FixtureProxy* b2Fixture::m_proxies</definition>
+        <argsstring></argsstring>
+        <name>m_proxies</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="228" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="228" bodyend="-1"/>
+        <referencedby refid="classb2_fixture_1abdc2a225110310a481a78cdb14000ca7" compoundref="b2_fixture_8h" startline="339" endline="343">GetAABB</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_fixture_1aae71b4a0071346aba2eb6f4a764785a4" prot="protected" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+        <definition>int32 b2Fixture::m_proxyCount</definition>
+        <argsstring></argsstring>
+        <name>m_proxyCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="229" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="229" bodyend="-1"/>
+        <referencedby refid="classb2_fixture_1abdc2a225110310a481a78cdb14000ca7" compoundref="b2_fixture_8h" startline="339" endline="343">GetAABB</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_fixture_1a33b66959856506a6d27b32dad0e284c7" prot="protected" static="no" mutable="no">
+        <type><ref refid="structb2_filter" kindref="compound">b2Filter</ref></type>
+        <definition>b2Filter b2Fixture::m_filter</definition>
+        <argsstring></argsstring>
+        <name>m_filter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="231" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="231" bodyend="-1"/>
+        <referencedby refid="classb2_fixture_1a5bc271a6e8082e727b053aead1ae86a9" compoundref="b2_fixture_8h" startline="258" endline="261">GetFilterData</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_fixture_1a4b6b47a8de6d37acf9b980b33b22f634" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool b2Fixture::m_isSensor</definition>
+        <argsstring></argsstring>
+        <name>m_isSensor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="233" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="233" bodyend="-1"/>
+        <referencedby refid="classb2_fixture_1a91758c9dca818ca45f3f6427c7e3fc19" compoundref="b2_fixture_8h" startline="253" endline="256">IsSensor</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classb2_fixture_1a60191e5c76bfd115e6c38d78b6cffd8b" prot="protected" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* b2Fixture::m_userData</definition>
+        <argsstring></argsstring>
+        <name>m_userData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="235" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="235" bodyend="-1"/>
+        <referencedby refid="classb2_fixture_1a57247425e7c859d7653eec417ec83cdc" compoundref="b2_fixture_8h" startline="263" endline="266">GetUserData</referencedby>
+        <referencedby refid="classb2_fixture_1a3db7f89ef4493247d922fe3d96351ad9" compoundref="b2_fixture_8h" startline="268" endline="271">SetUserData</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classb2_fixture_1ab0e1d6bc1c42e6f779e77db408ab2d24" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classb2_shape_1a4c1f3a9ad6b3150bb90ad9018ca4b1e0" kindref="member">b2Shape::Type</ref></type>
+        <definition>b2Shape::Type b2Fixture::GetType</definition>
+        <argsstring>() const </argsstring>
+        <name>GetType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the type of the child shape. You can use this to down cast to the concrete shape. <simplesect kind="return"><para>the shape type. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="112" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="238" bodyend="241"/>
+        <references refid="classb2_shape_1a3b6093f16c18f8a877519a29674abca0" compoundref="b2_shape_8h" startline="96" endline="99">b2Shape::GetType</references>
+        <references refid="classb2_fixture_1a54fa48dfc8b70a435c8f17f8b7720828" compoundref="b2_fixture_8h" startline="223">m_shape</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1aaa2b73fa212fa53b1c800cccd7a1d31e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classb2_shape" kindref="compound">b2Shape</ref> *</type>
+        <definition>b2Shape * b2Fixture::GetShape</definition>
+        <argsstring>()</argsstring>
+        <name>GetShape</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the child shape. You can modify the child shape, however you should not change the number of vertices because this will crash some collision caching mechanisms. Manipulating the shape may lead to non-physical behavior. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="117" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="243" bodyend="246"/>
+        <references refid="classb2_fixture_1a54fa48dfc8b70a435c8f17f8b7720828" compoundref="b2_fixture_8h" startline="223">m_shape</references>
+        <referencedby refid="classb2_contact_1a6a30a44a28b44754cb61bba65cb5b728" compoundref="b2_contact_8h" startline="224" endline="232">b2Contact::GetWorldManifold</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a5ede102030bd041b07fec5c1f082c8c9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classb2_shape" kindref="compound">b2Shape</ref> *</type>
+        <definition>const b2Shape * b2Fixture::GetShape</definition>
+        <argsstring>() const </argsstring>
+        <name>GetShape</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="118" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="248" bodyend="251"/>
+        <references refid="classb2_fixture_1a54fa48dfc8b70a435c8f17f8b7720828" compoundref="b2_fixture_8h" startline="223">m_shape</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a6198a81dcee0fe814d730383ebfa7038" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Fixture::SetSensor</definition>
+        <argsstring>(bool sensor)</argsstring>
+        <name>SetSensor</name>
+        <param>
+          <type>bool</type>
+          <declname>sensor</declname>
+        </param>
+        <briefdescription>
+<para>Set if this fixture is a sensor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a91758c9dca818ca45f3f6427c7e3fc19" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool b2Fixture::IsSensor</definition>
+        <argsstring>() const </argsstring>
+        <name>IsSensor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is this fixture a sensor (non-solid)? <simplesect kind="return"><para>the true if the shape is a sensor. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="125" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="253" bodyend="256"/>
+        <references refid="classb2_fixture_1a4b6b47a8de6d37acf9b980b33b22f634" compoundref="b2_fixture_8h" startline="233">m_isSensor</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a2c5e0d12c174927a4ad550459be334ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Fixture::SetFilterData</definition>
+        <argsstring>(const b2Filter &amp;filter)</argsstring>
+        <name>SetFilterData</name>
+        <param>
+          <type>const <ref refid="structb2_filter" kindref="compound">b2Filter</ref> &amp;</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the contact filtering data. This will not update contacts until the next time step when either parent body is active and awake. This automatically calls Refilter. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a5bc271a6e8082e727b053aead1ae86a9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="structb2_filter" kindref="compound">b2Filter</ref> &amp;</type>
+        <definition>const b2Filter &amp; b2Fixture::GetFilterData</definition>
+        <argsstring>() const </argsstring>
+        <name>GetFilterData</name>
+        <briefdescription>
+<para>Get the contact filtering data. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="133" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="258" bodyend="261"/>
+        <references refid="classb2_fixture_1a33b66959856506a6d27b32dad0e284c7" compoundref="b2_fixture_8h" startline="231">m_filter</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a45d3320f94811d67383c48466165fa26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Fixture::Refilter</definition>
+        <argsstring>()</argsstring>
+        <name>Refilter</name>
+        <briefdescription>
+<para>Call this if you want to establish collision that was previously disabled by <ref refid="classb2_contact_filter_1a0e33d4fc90a9345160a07cc494b45ecd" kindref="member">b2ContactFilter::ShouldCollide</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a9d6536ef274d768e86ab0a8330921535" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classb2_body" kindref="compound">b2Body</ref> *</type>
+        <definition>b2Body * b2Fixture::GetBody</definition>
+        <argsstring>()</argsstring>
+        <name>GetBody</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the parent body of this fixture. This is NULL if the fixture is not attached. <simplesect kind="return"><para>the parent body. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="140" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="273" bodyend="276"/>
+        <references refid="classb2_fixture_1a480026124a6b7e88f2ed89832a08d191" compoundref="b2_fixture_8h" startline="221">m_body</references>
+        <referencedby refid="classb2_contact_1a6a30a44a28b44754cb61bba65cb5b728" compoundref="b2_contact_8h" startline="224" endline="232">b2Contact::GetWorldManifold</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a6cfc4ed94c4cbfbc0244f11007448431" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classb2_body" kindref="compound">b2Body</ref> *</type>
+        <definition>const b2Body * b2Fixture::GetBody</definition>
+        <argsstring>() const </argsstring>
+        <name>GetBody</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="141" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="278" bodyend="281"/>
+        <references refid="classb2_fixture_1a480026124a6b7e88f2ed89832a08d191" compoundref="b2_fixture_8h" startline="221">m_body</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a0241952461f6f1a04a3c850306390fd2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classb2_fixture" kindref="compound">b2Fixture</ref> *</type>
+        <definition>b2Fixture * b2Fixture::GetNext</definition>
+        <argsstring>()</argsstring>
+        <name>GetNext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the next fixture in the parent body&apos;s fixture list. <simplesect kind="return"><para>the next shape. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="145" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="283" bodyend="286"/>
+        <references refid="classb2_fixture_1ac5c9fbdf66290e2608db1ffcea2316b0" compoundref="b2_fixture_8h" startline="220">m_next</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1adb72f9669165143466a1d37d1288785f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classb2_fixture" kindref="compound">b2Fixture</ref> *</type>
+        <definition>const b2Fixture * b2Fixture::GetNext</definition>
+        <argsstring>() const </argsstring>
+        <name>GetNext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="146" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="288" bodyend="291"/>
+        <references refid="classb2_fixture_1ac5c9fbdf66290e2608db1ffcea2316b0" compoundref="b2_fixture_8h" startline="220">m_next</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a57247425e7c859d7653eec417ec83cdc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * b2Fixture::GetUserData</definition>
+        <argsstring>() const </argsstring>
+        <name>GetUserData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the user data that was assigned in the fixture definition. Use this to store your application specific data. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="150" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="263" bodyend="266"/>
+        <references refid="classb2_fixture_1a60191e5c76bfd115e6c38d78b6cffd8b" compoundref="b2_fixture_8h" startline="235">m_userData</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a3db7f89ef4493247d922fe3d96351ad9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Fixture::SetUserData</definition>
+        <argsstring>(void *data)</argsstring>
+        <name>SetUserData</name>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Set the user data. Use this to store your application specific data. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="153" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="268" bodyend="271"/>
+        <references refid="cv_8h_1acd1647952fba31484ea63d6f1140e509" compoundref="cv_8h" startline="841">data</references>
+        <references refid="classb2_fixture_1a60191e5c76bfd115e6c38d78b6cffd8b" compoundref="b2_fixture_8h" startline="235">m_userData</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1ab875147c7a9df4ff94d224f6aa81a7a9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool b2Fixture::TestPoint</definition>
+        <argsstring>(const b2Vec2 &amp;p) const </argsstring>
+        <name>TestPoint</name>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Test a point for containment in this fixture. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a point in world coordinates. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="157" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="324" bodyend="327"/>
+        <references refid="classb2_body_1adaaebca750d0bda56a543884adc5f519" compoundref="b2_body_8h" startline="468" endline="471">b2Body::GetTransform</references>
+        <references refid="classb2_fixture_1a480026124a6b7e88f2ed89832a08d191" compoundref="b2_fixture_8h" startline="221">m_body</references>
+        <references refid="classb2_fixture_1a54fa48dfc8b70a435c8f17f8b7720828" compoundref="b2_fixture_8h" startline="223">m_shape</references>
+        <references refid="classb2_shape_1a6ac968e403e2d93e8ae46d728a2e50fa">b2Shape::TestPoint</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a614e84f47e8b32b503fa719099ecba79" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool b2Fixture::RayCast</definition>
+        <argsstring>(b2RayCastOutput *output, const b2RayCastInput &amp;input, int32 childIndex) const </argsstring>
+        <name>RayCast</name>
+        <param>
+          <type><ref refid="structb2_ray_cast_output" kindref="compound">b2RayCastOutput</ref> *</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_ray_cast_input" kindref="compound">b2RayCastInput</ref> &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+          <declname>childIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Cast a ray against this shape. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the ray-cast results. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the ray-cast input parameters. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="162" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="329" bodyend="332"/>
+        <references refid="classb2_body_1adaaebca750d0bda56a543884adc5f519" compoundref="b2_body_8h" startline="468" endline="471">b2Body::GetTransform</references>
+        <references refid="classb2_fixture_1a480026124a6b7e88f2ed89832a08d191" compoundref="b2_fixture_8h" startline="221">m_body</references>
+        <references refid="classb2_fixture_1a54fa48dfc8b70a435c8f17f8b7720828" compoundref="b2_fixture_8h" startline="223">m_shape</references>
+        <references refid="classb2_shape_1aee53a926f4fe64cd03693f6211ef6335">b2Shape::RayCast</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1adbfb9b64006abaaa0ca01e6d9e06deea" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Fixture::GetMassData</definition>
+        <argsstring>(b2MassData *massData) const </argsstring>
+        <name>GetMassData</name>
+        <param>
+          <type><ref refid="structb2_mass_data" kindref="compound">b2MassData</ref> *</type>
+          <declname>massData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the mass data for this fixture. The mass data is based on the density and the shape. The rotational inertia is about the shape&apos;s origin. This operation may be expensive. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="167" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="334" bodyend="337"/>
+        <references refid="classb2_shape_1a61b365526241b47f124789b0309cac69">b2Shape::ComputeMass</references>
+        <references refid="classb2_fixture_1ab8c388182fc7d58d930f6b0aa21d5c60" compoundref="b2_fixture_8h" startline="218">m_density</references>
+        <references refid="classb2_fixture_1a54fa48dfc8b70a435c8f17f8b7720828" compoundref="b2_fixture_8h" startline="223">m_shape</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1ad4e1d9323103975c8931d022b952d04a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Fixture::SetDensity</definition>
+        <argsstring>(float32 density)</argsstring>
+        <name>SetDensity</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>density</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the density of this fixture. This will _not_ automatically adjust the mass of the body. You must call <ref refid="classb2_body_1a109d8567c6ae84c61fce2919fb209c63" kindref="member">b2Body::ResetMassData</ref> to update the body&apos;s mass. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="171" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="293" bodyend="297"/>
+        <references refid="b2_settings_8h_1ab3fe3791ea4d700d5cc1f8124d2edf33" compoundref="b2_settings_8h" startline="26">b2Assert</references>
+        <references refid="b2_math_8h_1a6e846de254fa783f9618ed93bcf8a394" compoundref="b2_math_8h" startline="31" endline="41">b2IsValid</references>
+        <references refid="classb2_fixture_1ab8c388182fc7d58d930f6b0aa21d5c60" compoundref="b2_fixture_8h" startline="218">m_density</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a5deb4acfb464f3dcb668f081a2c44ff4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Fixture::GetDensity</definition>
+        <argsstring>() const </argsstring>
+        <name>GetDensity</name>
+        <briefdescription>
+<para>Get the density of this fixture. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="174" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="299" bodyend="302"/>
+        <references refid="classb2_fixture_1ab8c388182fc7d58d930f6b0aa21d5c60" compoundref="b2_fixture_8h" startline="218">m_density</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a31253b90b87f1fec7256bba92aeb4645" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Fixture::GetFriction</definition>
+        <argsstring>() const </argsstring>
+        <name>GetFriction</name>
+        <briefdescription>
+<para>Get the coefficient of friction. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="177" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="304" bodyend="307"/>
+        <references refid="classb2_fixture_1a314118ee973ebd14e083553fed1e0212" compoundref="b2_fixture_8h" startline="225">m_friction</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1ad0cd91eef5858c8ef1d6b62cc2a34ea2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Fixture::SetFriction</definition>
+        <argsstring>(float32 friction)</argsstring>
+        <name>SetFriction</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>friction</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the coefficient of friction. This will _not_ change the friction of existing contacts. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="181" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="309" bodyend="312"/>
+        <references refid="classb2_fixture_1a314118ee973ebd14e083553fed1e0212" compoundref="b2_fixture_8h" startline="225">m_friction</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a6ce4d949ffff6201a117f1e3833953f8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Fixture::GetRestitution</definition>
+        <argsstring>() const </argsstring>
+        <name>GetRestitution</name>
+        <briefdescription>
+<para>Get the coefficient of restitution. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="184" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="314" bodyend="317"/>
+        <references refid="classb2_fixture_1a343a35683ce4a79d2151761611027d66" compoundref="b2_fixture_8h" startline="226">m_restitution</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a19c507332e4f7bd04a05f00426f11ee4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Fixture::SetRestitution</definition>
+        <argsstring>(float32 restitution)</argsstring>
+        <name>SetRestitution</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>restitution</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the coefficient of restitution. This will _not_ change the restitution of existing contacts. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="188" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="319" bodyend="322"/>
+        <references refid="classb2_fixture_1a343a35683ce4a79d2151761611027d66" compoundref="b2_fixture_8h" startline="226">m_restitution</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1abdc2a225110310a481a78cdb14000ca7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="structb2_a_a_b_b" kindref="compound">b2AABB</ref> &amp;</type>
+        <definition>const b2AABB &amp; b2Fixture::GetAABB</definition>
+        <argsstring>(int32 childIndex) const </argsstring>
+        <name>GetAABB</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+          <declname>childIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the fixture&apos;s AABB. This AABB may be enlarge and/or stale. If you need a more accurate AABB, compute it using the shape and the body transform. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="193" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="339" bodyend="343"/>
+        <references refid="structb2_fixture_proxy_1ad8950f61ce28cfa5b676065d4d843da7" compoundref="b2_fixture_8h" startline="96">b2FixtureProxy::aabb</references>
+        <references refid="b2_settings_8h_1ab3fe3791ea4d700d5cc1f8124d2edf33" compoundref="b2_settings_8h" startline="26">b2Assert</references>
+        <references refid="classb2_fixture_1a0056031e2b2b53e6a4c0ef7a0c87821a" compoundref="b2_fixture_8h" startline="228">m_proxies</references>
+        <references refid="classb2_fixture_1aae71b4a0071346aba2eb6f4a764785a4" compoundref="b2_fixture_8h" startline="229">m_proxyCount</references>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a57485e73a2063060e320c7176676cd5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Fixture::Dump</definition>
+        <argsstring>(int32 bodyIndex)</argsstring>
+        <name>Dump</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1a43d43196463bde49cb067f5c20ab8481" kindref="member">int32</ref></type>
+          <declname>bodyIndex</declname>
+        </param>
+        <briefdescription>
+<para>Dump this fixture to the log file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="196"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classb2_fixture_1a02e11d3783af2168ac1cf8e9e9055c67" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>b2Fixture::b2Fixture</definition>
+        <argsstring>()</argsstring>
+        <name>b2Fixture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a1f465f3656f098eebfcbc6edf7a9239a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Fixture::Create</definition>
+        <argsstring>(b2BlockAllocator *allocator, b2Body *body, const b2FixtureDef *def)</argsstring>
+        <name>Create</name>
+        <param>
+          <type><ref refid="classb2_block_allocator" kindref="compound">b2BlockAllocator</ref> *</type>
+          <declname>allocator</declname>
+        </param>
+        <param>
+          <type><ref refid="classb2_body" kindref="compound">b2Body</ref> *</type>
+          <declname>body</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_fixture_def" kindref="compound">b2FixtureDef</ref> *</type>
+          <declname>def</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a279301181668f724c027020a654efe42" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Fixture::Destroy</definition>
+        <argsstring>(b2BlockAllocator *allocator)</argsstring>
+        <name>Destroy</name>
+        <param>
+          <type><ref refid="classb2_block_allocator" kindref="compound">b2BlockAllocator</ref> *</type>
+          <declname>allocator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a670f1f687521666da6e92885754970b7" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Fixture::CreateProxies</definition>
+        <argsstring>(b2BroadPhase *broadPhase, const b2Transform &amp;xf)</argsstring>
+        <name>CreateProxies</name>
+        <param>
+          <type><ref refid="classb2_broad_phase" kindref="compound">b2BroadPhase</ref> *</type>
+          <declname>broadPhase</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_transform" kindref="compound">b2Transform</ref> &amp;</type>
+          <declname>xf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1a1def068c9ce09e2ebcccc556951b7979" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Fixture::DestroyProxies</definition>
+        <argsstring>(b2BroadPhase *broadPhase)</argsstring>
+        <name>DestroyProxies</name>
+        <param>
+          <type><ref refid="classb2_broad_phase" kindref="compound">b2BroadPhase</ref> *</type>
+          <declname>broadPhase</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classb2_fixture_1ac8fd15bfd9a3a7ba05f3831e6f598908" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Fixture::Synchronize</definition>
+        <argsstring>(b2BroadPhase *broadPhase, const b2Transform &amp;xf1, const b2Transform &amp;xf2)</argsstring>
+        <name>Synchronize</name>
+        <param>
+          <type><ref refid="classb2_broad_phase" kindref="compound">b2BroadPhase</ref> *</type>
+          <declname>broadPhase</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_transform" kindref="compound">b2Transform</ref> &amp;</type>
+          <declname>xf1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_transform" kindref="compound">b2Transform</ref> &amp;</type>
+          <declname>xf2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="216"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A fixture is used to attach a shape to a body for collision detection. A fixture inherits its transform from its parent. Fixtures hold additional non-geometric data such as friction, collision filters, etc. Fixtures are created via <ref refid="classb2_body_1a40dda91b34418bb40e31e2db9b1b76a5" kindref="member">b2Body::CreateFixture</ref>. <simplesect kind="warning"><para>you cannot reuse fixtures. </para></simplesect>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="619">
+        <label>b2Draw</label>
+        <link refid="classb2_draw"/>
+      </node>
+      <node id="626">
+        <label>b2DynamicTree</label>
+        <link refid="classb2_dynamic_tree"/>
+        <childnode refid="627" relation="usage">
+          <edgelabel>m_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="624">
+        <label>b2BroadPhase</label>
+        <link refid="classb2_broad_phase"/>
+        <childnode refid="625" relation="usage">
+          <edgelabel>m_pairBuffer</edgelabel>
+        </childnode>
+        <childnode refid="626" relation="usage">
+          <edgelabel>m_tree</edgelabel>
+        </childnode>
+      </node>
+      <node id="630">
+        <label>b2ContactListener</label>
+        <link refid="classb2_contact_listener"/>
+      </node>
+      <node id="612">
+        <label>b2Contact</label>
+        <link refid="classb2_contact"/>
+        <childnode refid="613" relation="usage">
+          <edgelabel>s_registers</edgelabel>
+        </childnode>
+        <childnode refid="612" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="614" relation="usage">
+          <edgelabel>m_manifold</edgelabel>
+        </childnode>
+        <childnode refid="603" relation="usage">
+          <edgelabel>m_fixtureA</edgelabel>
+          <edgelabel>m_fixtureB</edgelabel>
+        </childnode>
+        <childnode refid="611" relation="usage">
+          <edgelabel>m_nodeA</edgelabel>
+          <edgelabel>m_nodeB</edgelabel>
+        </childnode>
+      </node>
+      <node id="620">
+        <label>b2Profile</label>
+        <link refid="structb2_profile"/>
+      </node>
+      <node id="604">
+        <label>b2Body</label>
+        <link refid="classb2_body"/>
+        <childnode refid="604" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+        <childnode refid="605" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+        <childnode refid="607" relation="usage">
+          <edgelabel>m_linearVelocity</edgelabel>
+          <edgelabel>m_force</edgelabel>
+        </childnode>
+        <childnode refid="608" relation="usage">
+          <edgelabel>m_sweep</edgelabel>
+        </childnode>
+        <childnode refid="609" relation="usage">
+          <edgelabel>m_xf</edgelabel>
+        </childnode>
+        <childnode refid="611" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="603" relation="usage">
+          <edgelabel>m_fixtureList</edgelabel>
+        </childnode>
+        <childnode refid="618" relation="usage">
+          <edgelabel>m_world</edgelabel>
+        </childnode>
+      </node>
+      <node id="617">
+        <label>b2ContactFeature</label>
+        <link refid="structb2_contact_feature"/>
+      </node>
+      <node id="611">
+        <label>b2ContactEdge</label>
+        <link refid="structb2_contact_edge"/>
+        <childnode refid="604" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="612" relation="usage">
+          <edgelabel>contact</edgelabel>
+        </childnode>
+        <childnode refid="611" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="614">
+        <label>b2Manifold</label>
+        <link refid="structb2_manifold"/>
+        <childnode refid="607" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+          <edgelabel>localNormal</edgelabel>
+        </childnode>
+        <childnode refid="615" relation="usage">
+          <edgelabel>points</edgelabel>
+        </childnode>
+      </node>
+      <node id="621">
+        <label>b2BlockAllocator</label>
+        <link refid="classb2_block_allocator"/>
+      </node>
+      <node id="622">
+        <label>b2DestructionListener</label>
+        <link refid="classb2_destruction_listener"/>
+      </node>
+      <node id="618">
+        <label>b2World</label>
+        <link refid="classb2_world"/>
+        <childnode refid="604" relation="usage">
+          <edgelabel>m_bodyList</edgelabel>
+        </childnode>
+        <childnode refid="619" relation="usage">
+          <edgelabel>m_debugDraw</edgelabel>
+        </childnode>
+        <childnode refid="607" relation="usage">
+          <edgelabel>m_gravity</edgelabel>
+        </childnode>
+        <childnode refid="620" relation="usage">
+          <edgelabel>m_profile</edgelabel>
+        </childnode>
+        <childnode refid="621" relation="usage">
+          <edgelabel>m_blockAllocator</edgelabel>
+        </childnode>
+        <childnode refid="622" relation="usage">
+          <edgelabel>m_destructionListener</edgelabel>
+        </childnode>
+        <childnode refid="623" relation="usage">
+          <edgelabel>m_contactManager</edgelabel>
+        </childnode>
+        <childnode refid="631" relation="usage">
+          <edgelabel>m_stackAllocator</edgelabel>
+        </childnode>
+        <childnode refid="606" relation="usage">
+          <edgelabel>m_jointList</edgelabel>
+        </childnode>
+      </node>
+      <node id="632">
+        <label>b2StackEntry</label>
+        <link refid="structb2_stack_entry"/>
+      </node>
+      <node id="633">
+        <label>b2FixtureProxy</label>
+        <link refid="structb2_fixture_proxy"/>
+        <childnode refid="628" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+        <childnode refid="603" relation="usage">
+          <edgelabel>fixture</edgelabel>
+        </childnode>
+      </node>
+      <node id="625">
+        <label>b2Pair</label>
+        <link refid="structb2_pair"/>
+      </node>
+      <node id="608">
+        <label>b2Sweep</label>
+        <link refid="structb2_sweep"/>
+        <childnode refid="607" relation="usage">
+          <edgelabel>c0</edgelabel>
+          <edgelabel>localCenter</edgelabel>
+          <edgelabel>c</edgelabel>
+        </childnode>
+      </node>
+      <node id="609">
+        <label>b2Transform</label>
+        <link refid="structb2_transform"/>
+        <childnode refid="607" relation="usage">
+          <edgelabel>p</edgelabel>
+        </childnode>
+        <childnode refid="610" relation="usage">
+          <edgelabel>q</edgelabel>
+        </childnode>
+      </node>
+      <node id="631">
+        <label>b2StackAllocator</label>
+        <link refid="classb2_stack_allocator"/>
+        <childnode refid="632" relation="usage">
+          <edgelabel>m_entries</edgelabel>
+        </childnode>
+      </node>
+      <node id="635">
+        <label>b2Filter</label>
+        <link refid="structb2_filter"/>
+      </node>
+      <node id="605">
+        <label>b2JointEdge</label>
+        <link refid="structb2_joint_edge"/>
+        <childnode refid="604" relation="usage">
+          <edgelabel>other</edgelabel>
+        </childnode>
+        <childnode refid="605" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="606" relation="usage">
+          <edgelabel>joint</edgelabel>
+        </childnode>
+      </node>
+      <node id="629">
+        <label>b2ContactFilter</label>
+        <link refid="classb2_contact_filter"/>
+      </node>
+      <node id="606">
+        <label>b2Joint</label>
+        <link refid="classb2_joint"/>
+        <childnode refid="604" relation="usage">
+          <edgelabel>m_bodyA</edgelabel>
+          <edgelabel>m_bodyB</edgelabel>
+        </childnode>
+        <childnode refid="605" relation="usage">
+          <edgelabel>m_edgeB</edgelabel>
+          <edgelabel>m_edgeA</edgelabel>
+        </childnode>
+        <childnode refid="606" relation="usage">
+          <edgelabel>m_prev</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="607">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+      <node id="616">
+        <label>b2ContactID</label>
+        <link refid="unionb2_contact_i_d"/>
+        <childnode refid="617" relation="usage">
+          <edgelabel>cf</edgelabel>
+        </childnode>
+      </node>
+      <node id="634">
+        <label>b2Shape</label>
+        <link refid="classb2_shape"/>
+      </node>
+      <node id="627">
+        <label>b2TreeNode</label>
+        <link refid="structb2_tree_node"/>
+        <childnode refid="628" relation="usage">
+          <edgelabel>aabb</edgelabel>
+        </childnode>
+      </node>
+      <node id="628">
+        <label>b2AABB</label>
+        <link refid="structb2_a_a_b_b"/>
+        <childnode refid="607" relation="usage">
+          <edgelabel>lowerBound</edgelabel>
+          <edgelabel>upperBound</edgelabel>
+        </childnode>
+      </node>
+      <node id="610">
+        <label>b2Rot</label>
+        <link refid="structb2_rot"/>
+      </node>
+      <node id="623">
+        <label>b2ContactManager</label>
+        <link refid="classb2_contact_manager"/>
+        <childnode refid="621" relation="usage">
+          <edgelabel>m_allocator</edgelabel>
+        </childnode>
+        <childnode refid="612" relation="usage">
+          <edgelabel>m_contactList</edgelabel>
+        </childnode>
+        <childnode refid="624" relation="usage">
+          <edgelabel>m_broadPhase</edgelabel>
+        </childnode>
+        <childnode refid="629" relation="usage">
+          <edgelabel>m_contactFilter</edgelabel>
+        </childnode>
+        <childnode refid="630" relation="usage">
+          <edgelabel>m_contactListener</edgelabel>
+        </childnode>
+      </node>
+      <node id="603">
+        <label>b2Fixture</label>
+        <link refid="classb2_fixture"/>
+        <childnode refid="604" relation="usage">
+          <edgelabel>m_body</edgelabel>
+        </childnode>
+        <childnode refid="633" relation="usage">
+          <edgelabel>m_proxies</edgelabel>
+        </childnode>
+        <childnode refid="634" relation="usage">
+          <edgelabel>m_shape</edgelabel>
+        </childnode>
+        <childnode refid="635" relation="usage">
+          <edgelabel>m_filter</edgelabel>
+        </childnode>
+        <childnode refid="603" relation="usage">
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="613">
+        <label>b2ContactRegister</label>
+        <link refid="structb2_contact_register"/>
+      </node>
+      <node id="615">
+        <label>b2ManifoldPoint</label>
+        <link refid="structb2_manifold_point"/>
+        <childnode refid="607" relation="usage">
+          <edgelabel>localPoint</edgelabel>
+        </childnode>
+        <childnode refid="616" relation="usage">
+          <edgelabel>id</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" line="108" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Fixture.h" bodystart="107" bodyend="236"/>
+    <listofallmembers>
+      <member refid="classb2_fixture_1a010ab52de250e5fe30a45d642f46405b" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>b2Body</name></member>
+      <member refid="classb2_fixture_1a6c4ac5df27ec498dd9e4281352b7a789" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>b2Contact</name></member>
+      <member refid="classb2_fixture_1aece264d42f69aed410f5eb3beba6ddf2" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>b2ContactManager</name></member>
+      <member refid="classb2_fixture_1a02e11d3783af2168ac1cf8e9e9055c67" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>b2Fixture</name></member>
+      <member refid="classb2_fixture_1a4bd536c5a7c0587913765bbc2693ceea" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>b2World</name></member>
+      <member refid="classb2_fixture_1a1f465f3656f098eebfcbc6edf7a9239a" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>Create</name></member>
+      <member refid="classb2_fixture_1a670f1f687521666da6e92885754970b7" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>CreateProxies</name></member>
+      <member refid="classb2_fixture_1a279301181668f724c027020a654efe42" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>Destroy</name></member>
+      <member refid="classb2_fixture_1a1def068c9ce09e2ebcccc556951b7979" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>DestroyProxies</name></member>
+      <member refid="classb2_fixture_1a57485e73a2063060e320c7176676cd5e" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>Dump</name></member>
+      <member refid="classb2_fixture_1abdc2a225110310a481a78cdb14000ca7" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>GetAABB</name></member>
+      <member refid="classb2_fixture_1a9d6536ef274d768e86ab0a8330921535" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>GetBody</name></member>
+      <member refid="classb2_fixture_1a6cfc4ed94c4cbfbc0244f11007448431" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>GetBody</name></member>
+      <member refid="classb2_fixture_1a5deb4acfb464f3dcb668f081a2c44ff4" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>GetDensity</name></member>
+      <member refid="classb2_fixture_1a5bc271a6e8082e727b053aead1ae86a9" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>GetFilterData</name></member>
+      <member refid="classb2_fixture_1a31253b90b87f1fec7256bba92aeb4645" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>GetFriction</name></member>
+      <member refid="classb2_fixture_1adbfb9b64006abaaa0ca01e6d9e06deea" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>GetMassData</name></member>
+      <member refid="classb2_fixture_1a0241952461f6f1a04a3c850306390fd2" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>GetNext</name></member>
+      <member refid="classb2_fixture_1adb72f9669165143466a1d37d1288785f" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>GetNext</name></member>
+      <member refid="classb2_fixture_1a6ce4d949ffff6201a117f1e3833953f8" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>GetRestitution</name></member>
+      <member refid="classb2_fixture_1aaa2b73fa212fa53b1c800cccd7a1d31e" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>GetShape</name></member>
+      <member refid="classb2_fixture_1a5ede102030bd041b07fec5c1f082c8c9" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>GetShape</name></member>
+      <member refid="classb2_fixture_1ab0e1d6bc1c42e6f779e77db408ab2d24" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>GetType</name></member>
+      <member refid="classb2_fixture_1a57247425e7c859d7653eec417ec83cdc" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>GetUserData</name></member>
+      <member refid="classb2_fixture_1a91758c9dca818ca45f3f6427c7e3fc19" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>IsSensor</name></member>
+      <member refid="classb2_fixture_1a480026124a6b7e88f2ed89832a08d191" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>m_body</name></member>
+      <member refid="classb2_fixture_1ab8c388182fc7d58d930f6b0aa21d5c60" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>m_density</name></member>
+      <member refid="classb2_fixture_1a33b66959856506a6d27b32dad0e284c7" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>m_filter</name></member>
+      <member refid="classb2_fixture_1a314118ee973ebd14e083553fed1e0212" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>m_friction</name></member>
+      <member refid="classb2_fixture_1a4b6b47a8de6d37acf9b980b33b22f634" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>m_isSensor</name></member>
+      <member refid="classb2_fixture_1ac5c9fbdf66290e2608db1ffcea2316b0" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>m_next</name></member>
+      <member refid="classb2_fixture_1a0056031e2b2b53e6a4c0ef7a0c87821a" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>m_proxies</name></member>
+      <member refid="classb2_fixture_1aae71b4a0071346aba2eb6f4a764785a4" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>m_proxyCount</name></member>
+      <member refid="classb2_fixture_1a343a35683ce4a79d2151761611027d66" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>m_restitution</name></member>
+      <member refid="classb2_fixture_1a54fa48dfc8b70a435c8f17f8b7720828" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>m_shape</name></member>
+      <member refid="classb2_fixture_1a60191e5c76bfd115e6c38d78b6cffd8b" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>m_userData</name></member>
+      <member refid="classb2_fixture_1a614e84f47e8b32b503fa719099ecba79" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>RayCast</name></member>
+      <member refid="classb2_fixture_1a45d3320f94811d67383c48466165fa26" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>Refilter</name></member>
+      <member refid="classb2_fixture_1ad4e1d9323103975c8931d022b952d04a" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>SetDensity</name></member>
+      <member refid="classb2_fixture_1a2c5e0d12c174927a4ad550459be334ad" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>SetFilterData</name></member>
+      <member refid="classb2_fixture_1ad0cd91eef5858c8ef1d6b62cc2a34ea2" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>SetFriction</name></member>
+      <member refid="classb2_fixture_1a19c507332e4f7bd04a05f00426f11ee4" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>SetRestitution</name></member>
+      <member refid="classb2_fixture_1a6198a81dcee0fe814d730383ebfa7038" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>SetSensor</name></member>
+      <member refid="classb2_fixture_1a3db7f89ef4493247d922fe3d96351ad9" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>SetUserData</name></member>
+      <member refid="classb2_fixture_1ac8fd15bfd9a3a7ba05f3831e6f598908" prot="protected" virt="non-virtual"><scope>b2Fixture</scope><name>Synchronize</name></member>
+      <member refid="classb2_fixture_1ab875147c7a9df4ff94d224f6aa81a7a9" prot="public" virt="non-virtual"><scope>b2Fixture</scope><name>TestPoint</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

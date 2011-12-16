@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_sparse_mat_iterator" kind="struct" prot="public">
+    <compoundname>CvSparseMatIterator</compoundname>
+    <includes refid="cxtypes_8h" local="no">cxtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_sparse_mat_iterator_1a868331ed07ea23c10f3f3597e377221e" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_sparse_mat" kindref="compound">CvSparseMat</ref> *</type>
+        <definition>CvSparseMat* CvSparseMatIterator::mat</definition>
+        <argsstring></argsstring>
+        <name>mat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="819" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="819" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_sparse_mat_iterator_1a4ee9bf194988e203fdb099992eff13c5" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_sparse_node" kindref="compound">CvSparseNode</ref> *</type>
+        <definition>CvSparseNode* CvSparseMatIterator::node</definition>
+        <argsstring></argsstring>
+        <name>node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="820" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="820" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_sparse_mat_iterator_1a5501b26d2dc70d7ef55238a8e35e7abb" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvSparseMatIterator::curidx</definition>
+        <argsstring></argsstring>
+        <name>curidx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="821" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="821" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2012">
+        <label>CvSet</label>
+        <link refid="struct_cv_set"/>
+      </node>
+      <node id="2010">
+        <label>CvSparseNode</label>
+        <link refid="struct_cv_sparse_node"/>
+        <childnode refid="2010" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="2011">
+        <label>CvSparseMat</label>
+        <link refid="struct_cv_sparse_mat"/>
+        <childnode refid="2012" relation="usage">
+          <edgelabel>heap</edgelabel>
+        </childnode>
+      </node>
+      <node id="2009">
+        <label>CvSparseMatIterator</label>
+        <link refid="struct_cv_sparse_mat_iterator"/>
+        <childnode refid="2010" relation="usage">
+          <edgelabel>node</edgelabel>
+        </childnode>
+        <childnode refid="2011" relation="usage">
+          <edgelabel>mat</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="818" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="817" bodyend="822"/>
+    <listofallmembers>
+      <member refid="struct_cv_sparse_mat_iterator_1a5501b26d2dc70d7ef55238a8e35e7abb" prot="public" virt="non-virtual"><scope>CvSparseMatIterator</scope><name>curidx</name></member>
+      <member refid="struct_cv_sparse_mat_iterator_1a868331ed07ea23c10f3f3597e377221e" prot="public" virt="non-virtual"><scope>CvSparseMatIterator</scope><name>mat</name></member>
+      <member refid="struct_cv_sparse_mat_iterator_1a4ee9bf194988e203fdb099992eff13c5" prot="public" virt="non-virtual"><scope>CvSparseMatIterator</scope><name>node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

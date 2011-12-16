@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_clique_finder" kind="struct" prot="public">
+    <compoundname>CvCliqueFinder</compoundname>
+    <includes refid="cvaux_8h" local="no">cvaux.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_clique_finder_1ab45a13df90c9becdf0856649a4695efd" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_graph" kindref="compound">CvGraph</ref> *</type>
+        <definition>CvGraph* CvCliqueFinder::graph</definition>
+        <argsstring></argsstring>
+        <name>graph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="329" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="329" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1abc4e299be1ac4db2e6fbfd51ddb9d065" prot="public" static="no" mutable="no">
+        <type>int **</type>
+        <definition>int** CvCliqueFinder::adj_matr</definition>
+        <argsstring></argsstring>
+        <name>adj_matr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="330" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="330" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1a8da5566410709f2a7a1891a05e20d6c3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvCliqueFinder::N</definition>
+        <argsstring></argsstring>
+        <name>N</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="331" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="331" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1aacc8820053aa06c5482f3d54ccd90549" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvCliqueFinder::k</definition>
+        <argsstring></argsstring>
+        <name>k</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="334" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="334" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1a00f284454bebac7d8d86e7cca57459fd" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* CvCliqueFinder::current_comp</definition>
+        <argsstring></argsstring>
+        <name>current_comp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="335" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="335" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1a8929a3dc97b8b146f4b2bea5859559b0" prot="public" static="no" mutable="no">
+        <type>int **</type>
+        <definition>int** CvCliqueFinder::All</definition>
+        <argsstring></argsstring>
+        <name>All</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="336" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="336" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1aadfcec5d703a5db394031b79c8f15b83" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* CvCliqueFinder::ne</definition>
+        <argsstring></argsstring>
+        <name>ne</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="338" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="338" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1a0a757ff7a0febd3628de0eb8f4798fb4" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* CvCliqueFinder::ce</definition>
+        <argsstring></argsstring>
+        <name>ce</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="339" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="339" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1ab61915448377de08728337a8b30bc97c" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* CvCliqueFinder::fixp</definition>
+        <argsstring></argsstring>
+        <name>fixp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="340" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="340" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1a38047a358bc1cff9390dc98e1c843e5e" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* CvCliqueFinder::nod</definition>
+        <argsstring></argsstring>
+        <name>nod</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="341" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="341" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1ae165e8b548245ddbacef0f2953ad7a48" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* CvCliqueFinder::s</definition>
+        <argsstring></argsstring>
+        <name>s</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="342" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1a4d7b6d97430bc4d1cbe3d5a6f76847dc" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvCliqueFinder::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="343" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1a27ea88c1685d01c000f2e4853c679eea" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvCliqueFinder::best_score</definition>
+        <argsstring></argsstring>
+        <name>best_score</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="344" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1ae93626c5759941f929340fe879380c04" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvCliqueFinder::weighted</definition>
+        <argsstring></argsstring>
+        <name>weighted</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="345" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1a0201060ff64dd9aeb610c64ac27abafe" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CvCliqueFinder::weighted_edges</definition>
+        <argsstring></argsstring>
+        <name>weighted_edges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="346" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1a0b6d6e48d2ba4d895b3baa2eebf9d290" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CvCliqueFinder::best_weight</definition>
+        <argsstring></argsstring>
+        <name>best_weight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="347" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1ae3bb166008a952d59fe0301b020a6dbf" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvCliqueFinder::edge_weights</definition>
+        <argsstring></argsstring>
+        <name>edge_weights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="348" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="348" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1a41aef4f7431fa184acd9b0f60bf1a396" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvCliqueFinder::vertex_weights</definition>
+        <argsstring></argsstring>
+        <name>vertex_weights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="349" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1a92a1736e65341feb05032c65890c29e7" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvCliqueFinder::cur_weight</definition>
+        <argsstring></argsstring>
+        <name>cur_weight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="350" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_clique_finder_1ad2b3a5159f6d0dda8d789d688b014112" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CvCliqueFinder::cand_weight</definition>
+        <argsstring></argsstring>
+        <name>cand_weight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="351" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="351" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1819">
+        <label>CvCliqueFinder</label>
+        <link refid="struct_cv_clique_finder"/>
+        <childnode refid="1820" relation="usage">
+          <edgelabel>graph</edgelabel>
+        </childnode>
+      </node>
+      <node id="1820">
+        <label>CvGraph</label>
+        <link refid="struct_cv_graph"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" line="328" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvaux.h" bodystart="327" bodyend="353"/>
+    <listofallmembers>
+      <member refid="struct_cv_clique_finder_1abc4e299be1ac4db2e6fbfd51ddb9d065" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>adj_matr</name></member>
+      <member refid="struct_cv_clique_finder_1a8929a3dc97b8b146f4b2bea5859559b0" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>All</name></member>
+      <member refid="struct_cv_clique_finder_1a27ea88c1685d01c000f2e4853c679eea" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>best_score</name></member>
+      <member refid="struct_cv_clique_finder_1a0b6d6e48d2ba4d895b3baa2eebf9d290" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>best_weight</name></member>
+      <member refid="struct_cv_clique_finder_1ad2b3a5159f6d0dda8d789d688b014112" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>cand_weight</name></member>
+      <member refid="struct_cv_clique_finder_1a0a757ff7a0febd3628de0eb8f4798fb4" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>ce</name></member>
+      <member refid="struct_cv_clique_finder_1a92a1736e65341feb05032c65890c29e7" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>cur_weight</name></member>
+      <member refid="struct_cv_clique_finder_1a00f284454bebac7d8d86e7cca57459fd" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>current_comp</name></member>
+      <member refid="struct_cv_clique_finder_1ae3bb166008a952d59fe0301b020a6dbf" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>edge_weights</name></member>
+      <member refid="struct_cv_clique_finder_1ab61915448377de08728337a8b30bc97c" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>fixp</name></member>
+      <member refid="struct_cv_clique_finder_1ab45a13df90c9becdf0856649a4695efd" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>graph</name></member>
+      <member refid="struct_cv_clique_finder_1aacc8820053aa06c5482f3d54ccd90549" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>k</name></member>
+      <member refid="struct_cv_clique_finder_1a8da5566410709f2a7a1891a05e20d6c3" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>N</name></member>
+      <member refid="struct_cv_clique_finder_1aadfcec5d703a5db394031b79c8f15b83" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>ne</name></member>
+      <member refid="struct_cv_clique_finder_1a38047a358bc1cff9390dc98e1c843e5e" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>nod</name></member>
+      <member refid="struct_cv_clique_finder_1ae165e8b548245ddbacef0f2953ad7a48" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>s</name></member>
+      <member refid="struct_cv_clique_finder_1a4d7b6d97430bc4d1cbe3d5a6f76847dc" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>status</name></member>
+      <member refid="struct_cv_clique_finder_1a41aef4f7431fa184acd9b0f60bf1a396" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>vertex_weights</name></member>
+      <member refid="struct_cv_clique_finder_1ae93626c5759941f929340fe879380c04" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>weighted</name></member>
+      <member refid="struct_cv_clique_finder_1a0201060ff64dd9aeb610c64ac27abafe" prot="public" virt="non-virtual"><scope>CvCliqueFinder</scope><name>weighted_edges</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

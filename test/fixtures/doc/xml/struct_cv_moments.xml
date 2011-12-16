@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_moments" kind="struct" prot="public">
+    <compoundname>CvMoments</compoundname>
+    <includes refid="cvtypes_8h" local="no">cvtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_moments_1af8990a23161b5e58cf5823a1ea824b58" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::m00</definition>
+        <argsstring></argsstring>
+        <name>m00</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1a2ecba768610f42190605fb63f63bc12e" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::m10</definition>
+        <argsstring></argsstring>
+        <name>m10</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1a7ebd6af845050990ceda665a685e95c4" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::m01</definition>
+        <argsstring></argsstring>
+        <name>m01</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1a8ba6f3f8d0fba50aa5c5a06ece09904a" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::m20</definition>
+        <argsstring></argsstring>
+        <name>m20</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1a6ad25d9398f6bc1a69abb1568286847b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::m11</definition>
+        <argsstring></argsstring>
+        <name>m11</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1ad6733062576919dac6c2c7f1d6f55fbd" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::m02</definition>
+        <argsstring></argsstring>
+        <name>m02</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1a06450b2c72eeac634462622edf33e905" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::m30</definition>
+        <argsstring></argsstring>
+        <name>m30</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1ab02c25185eeb6943c6544526fdd6ed00" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::m21</definition>
+        <argsstring></argsstring>
+        <name>m21</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1a7e7a320f1c3061d2f282ef2183a9044f" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::m12</definition>
+        <argsstring></argsstring>
+        <name>m12</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1a5da611e29d5c86cb34cfc99a288fb60d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::m03</definition>
+        <argsstring></argsstring>
+        <name>m03</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1aa20e267058657184b5ca4c5491c12e10" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::mu20</definition>
+        <argsstring></argsstring>
+        <name>mu20</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="54" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1a029e8765b2dabc92ced26c18ae7f6439" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::mu11</definition>
+        <argsstring></argsstring>
+        <name>mu11</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="54" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1add6e9dfde50187ed89c48114e7106fba" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::mu02</definition>
+        <argsstring></argsstring>
+        <name>mu02</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="54" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1a8c4cfe0c724576018e73b2ec7a724470" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::mu30</definition>
+        <argsstring></argsstring>
+        <name>mu30</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="54" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1a429d624a00bc859472d13a68ce073f85" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::mu21</definition>
+        <argsstring></argsstring>
+        <name>mu21</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="54" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1a339627399f6f3a6d10a7ae2a38d2a8ea" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::mu12</definition>
+        <argsstring></argsstring>
+        <name>mu12</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="54" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1a4bc33c2f551d6a3e847eb1c1863e6e60" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::mu03</definition>
+        <argsstring></argsstring>
+        <name>mu03</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="54" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cv_moments_1ad08a81f43610187c2e0c430cb13f24ae" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CvMoments::inv_sqrt_m00</definition>
+        <argsstring></argsstring>
+        <name>inv_sqrt_m00</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="55" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" line="52" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cvtypes.h" bodystart="51" bodyend="56"/>
+    <listofallmembers>
+      <member refid="struct_cv_moments_1ad08a81f43610187c2e0c430cb13f24ae" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>inv_sqrt_m00</name></member>
+      <member refid="struct_cv_moments_1af8990a23161b5e58cf5823a1ea824b58" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>m00</name></member>
+      <member refid="struct_cv_moments_1a7ebd6af845050990ceda665a685e95c4" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>m01</name></member>
+      <member refid="struct_cv_moments_1ad6733062576919dac6c2c7f1d6f55fbd" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>m02</name></member>
+      <member refid="struct_cv_moments_1a5da611e29d5c86cb34cfc99a288fb60d" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>m03</name></member>
+      <member refid="struct_cv_moments_1a2ecba768610f42190605fb63f63bc12e" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>m10</name></member>
+      <member refid="struct_cv_moments_1a6ad25d9398f6bc1a69abb1568286847b" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>m11</name></member>
+      <member refid="struct_cv_moments_1a7e7a320f1c3061d2f282ef2183a9044f" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>m12</name></member>
+      <member refid="struct_cv_moments_1a8ba6f3f8d0fba50aa5c5a06ece09904a" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>m20</name></member>
+      <member refid="struct_cv_moments_1ab02c25185eeb6943c6544526fdd6ed00" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>m21</name></member>
+      <member refid="struct_cv_moments_1a06450b2c72eeac634462622edf33e905" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>m30</name></member>
+      <member refid="struct_cv_moments_1add6e9dfde50187ed89c48114e7106fba" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>mu02</name></member>
+      <member refid="struct_cv_moments_1a4bc33c2f551d6a3e847eb1c1863e6e60" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>mu03</name></member>
+      <member refid="struct_cv_moments_1a029e8765b2dabc92ced26c18ae7f6439" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>mu11</name></member>
+      <member refid="struct_cv_moments_1a339627399f6f3a6d10a7ae2a38d2a8ea" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>mu12</name></member>
+      <member refid="struct_cv_moments_1aa20e267058657184b5ca4c5491c12e10" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>mu20</name></member>
+      <member refid="struct_cv_moments_1a429d624a00bc859472d13a68ce073f85" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>mu21</name></member>
+      <member refid="struct_cv_moments_1a8c4cfe0c724576018e73b2ec7a724470" prot="public" virt="non-virtual"><scope>CvMoments</scope><name>mu30</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

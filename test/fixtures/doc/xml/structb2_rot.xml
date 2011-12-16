@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_rot" kind="struct" prot="public">
+    <compoundname>b2Rot</compoundname>
+    <includes refid="b2_math_8h" local="no">b2Math.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_rot_1a15725ce0a89cc735ad90687b4c0f4dce" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Rot::s</definition>
+        <argsstring></argsstring>
+        <name>s</name>
+        <briefdescription>
+<para>Sine and cosine. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="356" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="356" bodyend="-1"/>
+        <referencedby refid="b2_math_8h_1a8656bfe0202c1f9be67adbf172028e4f" compoundref="b2_math_8h" startline="551" endline="561">b2Mul</referencedby>
+        <referencedby refid="b2_math_8h_1a37986fc259888a4e588e6cdb72ad9cd3" compoundref="b2_math_8h" startline="564" endline="574">b2MulT</referencedby>
+        <referencedby refid="structb2_rot_1aa40dda6d390a2f54c793c63027a9b46e" compoundref="b2_math_8h" startline="315" endline="320">b2Rot</referencedby>
+        <referencedby refid="structb2_rot_1a67a6c08812c009654f00800256c8bfdc" compoundref="b2_math_8h" startline="338" endline="341">GetAngle</referencedby>
+        <referencedby refid="structb2_rot_1ac4ab7f262adb99f161775314852723d8" compoundref="b2_math_8h" startline="344" endline="347">GetXAxis</referencedby>
+        <referencedby refid="structb2_rot_1ae731c7434fe1754114ee70149df36c7f" compoundref="b2_math_8h" startline="350" endline="353">GetYAxis</referencedby>
+        <referencedby refid="structb2_rot_1acde9186de0a4a7397bf8ef714408ad60" compoundref="b2_math_8h" startline="323" endline="328">Set</referencedby>
+        <referencedby refid="structb2_rot_1a7f534cb7ece8d325662d7d0e27d4f617" compoundref="b2_math_8h" startline="331" endline="335">SetIdentity</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_rot_1af23e5d31889dcb806ce46ce55aa81261" prot="public" static="no" mutable="no">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Rot::c</definition>
+        <argsstring></argsstring>
+        <name>c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="356" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="356" bodyend="-1"/>
+        <referencedby refid="b2_math_8h_1a8656bfe0202c1f9be67adbf172028e4f" compoundref="b2_math_8h" startline="551" endline="561">b2Mul</referencedby>
+        <referencedby refid="b2_math_8h_1a37986fc259888a4e588e6cdb72ad9cd3" compoundref="b2_math_8h" startline="564" endline="574">b2MulT</referencedby>
+        <referencedby refid="structb2_rot_1aa40dda6d390a2f54c793c63027a9b46e" compoundref="b2_math_8h" startline="315" endline="320">b2Rot</referencedby>
+        <referencedby refid="structb2_rot_1a67a6c08812c009654f00800256c8bfdc" compoundref="b2_math_8h" startline="338" endline="341">GetAngle</referencedby>
+        <referencedby refid="structb2_rot_1ac4ab7f262adb99f161775314852723d8" compoundref="b2_math_8h" startline="344" endline="347">GetXAxis</referencedby>
+        <referencedby refid="structb2_rot_1ae731c7434fe1754114ee70149df36c7f" compoundref="b2_math_8h" startline="350" endline="353">GetYAxis</referencedby>
+        <referencedby refid="structb2_rot_1acde9186de0a4a7397bf8ef714408ad60" compoundref="b2_math_8h" startline="323" endline="328">Set</referencedby>
+        <referencedby refid="structb2_rot_1a7f534cb7ece8d325662d7d0e27d4f617" compoundref="b2_math_8h" startline="331" endline="335">SetIdentity</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structb2_rot_1a8cabd61f7e293b67748640fa5aa19841" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2Rot::b2Rot</definition>
+        <argsstring>()</argsstring>
+        <name>b2Rot</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="312" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="312" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="structb2_rot_1aa40dda6d390a2f54c793c63027a9b46e" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2Rot::b2Rot</definition>
+        <argsstring>(float32 angle)</argsstring>
+        <name>b2Rot</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+<para>Initialize from an angle in radians. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>TODO_ERIN optimize </para>        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="316" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="315" bodyend="320"/>
+        <references refid="structb2_rot_1af23e5d31889dcb806ce46ce55aa81261" compoundref="b2_math_8h" startline="356">c</references>
+        <references refid="structb2_rot_1a15725ce0a89cc735ad90687b4c0f4dce" compoundref="b2_math_8h" startline="356">s</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_rot_1acde9186de0a4a7397bf8ef714408ad60" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Rot::Set</definition>
+        <argsstring>(float32 angle)</argsstring>
+        <name>Set</name>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+<para>Set using an angle in radians. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>TODO_ERIN optimize </para>        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="324" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="323" bodyend="328"/>
+        <references refid="structb2_rot_1af23e5d31889dcb806ce46ce55aa81261" compoundref="b2_math_8h" startline="356">c</references>
+        <references refid="structb2_rot_1a15725ce0a89cc735ad90687b4c0f4dce" compoundref="b2_math_8h" startline="356">s</references>
+        <referencedby refid="classb2_body_1a018ca81f6c1bef31942931dfa9459f4f" compoundref="b2_body_8h" startline="826" endline="834">b2Body::Advance</referencedby>
+        <referencedby refid="structb2_sweep_1a81947646092468290d15005928e12fcd" compoundref="b2_math_8h" startline="703" endline="711">b2Sweep::GetTransform</referencedby>
+        <referencedby refid="structb2_transform_1a4db696a0b3fada95f95cde3e7e85ced9" compoundref="b2_math_8h" startline="377" endline="381">b2Transform::Set</referencedby>
+        <referencedby refid="classb2_body_1a4ce4a12de31c4e877ac5075331cb3a47" compoundref="b2_body_8h" startline="820" endline="824">b2Body::SynchronizeTransform</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structb2_rot_1a7f534cb7ece8d325662d7d0e27d4f617" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Rot::SetIdentity</definition>
+        <argsstring>()</argsstring>
+        <name>SetIdentity</name>
+        <briefdescription>
+<para>Set to the identity rotation. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="332" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="331" bodyend="335"/>
+        <references refid="structb2_rot_1af23e5d31889dcb806ce46ce55aa81261" compoundref="b2_math_8h" startline="356">c</references>
+        <references refid="structb2_rot_1a15725ce0a89cc735ad90687b4c0f4dce" compoundref="b2_math_8h" startline="356">s</references>
+        <referencedby refid="structb2_transform_1af92af4ec6833552b1b22a6ca6d4f5644" compoundref="b2_math_8h" startline="370" endline="374">b2Transform::SetIdentity</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structb2_rot_1a67a6c08812c009654f00800256c8bfdc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+        <definition>float32 b2Rot::GetAngle</definition>
+        <argsstring>() const </argsstring>
+        <name>GetAngle</name>
+        <briefdescription>
+<para>Get the angle in radians. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="339" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="338" bodyend="341"/>
+        <references refid="b2_math_8h_1afe19f6449028d2aaa14c9c4c3b22066d" compoundref="b2_math_8h" startline="61">b2Atan2</references>
+        <references refid="structb2_rot_1af23e5d31889dcb806ce46ce55aa81261" compoundref="b2_math_8h" startline="356">c</references>
+        <references refid="structb2_rot_1a15725ce0a89cc735ad90687b4c0f4dce" compoundref="b2_math_8h" startline="356">s</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_rot_1ac4ab7f262adb99f161775314852723d8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2Rot::GetXAxis</definition>
+        <argsstring>() const </argsstring>
+        <name>GetXAxis</name>
+        <briefdescription>
+<para>Get the x-axis. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="345" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="344" bodyend="347"/>
+        <references refid="structb2_rot_1af23e5d31889dcb806ce46ce55aa81261" compoundref="b2_math_8h" startline="356">c</references>
+        <references refid="structb2_rot_1a15725ce0a89cc735ad90687b4c0f4dce" compoundref="b2_math_8h" startline="356">s</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_rot_1ae731c7434fe1754114ee70149df36c7f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2Rot::GetYAxis</definition>
+        <argsstring>() const </argsstring>
+        <name>GetYAxis</name>
+        <briefdescription>
+<para>Get the u-axis. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="351" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="350" bodyend="353"/>
+        <references refid="structb2_rot_1af23e5d31889dcb806ce46ce55aa81261" compoundref="b2_math_8h" startline="356">c</references>
+        <references refid="structb2_rot_1a15725ce0a89cc735ad90687b4c0f4dce" compoundref="b2_math_8h" startline="356">s</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Rotation. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="311" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="310" bodyend="357"/>
+    <listofallmembers>
+      <member refid="structb2_rot_1a8cabd61f7e293b67748640fa5aa19841" prot="public" virt="non-virtual"><scope>b2Rot</scope><name>b2Rot</name></member>
+      <member refid="structb2_rot_1aa40dda6d390a2f54c793c63027a9b46e" prot="public" virt="non-virtual"><scope>b2Rot</scope><name>b2Rot</name></member>
+      <member refid="structb2_rot_1af23e5d31889dcb806ce46ce55aa81261" prot="public" virt="non-virtual"><scope>b2Rot</scope><name>c</name></member>
+      <member refid="structb2_rot_1a67a6c08812c009654f00800256c8bfdc" prot="public" virt="non-virtual"><scope>b2Rot</scope><name>GetAngle</name></member>
+      <member refid="structb2_rot_1ac4ab7f262adb99f161775314852723d8" prot="public" virt="non-virtual"><scope>b2Rot</scope><name>GetXAxis</name></member>
+      <member refid="structb2_rot_1ae731c7434fe1754114ee70149df36c7f" prot="public" virt="non-virtual"><scope>b2Rot</scope><name>GetYAxis</name></member>
+      <member refid="structb2_rot_1a15725ce0a89cc735ad90687b4c0f4dce" prot="public" virt="non-virtual"><scope>b2Rot</scope><name>s</name></member>
+      <member refid="structb2_rot_1acde9186de0a4a7397bf8ef714408ad60" prot="public" virt="non-virtual"><scope>b2Rot</scope><name>Set</name></member>
+      <member refid="structb2_rot_1a7f534cb7ece8d325662d7d0e27d4f617" prot="public" virt="non-virtual"><scope>b2Rot</scope><name>SetIdentity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

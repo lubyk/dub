@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmimas_1_1_socket_notifier" kind="class" prot="public">
+    <compoundname>mimas::SocketNotifier</compoundname>
+    <basecompoundref refid="classlubyk_1_1_threaded_lua_object" prot="public" virt="non-virtual">lubyk::ThreadedLuaObject</basecompoundref>
+    <includes refid="_socket_notifier_8h" local="no">SocketNotifier.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classmimas_1_1_socket_notifier_1a58ba8c9a2b3494b17a97148a88ae17ad" prot="public" static="no">
+        <name>EventType</name>
+        <enumvalue id="classmimas_1_1_socket_notifier_1a58ba8c9a2b3494b17a97148a88ae17ada8289a8cb1fbf990ec4fabc49d58b4c9b" prot="public">
+          <name>Read</name>
+          <initializer> QSocketNotifier::Read</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmimas_1_1_socket_notifier_1a58ba8c9a2b3494b17a97148a88ae17adaac8691f3b7ed35e3cb553b5517404078" prot="public">
+          <name>Write</name>
+          <initializer> QSocketNotifier::Write</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/SocketNotifier.h" line="50" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/SocketNotifier.h" bodystart="50" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmimas_1_1_socket_notifier_1a59d9e9b7afd688b095fc04fdb16542e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::SocketNotifier::SocketNotifier</definition>
+        <argsstring>(int fd, int event_type)</argsstring>
+        <name>SocketNotifier</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>event_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/SocketNotifier.h" line="56" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/SocketNotifier.h" bodystart="55" bodyend="62"/>
+        <references refid="mimas_8h_1abf7761995db91711f1c2001b3ea81ae7" compoundref="mimas_8h" startline="37">MIMAS_DEBUG_CC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_socket_notifier_1ac92c7e7d438348ab923dcf517539bf92" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual mimas::SocketNotifier::~SocketNotifier</definition>
+        <argsstring>()</argsstring>
+        <name>~SocketNotifier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/SocketNotifier.h" line="64" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/SocketNotifier.h" bodystart="64" bodyend="67"/>
+        <references refid="mimas_8h_1a9d2f1addda3f00a2c1d2e3e2b6e4b5b5" compoundref="mimas_8h" startline="38">MIMAS_DEBUG_GC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_socket_notifier_1a1863a5bb44950f15e6560206554aa846" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::SocketNotifier::socket</definition>
+        <argsstring>() const </argsstring>
+        <name>socket</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/SocketNotifier.h" line="69" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/SocketNotifier.h" bodystart="69" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_socket_notifier_1ae51727597b8397c3da99186b18dd7640" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::SocketNotifier::setEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setEnabled</name>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enable or disable a socket notifier. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/SocketNotifier.h" line="76" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/SocketNotifier.h" bodystart="76" bodyend="78"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classmimas_1_1_socket_notifier_1aad89dac8234490a49ad318bc74f9319b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::SocketNotifier::activatedSlot</definition>
+        <argsstring>(int socket)</argsstring>
+        <name>activatedSlot</name>
+        <param>
+          <type>int</type>
+          <declname>socket</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/SocketNotifier.h" line="81" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/SocketNotifier.h" bodystart="81" bodyend="104"/>
+        <references refid="lua__object_8h_1a1095d349e93aa25cf9ddf8d07cbb6eea" compoundref="lua__object_8h" startline="34">pushLuaCallback</references>
+        <references refid="cv_8h_1ae17b3c2584dab511e91d1c96644018bf" compoundref="cv_8h" startline="516">status</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>SocketNotifer wraps filedescriptors so that they can be used in Qt&apos;s event loop. A SocketNotifer can only be used for a single file descriptor and a single event (read or write).</para><para><simplesect kind="par"><title>Bindings info:</title><para>lib_name:&apos;SocketNotifier_core&apos; super: &apos;QObject&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2433">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="2432">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2433" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2431">
+        <label>mimas::SocketNotifier</label>
+        <link refid="classmimas_1_1_socket_notifier"/>
+        <childnode refid="2432" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2437">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="2438" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2439">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2436">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="2437" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2435">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2436" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2438">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="2439" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2434">
+        <label>mimas::SocketNotifier</label>
+        <link refid="classmimas_1_1_socket_notifier"/>
+        <childnode refid="2435" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/SocketNotifier.h" line="47" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/SocketNotifier.h" bodystart="47" bodyend="105"/>
+    <listofallmembers>
+      <member refid="classmimas_1_1_socket_notifier_1aad89dac8234490a49ad318bc74f9319b" prot="private" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>activatedSlot</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>class_name_</name></member>
+      <member refid="classmimas_1_1_socket_notifier_1a58ba8c9a2b3494b17a97148a88ae17ad" prot="public" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>EventType</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" prot="public" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>lua_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>luaDestroy</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a1351dd8c5053c7df8e0a29b2887ddb8e" prot="public" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>LuaObject</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1af9f7e3d5717357958461b2634742475f" prot="protected" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>pushLuaCallbackl</name></member>
+      <member refid="classmimas_1_1_socket_notifier_1a58ba8c9a2b3494b17a97148a88ae17ada8289a8cb1fbf990ec4fabc49d58b4c9b" prot="public" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>Read</name></member>
+      <member refid="classmimas_1_1_socket_notifier_1ae51727597b8397c3da99186b18dd7640" prot="public" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>setEnabled</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1ad533909af126d2aa2b058dea6b0d91f0" prot="protected" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>setupLuaThread</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>setupSuper</name></member>
+      <member refid="classmimas_1_1_socket_notifier_1a1863a5bb44950f15e6560206554aa846" prot="public" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>socket</name></member>
+      <member refid="classmimas_1_1_socket_notifier_1a59d9e9b7afd688b095fc04fdb16542e1" prot="public" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>SocketNotifier</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a68147ed0f2048d29f6adf5316992ad69" prot="public" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>ThreadedLuaObject</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>worker_</name></member>
+      <member refid="classmimas_1_1_socket_notifier_1a58ba8c9a2b3494b17a97148a88ae17adaac8691f3b7ed35e3cb553b5517404078" prot="public" virt="non-virtual"><scope>mimas::SocketNotifier</scope><name>Write</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>mimas::SocketNotifier</scope><name>~LuaObject</name></member>
+      <member refid="classmimas_1_1_socket_notifier_1ac92c7e7d438348ab923dcf517539bf92" prot="public" virt="virtual"><scope>mimas::SocketNotifier</scope><name>~SocketNotifier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

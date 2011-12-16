@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmimas_1_1_timer" kind="class" prot="public">
+    <compoundname>mimas::Timer</compoundname>
+    <basecompoundref refid="classlubyk_1_1_threaded_lua_object" prot="public" virt="non-virtual">lubyk::ThreadedLuaObject</basecompoundref>
+    <includes refid="mimas_2include_2mimas_2timer_8h" local="no">Timer.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmimas_1_1_timer_1a5dc811db4e3f991e2eac2baae6570140" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Timer::Timer</definition>
+        <argsstring>(int timeout)</argsstring>
+        <name>Timer</name>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Private constructor. Use MakeApplication instead. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h" bodystart="51" bodyend="60"/>
+        <references refid="mimas_8h_1abf7761995db91711f1c2001b3ea81ae7" compoundref="mimas_8h" startline="37">MIMAS_DEBUG_CC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_timer_1aabaad8e3c4b82819e2ff36aef0650137" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual mimas::Timer::~Timer</definition>
+        <argsstring>()</argsstring>
+        <name>~Timer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h" line="62" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h" bodystart="62" bodyend="65"/>
+        <references refid="mimas_8h_1a9d2f1addda3f00a2c1d2e3e2b6e4b5b5" compoundref="mimas_8h" startline="38">MIMAS_DEBUG_GC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_timer_1ad8f3fdb7a70ccc6aa99e647a8b2792d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Timer::start</definition>
+        <argsstring>(int timeout)</argsstring>
+        <name>start</name>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h" line="67" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h" bodystart="67" bodyend="69"/>
+        <references refid="cvaux_8h_1a7e7356db167a8b78d03c01efc265b638" compoundref="cvaux_8h" startline="695">start</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_timer_1ac280f525ebaf0a4165972be34a0de82f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Timer::start</definition>
+        <argsstring>()</argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h" line="71" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h" bodystart="71" bodyend="73"/>
+        <references refid="cvaux_8h_1a7e7356db167a8b78d03c01efc265b638" compoundref="cvaux_8h" startline="695">start</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_timer_1a3bfc9c79ba86dae080245d1e1733e1f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Timer::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h" line="75" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h" bodystart="75" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_timer_1a1c524514b8130d1a8185f9653a19c513" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Timer::setInterval</definition>
+        <argsstring>(int msec)</argsstring>
+        <name>setInterval</name>
+        <param>
+          <type>int</type>
+          <declname>msec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h" line="79" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h" bodystart="79" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classmimas_1_1_timer_1ae8914f6922e6622db4653e255f249ba4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Timer::timeoutSlot</definition>
+        <argsstring>()</argsstring>
+        <name>timeoutSlot</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h" line="84" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h" bodystart="84" bodyend="97"/>
+        <references refid="lua__object_8h_1a1095d349e93aa25cf9ddf8d07cbb6eea" compoundref="lua__object_8h" startline="34">pushLuaCallback</references>
+        <references refid="cv_8h_1ae17b3c2584dab511e91d1c96644018bf" compoundref="cv_8h" startline="516">status</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classmimas_1_1_timer" kindref="compound">Timer</ref> class calls the &quot;timeout&quot; callback at regular intervals.</para><para><simplesect kind="par"><title>Bindings info:</title><para>lib_name:&apos;Timer_core&apos; super: &apos;QObject&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2484">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="2482">
+        <label>mimas::Timer</label>
+        <link refid="classmimas_1_1_timer"/>
+        <childnode refid="2483" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2483">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2484" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2488">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="2489" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2490">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2487">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="2488" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2485">
+        <label>mimas::Timer</label>
+        <link refid="classmimas_1_1_timer"/>
+        <childnode refid="2486" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2486">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2487" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2489">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="2490" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h" line="45" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h" bodystart="45" bodyend="98"/>
+    <listofallmembers>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>mimas::Timer</scope><name>class_name_</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" prot="public" virt="non-virtual"><scope>mimas::Timer</scope><name>lua_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>mimas::Timer</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>mimas::Timer</scope><name>luaDestroy</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a1351dd8c5053c7df8e0a29b2887ddb8e" prot="public" virt="non-virtual"><scope>mimas::Timer</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>mimas::Timer</scope><name>LuaObject</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1af9f7e3d5717357958461b2634742475f" prot="protected" virt="non-virtual"><scope>mimas::Timer</scope><name>pushLuaCallbackl</name></member>
+      <member refid="classmimas_1_1_timer_1a1c524514b8130d1a8185f9653a19c513" prot="public" virt="non-virtual"><scope>mimas::Timer</scope><name>setInterval</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1ad533909af126d2aa2b058dea6b0d91f0" prot="protected" virt="non-virtual"><scope>mimas::Timer</scope><name>setupLuaThread</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>mimas::Timer</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>mimas::Timer</scope><name>setupSuper</name></member>
+      <member refid="classmimas_1_1_timer_1ad8f3fdb7a70ccc6aa99e647a8b2792d3" prot="public" virt="non-virtual"><scope>mimas::Timer</scope><name>start</name></member>
+      <member refid="classmimas_1_1_timer_1ac280f525ebaf0a4165972be34a0de82f" prot="public" virt="non-virtual"><scope>mimas::Timer</scope><name>start</name></member>
+      <member refid="classmimas_1_1_timer_1a3bfc9c79ba86dae080245d1e1733e1f8" prot="public" virt="non-virtual"><scope>mimas::Timer</scope><name>stop</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a68147ed0f2048d29f6adf5316992ad69" prot="public" virt="non-virtual"><scope>mimas::Timer</scope><name>ThreadedLuaObject</name></member>
+      <member refid="classmimas_1_1_timer_1ae8914f6922e6622db4653e255f249ba4" prot="private" virt="non-virtual"><scope>mimas::Timer</scope><name>timeoutSlot</name></member>
+      <member refid="classmimas_1_1_timer_1a5dc811db4e3f991e2eac2baae6570140" prot="public" virt="non-virtual"><scope>mimas::Timer</scope><name>Timer</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>mimas::Timer</scope><name>worker_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>mimas::Timer</scope><name>~LuaObject</name></member>
+      <member refid="classmimas_1_1_timer_1aabaad8e3c4b82819e2ff36aef0650137" prot="public" virt="virtual"><scope>mimas::Timer</scope><name>~Timer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

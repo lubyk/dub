@@ -1,0 +1,443 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="mimas_8h" kind="file">
+    <compoundname>mimas.h</compoundname>
+    <includes local="yes">lubyk.h</includes>
+    <includes local="no">QtGui/QWidget</includes>
+    <includes refid="_action_8h" local="yes">mimas/Action.h</includes>
+    <includedby refid="_action_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Action.h</includedby>
+    <includedby refid="_application_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h</includedby>
+    <includedby refid="_brush_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Brush.h</includedby>
+    <includedby refid="_button_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h</includedby>
+    <includedby refid="_callback_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h</includedby>
+    <includedby refid="_color_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Color.h</includedby>
+    <includedby refid="mimas_2include_2mimas_2constants_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h</includedby>
+    <includedby refid="_data_source_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h</includedby>
+    <includedby refid="_file_observer_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/FileObserver.h</includedby>
+    <includedby refid="_g_l_widget_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/GLWidget.h</includedby>
+    <includedby refid="_group_box_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/GroupBox.h</includedby>
+    <includedby refid="_h_box_layout_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/HBoxLayout.h</includedby>
+    <includedby refid="_label_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h</includedby>
+    <includedby refid="_line_edit_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/LineEdit.h</includedby>
+    <includedby refid="_list_view_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h</includedby>
+    <includedby refid="_main_window_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/MainWindow.h</includedby>
+    <includedby refid="_menu_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Menu.h</includedby>
+    <includedby refid="_menu_bar_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/MenuBar.h</includedby>
+    <includedby refid="_painter_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Painter.h</includedby>
+    <includedby refid="_path_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Path.h</includedby>
+    <includedby refid="_pen_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Pen.h</includedby>
+    <includedby refid="range__widget_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/range_widget.h</includedby>
+    <includedby refid="_slider_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h</includedby>
+    <includedby refid="_socket_notifier_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/SocketNotifier.h</includedby>
+    <includedby refid="_table_view_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/TableView.h</includedby>
+    <includedby refid="mimas_2include_2mimas_2timer_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h</includedby>
+    <includedby refid="_v_box_layout_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h</includedby>
+    <includedby refid="_widget_8h" local="yes">/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h</includedby>
+    <incdepgraph>
+      <node id="918">
+        <label>mimas/Action.h</label>
+        <link refid="_action_8h"/>
+        <childnode refid="915" relation="include">
+        </childnode>
+        <childnode refid="919" relation="include">
+        </childnode>
+        <childnode refid="920" relation="include">
+        </childnode>
+      </node>
+      <node id="916">
+        <label>lubyk.h</label>
+      </node>
+      <node id="915">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/mimas.h</label>
+        <link refid="mimas.h"/>
+        <childnode refid="916" relation="include">
+        </childnode>
+        <childnode refid="917" relation="include">
+        </childnode>
+        <childnode refid="918" relation="include">
+        </childnode>
+      </node>
+      <node id="917">
+        <label>QtGui/QWidget</label>
+      </node>
+      <node id="919">
+        <label>QtGui/QAction</label>
+      </node>
+      <node id="920">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="944">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Path.h</label>
+        <link refid="_path_8h"/>
+        <childnode refid="925" relation="include">
+        </childnode>
+      </node>
+      <node id="922">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Action.h</label>
+        <link refid="_action_8h"/>
+        <childnode refid="921" relation="include">
+        </childnode>
+      </node>
+      <node id="937">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/FileObserver.h</label>
+        <link refid="_file_observer_8h"/>
+      </node>
+      <node id="924">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Brush.h</label>
+        <link refid="_brush_8h"/>
+        <childnode refid="925" relation="include">
+        </childnode>
+      </node>
+      <node id="939">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Widget.h</label>
+        <link refid="_widget_8h"/>
+      </node>
+      <node id="930">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/MainWindow.h</label>
+        <link refid="_main_window_8h"/>
+      </node>
+      <node id="945">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/range_widget.h</label>
+        <link refid="range__widget_8h"/>
+        <childnode refid="946" relation="include">
+        </childnode>
+      </node>
+      <node id="943">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Label.h</label>
+        <link refid="_label_8h"/>
+      </node>
+      <node id="935">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/ListView.h</label>
+        <link refid="_list_view_8h"/>
+      </node>
+      <node id="946">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h</label>
+        <link refid="_slider_8h"/>
+      </node>
+      <node id="921">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/mimas.h</label>
+        <link refid="mimas.h"/>
+        <childnode refid="922" relation="include">
+        </childnode>
+        <childnode refid="923" relation="include">
+        </childnode>
+        <childnode refid="924" relation="include">
+        </childnode>
+        <childnode refid="926" relation="include">
+        </childnode>
+        <childnode refid="927" relation="include">
+        </childnode>
+        <childnode refid="928" relation="include">
+        </childnode>
+        <childnode refid="933" relation="include">
+        </childnode>
+        <childnode refid="934" relation="include">
+        </childnode>
+        <childnode refid="937" relation="include">
+        </childnode>
+        <childnode refid="940" relation="include">
+        </childnode>
+        <childnode refid="941" relation="include">
+        </childnode>
+        <childnode refid="942" relation="include">
+        </childnode>
+        <childnode refid="943" relation="include">
+        </childnode>
+        <childnode refid="938" relation="include">
+        </childnode>
+        <childnode refid="935" relation="include">
+        </childnode>
+        <childnode refid="930" relation="include">
+        </childnode>
+        <childnode refid="929" relation="include">
+        </childnode>
+        <childnode refid="931" relation="include">
+        </childnode>
+        <childnode refid="925" relation="include">
+        </childnode>
+        <childnode refid="944" relation="include">
+        </childnode>
+        <childnode refid="932" relation="include">
+        </childnode>
+        <childnode refid="945" relation="include">
+        </childnode>
+        <childnode refid="946" relation="include">
+        </childnode>
+        <childnode refid="947" relation="include">
+        </childnode>
+        <childnode refid="936" relation="include">
+        </childnode>
+        <childnode refid="948" relation="include">
+        </childnode>
+        <childnode refid="949" relation="include">
+        </childnode>
+        <childnode refid="939" relation="include">
+        </childnode>
+      </node>
+      <node id="933">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/constants.h</label>
+        <link refid="mimas_2include_2mimas_2constants_8h"/>
+        <childnode refid="926" relation="include">
+        </childnode>
+        <childnode refid="934" relation="include">
+        </childnode>
+        <childnode refid="937" relation="include">
+        </childnode>
+        <childnode refid="938" relation="include">
+        </childnode>
+        <childnode refid="935" relation="include">
+        </childnode>
+        <childnode refid="930" relation="include">
+        </childnode>
+        <childnode refid="936" relation="include">
+        </childnode>
+        <childnode refid="939" relation="include">
+        </childnode>
+      </node>
+      <node id="929">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Menu.h</label>
+        <link refid="_menu_8h"/>
+        <childnode refid="930" relation="include">
+        </childnode>
+        <childnode refid="931" relation="include">
+        </childnode>
+      </node>
+      <node id="949">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/VBoxLayout.h</label>
+        <link refid="_v_box_layout_8h"/>
+      </node>
+      <node id="948">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Timer.h</label>
+        <link refid="mimas_2include_2mimas_2timer_8h"/>
+      </node>
+      <node id="926">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Button.h</label>
+        <link refid="_button_8h"/>
+        <childnode refid="927" relation="include">
+        </childnode>
+      </node>
+      <node id="940">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/GLWidget.h</label>
+        <link refid="_g_l_widget_8h"/>
+      </node>
+      <node id="932">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Pen.h</label>
+        <link refid="_pen_8h"/>
+        <childnode refid="925" relation="include">
+        </childnode>
+      </node>
+      <node id="925">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Painter.h</label>
+        <link refid="_painter_8h"/>
+      </node>
+      <node id="931">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/MenuBar.h</label>
+        <link refid="_menu_bar_8h"/>
+        <childnode refid="930" relation="include">
+        </childnode>
+      </node>
+      <node id="923">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h</label>
+        <link refid="_application_8h"/>
+      </node>
+      <node id="936">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/TableView.h</label>
+        <link refid="_table_view_8h"/>
+      </node>
+      <node id="928">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Color.h</label>
+        <link refid="_color_8h"/>
+        <childnode refid="924" relation="include">
+        </childnode>
+        <childnode refid="929" relation="include">
+        </childnode>
+        <childnode refid="931" relation="include">
+        </childnode>
+        <childnode refid="925" relation="include">
+        </childnode>
+        <childnode refid="932" relation="include">
+        </childnode>
+      </node>
+      <node id="941">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/GroupBox.h</label>
+        <link refid="_group_box_8h"/>
+      </node>
+      <node id="938">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/LineEdit.h</label>
+        <link refid="_line_edit_8h"/>
+      </node>
+      <node id="934">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/DataSource.h</label>
+        <link refid="_data_source_8h"/>
+        <childnode refid="935" relation="include">
+        </childnode>
+        <childnode refid="936" relation="include">
+        </childnode>
+      </node>
+      <node id="942">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/HBoxLayout.h</label>
+        <link refid="_h_box_layout_8h"/>
+      </node>
+      <node id="947">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/SocketNotifier.h</label>
+        <link refid="_socket_notifier_8h"/>
+      </node>
+      <node id="927">
+        <label>/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Callback.h</label>
+        <link refid="_callback_8h"/>
+        <childnode refid="923" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacemimas">mimas</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="mimas_8h_1abf7761995db91711f1c2001b3ea81ae7" prot="public" static="no">
+        <name>MIMAS_DEBUG_CC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/mimas.h" line="37" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/mimas.h" bodystart="37" bodyend="-1"/>
+        <referencedby refid="classmimas_1_1_action_1a6743e5deb3aaef6c5559a635fe4a9e6c" compoundref="_action_8h" startline="49" endline="54">mimas::Action::Action</referencedby>
+        <referencedby refid="classmimas_1_1_button_1a9ec5cf48230a3d3740ba24dfdb181f90" compoundref="_button_8h" startline="57" endline="60">mimas::Button::Button</referencedby>
+        <referencedby refid="classmimas_1_1_callback_1a198fdaf9f804e90a5c6bae8856f0856f" compoundref="_callback_8h" startline="59" endline="61">mimas::Callback::Callback</referencedby>
+        <referencedby refid="classmimas_1_1_data_source_1a4241c45df96c7caa664a25bb6f4c3ecc" compoundref="_data_source_8h" startline="57" endline="59">mimas::DataSource::DataSource</referencedby>
+        <referencedby refid="classmimas_1_1_file_observer_1a8ff766637e2e2d2bf7f93d4bf99a75a6" compoundref="_file_observer_8h" startline="55" endline="62">mimas::FileObserver::FileObserver</referencedby>
+        <referencedby refid="classmimas_1_1_g_l_widget_1add31695d816a01301d5de3af4252be30" compoundref="_g_l_widget_8h" startline="81" endline="93">mimas::GLWidget::GLWidget</referencedby>
+        <referencedby refid="classmimas_1_1_group_box_1a374b5622a33cc370d45c04e0d065a374" compoundref="_group_box_8h" startline="53" endline="56">mimas::GroupBox::GroupBox</referencedby>
+        <referencedby refid="classmimas_1_1_h_box_layout_1a8843a8b3a2726127f384962237d30403" compoundref="_h_box_layout_8h" startline="52" endline="55">mimas::HBoxLayout::HBoxLayout</referencedby>
+        <referencedby refid="classmimas_1_1_label_1ab7e627990d1bcc2e3b597ecc0ffd7b0a" compoundref="_label_8h" startline="48" endline="52">mimas::Label::Label</referencedby>
+        <referencedby refid="classmimas_1_1_line_edit_1a55cde9f6d8c76a297d8a64507c1f6fb6" compoundref="_line_edit_8h" startline="56" endline="64">mimas::LineEdit::LineEdit</referencedby>
+        <referencedby refid="classmimas_1_1_list_view_1ae5d3977339bdc349a3192f217047b05d" compoundref="_list_view_8h" startline="61" endline="70">mimas::ListView::ListView</referencedby>
+        <referencedby refid="classmimas_1_1_main_window_1a49422ab3126bc948f640219264a789ad" compoundref="_main_window_8h" startline="60" endline="63">mimas::MainWindow::MainWindow</referencedby>
+        <referencedby refid="classmimas_1_1_menu_1a417158da6fd52ffc45369b2274f9e823" compoundref="_menu_8h" startline="52" endline="55">mimas::Menu::Menu</referencedby>
+        <referencedby refid="classmimas_1_1_menu_bar_1a91b57d4f4c5faed9a0df621edfa6b60f" compoundref="_menu_bar_8h" startline="50" endline="53">mimas::MenuBar::MenuBar</referencedby>
+        <referencedby refid="classmimas_1_1_slider_1a20a952728c2b8e40381067237114b57b" compoundref="_slider_8h" startline="66" endline="75">mimas::Slider::Slider</referencedby>
+        <referencedby refid="classmimas_1_1_socket_notifier_1a59d9e9b7afd688b095fc04fdb16542e1" compoundref="_socket_notifier_8h" startline="55" endline="62">mimas::SocketNotifier::SocketNotifier</referencedby>
+        <referencedby refid="classmimas_1_1_table_view_1a98e55b0854971bbd5be043cbda0850ba" compoundref="_table_view_8h" startline="60" endline="65">mimas::TableView::TableView</referencedby>
+        <referencedby refid="classmimas_1_1_timer_1a5dc811db4e3f991e2eac2baae6570140" compoundref="mimas_2include_2mimas_2timer_8h" startline="51" endline="60">mimas::Timer::Timer</referencedby>
+        <referencedby refid="classmimas_1_1_v_box_layout_1aa23bd70bf52b81905002554788120ad3" compoundref="_v_box_layout_8h" startline="51" endline="54">mimas::VBoxLayout::VBoxLayout</referencedby>
+        <referencedby refid="classmimas_1_1_widget_1a306ec4c871d4b967a41fba359d2a5177" compoundref="_widget_8h" startline="59" endline="63">mimas::Widget::Widget</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="mimas_8h_1a9d2f1addda3f00a2c1d2e3e2b6e4b5b5" prot="public" static="no">
+        <name>MIMAS_DEBUG_GC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/mimas.h" line="38" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/mimas.h" bodystart="38" bodyend="-1"/>
+        <referencedby refid="classmimas_1_1_action_1afa6f085865c4444ae026c044dcc836b8" compoundref="_action_8h" startline="69" endline="71">mimas::Action::~Action</referencedby>
+        <referencedby refid="classmimas_1_1_application_1ab292d59001734ca8c691620b1e09d8db" compoundref="_application_8h" startline="90" endline="92">mimas::Application::~Application</referencedby>
+        <referencedby refid="classmimas_1_1_button_1ae7e23c8b80f83c52b6b6089db46fe055" compoundref="_button_8h" startline="62" endline="64">mimas::Button::~Button</referencedby>
+        <referencedby refid="classmimas_1_1_callback_1a338b9a2ee17e6f0ac1b953a98ca1ac2c" compoundref="_callback_8h" startline="63" endline="65">mimas::Callback::~Callback</referencedby>
+        <referencedby refid="classmimas_1_1_data_source_1a77c1cdecae6c3584d69766a381220d99" compoundref="_data_source_8h" startline="61" endline="63">mimas::DataSource::~DataSource</referencedby>
+        <referencedby refid="classmimas_1_1_file_observer_1a4b60e6e23f9f007d94d85059a8a45877" compoundref="_file_observer_8h" startline="64" endline="66">mimas::FileObserver::~FileObserver</referencedby>
+        <referencedby refid="classmimas_1_1_g_l_widget_1ae335001f79ae3fd293949ac34b794cf4" compoundref="_g_l_widget_8h" startline="95" endline="97">mimas::GLWidget::~GLWidget</referencedby>
+        <referencedby refid="classmimas_1_1_group_box_1a77e074cda60e61cf2eddbc73013d7c90" compoundref="_group_box_8h" startline="58" endline="60">mimas::GroupBox::~GroupBox</referencedby>
+        <referencedby refid="classmimas_1_1_h_box_layout_1a999eac0f169e3970f4fc4bb96b4d87cf" compoundref="_h_box_layout_8h" startline="57" endline="59">mimas::HBoxLayout::~HBoxLayout</referencedby>
+        <referencedby refid="classmimas_1_1_label_1ad5ecacb3f019373c97be547f3ec14860" compoundref="_label_8h" startline="60" endline="62">mimas::Label::~Label</referencedby>
+        <referencedby refid="classmimas_1_1_line_edit_1a17b85f2a892baa3b5862c30a4c2ba396" compoundref="_line_edit_8h" startline="66" endline="68">mimas::LineEdit::~LineEdit</referencedby>
+        <referencedby refid="classmimas_1_1_list_view_1a2621d40ab3d07157f90aa94c6d5b5c30" compoundref="_list_view_8h" startline="72" endline="74">mimas::ListView::~ListView</referencedby>
+        <referencedby refid="classmimas_1_1_main_window_1ac8deb73409e1310861a0e6bb3f4a345a" compoundref="_main_window_8h" startline="65" endline="67">mimas::MainWindow::~MainWindow</referencedby>
+        <referencedby refid="classmimas_1_1_menu_1aeaca20ca43aa30bd21a2293f2aec4582" compoundref="_menu_8h" startline="57" endline="59">mimas::Menu::~Menu</referencedby>
+        <referencedby refid="classmimas_1_1_menu_bar_1a8513cf1d51653af95325f5b099fe1806" compoundref="_menu_bar_8h" startline="55" endline="57">mimas::MenuBar::~MenuBar</referencedby>
+        <referencedby refid="classmimas_1_1_slider_1ab4241538dc854ca14c6fa5d028781977" compoundref="_slider_8h" startline="77" endline="79">mimas::Slider::~Slider</referencedby>
+        <referencedby refid="classmimas_1_1_socket_notifier_1ac92c7e7d438348ab923dcf517539bf92" compoundref="_socket_notifier_8h" startline="64" endline="67">mimas::SocketNotifier::~SocketNotifier</referencedby>
+        <referencedby refid="classmimas_1_1_table_view_1a46d604846bcbcaeb8e2d422465b3fa86" compoundref="_table_view_8h" startline="67" endline="69">mimas::TableView::~TableView</referencedby>
+        <referencedby refid="classmimas_1_1_timer_1aabaad8e3c4b82819e2ff36aef0650137" compoundref="mimas_2include_2mimas_2timer_8h" startline="62" endline="65">mimas::Timer::~Timer</referencedby>
+        <referencedby refid="classmimas_1_1_v_box_layout_1a2e59ff67dd74db5a8c6c8214a93ba6f1" compoundref="_v_box_layout_8h" startline="56" endline="58">mimas::VBoxLayout::~VBoxLayout</referencedby>
+        <referencedby refid="classmimas_1_1_widget_1ada6d2efbb3adb09b8e14e016a2896963" compoundref="_widget_8h" startline="65" endline="67">mimas::Widget::~Widget</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="mimas_8h_1a367e7f458808d993f646caf0be80a7a2" prot="public" static="no">
+        <name>MIMAS_DEBUG_GX</name>
+        <param><defname>name</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/mimas.h" line="39" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/mimas.h" bodystart="39" bodyend="-1"/>
+        <referencedby refid="classmimas_1_1_brush_1ad318dc881c431884e9d1457805f6ed23" compoundref="_brush_8h" startline="46" endline="48">mimas::Brush::Brush</referencedby>
+        <referencedby refid="classmimas_1_1_color_1a170ab223d40c1e5b2fd2bce51e91d931" compoundref="_color_8h" startline="45" endline="47">mimas::Color::Color</referencedby>
+        <referencedby refid="classmimas_1_1_painter_1a4f4ce61d59f55345f35096583ed0c2ad" compoundref="_painter_8h" startline="52" endline="56">mimas::Painter::Painter</referencedby>
+        <referencedby refid="classmimas_1_1_path_1a9fe9263287f8372021ec5ca29c61cd8d" compoundref="_path_8h" startline="49" endline="53">mimas::Path::Path</referencedby>
+        <referencedby refid="classmimas_1_1_pen_1a85a655e36b18c04fd12e8c0a931ae532" compoundref="_pen_8h" startline="46" endline="48">mimas::Pen::Pen</referencedby>
+        <referencedby refid="classmimas_1_1_brush_1a50400c38a8ca39ec1496946446949f8d" compoundref="_brush_8h" startline="58" endline="60">mimas::Brush::~Brush</referencedby>
+        <referencedby refid="classmimas_1_1_color_1ab9e2301aa09688f3cb4042d4b3532c53" compoundref="_color_8h" startline="57" endline="59">mimas::Color::~Color</referencedby>
+        <referencedby refid="classmimas_1_1_painter_1a1ace750a85a3ee54eab19ca29ee4c31b" compoundref="_painter_8h" startline="58" endline="60">mimas::Painter::~Painter</referencedby>
+        <referencedby refid="classmimas_1_1_path_1a23acbb48de1bb5b8bd7aa327704918da" compoundref="_path_8h" startline="55" endline="60">mimas::Path::~Path</referencedby>
+        <referencedby refid="classmimas_1_1_pen_1afefc7bcbf00606547d0fb4bdabfec987" compoundref="_pen_8h" startline="60" endline="62">mimas::Pen::~Pen</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>==============================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>LUBYK<sp/>project<sp/>(http://lubyk.org)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/>Copyright<sp/>(c)<sp/>2007-2011<sp/>by<sp/>Gaspard<sp/>Bucher<sp/>(http://teti.ch).</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"></highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/>------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"></highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/>of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/>in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/><sp/><sp/>to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/><sp/><sp/>copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/><sp/><sp/>furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/><sp/><sp/>all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/><sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/><sp/><sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/><sp/><sp/>AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/><sp/><sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/><sp/><sp/>OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/>THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"></highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/>==============================================================================</highlight></codeline>
+<codeline lineno="28"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>LUBYK_INCLUDE_MIMAS_MIMAS_H_</highlight></codeline>
+<codeline lineno="30"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>LUBYK_INCLUDE_MIMAS_MIMAS_H_</highlight></codeline>
+<codeline lineno="31"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="33"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MIMAS_DEBUG_CC<sp/>printf(&quot;[%p]<sp/>%s\n&quot;,<sp/>this,<sp/>this-&gt;metaObject()-&gt;className());</highlight></codeline>
+<codeline lineno="34"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MIMAS_DEBUG_GC<sp/>printf(&quot;[%p]<sp/>~%s\n&quot;,<sp/>this,<sp/>this-&gt;metaObject()-&gt;className());</highlight></codeline>
+<codeline lineno="35"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MIMAS_DEBUG_GX(name)<sp/>printf(&quot;[%p]<sp/>%s\n&quot;,<sp/>this,<sp/>name);</highlight></codeline>
+<codeline lineno="36"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#else</highlight></codeline>
+<codeline lineno="37" refid="mimas_8h_1abf7761995db91711f1c2001b3ea81ae7" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MIMAS_DEBUG_CC</highlight></codeline>
+<codeline lineno="38" refid="mimas_8h_1a9d2f1addda3f00a2c1d2e3e2b6e4b5b5" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MIMAS_DEBUG_GC</highlight></codeline>
+<codeline lineno="39" refid="mimas_8h_1a367e7f458808d993f646caf0be80a7a2" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MIMAS_DEBUG_GX(name)</highlight></codeline>
+<codeline lineno="40"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="41"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lubyk.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">lubyk;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtGui/QWidget&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//<sp/>All<sp/>descendants<sp/>from<sp/>QWidget<sp/>can<sp/>have<sp/>actions<sp/>attached</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_action_8h" kindref="compound">mimas/Action.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mimas<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacemimas_1a7d2641d1d32f342736e279c66d78181a" kindref="member">setHue</ref>(QPalette<sp/>&amp;palette,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>hue);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">QVariant<sp/><ref refid="namespacemimas_1a645a656c9e3b876d7962fd33562b0cf3" kindref="member">variantFromLua</ref>(lua_State<sp/>*L,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="cxcore_8h_1a750b5d744c39a06bfb13e6eb010e35d0" kindref="member">index</ref>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>mimas</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>LUBYK_INCLUDE_MIMAS_MIMAS_H_</highlight></codeline>
+    </programlisting>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/mimas.h"/>
+  </compounddef>
+</doxygen>

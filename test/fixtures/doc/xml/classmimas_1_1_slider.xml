@@ -1,0 +1,790 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmimas_1_1_slider" kind="class" prot="public">
+    <compoundname>mimas::Slider</compoundname>
+    <basecompoundref refid="classmimas_1_1_q_widget" prot="public" virt="non-virtual">mimas::QWidget</basecompoundref>
+    <basecompoundref refid="classlubyk_1_1_threaded_lua_object" prot="public" virt="non-virtual">lubyk::ThreadedLuaObject</basecompoundref>
+    <includes refid="_slider_8h" local="no">Slider.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classmimas_1_1_slider_1add927d6af20a92e22f4cb2badb20e384" prot="public" static="no">
+        <name>Defaults</name>
+        <enumvalue id="classmimas_1_1_slider_1add927d6af20a92e22f4cb2badb20e384af4f9a8a41f2e0a56a8e16e6689aebb02" prot="public">
+          <name>DefaultWidth</name>
+          <initializer> 30</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmimas_1_1_slider_1add927d6af20a92e22f4cb2badb20e384a126d4d5b79df613bde68f6d0c7cf518e" prot="public">
+          <name>DefaultHeight</name>
+          <initializer> 150</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="56" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="enum" id="classmimas_1_1_slider_1a690c828a7300c6acb447ecb23054f7b8" prot="public" static="no">
+        <name>SliderType</name>
+        <enumvalue id="classmimas_1_1_slider_1a690c828a7300c6acb447ecb23054f7b8a4d8f337aee96cbb3d769e37fb04dd6a5" prot="public">
+          <name>HorizontalSliderType</name>
+          <initializer> 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmimas_1_1_slider_1a690c828a7300c6acb447ecb23054f7b8a7167a1eb6108ff6d6a33f6e2e0ba8210" prot="public">
+          <name>VerticalSliderType</name>
+          <initializer> 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="61" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="61" bodyend="64"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="classmimas_1_1_slider_1a0642ba38e569750adf7b6b239759261a" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+        <type>QString</type>
+        <definition>QString mimas::Slider::class</definition>
+        <argsstring></argsstring>
+        <name>class</name>
+        <read>cssClass</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="51" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classmimas_1_1_slider_1a23ad55d229dd8f4aa1cddb76b8cae24a" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+        <type>float</type>
+        <definition>float mimas::Slider::hue</definition>
+        <argsstring></argsstring>
+        <name>hue</name>
+        <read>hue</read>
+        <write>setHue</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="52" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classmimas_1_1_slider_1a012d474b42f21b86823e5896e0044c5e" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+        <type>int</type>
+        <definition>int mimas::Slider::border</definition>
+        <argsstring></argsstring>
+        <name>border</name>
+        <read>borderWidth</read>
+        <write>setBorderWidth</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="53" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmimas_1_1_slider_1a6e2de355d08b2098d5c6a58be4567378" prot="private" static="no" mutable="no">
+        <type><ref refid="classmimas_1_1_slider_1a690c828a7300c6acb447ecb23054f7b8" kindref="member">SliderType</ref></type>
+        <definition>SliderType mimas::Slider::slider_type_</definition>
+        <argsstring></argsstring>
+        <name>slider_type_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="215" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmimas_1_1_slider_1a7d2e6813bcd99e777d46cdeab359cec0" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float mimas::Slider::hue_</definition>
+        <argsstring></argsstring>
+        <name>hue_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="216" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="216" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmimas_1_1_slider_1a665697af6848900a6fc3b30a48e4c9b2" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mimas::Slider::border_width_</definition>
+        <argsstring></argsstring>
+        <name>border_width_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="217" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmimas_1_1_slider_1a731e4950b4717e56e41c28b5b5696197" prot="private" static="no" mutable="no">
+        <type><ref refid="classmimas_1_1_range_widget" kindref="compound">RangeWidget</ref></type>
+        <definition>RangeWidget mimas::Slider::range_</definition>
+        <argsstring></argsstring>
+        <name>range_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="218" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmimas_1_1_slider_1a20a952728c2b8e40381067237114b57b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Slider::Slider</definition>
+        <argsstring>(int type=(int) VerticalSliderType, QWidget *parent=0)</argsstring>
+        <name>Slider</name>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+          <defval>(int) VerticalSliderType</defval>
+        </param>
+        <param>
+          <type><ref refid="classmimas_1_1_q_widget" kindref="compound">QWidget</ref> *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="70" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="66" bodyend="75"/>
+        <references refid="mimas_8h_1abf7761995db91711f1c2001b3ea81ae7" compoundref="mimas_8h" startline="37">MIMAS_DEBUG_CC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1ab4241538dc854ca14c6fa5d028781977" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual mimas::Slider::~Slider</definition>
+        <argsstring>()</argsstring>
+        <name>~Slider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="77" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="77" bodyend="79"/>
+        <references refid="mimas_8h_1a9d2f1addda3f00a2c1d2e3e2b6e4b5b5" compoundref="mimas_8h" startline="38">MIMAS_DEBUG_GC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1a51b14b2cb1f75785048683448b88cea9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Slider::luaDestroy</definition>
+        <argsstring>()</argsstring>
+        <name>luaDestroy</name>
+        <reimplements refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a">luaDestroy</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="82" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="82" bodyend="89"/>
+        <references refid="cxcore_8h_1a5f450b216725a37cbc0acd54340144d9" compoundref="cxcore_8h" startline="1479">parent</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1ad354de8264dec128eaa04d8a5f07784b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString mimas::Slider::cssClass</definition>
+        <argsstring>() const </argsstring>
+        <name>cssClass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="93" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="93" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1a59c320d2af884c417555d4a8a90a2c24" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmimas_1_1_q_widget" kindref="compound">QWidget</ref> *</type>
+        <definition>QWidget* mimas::Slider::widget</definition>
+        <argsstring>()</argsstring>
+        <name>widget</name>
+        <reimplements refid="classmimas_1_1_q_widget_1a42d138391b7ae0ce0157f3657a5449aa">widget</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="97" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="97" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1a94770c9e310faf073959080d9719f70c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmimas_1_1_q_object" kindref="compound">QObject</ref> *</type>
+        <definition>QObject* mimas::Slider::object</definition>
+        <argsstring>()</argsstring>
+        <name>object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="101" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="101" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1a14079aacba4245fc6718d8fdb17f223c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize mimas::Slider::name</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>name</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the widget&apos;s name. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="107" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="107" bodyend="110"/>
+        <references refid="cv_8h_1acd1647952fba31484ea63d6f1140e509" compoundref="cv_8h" startline="841">data</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1ac38472ce10cb065566b7192a252efb3b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Slider::setName</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>setName</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the widget&apos;s name. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="114" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="114" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1a2e557ead732c1f7c18d43b34372372ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Slider::move</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>move</name>
+        <reimplements refid="classmimas_1_1_q_widget_1ab5e51803a824ad15b61372e324272b93">move</reimplements>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="118" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="118" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1a10acca9927105dbed69f855b5202fb42" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Slider::resize</definition>
+        <argsstring>(int w, int h)</argsstring>
+        <name>resize</name>
+        <reimplements refid="classmimas_1_1_q_widget_1afe94af75a541c01ba3f59fcaf872156f">resize</reimplements>
+        <param>
+          <type>int</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="122" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="122" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1a4e6c89cd02787526eb24d37a775e70e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::Slider::x</definition>
+        <argsstring>()</argsstring>
+        <name>x</name>
+        <reimplements refid="classmimas_1_1_q_widget_1ad845a35637d42f405c33367ef7bf2ed9">x</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="126" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="126" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1a14b66edb4c3a9ba05a30d58e0d0dfba6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::Slider::y</definition>
+        <argsstring>()</argsstring>
+        <name>y</name>
+        <reimplements refid="classmimas_1_1_q_widget_1a07d98551b42a971c118c6dc3899950b3">y</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="130" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="130" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1af79f33e0b4b7751ed8f32584cb52f89f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::Slider::width</definition>
+        <argsstring>()</argsstring>
+        <name>width</name>
+        <reimplements refid="classmimas_1_1_q_widget_1a5d0dc8f782b597611a1245c5afb97007">width</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="134" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="134" bodyend="136"/>
+        <references refid="highgui_8h_1a2474a5474cbff19523a51eb1de01cda4" compoundref="highgui_8h" startline="131">width</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1a0ed7591324bd9c2199fb3e2f34e24b6e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::Slider::height</definition>
+        <argsstring>()</argsstring>
+        <name>height</name>
+        <reimplements refid="classmimas_1_1_q_widget_1a5c700ca1fa9c71a523e3805ce476f696">height</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="138" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="138" bodyend="140"/>
+        <references refid="highgui_8h_1adc7b4b8a6ef510e136071efbc9cd9a58" compoundref="highgui_8h" startline="131">height</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1a8efd3cb8fcb452a599182dfd4e9be146" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Slider::setStyle</definition>
+        <argsstring>(const char *text)</argsstring>
+        <name>setStyle</name>
+        <reimplements refid="classmimas_1_1_q_widget_1a40d48fe5fa33117cc17b76154b7cb1b0">setStyle</reimplements>
+        <param>
+          <type>const char *</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="142" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="142" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1aeabbee6a2f4e5f43cf642f53e95dc6db" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Slider::setStyleSheet</definition>
+        <argsstring>(const char *text)</argsstring>
+        <name>setStyleSheet</name>
+        <reimplements refid="classmimas_1_1_q_widget_1a90b909331eb2a15fee67cb3735c9606e">setStyleSheet</reimplements>
+        <param>
+          <type>const char *</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="146" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="146" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1ae7faadb9a083768bc552ab23e94fe10c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Slider::setHue</definition>
+        <argsstring>(float hue)</argsstring>
+        <name>setHue</name>
+        <param>
+          <type>float</type>
+          <declname>hue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="150" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="150" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1a3fb0ec2c1b9578bb3d1ef971a2f0215b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float mimas::Slider::hue</definition>
+        <argsstring>()</argsstring>
+        <name>hue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="155" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="155" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1a680db90805e4818a64d47a3745b560a7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QSize</type>
+        <definition>virtual QSize mimas::Slider::sizeHint</definition>
+        <argsstring>() const </argsstring>
+        <name>sizeHint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="160" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="160" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1aef65fd6415e60224484f2a2a6353227f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Slider::setBorderWidth</definition>
+        <argsstring>(int width)</argsstring>
+        <name>setBorderWidth</name>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="168" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="168" bodyend="170"/>
+        <references refid="highgui_8h_1a2474a5474cbff19523a51eb1de01cda4" compoundref="highgui_8h" startline="131">width</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1a3d5017a51264c187eb1fbbec959adbac" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::Slider::borderWidth</definition>
+        <argsstring>() const </argsstring>
+        <name>borderWidth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="172" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="172" bodyend="174"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classmimas_1_1_slider_1af5af0fbf4c4debe75e8a6b81c7d53ecd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Slider::setValue</definition>
+        <argsstring>(double remote_value)</argsstring>
+        <name>setValue</name>
+        <param>
+          <type>double</type>
+          <declname>remote_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update slider when remote changes. This is called by zmq when it receives a value change notification. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="180" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="180" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="slot" id="classmimas_1_1_slider_1a87abc69f61015112e57c356591d7167b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Slider::sliderChangedSlot</definition>
+        <argsstring>(double value)</argsstring>
+        <name>sliderChangedSlot</name>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Lua method to trigger on value changed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="189" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="189" bodyend="200"/>
+        <references refid="lua__object_8h_1a1095d349e93aa25cf9ddf8d07cbb6eea" compoundref="lua__object_8h" startline="34">pushLuaCallback</references>
+        <references refid="cv_8h_1ae17b3c2584dab511e91d1c96644018bf" compoundref="cv_8h" startline="516">status</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="classmimas_1_1_slider_1a6202ad655718417ec52af59c4d0011eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Slider::sliderChanged</definition>
+        <argsstring>(double)</argsstring>
+        <name>sliderChanged</name>
+        <param>
+          <type>double</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emit when the user drags and changes the value. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="206"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmimas_1_1_slider_1a9ff66c24a5ad59766f048b2365381ee4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Slider::mousePressEvent</definition>
+        <argsstring>(QMouseEvent *event)</argsstring>
+        <name>mousePressEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1a383568a538e252776517b54454494442" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Slider::mouseMoveEvent</definition>
+        <argsstring>(QMouseEvent *event)</argsstring>
+        <name>mouseMoveEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1a1dd62182b394548fc6726d0173258b14" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Slider::mouseReleaseEvent</definition>
+        <argsstring>(QMouseEvent *event)</argsstring>
+        <name>mouseReleaseEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_slider_1a93174e54ea6ddaae1fb8763fde02b8c7" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Slider::paintEvent</definition>
+        <argsstring>(QPaintEvent *event)</argsstring>
+        <name>paintEvent</name>
+        <param>
+          <type>QPaintEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="212"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classmimas_1_1_slider" kindref="compound">Slider</ref> (async slider).</para><para><simplesect kind="par"><title>Bindings info:</title><para>lib_name:&apos;Slider_core&apos; destructor: &apos;luaDestroy&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2408">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="2407">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2408" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2406">
+        <label>mimas::QWidget</label>
+        <link refid="classmimas_1_1_q_widget"/>
+      </node>
+      <node id="2405">
+        <label>mimas::Slider</label>
+        <link refid="classmimas_1_1_slider"/>
+        <childnode refid="2406" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2407" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2413">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="2414" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2415">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="2416">
+        <label>mimas::RangeWidget</label>
+        <link refid="classmimas_1_1_range_widget"/>
+      </node>
+      <node id="2412">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="2413" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2411">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="2412" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2414">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="2415" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="2410">
+        <label>mimas::QWidget</label>
+        <link refid="classmimas_1_1_q_widget"/>
+      </node>
+      <node id="2409">
+        <label>mimas::Slider</label>
+        <link refid="classmimas_1_1_slider"/>
+        <childnode refid="2410" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2411" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2416" relation="usage">
+          <edgelabel>range_</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" line="49" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Slider.h" bodystart="49" bodyend="219"/>
+    <listofallmembers>
+      <member refid="classmimas_1_1_q_widget_1a2c16b0aa59b73765654d2237089c2a35" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>activateWindow</name></member>
+      <member refid="classmimas_1_1_q_widget_1a5eb714472ab84bd1d914d581d2c6b7e1" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>addAction</name></member>
+      <member refid="classmimas_1_1_q_widget_1ad7b621aae4b372e0233c6bd1a14704f7" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>addWidget</name></member>
+      <member refid="classmimas_1_1_slider_1a012d474b42f21b86823e5896e0044c5e" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>border</name></member>
+      <member refid="classmimas_1_1_slider_1a665697af6848900a6fc3b30a48e4c9b2" prot="private" virt="non-virtual"><scope>mimas::Slider</scope><name>border_width_</name></member>
+      <member refid="classmimas_1_1_slider_1a3d5017a51264c187eb1fbbec959adbac" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>borderWidth</name></member>
+      <member refid="classmimas_1_1_slider_1a0642ba38e569750adf7b6b239759261a" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>class</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>mimas::Slider</scope><name>class_name_</name></member>
+      <member refid="classmimas_1_1_q_widget_1a12abba582c7816ae2dde59e78b4ac6c6" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>close</name></member>
+      <member refid="classmimas_1_1_slider_1ad354de8264dec128eaa04d8a5f07784b" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>cssClass</name></member>
+      <member refid="classmimas_1_1_slider_1add927d6af20a92e22f4cb2badb20e384a126d4d5b79df613bde68f6d0c7cf518e" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>DefaultHeight</name></member>
+      <member refid="classmimas_1_1_slider_1add927d6af20a92e22f4cb2badb20e384" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>Defaults</name></member>
+      <member refid="classmimas_1_1_slider_1add927d6af20a92e22f4cb2badb20e384af4f9a8a41f2e0a56a8e16e6689aebb02" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>DefaultWidth</name></member>
+      <member refid="classmimas_1_1_q_widget_1af7a068c51800c3a7ae324c9389a63e42" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>globalMove</name></member>
+      <member refid="classmimas_1_1_q_widget_1a456b3504fad72ef80acbfab384a9a537" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>globalPosition</name></member>
+      <member refid="classmimas_1_1_slider_1a0ed7591324bd9c2199fb3e2f34e24b6e" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>height</name></member>
+      <member refid="classmimas_1_1_q_widget_1aca021adaeab492012a55a89957f86c73" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>hide</name></member>
+      <member refid="classmimas_1_1_slider_1a690c828a7300c6acb447ecb23054f7b8a4d8f337aee96cbb3d769e37fb04dd6a5" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>HorizontalSliderType</name></member>
+      <member refid="classmimas_1_1_slider_1a23ad55d229dd8f4aa1cddb76b8cae24a" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>hue</name></member>
+      <member refid="classmimas_1_1_slider_1a3fb0ec2c1b9578bb3d1ef971a2f0215b" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>hue</name></member>
+      <member refid="classmimas_1_1_slider_1a7d2e6813bcd99e777d46cdeab359cec0" prot="private" virt="non-virtual"><scope>mimas::Slider</scope><name>hue_</name></member>
+      <member refid="classmimas_1_1_q_widget_1ab3d4c7aeae7fda2e289998a19bb87de2" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>isFullScreen</name></member>
+      <member refid="classmimas_1_1_q_widget_1adffb55ee69ac12c23140615127904b25" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>isVisible</name></member>
+      <member refid="classmimas_1_1_q_widget_1ad905316c5da0b19d8e4207e18f33787a" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>lower</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>lua_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>mimas::Slider</scope><name>luaCleanup</name></member>
+      <member refid="classmimas_1_1_slider_1a51b14b2cb1f75785048683448b88cea9" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>luaDestroy</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a1351dd8c5053c7df8e0a29b2887ddb8e" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>LuaObject</name></member>
+      <member refid="classmimas_1_1_slider_1a383568a538e252776517b54454494442" prot="protected" virt="virtual"><scope>mimas::Slider</scope><name>mouseMoveEvent</name></member>
+      <member refid="classmimas_1_1_slider_1a9ff66c24a5ad59766f048b2365381ee4" prot="protected" virt="virtual"><scope>mimas::Slider</scope><name>mousePressEvent</name></member>
+      <member refid="classmimas_1_1_slider_1a1dd62182b394548fc6726d0173258b14" prot="protected" virt="virtual"><scope>mimas::Slider</scope><name>mouseReleaseEvent</name></member>
+      <member refid="classmimas_1_1_slider_1a2e557ead732c1f7c18d43b34372372ef" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>move</name></member>
+      <member refid="classmimas_1_1_slider_1a14079aacba4245fc6718d8fdb17f223c" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>name</name></member>
+      <member refid="classmimas_1_1_slider_1a94770c9e310faf073959080d9719f70c" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>object</name></member>
+      <member refid="classmimas_1_1_slider_1a93174e54ea6ddaae1fb8763fde02b8c7" prot="protected" virt="virtual"><scope>mimas::Slider</scope><name>paintEvent</name></member>
+      <member refid="classmimas_1_1_q_widget_1acf3ea1c9deaa9e46307d5aaf2d72610e" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>position</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1af9f7e3d5717357958461b2634742475f" prot="protected" virt="non-virtual"><scope>mimas::Slider</scope><name>pushLuaCallbackl</name></member>
+      <member refid="classmimas_1_1_q_widget_1a4b1a5316df83360cf96448fa62aa9128" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>raise</name></member>
+      <member refid="classmimas_1_1_slider_1a731e4950b4717e56e41c28b5b5696197" prot="private" virt="non-virtual"><scope>mimas::Slider</scope><name>range_</name></member>
+      <member refid="classmimas_1_1_slider_1a10acca9927105dbed69f855b5202fb42" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>resize</name></member>
+      <member refid="classmimas_1_1_slider_1aef65fd6415e60224484f2a2a6353227f" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>setBorderWidth</name></member>
+      <member refid="classmimas_1_1_slider_1ae7faadb9a083768bc552ab23e94fe10c" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>setHue</name></member>
+      <member refid="classmimas_1_1_q_widget_1a8e3bc761b7a886be737db2997af47189" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>setMinimumSize</name></member>
+      <member refid="classmimas_1_1_q_widget_1acd34e1e7980ff068609166ad7d641ed2" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>setMouseTracking</name></member>
+      <member refid="classmimas_1_1_slider_1ac38472ce10cb065566b7192a252efb3b" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>setName</name></member>
+      <member refid="classmimas_1_1_q_widget_1a31869420ca8548d53dfa68d740420fc5" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>setParent</name></member>
+      <member refid="classmimas_1_1_q_widget_1a3953e60f2bfc706c2b2895417b0378e1" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>setSizeHint</name></member>
+      <member refid="classmimas_1_1_q_widget_1aa96e32e9bbeea9f55522e6d8e476c9a5" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>setSizePolicy</name></member>
+      <member refid="classmimas_1_1_slider_1a8efd3cb8fcb452a599182dfd4e9be146" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>setStyle</name></member>
+      <member refid="classmimas_1_1_slider_1aeabbee6a2f4e5f43cf642f53e95dc6db" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>setStyleSheet</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1ad533909af126d2aa2b058dea6b0d91f0" prot="protected" virt="non-virtual"><scope>mimas::Slider</scope><name>setupLuaThread</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>mimas::Slider</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>mimas::Slider</scope><name>setupSuper</name></member>
+      <member refid="classmimas_1_1_slider_1af5af0fbf4c4debe75e8a6b81c7d53ecd" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>setValue</name></member>
+      <member refid="classmimas_1_1_q_widget_1a25554ad818cb2756fc3874a2b3eb0ee8" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>show</name></member>
+      <member refid="classmimas_1_1_q_widget_1a3a36d9de33e38c7635e12793fabd5367" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>showFullScreen</name></member>
+      <member refid="classmimas_1_1_q_widget_1a482dfbb8005f78f12ea4ef436c327b49" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>size</name></member>
+      <member refid="classmimas_1_1_slider_1a680db90805e4818a64d47a3745b560a7" prot="public" virt="virtual"><scope>mimas::Slider</scope><name>sizeHint</name></member>
+      <member refid="classmimas_1_1_slider_1a20a952728c2b8e40381067237114b57b" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>Slider</name></member>
+      <member refid="classmimas_1_1_slider_1a6e2de355d08b2098d5c6a58be4567378" prot="private" virt="non-virtual"><scope>mimas::Slider</scope><name>slider_type_</name></member>
+      <member refid="classmimas_1_1_slider_1a6202ad655718417ec52af59c4d0011eb" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>sliderChanged</name></member>
+      <member refid="classmimas_1_1_slider_1a87abc69f61015112e57c356591d7167b" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>sliderChangedSlot</name></member>
+      <member refid="classmimas_1_1_slider_1a690c828a7300c6acb447ecb23054f7b8" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>SliderType</name></member>
+      <member refid="classmimas_1_1_q_widget_1a862367fa45e2590be15c62dd330a8d69" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>swapFullScreen</name></member>
+      <member refid="classmimas_1_1_q_widget_1adb774878a00187cf1532dab0055aa43e" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>textSize</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a68147ed0f2048d29f6adf5316992ad69" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>ThreadedLuaObject</name></member>
+      <member refid="classmimas_1_1_q_widget_1abbb4a63f897a8f4fb253ee4034e955d0" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>update</name></member>
+      <member refid="classmimas_1_1_slider_1a690c828a7300c6acb447ecb23054f7b8a7167a1eb6108ff6d6a33f6e2e0ba8210" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>VerticalSliderType</name></member>
+      <member refid="classmimas_1_1_slider_1a59c320d2af884c417555d4a8a90a2c24" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>widget</name></member>
+      <member refid="classmimas_1_1_slider_1af79f33e0b4b7751ed8f32584cb52f89f" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>width</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>worker_</name></member>
+      <member refid="classmimas_1_1_slider_1a4e6c89cd02787526eb24d37a775e70e0" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>x</name></member>
+      <member refid="classmimas_1_1_slider_1a14b66edb4c3a9ba05a30d58e0d0dfba6" prot="public" virt="non-virtual"><scope>mimas::Slider</scope><name>y</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>mimas::Slider</scope><name>~LuaObject</name></member>
+      <member refid="classmimas_1_1_slider_1ab4241538dc854ca14c6fa5d028781977" prot="public" virt="virtual"><scope>mimas::Slider</scope><name>~Slider</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmimas_1_1_application" kind="class" prot="public">
+    <compoundname>mimas::Application</compoundname>
+    <basecompoundref refid="classlubyk_1_1_threaded_lua_object" prot="public" virt="non-virtual">lubyk::ThreadedLuaObject</basecompoundref>
+    <includes refid="_application_8h" local="no">Application.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classmimas_1_1_application_1afdbc8dd84849f6373129067e4f9be625" prot="public" static="no">
+        <name>ApplicationType</name>
+        <enumvalue id="classmimas_1_1_application_1afdbc8dd84849f6373129067e4f9be625afcb24bab7149f3a86c525467bca0ac4e" prot="public">
+          <name>Desktop</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmimas_1_1_application_1afdbc8dd84849f6373129067e4f9be625a154d5fe3cac5878330da1fbfd4918427" prot="public">
+          <name>Plugin</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" line="61" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" bodystart="61" bodyend="64"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmimas_1_1_application_1a3a99fc908894068745cc2003f8f7f20e" prot="public" static="yes" mutable="no">
+        <type>pthread_key_t</type>
+        <definition>pthread_key_t mimas::Application::sAppKey</definition>
+        <argsstring></argsstring>
+        <name>sAppKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Key to retrieve &apos;this&apos; value from a running thread. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" line="123" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmimas_1_1_application_1a9533c51f0e537df581dcfd258869b33f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Application::Application</definition>
+        <argsstring>()</argsstring>
+        <name>Application</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Private constructor. Use MakeApplication instead. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" line="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_application_1ab292d59001734ca8c691620b1e09d8db" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mimas::Application::~Application</definition>
+        <argsstring>()</argsstring>
+        <name>~Application</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" line="90" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" bodystart="90" bodyend="92"/>
+        <references refid="mimas_8h_1a9d2f1addda3f00a2c1d2e3e2b6e4b5b5" compoundref="mimas_8h" startline="38">MIMAS_DEBUG_GC</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_application_1a8fa2a2ed14a6f4f3dc08a903739c09e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Application::setQuitOnLastWindowClosed</definition>
+        <argsstring>(bool quit)</argsstring>
+        <name>setQuitOnLastWindowClosed</name>
+        <param>
+          <type>bool</type>
+          <declname>quit</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>If this is true (default), mimas quits when the last window is closed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" line="96" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" bodystart="96" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_application_1a3567725c4409ee8fe7ed44bed0785dfe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mimas::Application::dub_destroy</definition>
+        <argsstring>()</argsstring>
+        <name>dub_destroy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" line="101" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" bodystart="101" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_application_1ab18414e450fb2131eac932de6e388e69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mimas::Application::exec</definition>
+        <argsstring>()</argsstring>
+        <name>exec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Start event loop. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" line="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_application_1a276c27d85c0f63d3eac0328a2fe44dc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Application::processEvents</definition>
+        <argsstring>(int maxtime)</argsstring>
+        <name>processEvents</name>
+        <param>
+          <type>int</type>
+          <declname>maxtime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Process events from an external event loop FIXME: check deffered delete.... </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" line="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_application_1ab761c7b06d9eef6be688e0f1d756c9ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Application::quit</definition>
+        <argsstring>()</argsstring>
+        <name>quit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" line="128" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" bodystart="128" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_application_1a942a20255b7632aa7cbbea431091abc2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Application::setStyleSheet</definition>
+        <argsstring>(const char *text)</argsstring>
+        <name>setStyleSheet</name>
+        <param>
+          <type>const char *</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" line="132" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" bodystart="132" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_application_1a7ff90892a3ca8794d28da1e26001fb18" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>LuaStackSize mimas::Application::screenSize</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>screenSize</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the size of the desktop as a pair (width, height). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" line="138" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" bodystart="138" bodyend="143"/>
+        <references refid="cv_8h_1a530a78d59bfb8d13c3013626ebb95c2e" compoundref="cv_8h" startline="639">rect</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_application_1af5bcbb29727893aec1dd42d30754ac7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool mimas::Application::event</definition>
+        <argsstring>(QEvent *event)</argsstring>
+        <name>event</name>
+        <param>
+          <type>QEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" line="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_application_1a18a92c2d2c498fc20e96be4954c8e416" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mimas::Application::singleShot</definition>
+        <argsstring>(int msec, QObject *receiver, const char *member)</argsstring>
+        <name>singleShot</name>
+        <param>
+          <type>int</type>
+          <declname>msec</declname>
+        </param>
+        <param>
+          <type><ref refid="classmimas_1_1_q_object" kindref="compound">QObject</ref> *</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>member</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calls a slot in msec milliseconds. Used by poller to handle scheduling. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" line="149" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" bodystart="149" bodyend="151"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmimas_1_1_application_1a6c175da727eeb1825e2eb6c99e1fe717" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="lk_2include_2lk_2_socket_8h_1a038a308a5e7246ac41ca22c43d7209d1" kindref="member">LuaStackSize</ref></type>
+        <definition>static LuaStackSize mimas::Application::MakeApplication</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>MakeApplication</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Custom constructor so that we can define some constants needed before the application object is built (type of application). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" line="69" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" bodystart="69" bodyend="88"/>
+        <references refid="classlubyk_1_1_threaded_lua_object_1a1351dd8c5053c7df8e0a29b2887ddb8e">lubyk::ThreadedLuaObject::luaInit</references>
+        <references refid="cxcore_8h_1a5f3a65d240411b0018990ff992b348c0" compoundref="cxcore_8h" startline="1628">str</references>
+        <references refid="cv_8h_1a8bc957583d2a5247e490ea9ce960cf21" compoundref="cv_8h" startline="831">type</references>
+      </memberdef>
+      <memberdef kind="function" id="classmimas_1_1_application_1a9c21ecf8f00928897bcc9e4799e86850" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void mimas::Application::terminate</definition>
+        <argsstring>(int sig)</argsstring>
+        <name>terminate</name>
+        <param>
+          <type>int</type>
+          <declname>sig</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Thread should stop. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" line="126"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classmimas_1_1_application" kindref="compound">Application</ref> (starts the GUI and manages the event loop). We do not really need to use DeletableOutOfLua here but we never know.</para><para><simplesect kind="par"><title>Bindings info:</title><para>lib_name:&apos;Application_core&apos; constructor: &apos;MakeApplication&apos; destructor: &apos;luaDestroy&apos; ignore: &apos;event&apos; super: &apos;QObject&apos; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="42">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+      </node>
+      <node id="41">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="42" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>mimas::Application</label>
+        <link refid="classmimas_1_1_application"/>
+        <childnode refid="41" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="46">
+        <label>lubyk::Worker</label>
+        <link refid="classlubyk_1_1_worker"/>
+        <childnode refid="47" relation="usage">
+          <edgelabel>time_ref_</edgelabel>
+        </childnode>
+      </node>
+      <node id="48">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="45">
+        <label>lubyk::LuaObject</label>
+        <link refid="classlubyk_1_1_lua_object"/>
+        <childnode refid="46" relation="usage">
+          <edgelabel>worker_</edgelabel>
+        </childnode>
+      </node>
+      <node id="44">
+        <label>lubyk::ThreadedLuaObject</label>
+        <link refid="classlubyk_1_1_threaded_lua_object"/>
+        <childnode refid="45" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>lubyk::TimeRef</label>
+        <link refid="classlubyk_1_1_time_ref"/>
+        <childnode refid="48" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>mimas::Application</label>
+        <link refid="classmimas_1_1_application"/>
+        <childnode refid="44" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" line="54" bodyfile="/Users/gaspard/git/lubyk/modules/mimas/include/mimas/Application.h" bodystart="54" bodyend="152"/>
+    <listofallmembers>
+      <member refid="classmimas_1_1_application_1a9533c51f0e537df581dcfd258869b33f" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>Application</name></member>
+      <member refid="classmimas_1_1_application_1afdbc8dd84849f6373129067e4f9be625" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>ApplicationType</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2f029a24ba32a5874fdeaad2c0860928" prot="protected" virt="non-virtual"><scope>mimas::Application</scope><name>class_name_</name></member>
+      <member refid="classmimas_1_1_application_1afdbc8dd84849f6373129067e4f9be625afcb24bab7149f3a86c525467bca0ac4e" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>Desktop</name></member>
+      <member refid="classmimas_1_1_application_1a3567725c4409ee8fe7ed44bed0785dfe" prot="public" virt="virtual"><scope>mimas::Application</scope><name>dub_destroy</name></member>
+      <member refid="classmimas_1_1_application_1af5bcbb29727893aec1dd42d30754ac7f" prot="public" virt="virtual"><scope>mimas::Application</scope><name>event</name></member>
+      <member refid="classmimas_1_1_application_1ab18414e450fb2131eac932de6e388e69" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>exec</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1aa444ac3cd878674af2fd0ddf9e340604" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>lua_</name></member>
+      <member refid="classlubyk_1_1_lua_object_1af2a0c939d4b45279d4d975c2ecfa190f" prot="protected" virt="non-virtual"><scope>mimas::Application</scope><name>luaCleanup</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a2a50fa2745ef36d40ff676426784ea6a" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>luaDestroy</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a1351dd8c5053c7df8e0a29b2887ddb8e" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>luaInit</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a6c17506fca71fe4b2e46a33f46724035" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>LuaObject</name></member>
+      <member refid="classmimas_1_1_application_1a6c175da727eeb1825e2eb6c99e1fe717" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>MakeApplication</name></member>
+      <member refid="classmimas_1_1_application_1afdbc8dd84849f6373129067e4f9be625a154d5fe3cac5878330da1fbfd4918427" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>Plugin</name></member>
+      <member refid="classmimas_1_1_application_1a276c27d85c0f63d3eac0328a2fe44dc2" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>processEvents</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1af9f7e3d5717357958461b2634742475f" prot="protected" virt="non-virtual"><scope>mimas::Application</scope><name>pushLuaCallbackl</name></member>
+      <member refid="classmimas_1_1_application_1ab761c7b06d9eef6be688e0f1d756c9ca" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>quit</name></member>
+      <member refid="classmimas_1_1_application_1a3a99fc908894068745cc2003f8f7f20e" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>sAppKey</name></member>
+      <member refid="classmimas_1_1_application_1a7ff90892a3ca8794d28da1e26001fb18" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>screenSize</name></member>
+      <member refid="classmimas_1_1_application_1a8fa2a2ed14a6f4f3dc08a903739c09e1" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>setQuitOnLastWindowClosed</name></member>
+      <member refid="classmimas_1_1_application_1a942a20255b7632aa7cbbea431091abc2" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>setStyleSheet</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1ad533909af126d2aa2b058dea6b0d91f0" prot="protected" virt="non-virtual"><scope>mimas::Application</scope><name>setupLuaThread</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a501b5ac2d9c782adadaa5682d5757e57" prot="protected" virt="non-virtual"><scope>mimas::Application</scope><name>setupMetatable</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a3518f64d461ebb94123ee8d5e15bf587" prot="protected" virt="non-virtual"><scope>mimas::Application</scope><name>setupSuper</name></member>
+      <member refid="classmimas_1_1_application_1a18a92c2d2c498fc20e96be4954c8e416" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>singleShot</name></member>
+      <member refid="classmimas_1_1_application_1a9c21ecf8f00928897bcc9e4799e86850" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>terminate</name></member>
+      <member refid="classlubyk_1_1_threaded_lua_object_1a68147ed0f2048d29f6adf5316992ad69" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>ThreadedLuaObject</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a478ec53634fb32f2b579151620a0b42e" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>worker_</name></member>
+      <member refid="classmimas_1_1_application_1ab292d59001734ca8c691620b1e09d8db" prot="public" virt="non-virtual"><scope>mimas::Application</scope><name>~Application</name></member>
+      <member refid="classlubyk_1_1_lua_object_1a235e4f757270c3910b4e4221cab32b81" prot="public" virt="virtual"><scope>mimas::Application</scope><name>~LuaObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

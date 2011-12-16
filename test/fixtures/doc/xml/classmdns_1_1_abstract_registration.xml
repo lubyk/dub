@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="classmdns_1_1_abstract_registration" kind="class" prot="public">
+    <compoundname>mdns::AbstractRegistration</compoundname>
+    <basecompoundref refid="classlubyk_1_1_mutex" prot="public" virt="non-virtual">lubyk::Mutex</basecompoundref>
+    <derivedcompoundref refid="classmdns_1_1_registration" prot="public" virt="non-virtual">mdns::Registration</derivedcompoundref>
+    <includes refid="_abstract_registration_8h" local="no">AbstractRegistration.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmdns_1_1_abstract_registration_1a06d878336c9e0e2c6a55f17e702a2ef4" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string mdns::AbstractRegistration::name_</definition>
+        <argsstring></argsstring>
+        <name>name_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" line="57" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmdns_1_1_abstract_registration_1a18a85a16821e4a79ea600683fb0dc140" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string mdns::AbstractRegistration::host_</definition>
+        <argsstring></argsstring>
+        <name>host_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" line="58" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmdns_1_1_abstract_registration_1ae56c272b3d901ab237972d25084eaadd" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string mdns::AbstractRegistration::service_type_</definition>
+        <argsstring></argsstring>
+        <name>service_type_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" line="59" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmdns_1_1_abstract_registration_1aec8bbca8890e8bd7760f1de2c6389da3" prot="protected" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t mdns::AbstractRegistration::port_</definition>
+        <argsstring></argsstring>
+        <name>port_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" line="60" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmdns_1_1_abstract_registration_1a8b00953b3980443af3005d9cadfacc96" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string mdns::AbstractRegistration::txt_</definition>
+        <argsstring></argsstring>
+        <name>txt_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" line="61" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmdns_1_1_abstract_registration_1abbb22ed6cb1bebdb3bb3218ce9c7c407" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mdns::AbstractRegistration::fd_</definition>
+        <argsstring></argsstring>
+        <name>fd_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" line="62" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmdns_1_1_abstract_registration_1a1fbb0bbf111d0c52fea8cb6ca255cf9c" prot="private" static="no" mutable="no">
+        <type>Implementation *</type>
+        <definition>Implementation* mdns::AbstractRegistration::impl_</definition>
+        <argsstring></argsstring>
+        <name>impl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" line="66" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmdns_1_1_abstract_registration_1ae04af5f5306055640708e2b797694198" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mdns::AbstractRegistration::AbstractRegistration</definition>
+        <argsstring>(const char *service_type, const char *name, uint port, const char *txt)</argsstring>
+        <name>AbstractRegistration</name>
+        <param>
+          <type>const char *</type>
+          <declname>service_type</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="_location_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" kindref="member">uint</ref></type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>txt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" line="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classmdns_1_1_abstract_registration_1a0d6c8d16cb946002251e9fed277e659d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual mdns::AbstractRegistration::~AbstractRegistration</definition>
+        <argsstring>()</argsstring>
+        <name>~AbstractRegistration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" line="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classmdns_1_1_abstract_registration_1ae9bc0034bc74c0365409a5dd0110e119" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* mdns::AbstractRegistration::name</definition>
+        <argsstring>()</argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" line="50" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" bodystart="50" bodyend="52"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmdns_1_1_abstract_registration_1a49104cfa818dec4f112befca47a50275" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mdns::AbstractRegistration::getService</definition>
+        <argsstring>()</argsstring>
+        <name>getService</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" line="55"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class let&apos;s you easily register an application as providing a certain type of service. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="24">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="22">
+        <label>mdns::AbstractRegistration</label>
+        <link refid="classmdns_1_1_abstract_registration"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>lubyk::Mutex</label>
+        <link refid="classlubyk_1_1_mutex"/>
+        <childnode refid="24" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>mdns::Registration</label>
+        <link refid="classmdns_1_1_registration"/>
+        <childnode refid="22" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="28">
+        <label>lubyk::NonCopyable</label>
+        <link refid="classlubyk_1_1_non_copyable"/>
+      </node>
+      <node id="26">
+        <label>mdns::AbstractRegistration</label>
+        <link refid="classmdns_1_1_abstract_registration"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>lubyk::Mutex</label>
+        <link refid="classlubyk_1_1_mutex"/>
+        <childnode refid="28" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" line="44" bodyfile="/Users/gaspard/git/lubyk/modules/mdns/include/mdns/AbstractRegistration.h" bodystart="44" bodyend="67"/>
+    <listofallmembers>
+      <member refid="classmdns_1_1_abstract_registration_1ae04af5f5306055640708e2b797694198" prot="public" virt="non-virtual"><scope>mdns::AbstractRegistration</scope><name>AbstractRegistration</name></member>
+      <member refid="classmdns_1_1_abstract_registration_1abbb22ed6cb1bebdb3bb3218ce9c7c407" prot="protected" virt="non-virtual"><scope>mdns::AbstractRegistration</scope><name>fd_</name></member>
+      <member refid="classmdns_1_1_abstract_registration_1a49104cfa818dec4f112befca47a50275" prot="protected" virt="non-virtual"><scope>mdns::AbstractRegistration</scope><name>getService</name></member>
+      <member refid="classmdns_1_1_abstract_registration_1a18a85a16821e4a79ea600683fb0dc140" prot="protected" virt="non-virtual"><scope>mdns::AbstractRegistration</scope><name>host_</name></member>
+      <member refid="classmdns_1_1_abstract_registration_1a1fbb0bbf111d0c52fea8cb6ca255cf9c" prot="private" virt="non-virtual"><scope>mdns::AbstractRegistration</scope><name>impl_</name></member>
+      <member refid="classlubyk_1_1_mutex_1a74ee38ef2f9bf4e86a3871f5b60a31c3" prot="public" virt="non-virtual"><scope>mdns::AbstractRegistration</scope><name>lock</name></member>
+      <member refid="classlubyk_1_1_mutex_1a8e93f428f3245e6b6528901f4599d0d7" prot="public" virt="non-virtual"><scope>mdns::AbstractRegistration</scope><name>Mutex</name></member>
+      <member refid="classmdns_1_1_abstract_registration_1ae9bc0034bc74c0365409a5dd0110e119" prot="public" virt="non-virtual"><scope>mdns::AbstractRegistration</scope><name>name</name></member>
+      <member refid="classmdns_1_1_abstract_registration_1a06d878336c9e0e2c6a55f17e702a2ef4" prot="protected" virt="non-virtual"><scope>mdns::AbstractRegistration</scope><name>name_</name></member>
+      <member refid="classmdns_1_1_abstract_registration_1aec8bbca8890e8bd7760f1de2c6389da3" prot="protected" virt="non-virtual"><scope>mdns::AbstractRegistration</scope><name>port_</name></member>
+      <member refid="classmdns_1_1_abstract_registration_1ae56c272b3d901ab237972d25084eaadd" prot="protected" virt="non-virtual"><scope>mdns::AbstractRegistration</scope><name>service_type_</name></member>
+      <member refid="classmdns_1_1_abstract_registration_1a8b00953b3980443af3005d9cadfacc96" prot="protected" virt="non-virtual"><scope>mdns::AbstractRegistration</scope><name>txt_</name></member>
+      <member refid="classlubyk_1_1_mutex_1a83fead89eb5401b9dd1fbc6ecdd7e31c" prot="public" virt="non-virtual"><scope>mdns::AbstractRegistration</scope><name>unlock</name></member>
+      <member refid="classmdns_1_1_abstract_registration_1a0d6c8d16cb946002251e9fed277e659d" prot="public" virt="virtual"><scope>mdns::AbstractRegistration</scope><name>~AbstractRegistration</name></member>
+      <member refid="classlubyk_1_1_mutex_1abca8268a2723750c3c9a31bc839a2912" prot="public" virt="virtual"><scope>mdns::AbstractRegistration</scope><name>~Mutex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

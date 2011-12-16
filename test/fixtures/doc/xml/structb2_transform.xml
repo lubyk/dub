@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="structb2_transform" kind="struct" prot="public">
+    <compoundname>b2Transform</compoundname>
+    <includes refid="b2_math_8h" local="no">b2Math.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb2_transform_1a9eeeb643a016c29a4d389e480ba6c628" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_vec2" kindref="compound">b2Vec2</ref></type>
+        <definition>b2Vec2 b2Transform::p</definition>
+        <argsstring></argsstring>
+        <name>p</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="383" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="383" bodyend="-1"/>
+        <referencedby refid="classb2_body_1a018ca81f6c1bef31942931dfa9459f4f" compoundref="b2_body_8h" startline="826" endline="834">b2Body::Advance</referencedby>
+        <referencedby refid="b2_math_8h_1adc2859334a7f260742bf13e0d506e977" compoundref="b2_math_8h" startline="588" endline="594">b2Mul</referencedby>
+        <referencedby refid="b2_math_8h_1a157696518d038a2b900f81e0e40ef27f" compoundref="b2_math_8h" startline="596" endline="604">b2MulT</referencedby>
+        <referencedby refid="classb2_body_1a798da9dc2d47431912d991d152b13711" compoundref="b2_body_8h" startline="473" endline="476">b2Body::GetPosition</referencedby>
+        <referencedby refid="structb2_sweep_1a81947646092468290d15005928e12fcd" compoundref="b2_math_8h" startline="703" endline="711">b2Sweep::GetTransform</referencedby>
+        <referencedby refid="structb2_transform_1a4db696a0b3fada95f95cde3e7e85ced9" compoundref="b2_math_8h" startline="377" endline="381">Set</referencedby>
+        <referencedby refid="structb2_transform_1af92af4ec6833552b1b22a6ca6d4f5644" compoundref="b2_math_8h" startline="370" endline="374">SetIdentity</referencedby>
+        <referencedby refid="classb2_body_1a4ce4a12de31c4e877ac5075331cb3a47" compoundref="b2_body_8h" startline="820" endline="824">b2Body::SynchronizeTransform</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structb2_transform_1ae4aaac23f32686e165138c4e5dc4ce85" prot="public" static="no" mutable="no">
+        <type><ref refid="structb2_rot" kindref="compound">b2Rot</ref></type>
+        <definition>b2Rot b2Transform::q</definition>
+        <argsstring></argsstring>
+        <name>q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="384" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="384" bodyend="-1"/>
+        <referencedby refid="classb2_body_1a018ca81f6c1bef31942931dfa9459f4f" compoundref="b2_body_8h" startline="826" endline="834">b2Body::Advance</referencedby>
+        <referencedby refid="b2_math_8h_1adc2859334a7f260742bf13e0d506e977" compoundref="b2_math_8h" startline="588" endline="594">b2Mul</referencedby>
+        <referencedby refid="b2_math_8h_1a157696518d038a2b900f81e0e40ef27f" compoundref="b2_math_8h" startline="596" endline="604">b2MulT</referencedby>
+        <referencedby refid="classb2_body_1a93de09565c0c1a9da2601c1847aa22df" compoundref="b2_body_8h" startline="565" endline="568">b2Body::GetLocalVector</referencedby>
+        <referencedby refid="structb2_sweep_1a81947646092468290d15005928e12fcd" compoundref="b2_math_8h" startline="703" endline="711">b2Sweep::GetTransform</referencedby>
+        <referencedby refid="classb2_body_1afd44622669b5e45202c23e4a212895fc" compoundref="b2_body_8h" startline="555" endline="558">b2Body::GetWorldVector</referencedby>
+        <referencedby refid="structb2_transform_1a4db696a0b3fada95f95cde3e7e85ced9" compoundref="b2_math_8h" startline="377" endline="381">Set</referencedby>
+        <referencedby refid="structb2_transform_1af92af4ec6833552b1b22a6ca6d4f5644" compoundref="b2_math_8h" startline="370" endline="374">SetIdentity</referencedby>
+        <referencedby refid="classb2_body_1a4ce4a12de31c4e877ac5075331cb3a47" compoundref="b2_body_8h" startline="820" endline="824">b2Body::SynchronizeTransform</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structb2_transform_1a765a2e5c692a2e1d05c7a5441019373d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2Transform::b2Transform</definition>
+        <argsstring>()</argsstring>
+        <name>b2Transform</name>
+        <briefdescription>
+<para>The default constructor does nothing. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="364" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="364" bodyend="364"/>
+      </memberdef>
+      <memberdef kind="function" id="structb2_transform_1a823e190e4810e35e8100f4414d0bef62" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>b2Transform::b2Transform</definition>
+        <argsstring>(const b2Vec2 &amp;position, const b2Rot &amp;rotation)</argsstring>
+        <name>b2Transform</name>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structb2_rot" kindref="compound">b2Rot</ref> &amp;</type>
+          <declname>rotation</declname>
+        </param>
+        <briefdescription>
+<para>Initialize using a position vector and a rotation. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="367" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="367" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="structb2_transform_1af92af4ec6833552b1b22a6ca6d4f5644" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Transform::SetIdentity</definition>
+        <argsstring>()</argsstring>
+        <name>SetIdentity</name>
+        <briefdescription>
+<para>Set this to the identity transform. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="371" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="370" bodyend="374"/>
+        <references refid="structb2_transform_1a9eeeb643a016c29a4d389e480ba6c628" compoundref="b2_math_8h" startline="383">p</references>
+        <references refid="structb2_transform_1ae4aaac23f32686e165138c4e5dc4ce85" compoundref="b2_math_8h" startline="384">q</references>
+        <references refid="structb2_rot_1a7f534cb7ece8d325662d7d0e27d4f617" compoundref="b2_math_8h" startline="331" endline="335">b2Rot::SetIdentity</references>
+        <references refid="structb2_vec2_1a5c6cbe27cfb29c6dbb29b9a3285b88d0" compoundref="b2_math_8h" startline="73" endline="73">b2Vec2::SetZero</references>
+      </memberdef>
+      <memberdef kind="function" id="structb2_transform_1a4db696a0b3fada95f95cde3e7e85ced9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void b2Transform::Set</definition>
+        <argsstring>(const b2Vec2 &amp;position, float32 angle)</argsstring>
+        <name>Set</name>
+        <param>
+          <type>const <ref refid="structb2_vec2" kindref="compound">b2Vec2</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type><ref refid="b2_settings_8h_1aacdc525d6f7bddb3ae95d5c311bd06a1" kindref="member">float32</ref></type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+<para>Set this based on the position and angle. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="378" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="377" bodyend="381"/>
+        <references refid="structb2_transform_1a9eeeb643a016c29a4d389e480ba6c628" compoundref="b2_math_8h" startline="383">p</references>
+        <references refid="structb2_transform_1ae4aaac23f32686e165138c4e5dc4ce85" compoundref="b2_math_8h" startline="384">q</references>
+        <references refid="structb2_rot_1acde9186de0a4a7397bf8ef714408ad60" compoundref="b2_math_8h" startline="323" endline="328">b2Rot::Set</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A transform contains translation and rotation. It is used to represent the position and orientation of rigid frames. </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="1512">
+        <label>b2Transform</label>
+        <link refid="structb2_transform"/>
+        <childnode refid="1513" relation="usage">
+          <edgelabel>p</edgelabel>
+        </childnode>
+        <childnode refid="1514" relation="usage">
+          <edgelabel>q</edgelabel>
+        </childnode>
+      </node>
+      <node id="1513">
+        <label>b2Vec2</label>
+        <link refid="structb2_vec2"/>
+      </node>
+      <node id="1514">
+        <label>b2Rot</label>
+        <link refid="structb2_rot"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" line="362" bodyfile="/Users/gaspard/git/lubyk/modules/b2/bind/b2Math.h" bodystart="361" bodyend="385"/>
+    <listofallmembers>
+      <member refid="structb2_transform_1a765a2e5c692a2e1d05c7a5441019373d" prot="public" virt="non-virtual"><scope>b2Transform</scope><name>b2Transform</name></member>
+      <member refid="structb2_transform_1a823e190e4810e35e8100f4414d0bef62" prot="public" virt="non-virtual"><scope>b2Transform</scope><name>b2Transform</name></member>
+      <member refid="structb2_transform_1a9eeeb643a016c29a4d389e480ba6c628" prot="public" virt="non-virtual"><scope>b2Transform</scope><name>p</name></member>
+      <member refid="structb2_transform_1ae4aaac23f32686e165138c4e5dc4ce85" prot="public" virt="non-virtual"><scope>b2Transform</scope><name>q</name></member>
+      <member refid="structb2_transform_1a4db696a0b3fada95f95cde3e7e85ced9" prot="public" virt="non-virtual"><scope>b2Transform</scope><name>Set</name></member>
+      <member refid="structb2_transform_1af92af4ec6833552b1b22a6ca6d4f5644" prot="public" virt="non-virtual"><scope>b2Transform</scope><name>SetIdentity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

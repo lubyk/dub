@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="struct_cv_graph_vtx2_d" kind="struct" prot="public">
+    <compoundname>CvGraphVtx2D</compoundname>
+    <includes refid="cxtypes_8h" local="no">cxtypes.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cv_graph_vtx2_d_1abe7a98289ea73c81f00d71df40f493fc" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cv_point2_d32f" kindref="compound">CvPoint2D32f</ref> *</type>
+        <definition>CvPoint2D32f* CvGraphVtx2D::ptr</definition>
+        <argsstring></argsstring>
+        <name>ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="1351" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="1351" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1893">
+        <label>CvGraphVtx2D</label>
+        <link refid="struct_cv_graph_vtx2_d"/>
+        <childnode refid="1894" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="1894">
+        <label>CvPoint2D32f</label>
+        <link refid="struct_cv_point2_d32f"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" line="1349" bodyfile="/Users/gaspard/git/lubyk/modules/cv/include/cv/cxtypes.h" bodystart="1348" bodyend="1352"/>
+    <listofallmembers>
+      <member refid="struct_cv_graph_vtx2_d_1abe7a98289ea73c81f00d71df40f493fc" prot="public" virt="non-virtual"><scope>CvGraphVtx2D</scope><name>ptr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
