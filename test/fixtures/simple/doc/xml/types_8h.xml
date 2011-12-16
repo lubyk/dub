@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
+  <compounddef id="types_8h" kind="file">
+    <compoundname>types.h</compoundname>
+    <includedby refid="simple_8h" local="yes">include/simple.h</includedby>
+    <invincdepgraph>
+      <node id="4">
+        <label>include/types.h</label>
+        <link refid="types.h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>include/simple.h</label>
+        <link refid="simple_8h_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="types_8h_1a2a4d44cda226b135d745cf024dec64e8" prot="public" static="no">
+        <type>float</type>
+        <definition>typedef float MyFloat</definition>
+        <argsstring></argsstring>
+        <name>MyFloat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A simple typedef to have something not in any class or namespace. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/types.h" line="7" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/types.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>SIMPLE_INCLUDE_TYPES_H_</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SIMPLE_INCLUDE_TYPES_H_</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="7"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>MyFloat;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>SIMPLE_INCLUDE_TYPES_H_</highlight></codeline>
+    </programlisting>
+    <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/types.h"/>
+  </compounddef>
+</doxygen>
