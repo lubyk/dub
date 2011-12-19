@@ -8,7 +8,7 @@
 --]]------------------------------------------------------
 
 local lib     = {}
-local private = {}
+local private = {make={}, parse={}}
 lib.__index   = lib
 dub.MemoryStorage = lib
 
@@ -32,7 +32,7 @@ function lib:parse(xml_dir)
   local headers = self.headers
   local dir = dub.Dir(xml_dir)
   for file in dir:glob('%_8h.xml') do
-    table.insert(headers, {path = xml_dir .. dub.Dir.sep .. file})
+    table.insert(headers, {path = file, dir = xml_dir})
   end
 end
 
@@ -56,10 +56,12 @@ end
 
 function private:findInXml(name)
   local elem
+  local cache = self.cache
   -- Look in all unparsed headers
   for i, header in ipairs(self.headers) do
     if not header.parsed then
-      elem = private.parseHeader(self, header, name)
+      private.parse.header(self, header)
+      elem = cache[name]
       if elem then
         return elem
       end
@@ -67,16 +69,74 @@ function private:findInXml(name)
   end
 end
 
+require 'lubyk'
+
 --- Parse a header definition and return element 
 -- identified by 'name' if found.
-function private.parseHeader(self, header, name)
-  local xml = {} -- TODO: xml.parse(header.path)
+function private.parse.header(self, header)
+  local cache = self.cache
+  local data = xml.load(header.path):find('compounddef')
   header.parsed = true
-  -- Save root elements in cache
-  -- innernamespace
-  -- innerclass
-  -- ...
-  -- Just to make tests happy
-  return {type='class'}
+  private.parse.children(self, data, header)
 end
+
+function private.parse.children(self, parent, header)
+  local cache = self.cache
+  for _, elem in ipairs(parent) do
+    local func = private.parse[elem.xml]
+    if func then
+      local obj = func(self, elem, header)
+      if obj then
+        -- optimization for constructors
+        cache[obj.name] = obj
+      end
+    else
+      --print('skipping', elem.xml)
+    end
+  end
+end
+
+function private.parse.innernamespace(self, elem, header)
+  return {
+    kind = 'namespace',
+    name = elem[1]
+  }
+end
+
+function private.parse.innerclass(self, elem, header)
+  return {
+    kind = 'class',
+    name = elem[1],
+    path = header.dir .. dub.Dir.sep .. elem.refid .. '.xml',
+  }
+end
+
+function private.parse.sectiondef(self, elem, header)
+  if elem.kind == 'typedef' then
+    private.parse.children(self, elem, header)
+  end
+end
+
+function private.parse.memberdef(self, elem, header)
+  local func = private.parse[elem.kind]
+  if func then
+    local obj = func(self, elem, header)
+    if obj then
+      self.cache[obj.name] = obj
+    end
+  else
+    --print('skipping memberdef', elem.kind)
+  end
+end
+
+function private.parse.typedef(self, elem, header)
+  return {
+    kind = 'typedef',
+    name = elem:find('name')[1],
+    type = elem:find('type')[1],
+    desc = (elem:find('detaileddescription') or {})[1],
+    xml  = elem,
+  }
+end
+    
 

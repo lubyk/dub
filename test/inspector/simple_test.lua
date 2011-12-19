@@ -37,11 +37,16 @@ function should.parseXml()
   end)
 end
 
-
 function should.findSimpleClass()
   local ins = makeInspector()
   local simple = ins:find('Simple')
-  assertEqual('class', simple.type)
+  assertEqual('class', simple.kind)
+end
+
+function should.findTypedef()
+  local ins = makeInspector()
+  local obj = ins:find('MyFloat')
+  assertEqual('typedef', obj.kind)
 end
 
 test.all()
