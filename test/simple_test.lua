@@ -64,4 +64,22 @@ function should.listMemberMethods()
   assertValueEqual({'Simple', 'value', 'add', 'setValue'}, res)
 end
 
+function should.listParamsOnMethod()
+  local ins = makeInspector()
+  local Simple = ins:find('Simple')
+  local add = Simple:method('add')
+  local names = {}
+  local types = {}
+  for param in add:params() do
+    table.insert(names, param.name) 
+    table.insert(types, param.type) 
+  end
+  assertValueEqual({'v', 'w'}, names)
+  assertValueEqual({'MyFloat', 'float'}, types)
+end
+
+function should.resolveNativeTypes()
+  local ins = makeInspector()
+  assertEqual('float', ins:resolveType('MyFloat'))
+end
 test.all()

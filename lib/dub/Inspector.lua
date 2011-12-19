@@ -34,4 +34,8 @@ function lib:find(name)
   return self.db:findByFullname(name)
 end
 
+--- Try to follow typedefs to resolve a type
+function lib:resolveType(name)
+  return self.db:resolveType(name)
+end
 --=============================================== PRIVATE

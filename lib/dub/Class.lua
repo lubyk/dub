@@ -31,12 +31,19 @@ function lib:methods()
   return self.db:functions(self)
 end
 
+--- Return an iterator over the headers for this class/namespace.
+function lib:headers()
+  return self.db:headers(self)
+end
+
 --=============================================== PRIVATE
 
-function private.methodsIterator(self)
-  for _, child in ipairs(self.cache) do
-    if child.kind == 'function' then
-      coroutine.yield(child)
-    end
+function lib:resolveType(name)
+  -- Do we have a typedef ?
+  local td = self:findByFullname(name)
+  if td then
+    return td.type
   end
 end
+--=============================================== PRIVATE
+

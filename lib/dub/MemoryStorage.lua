@@ -17,7 +17,10 @@ dub.MemoryStorage = lib
 setmetatable(lib, {
   __call = function(lib)
     local self = {
-      headers = {},
+      -- xml definitions list
+      xml_headers  = {},
+      -- .h header files
+      headers_list = {},
       cache   = {},
       sorted_cache = {},
     }
@@ -31,10 +34,10 @@ setmetatable(lib, {
 -- Parse xml directory and find header files. This will allow
 -- us to find definitions as needed.
 function lib:parse(xml_dir)
-  local headers = self.headers
+  local xml_headers = self.xml_headers
   local dir = lk.Dir(xml_dir)
   for file in dir:glob('%_8h.xml') do
-    table.insert(headers, {path = file, dir = xml_dir})
+    table.insert(xml_headers, {path = file, dir = xml_dir})
   end
 end
 
@@ -58,7 +61,7 @@ end
 function lib:functions(parent)
   -- make sure we have parsed the headers
   private.parseHeaders(parent)
-  local co = coroutine.create(private.methodsIterator)
+  local co = coroutine.create(private.functionsIterator)
   return function()
     local ok, value = coroutine.resume(co, parent)
     if ok then
@@ -67,9 +70,34 @@ function lib:functions(parent)
   end
 end
 
+--- Return an iterator over the functions of this class/namespace.
+function lib:headers(parent)
+  -- make sure we have parsed the headers
+  local co = coroutine.create(private.headersIterator)
+  return function()
+    local ok, value = coroutine.resume(co, parent)
+    if ok then
+      return value
+    end
+  end
+end
+
+function lib:resolveType(name)
+  -- Do we have a typedef ?
+  local td = self:findByFullname(name)
+  if td then
+    return td.type
+  end
+end
 --=============================================== PRIVATE
 
-function private.methodsIterator(parent)
+function private.headersIterator(parent)
+  for _, child in ipairs(parent.headers_list) do
+    coroutine.yield(child)
+  end
+end
+
+function private.functionsIterator(parent)
   for _, child in pairs(parent.sorted_cache) do
     if child.kind == 'function' then
       coroutine.yield(child)
@@ -85,7 +113,7 @@ function private:parseHeaders(name)
   end
   local elem
   -- Look in all unparsed headers
-  for i, header in ipairs(self.headers) do
+  for i, header in ipairs(self.xml_headers) do
     if not header.parsed then
       parse.header(self, header)
       if name and cache[name] then
@@ -101,10 +129,13 @@ require 'lubyk'
 --- Parse a header definition and return element 
 -- identified by 'name' if found.
 function parse.header(self, header)
-  local cache = self.cache
   local data = xml.load(header.path):find('compounddef')
-  header.parsed = true
+  local h_path = data:find('location').file
+  local base, h_file = lk.directory(h_path)
+  table.insert(self.headers_list, {path = h_file})
+
   parse.children(self, data, header)
+  header.parsed = true
 end
 
 function parse.children(self, parent, header)
@@ -137,7 +168,9 @@ function parse.innerclass(self, elem, header)
     cache   = {},
     sorted_cache = {},
     name    = elem[1],
-    headers = {
+    xml     = elem,
+    headers_list = {},
+    xml_headers  = {
       {path = header.dir .. lk.Dir.sep .. elem.refid .. '.xml', dir = header.dir}
     },
   }
@@ -173,12 +206,11 @@ function parse.typedef(self, elem, header)
 end
     
 parse['function'] = function(self, elem, header)
-  return {
-    kind = 'function',
-    name = elem:find('name')[1],
-    param= parse.params(self, elem, header),
-    desc = (elem:find('detaileddescription') or {})[1],
-    xml  = elem,
+  return dub.Function {
+    name          = elem:find('name')[1],
+    sorted_params = parse.params(self, elem, header),
+    desc          = (elem:find('detaileddescription') or {})[1],
+    xml           = elem,
   }
 end
 
