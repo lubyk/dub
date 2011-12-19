@@ -37,9 +37,9 @@ setmetatable(lib, {
 })
 
 -- Create Lua code from the template string. 
-function lib:parse(source)
+function lib:parse(source, prefix)
   local eat_next_newline
-  local res = "local buffer_ = ''\nlocal function _out_(str)\nbuffer_ = buffer_ .. str\nend\n"
+  local res = prefix or "local buffer_ = ''\nlocal function _out_(str)\nbuffer_ = buffer_ .. str\nend\n"
   --for text, block in string.gmatch(tmpl, "([^{]-)(%b{})") do
   -- Find balanced {
   for text, block in string.gmatch(source .. '{{}}', '([^{]-)(%b{})') do
@@ -50,24 +50,28 @@ function lib:parse(source)
           text = "\n" .. text
         end
       end
-      res = res .. string.format("_out_([=[%s]=])\n", text)
     end
     -- handle block
     eat_next_newline = false
     local block_type = string.sub(block, 1, 2)
     local content = string.sub(block, 3, -3)
+    local block_text = ''
     if block_type == '{{' then
       if content ~= '' then
-        res = res .. string.format("_out_(%s)\n", content)
+        block_text = string.format("_out_(%s)\n", content)
       end
     elseif block_type == '{%' then
-      res = res .. content .. "\n"
+      block_text = content .. "\n"
       eat_next_newline = true
     else
-      res = res .. block
+      text = text .. '{'
+      block_text = self:parse(string.sub(block, 2, -1), '')
     end
+    res = res .. string.format("_out_([=[%s]=])\n", text) .. block_text
   end
-  res = res .. 'return buffer_'
+  if not prefix then
+    res = res .. 'return buffer_'
+  end
   return res
 end
 

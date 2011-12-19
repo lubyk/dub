@@ -49,4 +49,20 @@ Hello my name is FOO
 and I live here.
 ]], res)
 end
+
+function should.properyHandleSingleBraces()
+  local code = dub.Template [[
+static int {{name}}(lua_State *L) {
+  {{body}}
+}
+]]
+  local res = code:run {name = 'hello', body = 'return 0;'}
+  assertEqual([[
+static int hello(lua_State *L) {
+  return 0;
+}
+]], res)
+end
+
 test.all()
+

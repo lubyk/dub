@@ -31,6 +31,18 @@ function lib:params()
   end
 end
 
+function lib:fullname()
+  return 'TODO'
+end
+
+function lib:source()
+  --def source
+  --  loc = (@xml/'location').first.attributes
+  --  "#{loc['file'].split('/')[-3..-1].join('/')}:#{loc['line']}"
+  --end
+  return 'TODO'
+end
+
 --=============================================== PRIVATE
 
 function private.paramsIterator(parent)

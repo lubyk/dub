@@ -47,6 +47,12 @@ function lib:bindClass(class)
   return self.class_template:run {self = class, binder = self}
 end
 
+--- Create the body of the bindings for a given method/function.
+function lib:functionBody(class, method)
+  -- TODO
+  return "return 0;"
+end
+
 --=============================================== PRIVATE
 
 
