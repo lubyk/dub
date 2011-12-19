@@ -4,7 +4,7 @@
     <member refid="class_simple_1a4a3ce04c6c2d1803fc7dbd5a67f4cd46" kind="variable"><name>value_</name></member>
     <member refid="class_simple_1a3fd8004f8d4cf9f734c4662771b7a705" kind="function"><name>Simple</name></member>
     <member refid="class_simple_1a35a29056d40f8109d79aecd1fc50e53d" kind="function"><name>value</name></member>
-    <member refid="class_simple_1aa6e9f9a67fc9b0b31805821ce5f1e194" kind="function"><name>add</name></member>
+    <member refid="class_simple_1a3e6e5f2881753413c115c12808151722" kind="function"><name>add</name></member>
     <member refid="class_simple_1adae946c5fabe1b997811c7022c9a33ce" kind="function"><name>setValue</name></member>
   </compound>
   <compound refid="simple_8h" kind="file"><name>simple.h</name>

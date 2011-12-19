@@ -8,7 +8,8 @@
 --]]------------------------------------------------------
 
 local lib     = {}
-local private = {make={}, parse={}}
+local private = {}
+local parse   = {}
 lib.__index   = lib
 dub.MemoryStorage = lib
 
@@ -18,6 +19,7 @@ setmetatable(lib, {
     local self = {
       headers = {},
       cache   = {},
+      sorted_cache = {},
     }
     return setmetatable(self, lib)
   end
@@ -30,7 +32,7 @@ setmetatable(lib, {
 -- us to find definitions as needed.
 function lib:parse(xml_dir)
   local headers = self.headers
-  local dir = dub.Dir(xml_dir)
+  local dir = lk.Dir(xml_dir)
   for file in dir:glob('%_8h.xml') do
     table.insert(headers, {path = file, dir = xml_dir})
   end
@@ -39,56 +41,82 @@ end
 function lib:findByFullname(name)
   -- done
   -- split name components
-  local parts = dub.split(name, '::')
+  local parts = lk.split(name, '::')
   local current = self
   for i, part in ipairs(parts) do
-    current = current:findChild(part)
+    current = current:findChild(self, part)
   end
   return current
 end
 
-function lib:findChild(name)
+function lib:findChild(parent, name)
   -- Any element at the root of the name space
-  return self.cache[name] or private.findInXml(self, name)
+  return parent.cache[name] or private.parseHeaders(parent, name)
+end
+
+--- Return an iterator over the functions of this class/namespace.
+function lib:functions(parent)
+  -- make sure we have parsed the headers
+  private.parseHeaders(parent)
+  local co = coroutine.create(private.methodsIterator)
+  return function()
+    local ok, value = coroutine.resume(co, parent)
+    if ok then
+      return value
+    end
+  end
 end
 
 --=============================================== PRIVATE
 
-function private:findInXml(name)
-  local elem
+function private.methodsIterator(parent)
+  for _, child in pairs(parent.sorted_cache) do
+    if child.kind == 'function' then
+      coroutine.yield(child)
+    end
+  end
+end
+
+-- Here 'self' can be the db (root) or a class.
+function private:parseHeaders(name)
   local cache = self.cache
+  if self.parsed_headers then
+    return cache[name] 
+  end
+  local elem
   -- Look in all unparsed headers
   for i, header in ipairs(self.headers) do
     if not header.parsed then
-      private.parse.header(self, header)
-      elem = cache[name]
-      if elem then
-        return elem
+      parse.header(self, header)
+      if name and cache[name] then
+        return cache[name]
       end
     end
   end
+  self.parsed_headers = true
 end
 
 require 'lubyk'
 
 --- Parse a header definition and return element 
 -- identified by 'name' if found.
-function private.parse.header(self, header)
+function parse.header(self, header)
   local cache = self.cache
   local data = xml.load(header.path):find('compounddef')
   header.parsed = true
-  private.parse.children(self, data, header)
+  parse.children(self, data, header)
 end
 
-function private.parse.children(self, parent, header)
+function parse.children(self, parent, header)
   local cache = self.cache
+  local sorted_cache = self.sorted_cache
   for _, elem in ipairs(parent) do
-    local func = private.parse[elem.xml]
+    local func = parse[elem.xml]
     if func then
       local obj = func(self, elem, header)
       if obj then
-        -- optimization for constructors
         cache[obj.name] = obj
+        table.insert(sorted_cache, obj)
       end
     else
       --print('skipping', elem.xml)
@@ -96,40 +124,45 @@ function private.parse.children(self, parent, header)
   end
 end
 
-function private.parse.innernamespace(self, elem, header)
+function parse.innernamespace(self, elem, header)
   return {
     kind = 'namespace',
     name = elem[1]
   }
 end
 
-function private.parse.innerclass(self, elem, header)
-  return {
-    kind = 'class',
-    name = elem[1],
-    path = header.dir .. dub.Dir.sep .. elem.refid .. '.xml',
+function parse.innerclass(self, elem, header)
+  return dub.Class {
+    db      = self,
+    cache   = {},
+    sorted_cache = {},
+    name    = elem[1],
+    headers = {
+      {path = header.dir .. lk.Dir.sep .. elem.refid .. '.xml', dir = header.dir}
+    },
   }
 end
 
-function private.parse.sectiondef(self, elem, header)
-  if elem.kind == 'typedef' then
-    private.parse.children(self, elem, header)
+function parse.sectiondef(self, elem, header)
+  if elem.kind == 'public-func' or elem.kind == 'typedef' then
+    parse.children(self, elem, header)
   end
 end
 
-function private.parse.memberdef(self, elem, header)
-  local func = private.parse[elem.kind]
+function parse.memberdef(self, elem, header)
+  local func = parse[elem.kind]
   if func then
     local obj = func(self, elem, header)
     if obj then
       self.cache[obj.name] = obj
+      table.insert(self.sorted_cache, obj)
     end
   else
     --print('skipping memberdef', elem.kind)
   end
 end
 
-function private.parse.typedef(self, elem, header)
+function parse.typedef(self, elem, header)
   return {
     kind = 'typedef',
     name = elem:find('name')[1],
@@ -139,4 +172,30 @@ function private.parse.typedef(self, elem, header)
   }
 end
     
+parse['function'] = function(self, elem, header)
+  return {
+    kind = 'function',
+    name = elem:find('name')[1],
+    param= parse.params(self, elem, header),
+    desc = (elem:find('detaileddescription') or {})[1],
+    xml  = elem,
+  }
+end
+
+function parse.params(self, elem, header)
+  local res = {str = elem:find('argsstring')[1]}
+  for _,param in ipairs(elem) do
+    if param.xml == 'param' then
+      table.insert(res, parse.param(self, param, header))
+    end
+  end
+  return res
+end
+
+function parse.param(self, elem, header)
+  return {
+    type = elem:find('type')[1],
+    name = elem:find('declname')[1],
+  }
+end
 

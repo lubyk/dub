@@ -48,14 +48,18 @@
         </inbodydescription>
         <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="12" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="12" bodyend="14"/>
       </memberdef>
-      <memberdef kind="function" id="class_simple_1aa6e9f9a67fc9b0b31805821ce5f1e194" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="class_simple_1a3e6e5f2881753413c115c12808151722" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>MyFloat</type>
         <definition>MyFloat Simple::add</definition>
-        <argsstring>(MyFloat v)</argsstring>
+        <argsstring>(MyFloat v, float w)</argsstring>
         <name>add</name>
         <param>
           <type>MyFloat</type>
           <declname>v</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>w</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -89,7 +93,7 @@
     </detaileddescription>
     <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="6" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="6" bodyend="25"/>
     <listofallmembers>
-      <member refid="class_simple_1aa6e9f9a67fc9b0b31805821ce5f1e194" prot="public" virt="non-virtual"><scope>Simple</scope><name>add</name></member>
+      <member refid="class_simple_1a3e6e5f2881753413c115c12808151722" prot="public" virt="non-virtual"><scope>Simple</scope><name>add</name></member>
       <member refid="class_simple_1adae946c5fabe1b997811c7022c9a33ce" prot="public" virt="non-virtual"><scope>Simple</scope><name>setValue</name></member>
       <member refid="class_simple_1a3fd8004f8d4cf9f734c4662771b7a705" prot="public" virt="non-virtual"><scope>Simple</scope><name>Simple</name></member>
       <member refid="class_simple_1a35a29056d40f8109d79aecd1fc50e53d" prot="public" virt="non-virtual"><scope>Simple</scope><name>value</name></member>

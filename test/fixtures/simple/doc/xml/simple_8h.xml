@@ -36,8 +36,8 @@
 <codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value_;</highlight></codeline>
 <codeline lineno="14"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="18" refid="class_simple_1aa6e9f9a67fc9b0b31805821ce5f1e194" refkind="member"><highlight class="normal"><sp/><sp/>MyFloat<sp/><ref refid="class_simple_1aa6e9f9a67fc9b0b31805821ce5f1e194" kindref="member">add</ref>(MyFloat<sp/>v)<sp/>{</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value_<sp/>+<sp/>v;</highlight></codeline>
+<codeline lineno="18" refid="class_simple_1a3e6e5f2881753413c115c12808151722" refkind="member"><highlight class="normal"><sp/><sp/>MyFloat<sp/><ref refid="class_simple_1a3e6e5f2881753413c115c12808151722" kindref="member">add</ref>(MyFloat<sp/>v,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>w)<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>v<sp/>+<sp/>w;</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setValue(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>v)<sp/>{</highlight></codeline>

@@ -6,9 +6,6 @@
   This file loads the dub library.
 
 --]]------------------------------------------------------
-require 'dub.Dir'
-require 'dub.MemoryStorage'
-
 local lib     = {}
 local private = {}
 lib.__index   = lib

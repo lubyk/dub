@@ -15,8 +15,8 @@ public:
 
   /** Test typedef resolution in methods.
    */
-  MyFloat add(MyFloat v) {
-    return value_ + v;
+  MyFloat add(MyFloat v, float w) {
+    return v + w;
   }
 
   void setValue(float v) {

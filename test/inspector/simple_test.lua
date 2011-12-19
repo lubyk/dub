@@ -7,10 +7,8 @@
   the 'simple' class.
 
 --]]------------------------------------------------------
+require 'lubyk'
 -- Run the test with the dub directory as current path.
-package.path = 'lib/?.lua;test/helper/?.lua;'..package.path
-require 'test'
-require 'dub'
 local should = test.Suite('dub.Inspector')
 
 -- Test helper to prepare the inspector.
@@ -47,6 +45,23 @@ function should.findTypedef()
   local ins = makeInspector()
   local obj = ins:find('MyFloat')
   assertEqual('typedef', obj.kind)
+end
+
+function should.findMemberMethod()
+  local ins = makeInspector()
+  local Simple = ins:find('Simple')
+  local obj = Simple:method('value')
+  assertEqual('function', obj.kind)
+end
+
+function should.listMemberMethods()
+  local ins = makeInspector()
+  local Simple = ins:find('Simple')
+  local res = {}
+  for meth in Simple:methods() do
+    table.insert(res, meth.name)
+  end
+  assertValueEqual({'Simple', 'value', 'add', 'setValue'}, res)
 end
 
 test.all()
