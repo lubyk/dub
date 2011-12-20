@@ -64,5 +64,20 @@ static int hello(lua_State *L) {
 ]], res)
 end
 
+function should.indent()
+  local code = dub.Template [[
+static int {{name}}(lua_State *L) {
+  {| body |}
+}
+]]
+  local res = code:run {name = 'hello', body = '// blah blah\nreturn 0;'}
+  assertEqual([[
+static int hello(lua_State *L) {
+  // blah blah
+  return 0;
+}
+]], res)
+end
+
 test.all()
 

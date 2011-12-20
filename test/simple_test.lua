@@ -8,7 +8,6 @@
 
 --]]------------------------------------------------------
 require 'lubyk'
--- Run the test with the dub directory as current path.
 local should = test.Suite('dub.Inspector')
 
 -- Test helper to prepare the inspector.

@@ -36,6 +36,19 @@ function lib:headers()
   return self.db:headers(self)
 end
 
+--- Return true if the given method is a constructor for this class.
+function lib:isConstructor(method)
+  return self.name == method.name
+end
+
+function lib:fullname()
+  if self.parent then
+    return self.parent:fullname() .. '::' .. self.name
+  else
+    return self.name
+  end
+end
+
 --=============================================== PRIVATE
 
 function lib:resolveType(name)

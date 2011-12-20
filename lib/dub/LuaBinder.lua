@@ -6,7 +6,7 @@
   Use the dub.Inspector to create Lua bindings.
 
 --]]------------------------------------------------------
-local lib     = {}
+local lib     = {SELF = 'self', SELF_ACCESSOR = 'luaL_checkudata'}
 local private = {}
 lib.__index   = lib
 dub.LuaBinder = lib
@@ -49,11 +49,31 @@ end
 
 --- Create the body of the bindings for a given method/function.
 function lib:functionBody(class, method)
+  local res = ''
+  if class and not class:isConstructor(method) then
+    -- We need self
+    res = res .. private.getSelf(self, class)
+  end
   -- TODO
-  return "return 0;"
+  return res .. "return 0;"
 end
 
+--=============================================== Methods that can be customized
+
+function lib:selfAccessor(class)
+  -- TODO: if class.opts.self_accessor ? See on the testing side.
+  return 'luaL_checkudata'
+end
+
+function lib:libName(class)
+  return string.gsub(class:fullname(), '::', '.')
+end
 --=============================================== PRIVATE
 
-
-
+--- Find the userdata from the current lua_State. The userdata can
+-- be directly passed as first parameter or it can be inside a table as
+-- 'super'.
+function private.getSelf(self, class)
+  return string.format('%s *%s = *((%s**)%s(L, 1, "%s"));\n', 
+    class.name, self.SELF, class.name, self:selfAccessor(class), self:libName(class))
+end

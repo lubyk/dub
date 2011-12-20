@@ -6,6 +6,12 @@
   Simplistic templating system inspired by Zed A. Shaw's
   minimal template for Tir (http://mongrel2.org/).
 
+  Template features:
+
+   {{ code }}        Replaced with the string provided by 'code'.
+   {% code %}        Execute code but do not output (used for loops, if, etc).
+   {| code |}        Output code and preserve indentation.
+
 --]]------------------------------------------------------
 local lib     = {}
 local private = {}
@@ -37,9 +43,9 @@ setmetatable(lib, {
 })
 
 -- Create Lua code from the template string. 
-function lib:parse(source, prefix)
+function lib:parse(source)
+  local res = ''
   local eat_next_newline
-  local res = prefix or "local buffer_ = ''\nlocal function _out_(str)\nbuffer_ = buffer_ .. str\nend\n"
   --for text, block in string.gmatch(tmpl, "([^{]-)(%b{})") do
   -- Find balanced {
   for text, block in string.gmatch(source .. '{{}}', '([^{]-)(%b{})') do
@@ -57,29 +63,44 @@ function lib:parse(source, prefix)
     local content = string.sub(block, 3, -3)
     local block_text = ''
     if block_type == '{{' then
+      -- output content
       if content ~= '' then
         block_text = string.format("_out_(%s)\n", content)
+      end
+    elseif block_type == '{|' then
+      -- output content with indentation
+      if content ~= '' then
+        block_text = string.format("_indout_(%s, [=[%s]=])\n", content, text)
+        text = nil
       end
     elseif block_type == '{%' then
       block_text = content .. "\n"
       eat_next_newline = true
     else
       text = text .. '{'
-      block_text = self:parse(string.sub(block, 2, -1), '')
+      block_text = self:parse(string.sub(block, 2, -1))
     end
-    res = res .. string.format("_out_([=[%s]=])\n", text) .. block_text
-  end
-  if not prefix then
-    res = res .. 'return buffer_'
+    if text then
+      res = res .. string.format("_out_([=[%s]=])\n", text) .. block_text
+    else
+      res = res .. block_text
+    end
   end
   return res
 end
 
 function lib:run(env)
+  local buffer_ = ''
+  function env._out_(str)
+    buffer_ = buffer_ .. str
+  end
+  function env._indout_(str, indent)
+    buffer_ = buffer_ .. indent .. string.gsub(str, '\n', indent)
+  end
   setmetatable(env, {__index = _G})
   setfenv(self.func, env)
-  return self.func()
+  self.func()
+  return buffer_
 end
   
 --=============================================== PRIVATE
-

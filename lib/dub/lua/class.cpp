@@ -16,7 +16,7 @@
  */
 static int {{self.name}}_{{method.name}}(lua_State *L) {
   try {
-    {{binder:functionBody(self, method)}}
+    {| binder:functionBody(self, method) |}
   } catch (std::exception &e) {
     lua_pushfstring(L, "{{method.name}}: %s", e.what());
   } catch (...) {
