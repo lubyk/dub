@@ -6,7 +6,7 @@
   A public class method or function definition.
 
 --]]------------------------------------------------------
-local lib     = {kind = 'function'}
+local lib     = {type = 'dub.Function'}
 local private = {}
 lib.__index   = lib
 dub.Function  = lib
@@ -43,6 +43,10 @@ function lib:source()
   return 'TODO'
 end
 
+function lib:neverThrows()
+  -- TODO: inspect xml
+  return false
+end
 --=============================================== PRIVATE
 
 function private.paramsIterator(parent)

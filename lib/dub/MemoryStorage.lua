@@ -7,7 +7,7 @@
 
 --]]------------------------------------------------------
 
-local lib     = {}
+local lib     = {type = 'dub.MemoryStorage'}
 local private = {}
 local parse   = {}
 lib.__index   = lib
@@ -86,7 +86,7 @@ function lib:resolveType(name)
   -- Do we have a typedef ?
   local td = self:findByFullname(name)
   if td then
-    return td.type
+    return td.ctype
   end
 end
 --=============================================== PRIVATE
@@ -99,7 +99,7 @@ end
 
 function private.functionsIterator(parent)
   for _, child in pairs(parent.sorted_cache) do
-    if child.kind == 'function' then
+    if child.type == 'dub.Function' then
       coroutine.yield(child)
     end
   end
@@ -157,14 +157,15 @@ end
 
 function parse.innernamespace(self, elem, header)
   return {
-    kind = 'namespace',
+    type = 'dub.Namespace',
     name = elem[1]
   }
 end
 
-function parse.innerclass(self, elem, header)
+function parse.innerclass(parent, elem, header)
   return dub.Class {
-    db      = self,
+    -- parent can be a class or db (root)
+    db      = parent.db or parent,
     cache   = {},
     sorted_cache = {},
     name    = elem[1],
@@ -197,37 +198,43 @@ end
 
 function parse.typedef(self, elem, header)
   return {
-    kind = 'typedef',
-    name = elem:find('name')[1],
-    type = elem:find('type')[1],
-    desc = (elem:find('detaileddescription') or {})[1],
-    xml  = elem,
+    type    = 'dub.Typedef',
+    name    = elem:find('name')[1],
+    ctype   = elem:find('type')[1],
+    desc    = (elem:find('detaileddescription') or {})[1],
+    xml     = elem,
   }
 end
     
-parse['function'] = function(self, elem, header)
+parse['function'] = function(parent, elem, header)
   return dub.Function {
+    -- parent can be a class or db (root)
+    db            = parent.db or parent,
     name          = elem:find('name')[1],
-    sorted_params = parse.params(self, elem, header),
+    sorted_params = parse.params(elem, header),
     desc          = (elem:find('detaileddescription') or {})[1],
     xml           = elem,
   }
 end
 
-function parse.params(self, elem, header)
+function parse.params(elem, header)
   local res = {str = elem:find('argsstring')[1]}
-  for _,param in ipairs(elem) do
+  local i = 0
+  for _, param in ipairs(elem) do
     if param.xml == 'param' then
-      table.insert(res, parse.param(self, param, header))
+      i = i + 1
+      table.insert(res, parse.param(param, i))
     end
   end
   return res
 end
 
-function parse.param(self, elem, header)
+function parse.param(elem, position)
   return {
-    type = elem:find('type')[1],
-    name = elem:find('declname')[1],
+    position = position,
+    type     = 'dub.Param',
+    ctype    = elem:find('type')[1],
+    name     = elem:find('declname')[1],
   }
 end
 

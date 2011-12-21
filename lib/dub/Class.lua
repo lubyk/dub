@@ -7,7 +7,7 @@
 
 --]]------------------------------------------------------
 
-local lib     = {kind = 'class'}
+local lib     = {type = 'dub.Class'}
 local private = {}
 lib.__index   = lib
 dub.Class     = lib
@@ -49,14 +49,5 @@ function lib:fullname()
   end
 end
 
---=============================================== PRIVATE
-
-function lib:resolveType(name)
-  -- Do we have a typedef ?
-  local td = self:findByFullname(name)
-  if td then
-    return td.type
-  end
-end
 --=============================================== PRIVATE
 

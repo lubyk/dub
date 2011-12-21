@@ -6,7 +6,16 @@
   Use the dub.Inspector to create Lua bindings.
 
 --]]------------------------------------------------------
-local lib     = {SELF = 'self', SELF_ACCESSOR = 'luaL_checkudata'}
+local lib     = {
+  type = 'dub.LuaBinder',
+  SELF = 'self',
+  SELF_ACCESSOR = 'luaL_checkudata',
+  TYPE_TO_NATIVE = {
+    double = 'number',
+    float  = 'number',
+    int    = 'number',
+  }
+}
 local private = {}
 lib.__index   = lib
 dub.LuaBinder = lib
@@ -27,7 +36,7 @@ function lib.bind(inspector, options)
   if options.only then
     for _,name in ipairs(options.only) do
       local elem = inspector:find(name)
-      if elem.kind == 'class' then
+      if elem.type == 'dub.Class' then
         local path = self.output_directory .. lk.Dir.sep .. class.name .. '.cpp'
         local file = io.open(path, 'w')
         file.write(self:bindClass(class))
@@ -54,20 +63,36 @@ function lib:functionBody(class, method)
     -- We need self
     res = res .. private.getSelf(self, class)
   end
-  -- TODO
+  for param in method:params() do
+    res = res .. private.getParam(self, method, param, 1)
+  end
   return res .. "return 0;"
 end
 
 --=============================================== Methods that can be customized
 
-function lib:selfAccessor(class)
-  -- TODO: if class.opts.self_accessor ? See on the testing side.
+function lib:customTypeAccessor(class)
   return 'luaL_checkudata'
 end
 
 function lib:libName(class)
   return string.gsub(class:fullname(), '::', '.')
 end
+
+--- Returns the method to use to retrieve a given type from Lua.
+function lib:nativeTypeAccessor(method, type_name)
+  local typ = method.db:resolveType(type_name) or type_name
+  local acc = self.TYPE_TO_NATIVE[typ]
+  if acc then
+    -- if this method does never throw, we can use luaL_check...
+    if method:neverThrows() then
+      return 'luaL_check' .. acc
+    else
+      return 'dubL_check' .. acc
+    end
+  end
+end
+
 --=============================================== PRIVATE
 
 --- Find the userdata from the current lua_State. The userdata can
@@ -75,5 +100,26 @@ end
 -- 'super'.
 function private.getSelf(self, class)
   return string.format('%s *%s = *((%s**)%s(L, 1, "%s"));\n', 
-    class.name, self.SELF, class.name, self:selfAccessor(class), self:libName(class))
+    class.name, self.SELF, class.name, self:customTypeAccessor(class), self:libName(class))
+end
+
+--- Retrieve a function parameter.
+function private.getParam(self, method, param, delta)
+  local type_method = self:nativeTypeAccessor(method, param.ctype)
+  if type_method then
+    return string.format('%s %s = %s(L, %i);\n',
+      param.ctype, param.name, type_method, param.position + delta)
+  else
+    -- userdata
+    local lib_name
+    local class = method.db:findByFullname(param.ctype)
+    if class then
+      lib_name = self:libName(class)
+    else
+      lib_name = param.ctype
+    end
+    type_method = self:customTypeAccessor(method, param.ctype)
+    return string.format('%s *%s = *((%s**))%s(L, %i, "%s"));\n',
+      param.ctype, param.name, param.ctype, type_method, param.position + delta, lib_name)
+  end
 end

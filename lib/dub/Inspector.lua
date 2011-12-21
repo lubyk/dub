@@ -1,12 +1,14 @@
 --[[------------------------------------------------------
 
-  dub
-  ---
+  dub.Inspector
+  -------------
 
-  This file loads the dub library.
+  The Inspector 'knows' about the functions and classes
+  and can answer queries. It first the main entry point to
+  parse and create bindings.
 
 --]]------------------------------------------------------
-local lib     = {}
+local lib     = {type = 'dub.Inspector'}
 local private = {}
 lib.__index   = lib
 dub.Inspector = lib

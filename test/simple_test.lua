@@ -37,20 +37,20 @@ end
 function should.findSimpleClass()
   local ins = makeInspector()
   local simple = ins:find('Simple')
-  assertEqual('class', simple.kind)
+  assertEqual('dub.Class', simple.type)
 end
 
 function should.findTypedef()
   local ins = makeInspector()
   local obj = ins:find('MyFloat')
-  assertEqual('typedef', obj.kind)
+  assertEqual('dub.Typedef', obj.type)
 end
 
 function should.findMemberMethod()
   local ins = makeInspector()
   local Simple = ins:find('Simple')
   local obj = Simple:method('value')
-  assertEqual('function', obj.kind)
+  assertEqual('dub.Function', obj.type)
 end
 
 function should.listMemberMethods()
@@ -71,7 +71,7 @@ function should.listParamsOnMethod()
   local types = {}
   for param in add:params() do
     table.insert(names, param.name) 
-    table.insert(types, param.type) 
+    table.insert(types, param.ctype) 
   end
   assertValueEqual({'v', 'w'}, names)
   assertValueEqual({'MyFloat', 'float'}, types)
