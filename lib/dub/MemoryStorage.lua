@@ -212,6 +212,7 @@ parse['function'] = function(parent, elem, header)
     db            = parent.db or parent,
     name          = elem:find('name')[1],
     sorted_params = parse.params(elem, header),
+    return_value  = parse.retval(elem),
     desc          = (elem:find('detaileddescription') or {})[1],
     xml           = elem,
   }
@@ -238,3 +239,12 @@ function parse.param(elem, position)
   }
 end
 
+function parse.retval(elem)
+  local ctype = elem:find('type')[1]
+  if ctype and ctype ~= 'void' then
+    return {
+      type     = 'dub.Retval',
+      ctype    = elem:find('type')[1],
+    }
+  end
+end

@@ -9,7 +9,8 @@
 local lib     = {
   type = 'dub.LuaBinder',
   SELF = 'self',
-  SELF_ACCESSOR = 'luaL_checkudata',
+  TYPE_ACCESSOR = 'checksdata',
+  LUA_STACK_SIZE_NAME = 'LuaStackSize',
   TYPE_TO_NATIVE = {
     double = 'number',
     float  = 'number',
@@ -20,10 +21,10 @@ local private = {}
 lib.__index   = lib
 dub.LuaBinder = lib
 
---=============================================== dub.Inspector()
+--=============================================== dub.LuaBinder()
 setmetatable(lib, {
-  __call = function(lib)
-    local self = {}
+  __call = function(lib, options)
+    local self = {options = options or {}}
     return setmetatable(self, lib)
   end
 })
@@ -66,13 +67,15 @@ function lib:functionBody(class, method)
   for param in method:params() do
     res = res .. private.getParam(self, method, param, 1)
   end
-  return res .. "return 0;"
+  res = res .. private.doCall(self, class, method)
+  res = res .. private.pushReturnValue(self, class, method)
+  return res
 end
 
 --=============================================== Methods that can be customized
 
 function lib:customTypeAccessor(class)
-  return 'luaL_checkudata'
+  return private.checkPrefix(self) .. self.TYPE_ACCESSOR
 end
 
 function lib:libName(class)
@@ -80,8 +83,8 @@ function lib:libName(class)
 end
 
 --- Returns the method to use to retrieve a given type from Lua.
-function lib:nativeTypeAccessor(method, type_name)
-  local typ = method.db:resolveType(type_name) or type_name
+function lib:nativeTypeAccessor(method, ctype)
+  local typ = method.db:resolveType(ctype) or ctype
   local acc = self.TYPE_TO_NATIVE[typ]
   if acc then
     -- if this method does never throw, we can use luaL_check...
@@ -95,6 +98,13 @@ end
 
 --=============================================== PRIVATE
 
+function private.checkPrefix(self)
+  if self.options.exceptions == false then
+    return 'luaL_'
+  else
+    return 'dubL_'
+  end
+end
 --- Find the userdata from the current lua_State. The userdata can
 -- be directly passed as first parameter or it can be inside a table as
 -- 'super'.
@@ -121,5 +131,55 @@ function private.getParam(self, method, param, delta)
     type_method = self:customTypeAccessor(method, param.ctype)
     return string.format('%s *%s = *((%s**))%s(L, %i, "%s"));\n',
       param.ctype, param.name, param.ctype, type_method, param.position + delta, lib_name)
+  end
+end
+
+---
+function private:doCall(class, method)
+  local res = method.name .. '('
+  local first = true
+  for param in method:params() do
+    if not first then
+      res = res .. ', '
+    else
+      first = false
+    end
+    res = res .. param.name
+  end
+  res = res .. ');\n'
+  if class:isConstructor(method) then
+    res = 'new ' .. res
+  else
+    res = self.SELF .. '->' .. res
+  end
+  
+  --- Return value
+  local return_value = method.return_value
+  if method.return_value then
+    res = return_value.ctype .. ' retval__ = ' .. res
+  end
+  return res;
+end
+
+function private:pushReturnValue(class, method)
+  local return_value = method.return_value
+  if return_value then
+    if return_value.ctype == self.LUA_STACK_SIZE_NAME then
+      return 'return retval__;'
+    else
+      return private.pushValue(self, method, 'retval__', return_value.ctype)
+    end
+  else
+    return 'return 0;'
+  end
+end
+
+function private:pushValue(method, name, ctype)
+  local typ = method.db:resolveType(ctype) or ctype
+  local acc = self.TYPE_TO_NATIVE[typ]
+  if acc then
+    return string.format('lua_push%s(L, %s);\nreturn 1;', acc, name)
+  else
+    return string.format('dub_pushclass<%s>(%s);\nreturn 1;', ctype, name)
   end
 end

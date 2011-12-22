@@ -10,10 +10,11 @@ require 'lubyk'
 local should = test.Suite('dub.Function')
 
 -- Test helper to prepare the inspector.
-local function makeFunction()
+local function makeFunction(func_name)
+  local func_name = func_name or 'add'
   local ins = dub.Inspector()
   ins:parse('test/fixtures/simple/doc/xml')
-  return ins:find('Simple'):method('add')
+  return ins:find('Simple'):method(func_name)
 end
 
 --=============================================== TESTS
@@ -34,6 +35,17 @@ function should.haveParams()
     table.insert(res, {i, param.name})
   end
   assertValueEqual({{1, 'v'}}, res)
+end
+
+function should.haveReturnValue()
+  local func = makeFunction()
+  local ret = func.return_value
+  assertEqual('MyFloat', ret.ctype)
+end
+
+function should.notHaveReturnValue()
+  local func = makeFunction('setValue')
+  assertNil(func.return_value)
 end
 
 test.all()
