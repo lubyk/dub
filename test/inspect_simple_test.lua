@@ -13,7 +13,7 @@ local should = test.Suite('dub.Inspector')
 -- Test helper to prepare the inspector.
 local function makeInspector()
   local ins = dub.Inspector()
-  ins:parse('test/fixtures/simple/doc/xml')
+  ins:parseXml('test/fixtures/simple/doc/xml')
   return ins
 end
 
@@ -60,7 +60,7 @@ function should.listMemberMethods()
   for meth in Simple:methods() do
     table.insert(res, meth.name)
   end
-  assertValueEqual({'Simple', 'value', 'add', 'setValue'}, res)
+  assertValueEqual({'Simple', '_Simple', 'value', 'add', 'setValue'}, res)
 end
 
 function should.listParamsOnMethod()

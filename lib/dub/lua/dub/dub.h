@@ -43,6 +43,9 @@ extern "C" {
 #include <string>    // std::string for Exception
 #include <exception> // std::exception
 
+// Rename macro
+#define DubObject dub::LuaObject
+#define DubThread dub::LuaThread
 // ======================================================================
 // =============================================== dub::Exception
 // ======================================================================
