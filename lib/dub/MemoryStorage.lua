@@ -54,13 +54,35 @@ end
 
 function lib:findChild(parent, name)
   -- Any element at the root of the name space
-  return parent.cache[name] or private.parseHeaders(parent, name)
+  local child = parent.cache[name] or private.parseHeaders(parent, name)
+  if not child and parent.type == 'dub.Class' and name == '~' .. parent.name then
+    -- Destructor not always declared in header file. Build as needed.
+    child = dub.Function {
+      db            = parent.db,
+      name          = name,
+      sorted_params = {},
+      return_value  = nil,
+      definition    = name .. '()',
+      argsstring    = '',
+      location      = '',
+      desc          = parent.name .. ' destructor.',
+      static        = false,
+      xml           = nil,
+    }
+    table.insert(parent.sorted_cache, child)
+    parent.cache[name] = child
+  end
+  return child
 end
 
 --- Return an iterator over the functions of this class/namespace.
 function lib:functions(parent)
   -- make sure we have parsed the headers
   private.parseHeaders(parent)
+  if parent.type == 'dub.Class' then
+    -- Force destructor creation.
+    self:findChild(parent, '~' .. parent.name)
+  end
   local co = coroutine.create(private.functionsIterator)
   return function()
     local ok, value = coroutine.resume(co, parent)
@@ -73,6 +95,7 @@ end
 --- Return an iterator over the functions of this class/namespace.
 function lib:headers(parent)
   -- make sure we have parsed the headers
+  private.parseHeaders(parent)
   local co = coroutine.create(private.headersIterator)
   return function()
     local ok, value = coroutine.resume(co, parent)

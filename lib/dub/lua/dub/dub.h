@@ -122,4 +122,8 @@ void *dub_checksdata_n(lua_State *L, int ud, const char *tname) throw();
 #define dub_checkstring(L,n) (dub_checklstring(L, (n), NULL))
 #define dub_checkint(L,n) ((int)dub_checkinteger(L, (n)))
 
+// ======================================================================
+// =============================================== dub_register
+// ======================================================================
+void dub_register(lua_State *L, const char *libname, const char *class_name);
 #endif // DUB_BINDING_GENERATOR_DUB_H_

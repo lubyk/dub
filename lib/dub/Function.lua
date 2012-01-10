@@ -11,10 +11,12 @@ local private = {}
 lib.__index   = lib
 dub.Function  = lib
 
---=============================================== dub.Object()
+--=============================================== dub.Function()
 setmetatable(lib, {
   __call = function(lib, self)
-    return setmetatable(self, lib)
+    setmetatable(self, lib)
+    private.parseName(self)
+    return self
   end
 })
 
@@ -47,3 +49,11 @@ function private.paramsIterator(parent)
   end
 end
 
+function private:parseName()
+  if string.match(self.name, '^~') then
+    self.destructor = true
+    self.name = string.gsub(self.name, '~', '_')
+  else
+    self.bind_name = self.name
+  end
+end

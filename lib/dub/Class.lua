@@ -41,6 +41,11 @@ function lib:isConstructor(method)
   return self.name == method.name
 end
 
+--- Return true if the given method is a destructor for this class.
+function lib:isDestructor(method)
+  return method.destructor
+end
+
 function lib:fullname()
   if self.parent then
     return self.parent:fullname() .. '::' .. self.name

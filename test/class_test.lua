@@ -26,9 +26,36 @@ function should.beAClass()
 end
 
 function should.detectConscructor()
+  local class  = makeClass()
+  local method = class:method('Simple')
+  assertTrue(class:isConstructor(method))
+end
+
+function should.listMethods()
   local class = makeClass()
-  local constr = class:method('Simple')
-  assertTrue(class:isConstructor(constr))
+  local m
+  for method in class:methods() do
+    if method.name == 'setValue' then
+      m = method
+      break
+    end
+  end
+  assertEqual(m, class:method('setValue'))
+end
+
+function should.listHeaders()
+  local class = makeClass()
+  local h
+  for header in class:headers() do
+    h = header.path
+  end
+  assertEqual(h, 'simple.h')
+end
+
+function should.detectDestructor()
+  local class  = makeClass()
+  local method = class:method('~Simple')
+  assertTrue(class:isDestructor(method))
 end
 
 test.all()

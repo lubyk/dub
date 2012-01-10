@@ -29,8 +29,8 @@
 #include "dub/dub.h"
 
 #define DUB_EXCEPTION_BUFFER_SIZE 256  
-#define TYPE_EXCEPTION_MSG "%s expected, got %s"
-#define TYPE_EXCEPTION_SMSG "%s expected, got %s (using super)"
+#define TYPE_EXCEPTION_MSG "%s expected, %s"
+#define TYPE_EXCEPTION_SMSG "%s expected, %s (using super)"
 using namespace dub;
 
 // ======================================================================
@@ -181,10 +181,36 @@ void *dub_checksdata_n(lua_State *L, int ud, const char *tname) throw() {
         // remove both metatables
         lua_pop(L, 2);
       }
-      luaL_error(L, "%s expected, got %s (using super)", tname, luaL_typename(L, -1));
+      luaL_error(L, TYPE_EXCEPTION_SMSG, tname, luaL_typename(L, -1));
     }
   }
-  luaL_error(L, "%s expected, got %s", tname, luaL_typename(L, ud));
+  luaL_error(L, TYPE_EXCEPTION_MSG, tname, luaL_typename(L, ud));
   return NULL;
 }
 
+
+// ======================================================================
+// =============================================== dub_register
+// ======================================================================
+
+// The metatable lives in libname.ClassName_
+void dub_register(lua_State *L, const char *libname, const char *class_name) {
+  // meta-table should be on top
+  // <mt>
+  lua_pushstring(L, "type");
+  // <mt> "type"
+  lua_pushfstring(L, "%s.%s", libname, class_name);
+  // <mt>."type" = "libname.class_name"
+  lua_settable(L, -3);
+  // <mt>
+  lua_getglobal(L, libname);
+  // <mt> <lib>
+  lua_pushfstring(L, "%s_", class_name);
+  // <mt> <lib> "Foobar_"
+  lua_pushvalue(L, -3);
+  // <mt> <lib>.Foobar_ = <mt>
+  lua_settable(L, -3);
+  // <mt> <lib>
+  lua_pop(L, 1);
+  // <mt>
+}
