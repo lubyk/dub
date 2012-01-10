@@ -92,7 +92,7 @@ end
 function lib:run(env)
   local buffer_ = ''
   function env._out_(str)
-    buffer_ = buffer_ .. str
+    buffer_ = buffer_ .. str or ''
   end
   function env._indout_(str, indent)
     buffer_ = buffer_ .. indent .. string.gsub(str, '\n', indent)

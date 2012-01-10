@@ -33,11 +33,14 @@ setmetatable(lib, {
 
 -- Parse xml directory and find header files. This will allow
 -- us to find definitions as needed.
-function lib:parse(xml_dir)
+function lib:parse(xml_dir, not_lazy)
   local xml_headers = self.xml_headers
   local dir = lk.Dir(xml_dir)
   for file in dir:glob('%_8h.xml') do
     table.insert(xml_headers, {path = file, dir = xml_dir})
+  end
+  if not_lazy then
+    private.parseAll(self)
   end
 end
 
@@ -53,19 +56,23 @@ function lib:findByFullname(name)
 end
 
 function lib:findChild(parent, name)
+  local class_dest = string.match(name, '^~(.+)$')
+  if class_dest then
+    name = '_' .. class_dest
+  end
   -- Any element at the root of the name space
   local child = parent.cache[name] or private.parseHeaders(parent, name)
-  if not child and parent.type == 'dub.Class' and name == '~' .. parent.name then
+  if not child and class_dest then
     -- Destructor not always declared in header file. Build as needed.
     child = dub.Function {
       db            = parent.db,
       name          = name,
       sorted_params = {},
       return_value  = nil,
-      definition    = name .. '()',
+      definition    = '~' .. class_dest .. '()',
       argsstring    = '',
       location      = '',
-      desc          = parent.name .. ' destructor.',
+      desc          = class_dest .. ' destructor.',
       static        = false,
       xml           = nil,
     }
@@ -128,6 +135,18 @@ function private.functionsIterator(parent)
   end
 end
 
+function private:parseAll()
+  if self.parsed_headers then
+    return
+  end
+  for i, header in ipairs(self.xml_headers) do
+    if not header.parsed then
+      parse.header(self, header, true)
+    end
+  end
+  self.parsed_headers = true
+end
+
 -- Here 'self' can be the db (root) or a class.
 function private:parseHeaders(name)
   local cache = self.cache
@@ -151,23 +170,23 @@ require 'lubyk'
 
 --- Parse a header definition and return element 
 -- identified by 'name' if found.
-function parse.header(self, header)
+function parse.header(self, header, not_lazy)
   local data = xml.load(header.path):find('compounddef')
   local h_path = data:find('location').file
   local base, h_file = lk.directory(h_path)
   table.insert(self.headers_list, {path = h_file})
 
-  parse.children(self, data, header)
+  parse.children(self, data, header, not_lazy)
   header.parsed = true
 end
 
-function parse.children(self, parent, header)
+function parse.children(self, parent, header, not_lazy)
   local cache = self.cache
   local sorted_cache = self.sorted_cache
   for _, elem in ipairs(parent) do
     local func = parse[elem.xml]
     if func then
-      local obj = func(self, elem, header)
+      local obj = func(self, elem, header, not_lazy)
       if obj then
         cache[obj.name] = obj
         table.insert(sorted_cache, obj)
@@ -185,8 +204,8 @@ function parse.innernamespace(self, elem, header)
   }
 end
 
-function parse.innerclass(parent, elem, header)
-  return dub.Class {
+function parse.innerclass(parent, elem, header, not_lazy)
+  local class = dub.Class {
     -- parent can be a class or db (root)
     db      = parent.db or parent,
     cache   = {},
@@ -198,6 +217,10 @@ function parse.innerclass(parent, elem, header)
       {path = header.dir .. lk.Dir.sep .. elem.refid .. '.xml', dir = header.dir}
     },
   }
+  if not_lazy then
+    private.parseAll(class)
+  end
+  return class
 end
 
 function parse.sectiondef(self, elem, header)
@@ -223,7 +246,7 @@ function parse.typedef(self, elem, header)
   return {
     type    = 'dub.Typedef',
     name    = elem:find('name')[1],
-    ctype   = elem:find('type')[1],
+    ctype   = parse.type(elem),
     desc    = (elem:find('detaileddescription') or {})[1],
     xml     = elem,
   }
@@ -262,19 +285,29 @@ function parse.param(elem, position)
   return {
     position = position,
     type     = 'dub.Param',
-    ctype    = elem:find('type')[1],
+    ctype    = parse.type(elem),
     name     = elem:find('declname')[1],
   }
 end
 
 function parse.retval(elem)
-  local ctype = elem:find('type')[1]
+  local ctype = parse.type(elem)
   if ctype and ctype ~= 'void' then
     return {
       type     = 'dub.Retval',
-      ctype    = elem:find('type')[1],
+      ctype    = ctype,
     }
   end
+end
+
+-- Return a string like 'float' or 'MyFloat'.
+function parse.type(elem)
+  local ctype = elem:find('type')[1]
+  if type(ctype) == 'table' then
+    -- <ref refid='...' kindref='member'>
+    ctype = ctype[1]
+  end
+  return ctype
 end
 
 function private.makeLocation(elem, header)

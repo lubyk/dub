@@ -14,7 +14,7 @@ local binder = dub.LuaBinder()
 -- Test helper to prepare the inspector.
 local function makeInspector()
   local ins = dub.Inspector()
-  ins:parse('test/fixtures/simple/doc/xml')
+  ins:parseXml('test/fixtures/simple/doc/xml')
   return ins
 end
 
@@ -39,7 +39,8 @@ end
 
 function should.bindCompileAndLoad()
   local class_name = 'Simple'
-  local ins = makeInspector()
+  local ins = dub.Inspector 'test/fixtures/simple/include'
+
   -- create tmp directory
   local tmp_path = lk.dir() .. '/tmp'
   lk.rmTree(tmp_path, true)
@@ -63,6 +64,6 @@ function should.bindCompileAndLoad()
     assertEqual(4.5, s:value())
     assertEqual(123, s:add(110, 13))
   end
-  lk.rmTree(tmp_path, true)
+  --lk.rmTree(tmp_path, true)
 end
 test.all()

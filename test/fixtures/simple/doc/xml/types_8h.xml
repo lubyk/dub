@@ -2,16 +2,16 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
   <compounddef id="types_8h" kind="file">
     <compoundname>types.h</compoundname>
-    <includedby refid="simple_8h" local="yes">include/simple.h</includedby>
+    <includedby refid="simple_8h" local="yes">test/fixtures/simple/include/simple.h</includedby>
     <invincdepgraph>
       <node id="4">
-        <label>include/types.h</label>
+        <label>test/fixtures/simple/include/types.h</label>
         <link refid="types.h"/>
         <childnode refid="5" relation="include">
         </childnode>
       </node>
       <node id="5">
-        <label>include/simple.h</label>
+        <label>test/fixtures/simple/include/simple.h</label>
         <link refid="simple_8h_source"/>
       </node>
     </invincdepgraph>

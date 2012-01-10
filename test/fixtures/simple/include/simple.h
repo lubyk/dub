@@ -8,6 +8,10 @@ class Simple {
   float value_;
 public:
   Simple(float v) : value_(v) {}
+  
+  ~Simple() {
+    printf("I die...\n");
+  }
 
   float value() {
     return value_;

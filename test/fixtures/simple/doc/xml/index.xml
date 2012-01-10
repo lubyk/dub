@@ -3,6 +3,7 @@
   <compound refid="class_simple" kind="class"><name>Simple</name>
     <member refid="class_simple_1a4a3ce04c6c2d1803fc7dbd5a67f4cd46" kind="variable"><name>value_</name></member>
     <member refid="class_simple_1a3fd8004f8d4cf9f734c4662771b7a705" kind="function"><name>Simple</name></member>
+    <member refid="class_simple_1a922e57b961d5bf0472d3a0860b88f113" kind="function"><name>~Simple</name></member>
     <member refid="class_simple_1a35a29056d40f8109d79aecd1fc50e53d" kind="function"><name>value</name></member>
     <member refid="class_simple_1a3e6e5f2881753413c115c12808151722" kind="function"><name>add</name></member>
     <member refid="class_simple_1adae946c5fabe1b997811c7022c9a33ce" kind="function"><name>setValue</name></member>
@@ -12,6 +13,12 @@
   <compound refid="types_8h" kind="file"><name>types.h</name>
     <member refid="types_8h_1a2a4d44cda226b135d745cf024dec64e8" kind="typedef"><name>MyFloat</name></member>
   </compound>
-  <compound refid="dir_14be7e5ae40b9470aa38bd74e7497267" kind="dir"><name>include/</name>
+  <compound refid="dir_a7aee6f079f6bd9f8fc4aeca3336d869" kind="dir"><name>test/fixtures/</name>
+  </compound>
+  <compound refid="dir_14be7e5ae40b9470aa38bd74e7497267" kind="dir"><name>test/fixtures/simple/include/</name>
+  </compound>
+  <compound refid="dir_215034ea2caad06de484458a112381df" kind="dir"><name>test/fixtures/simple/</name>
+  </compound>
+  <compound refid="dir_e2c1999fe34b2e06f2018efb63a92ad1" kind="dir"><name>test/</name>
   </compound>
 </doxygenindex>

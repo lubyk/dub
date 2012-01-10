@@ -35,6 +35,19 @@
         </inbodydescription>
         <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="10" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="10" bodyend="10"/>
       </memberdef>
+      <memberdef kind="function" id="class_simple_1a922e57b961d5bf0472d3a0860b88f113" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Simple::~Simple</definition>
+        <argsstring>()</argsstring>
+        <name>~Simple</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="12" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="12" bodyend="14"/>
+      </memberdef>
       <memberdef kind="function" id="class_simple_1a35a29056d40f8109d79aecd1fc50e53d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>float</type>
         <definition>float Simple::value</definition>
@@ -46,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="12" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="12" bodyend="14"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="16" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="16" bodyend="18"/>
       </memberdef>
       <memberdef kind="function" id="class_simple_1a3e6e5f2881753413c115c12808151722" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>MyFloat</type>
@@ -67,7 +80,7 @@
 <para>Test typedef resolution in methods. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="18" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="18" bodyend="20"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="22" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="22" bodyend="24"/>
       </memberdef>
       <memberdef kind="function" id="class_simple_1adae946c5fabe1b997811c7022c9a33ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -84,20 +97,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="22" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="22" bodyend="24"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="26" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="26" bodyend="28"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="6" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="6" bodyend="25"/>
+    <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="6" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="6" bodyend="29"/>
     <listofallmembers>
       <member refid="class_simple_1a3e6e5f2881753413c115c12808151722" prot="public" virt="non-virtual"><scope>Simple</scope><name>add</name></member>
       <member refid="class_simple_1adae946c5fabe1b997811c7022c9a33ce" prot="public" virt="non-virtual"><scope>Simple</scope><name>setValue</name></member>
       <member refid="class_simple_1a3fd8004f8d4cf9f734c4662771b7a705" prot="public" virt="non-virtual"><scope>Simple</scope><name>Simple</name></member>
       <member refid="class_simple_1a35a29056d40f8109d79aecd1fc50e53d" prot="public" virt="non-virtual"><scope>Simple</scope><name>value</name></member>
       <member refid="class_simple_1a4a3ce04c6c2d1803fc7dbd5a67f4cd46" prot="private" virt="non-virtual"><scope>Simple</scope><name>value_</name></member>
+      <member refid="class_simple_1a922e57b961d5bf0472d3a0860b88f113" prot="public" virt="non-virtual"><scope>Simple</scope><name>~Simple</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

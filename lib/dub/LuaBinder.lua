@@ -75,7 +75,7 @@ function lib:build(output, base_path, file_pattern, extra_flags)
   end
   cmd = cmd .. files
   local pipe = io.popen(cmd)
-  return pipe:read('*a')
+  print(pipe:read('*a'))
 end
 
 --- Return a string containing the Lua bindings for a class.
