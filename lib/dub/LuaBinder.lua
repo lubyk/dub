@@ -54,7 +54,7 @@ function lib:bindClass(class)
     local dir = lk.dir()
     self.class_template = dub.Template {path = dir .. '/lua/class.cpp'}
   end
-  return self.class_template:run {self = class, binder = self}
+  return self.class_template:run {class = class, self = self}
 end
 
 --- Create the body of the bindings for a given method/function.

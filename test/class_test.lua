@@ -22,7 +22,7 @@ function should.autoload()
 end
 
 function should.beAClass()
-  assertEqual('class', makeClass().kind)
+  assertEqual('dub.Class', makeClass().type)
 end
 
 function should.detectConscructor()

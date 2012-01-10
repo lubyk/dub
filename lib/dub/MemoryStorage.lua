@@ -207,13 +207,18 @@ function parse.typedef(self, elem, header)
 end
     
 parse['function'] = function(parent, elem, header)
+  local name = elem:find('name')[1]
   return dub.Function {
     -- parent can be a class or db (root)
     db            = parent.db or parent,
-    name          = elem:find('name')[1],
+    name          = name,
     sorted_params = parse.params(elem, header),
     return_value  = parse.retval(elem),
+    definition    = elem:find('definition')[1],
+    argsstring    = elem:find('argsstring')[1],
+    location      = private.makeLocation(elem, header),
     desc          = (elem:find('detaileddescription') or {})[1],
+    static        = elem.static == 'yes' or (parent and parent.name == name),
     xml           = elem,
   }
 end
@@ -247,4 +252,10 @@ function parse.retval(elem)
       ctype    = elem:find('type')[1],
     }
   end
+end
+
+function private.makeLocation(elem, header)
+  local loc  = elem:find('location')
+  local file = lk.absToRel(loc.file, lfs.currentdir())
+  return file .. ':' .. loc.line
 end

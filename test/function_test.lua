@@ -48,6 +48,16 @@ function should.notHaveReturnValue()
   assertNil(func.return_value)
 end
 
+function should.haveLocation()
+  local func = makeFunction()
+  assertEqual('test/fixtures/simple/include/simple.h:18', func.location)
+end
+
+function should.markConstructorAsStatic()
+  local func = makeFunction('Simple')
+  assertTrue(func.static)
+end
+
 test.all()
 
 

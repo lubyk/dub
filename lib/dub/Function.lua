@@ -32,15 +32,7 @@ function lib:params()
 end
 
 function lib:fullname()
-  return 'TODO'
-end
-
-function lib:source()
-  --def source
-  --  loc = (@xml/'location').first.attributes
-  --  "#{loc['file'].split('/')[-3..-1].join('/')}:#{loc['line']}"
-  --end
-  return 'TODO'
+  return self.definition .. self.argsstring
 end
 
 function lib:neverThrows()
