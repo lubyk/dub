@@ -8,3 +8,4 @@ test/fixtures/app/vendor/lua/lua
 .*
 test/fixtures/app/html
 test/tmp
+tmp

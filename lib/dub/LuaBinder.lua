@@ -91,7 +91,7 @@ end
 --- Create the body of the bindings for a given method/function.
 function lib:functionBody(class, method)
   local res = ''
-  if method.destructor then
+  if method.is_destructor then
     res = res .. private.getSelf(self, class, true)
     res = res .. string.format('if (*%s) delete *%s;\n', self.SELF, self.SELF)
     res = res .. string.format('*%s = NULL;\n', self.SELF)
@@ -103,11 +103,17 @@ function lib:functionBody(class, method)
       res = res .. private.getSelf(self, class)
       param_delta = 1
     end
-    for param in method:params() do
-      res = res .. private.getParam(self, method, param, param_delta)
+    if method.is_set_attr then
+      res = res .. private.setAttrBody(self, param_delta)
+    elseif method.is_get_attr then
+      res = res .. private.getAttrBody(self, param_delta)
+    else
+      for param in method:params() do
+        res = res .. private.getParam(self, method, param, param_delta)
+      end
+      res = res .. private.doCall(self, class, method)
+      res = res .. private.pushReturnValue(self, class, method)
     end
-    res = res .. private.doCall(self, class, method)
-    res = res .. private.pushReturnValue(self, class, method)
   end
   return res
 end
@@ -120,6 +126,10 @@ function lib:bindName(method)
   end
   if method.destructor then
     return '__gc'
+  elseif method.is_set_attr then
+    return '__newindex'
+  elseif method.is_get_attr then
+    return '__index'
   else
     return method.name
   end
@@ -264,3 +274,26 @@ function private.platform()
     return 'linux'
   end
 end
+
+-- __newindex
+function private:setAttrBody(class)
+  return ''
+  --[[
+__newindex:
+
+int h = dub_hash(key);
+switch(key) {
+  case 9824: /* a */
+    float a = luaL_checknumber(L, 2);
+    self.a = a;
+    break;
+  case 0984: /* b */
+    break;
+}            
+--]]
+end
+
+function private:getAttrBody(class)
+  return ''
+end
+

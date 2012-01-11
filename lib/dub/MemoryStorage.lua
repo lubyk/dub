@@ -7,7 +7,9 @@
 
 --]]------------------------------------------------------
 
-local lib     = {type = 'dub.MemoryStorage'}
+local lib     = {
+  type = 'dub.MemoryStorage', 
+}
 local private = {}
 local parse   = {}
 lib.__index   = lib
@@ -18,11 +20,12 @@ setmetatable(lib, {
   __call = function(lib)
     local self = {
       -- xml definitions list
-      xml_headers  = {},
+      xml_headers    = {},
       -- .h header files
-      headers_list = {},
-      cache   = {},
-      sorted_cache = {},
+      headers_list   = {},
+      cache          = {},
+      sorted_cache   = {},
+      functions_list = {},
     }
     return setmetatable(self, lib)
   end
@@ -56,43 +59,30 @@ function lib:findByFullname(name)
 end
 
 function lib:findChild(parent, name)
-  local class_dest = string.match(name, '^~(.+)$')
-  if class_dest then
-    name = '_' .. class_dest
-  end
   -- Any element at the root of the name space
-  local child = parent.cache[name] or private.parseHeaders(parent, name)
-  if not child and class_dest then
-    -- Destructor not always declared in header file. Build as needed.
-    child = dub.Function {
-      db            = parent.db,
-      name          = name,
-      sorted_params = {},
-      return_value  = nil,
-      definition    = '~' .. class_dest .. '()',
-      argsstring    = '',
-      location      = '',
-      desc          = class_dest .. ' destructor.',
-      static        = false,
-      xml           = nil,
-    }
-    table.insert(parent.sorted_cache, child)
-    parent.cache[name] = child
-  end
-  return child
+  return parent.cache[name] or private.parseHeaders(parent, name)
 end
 
 --- Return an iterator over the functions of this class/namespace.
 function lib:functions(parent)
   -- make sure we have parsed the headers
   private.parseHeaders(parent)
-  if parent.type == 'dub.Class' then
-    -- Force destructor creation.
-    self:findChild(parent, '~' .. parent.name)
-  end
-  local co = coroutine.create(private.functionsIterator)
+  local co = coroutine.create(private.iterator)
   return function()
-    local ok, value = coroutine.resume(co, parent)
+    local ok, value = coroutine.resume(co, parent.functions_list)
+    if ok then
+      return value
+    end
+  end
+end
+
+--- Return an iterator over the variables of this class/namespace.
+function lib:variables(parent)
+  -- make sure we have parsed the headers
+  private.parseHeaders(parent)
+  local co = coroutine.create(private.iterator)
+  return function()
+    local ok, value = coroutine.resume(co, parent.variables_list)
     if ok then
       return value
     end
@@ -103,9 +93,9 @@ end
 function lib:headers(parent)
   -- make sure we have parsed the headers
   private.parseHeaders(parent)
-  local co = coroutine.create(private.headersIterator)
+  local co = coroutine.create(private.iterator)
   return function()
-    local ok, value = coroutine.resume(co, parent)
+    local ok, value = coroutine.resume(co, parent.headers_list)
     if ok then
       return value
     end
@@ -121,17 +111,9 @@ function lib:resolveType(name)
 end
 --=============================================== PRIVATE
 
-function private.headersIterator(parent)
-  for _, child in ipairs(parent.headers_list) do
+function private.iterator(list)
+  for _, child in ipairs(list) do
     coroutine.yield(child)
-  end
-end
-
-function private.functionsIterator(parent)
-  for _, child in pairs(parent.sorted_cache) do
-    if child.type == 'dub.Function' then
-      coroutine.yield(child)
-    end
   end
 end
 
@@ -170,7 +152,7 @@ require 'lubyk'
 
 --- Parse a header definition and return element 
 -- identified by 'name' if found.
-function parse.header(self, header, not_lazy)
+function parse:header(header, not_lazy)
   local data = xml.load(header.path):find('compounddef')
   local h_path = data:find('location').file
   local base, h_file = lk.directory(h_path)
@@ -180,20 +162,27 @@ function parse.header(self, header, not_lazy)
   header.parsed = true
 end
 
-function parse.children(self, parent, header, not_lazy)
+function parse:children(elem_list, header, not_lazy)
   local cache = self.cache
   local sorted_cache = self.sorted_cache
-  for _, elem in ipairs(parent) do
+  for _, elem in ipairs(elem_list) do
     local func = parse[elem.xml]
     if func then
-      local obj = func(self, elem, header, not_lazy)
-      if obj then
-        cache[obj.name] = obj
-        table.insert(sorted_cache, obj)
+      local child = func(self, elem, header, not_lazy)
+      if child then
+        cache[child.name] = child
+        table.insert(sorted_cache, child)
       end
     else
       --print('skipping', elem.xml)
     end
+  end
+  -- Create --get--, --set-- and ~Destructor if needed.
+  if self.type == 'dub.Class' then
+    -- Force destructor creation when needed.
+    private.makeDestructor(self)
+    private.makeGetAttribute(self)
+    private.makeSetAttribute(self)
   end
 end
 
@@ -208,11 +197,8 @@ function parse.innerclass(parent, elem, header, not_lazy)
   local class = dub.Class {
     -- parent can be a class or db (root)
     db      = parent.db or parent,
-    cache   = {},
-    sorted_cache = {},
     name    = elem[1],
     xml     = elem,
-    headers_list = {},
     xml_headers  = {
       {path = header.dir .. lk.Dir.sep .. elem.refid .. '.xml', dir = header.dir}
     },
@@ -224,22 +210,40 @@ function parse.innerclass(parent, elem, header, not_lazy)
 end
 
 function parse.sectiondef(self, elem, header)
-  if elem.kind == 'public-func' or elem.kind == 'typedef' then
+  local kind = elem.kind
+  if kind == 'public-func' or 
+     kind == 'typedef' or
+     kind == 'public-attrib' then
     parse.children(self, elem, header)
   end
 end
 
 function parse.memberdef(self, elem, header)
-  local func = parse[elem.kind]
+  local cache = self.cache
+  local sorted_cache = self.sorted_cache
+  local kind = elem.kind
+  local func = parse[kind]
   if func then
-    local obj = func(self, elem, header)
-    if obj then
-      self.cache[obj.name] = obj
-      table.insert(self.sorted_cache, obj)
+    local child = func(self, elem, header)
+    if child then
+      cache[child.name] = child
+      table.insert(sorted_cache, child)
     end
   else
-    --print('skipping memberdef', elem.kind)
+    --print('skipping memberdef ', kind)
   end
+end
+
+function parse.variable(parent, elem, header)
+  local name = elem:find('name')[1]
+  local child  = {
+    name  = name,
+    type  = 'dub.Attribute',
+    ctype = parse.type(elem),
+  }
+  parent.has_variables = true
+  table.insert(parent.variables_list, child)
+  return child
 end
 
 function parse.typedef(self, elem, header)
@@ -253,8 +257,8 @@ function parse.typedef(self, elem, header)
 end
     
 parse['function'] = function(parent, elem, header)
-  local name = elem:find('name')[1]
-  return dub.Function {
+  local name  = elem:find('name')[1]
+  local child = dub.Function {
     -- parent can be a class or db (root)
     db            = parent.db or parent,
     name          = name,
@@ -266,7 +270,17 @@ parse['function'] = function(parent, elem, header)
     desc          = (elem:find('detaileddescription') or {})[1],
     static        = elem.static == 'yes' or (parent and parent.name == name),
     xml           = elem,
+    is_destructor = parent.type == 'dub.Class' and name == '~' .. parent.name,
   }
+  local list = parent.functions_list
+  if list then
+    table.insert(list, child)
+  end
+  if child.is_destructor then
+    -- Make sure we find destructor with _Foo and ~Foo.
+    parent.cache['~' .. parent.name] = child
+  end
+  return child
 end
 
 function parse.params(elem, header)
@@ -314,4 +328,78 @@ function private.makeLocation(elem, header)
   local loc  = elem:find('location')
   local file = lk.absToRel(loc.file, lfs.currentdir())
   return file .. ':' .. loc.line
+end
+
+-- self == class
+function private:makeDestructor()
+  if self.cache['~' .. self.name] then
+    -- Destructor not needed.
+    return
+  end
+  local name = self.name
+  local child = dub.Function {
+    db            = self.db,
+    name          = '_' .. name,
+    sorted_params = {},
+    return_value  = nil,
+    definition    = '~' .. name,
+    argsstring    = '()',
+    location      = '',
+    desc          = name .. ' destructor.',
+    static        = false,
+    xml           = nil,
+    is_destructor = true,
+  }
+  table.insert(self.functions_list, child)
+  self.cache['~' .. name] = child
+  self.cache['_' .. name] = child
+end
+
+-- self == class
+function private:makeGetAttribute()
+  if not self.has_variables or
+     self.cache[self.GET_ATTR_NAME] then
+    return
+  end
+  local name = self.GET_ATTR_NAME
+  local child = dub.Function {
+    db            = self.db,
+    name          = name,
+    sorted_params = {},
+    return_value  = nil,
+    definition    = name .. self.name,
+    argsstring    = '(key)',
+    location      = '',
+    desc          = 'Read attributes values for ' .. self.name .. '.',
+    static        = false,
+    xml           = nil,
+    is_get_attr   = true,
+  }
+  table.insert(self.functions_list, child)
+  table.insert(self.sorted_cache, child)
+  self.cache[child.name] = child
+end
+
+function private:makeSetAttribute()
+  if not self.has_variables or
+     self.cache[self.SET_ATTR_NAME] then
+    return
+  end
+  local name = self.SET_ATTR_NAME
+  local child = dub.Function {
+    db            = self.db,
+    name          = name,
+    sorted_params = {},
+    return_value  = nil,
+    definition    = name .. self.name,
+    argsstring    = '(key, value)',
+    location      = '',
+    desc          = 'Set attributes values for ' .. self.name .. '.',
+    static        = false,
+    xml           = nil,
+    is_set_attr   = true,
+  }
+  table.insert(self.functions_list, child)
+  table.insert(self.sorted_cache, child)
+  self.cache[child.name] = child
 end

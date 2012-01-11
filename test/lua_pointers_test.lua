@@ -3,7 +3,14 @@
   dub.LuaBinder
   -------------
 
-  Test basic binding with the 'simple' class.
+  Test binding with the 'pointers' group of classes:
+
+    * passing classes around as arguments.
+    * casting script strings to std::string.
+    * casting std::string to script strings.
+    * accessing complex public members.
+    * accessing public members
+    * return value optimization
 
 --]]------------------------------------------------------
 require 'lubyk'
@@ -13,33 +20,21 @@ local binder = dub.LuaBinder()
 
 -- Test helper to prepare the inspector.
 local function makeInspector()
-  local ins = dub.Inspector()
-  ins:parseXml('test/fixtures/simple/doc/xml')
-  return ins
+  return dub.Inspector 'test/fixtures/pointers'
 end
 
 --=============================================== TESTS
-function should.autoload()
-  assertType('table', dub.LuaBinder)
-end
-
-function should.bindClass()
+function should.bindSetAttributes()
   local ins = makeInspector()
-  local Simple = ins:find('Simple')
-  local res = binder:bindClass(Simple)
-  --print(res)
+  local Size = ins:find('Size')
+  local set = Size:method(Size.SET_ATTR_NAME)
+  local res = binder:bindClass(Size)
+  assertMatch('__newindex.*Size__set_', res)
+  local res = binder:functionBody(Size, set)
+  assertMatch('xxxx', res)
 end
 
-function should.bindDestructor()
-  local ins = makeInspector()
-  local Simple = ins:find('Simple')
-  local dtor   = Simple:method('~Simple')
-  local res = binder:bindClass(Simple)
-  assertMatch('Simple__Simple', res)
-  local res = binder:functionBody(Simple, dtor)
-  assertMatch('if %(%*self%) delete %*self', res)
-end
-
+--[[
 function should.bindCompileAndLoad()
   local class_name = 'Simple'
   local ins = dub.Inspector 'test/fixtures/simple/include'
@@ -69,4 +64,7 @@ function should.bindCompileAndLoad()
   end
   --lk.rmTree(tmp_path, true)
 end
+--]]
+
 test.all()
+

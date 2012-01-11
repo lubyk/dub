@@ -5,6 +5,7 @@
 
 /** This class is used to test:
  *   * accessing public members
+ *   * return value optimization
  */
 struct Size {
   float x;
@@ -12,6 +13,9 @@ struct Size {
   Size(float tx, float ty)
     : x(tx)
     , y(ty) {}
+  float surface() {
+    return x * y;
+  }
 };
 
 #endif // POINTERS_SIZE_H_

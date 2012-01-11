@@ -30,7 +30,7 @@ end
 function should.parseXml()
   local simple = dub.Inspector()
   assertPass(function()
-    simple:parse('test/fixtures/simple/doc/xml')
+    simple:parseXml('test/fixtures/simple/doc/xml')
   end)
 end
 

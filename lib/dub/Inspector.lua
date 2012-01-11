@@ -40,14 +40,18 @@ function lib:parse(opts)
   if type(opts) == 'string' then
     opts = {INPUT = opts}
   end
-  local doc_dir = opts.doc_dir or 'dub-tmp'
-  local i = 0
-  while true do
-    if lk.exist(doc_dir) then
-      i = i + 1
-      doc_dir = string.format('dub-tmp-%i', i)
-    else
-      break
+  assert(opts.INPUT, "Missing 'INPUT' field")
+  local doc_dir = opts.doc_dir
+  if not doc_dir then
+    doc_dir = 'dub-tmp'
+    local i = 0
+    while true do
+      if lk.exist(doc_dir) then
+        i = i + 1
+        doc_dir = string.format('dub-tmp-%i', i)
+      else
+        break
+      end
     end
   end
   private.execute('mkdir -p ' .. doc_dir)
