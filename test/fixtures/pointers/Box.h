@@ -27,6 +27,10 @@ struct Box {
   std::string name() {
     return name_;
   }
+
+  double surface() {
+    return size_.surface();
+  }
   
 };
 

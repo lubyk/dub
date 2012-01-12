@@ -95,13 +95,19 @@ const char *dub_checklstring(lua_State *L, int narg, size_t *len) throw(TypeExce
   return s;
 }
 
-void *dub_checkudata(lua_State *L, int ud, const char *tname) throw(TypeException) {
+void *dub_checkudata(lua_State *L, int ud, const char *tname, bool keep_mt) throw(TypeException) {
   void *p = lua_touserdata(L, ud);
   if (p != NULL) {  /* value is a userdata? */
     if (lua_getmetatable(L, ud)) {  /* does it have a metatable? */
       lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
-      if (lua_rawequal(L, -1, -2)) {  /* does it have the correct mt? */
-        lua_pop(L, 2);  /* remove both metatables */
+      if (lua_rawequal(L, -1, -2)) {
+        // same (correct) metatable
+        if (!keep_mt) {
+          lua_pop(L, 2);
+        } else {
+          // keep 1 metatable on top (needed by bindings)
+          lua_pop(L, 1);
+        }
         return p;
       }
     }
@@ -110,13 +116,21 @@ void *dub_checkudata(lua_State *L, int ud, const char *tname) throw(TypeExceptio
   return NULL;  /* to avoid warnings */
 }
 
-void *dub_checksdata(lua_State *L, int ud, const char *tname) throw(TypeException) {
+void *dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt) throw(TypeException) {
   void *p = lua_touserdata(L, ud);
   if (p != NULL) {  /* value is a userdata? */
     if (lua_getmetatable(L, ud)) {  /* does it have a metatable? */
+      // ... <udata.mt>
       lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
-      if (lua_rawequal(L, -1, -2)) {  /* does it have the correct mt? */
-        lua_pop(L, 2);  /* remove both metatables */
+      // ... <udata.mt> <mt>
+      if (lua_rawequal(L, -1, -2)) {
+        // same (correct) metatable
+        if (!keep_mt) {
+          lua_pop(L, 2);
+        } else {
+          // keep 1 metatable on top (needed by bindings)
+          lua_pop(L, 1);
+        }
         return p;
       }
     }

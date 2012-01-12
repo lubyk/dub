@@ -29,6 +29,14 @@
 #ifndef DUB_BINDING_GENERATOR_DUB_H_
 #define DUB_BINDING_GENERATOR_DUB_H_
 
+#ifndef DUB_ASSERT_KEY
+#define DUB_ASSERT_KEY(k, m) strcmp(k, m)
+// Use this to avoid the overhead of strcmp in get/set of public attributes.
+// if you avoid strcmp, bad keys can map to any other key.
+//#define DUB_ASSERT_KEY(k, m) false
+#endif
+#define KEY_EXCEPTION_MSG "invalid key '%s'"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -116,13 +124,13 @@ void dub_pushclass2(lua_State *L, T *ptr, const char *type_name) {
 // These provide the same funcionality as their equivalent luaL_check... but they
 // throw std::exception which can be caught (eventually to call lua_error).
 lua_Number dub_checknumber(lua_State *L, int narg) throw(dub::TypeException);
-lua_Number dub_checkint(lua_State *L, int narg) throw(dub::TypeException);
+lua_Integer dub_checkint(lua_State *L, int narg) throw(dub::TypeException);
 const char *dub_checklstring(lua_State *L, int narg, size_t *len) throw(dub::TypeException);
 lua_Integer dub_checkinteger(lua_State *L, int narg) throw(dub::TypeException);
-void *dub_checkudata(lua_State *L, int ud, const char *tname) throw(dub::TypeException);
+void *dub_checkudata(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw(dub::TypeException);
 
 // Super aware userdata calls (finds userdata inside provided table with table.super).
-void *dub_checksdata(lua_State *L, int ud, const char *tname) throw(dub::TypeException);
+void *dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw(dub::TypeException);
 // Does not throw exceptions. This method behaves exactly like luaL_checkudata but searches
 // for table.super before calling lua_error.
 void *dub_checksdata_n(lua_State *L, int ud, const char *tname) throw();

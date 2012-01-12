@@ -11,7 +11,7 @@ struct Size {
   Size(double tx, double ty)
     : x(tx)
     , y(ty) {}
-  float surface() {
+  double surface() {
     return x * y;
   }
 };

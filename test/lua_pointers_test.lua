@@ -107,23 +107,81 @@ function should.bindCompileAndLoad()
     package.cpath = tmp_path .. '/?.so'
     require 'Box'
     require 'Size'
-    s = Size(3.4, 4.2)
   end, function()
     -- teardown
-    Box = nil
-    Size = nil
     package.loaded.Box = nil
     package.loaded.Size = nil
     package.cpath = cpath_bak
   end)
-  if s then
-    assertEqual(3.4, s.x)
-    assertEqual(4.2, s.y)
-    assertEqual('userdata', type(s))
-    s.x = 25
-    assertEqual(25, s.x)
-  end
   --lk.rmTree(tmp_path, true)
+end
+
+--=============================================== Size
+
+function should.createSizeObject()
+  local s = Size(1,2)
+  assertType('userdata', s)
+end
+
+function should.readSizeAttributes()
+  local s = Size(1.2, 3.4)
+  assertEqual(1.2, s.x)
+  assertEqual(3.4, s.y)
+end
+
+function should.writeSizeAttributes()
+  local s = Size(1.2, 3.4)
+  s.x = 15
+  assertEqual(15, s.x)
+  assertEqual(3.4, s.y)
+  assertEqual(51, s:surface())
+end
+
+function should.handleBadWriteSizeAttr()
+  local s = Size(1.2, 3.4)
+  assertError("invalid key 'asdf'", function()
+    s.asdf = 15
+  end)
+  assertEqual(1.2, s.x)
+  assertEqual(3.4, s.y)
+  assertEqual(nil, s.asdf)
+end
+
+function should.executeSizeMethods()
+  local s = Size(1.2, 3.4)
+  assertEqual(4.08, s:surface())
+end
+
+--=============================================== Box
+
+function should.createBoxObject()
+  local s = Box('Cat', Size(2,3))
+  assertType('userdata', s)
+end
+
+function should.readBoxAttributes()
+  local s = Box('Cat', Size(2,3))
+  assertEqual('Cat', s.name_)
+  local sz = s.size_
+  assertEqual(2, sz.x)
+  assertEqual(3, sz.y)
+end
+
+function should.writeBoxAttributes()
+  local s = Box('Cat', Size(2,3))
+  s.name_ = 'Dog'
+  assertEqual('Dog', s.name_)
+  assertEqual('Dog', s:name())
+
+  s.size_ = Size(8, 1.5)
+  assertEqual(8, s.size_.x)
+  assertEqual(1.5, s.size_.y)
+  assertEqual(12, s:surface())
+end
+
+function should.executeBoxMethods()
+  local s = Box('Cat', Size(2,3))
+  assertEqual(6, s:surface())
 end
 
 test.all()

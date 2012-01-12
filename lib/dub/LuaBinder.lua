@@ -13,6 +13,8 @@ local lib     = {
   -- By default, we try to access userdata in field 'super'. This is not
   -- slower then checkudata if the element passed is a userdata.
   TYPE_ACCESSOR = 'checksdata',
+  -- By default does an strcmp to ensure correct attribute key.
+  ASSERT_ATTR_KEY = true,
   LUA_STACK_SIZE_NAME = 'LuaStackSize',
   TYPE_TO_NATIVE = {
     double     = 'number',
@@ -126,7 +128,7 @@ function lib:functionBody(class, method)
     local param_delta = 0
     if not method.static then
       -- We need self
-      res = res .. private.getSelf(self, class)
+      res = res .. private.getSelf(self, class, false, method.is_get_attr)
       param_delta = 1
     end
     if method.is_set_attr then
@@ -208,15 +210,22 @@ end
 --- Find the userdata from the current lua_State. The userdata can
 -- be directly passed as first parameter or it can be inside a table as
 -- 'super'.
-function private.getSelf(self, class, need_fullptr)
+function private.getSelf(self, class, need_fullptr, need_mt)
   local fmt
+  local nmt
   if need_fullptr then
     -- Need userdata pointer, not just the pointer to object
-    fmt = '%s **%s = ((%s**)%s(L, 1, "%s"));\n'
+    fmt = '%s **%s = ((%s**)%s(L, 1, "%s"%s));\n'
   else
-    fmt = '%s *%s = *((%s**)%s(L, 1, "%s"));\n'
+    fmt = '%s *%s = *((%s**)%s(L, 1, "%s"%s));\n'
   end
-  return format(fmt, class.name, self.SELF, class.name, self:customTypeAccessor(class), self:libName(class))
+  if need_mt then
+    -- Type accessor should leave metatable on stack.
+    nmt = ', true'
+  else
+    nmt = ''
+  end
+  return format(fmt, class.name, self.SELF, class.name, self:customTypeAccessor(class), self:libName(class), nmt)
 end
 
 --- Prepare a variable with a function parameter.
@@ -245,7 +254,7 @@ function private:getParam(method, param, delta)
     else
       lib_name = param.ctype.name
     end
-    type_method = self:customTypeAccessor(method, param.ctype)
+    type_method = self:customTypeAccessor(method)
     return format('*((%s**)%s(L, %i, "%s"))',
       param.ctype.name, type_method, param.position + delta, lib_name), false
   end
@@ -388,6 +397,19 @@ function private:attrSwitch(class, method, delta, bfunc)
     position = 1,
   }
   res = res .. private.getParamVar(self, method, param, delta)
+  if method.is_get_attr then
+    res = res .. '// <self> "key" <mt>\n'
+    res = res .. '// rawget(mt, key)\n'
+    res = res .. 'lua_pushvalue(L, 2);\n'
+    res = res .. '// <self> "key" <mt> "key"\n'
+    res = res .. 'lua_rawget(L, -2);\n'
+    res = res .. 'if (!lua_isnil(L, -1)) {\n'
+    res = res .. '  return 1;\n'
+    res = res .. '} else {\n'
+    res = res .. '  // cleanup\n'
+    res = res .. '  lua_pop(L, 2);\n'
+    res = res .. '}\n'
+  end
 
   -- get key hash
   local sz = dub.minHash(class.variables_list, 'name')
@@ -395,11 +417,23 @@ function private:attrSwitch(class, method, delta, bfunc)
   -- switch
   res = res .. 'switch(key_h) {\n'
   for attr in class:attributes() do
-    res = res .. format('case %s: {\n', dub.hash(attr.name, sz))
+    res = res .. format('  case %s: {\n', dub.hash(attr.name, sz))
     -- get or set value
-    res = res .. '  ' .. string.gsub(bfunc(self, method, attr, delta), '\n', '\n  ') .. '\n}\n'
+    if method.is_set_attr then
+      res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) throw dub::Exception(KEY_EXCEPTION_MSG, key);\n', attr.name)
+    else
+      -- No error on bad read: just return nil.
+      res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) return 0;\n', attr.name)
+    end
+    res = res .. '    ' .. string.gsub(bfunc(self, method, attr, delta), '\n', '\n    ') .. '\n  }\n'
   end
-  res = res .. '}\n'
+  res = res .. '  default:\n'
+  if method.is_set_attr then
+    res = res .. '    throw dub::Exception(KEY_EXCEPTION_MSG, key);\n'
+  else
+    res = res .. '    return 0;\n'
+  end
+  res = res .. '}'
   return res
 end
 
