@@ -277,6 +277,11 @@ end
     
 parse['function'] = function(parent, elem, header)
   local name  = elem:find('name')[1]
+  if parent.cache[name] then
+    -- TODO: support overloaded functions.
+    return nil
+  end
+
   local child = dub.Function {
     -- parent can be a class or db (root)
     db            = parent.db or parent,
@@ -302,10 +307,6 @@ parse['function'] = function(parent, elem, header)
   local list = parent.functions_list
   if list then
     table.insert(list, child)
-  end
-  if child.dtor then
-    -- Make sure we find destructor with _Foo and ~Foo.
-    parent.cache['~' .. parent.name] = child
   end
   return child
 end

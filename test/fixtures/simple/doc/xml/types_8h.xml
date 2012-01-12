@@ -16,9 +16,9 @@
       </node>
     </invincdepgraph>
       <sectiondef kind="typedef">
-      <memberdef kind="typedef" id="types_8h_1a2a4d44cda226b135d745cf024dec64e8" prot="public" static="no">
-        <type>float</type>
-        <definition>typedef float MyFloat</definition>
+      <memberdef kind="typedef" id="types_8h_1a1bed94748e665d022633eb9b71c18add" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double MyFloat</definition>
         <argsstring></argsstring>
         <name>MyFloat</name>
         <briefdescription>

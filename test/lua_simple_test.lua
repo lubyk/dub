@@ -60,18 +60,28 @@ function should.bindCompileAndLoad()
     binder:build(tmp_path .. '/Simple.so', tmp_path, '%.cpp', '-I' .. lk.dir() .. '/fixtures/simple/include')
     package.cpath = tmp_path .. '/?.so'
     require 'Simple'
-    s = Simple(4.5)
+    assertType('function', Simple)
   end, function()
     -- teardown
     package.loaded.Simple = nil
     package.cpath = cpath_bak
-    _G.Simple = nil
+    if not Simple then
+      test.abort = true
+    end
   end)
-  if s then
-    assertEqual(4.5, s:value())
-    assertEqual(123, s:add(110, 13))
-    assertEqual(3.14, Simple_pi())
-  end
   --lk.rmTree(tmp_path, true)
 end
+
+--=============================================== Simple tests
+
+function should.bindNumber()
+  local s = Simple(1.4)
+  assertEqual(1.4, s:value())
+end
+
+function should.bindBoolean()
+  assertFalse(Simple(1):isZero())
+  assertTrue(Simple(0):isZero())
+end
+
 test.all()

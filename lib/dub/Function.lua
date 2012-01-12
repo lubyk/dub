@@ -6,7 +6,18 @@
   A public class method or function definition.
 
 --]]------------------------------------------------------
-local lib     = {type = 'dub.Function'}
+local lib     = {
+  type = 'dub.Function',
+  OP_TO_NAME = {
+    ['+']  = 'add',
+    ['-']  = 'sub',
+    ['*']  = 'mul',
+    ['/']  = 'div',
+    ['=='] = 'eq',
+    ['<']  = 'lt',
+    ['<='] = 'le',
+  }
+}
 local private = {}
 lib.__index   = lib
 dub.Function  = lib
@@ -15,7 +26,7 @@ dub.Function  = lib
 setmetatable(lib, {
   __call = function(lib, self)
     setmetatable(self, lib)
-    private.parseName(self)
+    self:setName(self.name)
     return self
   end
 })
@@ -42,6 +53,28 @@ function lib:neverThrows()
   return self.is_set_attr or
          self.is_get_attr
 end
+
+function lib:setName(name)
+  self.name = name
+  if string.match(self.name, '^~') then
+    self.destructor = true
+    self.cname = string.gsub(self.name, '~', '_')
+  elseif string.match(name, '^operator') then
+    local n = string.match(name, '^operator(.+)$')
+    local op = self.OP_TO_NAME[n]
+    if n == '-' and #self.sorted_params == 0 then
+      -- Special case for '-' (minus/unary minus).
+      op = 'unm'
+    end
+    if op then
+      self.cname = 'operator_' .. op
+    else
+      print(name)
+    end
+  else
+    self.cname = self.name
+  end
+end
 --=============================================== PRIVATE
 
 function private.paramsIterator(parent)
@@ -50,9 +83,3 @@ function private.paramsIterator(parent)
   end
 end
 
-function private:parseName()
-  if string.match(self.name, '^~') then
-    self.destructor = true
-    self.name = string.gsub(self.name, '~', '_')
-  end
-end

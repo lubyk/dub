@@ -1,18 +1,19 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.7.5.1">
   <compound refid="class_simple" kind="class"><name>Simple</name>
-    <member refid="class_simple_1a4a3ce04c6c2d1803fc7dbd5a67f4cd46" kind="variable"><name>value_</name></member>
-    <member refid="class_simple_1a3fd8004f8d4cf9f734c4662771b7a705" kind="function"><name>Simple</name></member>
+    <member refid="class_simple_1a0a3ae88042a8bf95b3ee35af68a544b8" kind="variable"><name>value_</name></member>
+    <member refid="class_simple_1ad9512e7ff5fc04bee21b697bf16176b6" kind="function"><name>Simple</name></member>
     <member refid="class_simple_1a922e57b961d5bf0472d3a0860b88f113" kind="function"><name>~Simple</name></member>
-    <member refid="class_simple_1a35a29056d40f8109d79aecd1fc50e53d" kind="function"><name>value</name></member>
-    <member refid="class_simple_1a3e6e5f2881753413c115c12808151722" kind="function"><name>add</name></member>
-    <member refid="class_simple_1adae946c5fabe1b997811c7022c9a33ce" kind="function"><name>setValue</name></member>
+    <member refid="class_simple_1a464f2638da5c5edf8c2cd0eee3944763" kind="function"><name>value</name></member>
+    <member refid="class_simple_1a2d1eb07f21c5c14f2f8ee83965033adb" kind="function"><name>add</name></member>
+    <member refid="class_simple_1a3455e9b3c5f835216cda7c87135454ea" kind="function"><name>setValue</name></member>
+    <member refid="class_simple_1aab510a2876b652d3342330c438f7e12a" kind="function"><name>isZero</name></member>
     <member refid="class_simple_1acb803869593667fbfa2131f7a03610d4" kind="function"><name>pi</name></member>
   </compound>
   <compound refid="simple_8h" kind="file"><name>simple.h</name>
   </compound>
   <compound refid="types_8h" kind="file"><name>types.h</name>
-    <member refid="types_8h_1a2a4d44cda226b135d745cf024dec64e8" kind="typedef"><name>MyFloat</name></member>
+    <member refid="types_8h_1a1bed94748e665d022633eb9b71c18add" kind="typedef"><name>MyFloat</name></member>
   </compound>
   <compound refid="dir_a7aee6f079f6bd9f8fc4aeca3336d869" kind="dir"><name>test/fixtures/</name>
   </compound>

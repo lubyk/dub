@@ -20,6 +20,7 @@ local lib     = {
     double     = 'number',
     float      = 'number',
     int        = 'number',
+    bool       = 'boolean',
     ['char']   = 'string',
     ['std::string'] = {
       -- Get value from Lua.
@@ -150,6 +151,7 @@ function lib:functionBody(class, method)
 end
 
 function lib:bindName(method)
+  local name = method.name
   if method.bind_name then
     -- This is to let users define custom binding name (overwrite '+'
     -- methods for example).
@@ -161,6 +163,10 @@ function lib:bindName(method)
     return '__newindex'
   elseif method.is_get_attr then
     return '__index'
+  elseif string.match(name, '^operator') then
+    return '__' .. string.match(method.cname, '^operator_(.+)$')
+  elseif name == '' then
+    -- ??
   elseif not method.ctor and method.static and method.member then
     return method.parent.name .. '_' .. method.name
   else
@@ -177,10 +183,15 @@ function lib:libName(class)
   return string.gsub(class:fullname(), '::', '.')
 end
 
---- Returns the method to retrieve a given param from Lua.
+--- Returns the method to retrieve a given ctype from Lua.
+function lib:nativeType(method, ctype)
+  local typ = method.db:resolveType(ctype.name) or ctype
+  return self.TYPE_TO_NATIVE[typ.name]
+end
+
+-- Return the method to retrieve a paramters with arguments.
 function lib:nativeTypeAccessor(method, param, delta)
-  local typ = method.db:resolveType(param.ctype.name) or param.ctype
-  local acc = self.TYPE_TO_NATIVE[typ.name]
+  local acc = self:nativeType(method, param.ctype)
   if acc then
     local prefix
     -- if this method does never throw, we can use luaL_check...
@@ -295,9 +306,14 @@ function private:doCall(class, method)
   end
   
   --- Return value
-  local return_value = method.return_value
-  if method.return_value then
-    res = return_value.create_name .. 'retval__ = ' .. res
+  local ctype = method.return_value
+  if ctype then
+    local native = self:nativeType(method, ctype)
+    --if not native and not ctype.ptr then
+    --  res = ctype.create_name .. format('*retval__ = new %s(%s)',ctype.name, res)
+    --else
+      res = ctype.create_name .. 'retval__ = ' .. res
+    --end
   end
   return res;
 end
@@ -326,8 +342,8 @@ function private:pushValue(method, name, ctype)
       res = format('lua_push%s(L, %s);', accessor, name)
     end
   elseif not ctype.ptr then
-    res = format('dub_pushclass<%s>(L, %s, "%s");', ctype.name, name, ctype.name)
-  else 
+    res = format('dub_pushudata(L, new %s(%s), "%s");', ctype.name, name, ctype.name)
+  else
     res = format('dub_pushudata(L, %s, "%s");', name, ctype.name)
   end
   return res .. '\nreturn 1;'

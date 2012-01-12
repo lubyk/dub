@@ -15,7 +15,7 @@
 /** {{method:fullname()}}
  * {{method.location}}
  */
-static int {{class.name}}_{{method.name}}(lua_State *L) {
+static int {{class.name}}_{{method.cname}}(lua_State *L) {
   try {
     {| self:functionBody(class, method) |}
   } catch (std::exception &e) {
@@ -33,7 +33,7 @@ static int {{class.name}}_{{method.name}}(lua_State *L) {
 static const struct luaL_Reg {{class.name}}_member_methods[] = {
 {% for method in class:methods() do 
   if not method.static then %}
-  { {{string.format('%-15s, %-20s', '"'..self:bindName(method)..'"', class.name .. '_' .. method.name)}} },
+  { {{string.format('%-15s, %-20s', '"'..self:bindName(method)..'"', class.name .. '_' .. method.cname)}} },
 {% end; end %}
   {NULL, NULL},
 };
@@ -41,7 +41,7 @@ static const struct luaL_Reg {{class.name}}_member_methods[] = {
 static const struct luaL_Reg {{class.name}}_namespace_methods[] = {
 {% for method in class:methods() do 
   if method.static then %}
-  { {{string.format('%-15s, %-20s', '"'..self:bindName(method)..'"', class.name .. '_' .. method.name)}} },
+  { {{string.format('%-15s, %-20s', '"'..self:bindName(method)..'"', class.name .. '_' .. method.cname)}} },
 {% end; end %}
   {NULL, NULL},
 };

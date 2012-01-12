@@ -93,7 +93,7 @@ function should.listMemberMethods()
   for meth in Simple:methods() do
     table.insert(res, meth.name)
   end
-  assertValueEqual({'Simple', '_Simple', 'value', 'add', 'setValue', 'pi'}, res)
+  assertValueEqual({'Simple', '~Simple', 'value', 'add', 'setValue', 'isZero', 'pi'}, res)
 end
 
 function should.listParamsOnMethod()
@@ -106,11 +106,11 @@ function should.listParamsOnMethod()
     table.insert(types, param.ctype.name) 
   end
   assertValueEqual({'v', 'w'}, names)
-  assertValueEqual({'MyFloat', 'float'}, types)
+  assertValueEqual({'MyFloat', 'double'}, types)
 end
 
 function should.resolveNativeTypes()
-  assertEqual('float', ins:resolveType('MyFloat').name)
+  assertEqual('double', ins:resolveType('MyFloat').name)
 end
 
 test.all()

@@ -18,14 +18,10 @@ require 'lubyk'
 local should = test.Suite('dub.LuaBinder')
 local binder = dub.LuaBinder()
 
--- Test helper to prepare the inspector.
-local function makeInspector()
-  return dub.Inspector 'test/fixtures/pointers'
-end
+local ins = dub.Inspector 'test/fixtures/pointers'
 
 --=============================================== Special types
 function should.resolveStdString()
-  local ins  = makeInspector()
   local Box  = ins:find('Box')
   local ctor = Box:method('Box')
   local res  = binder:functionBody(Box, ctor)
@@ -36,7 +32,6 @@ end
 --=============================================== Set/Get vars.
 function should.bindSimpleSetMethod()
   -- __newindex for simple (native) types
-  local ins = makeInspector()
   local Size = ins:find('Size')
   local set = Size:method(Size.SET_ATTR_NAME)
   local res = binder:bindClass(Size)
@@ -47,7 +42,6 @@ end
 
 function should.bindComplexSetMethod()
   -- __newindex for non-native types
-  local ins = makeInspector()
   local Box = ins:find('Box')
   local set = Box:method(Box.SET_ATTR_NAME)
   local res = binder:bindClass(Box)
@@ -58,7 +52,6 @@ end
 
 function should.bindSimpleGetMethod()
   -- __newindex for simple (native) types
-  local ins = makeInspector()
   local Size = ins:find('Size')
   local set = Size:method(Size.SET_ATTR_NAME)
   local res = binder:bindClass(Size)
@@ -70,7 +63,6 @@ end
 
 function should.bindComplexGetMethod()
   -- __newindex for non-native types
-  local ins = makeInspector()
   local Box = ins:find('Box')
   local set = Box:method(Box.SET_ATTR_NAME)
   local res = binder:bindClass(Box)
@@ -80,7 +72,6 @@ function should.bindComplexGetMethod()
 end
 
 function should.notGetSelfInStaticMethod()
-  local ins = makeInspector()
   local Box = ins:find('Box')
   local met = Box:method('MakeBox')
   local res = binder:functionBody(Box, met)
@@ -101,17 +92,22 @@ function should.bindCompileAndLoad()
   local s
   assertPass(function()
     -- Build Box.so
+    --
     binder:build(tmp_path .. '/Box.so', tmp_path, {'dub/dub.cpp', 'Box.cpp'}, '-I' .. lk.dir() .. '/fixtures/pointers')
     -- Build Size.so
     binder:build(tmp_path .. '/Size.so', tmp_path, {'dub/dub.cpp', 'Size.cpp'}, '-I' .. lk.dir() .. '/fixtures/pointers')
     package.cpath = tmp_path .. '/?.so'
     require 'Box'
     require 'Size'
+    assertType('function', Size)
   end, function()
     -- teardown
     package.loaded.Box = nil
     package.loaded.Size = nil
     package.cpath = cpath_bak
+    if not Size then
+      test.abort = true
+    end
   end)
   --lk.rmTree(tmp_path, true)
 end
@@ -152,6 +148,64 @@ function should.executeSizeMethods()
   assertEqual(4.08, s:surface())
 end
 
+function should.overloadAdd()
+  local s1, s2 = Size(1.2, -1), Size(4, 2)
+  local s = s1 + s2
+  assertEqual(5.2, s.x)
+  assertEqual(1, s.y)
+  assertEqual(5.2, s:surface())
+end
+
+function should.overloadSub()
+  local s1, s2 = Size(7, 2), Size(4, 2)
+  local s = s1 - s2
+  assertEqual(3, s.x)
+  assertEqual(0, s.y)
+end
+
+function should.overloadMul()
+  local s1 = Size(7, 2)
+  local s = s1 * 4
+  assertEqual(28, s.x)
+  assertEqual(8, s.y)
+end
+
+function should.overloadDiv()
+  local s1 = Size(7, 2)
+  local s = s1 / 2
+  assertEqual(3.5, s.x)
+  assertEqual(1, s.y)
+end
+
+function should.overloadLess()
+  -- compares surfaces
+  local s1, s2 = Size(1, 2), Size(4, 2)
+  local s = s1 - s2
+  assertTrue(s1  < s2)
+  assertFalse(s2 < s1)
+
+  assertTrue(s2  > s1)
+  assertFalse(s1 > s2)
+end
+
+function should.overloadLessEqual()
+  -- compares surfaces
+  local s1, s2 = Size(7, 2), Size(4, 2)
+  local s = s1 - s2
+  assertTrue(s2  <= s1)
+  assertFalse(s1 <= s2)
+  assertTrue(s2  <= s2)
+
+  assertTrue(s1  >= s2)
+  assertFalse(s2 >= s1)
+  assertTrue(s1  >= s1)
+end
+
+function should.overloadEqual()
+  local s1, s2 = Size(7, 2), Size(4, 2)
+  assertFalse(s1 == s2)
+  assertTrue(s1 == Size(7,2))
+end
 --=============================================== Box
 
 function should.createBoxObject()
