@@ -29,7 +29,8 @@ function should.resolveStdString()
   local Box  = ins:find('Box')
   local ctor = Box:method('Box')
   local res  = binder:functionBody(Box, ctor)
-  assertMatch('const char *name = dub_checkstring%(L, 1%);', res)
+  assertMatch('size_t name_sz_;', res)
+  assertMatch('const char %*name = dub_checklstring%(L, 1, %&name_sz_%);', res)
 end
 
 --=============================================== Set/Get vars.
@@ -82,7 +83,7 @@ function should.notGetSelfInStaticMethod()
   local ins = makeInspector()
   local Box = ins:find('Box')
   local met = Box:method('MakeBox')
-  local res = binder:functionBody(Box, set)
+  local res = binder:functionBody(Box, met)
   assertNotMatch('self', res)
 end
 
@@ -102,12 +103,11 @@ function should.bindCompileAndLoad()
     -- Build Box.so
     binder:build(tmp_path .. '/Box.so', tmp_path, {'dub/dub.cpp', 'Box.cpp'}, '-I' .. lk.dir() .. '/fixtures/pointers')
     -- Build Size.so
-    binder:build(tmp_path .. '/Size.so', tmp_path, {'dub/dub.cpp', 'Box.cpp'}, '-I' .. lk.dir() .. '/fixtures/pointers')
+    binder:build(tmp_path .. '/Size.so', tmp_path, {'dub/dub.cpp', 'Size.cpp'}, '-I' .. lk.dir() .. '/fixtures/pointers')
     package.cpath = tmp_path .. '/?.so'
     require 'Box'
     require 'Size'
-    -- Simple(4.5)
-
+    s = Size(3.4, 4.2)
   end, function()
     -- teardown
     Box = nil
@@ -117,8 +117,11 @@ function should.bindCompileAndLoad()
     package.cpath = cpath_bak
   end)
   if s then
-    assertEqual(4.5, s:value())
-    assertEqual(123, s:add(110, 13))
+    assertEqual(3.4, s.x)
+    assertEqual(4.2, s.y)
+    assertEqual('userdata', type(s))
+    s.x = 25
+    assertEqual(25, s.x)
   end
   --lk.rmTree(tmp_path, true)
 end

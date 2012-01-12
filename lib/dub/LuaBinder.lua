@@ -22,16 +22,16 @@ local lib     = {
     ['std::string'] = {
       -- Get value from Lua.
       pull   = function(name, position, prefix)
-        return format('int %s_sz;\nconst char *%s = %s_checklstring(L, %i, &%s_sz_);',
+        return format('size_t %s_sz_;\nconst char *%s = %schecklstring(L, %i, &%s_sz_);',
                       name, name, prefix, position, name)
       end,
       -- Push value in Lua
       push   = function(name)
-        return format('lua_pushlstring(L, %s.data(), %s.length);', name, name)
+        return format('lua_pushlstring(L, %s.data(), %s.length());', name, name)
       end,
       -- Cast value
       cast   = function(name)
-        return format('std::string(%s, %s_sz)', name, name)
+        return format('std::string(%s, %s_sz_)', name, name)
       end,
     }
   },
@@ -224,6 +224,9 @@ function private:getParamVar(method, param, delta)
   local p, acc = private.getParam(self, method, param, delta)
   if acc then
     return p .. '\n', acc
+  elseif acc == false then
+    -- custom type
+    return format('%s *%s = %s;\n', param.ctype.name, param.name, p), acc
   else
     return format('%s%s = %s;\n', param.ctype.create_name, param.name, p)
   end
@@ -392,9 +395,9 @@ function private:attrSwitch(class, method, delta, bfunc)
   -- switch
   res = res .. 'switch(key_h) {\n'
   for attr in class:attributes() do
-    res = res .. format('  case %s:\n', dub.hash(attr.name, sz))
+    res = res .. format('case %s: {\n', dub.hash(attr.name, sz))
     -- get or set value
-    res = res .. '    ' .. string.gsub(bfunc(self, method, attr, delta), '\n', '\n    ') .. '\n'
+    res = res .. '  ' .. string.gsub(bfunc(self, method, attr, delta), '\n', '\n  ') .. '\n}\n'
   end
   res = res .. '}\n'
   return res

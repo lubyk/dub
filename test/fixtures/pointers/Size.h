@@ -6,9 +6,9 @@
  *   * return value optimization
  */
 struct Size {
-  float x;
-  float y;
-  Size(float tx, float ty)
+  double x;
+  double y;
+  Size(double tx, double ty)
     : x(tx)
     , y(ty) {}
   float surface() {
