@@ -39,7 +39,8 @@ end
 
 function lib:neverThrows()
   -- TODO: inspect xml
-  return false
+  return self.is_set_attr or
+         self.is_get_attr
 end
 --=============================================== PRIVATE
 

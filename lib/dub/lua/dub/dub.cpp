@@ -56,9 +56,9 @@ TypeException::TypeException(lua_State *L, int narg, const char *type, bool is_s
   Exception(is_super ? TYPE_EXCEPTION_SMSG : TYPE_EXCEPTION_MSG, type, luaL_typename(L, narg)) {}
 
 // ======================================================================
-// =============================================== dub::pushudata
+// =============================================== dub_pushudata
 // ======================================================================
-void pushudata(lua_State *L, void *ptr, const char *type_name) {
+void dub_pushudata(lua_State *L, void *ptr, const char *type_name) {
   void **userdata = (void**)lua_newuserdata(L, sizeof(void*));
   *userdata = ptr;
 

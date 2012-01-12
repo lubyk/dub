@@ -12,7 +12,7 @@
       </node>
       <node id="5">
         <label>test/fixtures/simple/include/simple.h</label>
-        <link refid="simple_8h_source"/>
+        <link refid="simple_8h"/>
       </node>
     </invincdepgraph>
       <sectiondef kind="typedef">
@@ -34,14 +34,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <programlisting>
-<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>SIMPLE_INCLUDE_TYPES_H_</highlight></codeline>
-<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SIMPLE_INCLUDE_TYPES_H_</highlight></codeline>
-<codeline lineno="3"><highlight class="preprocessor"></highlight></codeline>
-<codeline lineno="7"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>MyFloat;</highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>SIMPLE_INCLUDE_TYPES_H_</highlight></codeline>
-    </programlisting>
     <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/types.h"/>
   </compounddef>
 </doxygen>

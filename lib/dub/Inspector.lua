@@ -88,6 +88,11 @@ function lib:find(name)
   return self.db:findByFullname(name)
 end
 
+-- Return an interator on all children known to the inspector.
+function lib:children()
+  return self.db:children()
+end
+
 --- Try to follow typedefs to resolve a type
 function lib:resolveType(name)
   return self.db:resolveType(name)

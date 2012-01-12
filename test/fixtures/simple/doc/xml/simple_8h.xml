@@ -6,7 +6,7 @@
     <incdepgraph>
       <node id="1">
         <label>types.h</label>
-        <link refid="types_8h_source"/>
+        <link refid="types_8h"/>
       </node>
       <node id="0">
         <label>test/fixtures/simple/include/simple.h</label>
@@ -20,37 +20,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <programlisting>
-<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>SIMPLE_INCLUDE_SIMPLE_H_</highlight></codeline>
-<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SIMPLE_INCLUDE_SIMPLE_H_</highlight></codeline>
-<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;types.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight></codeline>
-<codeline lineno="6" refid="class_simple" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_simple" kindref="compound">Simple</ref><sp/>{</highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value_;</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><ref refid="class_simple" kindref="compound">Simple</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>v)<sp/>:<sp/>value_(v)<sp/>{}</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/>~<ref refid="class_simple" kindref="compound">Simple</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;I<sp/>die...\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value()<sp/>{</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value_;</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="22" refid="class_simple_1a3e6e5f2881753413c115c12808151722" refkind="member"><highlight class="normal"><sp/><sp/>MyFloat<sp/><ref refid="class_simple_1a3e6e5f2881753413c115c12808151722" kindref="member">add</ref>(MyFloat<sp/>v,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>w)<sp/>{</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>v<sp/>+<sp/>w;</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setValue(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>v)<sp/>{</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>value_<sp/>=<sp/>v;</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="29"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>SIMPLE_INCLUDE_SIMPLE_H_</highlight></codeline>
-    </programlisting>
     <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h"/>
   </compounddef>
 </doxygen>

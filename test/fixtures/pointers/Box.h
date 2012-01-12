@@ -17,7 +17,7 @@ struct Box {
     : name_(name)
     , size_(size) {}
 
-  static MakeBox(const char *name, Size *size) {
+  static Box *MakeBox(const char *name, Size *size) {
     Box *b = new Box(std::string(name), *size);
     return b;
   }

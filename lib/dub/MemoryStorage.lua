@@ -53,7 +53,12 @@ function lib:findByFullname(name)
   local parts = lk.split(name, '::')
   local current = self
   for i, part in ipairs(parts) do
-    current = current:findChild(self, part)
+    local child = current:findChild(self, part)
+    if not child then
+      return nil
+    else
+      current = child
+    end
   end
   return current
 end
@@ -96,6 +101,19 @@ function lib:headers(parent)
   local co = coroutine.create(private.iterator)
   return function()
     local ok, value = coroutine.resume(co, parent.headers_list)
+    if ok then
+      return value
+    end
+  end
+end
+
+--- Return an iterator over the variables of this class/namespace.
+function lib:children()
+  -- make sure we have parsed the headers
+  private.parseHeaders(self)
+  local co = coroutine.create(private.iterator)
+  return function()
+    local ok, value = coroutine.resume(co, self.sorted_cache)
     if ok then
       return value
     end
@@ -213,7 +231,8 @@ function parse.sectiondef(self, elem, header)
   local kind = elem.kind
   if kind == 'public-func' or 
      kind == 'typedef' or
-     kind == 'public-attrib' then
+     kind == 'public-attrib' or
+     kind == 'public-static-func' then
     parse.children(self, elem, header)
   end
 end
@@ -261,6 +280,7 @@ parse['function'] = function(parent, elem, header)
   local child = dub.Function {
     -- parent can be a class or db (root)
     db            = parent.db or parent,
+    parent        = parent,
     name          = name,
     sorted_params = parse.params(elem, header),
     return_value  = parse.retval(elem),
@@ -270,13 +290,20 @@ parse['function'] = function(parent, elem, header)
     desc          = (elem:find('detaileddescription') or {})[1],
     static        = elem.static == 'yes' or (parent and parent.name == name),
     xml           = elem,
-    is_destructor = parent.type == 'dub.Class' and name == '~' .. parent.name,
+    member        = parent.type == 'dub.Class',
+    dtor          = parent.type == 'dub.Class' and name == '~' .. parent.name,
+    ctor          = parent.type == 'dub.Class' and name == parent.name,
   }
+  if parent.name == name then
+    -- Constructor
+    child.return_value = lib.makeType(name .. ' *')
+  end
+
   local list = parent.functions_list
   if list then
     table.insert(list, child)
   end
-  if child.is_destructor then
+  if child.dtor then
     -- Make sure we find destructor with _Foo and ~Foo.
     parent.cache['~' .. parent.name] = child
   end
@@ -306,22 +333,40 @@ end
 
 function parse.retval(elem)
   local ctype = parse.type(elem)
-  if ctype and ctype ~= 'void' then
-    return {
-      type     = 'dub.Retval',
-      ctype    = ctype,
-    }
+  if ctype and ctype.name ~= 'void' then
+    return ctype
   end
 end
 
 -- Return a string like 'float' or 'MyFloat'.
 function parse.type(elem)
-  local ctype = elem:find('type')[1]
+  local ctype = elem:find('type')
   if type(ctype) == 'table' then
-    -- <ref refid='...' kindref='member'>
-    ctype = ctype[1]
+    ctype = private.flatten(ctype)
   end
-  return ctype
+  if ctype then
+    return lib.makeType(ctype)
+  end
+end
+
+-- This can be used by binders to create types on the fly.
+function lib.makeType(str)
+  local typename = str
+  typename = string.gsub(typename, ' &', '')
+  local create_name = typename
+  typename = string.gsub(typename, ' %*', '')
+  if typename == create_name then
+    create_name = create_name .. ' '
+  end
+  typename = string.gsub(typename, 'const ', '')
+  return {
+    def   = str,
+    name  = typename,
+    create_name = create_name,
+    ptr   = string.match(str, '%*'),
+    const = string.match(str, 'const'),
+    ref   = string.match(str, '&'),
+  }
 end
 
 function private.makeLocation(elem, header)
@@ -339,6 +384,7 @@ function private:makeDestructor()
   local name = self.name
   local child = dub.Function {
     db            = self.db,
+    parent        = self,
     name          = '_' .. name,
     sorted_params = {},
     return_value  = nil,
@@ -348,7 +394,8 @@ function private:makeDestructor()
     desc          = name .. ' destructor.',
     static        = false,
     xml           = nil,
-    is_destructor = true,
+    dtor          = true,
+    member        = true,
   }
   table.insert(self.functions_list, child)
   self.cache['~' .. name] = child
@@ -364,6 +411,7 @@ function private:makeGetAttribute()
   local name = self.GET_ATTR_NAME
   local child = dub.Function {
     db            = self.db,
+    parent        = self,
     name          = name,
     sorted_params = {},
     return_value  = nil,
@@ -374,6 +422,7 @@ function private:makeGetAttribute()
     static        = false,
     xml           = nil,
     is_get_attr   = true,
+    member        = true,
   }
   table.insert(self.functions_list, child)
   table.insert(self.sorted_cache, child)
@@ -388,6 +437,7 @@ function private:makeSetAttribute()
   local name = self.SET_ATTR_NAME
   local child = dub.Function {
     db            = self.db,
+    parent        = self,
     name          = name,
     sorted_params = {},
     return_value  = nil,
@@ -398,8 +448,24 @@ function private:makeSetAttribute()
     static        = false,
     xml           = nil,
     is_set_attr   = true,
+    member        = true,
   }
   table.insert(self.functions_list, child)
   table.insert(self.sorted_cache, child)
   self.cache[child.name] = child
+end
+
+function private.flatten(xml)
+  if type(xml) == 'string' then
+    return xml
+  else
+    local res = ''
+    for i, e in ipairs(xml) do
+      if i > 1 then
+        res = res .. ' '
+      end
+      res = res .. private.flatten(e)
+    end
+    return res
+  end
 end

@@ -6,6 +6,7 @@
   Use the dub.Inspector to create Lua bindings.
 
 --]]------------------------------------------------------
+local format  = string.format
 local lib     = {
   type = 'dub.LuaBinder',
   SELF = 'self',
@@ -14,9 +15,25 @@ local lib     = {
   TYPE_ACCESSOR = 'checksdata',
   LUA_STACK_SIZE_NAME = 'LuaStackSize',
   TYPE_TO_NATIVE = {
-    double = 'number',
-    float  = 'number',
-    int    = 'number',
+    double     = 'number',
+    float      = 'number',
+    int        = 'number',
+    ['char']   = 'string',
+    ['std::string'] = {
+      -- Get value from Lua.
+      pull   = function(name, position, prefix)
+        return format('int %s_sz;\nconst char *%s = %s_checklstring(L, %i, &%s_sz_);',
+                      name, name, prefix, position, name)
+      end,
+      -- Push value in Lua
+      push   = function(name)
+        return format('lua_pushlstring(L, %s.data(), %s.length);', name, name)
+      end,
+      -- Cast value
+      cast   = function(name)
+        return format('std::string(%s, %s_sz)', name, name)
+      end,
+    }
   },
   -- Relative path to copy dub headers and cpp files. Must be
   -- relative to the bindings output directory.
@@ -44,17 +61,20 @@ setmetatable(lib, {
 function lib:bind(inspector, options)
   self.options = options
   self.output_directory = self.output_directory or options.output_directory
-  self.ins     = inspector
+  self.ins = inspector
   if options.only then
     for _,name in ipairs(options.only) do
       local elem = inspector:find(name)
-      if elem.type == 'dub.Class' then
-        local path = self.output_directory .. lk.Dir.sep .. elem.name .. '.cpp'
-        local file = io.open(path, 'w')
-        file:write(self:bindClass(elem))
-        file:close()
+      if elem then
+        private.bindElem(self, elem, options)
+      else
+        print(string.format("Element '%s' not found.", name))
       end
     end
+  end
+
+  for elem in inspector:children() do
+    private.bindElem(self, elem, options)
   end
   private.copyDubFiles(self)
 end
@@ -62,8 +82,14 @@ end
 function lib:build(output, base_path, file_pattern, extra_flags)
   local dir = lk.Dir(base_path)
   local files = ''
-  for f in dir:glob(file_pattern) do
-    files = files .. ' ' .. f
+  if type(file_pattern) == 'string' then
+    for f in dir:glob(file_pattern) do
+      files = files .. ' ' .. f
+    end
+  else
+    for _, f in ipairs(file_pattern) do
+      files = files .. ' ' .. base_path .. '/' .. f
+    end
   end
   local cmd = self.COMPILER .. ' ' 
   cmd = cmd .. self.COMPILER_FLAGS[private.platform()] .. ' '
@@ -91,25 +117,28 @@ end
 --- Create the body of the bindings for a given method/function.
 function lib:functionBody(class, method)
   local res = ''
-  if method.is_destructor then
+  if method.dtor then
     res = res .. private.getSelf(self, class, true)
-    res = res .. string.format('if (*%s) delete *%s;\n', self.SELF, self.SELF)
-    res = res .. string.format('*%s = NULL;\n', self.SELF)
+    res = res .. format('if (*%s) delete *%s;\n', self.SELF, self.SELF)
+    res = res .. format('*%s = NULL;\n', self.SELF)
     res = res .. 'return 0;'
   else
     local param_delta = 0
-    if class and not class:isConstructor(method) then
+    if not method.static then
       -- We need self
       res = res .. private.getSelf(self, class)
       param_delta = 1
     end
     if method.is_set_attr then
-      res = res .. private.setAttrBody(self, param_delta)
+      res = res .. private.attrSwitch(self, class, method, param_delta, private.setAttrBody)
     elseif method.is_get_attr then
-      res = res .. private.getAttrBody(self, param_delta)
+      res = res .. private.attrSwitch(self, class, method, param_delta, private.getAttrBody)
     else
       for param in method:params() do
-        res = res .. private.getParam(self, method, param, param_delta)
+        local p, acc = private.getParamVar(self, method, param, param_delta)
+        res = res .. p
+        -- This is used later by doCall (cast)
+        param.acc = acc
       end
       res = res .. private.doCall(self, class, method)
       res = res .. private.pushReturnValue(self, class, method)
@@ -124,12 +153,14 @@ function lib:bindName(method)
     -- methods for example).
     return method.bind_name
   end
-  if method.destructor then
+  if method.dtor then
     return '__gc'
   elseif method.is_set_attr then
     return '__newindex'
   elseif method.is_get_attr then
     return '__index'
+  elseif not method.ctor and method.static and method.member then
+    return method.parent.name .. '_' .. method.name
   else
     return method.name
   end
@@ -144,16 +175,23 @@ function lib:libName(class)
   return string.gsub(class:fullname(), '::', '.')
 end
 
---- Returns the method to use to retrieve a given type from Lua.
-function lib:nativeTypeAccessor(method, ctype)
-  local typ = method.db:resolveType(ctype) or ctype
-  local acc = self.TYPE_TO_NATIVE[typ]
+--- Returns the method to retrieve a given param from Lua.
+function lib:nativeTypeAccessor(method, param, delta)
+  local typ = method.db:resolveType(param.ctype.name) or param.ctype
+  local acc = self.TYPE_TO_NATIVE[typ.name]
   if acc then
+    local prefix
     -- if this method does never throw, we can use luaL_check...
     if method:neverThrows() then
-      return 'luaL_check' .. acc
+      prefix = 'luaL_'
     else
-      return 'dub_check' .. acc
+      prefix = 'dub_'
+    end
+    if type(acc) == 'table' then                      
+      -- special accessor
+      return acc.pull(param.name, param.position + delta, prefix), acc
+    else
+      return format('%scheck%s(L, %i)', prefix, acc, param.position + delta)
     end
   end
 end
@@ -171,34 +209,42 @@ end
 -- be directly passed as first parameter or it can be inside a table as
 -- 'super'.
 function private.getSelf(self, class, need_fullptr)
-  local format
+  local fmt
   if need_fullptr then
     -- Need userdata pointer, not just the pointer to object
-    format = '%s **%s = ((%s**)%s(L, 1, "%s"));\n'
+    fmt = '%s **%s = ((%s**)%s(L, 1, "%s"));\n'
   else
-    format = '%s *%s = *((%s**)%s(L, 1, "%s"));\n'
+    fmt = '%s *%s = *((%s**)%s(L, 1, "%s"));\n'
   end
-  return string.format(format, class.name, self.SELF, class.name, self:customTypeAccessor(class), self:libName(class))
+  return format(fmt, class.name, self.SELF, class.name, self:customTypeAccessor(class), self:libName(class))
 end
 
---- Retrieve a function parameter.
-function private.getParam(self, method, param, delta)
-  local type_method = self:nativeTypeAccessor(method, param.ctype)
-  if type_method then
-    return string.format('%s %s = %s(L, %i);\n',
-      param.ctype, param.name, type_method, param.position + delta)
+--- Prepare a variable with a function parameter.
+function private:getParamVar(method, param, delta)
+  local p, acc = private.getParam(self, method, param, delta)
+  if acc then
+    return p .. '\n', acc
+  else
+    return format('%s%s = %s;\n', param.ctype.create_name, param.name, p)
+  end
+end
+
+function private:getParam(method, param, delta)
+  local res, acc = self:nativeTypeAccessor(method, param, delta)
+  if res then
+    return res, acc
   else
     -- userdata
     local lib_name
-    local class = method.db:findByFullname(param.ctype)
+    local class = method.db:findByFullname(param.ctype.name)
     if class then
       lib_name = self:libName(class)
     else
-      lib_name = param.ctype
+      lib_name = param.ctype.name
     end
     type_method = self:customTypeAccessor(method, param.ctype)
-    return string.format('%s *%s = *((%s**))%s(L, %i, "%s"));\n',
-      param.ctype, param.name, param.ctype, type_method, param.position + delta, lib_name)
+    return format('*((%s**)%s(L, %i, "%s"))',
+      param.ctype.name, type_method, param.position + delta, lib_name), false
   end
 end
 
@@ -212,11 +258,26 @@ function private:doCall(class, method)
     else
       first = false
     end
-    res = res .. param.name
+    if param.acc then
+      -- Special accessor
+      res = res .. param.acc.cast(param.name)
+    elseif param.acc == false then
+      -- custom type
+      if param.ctype.ptr then
+        res = res .. param.name
+      else
+        res = res .. '*' .. param.name
+      end
+    else
+      -- native type
+      res = res .. param.name
+    end
   end
   res = res .. ');\n'
-  if class:isConstructor(method) then
+  if method.ctor then
     res = 'new ' .. res
+  elseif method.static then
+    res = class.name .. '::' .. res
   else
     res = self.SELF .. '->' .. res
   end
@@ -224,7 +285,7 @@ function private:doCall(class, method)
   --- Return value
   local return_value = method.return_value
   if method.return_value then
-    res = return_value.ctype .. ' retval__ = ' .. res
+    res = return_value.create_name .. 'retval__ = ' .. res
   end
   return res;
 end
@@ -232,10 +293,10 @@ end
 function private:pushReturnValue(class, method)
   local return_value = method.return_value
   if return_value then
-    if return_value.ctype == self.LUA_STACK_SIZE_NAME then
+    if return_value.name == self.LUA_STACK_SIZE_NAME then
       return 'return retval__;'
     else
-      return private.pushValue(self, method, 'retval__', return_value.ctype)
+      return private.pushValue(self, method, 'retval__', return_value)
     end
   else
     return 'return 0;'
@@ -243,24 +304,32 @@ function private:pushReturnValue(class, method)
 end
 
 function private:pushValue(method, name, ctype)
-  local typ = method.db:resolveType(ctype) or ctype
-  local acc = self.TYPE_TO_NATIVE[typ]
-  if acc then
-    return string.format('lua_push%s(L, %s);\nreturn 1;', acc, name)
-  else
-    return string.format('dub_pushclass<%s>(%s);\nreturn 1;', ctype, name)
+  local res
+  local ctype = method.db:resolveType(ctype.name) or ctype
+  local accessor = self.TYPE_TO_NATIVE[ctype.name]
+  if accessor then
+    if type(accessor) == 'table' then
+      res = accessor.push(name)
+    else
+      res = format('lua_push%s(L, %s);', accessor, name)
+    end
+  elseif not ctype.ptr then
+    res = format('dub_pushclass<%s>(L, %s, "%s");', ctype.name, name, ctype.name)
+  else 
+    res = format('dub_pushudata(L, %s, "%s");', name, ctype.name)
   end
+  return res .. '\nreturn 1;'
 end
 
 function private:copyDubFiles()
   local dub_path = self.COPY_DUB_PATH
   if dub_path then
     local base_path = self.output_directory .. dub_path
-    os.execute(string.format("mkdir -p '%s'", base_path))
+    os.execute(format("mkdir -p '%s'", base_path))
     -- path to current file
     local dir = lk.dir()
     local dub_dir = dir .. '/lua/dub'
-    os.execute(string.format("cp -r '%s' '%s'", dub_dir, base_path))
+    os.execute(format("cp -r '%s' '%s'", dub_dir, base_path))
   end
 end
 
@@ -275,25 +344,67 @@ function private.platform()
   end
 end
 
--- __newindex
-function private:setAttrBody(class)
-  return ''
-  --[[
-__newindex:
-
-int h = dub_hash(key);
-switch(key) {
-  case 9824: /* a */
-    float a = luaL_checknumber(L, 2);
-    self.a = a;
-    break;
-  case 0984: /* b */
-    break;
-}            
---]]
+-- function body to set a variable.
+function private:setAttrBody(method, attr, delta)
+  local name = attr.name
+  local res = ''
+  local param = {
+    name     = name,
+    ctype    = attr.ctype,
+    position = 2,
+  }
+  local p, acc = private.getParam(self, method, param, delta)
+  if acc then
+    res = res .. p
+    p = acc.cast(name)
+  elseif acc == false then
+    -- custom type
+    if not param.ctype.ptr then
+      p = '*' .. p
+    end
+  else
+    -- native type
+  end
+  res = res .. format('self->%s = %s;\n', name, p)
+  res = res .. 'return 0;'
+  return res
 end
 
-function private:getAttrBody(class)
-  return ''
+-- function body to get a variable.
+function private:getAttrBody(method, attr, delta)
+  local accessor = format('self->%s', attr.name)
+  return private.pushValue(self, method, accessor, attr.ctype)
 end
 
+function private:attrSwitch(class, method, delta, bfunc)
+  local res = ''
+  -- get key
+  local param = {
+    name     = 'key',
+    ctype    = dub.MemoryStorage.makeType('const char *'),
+    position = 1,
+  }
+  res = res .. private.getParamVar(self, method, param, delta)
+
+  -- get key hash
+  local sz = dub.minHash(class.variables_list, 'name')
+  res = res .. format('int key_h = dub_hash(key, %i);\n', sz)
+  -- switch
+  res = res .. 'switch(key_h) {\n'
+  for attr in class:attributes() do
+    res = res .. format('  case %s:\n', dub.hash(attr.name, sz))
+    -- get or set value
+    res = res .. '    ' .. string.gsub(bfunc(self, method, attr, delta), '\n', '\n    ') .. '\n'
+  end
+  res = res .. '}\n'
+  return res
+end
+
+function private:bindElem(elem, options)
+  if elem.type == 'dub.Class' then
+    local path = self.output_directory .. lk.Dir.sep .. elem.name .. '.cpp'
+    local file = io.open(path, 'w')
+    file:write(self:bindClass(elem))
+    file:close()
+  end
+end

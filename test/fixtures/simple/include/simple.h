@@ -9,9 +9,7 @@ class Simple {
 public:
   Simple(float v) : value_(v) {}
   
-  ~Simple() {
-    printf("I die...\n");
-  }
+  ~Simple() {}
 
   float value() {
     return value_;
@@ -25,6 +23,11 @@ public:
 
   void setValue(float v) {
     value_ = v;
+  }
+  /** To test simple static methods.
+   */
+  static double pi() {
+    return 3.14;
   }
 };
 

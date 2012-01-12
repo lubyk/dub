@@ -1,8 +1,6 @@
 #ifndef POINTERS_SIZE_H_
 #define POINTERS_SIZE_H_
 
-#include "types.h"
-
 /** This class is used to test:
  *   * accessing public members
  *   * return value optimization

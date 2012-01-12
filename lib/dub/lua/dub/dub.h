@@ -68,8 +68,10 @@ public:
   explicit TypeException(lua_State *L, int narg, const char *type, bool is_super = false);
 };
 
+} // dub
+
 // ======================================================================
-// =============================================== dub::pushudata
+// =============================================== dub_pushclass
 // ======================================================================
 
 /** Push a custom type on the stack.
@@ -77,10 +79,16 @@ public:
  * using 'new' and Lua can safely call delete when it needs to garbage-
  * -collect it.
  */
-void pushudata(lua_State *L, void *ptr, const char *type_name);
+void dub_pushudata(lua_State *L, void *ptr, const char *type_name);
+
+template<class T>
+void dub_pushclass(lua_State *L, const T &obj, const char *type_name) {
+  T *copy = new T(obj);
+  dub_pushudata(L, (void*)copy, type_name);
+}
 
 // ======================================================================
-// =============================================== dub::pushclass
+// =============================================== dub_pushclass2
 // ======================================================================
 
 /** Push a custom type on the stack and give it the pointer to the userdata.
@@ -88,7 +96,7 @@ void pushudata(lua_State *L, void *ptr, const char *type_name);
  * invalidates the userdatum by calling 
  */
 template<class T>
-void pushclass(lua_State *L, T *ptr, const char *type_name) {
+void dub_pushclass2(lua_State *L, T *ptr, const char *type_name) {
   T **userdata = (T**)lua_newuserdata(L, sizeof(T*));
   *userdata = ptr;
 
@@ -101,9 +109,6 @@ void pushclass(lua_State *L, T *ptr, const char *type_name) {
   lua_setmetatable(L, -2);
   // <udata>
 }
-
-} // dub
-
 // ======================================================================
 // =============================================== dub_check ...
 // ======================================================================
@@ -129,4 +134,25 @@ void *dub_checksdata_n(lua_State *L, int ud, const char *tname) throw();
 // =============================================== dub_register
 // ======================================================================
 void dub_register(lua_State *L, const char *libname, const char *class_name);
+
+// ======================================================================
+// =============================================== dub_hash
+// ======================================================================
+#define DUB_MAX_IN_SHIFT 4294967296
+// sdbm function: taken from http://www.cse.yorku.ca/~oz/hash.html
+// This version is slightly adapted to cope with different
+// hash sizes (and to be easy to write in Lua).
+inline int dub_hash(const char *str, int sz) {
+  unsigned int h = 0;
+  int c;
+
+  while ( (c = *str++) ) {
+    unsigned int h1 = (h << 6)  % DUB_MAX_IN_SHIFT;
+    unsigned int h2 = (h << 16) % DUB_MAX_IN_SHIFT;
+    h = c + h1 + h2 - h;
+  }
+
+  return h % sz;
+}
+
 #endif // DUB_BINDING_GENERATOR_DUB_H_

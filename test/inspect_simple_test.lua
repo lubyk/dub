@@ -10,12 +10,10 @@
 require 'lubyk'
 local should = test.Suite('dub.Inspector')
 
--- Test helper to prepare the inspector.
-local function makeInspector()
-  local ins = dub.Inspector()
-  ins:parseXml('test/fixtures/simple/doc/xml')
-  return ins
-end
+local ins = dub.Inspector {
+  doc_dir = 'test/fixtures/simple/doc',
+  INPUT   = 'test/fixtures/simple/include',
+}
 
 --=============================================== TESTS
 function should.loadDub()
@@ -35,50 +33,84 @@ function should.parseXml()
 end
 
 function should.findSimpleClass()
-  local ins = makeInspector()
   local simple = ins:find('Simple')
   assertEqual('dub.Class', simple.type)
 end
 
+function should.findReturnValueOfCtor()
+  local Simple = ins:find('Simple')
+  local ctor = Simple:method('Simple')
+  assertEqual('Simple *', ctor.return_value.create_name)
+end
+
+function should.findReturnValue()
+  local Simple = ins:find('Simple')
+  local ctor = Simple:method('add')
+  assertEqual('MyFloat ', ctor.return_value.create_name)
+end
+
 function should.findTypedef()
-  local ins = makeInspector()
   local obj = ins:find('MyFloat')
   assertEqual('dub.Typedef', obj.type)
 end
 
 function should.findMemberMethod()
-  local ins = makeInspector()
   local Simple = ins:find('Simple')
-  local obj = Simple:method('value')
-  assertEqual('dub.Function', obj.type)
+  local met = Simple:method('value')
+  assertEqual('dub.Function', met.type)
+  assertEqual(Simple, met.parent)
+  assertTrue(met.member)
+  assertFalse(met.ctor)
+  assertFalse(met.dtor)
+end
+
+function should.findStaticMemberMethod()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('pi')
+  assertTrue(met.static)
+  assertEqual('dub.Function', met.type)
+end
+
+function should.markCtorAsStatic()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('Simple')
+  assertTrue(met.static)
+  assertTrue(met.ctor)
+  assertEqual('dub.Function', met.type)
+end
+
+function should.listMembers()
+  local res = {}
+  for child in ins:children() do
+    table.insert(res, child.name)
+  end
+  assertValueEqual({'Simple', 'MyFloat'}, res)
 end
 
 function should.listMemberMethods()
-  local ins = makeInspector()
   local Simple = ins:find('Simple')
   local res = {}
   for meth in Simple:methods() do
     table.insert(res, meth.name)
   end
-  assertValueEqual({'Simple', '_Simple', 'value', 'add', 'setValue'}, res)
+  assertValueEqual({'Simple', '_Simple', 'value', 'add', 'setValue', 'pi'}, res)
 end
 
 function should.listParamsOnMethod()
-  local ins = makeInspector()
   local Simple = ins:find('Simple')
   local add = Simple:method('add')
   local names = {}
   local types = {}
   for param in add:params() do
     table.insert(names, param.name) 
-    table.insert(types, param.ctype) 
+    table.insert(types, param.ctype.name) 
   end
   assertValueEqual({'v', 'w'}, names)
   assertValueEqual({'MyFloat', 'float'}, types)
 end
 
 function should.resolveNativeTypes()
-  local ins = makeInspector()
-  assertEqual('float', ins:resolveType('MyFloat'))
+  assertEqual('float', ins:resolveType('MyFloat').name)
 end
+
 test.all()

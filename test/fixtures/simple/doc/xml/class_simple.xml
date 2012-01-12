@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.5.1">
   <compounddef id="class_simple" kind="class" prot="public">
     <compoundname>Simple</compoundname>
+    <includes refid="simple_8h" local="no">simple.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="class_simple_1a4a3ce04c6c2d1803fc7dbd5a67f4cd46" prot="private" static="no" mutable="no">
         <type>float</type>
@@ -46,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="12" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="12" bodyend="14"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="12" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="12" bodyend="12"/>
       </memberdef>
       <memberdef kind="function" id="class_simple_1a35a29056d40f8109d79aecd1fc50e53d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>float</type>
@@ -59,15 +60,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="16" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="16" bodyend="18"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="14" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="14" bodyend="16"/>
       </memberdef>
       <memberdef kind="function" id="class_simple_1a3e6e5f2881753413c115c12808151722" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>MyFloat</type>
+        <type><ref refid="types_8h_1a2a4d44cda226b135d745cf024dec64e8" kindref="member">MyFloat</ref></type>
         <definition>MyFloat Simple::add</definition>
         <argsstring>(MyFloat v, float w)</argsstring>
         <name>add</name>
         <param>
-          <type>MyFloat</type>
+          <type><ref refid="types_8h_1a2a4d44cda226b135d745cf024dec64e8" kindref="member">MyFloat</ref></type>
           <declname>v</declname>
         </param>
         <param>
@@ -80,7 +81,7 @@
 <para>Test typedef resolution in methods. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="22" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="22" bodyend="24"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="20" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="20" bodyend="22"/>
       </memberdef>
       <memberdef kind="function" id="class_simple_1adae946c5fabe1b997811c7022c9a33ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -97,16 +98,32 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="26" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="26" bodyend="28"/>
+        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="24" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="24" bodyend="26"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_simple_1acb803869593667fbfa2131f7a03610d4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>static double Simple::pi</definition>
+        <argsstring>()</argsstring>
+        <name>pi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To test simple static methods. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="29" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="29" bodyend="31"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="6" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="6" bodyend="29"/>
+    <location file="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" line="6" bodyfile="/Users/gaspard/git/dub/test/fixtures/simple/include/simple.h" bodystart="6" bodyend="32"/>
     <listofallmembers>
       <member refid="class_simple_1a3e6e5f2881753413c115c12808151722" prot="public" virt="non-virtual"><scope>Simple</scope><name>add</name></member>
+      <member refid="class_simple_1acb803869593667fbfa2131f7a03610d4" prot="public" virt="non-virtual"><scope>Simple</scope><name>pi</name></member>
       <member refid="class_simple_1adae946c5fabe1b997811c7022c9a33ce" prot="public" virt="non-virtual"><scope>Simple</scope><name>setValue</name></member>
       <member refid="class_simple_1a3fd8004f8d4cf9f734c4662771b7a705" prot="public" virt="non-virtual"><scope>Simple</scope><name>Simple</name></member>
       <member refid="class_simple_1a35a29056d40f8109d79aecd1fc50e53d" prot="public" virt="non-virtual"><scope>Simple</scope><name>value</name></member>
