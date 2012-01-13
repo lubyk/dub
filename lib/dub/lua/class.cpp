@@ -16,6 +16,10 @@
  * {{method.location}}
  */
 static int {{class.name}}_{{method.cname}}(lua_State *L) {
+{% if method:neverThrows() then %}
+
+  {| self:functionBody(class, method) |}
+{% else %}
   try {
     {| self:functionBody(class, method) |}
   } catch (std::exception &e) {
@@ -24,6 +28,7 @@ static int {{class.name}}_{{method.cname}}(lua_State *L) {
     lua_pushfstring(L, "{{method.name}}: Unknown exception");
   }
   return lua_error(L);
+{% end %}
 }
 
 {% end %}

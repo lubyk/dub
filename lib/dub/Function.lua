@@ -25,6 +25,8 @@ dub.Function  = lib
 --=============================================== dub.Function()
 setmetatable(lib, {
   __call = function(lib, self)
+    self.dub = self.dub or {}
+    self.static = self.static or self.ctor or self.dtor
     setmetatable(self, lib)
     self:setName(self.name)
     return self
@@ -51,7 +53,8 @@ end
 function lib:neverThrows()
   -- TODO: inspect xml
   return self.is_set_attr or
-         self.is_get_attr
+         self.is_get_attr or
+         self.is_cast
 end
 
 function lib:setName(name)

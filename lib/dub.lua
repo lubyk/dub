@@ -23,16 +23,24 @@ function dub.hash(str, sz)
   for i=1,string.len(str) do
     local c = string.byte(str,i)
     h = c + shiftleft(h, 6) + shiftleft(h, 16) - h
-    if h < 0 then
-      assert(false, 'ERROR in dub.hash function: negative value')
-    end
+    h = h % DUB_MAX_IN_SHIFT
   end
   return h % sz
 end
 
 -- Find the minimal modulo value for the list of keys to
 -- avoid collisions.
-function dub.minHash(list, accessor)
+function dub.minHash(list_or_obj, func, accessor)
+  local list
+  if not accessor then
+    accessor = func
+    list = list_or_obj
+  else
+    list = {}
+    for elem in func(list_or_obj) do
+      table.insert(list, elem)
+    end
+  end
   local list_sz = #list
   local sz = 1
   while true do

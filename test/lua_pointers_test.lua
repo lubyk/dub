@@ -15,7 +15,7 @@ param_
 --]]------------------------------------------------------
 require 'lubyk'
 -- Run the test with the dub directory as current path.
-local should = test.Suite('dub.LuaBinder')
+local should = test.Suite('dub.LuaBinder (pointers)')
 local binder = dub.LuaBinder()
 
 local ins = dub.Inspector 'test/fixtures/pointers'
@@ -79,7 +79,7 @@ function should.notGetSelfInStaticMethod()
 end
 
 function should.bindCompileAndLoad()
-  local ins = dub.Inspector {INPUT='test/fixtures/pointers', doc_dir = lk.dir() .. '/tmpa'}
+  local ins = dub.Inspector {INPUT='test/fixtures/pointers', doc_dir = lk.dir() .. '/tmp'}
 
   -- create tmp directory
   local tmp_path = lk.dir() .. '/tmp'

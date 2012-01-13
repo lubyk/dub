@@ -9,12 +9,12 @@
 require 'lubyk'
 local should = test.Suite('dub.Class')
 
--- Test helper to prepare the inspector.
-local function makeClass()
-  local ins = dub.Inspector()
-  ins:parse('test/fixtures/simple/doc/xml')
-  return ins:find('Simple')
-end
+local ins = dub.Inspector {
+  doc_dir = 'test/tmp',
+  INPUT   = 'test/fixtures/simple/include',
+}
+
+local class = ins:find('Simple')
 
 --=============================================== TESTS
 function should.autoload()
@@ -22,17 +22,20 @@ function should.autoload()
 end
 
 function should.beAClass()
-  assertEqual('dub.Class', makeClass().type)
+  assertEqual('dub.Class', class.type)
 end
 
 function should.detectConscructor()
-  local class  = makeClass()
   local method = class:method('Simple')
-  assertTrue(class:isConstructor(method))
+  assertTrue(method.ctor)
+end
+
+function should.detectDestructor()
+  local method = class:method('~Simple')
+  assertTrue(method.dtor)
 end
 
 function should.listMethods()
-  local class = makeClass()
   local m
   for method in class:methods() do
     if method.name == 'setValue' then
@@ -44,7 +47,6 @@ function should.listMethods()
 end
 
 function should.listHeaders()
-  local class = makeClass()
   local h
   for header in class:headers() do
     h = header.path
@@ -53,7 +55,6 @@ function should.listHeaders()
 end
 
 function should.detectDestructor()
-  local class  = makeClass()
   local method = class:method('~Simple')
   assertTrue(class:isDestructor(method))
 end

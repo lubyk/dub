@@ -8,7 +8,7 @@
 
 --]]------------------------------------------------------
 require 'lubyk'
-local should = test.Suite('dub.Inspector')
+local should = test.Suite('dub.Inspector (pointers)')
 
 local ins = dub.Inspector {
   INPUT = 'test/fixtures/pointers',

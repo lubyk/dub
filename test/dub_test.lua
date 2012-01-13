@@ -13,8 +13,8 @@ local should = test.Suite('dub')
 function should.findMinHash()
   assertEqual(6, dub.minHash {'a', 'b', 'ab', 'ca'})
   assertEqual(14, dub.minHash {'a', 'b', 'ab', 'ac', 'ca'})
-  assertEqual(17, dub.minHash {'a', 'b', 'ab', 'ac', 'ca', 'bobli'})
-  assertEqual(17, dub.minHash {'a', 'b', 'ab', 'ac', 'ca', 'bobli', 'malc'})
+  assertEqual(14, dub.minHash {'a', 'b', 'ab', 'ac', 'ca', 'bobli'})
+  assertEqual(14, dub.minHash {'a', 'b', 'ab', 'ac', 'ca', 'bobli', 'malc'})
   assertEqual(3, dub.minHash {'name_', 'size_'})
 end
 
@@ -26,8 +26,9 @@ function should.hash()
   assertEqual(6, dub.hash('ac',14))
   assertEqual(8, dub.hash('ca',14))
   assertEqual(0, dub.hash('name_',5))
+  assertEqual(1, dub.hash('birth_year',2))
 end
 
-test.all()
+test.files(lk.dir(), '%_test.lua$', '/dub_test.lua$')
 
 

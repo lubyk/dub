@@ -15,7 +15,7 @@ local lib     = {
   TYPE_ACCESSOR = 'checksdata',
   -- By default does an strcmp to ensure correct attribute key.
   ASSERT_ATTR_KEY = true,
-  LUA_STACK_SIZE_NAME = 'LuaStackSize',
+  LUA_STACK_SIZE_NAME = 'DubStackSize',
   TYPE_TO_NATIVE = {
     double     = 'number',
     float      = 'number',
@@ -64,6 +64,7 @@ setmetatable(lib, {
 function lib:bind(inspector, options)
   self.options = options
   self.output_directory = self.output_directory or options.output_directory
+  private.parseCustomBindings(self, options.custom_bindings)
   self.ins = inspector
   if options.only then
     for _,name in ipairs(options.only) do
@@ -104,7 +105,10 @@ function lib:build(output, base_path, file_pattern, extra_flags)
   end
   cmd = cmd .. files
   local pipe = io.popen(cmd)
-  print(pipe:read('*a'))
+  local res = pipe:read('*a')
+  if res ~= '' then
+    print(res)
+  end
 end
 
 --- Return a string containing the Lua bindings for a class.
@@ -114,28 +118,46 @@ function lib:bindClass(class)
     local dir = lk.dir()
     self.class_template = dub.Template {path = dir .. '/lua/class.cpp'}
   end
-  return self.class_template:run {class = class, self = self}
+  class.custom_bindings = self.custom_bindings
+  local res = self.class_template:run {class = class, self = self}
+  -- Cleanup
+  class.custom_bindings = nil
+  return res
 end
 
 --- Create the body of the bindings for a given method/function.
 function lib:functionBody(class, method)
+  local custom
+  if class.custom_bindings then
+    custom = (class.custom_bindings[method.parent.name] or {})[method.name]
+  end
+  if custom then
+    -- strip last newline
+    custom = string.sub(custom, 1, -2)
+  end
   local res = ''
   if method.dtor then
-    res = res .. private.getSelf(self, class, true)
-    res = res .. format('if (*%s) delete *%s;\n', self.SELF, self.SELF)
-    res = res .. format('*%s = NULL;\n', self.SELF)
-    res = res .. 'return 0;'
+    res = res .. private.getSelf(self, class, method, true)
+    if custom then
+      res = res .. custom
+    else
+      res = res .. format('if (*%s) delete *%s;\n', self.SELF, self.SELF)
+      res = res .. format('*%s = NULL;\n', self.SELF)
+      res = res .. 'return 0;'
+    end
   else
     local param_delta = 0
     if not method.static then
       -- We need self
-      res = res .. private.getSelf(self, class, false, method.is_get_attr)
+      res = res .. private.getSelf(self, class, method, false, method.is_get_attr)
       param_delta = 1
     end
     if method.is_set_attr then
-      res = res .. private.attrSwitch(self, class, method, param_delta, private.setAttrBody)
+      res = res .. private.switch(self, class, method, param_delta, private.setAttrBody, class.attributes)
     elseif method.is_get_attr then
-      res = res .. private.attrSwitch(self, class, method, param_delta, private.getAttrBody)
+      res = res .. private.switch(self, class, method, param_delta, private.getAttrBody, class.attributes)
+    elseif method.is_cast then
+      res = res .. private.switch(self, class, method, param_delta, private.castBody, class.superclasses)
     else
       for param in method:params() do
         local p, acc = private.getParamVar(self, method, param, param_delta)
@@ -143,8 +165,12 @@ function lib:functionBody(class, method)
         -- This is used later by doCall (cast)
         param.acc = acc
       end
-      res = res .. private.doCall(self, class, method)
-      res = res .. private.pushReturnValue(self, class, method)
+      if custom then
+        res = res .. custom
+      else
+        res = res .. private.doCall(self, class, method)
+        res = res .. private.pushReturnValue(self, class, method)
+      end
     end
   end
   return res
@@ -175,8 +201,12 @@ function lib:bindName(method)
 end
 --=============================================== Methods that can be customized
 
-function lib:customTypeAccessor(class)
-  return private.checkPrefix(self) .. self.TYPE_ACCESSOR
+function lib:customTypeAccessor(method)
+  if method:neverThrows() then
+    return 'dub_checksdata_n'
+  else
+    return private.checkPrefix(self, method) .. self.TYPE_ACCESSOR
+  end
 end
 
 function lib:libName(class)
@@ -193,13 +223,7 @@ end
 function lib:nativeTypeAccessor(method, param, delta)
   local acc = self:nativeType(method, param.ctype)
   if acc then
-    local prefix
-    -- if this method does never throw, we can use luaL_check...
-    if method:neverThrows() then
-      prefix = 'luaL_'
-    else
-      prefix = 'dub_'
-    end
+    local prefix = private.checkPrefix(self, method)
     if type(acc) == 'table' then                      
       -- special accessor
       return acc.pull(param.name, param.position + delta, prefix), acc
@@ -211,8 +235,10 @@ end
 
 --=============================================== PRIVATE
 
-function private.checkPrefix(self)
-  if self.options.exceptions == false then
+-- if this method does never throw, we can use luaL_check...
+function private:checkPrefix(method)
+  if self.options.exceptions == false or
+     method:neverThrows() then
     return 'luaL_'
   else
     return 'dub_'
@@ -221,7 +247,7 @@ end
 --- Find the userdata from the current lua_State. The userdata can
 -- be directly passed as first parameter or it can be inside a table as
 -- 'super'.
-function private.getSelf(self, class, need_fullptr, need_mt)
+function private.getSelf(self, class, method, need_fullptr, need_mt)
   local fmt
   local nmt
   if need_fullptr then
@@ -236,7 +262,7 @@ function private.getSelf(self, class, need_fullptr, need_mt)
   else
     nmt = ''
   end
-  return format(fmt, class.name, self.SELF, class.name, self:customTypeAccessor(class), self:libName(class), nmt)
+  return format(fmt, class.name, self.SELF, class.name, self:customTypeAccessor(method), self:libName(class), nmt)
 end
 
 --- Prepare a variable with a function parameter.
@@ -398,13 +424,25 @@ function private:setAttrBody(method, attr, delta)
   return res
 end
 
+-- function body to set a variable.
+function private:castBody(method, super, delta)
+  if super.dub.cast == false then
+    return
+  end
+  local name = super.name
+  local res = ''
+  res = res .. format('*retval__ = static_cast<%s*>(self);\n', name)
+  res = res .. 'return 1;'
+  return res
+end
+
 -- function body to get a variable.
 function private:getAttrBody(method, attr, delta)
   local accessor = format('self->%s', attr.name)
   return private.pushValue(self, method, accessor, attr.ctype)
 end
 
-function private:attrSwitch(class, method, delta, bfunc)
+function private:switch(class, method, delta, bfunc, iterator)
   local res = ''
   -- get key
   local param = {
@@ -420,28 +458,35 @@ function private:attrSwitch(class, method, delta, bfunc)
     res = res .. '// <self> "key" <mt> "key"\n'
     res = res .. 'lua_rawget(L, -2);\n'
     res = res .. 'if (!lua_isnil(L, -1)) {\n'
+    res = res .. '  // Found method.\n'
     res = res .. '  return 1;\n'
     res = res .. '} else {\n'
-    res = res .. '  // cleanup\n'
+    res = res .. '  // Not in mt = attribute access.\n'
     res = res .. '  lua_pop(L, 2);\n'
     res = res .. '}\n'
+  elseif method.is_cast then
+    res = res .. 'void **retval__ = (void**)lua_newuserdata(L, sizeof(void*));\n'
   end
 
   -- get key hash
-  local sz = dub.minHash(class.variables_list, 'name')
+  local sz = dub.minHash(class, iterator, 'name')
   res = res .. format('int key_h = dub_hash(key, %i);\n', sz)
   -- switch
   res = res .. 'switch(key_h) {\n'
-  for attr in class:attributes() do
-    res = res .. format('  case %s: {\n', dub.hash(attr.name, sz))
-    -- get or set value
-    if method.is_set_attr then
-      res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) throw dub::Exception(KEY_EXCEPTION_MSG, key);\n', attr.name)
-    else
-      -- No error on bad read: just return nil.
-      res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) return 0;\n', attr.name)
+  for elem in iterator(class) do
+    local body = bfunc(self, method, elem, delta)
+    if body then
+      local name = elem.name
+      res = res .. format('  case %s: {\n', dub.hash(name, sz))
+      -- get or set value
+      if method.is_set_attr then
+        res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) luaL_error(L, KEY_EXCEPTION_MSG, key);\n', name)
+      else
+        -- No error on bad read or cast: just return nil.
+        res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) return 0;\n', name)
+      end
+      res = res .. '    ' .. string.gsub(body, '\n', '\n    ') .. '\n  }\n'
     end
-    res = res .. '    ' .. string.gsub(bfunc(self, method, attr, delta), '\n', '\n    ') .. '\n  }\n'
   end
   res = res .. '  default:\n'
   if method.is_set_attr then
@@ -460,4 +505,18 @@ function private:bindElem(elem, options)
     file:write(self:bindClass(elem))
     file:close()
   end
+end
+
+function private:parseCustomBindings(custom)
+  if type(custom) == 'string' then
+    -- This is a directory. Build table.
+    local dir = lk.Dir(custom)
+    custom = {}
+    for yaml_file in dir:glob('%.yml') do
+      local name = string.match(yaml_file, '([^/]+)%.yml$')
+      local yml = yaml.loadpath(yaml_file)
+      custom[name] = yml.lua
+    end
+  end
+  self.custom_bindings = custom or {}
 end

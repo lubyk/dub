@@ -8,7 +8,7 @@
 
 --]]------------------------------------------------------
 require 'lubyk'
-local should = test.Suite('dub.Inspector')
+local should = test.Suite('dub.Inspector (simple)')
 
 local ins = dub.Inspector {
   doc_dir = 'test/fixtures/simple/doc',

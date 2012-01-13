@@ -11,6 +11,7 @@ local lib     = {
   type          = 'dub.Class',
   SET_ATTR_NAME = '_set_',
   GET_ATTR_NAME = '_get_',
+  CAST_NAME     = '_cast_',
 }
 local private = {}
 lib.__index   = lib
@@ -24,6 +25,8 @@ setmetatable(lib, {
     self.functions_list = {}
     self.variables_list = {}
     self.headers_list   = {}
+    self.super_list     = {}
+    self.dub = self.dub or {}
     return setmetatable(self, lib)
   end
 })
@@ -48,6 +51,11 @@ end
 --- Return an iterator over the headers for this class/namespace.
 function lib:headers()
   return self.db:headers(self)
+end
+
+--- Return an iterator over the superclasses of this class.
+function lib:superclasses()
+  return self.db:superclasses(self)
 end
 
 function lib:fullname()

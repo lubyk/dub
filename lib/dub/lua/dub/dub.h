@@ -37,6 +37,8 @@
 #endif
 #define KEY_EXCEPTION_MSG "invalid key '%s'"
 
+typedef int DubStackSize;
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -133,10 +135,12 @@ void *dub_checkudata(lua_State *L, int ud, const char *tname, bool keep_mt = fal
 void *dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw(dub::TypeException);
 // Does not throw exceptions. This method behaves exactly like luaL_checkudata but searches
 // for table.super before calling lua_error.
-void *dub_checksdata_n(lua_State *L, int ud, const char *tname) throw();
+void *dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw();
 
 #define dub_checkstring(L,n) (dub_checklstring(L, (n), NULL))
 #define dub_checkint(L,n) ((int)dub_checkinteger(L, (n)))
+#define luaL_checkboolean(L,n) (lua_toboolean(L,n))
+#define dub_checkboolean(L,n) (lua_toboolean(L,n))
 
 // ======================================================================
 // =============================================== dub_register
@@ -146,21 +150,9 @@ void dub_register(lua_State *L, const char *libname, const char *class_name);
 // ======================================================================
 // =============================================== dub_hash
 // ======================================================================
-#define DUB_MAX_IN_SHIFT 4294967296
 // sdbm function: taken from http://www.cse.yorku.ca/~oz/hash.html
 // This version is slightly adapted to cope with different
 // hash sizes (and to be easy to write in Lua).
-inline int dub_hash(const char *str, int sz) {
-  unsigned int h = 0;
-  int c;
-
-  while ( (c = *str++) ) {
-    unsigned int h1 = (h << 6)  % DUB_MAX_IN_SHIFT;
-    unsigned int h2 = (h << 16) % DUB_MAX_IN_SHIFT;
-    h = c + h1 + h2 - h;
-  }
-
-  return h % sz;
-}
-
+int dub_hash(const char *str, int sz);
+  
 #endif // DUB_BINDING_GENERATOR_DUB_H_

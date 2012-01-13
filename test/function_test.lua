@@ -9,11 +9,14 @@
 require 'lubyk'
 local should = test.Suite('dub.Function')
 
+local ins = dub.Inspector {
+  doc_dir = 'test/tmp',
+  INPUT   = 'test/fixtures/simple/include',
+}
+
 -- Test helper to prepare the inspector.
 local function makeFunction(func_name)
   local func_name = func_name or 'add'
-  local ins = dub.Inspector()
-  ins:parse('test/fixtures/simple/doc/xml')
   return ins:find('Simple'):method(func_name)
 end
 
@@ -34,13 +37,13 @@ function should.haveParams()
     i = i + 1
     table.insert(res, {i, param.name})
   end
-  assertValueEqual({{1, 'v'}}, res)
+  assertValueEqual({{1, 'v'}, {2, 'w'}}, res)
 end
 
 function should.haveReturnValue()
   local func = makeFunction()
   local ret = func.return_value
-  assertEqual('MyFloat', ret.ctype)
+  assertEqual('MyFloat', ret.name)
 end
 
 function should.notHaveReturnValue()
@@ -50,7 +53,7 @@ end
 
 function should.haveLocation()
   local func = makeFunction()
-  assertEqual('test/fixtures/simple/include/simple.h:18', func.location)
+  assertEqual('test/fixtures/simple/include/simple.h:20', func.location)
 end
 
 function should.markConstructorAsStatic()

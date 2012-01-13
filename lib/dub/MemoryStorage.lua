@@ -72,11 +72,11 @@ end
 function lib:functions(parent)
   -- make sure we have parsed the headers
   private.parseHeaders(parent)
-  local co = coroutine.create(private.iterator)
+  local co = coroutine.create(private.iteratorWithSuper)
   return function()
-    local ok, value = coroutine.resume(co, parent.functions_list)
+    local ok, elem = coroutine.resume(co, parent, 'functions_list')
     if ok then
-      return value
+      return elem
     end
   end
 end
@@ -85,11 +85,11 @@ end
 function lib:variables(parent)
   -- make sure we have parsed the headers
   private.parseHeaders(parent)
-  local co = coroutine.create(private.iterator)
+  local co = coroutine.create(private.iteratorWithSuper)
   return function()
-    local ok, value = coroutine.resume(co, parent.variables_list)
+    local ok, elem = coroutine.resume(co, parent, 'variables_list')
     if ok then
-      return value
+      return elem
     end
   end
 end
@@ -100,9 +100,9 @@ function lib:headers(parent)
   private.parseHeaders(parent)
   local co = coroutine.create(private.iterator)
   return function()
-    local ok, value = coroutine.resume(co, parent.headers_list)
+    local ok, elem = coroutine.resume(co, parent.headers_list)
     if ok then
-      return value
+      return elem
     end
   end
 end
@@ -113,9 +113,23 @@ function lib:children()
   private.parseHeaders(self)
   local co = coroutine.create(private.iterator)
   return function()
-    local ok, value = coroutine.resume(co, self.sorted_cache)
+    local ok, elem = coroutine.resume(co, self.sorted_cache)
     if ok then
-      return value
+      return elem
+    end
+  end
+end
+
+--- Return an iterator over the superclasses of this class.
+function lib:superclasses(parent)
+  -- make sure we have parsed the headers
+  private.parseHeaders(self)
+  private.parseHeaders(parent)
+  local co = co or coroutine.create(private.superIterator)
+  return function()
+    local ok, elem = coroutine.resume(co, self, parent)
+    if ok then
+      return elem
     end
   end
 end
@@ -132,6 +146,36 @@ end
 function private.iterator(list)
   for _, child in ipairs(list) do
     coroutine.yield(child)
+  end
+end
+
+function private.iteratorWithSuper(elem, key)
+  if elem.type == 'dub.Class' then
+    for super in elem:superclasses() do
+      for _, child in ipairs(super[key]) do
+        if not child.no_inherit and
+           not child.static then
+           coroutine.yield(child)
+         end
+      end
+    end
+  end
+  private.iterator(elem[key])
+end
+
+-- Iterate superclass hierarchy.
+function private:superIterator(base)
+  for _, name in ipairs(base.super_list) do
+    local super = self:findByFullname(name)
+    if super then
+      private.superIterator(self, super)
+      coroutine.yield(super)
+    end
+  end
+  -- Find pseudo parents
+  if base.dub.super then
+    local list = lk.split(base.dub.super, ',')
+    private.superIterator(self, {super_list = list, dub = {}})
   end
 end
 
@@ -176,6 +220,7 @@ function parse:header(header, not_lazy)
   local base, h_file = lk.directory(h_path)
   table.insert(self.headers_list, {path = h_file})
 
+  self.dub = parse.dub(data) or self.dub
   parse.children(self, data, header, not_lazy)
   header.parsed = true
 end
@@ -201,20 +246,29 @@ function parse:children(elem_list, header, not_lazy)
     private.makeDestructor(self)
     private.makeGetAttribute(self)
     private.makeSetAttribute(self)
+    if #self.super_list > 0 or self.dub.super then
+      private.makeCast(self)
+    end
   end
 end
 
-function parse.innernamespace(self, elem, header)
+function parse:basecompoundref(elem, header)
+  if elem.prot == 'public' then
+    table.insert(self.super_list, elem[1])
+  end
+end
+
+function parse:innernamespace(elem, header)
   return {
     type = 'dub.Namespace',
     name = elem[1]
   }
 end
 
-function parse.innerclass(parent, elem, header, not_lazy)
+function parse:innerclass(elem, header, not_lazy)
   local class = dub.Class {
-    -- parent can be a class or db (root)
-    db      = parent.db or parent,
+    -- self can be a class or db (root)
+    db      = self.db or self,
     name    = elem[1],
     xml     = elem,
     xml_headers  = {
@@ -253,19 +307,19 @@ function parse.memberdef(self, elem, header)
   end
 end
 
-function parse.variable(parent, elem, header)
+function parse:variable(elem, header)
   local name = elem:find('name')[1]
   local child  = {
     name  = name,
     type  = 'dub.Attribute',
     ctype = parse.type(elem),
   }
-  parent.has_variables = true
-  table.insert(parent.variables_list, child)
+  self.has_variables = true
+  table.insert(self.variables_list, child)
   return child
 end
 
-function parse.typedef(self, elem, header)
+function parse:typedef(elem, header)
   return {
     type    = 'dub.Typedef',
     name    = elem:find('name')[1],
@@ -275,17 +329,17 @@ function parse.typedef(self, elem, header)
   }
 end
     
-parse['function'] = function(parent, elem, header)
+parse['function'] = function(self, elem, header)
   local name  = elem:find('name')[1]
-  if parent.cache[name] then
+  if self.cache[name] then
     -- TODO: support overloaded functions.
     return nil
   end
 
   local child = dub.Function {
-    -- parent can be a class or db (root)
-    db            = parent.db or parent,
-    parent        = parent,
+    -- self can be a class or db (root)
+    db            = self.db or self,
+    parent        = self,
     name          = name,
     sorted_params = parse.params(elem, header),
     return_value  = parse.retval(elem),
@@ -293,18 +347,19 @@ parse['function'] = function(parent, elem, header)
     argsstring    = elem:find('argsstring')[1],
     location      = private.makeLocation(elem, header),
     desc          = (elem:find('detaileddescription') or {})[1],
-    static        = elem.static == 'yes' or (parent and parent.name == name),
+    static        = elem.static == 'yes' or (self and self.name == name),
     xml           = elem,
-    member        = parent.type == 'dub.Class',
-    dtor          = parent.type == 'dub.Class' and name == '~' .. parent.name,
-    ctor          = parent.type == 'dub.Class' and name == parent.name,
+    member        = self.type == 'dub.Class',
+    dtor          = self.type == 'dub.Class' and name == '~' .. self.name,
+    ctor          = self.type == 'dub.Class' and name == self.name,
+    dub           = parse.dub(elem) or {},
   }
-  if parent.name == name then
+  if self.name == name then
     -- Constructor
     child.return_value = lib.makeType(name .. ' *')
   end
 
-  local list = parent.functions_list
+  local list = self.functions_list
   if list then
     table.insert(list, child)
   end
@@ -416,12 +471,14 @@ function private:makeGetAttribute()
     name          = name,
     sorted_params = {},
     return_value  = nil,
-    definition    = name .. self.name,
+    definition    = 'Get attributes ',
     argsstring    = '(key)',
     location      = '',
     desc          = 'Read attributes values for ' .. self.name .. '.',
     static        = false,
     xml           = nil,
+    -- Should not be inherited by sub-classes
+    no_inherit    = true,
     is_get_attr   = true,
     member        = true,
   }
@@ -442,13 +499,43 @@ function private:makeSetAttribute()
     name          = name,
     sorted_params = {},
     return_value  = nil,
-    definition    = name .. self.name,
+    definition    = 'Set attributes ',
     argsstring    = '(key, value)',
     location      = '',
     desc          = 'Set attributes values for ' .. self.name .. '.',
     static        = false,
     xml           = nil,
+    -- Should not be inherited by sub-classes
+    no_inherit    = true,
     is_set_attr   = true,
+    member        = true,
+  }
+  table.insert(self.functions_list, child)
+  table.insert(self.sorted_cache, child)
+  self.cache[child.name] = child
+end
+
+function private:makeCast()
+  if not self.has_variables or
+     self.cache[self.CAST_NAME] then
+    return
+  end
+  local name = self.CAST_NAME
+  local child = dub.Function {
+    db            = self.db,
+    parent        = self,
+    name          = name,
+    sorted_params = {},
+    return_value  = nil,
+    definition    = 'Cast ',
+    argsstring    = '(class_name)',
+    location      = '',
+    desc          = 'Cast to superclass for ' .. self.name .. '.',
+    static        = false,
+    xml           = nil,
+    -- Should not be inherited by sub-classes
+    no_inherit    = true,
+    is_cast       = true,
     member        = true,
   }
   table.insert(self.functions_list, child)
@@ -469,4 +556,28 @@ function private.flatten(xml)
     end
     return res
   end
+end
+
+function parse.detaileddescription(self, elem, header)
+  local dub = parse.dub(elem)
+  if dub then
+    self.dub = dub
+  end
+end
+
+function parse.dub(elem)
+  --detaileddescription/para/[simplesect kind='par']/title/[Bindings info:]
+  --                                                 para/XXXXXX
+  --                                                 
+  -- FIXME: This would not work if simplesect is not the first one
+  local sect = elem:find('simplesect', 'kind', 'par')
+  if sect then
+    if (sect:find('title') or {})[1] == 'Bindings info:' then
+      local txt = sect:find('para')[1]
+      -- HACK TO RECREATE NEWLINES...
+      txt = string.gsub(txt, ' ([a-z]+):', '\n%1:')
+      return yaml.load(txt)
+    end
+  end
+  return nil
 end

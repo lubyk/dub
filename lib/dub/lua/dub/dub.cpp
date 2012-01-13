@@ -31,6 +31,8 @@
 #define DUB_EXCEPTION_BUFFER_SIZE 256  
 #define TYPE_EXCEPTION_MSG "%s expected, %s"
 #define TYPE_EXCEPTION_SMSG "%s expected, %s (using super)"
+#define DUB_MAX_IN_SHIFT 4294967296
+
 using namespace dub;
 
 // ======================================================================
@@ -116,61 +118,42 @@ void *dub_checkudata(lua_State *L, int ud, const char *tname, bool keep_mt) thro
   return NULL;  /* to avoid warnings */
 }
 
-void *dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt) throw(TypeException) {
-  void *p = lua_touserdata(L, ud);
-  if (p != NULL) {  /* value is a userdata? */
-    if (lua_getmetatable(L, ud)) {  /* does it have a metatable? */
-      // ... <udata.mt>
-      lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
-      // ... <udata.mt> <mt>
-      if (lua_rawequal(L, -1, -2)) {
-        // same (correct) metatable
-        if (!keep_mt) {
-          lua_pop(L, 2);
-        } else {
-          // keep 1 metatable on top (needed by bindings)
-          lua_pop(L, 1);
-        }
-        return p;
-      }
-    }
-  } else if (lua_istable(L, ud)) {
-    if (ud < 0) {
-      ud = lua_gettop(L) + 1 + ud;
-    }
-    // get p from super
-    // ... <ud> ...
-    // FIXME: OPTIMIZATION store 'super' in registry ?
-    lua_pushlstring(L, "super", 5);
-    // ... <ud> ... <'super'>
-    lua_rawget(L, ud);
-    // ... <ud> ... <ud?>
-    p = lua_touserdata(L, -1);
+
+static inline void *dub_cast_ud(lua_State *L, int ud, const char *tname) {
+  // .. <ud> ... <mt> <mt>
+  lua_pop(L, 1);
+  // ... <ud> ... <mt>
+  // TODO: optmize by putting this cast value in the registry.
+  lua_pushlstring(L, "_cast_", 6);
+  // ... <ud> ... <mt> "_cast_"
+  lua_rawget(L, -2);
+  if (lua_isfunction(L, -1)) {
+    lua_pushvalue(L, ud);
+    lua_pushstring(L, tname);
+    // ... <ud> ... <mt> cast_func <ud> "OtherType"
+    lua_call(L, 2, 1);
+    // ... <ud> ... <mt> <ud>
+    void *p = lua_touserdata(L, -1);
     if (p != NULL) {
-      if (lua_getmetatable(L, -1)) {  /* does it have a metatable? */
-        lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
-        if (lua_rawequal(L, -1, -2)) {  /* does it have the correct mt? */
-          lua_pop(L, 3);  /* remove both metatables and super */
-          return p;
-        }
-        // remove both metatables
-        lua_pop(L, 2);
-      }
-      throw dub::TypeException(L, -1, tname, true);
+      // done
+      return p;
     }
   }
-  throw dub::TypeException(L, ud, tname);
+
+  // ... <ud> ... <mt> nil
+  // Does not change stack size (only last element).
   return NULL;
 }
 
-void *dub_checksdata_n(lua_State *L, int ud, const char *tname) throw() {
+static inline void*getsdata(lua_State *L, int ud, const char *tname, bool keep_mt) throw() {
   void *p = lua_touserdata(L, ud);
   if (p != NULL) {  /* value is a userdata? */
     if (lua_getmetatable(L, ud)) {  /* does it have a metatable? */
       lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
-      if (lua_rawequal(L, -1, -2)) {  /* does it have the correct mt? */
-        lua_pop(L, 2);  /* remove both metatables */
-        return p;
+      if (lua_rawequal(L, -1, -2)) {
+        // same (correct) metatable
+      } else {
+        p = dub_cast_ud(L, ud, tname);
       }
     }
   } else if (lua_istable(L, ud)) {
@@ -188,20 +171,45 @@ void *dub_checksdata_n(lua_State *L, int ud, const char *tname) throw() {
     if (p != NULL) {
       if (lua_getmetatable(L, -1)) {  /* does it have a metatable? */
         lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
-        if (lua_rawequal(L, -1, -2)) {  /* does it have the correct mt? */
-          lua_pop(L, 3);  /* remove both metatables and super */
-          return p;
+        if (lua_rawequal(L, -1, -2)) {
+          // same (correct) metatable
+          lua_remove(L, -3);
+          // ... <ud> ... <mt> <mt>
+        } else {
+          p = dub_cast_ud(L, ud, tname);
         }
-        // remove both metatables
-        lua_pop(L, 2);
       }
-      luaL_error(L, TYPE_EXCEPTION_SMSG, tname, luaL_typename(L, -1));
+    } else {
+      lua_pop(L, -1);
+      // ... <ud> ...
     }
   }
-  luaL_error(L, TYPE_EXCEPTION_MSG, tname, luaL_typename(L, ud));
-  return NULL;
+  if (p) {
+    if (!keep_mt) {
+      lua_pop(L, 2);
+    } else {
+      // keep 1 metatable on top (needed by bindings)
+      lua_pop(L, 1);
+    }
+  }
+  return p;
 }
 
+void *dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt) throw() {
+  void *p = getsdata(L, ud, tname, keep_mt);
+  if (!p) {
+    luaL_error(L, TYPE_EXCEPTION_MSG, tname, luaL_typename(L, ud));
+  }
+  return p;
+}
+
+void *dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt) throw(TypeException) {
+  void *p = getsdata(L, ud, tname, keep_mt);
+  if (!p) {
+    throw dub::TypeException(L, ud, tname);
+  }
+  return p;
+}
 
 // ======================================================================
 // =============================================== dub_register
@@ -228,3 +236,17 @@ void dub_register(lua_State *L, const char *libname, const char *class_name) {
   lua_pop(L, 1);
   // <mt>
 }
+
+int dub_hash(const char *str, int sz) {
+  unsigned int h = 0;
+  int c;
+
+  while ( (c = *str++) ) {
+    unsigned int h1 = (h << 6)  % DUB_MAX_IN_SHIFT;
+    unsigned int h2 = (h << 16) % DUB_MAX_IN_SHIFT;
+    h = c + h1 + h2 - h;
+    h = h % DUB_MAX_IN_SHIFT;
+  }
+  return h % sz;
+}
+
