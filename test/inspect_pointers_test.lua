@@ -8,7 +8,7 @@
 
 --]]------------------------------------------------------
 require 'lubyk'
-local should = test.Suite('dub.Inspector (pointers)')
+local should = test.Suite('dub.Inspector - pointers')
 
 local ins = dub.Inspector {
   INPUT = 'test/fixtures/pointers',
@@ -17,9 +17,9 @@ local ins = dub.Inspector {
 
 --=============================================== TESTS
 
-function should.findSizeClass()
-  local Size = ins:find('Size')
-  assertEqual('dub.Class', Size.type)
+function should.findVectClass()
+  local Vect = ins:find('Vect')
+  assertEqual('dub.Class', Vect.type)
 end
 
 function should.parseParamTypes()
@@ -33,7 +33,7 @@ function should.parseParamTypes()
   assertTrue(p1.ctype.ref)
   assertEqual('const std::string ', p1.ctype.create_name)
   assertEqual('size', p2.name)
-  assertEqual('Size', p2.ctype.name)
+  assertEqual('Vect', p2.ctype.name)
 end
 
 function should.parsePointerParamTypes()
@@ -48,29 +48,29 @@ function should.parsePointerParamTypes()
   assertFalse(p1.ctype.ref)
   assertEqual('const char *', p1.ctype.create_name)
   assertEqual('size', p2.name)
-  assertEqual('Size', p2.ctype.name)
-  assertEqual('Size *', p2.ctype.create_name)
+  assertEqual('Vect', p2.ctype.name)
+  assertEqual('Vect *', p2.ctype.create_name)
 end
 
 function should.listAttributes()
-  local Size = ins:find('Size')
+  local Vect = ins:find('Vect')
   local res = {}
-  for attr in Size:attributes() do
+  for attr in Vect:attributes() do
     table.insert(res, attr.name)
   end
   assertValueEqual({'x', 'y'}, res)
 end
 
 function should.listMethods()
-  local Size = ins:find('Size')
+  local Vect = ins:find('Vect')
   local res = {}
-  for meth in Size:methods() do
+  for meth in Vect:methods() do
     table.insert(res, meth.name)
   end
-  assertValueEqual({'_Size', 
-    Size.GET_ATTR_NAME,
-    Size.SET_ATTR_NAME,
-    'Size',
+  assertValueEqual({'_Vect', 
+    Vect.GET_ATTR_NAME,
+    Vect.SET_ATTR_NAME,
+    'Vect',
     'surface',
     'operator+',
     'operator-',
@@ -98,70 +98,70 @@ function should.staticMethodShouldBeStatic()
 end
 
 function should.haveSetMethod()
-  local Size = ins:find('Size')
-  local set  = Size:method(Size.SET_ATTR_NAME)
+  local Vect = ins:find('Vect')
+  local set  = Vect:method(Vect.SET_ATTR_NAME)
   assertTrue(set.is_set_attr)
 end
 
 function should.parseAddOperator()
-  local Size = ins:find('Size')
-  local plus = Size:method('operator+')
+  local Vect = ins:find('Vect')
+  local plus = Vect:method('operator+')
   assertTrue(plus.member)
   assertEqual('operator+', plus.name)
   assertEqual('operator_add', plus.cname)
 end
 
 function should.parseSubOperator()
-  local Size = ins:find('Size')
-  local plus = Size:method('operator-')
+  local Vect = ins:find('Vect')
+  local plus = Vect:method('operator-')
   assertTrue(plus.member)
   assertEqual('operator-', plus.name)
   assertEqual('operator_sub', plus.cname)
 end
 
 --function should.parseUnmOperator()
---  local Size = ins:find('Size')
---  local plus = Size:method('operator+')
+--  local Vect = ins:find('Vect')
+--  local plus = Vect:method('operator+')
 --  assertTrue(plus.member)
 --  assertEqual('operator+', plus.name)
 --  assertEqual('operator_plus', plus.cname)
 --end
 
 function should.parseMulOperator()
-  local Size = ins:find('Size')
-  local plus = Size:method('operator*')
+  local Vect = ins:find('Vect')
+  local plus = Vect:method('operator*')
   assertTrue(plus.member)
   assertEqual('operator*', plus.name)
   assertEqual('operator_mul', plus.cname)
 end
 
 function should.parseDivOperator()
-  local Size = ins:find('Size')
-  local plus = Size:method('operator/')
+  local Vect = ins:find('Vect')
+  local plus = Vect:method('operator/')
   assertTrue(plus.member)
   assertEqual('operator/', plus.name)
   assertEqual('operator_div', plus.cname)
 end
 
 function should.parseLtOperator()
-  local Size = ins:find('Size')
-  local plus = Size:method('operator<')
+  local Vect = ins:find('Vect')
+  local plus = Vect:method('operator<')
   assertTrue(plus.member)
   assertEqual('operator<', plus.name)
   assertEqual('operator_lt', plus.cname)
 end
 
 function should.parseLteOperator()
-  local Size = ins:find('Size')
-  local plus = Size:method('operator<=')
+  local Vect = ins:find('Vect')
+  local plus = Vect:method('operator<=')
   assertTrue(plus.member)
   assertEqual('operator<=', plus.name)
   assertEqual('operator_le', plus.cname)
 end
 
 function should.parseEqOperator()
-  local Size = ins:find('Size')
-  local plus = Size:method('operator==')
+  local Vect = ins:find('Vect')
+  local plus = Vect:method('operator==')
   assertTrue(plus.member)
   assertEqual('operator==', plus.name)
   assertEqual('operator_eq', plus.cname)

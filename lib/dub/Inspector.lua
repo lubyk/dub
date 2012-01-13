@@ -70,8 +70,8 @@ function lib:parse(opts)
   self:doxygen(doxypath)
   -- Parse xml
   self:parseXml(doc_dir .. '/xml', true)
-  if not opts.doc_dir then
-    lk.rmTree(doc_dir, true)
+  if not opts.keep_xml then
+    lk.rmTree(doc_dir .. '/xml', true)
   end
 end
 

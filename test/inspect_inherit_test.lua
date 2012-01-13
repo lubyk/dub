@@ -8,7 +8,7 @@
 
 --]]------------------------------------------------------
 require 'lubyk'
-local should = test.Suite('dub.Inspector (inherit)')
+local should = test.Suite('dub.Inspector - inherit')
 
 local ins = dub.Inspector {
   doc_dir = 'test/tmp',

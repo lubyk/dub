@@ -15,7 +15,7 @@ param_
 --]]------------------------------------------------------
 require 'lubyk'
 -- Run the test with the dub directory as current path.
-local should = test.Suite('dub.LuaBinder (pointers)')
+local should = test.Suite('dub.LuaBinder - pointers')
 local binder = dub.LuaBinder()
 
 local ins = dub.Inspector 'test/fixtures/pointers'
@@ -32,11 +32,11 @@ end
 --=============================================== Set/Get vars.
 function should.bindSimpleSetMethod()
   -- __newindex for simple (native) types
-  local Size = ins:find('Size')
-  local set = Size:method(Size.SET_ATTR_NAME)
-  local res = binder:bindClass(Size)
-  assertMatch('__newindex.*Size__set_', res)
-  local res = binder:functionBody(Size, set)
+  local Vect = ins:find('Vect')
+  local set = Vect:method(Vect.SET_ATTR_NAME)
+  local res = binder:bindClass(Vect)
+  assertMatch('__newindex.*Vect__set_', res)
+  local res = binder:functionBody(Vect, set)
   assertMatch('self%->x = luaL_checknumber%(L, 3%);', res)
 end
 
@@ -47,16 +47,16 @@ function should.bindComplexSetMethod()
   local res = binder:bindClass(Box)
   assertMatch('__newindex.*Box__set_', res)
   local res = binder:functionBody(Box, set)
-  assertMatch('self%->size_ = %*%*%(%(Size%*%*%)', res)
+  assertMatch('self%->size_ = %*%*%(%(Vect%*%*%)', res)
 end
 
 function should.bindSimpleGetMethod()
   -- __newindex for simple (native) types
-  local Size = ins:find('Size')
-  local set = Size:method(Size.SET_ATTR_NAME)
-  local res = binder:bindClass(Size)
-  assertMatch('__index.*Size__get_', res)
-  local res = binder:functionBody(Size, set)
+  local Vect = ins:find('Vect')
+  local set = Vect:method(Vect.SET_ATTR_NAME)
+  local res = binder:bindClass(Vect)
+  assertMatch('__index.*Vect__get_', res)
+  local res = binder:functionBody(Vect, set)
   assertMatch('self%->x = luaL_checknumber%(L, 3%);', res)
 end
 
@@ -68,7 +68,7 @@ function should.bindComplexGetMethod()
   local res = binder:bindClass(Box)
   assertMatch('__index.*Box__get_', res)
   local res = binder:functionBody(Box, set)
-  assertMatch('self%->size_ = %*%*%(%(Size%*%*%)', res)
+  assertMatch('self%->size_ = %*%*%(%(Vect%*%*%)', res)
 end
 
 function should.notGetSelfInStaticMethod()
@@ -94,47 +94,47 @@ function should.bindCompileAndLoad()
     -- Build Box.so
     --
     binder:build(tmp_path .. '/Box.so', tmp_path, {'dub/dub.cpp', 'Box.cpp'}, '-I' .. lk.dir() .. '/fixtures/pointers')
-    -- Build Size.so
-    binder:build(tmp_path .. '/Size.so', tmp_path, {'dub/dub.cpp', 'Size.cpp'}, '-I' .. lk.dir() .. '/fixtures/pointers')
+    -- Build Vect.so
+    binder:build(tmp_path .. '/Vect.so', tmp_path, {'dub/dub.cpp', 'Vect.cpp'}, '-I' .. lk.dir() .. '/fixtures/pointers')
     package.cpath = tmp_path .. '/?.so'
     require 'Box'
-    require 'Size'
-    assertType('function', Size)
+    require 'Vect'
+    assertType('function', Vect)
   end, function()
     -- teardown
     package.loaded.Box = nil
-    package.loaded.Size = nil
+    package.loaded.Vect = nil
     package.cpath = cpath_bak
-    if not Size then
+    if not Vect then
       test.abort = true
     end
   end)
   --lk.rmTree(tmp_path, true)
 end
 
---=============================================== Size
+--=============================================== Vect
 
-function should.createSizeObject()
-  local s = Size(1,2)
+function should.createVectObject()
+  local s = Vect(1,2)
   assertType('userdata', s)
 end
 
-function should.readSizeAttributes()
-  local s = Size(1.2, 3.4)
+function should.readVectAttributes()
+  local s = Vect(1.2, 3.4)
   assertEqual(1.2, s.x)
   assertEqual(3.4, s.y)
 end
 
-function should.writeSizeAttributes()
-  local s = Size(1.2, 3.4)
+function should.writeVectAttributes()
+  local s = Vect(1.2, 3.4)
   s.x = 15
   assertEqual(15, s.x)
   assertEqual(3.4, s.y)
   assertEqual(51, s:surface())
 end
 
-function should.handleBadWriteSizeAttr()
-  local s = Size(1.2, 3.4)
+function should.handleBadWriteVectAttr()
+  local s = Vect(1.2, 3.4)
   assertError("invalid key 'asdf'", function()
     s.asdf = 15
   end)
@@ -143,13 +143,13 @@ function should.handleBadWriteSizeAttr()
   assertEqual(nil, s.asdf)
 end
 
-function should.executeSizeMethods()
-  local s = Size(1.2, 3.4)
+function should.executeVectMethods()
+  local s = Vect(1.2, 3.4)
   assertEqual(4.08, s:surface())
 end
 
 function should.overloadAdd()
-  local s1, s2 = Size(1.2, -1), Size(4, 2)
+  local s1, s2 = Vect(1.2, -1), Vect(4, 2)
   local s = s1 + s2
   assertEqual(5.2, s.x)
   assertEqual(1, s.y)
@@ -157,21 +157,21 @@ function should.overloadAdd()
 end
 
 function should.overloadSub()
-  local s1, s2 = Size(7, 2), Size(4, 2)
+  local s1, s2 = Vect(7, 2), Vect(4, 2)
   local s = s1 - s2
   assertEqual(3, s.x)
   assertEqual(0, s.y)
 end
 
 function should.overloadMul()
-  local s1 = Size(7, 2)
+  local s1 = Vect(7, 2)
   local s = s1 * 4
   assertEqual(28, s.x)
   assertEqual(8, s.y)
 end
 
 function should.overloadDiv()
-  local s1 = Size(7, 2)
+  local s1 = Vect(7, 2)
   local s = s1 / 2
   assertEqual(3.5, s.x)
   assertEqual(1, s.y)
@@ -179,7 +179,7 @@ end
 
 function should.overloadLess()
   -- compares surfaces
-  local s1, s2 = Size(1, 2), Size(4, 2)
+  local s1, s2 = Vect(1, 2), Vect(4, 2)
   local s = s1 - s2
   assertTrue(s1  < s2)
   assertFalse(s2 < s1)
@@ -190,7 +190,7 @@ end
 
 function should.overloadLessEqual()
   -- compares surfaces
-  local s1, s2 = Size(7, 2), Size(4, 2)
+  local s1, s2 = Vect(7, 2), Vect(4, 2)
   local s = s1 - s2
   assertTrue(s2  <= s1)
   assertFalse(s1 <= s2)
@@ -202,19 +202,19 @@ function should.overloadLessEqual()
 end
 
 function should.overloadEqual()
-  local s1, s2 = Size(7, 2), Size(4, 2)
+  local s1, s2 = Vect(7, 2), Vect(4, 2)
   assertFalse(s1 == s2)
-  assertTrue(s1 == Size(7,2))
+  assertTrue(s1 == Vect(7,2))
 end
 --=============================================== Box
 
 function should.createBoxObject()
-  local s = Box('Cat', Size(2,3))
+  local s = Box('Cat', Vect(2,3))
   assertType('userdata', s)
 end
 
 function should.readBoxAttributes()
-  local s = Box('Cat', Size(2,3))
+  local s = Box('Cat', Vect(2,3))
   assertEqual('Cat', s.name_)
   local sz = s.size_
   assertEqual(2, sz.x)
@@ -222,19 +222,19 @@ function should.readBoxAttributes()
 end
 
 function should.writeBoxAttributes()
-  local s = Box('Cat', Size(2,3))
+  local s = Box('Cat', Vect(2,3))
   s.name_ = 'Dog'
   assertEqual('Dog', s.name_)
   assertEqual('Dog', s:name())
 
-  s.size_ = Size(8, 1.5)
+  s.size_ = Vect(8, 1.5)
   assertEqual(8, s.size_.x)
   assertEqual(1.5, s.size_.y)
   assertEqual(12, s:surface())
 end
 
 function should.executeBoxMethods()
-  local s = Box('Cat', Size(2,3))
+  local s = Box('Cat', Vect(2,3))
   assertEqual(6, s:surface())
 end
 

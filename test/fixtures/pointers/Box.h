@@ -1,7 +1,7 @@
 #ifndef POINTERS_BOX_H_
 #define POINTERS_BOX_H_
 
-#include "Size.h"
+#include "Vect.h"
 #include <string>
 
 /** This class is used to test:
@@ -12,12 +12,12 @@
  */
 struct Box {
   std::string name_;
-  Size size_;
-  Box(const std::string &name, const Size &size)
+  Vect size_;
+  Box(const std::string &name, const Vect &size)
     : name_(name)
     , size_(size) {}
 
-  static Box *MakeBox(const char *name, Size *size) {
+  static Box *MakeBox(const char *name, Vect *size) {
     Box *b = new Box(std::string(name), *size);
     return b;
   }

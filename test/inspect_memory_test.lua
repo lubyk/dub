@@ -8,7 +8,7 @@
 
 --]]------------------------------------------------------
 require 'lubyk'
-local should = test.Suite('dub.Inspector (memory)')
+local should = test.Suite('dub.Inspector - memory')
 
 -- Test helper to prepare the inspector.
 local function makeInspector()

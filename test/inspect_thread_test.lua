@@ -8,7 +8,7 @@
 
 --]]------------------------------------------------------
 require 'lubyk'
-local should = test.Suite('dub.Inspector (thread)')
+local should = test.Suite('dub.Inspector - thread')
 
 local ins = dub.Inspector 'test/fixtures/thread'
 

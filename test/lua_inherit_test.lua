@@ -13,7 +13,7 @@ param_
 --]]------------------------------------------------------
 require 'lubyk'
 -- Run the test with the dub directory as current path.
-local should = test.Suite('dub.LuaBinder (inherit)')
+local should = test.Suite('dub.LuaBinder - inherit')
 local binder = dub.LuaBinder()
 
 local ins = dub.Inspector 'test/fixtures/inherit'
