@@ -92,6 +92,26 @@ public:
 void dub_pushudata(lua_State *L, void *ptr, const char *type_name);
 
 template<class T>
+struct DubUserdata {
+  T *ptr;
+  T obj;
+};
+
+template<class T>
+void dub_pushfulldata(lua_State *L, const T &obj, const char *type_name) {
+  DubUserdata<T> *copy = (DubUserdata<T>*)lua_newuserdata(L, sizeof(DubUserdata<T>));
+  copy->obj = obj;
+  // now **copy gives back the object.
+  copy->ptr = &copy->obj;
+
+  // the userdata is now on top of the stack
+
+  // set metatable (contains methods)
+  luaL_getmetatable(L, type_name);
+  lua_setmetatable(L, -2);
+}
+
+template<class T>
 void dub_pushclass(lua_State *L, const T &obj, const char *type_name) {
   T *copy = new T(obj);
   dub_pushudata(L, (void*)copy, type_name);

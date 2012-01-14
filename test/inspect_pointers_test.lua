@@ -81,7 +81,8 @@ function should.listMethods()
     end
     table.insert(res, name)
   end
-  assertValueEqual({'_Vect', 
+  assertValueEqual({
+    '_Vect',
     Vect.GET_ATTR_NAME,
     Vect.SET_ATTR_NAME,
     'Vect:static',
@@ -186,6 +187,7 @@ function should.parseEqOperator()
   assertEqual('operator==', plus.name)
   assertEqual('operator_eq', plus.cname)
 end
+
 
 test.all()
 

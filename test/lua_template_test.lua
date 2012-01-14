@@ -1,5 +1,5 @@
 --[[------------------------------------------------------
-param_
+
   dub.LuaBinder
   -------------
 
@@ -28,7 +28,7 @@ function should.bindClass()
   assertMatch('luaopen_Vect', res)
 end
 
-function should.bindDestructor()
+function should.bindMethod()
   local Vectf = ins:find('Vectf')
   local met = Vectf:method('surface')
   local res = binder:functionBody(Vectf, met)
@@ -38,8 +38,6 @@ end
 --=============================================== Build
 
 function should.bindCompileAndLoad()
-  local ins = dub.Inspector {INPUT='test/fixtures/template', doc_dir = lk.dir() .. '/tmp'}
-
   -- create tmp directory
   local tmp_path = lk.dir() .. '/tmp'
   lk.rmTree(tmp_path, true)
@@ -49,8 +47,6 @@ function should.bindCompileAndLoad()
   ins:find('Vectf')
   binder:bind(ins, {output_directory = tmp_path})
   local cpath_bak = package.cpath
-  local dub_cpp = tmp_path .. '/dub/dub.cpp'
-  local v
   assertPass(function()
     -- Build Vectf.so
     binder:build {

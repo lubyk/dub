@@ -366,7 +366,11 @@ function private:pushValue(method, name, ctype)
     -- TODO: We should optimize to avoid the extra malloc in dub_pushudata
     -- if the object is marked with dub.destroy == 'free'. We can then also
     -- remove __gc.
-    res = format('dub_pushudata(L, new %s(%s), "%s");', ctype.name, name, ctype.name)
+    if method.parent.dub.destroy == 'free' then
+      res = format('dub_pushfulldata<%s>(L, %s, "%s");', ctype.name, name, ctype.name)
+    else
+      res = format('dub_pushudata(L, new %s(%s), "%s");', ctype.name, name, ctype.name)
+    end
   else
     res = format('dub_pushudata(L, %s, "%s");', name, ctype.name)
   end

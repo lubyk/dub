@@ -343,7 +343,8 @@ end
     
 parse['function'] = function(self, elem, header)
   local name  = elem:find('name')[1]
-  if self.cache[name] then
+  if self.cache[name] or
+     name == '~' .. self.name and self.dub.destroy == 'free' then
     -- TODO: support overloaded functions.
     return nil
   end
@@ -445,7 +446,7 @@ end
 
 -- self == class
 function private:makeDestructor()
-  if self.cache['~' .. self.name] then
+  if self.cache['~' .. self.name] or self.dub.destroy == 'free' then
     -- Destructor not needed.
     return
   end

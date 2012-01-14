@@ -309,5 +309,23 @@ function should.optimizeReturnValue()
   assertEqual(5, t.destroy_count)
 end
 
+local function createAndDestroyMany()
+  local Vect = Vect
+  local t = {}
+  for i = 1,100000 do
+    table.insert(t, Vect(1,3))
+  end
+  t = nil
+  collectgarbage()
+  collectgarbage()
+end
+
+function should.createAndDestroy()
+  -- warmup
+  createAndDestroyMany()
+  local vm_size = collectgarbage('count')
+  createAndDestroyMany()
+  assertEqual(vm_size, collectgarbage('count'))
+end
 test.all()
 
