@@ -276,6 +276,18 @@ function should.executeBoxMethods()
   assertEqual(6, v:surface())
 end
 
+--=============================================== std::string with \0
+
+function should.handleBinaryData()
+  local data = 'Hello\0 World'
+  local b = Box(data, Vect(1,2))
+  assertEqual(data, b:name())
+  data = 'One\0Two\0Three'
+  b.name_ = data
+  assertEqual(data, b.name_)
+  assertNotEqual('One', b.name_)
+end
+
 --=============================================== Return value opt.
 function should.optimizeReturnValue()
   collectgarbage()
@@ -309,6 +321,7 @@ function should.optimizeReturnValue()
   assertEqual(5, t.destroy_count)
 end
 
+--=============================================== Garbage collection
 local function createAndDestroyMany()
   local Vect = Vect
   local t = {}
@@ -327,5 +340,6 @@ function should.createAndDestroy()
   createAndDestroyMany()
   assertEqual(vm_size, collectgarbage('count'))
 end
+
 test.all()
 

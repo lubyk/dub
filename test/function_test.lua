@@ -53,7 +53,7 @@ end
 
 function should.haveLocation()
   local func = makeFunction()
-  assertEqual('test/fixtures/simple/include/simple.h:20', func.location)
+  assertMatch('test/fixtures/simple/include/simple.h:[0-9]+', func.location)
 end
 
 function should.markConstructorAsStatic()

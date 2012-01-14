@@ -1,115 +1,82 @@
 = Dub (Doxygen based Ubiquitous Binder)
 
 This is a tool to ease the creation of scripting language bindings for a C++ library.
-It is currently developed to crete the OpenCV bindings for Lua in Rubyk (http://rubyk.org).
+It was initially developed to create the OpenCV bindings for Lua in Lubyk (http://lubyk.org).
 
 The generator uses the xml output from Doxygen to avoid parsing C++ code by itself.
 
-Homepage: http://rubyk.org/en/project311.html
+Homepage: http://lubyk.org/en/project311.html
 
 = Features
 
 Currently, the parser supports:
 
- * class methods
- * overloaded class constructors
- * overloaded class methods
+ * public methods
+ * public attributes read/write
+ * public class methods
+ * public static attributes read/write
+ * natural casting from std::string to string type (can include '\0')
  * class instantiation from templates through typedefs
  * class alias through typedefs
- * automatic resolution of template parameters
- * automatic handling of default values
+ * bindings for superclass
+ * automatic casting to base class
+ * return value optimization (no copy)
+ * simple type garbage collection optimization (no __gc method)
+ * hand made bindings for special cases
+ * well tested
+
+= TODO
+
+ * documentation
+ * automatic handling of default values (TODO in Dub 2.0)
  * class enums
  * namespace enums
  * group constant defines
- * bindings for superclass
- * hand made bindings in yaml (this is used to do more 'natural' bindings for
-   the target language)
- * well tested
-   in fact no, it was but the tests are not up to date and need fixing
-   our best testing is that bindings run and compile without a warning or bug.
 
+= Usage
 
-If you are not good at reading lists, here is an example of the kind of tricks Dub plays with types:
+  Create an inspector that will inspect a list of headers given by 'INPUT' (a list
+  of files and directories. You need to have Doxygen installed
 
-  template<class T>
-  class Point_ {
-    ...
-  };
+    local ins = dub.Inspector {
+      INPUT    = 'foo/include',
+      -- optional
+      DOXYGEN_CMD = 'path/to/doxygen',
+    }
+  
+  Create bindings:
 
-  template<class T>
-  class Size_ {
-    Size_(const Point_<T>);
-  };
-  typedef Size_<int> Size2i;
-  typedef Size2i Size;
+    local binder = dub.LuaBinder()
 
-  typedef Point_<int> Point2i;
-  typedef Point2i Point;
+    binder:bind(ins, {
+      output_directory = 'tmp',
+    })
+    
+  You should now have a 'cpp' file for each class in tmp.
 
+  Example to build a class called 'Vect':
 
-All these typedefs and templates will generate two class bindings with some aliases:
+    binder:build {
+      work_dir = '.',
+      output   = 'tmp/Vect.so',
+      inputs   = {
+        'tmp/dub/dub.cpp',
+        'tmp/Vect.cpp',
+        'fixtures/pointers/vect.cpp',
+      },
+      includes = {
+        'tmp',
+        'foo/include',
+      },
+    }     
 
- * <tt>Size</tt>, aliased as <tt>Size2i</tt>
- * <tt>Point</tt>, aliased as <tt>Point2i</tt>
+  You can now use your class:
 
-And what's really good is that in the definition for the <tt>Size</tt> constructor, <tt>Point_<T></tt> is
-recognized as <tt>Point</tt> !
+    package.cpath = package.cpath .. 'tmp/?.so;'
+    require 'Vect'
+    local v = Vect(1,3)
+    v.x = 4
+    print(v.x)
+    -- etc
 
-= Using @dub
-
-If you want to set class options inside the sources with the @dub tag, you need to set the ALIASES as follows
-in the Doxyfile:
-
-  ALIASES                = "dub=\par Bindings info:\n"
-
-Then you can write settings in the class documentation:
-
-  /** Some class.
-   *
-   * @dub string_format:'%%f'
-   *      string_args:'(*userdata)->interval()'
-   *      super: 'QObject, QWidget'
-   *      bind: 'Foobar.yml'
-   */
-
-Note that for some strange reason, you have to use a double '%' to get one.
-
-== Constants
-
-The easiest way to deal with constants is through documented enums (if this is possible) or defines with @defgroup.
-
-== Custom destructors
-
-By default Dub expects that the scripting app manages memory. This means that objects are deleted by the __gc method in
-Lua for example. If you want to allow destruction from both the scripting language and C++, you can subclass the C++ with
-DeletableOutOfLua (this protects Lua userdata from dangling pointers):
-
-    /** This class can be deleted from C++ or Lua
-     * @dub destructor: 'dub_destroy'
-     */
-    class CustomDestructor : public DeletableOutOfLua
-    {
-    public:
-      // nothing special here
-    };
-
-Once a custom destructor is set, the method calls in Lua are protected (check that the object still exists). You also get a new
-method "deleted" that returns true if the C++ is ... well, yes: deleted.
-
-You can also disable destruction from the scripting language by setting "destructor: ''" (empty string).
-
-== Cucstom constructors
-
-You can use custom constructors by using a static member function:
-
-    /** This class can be deleted from C++ or Lua
-     * @dub constructor: 'BuildCar'
-     */
-    class Car
-    {
-    public:
-      static LuaStackSize BuildCar(lua_State *L);
-    };
-
-Note that we have used the two special return values and parameters so that we can be in full control (this also means we will need
-to push the userdata on the stack before returning the stack size). The LuaStackSize is a typedef for int.
+Please read the tests for more detail until the documentation is updated.

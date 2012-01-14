@@ -15,9 +15,10 @@ public:
     return value_;
   }
 
-  /** Test typedef resolution in methods.
+  /** Test typedef resolution in methods and
+   * default values in arguments.
    */
-  MyFloat add(MyFloat v, double w) {
+  MyFloat add(MyFloat v, double w = 0) {
     return v + w;
   }
 
