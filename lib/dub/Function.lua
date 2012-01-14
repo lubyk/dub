@@ -27,6 +27,7 @@ setmetatable(lib, {
   __call = function(lib, self)
     self.dub = self.dub or {}
     self.static = self.static or self.ctor
+    self.has_defaults = self.params_list.has_defaults
     setmetatable(self, lib)
     self:setName(self.name)
     return self
@@ -65,7 +66,7 @@ function lib:setName(name)
   elseif string.match(name, '^operator') then
     local n = string.match(name, '^operator(.+)$')
     local op = self.OP_TO_NAME[n]
-    if n == '-' and #self.sorted_params == 0 then
+    if n == '-' and #self.params_list == 0 then
       -- Special case for '-' (minus/unary minus).
       op = 'unm'
     end
@@ -80,8 +81,8 @@ function lib:setName(name)
 end
 --=============================================== PRIVATE
 
-function private.paramsIterator(parent)
-  for _, param in ipairs(parent.sorted_params) do
+function private:paramsIterator()
+  for _, param in ipairs(self.params_list) do
     coroutine.yield(param)
   end
 end

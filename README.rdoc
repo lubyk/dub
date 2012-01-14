@@ -20,6 +20,7 @@ Currently, the parser supports:
  * class alias through typedefs
  * bindings for superclass
  * automatic casting to base class
+ * handling of default values
  * return value optimization (no copy)
  * simple type garbage collection optimization (no __gc method)
  * hand made bindings for special cases
@@ -28,7 +29,6 @@ Currently, the parser supports:
 = TODO
 
  * documentation
- * automatic handling of default values (TODO in Dub 2.0)
  * class enums
  * namespace enums
  * group constant defines

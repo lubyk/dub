@@ -154,6 +154,10 @@ function lib:functionBody(class, method)
       res = res .. private.getSelf(self, class, method, false, method.is_get_attr)
       param_delta = 1
     end
+    if method.has_defaults then
+      -- We need arg count
+      res = res .. 'int top__ = lua_gettop(L);\n'
+    end
     if method.is_set_attr then
       res = res .. private.switch(self, class, method, param_delta, private.setAttrBody, class.attributes)
     elseif method.is_get_attr then
@@ -282,9 +286,7 @@ end
 
 function private:getParam(method, param, delta)
   local res, acc = self:nativeTypeAccessor(method, param, delta)
-  if res then
-    return res, acc
-  else
+  if not res then
     -- userdata
     local lib_name
     local class = method.db:findByFullname(param.ctype.name)
@@ -294,9 +296,14 @@ function private:getParam(method, param, delta)
       lib_name = param.ctype.name
     end
     type_method = self:customTypeAccessor(method)
-    return format('*((%s**)%s(L, %i, "%s"))',
-      param.ctype.name, type_method, param.position + delta, lib_name), false
+    res = format('*((%s**)%s(L, %i, "%s"))',
+      param.ctype.name, type_method, param.position + delta, lib_name)
+    acc = false
   end
+  if param.default then
+    res = format('top__ >= %i ? (%s) : (%s)', param.position + delta, res, param.default)
+  end
+  return res, acc
 end
 
 ---

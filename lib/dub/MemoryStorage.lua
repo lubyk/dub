@@ -354,7 +354,7 @@ parse['function'] = function(self, elem, header)
     db            = self.db or self,
     parent        = self,
     name          = name,
-    sorted_params = parse.params(elem, header),
+    params_list   = parse.params(elem, header),
     return_value  = parse.retval(elem),
     definition    = elem:find('definition')[1],
     argsstring    = elem:find('argsstring')[1],
@@ -382,12 +382,16 @@ end
 function parse.params(elem, header)
   local res = {str = elem:find('argsstring')[1]}
   local i = 0
+  local has_defaults = false
   for _, param in ipairs(elem) do
     if param.xml == 'param' then
       i = i + 1
-      table.insert(res, parse.param(param, i))
+      local p = parse.param(param, i)
+      table.insert(res, p)
+      has_defaults = has_defaults or p.default
     end
   end
+  res.has_defaults = has_defaults
   return res
 end
 
@@ -397,6 +401,7 @@ function parse.param(elem, position)
     name     = elem:find('declname')[1],
     position = position,
     ctype    = parse.type(elem),
+    default  = (elem:find('defval') or {})[1],
   }
 end
 
@@ -455,7 +460,7 @@ function private:makeDestructor()
     db            = self.db,
     parent        = self,
     name          = '_' .. name,
-    sorted_params = {},
+    params_list   = {},
     return_value  = nil,
     definition    = '~' .. name,
     argsstring    = '()',
@@ -492,7 +497,7 @@ function private:makeGetAttribute()
     db            = self.db,
     parent        = self,
     name          = name,
-    sorted_params = {},
+    params_list   = {},
     return_value  = nil,
     definition    = 'Get attributes ',
     argsstring    = '(key)',
@@ -520,7 +525,7 @@ function private:makeSetAttribute()
     db            = self.db,
     parent        = self,
     name          = name,
-    sorted_params = {},
+    params_list   = {},
     return_value  = nil,
     definition    = 'Set attributes ',
     argsstring    = '(key, value)',
@@ -548,7 +553,7 @@ function private:makeCast()
     db            = self.db,
     parent        = self,
     name          = name,
-    sorted_params = {},
+    params_list   = {},
     return_value  = nil,
     definition    = 'Cast ',
     argsstring    = '(class_name)',

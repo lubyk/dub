@@ -68,7 +68,7 @@ function private:resolveMethods(class, name_to_type)
       db            = self.db,
       parent        = class,
       name          = method.name,
-      sorted_params = private.resolveParams(method, name_to_type),
+      params_list = private.resolveParams(method, name_to_type),
       return_value  = private.resolveType(method.return_value, name_to_type),
       definition    = method.definition,
       argsstring    = method.argsstring,
@@ -111,7 +111,7 @@ end
 
 function private:resolveParams(name_to_type)
   local res = {}
-  for _, param in ipairs(self.sorted_params) do
+  for _, param in ipairs(self.params_list) do
     local p = {
       type     = 'dub.Param',
       name     = param.name,

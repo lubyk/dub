@@ -25,8 +25,8 @@ end
 function should.parseParamTypes()
   local Box = ins:find('Box')
   local ctor = Box:method('Box')
-  local p1   = ctor.sorted_params[1]
-  local p2   = ctor.sorted_params[2]
+  local p1   = ctor.params_list[1]
+  local p2   = ctor.params_list[2]
   assertEqual('name', p1.name)
   assertEqual('std::string', p1.ctype.name)
   assertTrue(p1.ctype.const)
@@ -39,8 +39,8 @@ end
 function should.parsePointerParamTypes()
   local Box = ins:find('Box')
   local met = Box:method('MakeBox')
-  local p1   = met.sorted_params[1]
-  local p2   = met.sorted_params[2]
+  local p1   = met.params_list[1]
+  local p2   = met.params_list[2]
   assertEqual('name', p1.name)
   assertEqual('char', p1.ctype.name)
   assertTrue(p1.ctype.const)

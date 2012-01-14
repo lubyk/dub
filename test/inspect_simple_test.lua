@@ -13,6 +13,7 @@ local should = test.Suite('dub.Inspector - simple')
 local ins = dub.Inspector {
   INPUT   = 'test/fixtures/simple/include',
   doc_dir = lk.dir() .. '/tmp',
+  keep_xml= true,
 }
 
 --=============================================== TESTS
@@ -107,6 +108,25 @@ function should.listParamsOnMethod()
   end
   assertValueEqual({'v', 'w'}, names)
   assertValueEqual({'MyFloat', 'double'}, types)
+end
+
+function should.getDefaultParamsInMethod()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('add')
+  local p1 = met.params_list[1]
+  local p2 = met.params_list[2]
+  assertEqual('v', p1.name)
+  assertNil(p1.default)
+  assertEqual('w', p2.name)
+  assertEqual('10', p2.default)
+end
+
+function should.markFunctionWithDefaults()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('add')
+  assertTrue(met.has_defaults)
+  met = Simple:method('Simple')
+  assertFalse(met.has_defaults)
 end
 
 function should.resolveNativeTypes()

@@ -46,6 +46,13 @@ function should.bindStatic()
   assertEqual('Simple_pi', binder:bindName(met))
 end
 
+function should.useArgCountWhenDefaults()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('add')
+  local res = binder:functionBody(Simple, met)
+  assertMatch('lua_gettop%(L%)', res)
+end
+
 function should.bindCompileAndLoad()
   local ins = dub.Inspector 'test/fixtures/simple/include'
 
@@ -99,6 +106,17 @@ function should.bindMethodWithoutReturn()
   local s = Simple(3.4)
   s:setValue(5)
   assertEqual(5, s:value())
+end
+
+function should.raiseErrorOnMissingParam()
+  assertError('Simple: number expected, got no value', function()
+    Simple()
+  end)
+end
+
+function should.handleDefaultValues()
+  local s = Simple(2.4)
+  assertEqual(14, s:add(4))
 end
 
 test.all()

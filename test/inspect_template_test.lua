@@ -54,7 +54,7 @@ end
 function should.resolveParamTypes()
   local Vectf = ins:find('Vectf')
   local met = Vectf:method('addToX')
-  local p = met.sorted_params[1]
+  local p = met.params_list[1]
   assertEqual('float', p.ctype.name)
 end
 
@@ -69,7 +69,7 @@ end
 function should.resolveParamTypesInStatic()
   local Vectf = ins:find('Vectf')
   local met = Vectf:method('addTwo')
-  local p = met.sorted_params[1]
+  local p = met.params_list[1]
   assertEqual('float', p.ctype.name)
   assertEqual('float', met.return_value.name)
 end
@@ -77,7 +77,7 @@ end
 function should.resolveConstParam()
   local Vectf = ins:find('Vectf')
   local met = Vectf:method('operator+')
-  local p = met.sorted_params[1]
+  local p = met.params_list[1]
   assertEqual('Vectf', p.ctype.name)
   assertEqual('Vectf', met.return_value.name)
 end
