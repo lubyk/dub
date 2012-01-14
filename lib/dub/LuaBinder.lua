@@ -19,6 +19,7 @@ local lib     = {
   TYPE_TO_NATIVE = {
     double     = 'number',
     float      = 'number',
+    size_t     = 'number',
     int        = 'number',
     bool       = 'boolean',
     ['char']   = 'string',
@@ -83,27 +84,28 @@ function lib:bind(inspector, options)
   private.copyDubFiles(self)
 end
 
-function lib:build(output, base_path, file_pattern, extra_flags)
-  local dir = lk.Dir(base_path)
+function lib:build(opts)
+  local work_dir = opts.work_dir or lfs.currentdir()
   local files = ''
-  if type(file_pattern) == 'string' then
-    for f in dir:glob(file_pattern) do
-      files = files .. ' ' .. f
-    end
-  else
-    for _, f in ipairs(file_pattern) do
-      files = files .. ' ' .. base_path .. '/' .. f
-    end
+  for _, e in ipairs(opts.inputs) do
+    files = files .. ' ' .. e
   end
-  local cmd = self.COMPILER .. ' ' 
+  local flags = ''
+  for _, e in ipairs(opts.includes or {}) do
+    flags = flags .. ' -I' .. e
+  end
+  if opts.flags then
+    flags = flags .. ' ' .. opts.flags
+  end
+  local cmd = 'cd ' .. work_dir .. ' && '
+  cmd = cmd .. self.COMPILER .. ' ' 
   cmd = cmd .. self.COMPILER_FLAGS[private.platform()] .. ' '
-  cmd = cmd .. (self.extra_flags or '') .. ' '
-  cmd = cmd .. '-I' .. base_path .. ' '
-  cmd = cmd .. '-o ' .. output .. ' '
-  if extra_flags then
-    cmd = cmd .. extra_flags .. ' '
-  end
+  cmd = cmd .. flags .. ' '
+  cmd = cmd .. '-o ' .. opts.output .. ' '
   cmd = cmd .. files
+  if opts.verbose then
+    print(cmd)
+  end
   local pipe = io.popen(cmd)
   local res = pipe:read('*a')
   if res ~= '' then
@@ -168,8 +170,8 @@ function lib:functionBody(class, method)
       if custom then
         res = res .. custom
       else
-        res = res .. private.doCall(self, class, method)
-        res = res .. private.pushReturnValue(self, class, method)
+        local call = private.doCall(self, class, method)
+        res = res .. private.pushReturnValue(self, class, method, call)
       end
     end
   end
@@ -322,7 +324,7 @@ function private:doCall(class, method)
       res = res .. param.name
     end
   end
-  res = res .. ');\n'
+  res = res .. ')'
   if method.ctor then
     res = 'new ' .. res
   elseif method.static then
@@ -331,30 +333,23 @@ function private:doCall(class, method)
     res = self.SELF .. '->' .. res
   end
   
-  --- Return value
-  local ctype = method.return_value
-  if ctype then
-    local native = self:nativeType(method, ctype)
-    --if not native and not ctype.ptr then
-    --  res = ctype.create_name .. format('*retval__ = new %s(%s)',ctype.name, res)
-    --else
-      res = ctype.create_name .. 'retval__ = ' .. res
-    --end
-  end
   return res;
 end
 
-function private:pushReturnValue(class, method)
+function private:pushReturnValue(class, method, value)
+  local res = ''
   local return_value = method.return_value
   if return_value then
     if return_value.name == self.LUA_STACK_SIZE_NAME then
-      return 'return retval__;'
+      res = res .. 'return ' .. value .. ';'
     else
-      return private.pushValue(self, method, 'retval__', return_value)
+      res = res .. private.pushValue(self, method, value, return_value)
     end
   else
-    return 'return 0;'
+    res = res .. value .. ';\n'
+    res = res .. 'return 0;'
   end
+  return res
 end
 
 function private:pushValue(method, name, ctype)
@@ -368,6 +363,9 @@ function private:pushValue(method, name, ctype)
       res = format('lua_push%s(L, %s);', accessor, name)
     end
   elseif not ctype.ptr then
+    -- TODO: We should optimize to avoid the extra malloc in dub_pushudata
+    -- if the object is marked with dub.destroy == 'free'. We can then also
+    -- remove __gc.
     res = format('dub_pushudata(L, new %s(%s), "%s");', ctype.name, name, ctype.name)
   else
     res = format('dub_pushudata(L, %s, "%s");', name, ctype.name)
@@ -419,7 +417,11 @@ function private:setAttrBody(method, attr, delta)
   else
     -- native type
   end
-  res = res .. format('self->%s = %s;\n', name, p)
+  if attr.static then
+    res = res .. format('%s::%s = %s;\n', method.parent.name, name, p)
+  else
+    res = res .. format('self->%s = %s;\n', name, p)
+  end
   res = res .. 'return 0;'
   return res
 end
@@ -438,7 +440,12 @@ end
 
 -- function body to get a variable.
 function private:getAttrBody(method, attr, delta)
-  local accessor = format('self->%s', attr.name)
+  local accessor
+  if attr.static then
+    accessor = format('%s::%s', method.parent.name, attr.name)
+  else
+    accessor = format('self->%s', attr.name)
+  end
   return private.pushValue(self, method, accessor, attr.ctype)
 end
 

@@ -1,25 +1,49 @@
 #ifndef POINTERS_VECT_H_
 #define POINTERS_VECT_H_
 
+#include <cstring> // size_t
+
 /** This class is used to test:
  *   * accessing public members
  *   * return value optimization
+ *   * basic memory leakage
  *   * operator overloading
  */
 struct Vect {
   double x;
   double y;
+
+  // static member access
+  static size_t create_count;
+  static size_t copy_count;
+  static size_t destroy_count;
+
   Vect(double tx, double ty)
     : x(tx)
     , y(ty) {
-      // TO TEST return value optimization
-      //printf("     Vect(%f,%f)\n", x, y);
-    }
-  Vect(const Vect &sz)
-    : x(sz.x)
-    , y(sz.y) {
-    // TO TEST return value optimization
-    //printf("copy Vect(%f,%f)\n",x, y);
+    // to test return value optimization.
+    // and memory leakage.
+    ++create_count;
+  }
+  Vect(const Vect &v)
+    : x(v.x)
+    , y(v.y) {
+    // To test return value optimization.
+    // and memory leakage.
+    ++copy_count;
+  }
+  Vect(const Vect *v)
+    : x(v->x)
+    , y(v->y) {
+    // To test return value optimization.
+    // and memory leakage.
+    ++copy_count;
+  }
+
+  ~Vect() {
+    // To test return value optimization.
+    // and memory leakage.
+    ++destroy_count;
   }
 
   double surface() const {
@@ -28,12 +52,12 @@ struct Vect {
 
   // operator overloading
 
-  Vect operator+(const Vect &sz) {
-    return Vect(x + sz.x, y + sz.y);
+  Vect operator+(const Vect &v) {
+    return Vect(x + v.x, y + v.y);
   }
 
-  Vect operator-(const Vect &sz) {
-    return Vect(x - sz.x, y - sz.y);
+  Vect operator-(const Vect &v) {
+    return Vect(x - v.x, y - v.y);
   }
 
   /** Unary minus.

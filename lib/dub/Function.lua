@@ -26,7 +26,7 @@ dub.Function  = lib
 setmetatable(lib, {
   __call = function(lib, self)
     self.dub = self.dub or {}
-    self.static = self.static or self.ctor or self.dtor
+    self.static = self.static or self.ctor
     setmetatable(self, lib)
     self:setName(self.name)
     return self

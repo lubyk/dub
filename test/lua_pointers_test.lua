@@ -18,7 +18,10 @@ require 'lubyk'
 local should = test.Suite('dub.LuaBinder - pointers')
 local binder = dub.LuaBinder()
 
-local ins = dub.Inspector 'test/fixtures/pointers'
+local ins = dub.Inspector {
+  INPUT    = 'test/fixtures/pointers',
+  doc_dir  = lk.dir() .. '/tmp',
+}
 
 --=============================================== Special types
 function should.resolveStdString()
@@ -38,6 +41,8 @@ function should.bindSimpleSetMethod()
   assertMatch('__newindex.*Vect__set_', res)
   local res = binder:functionBody(Vect, set)
   assertMatch('self%->x = luaL_checknumber%(L, 3%);', res)
+  -- static member
+  assertMatch('Vect::create_count = luaL_checknumber%(L, 3%);', res)
 end
 
 function should.bindComplexSetMethod()
@@ -53,11 +58,13 @@ end
 function should.bindSimpleGetMethod()
   -- __newindex for simple (native) types
   local Vect = ins:find('Vect')
-  local set = Vect:method(Vect.SET_ATTR_NAME)
+  local get = Vect:method(Vect.GET_ATTR_NAME)
   local res = binder:bindClass(Vect)
   assertMatch('__index.*Vect__get_', res)
-  local res = binder:functionBody(Vect, set)
-  assertMatch('self%->x = luaL_checknumber%(L, 3%);', res)
+  local res = binder:functionBody(Vect, get)
+  assertMatch('lua_pushnumber%(L, self%->x%);', res)
+  -- static member
+  assertMatch('lua_pushnumber%(L, Vect::create_count%);', res)
 end
 
 
@@ -79,26 +86,47 @@ function should.notGetSelfInStaticMethod()
 end
 
 function should.bindCompileAndLoad()
-  local ins = dub.Inspector {INPUT='test/fixtures/pointers', doc_dir = lk.dir() .. '/tmp'}
-
   -- create tmp directory
   local tmp_path = lk.dir() .. '/tmp'
-  lk.rmTree(tmp_path, true)
   os.execute("mkdir -p "..tmp_path)
 
   binder:bind(ins, {output_directory = tmp_path})
   local cpath_bak = package.cpath
-  local dub_cpp = tmp_path .. '/dub/dub.cpp'
-  local s
   assertPass(function()
-    -- Build Box.so
-    --
-    binder:build(tmp_path .. '/Box.so', tmp_path, {'dub/dub.cpp', 'Box.cpp'}, '-I' .. lk.dir() .. '/fixtures/pointers')
+    
     -- Build Vect.so
-    binder:build(tmp_path .. '/Vect.so', tmp_path, {'dub/dub.cpp', 'Vect.cpp'}, '-I' .. lk.dir() .. '/fixtures/pointers')
+    binder:build {
+      work_dir = lk.dir(),
+      output   = 'tmp/Vect.so',
+      inputs   = {
+        'tmp/dub/dub.cpp',
+        'tmp/Vect.cpp',
+        'fixtures/pointers/vect.cpp',
+      },
+      includes = {
+        'tmp',
+        'fixtures/pointers',
+      },
+    }
+    
+    -- Build Box.so
+    binder:build {
+      work_dir = lk.dir(),
+      output   = 'tmp/Box.so',
+      inputs   = {
+        'tmp/dub/dub.cpp',
+        'tmp/Box.cpp',
+      },
+      includes = {
+        'tmp',
+        'fixtures/pointers',
+      },
+    }
     package.cpath = tmp_path .. '/?.so'
-    require 'Box'
+    -- Must require Vect first because Box depends on Vect class and
+    -- only Vect.so has static members for Vect.
     require 'Vect'
+    require 'Box'
     assertType('function', Vect)
   end, function()
     -- teardown
@@ -115,127 +143,170 @@ end
 --=============================================== Vect
 
 function should.createVectObject()
-  local s = Vect(1,2)
-  assertType('userdata', s)
+  local v = Vect(1,2)
+  assertType('userdata', v)
 end
 
 function should.readVectAttributes()
-  local s = Vect(1.2, 3.4)
-  assertEqual(1.2, s.x)
-  assertEqual(3.4, s.y)
+  local v = Vect(1.2, 3.4)
+  assertEqual(1.2, v.x)
+  assertEqual(3.4, v.y)
 end
 
 function should.writeVectAttributes()
-  local s = Vect(1.2, 3.4)
-  s.x = 15
-  assertEqual(15, s.x)
-  assertEqual(3.4, s.y)
-  assertEqual(51, s:surface())
+  local v = Vect(1.2, 3.4)
+  v.x = 15
+  assertEqual(15, v.x)
+  assertEqual(3.4, v.y)
+  assertEqual(51, v:surface())
+end
+
+
+function should.accessStaticAttributes()
+  local t, v = Vect(1,1), Vect(1,1)
+  -- Access static members through members.
+  t.create_count = 0
+  assertEqual(0, v.create_count)
+  t.create_count = 100
+  assertEqual(100, v.create_count)
 end
 
 function should.handleBadWriteVectAttr()
-  local s = Vect(1.2, 3.4)
+  local v = Vect(1.2, 3.4)
   assertError("invalid key 'asdf'", function()
-    s.asdf = 15
+    v.asdf = 15
   end)
-  assertEqual(1.2, s.x)
-  assertEqual(3.4, s.y)
-  assertEqual(nil, s.asdf)
+  assertEqual(1.2, v.x)
+  assertEqual(3.4, v.y)
+  assertEqual(nil, v.asdf)
 end
 
 function should.executeVectMethods()
-  local s = Vect(1.2, 3.4)
-  assertEqual(4.08, s:surface())
+  local v = Vect(1.2, 3.4)
+  assertEqual(4.08, v:surface())
 end
 
 function should.overloadAdd()
-  local s1, s2 = Vect(1.2, -1), Vect(4, 2)
-  local s = s1 + s2
-  assertEqual(5.2, s.x)
-  assertEqual(1, s.y)
-  assertEqual(5.2, s:surface())
+  local v1, s2 = Vect(1.2, -1), Vect(4, 2)
+  local v = v1 + s2
+  assertEqual(5.2, v.x)
+  assertEqual(1, v.y)
+  assertEqual(5.2, v:surface())
 end
 
 function should.overloadSub()
-  local s1, s2 = Vect(7, 2), Vect(4, 2)
-  local s = s1 - s2
-  assertEqual(3, s.x)
-  assertEqual(0, s.y)
+  local v1, s2 = Vect(7, 2), Vect(4, 2)
+  local v = v1 - s2
+  assertEqual(3, v.x)
+  assertEqual(0, v.y)
 end
 
 function should.overloadMul()
-  local s1 = Vect(7, 2)
-  local s = s1 * 4
-  assertEqual(28, s.x)
-  assertEqual(8, s.y)
+  local v1 = Vect(7, 2)
+  local v = v1 * 4
+  assertEqual(28, v.x)
+  assertEqual(8, v.y)
 end
 
 function should.overloadDiv()
-  local s1 = Vect(7, 2)
-  local s = s1 / 2
-  assertEqual(3.5, s.x)
-  assertEqual(1, s.y)
+  local v1 = Vect(7, 2)
+  local v = v1 / 2
+  assertEqual(3.5, v.x)
+  assertEqual(1, v.y)
 end
 
 function should.overloadLess()
   -- compares surfaces
-  local s1, s2 = Vect(1, 2), Vect(4, 2)
-  local s = s1 - s2
-  assertTrue(s1  < s2)
-  assertFalse(s2 < s1)
+  local v1, s2 = Vect(1, 2), Vect(4, 2)
+  local v = v1 - s2
+  assertTrue(v1  < s2)
+  assertFalse(s2 < v1)
 
-  assertTrue(s2  > s1)
-  assertFalse(s1 > s2)
+  assertTrue(s2  > v1)
+  assertFalse(v1 > s2)
 end
 
 function should.overloadLessEqual()
   -- compares surfaces
-  local s1, s2 = Vect(7, 2), Vect(4, 2)
-  local s = s1 - s2
-  assertTrue(s2  <= s1)
-  assertFalse(s1 <= s2)
+  local v1, s2 = Vect(7, 2), Vect(4, 2)
+  local v = v1 - s2
+  assertTrue(s2  <= v1)
+  assertFalse(v1 <= s2)
   assertTrue(s2  <= s2)
 
-  assertTrue(s1  >= s2)
-  assertFalse(s2 >= s1)
-  assertTrue(s1  >= s1)
+  assertTrue(v1  >= s2)
+  assertFalse(s2 >= v1)
+  assertTrue(v1  >= v1)
 end
 
 function should.overloadEqual()
-  local s1, s2 = Vect(7, 2), Vect(4, 2)
-  assertFalse(s1 == s2)
-  assertTrue(s1 == Vect(7,2))
+  local v1, s2 = Vect(7, 2), Vect(4, 2)
+  assertFalse(v1 == s2)
+  assertTrue(v1 == Vect(7,2))
 end
 --=============================================== Box
 
 function should.createBoxObject()
-  local s = Box('Cat', Vect(2,3))
-  assertType('userdata', s)
+  local v = Box('Cat', Vect(2,3))
+  assertType('userdata', v)
 end
 
 function should.readBoxAttributes()
-  local s = Box('Cat', Vect(2,3))
-  assertEqual('Cat', s.name_)
-  local sz = s.size_
+  local v = Box('Cat', Vect(2,3))
+  assertEqual('Cat', v.name_)
+  local sz = v.size_
   assertEqual(2, sz.x)
   assertEqual(3, sz.y)
 end
 
 function should.writeBoxAttributes()
-  local s = Box('Cat', Vect(2,3))
-  s.name_ = 'Dog'
-  assertEqual('Dog', s.name_)
-  assertEqual('Dog', s:name())
+  local v = Box('Cat', Vect(2,3))
+  v.name_ = 'Dog'
+  assertEqual('Dog', v.name_)
+  assertEqual('Dog', v:name())
 
-  s.size_ = Vect(8, 1.5)
-  assertEqual(8, s.size_.x)
-  assertEqual(1.5, s.size_.y)
-  assertEqual(12, s:surface())
+  v.size_ = Vect(8, 1.5)
+  assertEqual(8, v.size_.x)
+  assertEqual(1.5, v.size_.y)
+  assertEqual(12, v:surface())
 end
 
 function should.executeBoxMethods()
-  local s = Box('Cat', Vect(2,3))
-  assertEqual(6, s:surface())
+  local v = Box('Cat', Vect(2,3))
+  assertEqual(6, v:surface())
+end
+
+--=============================================== Return value opt.
+function should.optimizeReturnValue()
+  collectgarbage()
+  local t = Vect(1,1)
+  -- Access static members through members.
+  t.create_count = 0
+  t.copy_count = 0
+  t.destroy_count = 0
+
+  local v1, v2 = Vect(1,2), Vect(50,80)
+  assertEqual(2, t.create_count)
+  assertEqual(0, t.copy_count)
+  assertEqual(0, t.destroy_count)
+  local v3 = v1 + v2
+  assertEqual(3, t.create_count)
+  assertEqual(0, t.copy_count)
+  assertEqual(0, t.destroy_count)
+  local v4 = v1 * 2
+  assertEqual(4, t.create_count)
+  assertEqual(0, t.copy_count)
+  assertEqual(0, t.destroy_count)
+  v4 = v1 * 3
+  collectgarbage()
+  assertEqual(5, t.create_count)
+  assertEqual(0, t.copy_count)
+  assertEqual(1, t.destroy_count)
+  v1, v2, v3, v4 = nil, nil, nil, nil
+  collectgarbage()
+  assertEqual(5, t.create_count)
+  assertEqual(0, t.copy_count)
+  assertEqual(5, t.destroy_count)
 end
 
 test.all()

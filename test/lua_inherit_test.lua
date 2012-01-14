@@ -16,7 +16,10 @@ require 'lubyk'
 local should = test.Suite('dub.LuaBinder - inherit')
 local binder = dub.LuaBinder()
 
-local ins = dub.Inspector 'test/fixtures/inherit'
+local ins = dub.Inspector {
+  INPUT    = 'test/fixtures/inherit',
+  doc_dir  = lk.dir() .. '/tmp',
+}
 
 --=============================================== Set/Get vars.
 function should.bindSetMethodWithSuperAttrs()
@@ -46,8 +49,6 @@ function should.notBindSuperStaticMethods()
 end
 
 function should.bindCompileAndLoad()
-  local ins = dub.Inspector {INPUT='test/fixtures/inherit', doc_dir = lk.dir() .. '/tmp'}
-
   -- create tmp directory
   local tmp_path = lk.dir() .. '/tmp'
   lk.rmTree(tmp_path, true)
@@ -63,9 +64,33 @@ function should.bindCompileAndLoad()
   assertPass(function()
     -- Build Child.so
     --
-    binder:build(tmp_path .. '/Child.so', tmp_path, {'dub/dub.cpp', 'Child.cpp'}, '-I' .. lk.dir() .. '/fixtures/inherit')
-    -- Build Child.so
-    binder:build(tmp_path .. '/Parent.so', tmp_path, {'dub/dub.cpp', 'Parent.cpp'}, '-I' .. lk.dir() .. '/fixtures/inherit')
+    binder:build {
+      work_dir = lk.dir(),
+      output   = 'tmp/Child.so',
+      inputs   = {
+        'tmp/dub/dub.cpp',
+        'tmp/Child.cpp',
+      },
+      includes = {
+        'tmp',
+        'fixtures/inherit',
+      },
+    }
+
+    -- Build Parent.so
+    binder:build {
+      work_dir = lk.dir(),
+      output   = 'tmp/Parent.so',
+      inputs   = {
+        'tmp/dub/dub.cpp',
+        'tmp/Parent.cpp',
+      },
+      includes = {
+        'tmp',
+        'fixtures/inherit',
+      },
+    }
+
     package.cpath = tmp_path .. '/?.so'
     require 'Child'
     require 'Parent'

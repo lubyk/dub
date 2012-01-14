@@ -57,7 +57,7 @@ function lib:findByFullname(name)
     if not child then
       return nil
     else
-      current = child
+      current = private.resolveTypedef(self, child)
     end
   end
   return current
@@ -154,6 +154,7 @@ function private.iteratorWithSuper(elem, key)
     for super in elem:superclasses() do
       for _, child in ipairs(super[key]) do
         if not child.no_inherit and
+           not child.dtor and
            not child.static then
            coroutine.yield(child)
          end
@@ -218,7 +219,8 @@ function parse:header(header, not_lazy)
   local data = xml.load(header.path):find('compounddef')
   local h_path = data:find('location').file
   local base, h_file = lk.directory(h_path)
-  table.insert(self.headers_list, {path = h_file})
+  header.h_file = h_file
+  table.insert(self.headers_list, h_file)
 
   self.dub = parse.dub(data) or self.dub
   parse.children(self, data, header, not_lazy)
@@ -241,14 +243,8 @@ function parse:children(elem_list, header, not_lazy)
     end
   end
   -- Create --get--, --set-- and ~Destructor if needed.
-  if self.type == 'dub.Class' then
-    -- Force destructor creation when needed.
-    private.makeDestructor(self)
-    private.makeGetAttribute(self)
-    private.makeSetAttribute(self)
-    if #self.super_list > 0 or self.dub.super then
-      private.makeCast(self)
-    end
+  if self.is_class then
+    private.makeSpecialMethods(self)
   end
 end
 
@@ -281,17 +277,30 @@ function parse:innerclass(elem, header, not_lazy)
   return class
 end
 
-function parse.sectiondef(self, elem, header)
+function parse:templateparamlist(elem, header)
+  -- change self from dub.Class to dub.CTemplate
+  setmetatable(self, dub.CTemplate)
+  self.template_params = {}
+  for _, param in ipairs(elem) do
+    local name = param:find('type')[1]
+    name = string.gsub(name, 'class ', '')
+    name = string.gsub(name, 'typename ', '')
+    table.insert(self.template_params, name)
+  end
+end
+
+function parse:sectiondef(elem, header)
   local kind = elem.kind
   if kind == 'public-func' or 
      kind == 'typedef' or
      kind == 'public-attrib' or
+     kind == 'public-static-attrib' or
      kind == 'public-static-func' then
     parse.children(self, elem, header)
   end
 end
 
-function parse.memberdef(self, elem, header)
+function parse:memberdef(elem, header)
   local cache = self.cache
   local sorted_cache = self.sorted_cache
   local kind = elem.kind
@@ -310,9 +319,10 @@ end
 function parse:variable(elem, header)
   local name = elem:find('name')[1]
   local child  = {
-    name  = name,
-    type  = 'dub.Attribute',
-    ctype = parse.type(elem),
+    name   = name,
+    type   = 'dub.Attribute',
+    ctype  = parse.type(elem),
+    static = elem.static == 'yes',
   }
   self.has_variables = true
   table.insert(self.variables_list, child)
@@ -321,11 +331,13 @@ end
 
 function parse:typedef(elem, header)
   return {
-    type    = 'dub.Typedef',
-    name    = elem:find('name')[1],
-    ctype   = parse.type(elem),
-    desc    = (elem:find('detaileddescription') or {})[1],
-    xml     = elem,
+    type        = 'dub.Typedef',
+    name        = elem:find('name')[1],
+    ctype       = parse.type(elem),
+    desc        = (elem:find('detaileddescription') or {})[1],
+    xml         = elem,
+    definition  = elem:find('definition')[1],
+    header_file = header.h_file,
   }
 end
     
@@ -347,11 +359,11 @@ parse['function'] = function(self, elem, header)
     argsstring    = elem:find('argsstring')[1],
     location      = private.makeLocation(elem, header),
     desc          = (elem:find('detaileddescription') or {})[1],
-    static        = elem.static == 'yes' or (self and self.name == name),
+    static        = elem.static == 'yes' or (self.name == name),
     xml           = elem,
-    member        = self.type == 'dub.Class',
-    dtor          = self.type == 'dub.Class' and name == '~' .. self.name,
-    ctor          = self.type == 'dub.Class' and name == self.name,
+    member        = self.is_class,
+    dtor          = self.is_class and name == '~' .. self.name,
+    ctor          = self.is_class and name == self.name,
     dub           = parse.dub(elem) or {},
   }
   if self.name == name then
@@ -380,10 +392,10 @@ end
 
 function parse.param(elem, position)
   return {
-    position = position,
     type     = 'dub.Param',
-    ctype    = parse.type(elem),
     name     = elem:find('declname')[1],
+    position = position,
+    ctype    = parse.type(elem),
   }
 end
 
@@ -456,6 +468,16 @@ function private:makeDestructor()
   table.insert(self.functions_list, child)
   self.cache['~' .. name] = child
   self.cache['_' .. name] = child
+end
+
+function private:makeSpecialMethods()
+  -- Force destructor creation when needed.
+  private.makeDestructor(self)
+  private.makeGetAttribute(self)
+  private.makeSetAttribute(self)
+  if #self.super_list > 0 or self.dub.super then
+    private.makeCast(self)
+  end
 end
 
 -- self == class
@@ -566,10 +588,7 @@ function parse.detaileddescription(self, elem, header)
 end
 
 function parse.dub(elem)
-  --detaileddescription/para/[simplesect kind='par']/title/[Bindings info:]
-  --                                                 para/XXXXXX
-  --                                                 
-  -- FIXME: This would not work if simplesect is not the first one
+  -- This would not work if simplesect is not the first one
   local sect = elem:find('simplesect', 'kind', 'par')
   if sect then
     if (sect:find('title') or {})[1] == 'Bindings info:' then
@@ -580,4 +599,24 @@ function parse.dub(elem)
     end
   end
   return nil
+end
+
+function private:resolveTypedef(elem)
+  if elem.type == 'dub.Typedef' then
+    -- try to resolve and make a full class
+    local name, types = string.match(elem.ctype.name, '^(.*) < (.+) >$')
+    if name then
+      types = lk.split(types, ', ')
+      local template = self:findByFullname(name)
+      if template and template.type == 'dub.CTemplate' then
+        local class = template:resolveTemplateParams(elem.name, types)
+        self.cache[class.name] = class
+        table.insert(self.sorted_cache, class)
+        class.typedef = elem.definition .. ';'
+        table.insert(class.headers_list, elem.header_file)
+        return class
+      end
+    end
+  end
+  return elem
 end

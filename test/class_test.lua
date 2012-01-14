@@ -49,9 +49,9 @@ end
 function should.listHeaders()
   local h
   for header in class:headers() do
-    h = header.path
+    h = header
   end
-  assertEqual(h, 'simple.h')
+  assertEqual('simple.h', h)
 end
 
 function should.detectDestructor()

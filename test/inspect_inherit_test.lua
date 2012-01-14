@@ -11,8 +11,8 @@ require 'lubyk'
 local should = test.Suite('dub.Inspector - inherit')
 
 local ins = dub.Inspector {
-  doc_dir = 'test/tmp',
   INPUT   = 'test/fixtures/inherit',
+  doc_dir = lk.dir() .. '/tmp',
 }
 
 --=============================================== TESTS

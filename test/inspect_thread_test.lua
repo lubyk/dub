@@ -10,7 +10,10 @@
 require 'lubyk'
 local should = test.Suite('dub.Inspector - thread')
 
-local ins = dub.Inspector 'test/fixtures/thread'
+local ins = dub.Inspector {
+  INPUT    = 'test/fixtures/thread',
+  doc_dir  = lk.dir() .. '/tmp',
+}
 
 --=============================================== TESTS
 

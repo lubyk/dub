@@ -29,6 +29,6 @@ function should.hash()
   assertEqual(1, dub.hash('birth_year',2))
 end
 
-test.files(lk.dir(), '%_test.lua$', '/dub_test.lua$')
+test.all()
 
 

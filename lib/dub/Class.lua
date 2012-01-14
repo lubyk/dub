@@ -9,6 +9,7 @@
 
 local lib     = {
   type          = 'dub.Class',
+  is_class      = true,
   SET_ATTR_NAME = '_set_',
   GET_ATTR_NAME = '_get_',
   CAST_NAME     = '_cast_',
@@ -17,16 +18,17 @@ local private = {}
 lib.__index   = lib
 dub.Class     = lib
 
---=============================================== dub.Object()
+--=============================================== dub.Class()
 setmetatable(lib, {
   __call = function(lib, self)
-    self.cache        = {}
+    self.cache          = {}
     self.sorted_cache   = {}
     self.functions_list = {}
     self.variables_list = {}
-    self.headers_list   = {}
+    self.headers_list   = self.headers_list or {}
     self.super_list     = {}
-    self.dub = self.dub or {}
+    self.dub            = self.dub or {}
+    self.xml_headers    = self.xml_headers or {}
     return setmetatable(self, lib)
   end
 })

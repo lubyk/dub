@@ -8,7 +8,7 @@
  */
 #include "dub/dub.h"
 {% for h in class:headers() do %}
-#include "{{h.path}}"
+#include "{{h}}"
 {% end %}
 
 {% for method in class:methods() do %}
@@ -68,11 +68,11 @@ extern "C" int luaopen_{{class.name}}(lua_State *L)
   // register member methods
   luaL_register(L, NULL, {{ class.name }}_member_methods);
   // save meta-table in {{self:libName(class)}}_
-  {% if class.parent then %}
+{% if class.parent then %}
   dub_register(L, "{{self:libName(class.parent)}}", "{{class.name}}");
   // register class methods in {{parent.name}}
   luaL_register(L, "{{self:libName(class.parent)}}", {{class.name}}_namespace_methods);
-  {% else %}
+{% else %}
   dub_register(L, "_G", "{{class.name}}");
   // register class methods
   luaL_register(L, "_G", {{class.name}}_namespace_methods);

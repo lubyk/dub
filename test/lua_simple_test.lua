@@ -12,8 +12,8 @@ local should = test.Suite('dub.LuaBinder - simple')
 local binder = dub.LuaBinder()
 
 local ins = dub.Inspector {
-  doc_dir = 'test/fixtures/simple/doc',
   INPUT   = 'test/fixtures/simple/include',
+  doc_dir = lk.dir() .. '/tmp',
 }
 
 --=============================================== TESTS
@@ -24,7 +24,7 @@ end
 function should.bindClass()
   local Simple = ins:find('Simple')
   local res = binder:bindClass(Simple)
-  --print(res)
+  assertMatch('luaopen_Simple', res)
 end
 
 function should.bindDestructor()
@@ -57,7 +57,18 @@ function should.bindCompileAndLoad()
   local cpath_bak = package.cpath
   local s
   assertPass(function()
-    binder:build(tmp_path .. '/Simple.so', tmp_path, '%.cpp', '-I' .. lk.dir() .. '/fixtures/simple/include')
+    binder:build {
+      work_dir = lk.dir(),
+      output   = 'tmp/Simple.so',
+      inputs   = {
+        'tmp/dub/dub.cpp',
+        'tmp/Simple.cpp',
+      },
+      includes = {
+        'tmp',
+        'fixtures/simple/include',
+      },
+    }
     package.cpath = tmp_path .. '/?.so'
     require 'Simple'
     assertType('function', Simple)
@@ -82,6 +93,12 @@ end
 function should.bindBoolean()
   assertFalse(Simple(1):isZero())
   assertTrue(Simple(0):isZero())
+end
+
+function should.bindMethodWithoutReturn()
+  local s = Simple(3.4)
+  s:setValue(5)
+  assertEqual(5, s:value())
 end
 
 test.all()

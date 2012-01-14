@@ -11,7 +11,7 @@ require 'lubyk'
 local should = test.Suite('dub.Inspector - pointers')
 
 local ins = dub.Inspector {
-  INPUT = 'test/fixtures/pointers',
+  INPUT   = 'test/fixtures/pointers',
   doc_dir = lk.dir() .. '/tmp',
 }
 
@@ -56,21 +56,35 @@ function should.listAttributes()
   local Vect = ins:find('Vect')
   local res = {}
   for attr in Vect:attributes() do
-    table.insert(res, attr.name)
+    local name = attr.name
+    if attr.static then
+      name = name .. ':static'
+    end
+    table.insert(res, name)
   end
-  assertValueEqual({'x', 'y'}, res)
+  assertValueEqual({
+    'x',
+    'y',
+    'create_count:static',
+    'copy_count:static',
+    'destroy_count:static',
+  }, res)
 end
 
 function should.listMethods()
   local Vect = ins:find('Vect')
   local res = {}
   for meth in Vect:methods() do
-    table.insert(res, meth.name)
+    local name = meth.name
+    if meth.static then
+      name = name .. ':static'
+    end
+    table.insert(res, name)
   end
   assertValueEqual({'_Vect', 
     Vect.GET_ATTR_NAME,
     Vect.SET_ATTR_NAME,
-    'Vect',
+    'Vect:static',
     'surface',
     'operator+',
     'operator-',
@@ -101,6 +115,12 @@ function should.haveSetMethod()
   local Vect = ins:find('Vect')
   local set  = Vect:method(Vect.SET_ATTR_NAME)
   assertTrue(set.is_set_attr)
+end
+
+function should.haveGetMethod()
+  local Vect = ins:find('Vect')
+  local set  = Vect:method(Vect.GET_ATTR_NAME)
+  assertTrue(set.is_get_attr)
 end
 
 function should.parseAddOperator()
