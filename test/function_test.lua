@@ -71,6 +71,11 @@ function should.markConstructorAsStatic()
   assertTrue(func.static)
 end
 
+function should.haveSignature()
+  local func = makeFunction()
+  assertEqual('MyFloat, double', func.sign)
+end
+
 test.all()
 
 

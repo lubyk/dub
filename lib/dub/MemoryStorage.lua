@@ -347,14 +347,6 @@ parse['function'] = function(self, elem, header)
     return nil
   end
 
-  local overloaded = self.cache[name]
-  if overloaded then
-    if not overloaded.overloaded then
-      overloaded.overloaded = {overloaded}
-    end
-    overloaded = overloaded.overloaded
-  end
-
   local child = dub.Function {
     -- self can be a class or db (root)
     db            = self.db or self,
@@ -378,8 +370,21 @@ parse['function'] = function(self, elem, header)
     child.return_value = lib.makeType(name .. ' *')
   end
 
-  if overloaded then
-    table.insert(overloaded, child)
+  local exist = self.cache[name]
+  if exist then
+    local list = exist.overloaded
+    if not list then
+      list = {exist}
+    end
+    for _,met in ipairs(list) do
+      if met.sign == child.sign then
+        -- do not add this new version
+        return nil
+      end
+    end
+    table.insert(list, child)
+    exist.overloaded = list
+    -- not not add it again in cache
     return nil
   else
     local list = self.functions_list

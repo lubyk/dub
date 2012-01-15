@@ -68,17 +68,19 @@ end
 function should.makeOverloadedResolveTree()
   local Simple = ins:find('Simple')
   local met = Simple:method('add')
-  local tree = binder:decisionTree(met.overloaded)
+  local tree, need_top = binder:decisionTree(met.overloaded)
   assertValueEqual({
     udata  = '(const Simple &o)',
     number = '(MyFloat v, double w=10)',
   }, treeTest(tree))
+  -- need_top because we have defaults
+  assertTrue(need_top)
 end
 
 function should.makeOverloadedNestedResolveTree()
   local Simple = ins:find('Simple')
   local met = Simple:method('mul')
-  local tree = binder:decisionTree(met.overloaded)
+  local tree, need_top = binder:decisionTree(met.overloaded)
   assertValueEqual({
     _ = '()',
     udata  = '(const Simple &o)',
@@ -87,7 +89,10 @@ function should.makeOverloadedNestedResolveTree()
       number = '(double d, double d2)',
     },
   }, treeTest(tree))
+  assertTrue(need_top)
 end
+
+--=============================================== Overloaded
 
 local function makeSignature(binder, met)
   local res = ''
@@ -130,6 +135,8 @@ function should.haveOverloadedListWithDefaults()
     'Simple',
   }, res)
 end
+
+--=============================================== Build
 
 function should.bindCompileAndLoad()
   local ins = dub.Inspector 'test/fixtures/simple/include'
@@ -195,6 +202,17 @@ end
 function should.handleDefaultValues()
   local s = Simple(2.4)
   assertEqual(14, s:add(4))
+end
+
+function should.callOverloaded()
+  local s = Simple(2.4)
+  local s2 = s:add(Simple(10))
+  assertEqual(12.4, s2:value())
+  assertEqual(0, s:mul())
+  assertEqual(4.8, s:mul(2))
+  assertEqual(28, s:mul(14, 2))
+  assertEqual(13, s:addAll(3, 4, 6))
+  assertEqual(16, s:addAll(3, 4, 6, "foo"))
 end
 
 test.all()

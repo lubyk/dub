@@ -37,7 +37,10 @@ local lib     = {
       cast   = function(name)
         return format('std::string(%s, %s_sz_)', name, name)
       end,
-    }
+    },
+  },
+  NATIVE_TO_TLUA = {
+    number = 'LUA_TNUMBER',
   },
   -- Relative path to copy dub headers and cpp files. Must be
   -- relative to the bindings output directory.
@@ -127,6 +130,23 @@ function lib:bindClass(class)
   return res
 end
 
+function private:callWithParams(class, method, param_delta, indent, custom)
+  local res = ''
+  for param in method:params() do
+    local p, acc = private.getParamVar(self, method, param, param_delta)
+    res = res .. p
+    -- This is used later by doCall (cast)
+    param.acc = acc
+  end
+  if custom then
+    res = res .. custom
+  else
+    local call = private.doCall(self, class, method)
+    res = res .. private.pushReturnValue(self, class, method, call)
+  end
+  return string.gsub(res, '\n', '\n' .. indent)
+end
+
 --- Create the body of the bindings for a given method/function.
 function lib:functionBody(class, method)
   local custom
@@ -156,7 +176,7 @@ function lib:functionBody(class, method)
     end
     if method.has_defaults then
       -- We need arg count
-      res = res .. 'int top__ = lua_gettop(L);\n'
+      res = res .. 'int top__  = lua_gettop(L);\n'
     end
     if method.is_set_attr then
       res = res .. private.switch(self, class, method, param_delta, private.setAttrBody, class.attributes)
@@ -164,22 +184,80 @@ function lib:functionBody(class, method)
       res = res .. private.switch(self, class, method, param_delta, private.getAttrBody, class.attributes)
     elseif method.is_cast then
       res = res .. private.switch(self, class, method, param_delta, private.castBody, class.superclasses)
+    elseif method.overloaded then
+      local tree, need_top = self:decisionTree(method.overloaded)
+      if need_top and not method.has_defaults then
+        res = res .. 'int top__  = lua_gettop(L);\n'
+      end
+      res = res .. private.expandTree(self, tree, class, param_delta, 1, '')
     else
-      for param in method:params() do
-        local p, acc = private.getParamVar(self, method, param, param_delta)
-        res = res .. p
-        -- This is used later by doCall (cast)
-        param.acc = acc
-      end
-      if custom then
-        res = res .. custom
-      else
-        local call = private.doCall(self, class, method)
-        res = res .. private.pushReturnValue(self, class, method, call)
-      end
+      res = res .. private.callWithParams(self, class, method, param_delta, '', custom)
     end
   end
   return res
+end
+
+function private:detectType(pos, type_name)
+  local k = self.NATIVE_TO_TLUA[type_name]
+  if k then
+    return format('type__ == %s', k)
+  else
+    return format('dub_issdata(L, %i, "%s", type__)', pos, type_name)
+  end
+end
+
+function private:expandTree(tree, class, param_delta, pos, indent)
+  local res = ''
+  local keys = {}
+  local type_count = 0
+  for k, v in pairs(tree) do
+    if k == '_' then
+      table.insert(keys, 1, k)
+    else
+      type_count = type_count + 1
+      table.insert(keys, k)
+    end
+  end
+  local got_type
+  local last_key = #keys
+  if last_key == 1 then
+    -- single entry in decision, just go deeper
+    return private.expandTree(self, tree[keys[1]], class, param_delta, pos + 1, indent)
+  end
+
+  local close  = '}'
+  local if_ind = ''
+  for i, k in ipairs(keys) do
+    if k == '_' then
+      res = res .. format('if (top__ < %i) {\n', param_delta + pos)
+    else
+      if i > 1 then
+        res = res .. if_ind .. '} else '
+      end
+      if not got_type and type_count > 1 then
+        if i > 1 then
+          res = res .. '{\n'
+          if_ind = '  '
+          close = '  }\n' .. close
+        end
+        res = res .. if_ind .. format('int type__ = lua_type(L, %i);\n', param_delta + pos)
+        got_type = true
+      end
+      if i == last_key then
+        res = res .. '{\n'
+      else
+        res = res .. if_ind .. format('if (%s) {\n', private.detectType(self, param_delta + pos, k))
+      end
+    end
+    met = tree[k]
+    if met.type == 'dub.Function' then
+      res = res .. if_ind .. '  ' .. private.callWithParams(self, class, met, param_delta, if_ind .. '  ') .. '\n'
+    else
+      res = res .. if_ind .. '  ' .. private.expandTree(self, met, class, param_delta, pos + 1, if_ind .. '  ') .. '\n'
+    end
+  end
+  res = res .. close
+  return string.gsub(res, '\n', '\n' .. indent)
 end
 
 function lib:bindName(method)
@@ -539,22 +617,14 @@ function private:parseCustomBindings(custom)
   self.custom_bindings = custom or {}
 end
 
--- A: mul(double d, double d)
--- B: mul(double d, *Foo, *Bar = NULL)
--- C: mul(*Foo)
--- D: mul(double d, *Baz)
---
---
--- +-- nb +-- ø or nb [A]
---        +-- "Foo" [B]
---        +-- "Baz" [D]
--- +-- ud +-- [C]
-function private:decisionTree(list)
+-- See lua_simple_test for the output of this tree.
+function lib:decisionTree(list)
   local res = {}
+  local need_top = false
   for _, func in ipairs(list) do
-    private.insertByArg(self, res, func)
+    need_top = private.insertByArg(self, res, func) or need_top
   end
-  return res
+  return res, need_top
 end
 
 
@@ -564,7 +634,9 @@ function private:insertByArg(res, func, index)
   index = index or 1
   local typ
   local param = func.params_list[index]
+  local need_top = func.has_defaults
   if not param or func.first_default == index then
+    need_top = true
     -- no param here
     if res['_'] then
       -- Already something without argument here. Cannot decide.
@@ -584,12 +656,24 @@ function private:insertByArg(res, func, index)
         local f = list
         list = {}
         res[typ] = list
-        private.insertByArg(self, list, f, index + 1)
+        -- move previous func further down
+        need_top = private.insertByArg(self, list, f, index + 1) or need_top
       end
-      private.insertByArg(self, list, func, index + 1)
+      -- insert new func
+      need_top = private.insertByArg(self, list, func, index + 1) or need_top
     end
   end
+  return need_top
 end
 
-lib.decisionTree = private.decisionTree
-
+-- This is used to detect same types in overloaded functions.
+function lib:makeSignature(met)
+  local res = ''
+  for i, p in ipairs(met.params_list) do
+    if i > 1 then
+      res = res .. ', '
+    end
+    res = res .. (self:nativeType(met, p.ctype) or p.ctype.name)
+  end
+  return res
+end

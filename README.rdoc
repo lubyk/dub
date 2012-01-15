@@ -20,7 +20,8 @@ Currently, the parser supports:
  * class alias through typedefs
  * bindings for superclass
  * automatic casting to base class
- * handling of default values
+ * handling of default argument values
+ * handling of overloaded functions
  * return value optimization (no copy)
  * simple type garbage collection optimization (no __gc method)
  * hand made bindings for special cases

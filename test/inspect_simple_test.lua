@@ -100,6 +100,7 @@ function should.listMemberMethods()
     'value',
     'add',
     'mul',
+    'addAll',
     'setValue',
     'isZero',
     'pi'}, res)
@@ -154,23 +155,14 @@ function should.detectOverloadFunctions()
   assertTrue(met.overloaded)
 end
 
-local function makeSignature(list)
-  local res = ''
-  for i, t in ipairs(list) do
-    if i > 1 then
-      res = res .. ', '
-    end
-    res = res .. t.ctype.name
-  end
-  return res
-end
+--=============================================== Overloaded
 
 function should.haveOverloadedList()
   local Simple = ins:find('Simple')
   local met = Simple:method('add')
   local res = {}
   for _, m in ipairs(met.overloaded) do
-    table.insert(res, makeSignature(m.params_list))
+    table.insert(res, m.sign)
   end
   assertValueEqual({
     'MyFloat, double',
@@ -180,12 +172,23 @@ function should.haveOverloadedList()
   met = Simple:method('mul')
   res = {}
   for _, m in ipairs(met.overloaded) do
-    table.insert(res, makeSignature(m.params_list))
+    table.insert(res, m.sign)
   end
   assertValueEqual({
     'Simple',
     'double',
     'double, double',
+    '',
+  }, res)
+  
+  met = Simple:method('addAll')
+  res = {}
+  for _, m in ipairs(met.overloaded) do
+    table.insert(res, m.sign)
+  end
+  assertValueEqual({
+    'double, double, double',
+    'double, double, double, char',
   }, res)
 end
 

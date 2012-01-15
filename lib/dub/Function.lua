@@ -31,6 +31,7 @@ setmetatable(lib, {
     self.first_default= self.params_list.first_default
     setmetatable(self, lib)
     self:setName(self.name)
+    self.sign = private.makeSignature(self)
     return self
   end
 })
@@ -88,3 +89,15 @@ function private:paramsIterator()
   end
 end
 
+-- Create a string identifying the met type for overloading. This is just
+-- a concatenation of param type names.
+function private.makeSignature(met)
+  local res = ''
+  for param in met:params() do
+    if res ~= '' then
+      res = res .. ', '
+    end
+    res = res .. param.ctype.name
+  end
+  return res
+end

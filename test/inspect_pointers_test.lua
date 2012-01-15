@@ -15,10 +15,11 @@ local ins = dub.Inspector {
   doc_dir = lk.dir() .. '/tmp',
 }
 
+local Vect = ins:find('Vect')
+
 --=============================================== TESTS
 
 function should.findVectClass()
-  local Vect = ins:find('Vect')
   assertEqual('dub.Class', Vect.type)
 end
 
@@ -53,7 +54,6 @@ function should.parsePointerParamTypes()
 end
 
 function should.listAttributes()
-  local Vect = ins:find('Vect')
   local res = {}
   for attr in Vect:attributes() do
     local name = attr.name
@@ -72,7 +72,6 @@ function should.listAttributes()
 end
 
 function should.listMethods()
-  local Vect = ins:find('Vect')
   local res = {}
   for meth in Vect:methods() do
     local name = meth.name
@@ -113,81 +112,79 @@ function should.staticMethodShouldBeStatic()
 end
 
 function should.haveSetMethod()
-  local Vect = ins:find('Vect')
   local set  = Vect:method(Vect.SET_ATTR_NAME)
   assertTrue(set.is_set_attr)
 end
 
 function should.haveGetMethod()
-  local Vect = ins:find('Vect')
   local set  = Vect:method(Vect.GET_ATTR_NAME)
   assertTrue(set.is_get_attr)
 end
 
 function should.parseAddOperator()
-  local Vect = ins:find('Vect')
-  local plus = Vect:method('operator+')
-  assertTrue(plus.member)
-  assertEqual('operator+', plus.name)
-  assertEqual('operator_add', plus.cname)
+  local met = Vect:method('operator+')
+  assertTrue(met.member)
+  assertEqual('operator+', met.name)
+  assertEqual('operator_add', met.cname)
 end
 
 function should.parseSubOperator()
-  local Vect = ins:find('Vect')
-  local plus = Vect:method('operator-')
-  assertTrue(plus.member)
-  assertEqual('operator-', plus.name)
-  assertEqual('operator_sub', plus.cname)
+  local met = Vect:method('operator-')
+  assertTrue(met.member)
+  assertEqual('operator-', met.name)
+  assertEqual('operator_sub', met.cname)
 end
 
 --function should.parseUnmOperator()
---  local Vect = ins:find('Vect')
---  local plus = Vect:method('operator+')
---  assertTrue(plus.member)
---  assertEqual('operator+', plus.name)
---  assertEqual('operator_plus', plus.cname)
+--  local met = Vect:method('operator+')
+--  assertTrue(met.member)
+--  assertEqual('operator+', met.name)
+--  assertEqual('operator_plus', met.cname)
 --end
 
 function should.parseMulOperator()
-  local Vect = ins:find('Vect')
-  local plus = Vect:method('operator*')
-  assertTrue(plus.member)
-  assertEqual('operator*', plus.name)
-  assertEqual('operator_mul', plus.cname)
+  local met = Vect:method('operator*')
+  assertTrue(met.member)
+  assertEqual('operator*', met.name)
+  assertEqual('operator_mul', met.cname)
 end
 
 function should.parseDivOperator()
-  local Vect = ins:find('Vect')
-  local plus = Vect:method('operator/')
-  assertTrue(plus.member)
-  assertEqual('operator/', plus.name)
-  assertEqual('operator_div', plus.cname)
+  local met = Vect:method('operator/')
+  assertTrue(met.member)
+  assertEqual('operator/', met.name)
+  assertEqual('operator_div', met.cname)
 end
 
 function should.parseLtOperator()
-  local Vect = ins:find('Vect')
-  local plus = Vect:method('operator<')
-  assertTrue(plus.member)
-  assertEqual('operator<', plus.name)
-  assertEqual('operator_lt', plus.cname)
+  local met = Vect:method('operator<')
+  assertTrue(met.member)
+  assertEqual('operator<', met.name)
+  assertEqual('operator_lt', met.cname)
 end
 
 function should.parseLteOperator()
-  local Vect = ins:find('Vect')
-  local plus = Vect:method('operator<=')
-  assertTrue(plus.member)
-  assertEqual('operator<=', plus.name)
-  assertEqual('operator_le', plus.cname)
+  local met = Vect:method('operator<=')
+  assertTrue(met.member)
+  assertEqual('operator<=', met.name)
+  assertEqual('operator_le', met.cname)
 end
 
 function should.parseEqOperator()
-  local Vect = ins:find('Vect')
-  local plus = Vect:method('operator==')
-  assertTrue(plus.member)
-  assertEqual('operator==', plus.name)
-  assertEqual('operator_eq', plus.cname)
+  local met = Vect:method('operator==')
+  assertTrue(met.member)
+  assertEqual('operator==', met.name)
+  assertEqual('operator_eq', met.cname)
 end
 
+function should.ignoreOverloadedWithSameType()
+  -- Vect(double x, double y)
+  -- Vect(const Vect &v)
+  -- Vect(const Vect *v)
+  local met = Vect:method('Vect')
+  assertTrue(met.overloaded)
+  assertEqual(2, #met.overloaded)
+end
 
 test.all()
 

@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+#include <cstring>
+
 /** This class is used to test
  *   * simple bindings
  *   * default parameters
@@ -49,6 +51,16 @@ public:
 
   double mul() {
     return 0;
+  }
+
+  // to test deep nesting overloaded decision tree
+  double addAll(double d, double d2, double d3) {
+    return d + d2 + d3;
+  }
+
+  // to test deep nesting overloaded decision tree
+  double addAll(double d, double d2, double d3, const char *msg) {
+    return d + d2 + d3 + strlen(msg);
   }
 
   void setValue(double v) {
