@@ -538,3 +538,58 @@ function private:parseCustomBindings(custom)
   end
   self.custom_bindings = custom or {}
 end
+
+-- A: mul(double d, double d)
+-- B: mul(double d, *Foo, *Bar = NULL)
+-- C: mul(*Foo)
+-- D: mul(double d, *Baz)
+--
+--
+-- +-- nb +-- ø or nb [A]
+--        +-- "Foo" [B]
+--        +-- "Baz" [D]
+-- +-- ud +-- [C]
+function private:decisionTree(list)
+  local res = {}
+  for _, func in ipairs(list) do
+    private.insertByArg(self, res, func)
+  end
+  return res
+end
+
+
+-- Insert a function into the hash, using the argument at the given
+-- index to filter
+function private:insertByArg(res, func, index)
+  index = index or 1
+  local typ
+  local param = func.params_list[index]
+  if not param or func.first_default == index then
+    -- no param here
+    if res['_'] then
+      -- Already something without argument here. Cannot decide.
+      print(string.format('Overloaded function conflict for %s: %s and %s.', res['_'].definition, func.argsstring, func.argsstring))
+    else
+      res['_'] = func
+    end
+  end
+  if param then
+    local typ  = self:nativeType(func, param.ctype) or 'udata'
+    local list = res[typ]
+    if not list then
+      res[typ] = func
+    else
+      -- further discrimination is needed
+      if list.type == 'dub.Function' then
+        local f = list
+        list = {}
+        res[typ] = list
+        private.insertByArg(self, list, f, index + 1)
+      end
+      private.insertByArg(self, list, func, index + 1)
+    end
+  end
+end
+
+lib.decisionTree = private.decisionTree
+

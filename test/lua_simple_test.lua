@@ -53,6 +53,84 @@ function should.useArgCountWhenDefaults()
   assertMatch('lua_gettop%(L%)', res)
 end
 
+local function treeTest(tree)
+  local res = {}
+  if tree.type == 'dub.Function' then
+    return tree.argsstring
+  else
+    for k, v in pairs(tree) do
+      res[k] = treeTest(v)
+    end
+  end
+  return res
+end
+
+function should.makeOverloadedResolveTree()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('add')
+  local tree = binder:decisionTree(met.overloaded)
+  assertValueEqual({
+    udata  = '(const Simple &o)',
+    number = '(MyFloat v, double w=10)',
+  }, treeTest(tree))
+end
+
+function should.makeOverloadedNestedResolveTree()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('mul')
+  local tree = binder:decisionTree(met.overloaded)
+  assertValueEqual({
+    _ = '()',
+    udata  = '(const Simple &o)',
+    number = {
+      _ = '(double d)',
+      number = '(double d, double d2)',
+    },
+  }, treeTest(tree))
+end
+
+local function makeSignature(binder, met)
+  local res = ''
+  for i, p in ipairs(met.params_list) do
+    if i > 1 then
+      res = res .. ', '
+    end
+    if i == met.first_default then
+      res = res .. '| '
+    end
+    res = res .. (binder:nativeType(met, p.ctype) or p.ctype.name)
+  end
+  return res
+end
+
+function should.haveOverloadedList()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('mul')
+  local res = {}
+  for _, m in ipairs(met.overloaded) do
+    table.insert(res, makeSignature(binder, m))
+  end
+  assertValueEqual({
+    'Simple',
+    'number',
+    'number, number',
+    '',
+  }, res)
+end
+
+function should.haveOverloadedListWithDefaults()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('add')
+  local res = {}
+  for _, m in ipairs(met.overloaded) do
+    table.insert(res, makeSignature(binder, m))
+  end
+  assertValueEqual({
+    'number, | number',
+    'Simple',
+  }, res)
+end
+
 function should.bindCompileAndLoad()
   local ins = dub.Inspector 'test/fixtures/simple/include'
 

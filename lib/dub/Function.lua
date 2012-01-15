@@ -27,7 +27,8 @@ setmetatable(lib, {
   __call = function(lib, self)
     self.dub = self.dub or {}
     self.static = self.static or self.ctor
-    self.has_defaults = self.params_list.has_defaults
+    self.has_defaults = self.params_list.first_default and true
+    self.first_default= self.params_list.first_default
     setmetatable(self, lib)
     self:setName(self.name)
     return self

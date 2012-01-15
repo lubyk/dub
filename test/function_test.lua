@@ -56,6 +56,16 @@ function should.haveLocation()
   assertMatch('test/fixtures/simple/include/simple.h:[0-9]+', func.location)
 end
 
+function should.haveDefinition()
+  local func = makeFunction()
+  assertMatch('MyFloat Simple::add', func.definition)
+end
+
+function should.haveArgsString()
+  local func = makeFunction()
+  assertMatch('%(MyFloat v, double w=10%)', func.argsstring)
+end
+
 function should.markConstructorAsStatic()
   local func = makeFunction('Simple')
   assertTrue(func.static)

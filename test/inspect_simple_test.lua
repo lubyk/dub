@@ -94,7 +94,15 @@ function should.listMemberMethods()
   for meth in Simple:methods() do
     table.insert(res, meth.name)
   end
-  assertValueEqual({'Simple', '~Simple', 'value', 'add', 'setValue', 'isZero', 'pi'}, res)
+  assertValueEqual({
+    'Simple',
+    '~Simple',
+    'value',
+    'add',
+    'mul',
+    'setValue',
+    'isZero',
+    'pi'}, res)
 end
 
 function should.listParamsOnMethod()
@@ -127,6 +135,58 @@ function should.markFunctionWithDefaults()
   assertTrue(met.has_defaults)
   met = Simple:method('Simple')
   assertFalse(met.has_defaults)
+end
+
+function should.setFirstDefaultPositionInFunction()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('add')
+  assertTrue(met.has_defaults)
+  assertEqual(2, met.first_default)
+  met = Simple:method('Simple')
+  assertFalse(met.has_defaults)
+end
+
+function should.detectOverloadFunctions()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('add')
+  assertTrue(met.overloaded)
+  local met = Simple:method('mul')
+  assertTrue(met.overloaded)
+end
+
+local function makeSignature(list)
+  local res = ''
+  for i, t in ipairs(list) do
+    if i > 1 then
+      res = res .. ', '
+    end
+    res = res .. t.ctype.name
+  end
+  return res
+end
+
+function should.haveOverloadedList()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('add')
+  local res = {}
+  for _, m in ipairs(met.overloaded) do
+    table.insert(res, makeSignature(m.params_list))
+  end
+  assertValueEqual({
+    'MyFloat, double',
+    'Simple',
+  }, res)
+  
+  met = Simple:method('mul')
+  res = {}
+  for _, m in ipairs(met.overloaded) do
+    table.insert(res, makeSignature(m.params_list))
+  end
+  assertValueEqual({
+    'Simple',
+    'double',
+    'double, double',
+  }, res)
 end
 
 function should.resolveNativeTypes()

@@ -342,11 +342,17 @@ function parse:typedef(elem, header)
 end
     
 parse['function'] = function(self, elem, header)
-  local name  = elem:find('name')[1]
-  if self.cache[name] or
-     name == '~' .. self.name and self.dub.destroy == 'free' then
-    -- TODO: support overloaded functions.
+  local name = elem:find('name')[1]
+  if name == '~' .. self.name and self.dub.destroy == 'free' then
     return nil
+  end
+
+  local overloaded = self.cache[name]
+  if overloaded then
+    if not overloaded.overloaded then
+      overloaded.overloaded = {overloaded}
+    end
+    overloaded = overloaded.overloaded
   end
 
   local child = dub.Function {
@@ -372,26 +378,33 @@ parse['function'] = function(self, elem, header)
     child.return_value = lib.makeType(name .. ' *')
   end
 
-  local list = self.functions_list
-  if list then
-    table.insert(list, child)
+  if overloaded then
+    table.insert(overloaded, child)
+    return nil
+  else
+    local list = self.functions_list
+    if list then
+      table.insert(list, child)
+    end
+    return child
   end
-  return child
 end
 
 function parse.params(elem, header)
   local res = {str = elem:find('argsstring')[1]}
   local i = 0
-  local has_defaults = false
-  for _, param in ipairs(elem) do
-    if param.xml == 'param' then
+  local first_default
+  for _, p in ipairs(elem) do
+    if p.xml == 'param' then
       i = i + 1
-      local p = parse.param(param, i)
-      table.insert(res, p)
-      has_defaults = has_defaults or p.default
+      local param = parse.param(p, i)
+      table.insert(res, param)
+      if param.default and not first_default then
+        first_default = param.position
+      end
     end
   end
-  res.has_defaults = has_defaults
+  res.first_default = first_default
   return res
 end
 
