@@ -55,6 +55,24 @@ function should.findTypedef()
   assertEqual('dub.Typedef', obj.type)
 end
 
+function should.resolveTypes()
+  local Simple = ins:find('Simple')
+  local db = ins.db
+  assertEqual(Simple, db:resolveType(db, 'Simple'))
+  assertEqual(Simple, db:resolveType(Simple, 'Simple'))
+  assertValueEqual({
+    name        = 'double',
+    def         = 'double',
+    create_name = 'MyFloat ',
+  }, db:resolveType(Simple, 'MyFloat'))
+
+  assertValueEqual({
+    name        = 'double',
+    def         = 'double',
+    create_name = 'MyFloat ',
+  }, db:resolveType(db, 'MyFloat'))
+end
+
 function should.findMemberMethod()
   local Simple = ins:find('Simple')
   local met = Simple:method('value')

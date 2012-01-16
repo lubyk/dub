@@ -48,12 +48,11 @@ function lib:parse(xml_dir, not_lazy)
 end
 
 function lib:findByFullname(name)
-  -- done
   -- split name components
   local parts = lk.split(name, '::')
   local current = self
   for i, part in ipairs(parts) do
-    local child = current:findChild(self, part)
+    local child = self:findChildFor(current, part)
     if not child then
       return nil
     else
@@ -63,7 +62,12 @@ function lib:findByFullname(name)
   return current
 end
 
-function lib:findChild(parent, name)
+function lib:findChild(name)
+  -- Any element at the root of the name space
+  return self:findChildFor(self, name)
+end
+
+function lib:findChildFor(parent, name)
   -- Any element at the root of the name space
   return parent.cache[name] or private.parseHeaders(parent, name)
 end
@@ -134,13 +138,41 @@ function lib:superclasses(parent)
   end
 end
 
-function lib:resolveType(name)
-  -- Do we have a typedef ?
-  local td = self:findByFullname(name)
-  if td then
-    return td.ctype
+--- Return an iterator over the constants defined in this parent.
+function lib:constants(parent)
+  -- make sure we have parsed the headers
+  private.parseHeaders(self)
+  private.parseHeaders(parent)
+  local co = co or coroutine.create(private.iterator)
+  return function()
+    local ok, elem = coroutine.resume(co, parent.constants_list)
+    if ok then
+      return elem
+    end
   end
 end
+
+function lib:resolveType(parent, name)
+  -- Do we have a typedef or enum ?
+  local td
+  while parent do
+    td = parent:findChild(name)
+    if td then
+      if td.type == 'dub.Class' then
+        -- real type
+        return td
+      elseif td.type == 'dub.Typedef' or
+        td.type == 'dub.Enum' then
+        -- alias type
+        return td.ctype
+      end
+    end
+    parent = parent.parent
+  end
+  -- not found (could be a native type)
+  return nil
+end
+
 --=============================================== PRIVATE
 
 function private.iterator(list)
@@ -265,6 +297,7 @@ function parse:innerclass(elem, header, not_lazy)
   local class = dub.Class {
     -- self can be a class or db (root)
     db      = self.db or self,
+    parent  = self,
     name    = elem[1],
     xml     = elem,
     xml_headers  = {
@@ -292,10 +325,18 @@ end
 function parse:sectiondef(elem, header)
   local kind = elem.kind
   if kind == 'public-func' or 
+     -- methods
      kind == 'typedef' or
+     -- typedef
      kind == 'public-attrib' or
+     -- attributes
      kind == 'public-static-attrib' or
-     kind == 'public-static-func' then
+     -- static attributes
+     kind == 'public-static-func' or
+     -- static methods
+     kind == 'public-type'
+     -- enum, sub-types
+     then
     parse.children(self, elem, header)
   end
 end
@@ -329,8 +370,33 @@ function parse:variable(elem, header)
   return child
 end
 
+function parse:enum(elem, header)
+  local constants = self.constants_list
+  local list = {}
+  for _, v in ipairs(elem) do
+    if v.xml == 'enumvalue' then
+      local const = v:find('name')[1]
+      table.insert(list, const)
+      table.insert(constants, const)
+    end
+  end
+  local name = elem:find('name')[1]
+  local enum = {
+    type     = 'dub.Enum',
+    name     = name,
+    location = private.makeLocation(elem, header),
+    list     = list,
+    ctype    = lib.makeType('double'),
+  }
+  enum.ctype.cast = self:fullname() .. '::' .. name
+  enum.ctype.create_name = self:fullname() .. '::' .. name .. ' '
+  enum.ctype.scope = self:fullname()
+  self.has_constants = true
+  return enum
+end
+
 function parse:typedef(elem, header)
-  return {
+  local typ = {
     type        = 'dub.Typedef',
     name        = elem:find('name')[1],
     ctype       = parse.type(elem),
@@ -339,6 +405,8 @@ function parse:typedef(elem, header)
     definition  = elem:find('definition')[1],
     header_file = header.h_file,
   }
+  typ.ctype.create_name = typ.name .. ' '
+  return typ
 end
     
 parse['function'] = function(self, elem, header)

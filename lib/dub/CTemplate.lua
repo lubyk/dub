@@ -38,6 +38,7 @@ function lib:resolveTemplateParams(name, types)
     -- Make class
     local class = dub.Class {
       db           = self.db,
+      parent       = self.db,
       name         = name,
     }
     -- Rebuild methods

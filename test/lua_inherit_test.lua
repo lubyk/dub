@@ -94,7 +94,7 @@ function should.bindCompileAndLoad()
     package.cpath = tmp_path .. '/?.so'
     require 'Child'
     require 'Parent'
-    assertType('function', Child)
+    assertType('table', Child)
   end, function()
     -- teardown
     package.loaded.Child  = nil
@@ -142,8 +142,8 @@ end
 function should.castInCalls()
   local c = Child('Romulus', true, -771, 1.23, 2.34)
   local p = Parent('Rhea', nil, -800)
-  assertEqual('Romulus', Parent_getName(c))
-  assertEqual('Rhea', Parent_getName(p))
+  assertEqual('Romulus', Parent.getName(c))
+  assertEqual('Rhea', Parent.getName(p))
 end
 
 --=============================================== Custom bindings

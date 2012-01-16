@@ -64,7 +64,7 @@ function should.bindCompileAndLoad()
     package.cpath = tmp_path .. '/?.so'
     --require 'Box'
     require 'Vectf'
-    assertType('function', Vectf)
+    assertType('table', Vectf)
   end, function()
     -- teardown
     package.loaded.Box = nil
@@ -126,7 +126,7 @@ end
 
 function should.executeStaticMethods()
   local v1, v2 = Vectf(1.5, -1), Vectf(4, 2)
-  assertEqual(123.5, Vectf_addTwo(120, 3.5))
+  assertEqual(123.5, Vectf.addTwo(120, 3.5))
 end
 
 test.all()

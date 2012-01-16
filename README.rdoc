@@ -25,12 +25,12 @@ Currently, the parser supports:
  * return value optimization (no copy)
  * simple type garbage collection optimization (no __gc method)
  * hand made bindings for special cases
+ * class enums
  * well tested
 
 = TODO
 
  * documentation
- * class enums
  * namespace enums
  * group constant defines
 
@@ -81,3 +81,40 @@ Currently, the parser supports:
     -- etc
 
 Please read the tests for more detail until the documentation is updated.
+
+= Things to know
+
+The bindings are made to look as close as possible to the C++ versions. This means that constructors look like C++: Vect(1, 2). Behind the hood, this is resolved as a call to Vect.new(1,2). By storing the 'new' function in a local variable, you can remove this small overhead.
+
+Lua bindings usage examples:
+
+  -- Create a Car instance, Car.Noisy is a constant defined in a C++ enum.
+  local car = Car('my car', Car.Noisy)
+
+  -- Execute the C++ 'brandName' method.
+  print(car:brandName())
+
+  -- Set the name of the car (public C++ attribute, a std::string here).
+  car.name = 'my old car'
+
+  -- Get the std::string name
+  print(car.name)
+
+  -- You can store \0 in strings
+  car.name = 'my old car\0which I did not like'
+
+  -- Create a vector
+  local v1 = Vect(1,2)
+  local v2 = Vect(4,5)
+
+  -- Calls the overloaded operator+(). This is return value optimized to allocate a single Vect.
+  local v3 = v1 + v2
+
+  -- operator*(double d)
+  v3 = v1 * 4
+
+  -- cross product
+  -- operator*(const Vect &v)
+  print(v3 * Vect(1,2)
+
+

@@ -82,8 +82,8 @@ function should.bindCompileAndLoad()
     --require 'Box'
     require 'Nogc'
     require 'Withgc'
-    assertType('function', Nogc)
-    assertType('function', Withgc)
+    assertType('table', Nogc)
+    assertType('table', Withgc)
   end, function()
     -- teardown
     package.loaded.Box = nil
@@ -100,33 +100,38 @@ end
 
 local function createAndDestroyMany(ctor)
   local t = {}
-  local now = worker:now()
+  local start = worker:now()
   for i = 1,100000 do
     table.insert(t, ctor(1,3))
   end
   t = nil
   collectgarbage()
   collectgarbage()
-  return worker:now() - now
+  return worker:now() - start
 end
 
-local function runGcTest(ctor)
+local function runGcTest(ctor, fmt)
   -- warmup
   createAndDestroyMany(ctor)
   local vm_size = collectgarbage('count')
-  local t = 0
-  for i=1,10 do
-    t = t + createAndDestroyMany(ctor) / 10
+  if fmt then
+    local t = createAndDestroyMany(ctor)
+    printf(fmt, t)
+  else
+    createAndDestroyMany(ctor)
   end
-  print('Average execution on 10 runs:', t)
   assertEqual(vm_size, collectgarbage('count'), 1.5)
 end
 
 function should.createAndDestroy()
-  print('Nogc')
-  runGcTest(Nogc)
-  print('Withgc')
-  runGcTest(Withgc)
+  if test.speed then
+    runGcTest(Nogc.new,   "__gc optimization:      create and destroy 100'000 elements: %.2f ms.")
+    runGcTest(Withgc.new, "Normal __gc:            create and destroy 100'000 elements: %.2f ms.")
+    runGcTest(Withgc,     "Normal __gc and __call: create and destroy 100'000 elements: %.2f ms.")
+  else
+    runGcTest(Nogc.new)
+    runGcTest(Withgc.new)
+  end
 end
 
 test.all()

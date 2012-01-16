@@ -127,7 +127,7 @@ function should.bindCompileAndLoad()
     -- only Vect.so has static members for Vect.
     require 'Vect'
     require 'Box'
-    assertType('function', Vect)
+    assertType('table', Vect)
   end, function()
     -- teardown
     package.loaded.Box = nil
@@ -206,6 +206,8 @@ function should.overloadMul()
   local v = v1 * 4
   assertEqual(28, v.x)
   assertEqual(8, v.y)
+  -- overloaded operator* for const Vect.
+  assertEqual(12, v1 * Vect(1, 2))
 end
 
 function should.overloadDiv()

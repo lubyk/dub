@@ -70,12 +70,6 @@ struct Vect {
     return Vect(d*x, d*y);
   }
 
-  // overloaded operators
-  // cross product
-  double operator*(const Vect &v) {
-    return x*v.y - y*v.x;
-  }
-
   Vect operator/(double d) {
     return Vect(x/d, y/d);
   }

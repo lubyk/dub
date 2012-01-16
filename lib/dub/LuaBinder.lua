@@ -24,6 +24,7 @@ local lib     = {
     bool       = 'boolean',
     ['char']   = 'string',
     ['std::string'] = {
+      type   = 'std::string',
       -- Get value from Lua.
       pull   = function(name, position, prefix)
         return format('size_t %s_sz_;\nconst char *%s = %schecklstring(L, %i, &%s_sz_);',
@@ -133,10 +134,7 @@ end
 function private:callWithParams(class, method, param_delta, indent, custom)
   local res = ''
   for param in method:params() do
-    local p, acc = private.getParamVar(self, method, param, param_delta)
-    res = res .. p
-    -- This is used later by doCall (cast)
-    param.acc = acc
+    res = res .. private.getParamVar(self, method, param, param_delta)
   end
   if custom then
     res = res .. custom
@@ -149,6 +147,8 @@ end
 
 --- Create the body of the bindings for a given method/function.
 function lib:functionBody(class, method)
+  -- Resolve C++ types to native lua types.
+  self:resolveTypes(method)
   local custom
   if class.custom_bindings then
     custom = (class.custom_bindings[method.parent.name] or {})[method.name]
@@ -267,7 +267,9 @@ function lib:bindName(method)
     -- methods for example).
     return method.bind_name
   end
-  if method.dtor then
+  if method.ctor then
+    return 'new'
+  elseif method.dtor then
     return '__gc'
   elseif method.is_set_attr then
     return '__newindex'
@@ -277,8 +279,6 @@ function lib:bindName(method)
     return '__' .. string.match(method.cname, '^operator_(.+)$')
   elseif name == '' then
     -- ??
-  elseif not method.ctor and method.static and method.member then
-    return method.parent.name .. '_' .. method.name
   else
     return method.name
   end
@@ -293,27 +293,34 @@ function lib:customTypeAccessor(method)
   end
 end
 
-function lib:libName(class)
-  return string.gsub(class:fullname(), '::', '.')
+function lib:libName(elem)
+  if elem.type == 'dub.MemoryStorage' then
+    -- root
+    return '_G'
+  else
+    return string.gsub(elem:fullname(), '::', '.')
+  end
 end
 
---- Returns the method to retrieve a given ctype from Lua.
-function lib:nativeType(method, ctype)
-  local typ = method.db:resolveType(ctype.name) or ctype
-  return self.TYPE_TO_NATIVE[typ.name]
-end
-
--- Return the method to retrieve a paramters with arguments.
-function lib:nativeTypeAccessor(method, param, delta)
-  local acc = self:nativeType(method, param.ctype)
-  if acc then
-    local prefix = private.checkPrefix(self, method)
-    if type(acc) == 'table' then                      
-      -- special accessor
-      return acc.pull(param.name, param.position + delta, prefix), acc
+function lib:luaType(parent, ctype)
+  local rtype  = parent.db:resolveType(parent, ctype.name) or ctype
+  local native = self.TYPE_TO_NATIVE[rtype.name]
+  if native then
+    if type(native) == 'table' then
+      return native
     else
-      return format('%scheck%s(L, %i)', prefix, acc, param.position + delta)
+      return {
+        type  = native,
+        -- Resolved type
+        rtype = rtype,
+      }
     end
+  else
+    return {
+      type = 'userdata',
+      -- Resolved type
+      rtype = rtype,
+    }
   end
 end
 
@@ -351,37 +358,88 @@ end
 
 --- Prepare a variable with a function parameter.
 function private:getParamVar(method, param, delta)
-  local p, acc = private.getParam(self, method, param, delta)
-  if acc then
-    return p .. '\n', acc
-  elseif acc == false then
+  local p = private.getParam(self, method, param, delta)
+  local lua = param.lua
+  local rtype = lua.rtype
+  if lua.push then
+    -- special push/pull type
+    return p .. '\n'
+  elseif lua.type == 'userdata' then
     -- custom type
-    return format('%s *%s = %s;\n', param.ctype.name, param.name, p), acc
+    return format('%s *%s = %s;\n', rtype.name, param.name, p)
   else
-    return format('%s%s = %s;\n', param.ctype.create_name, param.name, p)
+    -- native type
+    return format('%s%s = %s;\n', rtype.create_name, param.name, p)
   end
 end
 
+--- Resolve all parameters and return value for Lua bindings.
+function lib:resolveTypes(base)
+  if base.resolved_for == 'lua' then
+    -- done
+    return
+  end
+  local list = base.overloaded or {base}
+  for _, method in ipairs(list) do
+    local parent = method.parent
+    local sign = ''
+    for i, param in ipairs(method.params_list) do
+      if i > 1 then
+        sign = sign .. ', '
+      end
+      param.lua = self:luaType(parent, param.ctype)
+      if param.lua.type == 'userdata' then
+        sign = sign .. param.lua.rtype.name
+      else
+        sign = sign .. param.lua.type
+      end
+    end
+    if method.return_value then
+      method.return_value.lua = self:luaType(parent, method.return_value)
+    end
+    method.lua_signature = sign
+  end
+  base.resolved_for = 'lua'
+end
+
+-- Retrieve a parameter and detect native type/userdata in param.
 function private:getParam(method, param, delta)
-  local res, acc = self:nativeTypeAccessor(method, param, delta)
-  if not res then
+  local res
+  local lua = param.lua
+  local ctype = param.ctype
+  -- Resolved ctype
+  local rtype = lua.rtype
+  if lua.type == 'userdata' then
     -- userdata
     local lib_name
-    local class = method.db:findByFullname(param.ctype.name)
-    if class then
-      lib_name = self:libName(class)
+    if rtype.type == 'dub.Class' then
+      lib_name = self:libName(rtype)
     else
-      lib_name = param.ctype.name
+      lib_name = rtype.name
     end
     type_method = self:customTypeAccessor(method)
     res = format('*((%s**)%s(L, %i, "%s"))',
-      param.ctype.name, type_method, param.position + delta, lib_name)
-    acc = false
+      rtype.name, type_method, param.position + delta, lib_name)
+  else
+    -- native lua type
+    local prefix = private.checkPrefix(self, method)
+    if lua.pull then
+      -- special accessor
+      res = lua.pull(param.name, param.position + delta, prefix)
+    elseif rtype.cast then
+      res = format('(%s)%scheck%s(L, %i)', rtype.cast, prefix, lua.type, param.position + delta)
+    else
+      res = format('%scheck%s(L, %i)', prefix, lua.type, param.position + delta)
+    end
   end
   if param.default then
-    res = format('top__ >= %i ? (%s) : (%s)', param.position + delta, res, param.default)
+    local default = param.default
+    if rtype.scope then
+      default = rtype.scope .. '::' .. default
+    end
+    res = format('top__ >= %i ? (%s) : (%s)', param.position + delta, res, default)
   end
-  return res, acc
+  return res
 end
 
 ---
@@ -389,15 +447,16 @@ function private:doCall(class, method)
   local res = method.name .. '('
   local first = true
   for param in method:params() do
+    local lua = param.lua
     if not first then
       res = res .. ', '
     else
       first = false
     end
-    if param.acc then
+    if lua.cast then
       -- Special accessor
-      res = res .. param.acc.cast(param.name)
-    elseif param.acc == false then
+      res = res .. lua.cast(param.name)
+    elseif lua.type == 'userdata' then
       -- custom type
       if param.ctype.ptr then
         res = res .. param.name
@@ -437,27 +496,27 @@ function private:pushReturnValue(class, method, value)
   return res
 end
 
-function private:pushValue(method, name, ctype)
+function private:pushValue(method, value, return_value)
   local res
-  local ctype = method.db:resolveType(ctype.name) or ctype
-  local accessor = self.TYPE_TO_NATIVE[ctype.name]
-  if accessor then
-    if type(accessor) == 'table' then
-      res = accessor.push(name)
+  local lua = return_value.lua
+  local ctype = return_value
+  if lua.push then
+    res = lua.push(value)
+  elseif lua.type == 'userdata' then
+    -- resolved value
+    local rtype = lua.rtype
+    if not ctype.ptr then
+      if method.parent.dub.destroy == 'free' then
+        res = format('dub_pushfulldata<%s>(L, %s, "%s");', rtype.name, value, ctype.name)
+      else
+        res = format('dub_pushudata(L, new %s(%s), "%s");', rtype.name, value, ctype.name)
+      end
     else
-      res = format('lua_push%s(L, %s);', accessor, name)
-    end
-  elseif not ctype.ptr then
-    -- TODO: We should optimize to avoid the extra malloc in dub_pushudata
-    -- if the object is marked with dub.destroy == 'free'. We can then also
-    -- remove __gc.
-    if method.parent.dub.destroy == 'free' then
-      res = format('dub_pushfulldata<%s>(L, %s, "%s");', ctype.name, name, ctype.name)
-    else
-      res = format('dub_pushudata(L, new %s(%s), "%s");', ctype.name, name, ctype.name)
+      res = format('dub_pushudata(L, %s, "%s");', value, rtype.name)
     end
   else
-    res = format('dub_pushudata(L, %s, "%s");', name, ctype.name)
+    -- native type
+    res = format('lua_push%s(L, %s);', lua.type, value)
   end
   return res .. '\nreturn 1;'
 end
@@ -494,11 +553,14 @@ function private:setAttrBody(method, attr, delta)
     ctype    = attr.ctype,
     position = 2,
   }
-  local p, acc = private.getParam(self, method, param, delta)
-  if acc then
+  local lua = self:luaType(method.parent, param.ctype)
+  param.lua = lua
+  local p = private.getParam(self, method, param, delta)
+  if type(lua.cast) == 'function' then
+    -- TODO: move this into getParam ?
     res = res .. p
-    p = acc.cast(name)
-  elseif acc == false then
+    p = lua.cast(name)
+  elseif lua.type == 'userdata' then
     -- custom type
     if not param.ctype.ptr then
       p = '*' .. p
@@ -529,6 +591,7 @@ end
 
 -- function body to get a variable.
 function private:getAttrBody(method, attr, delta)
+  attr.ctype.lua = self:luaType(method.parent, attr.ctype)
   local accessor
   if attr.static then
     accessor = format('%s::%s', method.parent.name, attr.name)
@@ -546,6 +609,7 @@ function private:switch(class, method, delta, bfunc, iterator)
     ctype    = dub.MemoryStorage.makeType('const char *'),
     position = 1,
   }
+  param.lua = self:luaType(method.parent, param.ctype)
   res = res .. private.getParamVar(self, method, param, delta)
   if method.is_get_attr then
     res = res .. '// <self> "key" <mt>\n'
@@ -632,30 +696,35 @@ end
 -- index to filter
 function private:insertByArg(res, func, index)
   index = index or 1
-  local typ
   local param = func.params_list[index]
   local need_top = func.has_defaults
   if not param or func.first_default == index then
     need_top = true
     -- no param here
-    if res['_'] then
+    if res._ then
       -- Already something without argument here. Cannot decide.
-      print(string.format('Overloaded function conflict for %s: %s and %s.', res['_'].definition, func.argsstring, func.argsstring))
+      print(string.format('Overloaded function conflict for %s: %s and %s.', res._.definition, res._.argsstring, func.argsstring))
     else
-      res['_'] = func
+      res._ = func
     end
   end
   if param then
-    local typ  = self:nativeType(func, param.ctype) or 'udata'
-    local list = res[typ]
+    local type_name
+    if param.lua.type == 'userdata' then
+      type_name = param.lua.rtype.name
+    else
+      type_name = param.lua.type
+    end
+
+    local list = res[type_name]
     if not list then
-      res[typ] = func
+      res[type_name] = func
     else
       -- further discrimination is needed
       if list.type == 'dub.Function' then
         local f = list
         list = {}
-        res[typ] = list
+        res[type_name] = list
         -- move previous func further down
         need_top = private.insertByArg(self, list, f, index + 1) or need_top
       end
@@ -666,14 +735,3 @@ function private:insertByArg(res, func, index)
   return need_top
 end
 
--- This is used to detect same types in overloaded functions.
-function lib:makeSignature(met)
-  local res = ''
-  for i, p in ipairs(met.params_list) do
-    if i > 1 then
-      res = res .. ', '
-    end
-    res = res .. (self:nativeType(met, p.ctype) or p.ctype.name)
-  end
-  return res
-end

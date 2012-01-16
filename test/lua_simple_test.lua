@@ -21,10 +21,17 @@ function should.autoload()
   assertType('table', dub.LuaBinder)
 end
 
+--[[
 function should.bindClass()
   local Simple = ins:find('Simple')
   local res = binder:bindClass(Simple)
   assertMatch('luaopen_Simple', res)
+end
+
+function should.bindConstructor()
+  local Simple = ins:find('Simple')
+  local res = binder:bindClass(Simple)
+  assertMatch('"new"[ ,]+Simple_Simple', res)
 end
 
 function should.bindDestructor()
@@ -44,6 +51,40 @@ function should.bindStatic()
   local res = binder:functionBody(Simple, met)
   assertNotMatch('self', res)
   assertEqual('Simple_pi', binder:bindName(met))
+end
+--]]
+
+local function makeSignature(met)
+  local res = {}
+  for param in met:params() do
+    table.insert(res, param.lua.type)
+  end
+  return res
+end
+
+function should.resolveTypes()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('add')
+  binder:resolveTypes(met)
+  assertValueEqual({
+    'number',
+    'number',
+  }, makeSignature(met))
+  assertEqual('number, number', met.lua_signature)
+
+  met = Simple:method('mul')
+  binder:resolveTypes(met)
+  assertValueEqual({
+    'userdata',
+  }, makeSignature(met))
+  assertEqual('Simple', met.lua_signature)
+end
+
+function should.resolveReturnValue()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('add')
+  binder:resolveTypes(met)
+  assertEqual('number', met.return_value.lua.type)
 end
 
 function should.useArgCountWhenDefaults()
@@ -65,12 +106,12 @@ local function treeTest(tree)
   return res
 end
 
-function should.makeOverloadedResolveTree()
+function should.makeOverloadedDecisionTree()
   local Simple = ins:find('Simple')
   local met = Simple:method('add')
   local tree, need_top = binder:decisionTree(met.overloaded)
   assertValueEqual({
-    udata  = '(const Simple &o)',
+    Simple = '(const Simple &o)',
     number = '(MyFloat v, double w=10)',
   }, treeTest(tree))
   -- need_top because we have defaults
@@ -83,7 +124,7 @@ function should.makeOverloadedNestedResolveTree()
   local tree, need_top = binder:decisionTree(met.overloaded)
   assertValueEqual({
     _ = '()',
-    udata  = '(const Simple &o)',
+    Simple = '(const Simple &o)',
     number = {
       _ = '(double d)',
       number = '(double d, double d2)',
@@ -94,26 +135,13 @@ end
 
 --=============================================== Overloaded
 
-local function makeSignature(binder, met)
-  local res = ''
-  for i, p in ipairs(met.params_list) do
-    if i > 1 then
-      res = res .. ', '
-    end
-    if i == met.first_default then
-      res = res .. '| '
-    end
-    res = res .. (binder:nativeType(met, p.ctype) or p.ctype.name)
-  end
-  return res
-end
-
 function should.haveOverloadedList()
   local Simple = ins:find('Simple')
   local met = Simple:method('mul')
+  binder:resolveTypes(met)
   local res = {}
   for _, m in ipairs(met.overloaded) do
-    table.insert(res, makeSignature(binder, m))
+    table.insert(res, m.lua_signature)
   end
   assertValueEqual({
     'Simple',
@@ -128,10 +156,10 @@ function should.haveOverloadedListWithDefaults()
   local met = Simple:method('add')
   local res = {}
   for _, m in ipairs(met.overloaded) do
-    table.insert(res, makeSignature(binder, m))
+    table.insert(res, m.lua_signature)
   end
   assertValueEqual({
-    'number, | number',
+    'number, number',
     'Simple',
   }, res)
 end
@@ -163,7 +191,7 @@ function should.bindCompileAndLoad()
     }
     package.cpath = tmp_path .. '/?.so'
     require 'Simple'
-    assertType('function', Simple)
+    assertType('table', Simple)
   end, function()
     -- teardown
     package.loaded.Simple = nil
@@ -176,6 +204,24 @@ function should.bindCompileAndLoad()
 end
 
 --=============================================== Simple tests
+
+function should.buildObjectByCall()
+  local s = Simple(1.4)
+  assertType('userdata', s)
+  assertEqual(1.4, s:value())
+  assertEqual(Simple, getmetatable(s))
+end
+
+function should.buildObjectWithNew()
+  local s = Simple.new(1.4)
+  assertType('userdata', s)
+  assertEqual(Simple, getmetatable(s))
+end
+
+function should.haveType()
+  local s = Simple(1.4)
+  assertEqual("Simple", s.type)
+end
 
 function should.bindNumber()
   local s = Simple(1.4)
@@ -213,6 +259,16 @@ function should.callOverloaded()
   assertEqual(28, s:mul(14, 2))
   assertEqual(13, s:addAll(3, 4, 6))
   assertEqual(16, s:addAll(3, 4, 6, "foo"))
+end
+
+function should.properlyHandleErrorMessagesInOverloaded()
+  local s = Simple(2.4)
+  assertError('addAll: string expected, got nil', function()
+    s:addAll(3, 4, 6, nil)
+  end)
+  assertError('addAll: string expected, got boolean', function()
+    s:addAll(3, 4, 6, true)
+  end)
 end
 
 test.all()

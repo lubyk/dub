@@ -99,7 +99,7 @@ end
 
 --- Try to follow typedefs to resolve a type
 function lib:resolveType(name)
-  return self.db:resolveType(name)
+  return self.db:resolveType(self.db, name)
 end
 --=============================================== PRIVATE
 

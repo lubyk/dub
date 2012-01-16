@@ -215,25 +215,64 @@ void *dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt) thro
 // =============================================== dub_register
 // ======================================================================
 
+#define DUB_INIT_CODE "local new = %s.new\nsetmetatable(%s, {\n __call = function(_, ...)\n   return new(...)\n end,\n})\n"
 // The metatable lives in libname.ClassName_
 void dub_register(lua_State *L, const char *libname, const char *class_name) {
   // meta-table should be on top
   // <mt>
+  lua_getfield(L, -1, "__index");
+  if (lua_isnil(L, -1)) {
+    lua_pop(L, 1);
+    lua_pushvalue(L, -1);
+    // <mt>.__index = <mt>
+    lua_setfield(L, -2, "__index");
+  } else {
+    // We already have a custom __index metamethod.
+    lua_pop(L, 1);
+  }
+  // <mt>
   lua_pushstring(L, "type");
   // <mt> "type"
-  lua_pushfstring(L, "%s.%s", libname, class_name);
-  // <mt>."type" = "libname.class_name"
+  if (strcmp(libname, "_G")) {
+    // not in _G
+    lua_pushfstring(L, "%s.%s", libname, class_name);
+    // <mt>."type" = "libname.class_name"
+  } else {
+    lua_pushstring(L, class_name);
+    // <mt>."type" = "class_name"
+  }
   lua_settable(L, -3);
   // <mt>
   lua_getglobal(L, libname);
   // <mt> <lib>
-  lua_pushfstring(L, "%s_", class_name);
-  // <mt> <lib> "Foobar_"
+  lua_pushstring(L, class_name);
+  // <mt> <lib> "Foobar"
   lua_pushvalue(L, -3);
-  // <mt> <lib>.Foobar_ = <mt>
+  // <mt> <lib>.Foobar = <mt>
   lua_settable(L, -3);
   // <mt> <lib>
   lua_pop(L, 1);
+  // <mt>
+
+  // Setup the __call meta-table with an upvalue
+  size_t sz = strlen(DUB_INIT_CODE) + 2 * strlen(class_name) + 1;
+  char *lua_code = (char*)malloc(sizeof(char) * sz);
+  snprintf(lua_code, sz, DUB_INIT_CODE, class_name, class_name);
+  /*
+  local new = Foobar.new
+  setmetatable(Foobar, {
+    __call = function(...)
+      return new(...)
+    end,
+  })
+  */
+  int error = luaL_loadbuffer(L, lua_code, strlen(lua_code), "Dub init code") ||
+              lua_pcall(L, 0, 0, 0);
+  if (error) {
+    fprintf(stderr, "%s", lua_tostring(L, -1));
+    lua_pop(L, 1);  /* pop error message from the stack */
+  }
+  free(lua_code);
   // <mt>
 }
 
@@ -248,5 +287,14 @@ int dub_hash(const char *str, int sz) {
     h = h % DUB_MAX_IN_SHIFT;
   }
   return h % sz;
+}
+
+// register constants in the table at the top
+void dub_register_const(lua_State *L, const dub_const_Reg*l) {
+  for (; l->name; l++) {
+    // push each constant into the table at top
+    lua_pushnumber(L, l->value);
+    lua_setfield(L, -2, l->name);
+  }
 }
 

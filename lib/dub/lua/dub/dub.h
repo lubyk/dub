@@ -139,6 +139,19 @@ void dub_pushclass2(lua_State *L, T *ptr, const char *type_name) {
   lua_setmetatable(L, -2);
   // <udata>
 }
+
+// ======================================================================
+// =============================================== constants
+// ======================================================================
+
+typedef struct dub_const_Reg {
+  const char *name;
+  double value;
+} dub_const_Reg;
+
+// register constants in the table at the top
+void dub_register_const(lua_State *L, const dub_const_Reg *l);
+
 // ======================================================================
 // =============================================== dub_check ...
 // ======================================================================
