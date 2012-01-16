@@ -87,12 +87,15 @@ function should.listMethods()
     'Vect:static',
     'surface',
     'operator+',
+    'operator+=',
     'operator-',
+    'operator-=',
     'operator*',
     'operator/',
     'operator<',
     'operator<=',
     'operator==',
+    'operator()',
   }, res)
 end
 

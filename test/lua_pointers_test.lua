@@ -246,6 +246,34 @@ function should.overloadEqual()
   assertFalse(v1 == s2)
   assertTrue(v1 == Vect(7,2))
 end
+
+function should.overloadCall()
+  local v1 = Vect(7, 2)
+  assertEqual(7, v1(1))
+  assertEqual(2, v1(2))
+end
+
+function should.overloadIndex()
+  local v1 = Vect(7, 2)
+  assertEqual(7, v1[1])
+  assertEqual(2, v1[2])
+end
+
+-- operator+=
+function should.overloadAdde()
+  local v = Vect(7, 2)
+  v:add(Vect(3,2))
+  assertEqual(10, v.x)
+  assertEqual(4, v.y)
+end
+
+-- operator-=
+function should.overloadSube()
+  local v = Vect(7, 2)
+  v:sub(Vect(3,2))
+  assertEqual(4, v.x)
+  assertEqual(0, v.y)
+end
 --=============================================== Box
 
 function should.createBoxObject()

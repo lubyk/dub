@@ -40,6 +40,19 @@ local lib     = {
       end,
     },
   },
+  -- Native Lua operators
+  LUA_NATIVE_OP = {
+    add   = true,
+    sub   = true,
+    mul   = true,
+    div   = true,
+    eq    = true,
+    lt    = true,
+    le    = true,
+    call  = true,
+    index = true,
+  },
+  -- Lua type constants
   NATIVE_TO_TLUA = {
     number = 'LUA_TNUMBER',
   },
@@ -276,7 +289,13 @@ function lib:bindName(method)
   elseif method.is_get_attr then
     return '__index'
   elseif string.match(name, '^operator') then
-    return '__' .. string.match(method.cname, '^operator_(.+)$')
+    local op = string.match(method.cname, '^operator_(.+)$')
+    if self.LUA_NATIVE_OP[op] then
+      return '__' .. op
+    else
+      -- remove ending 'e'
+      return string.sub(op, 1, -2)
+    end
   elseif name == '' then
     -- ??
   else
@@ -610,6 +629,19 @@ function private:switch(class, method, delta, bfunc, iterator)
     position = 1,
   }
   param.lua = self:luaType(method.parent, param.ctype)
+  if method.index_op then
+    -- operator[]
+    res = res .. format('if (lua_type(L, %i) != LUA_TSTRING) {\n', delta + 1)
+    method.index_op.name = 'operator[]'
+    self:resolveTypes(method.index_op)
+    res = res .. '  ' .. private.callWithParams(self, class, method.index_op, delta, '  ') .. '\n'
+    res = res .. '}'
+    if not class.has_variables then
+      return res
+    else
+      res = res .. '\n'
+    end
+  end
   res = res .. private.getParamVar(self, method, param, delta)
   if method.is_get_attr then
     res = res .. '// <self> "key" <mt>\n'

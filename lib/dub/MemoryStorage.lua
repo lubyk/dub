@@ -315,7 +315,7 @@ function parse:templateparamlist(elem, header)
   setmetatable(self, dub.CTemplate)
   self.template_params = {}
   for _, param in ipairs(elem) do
-    local name = param:find('type')[1]
+    local name = private.flatten(param:find('type')[1])
     name = string.gsub(name, 'class ', '')
     name = string.gsub(name, 'typename ', '')
     table.insert(self.template_params, name)
@@ -436,6 +436,18 @@ parse['function'] = function(self, elem, header)
   if self.name == name then
     -- Constructor
     child.return_value = lib.makeType(name .. ' *')
+  elseif name == 'operator[]' then
+    -- Special case for index method
+    child.is_get_attr  = true
+    child.index_op     = child
+    child.name         = self.GET_ATTR_NAME
+    local exist = self.cache[self.GET_ATTR_NAME]
+    if exist then
+      exist.index_op = child
+      return nil
+    else
+      child.index_op = child
+    end
   end
 
   local exist = self.cache[name]

@@ -8,6 +8,7 @@
 --]]------------------------------------------------------
 local lib     = {
   type = 'dub.Function',
+  -- C function names to use for the binding function.
   OP_TO_NAME = {
     ['+']  = 'add',
     ['-']  = 'sub',
@@ -16,6 +17,16 @@ local lib     = {
     ['=='] = 'eq',
     ['<']  = 'lt',
     ['<='] = 'le',
+    ['()'] = 'call',
+    ['[]'] = 'index',
+    -- add equal
+    ['+='] = 'adde',
+    -- sub equal
+    ['-='] = 'sube',
+    -- mul equal
+    ['*='] = 'mule',
+    -- div equal
+    ['/='] = 'dive',
   }
 }
 local private = {}
