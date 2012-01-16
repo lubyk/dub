@@ -251,8 +251,8 @@ function parse:header(header, not_lazy)
   local data = xml.load(header.path):find('compounddef')
   local h_path = data:find('location').file
   local base, h_file = lk.directory(h_path)
-  header.h_file = h_file
-  table.insert(self.headers_list, h_file)
+  header.file = h_path
+  self.header = h_path
 
   self.dub = parse.dub(data) or self.dub
   parse.children(self, data, header, not_lazy)
@@ -403,7 +403,7 @@ function parse:typedef(elem, header)
     desc        = (elem:find('detaileddescription') or {})[1],
     xml         = elem,
     definition  = elem:find('definition')[1],
-    header_file = header.h_file,
+    header_path = header.h_path,
   }
   typ.ctype.create_name = typ.name .. ' '
   return typ
@@ -717,7 +717,7 @@ function private:resolveTypedef(elem)
         self.cache[class.name] = class
         table.insert(self.sorted_cache, class)
         class.typedef = elem.definition .. ';'
-        table.insert(class.headers_list, elem.header_file)
+        class.header = elem.header_path
         return class
       end
     end

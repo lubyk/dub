@@ -26,7 +26,6 @@ setmetatable(lib, {
     self.functions_list = {}
     self.variables_list = {}
     self.constants_list = {}
-    self.headers_list   = self.headers_list or {}
     self.super_list     = {}
     self.dub            = self.dub or {}
     self.xml_headers    = self.xml_headers or {}
@@ -52,11 +51,6 @@ end
 --- Return an iterator over the attributes of this class.
 function lib:attributes()
   return self.db:variables(self)
-end
-
---- Return an iterator over the headers for this class/namespace.
-function lib:headers()
-  return self.db:headers(self)
 end
 
 --- Return an iterator over the superclasses of this class.

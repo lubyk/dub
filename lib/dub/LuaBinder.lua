@@ -21,6 +21,7 @@ local lib     = {
     float      = 'number',
     size_t     = 'number',
     int        = 'number',
+    ['signed int'] = 'number',
     bool       = 'boolean',
     ['char']   = 'string',
     ['std::string'] = {
@@ -73,6 +74,7 @@ dub.LuaBinder = lib
 setmetatable(lib, {
   __call = function(lib, options)
     local self = {options = options or {}}
+    self.header_base = lfs.currentdir()
     return setmetatable(self, lib)
   end
 })
@@ -81,13 +83,18 @@ setmetatable(lib, {
 -- Add xml headers to the database
 function lib:bind(inspector, options)
   self.options = options
+  if options.header_base then
+    self.header_base = lk.absolutizePath(options.header_base)
+  end
   self.output_directory = self.output_directory or options.output_directory
   private.parseCustomBindings(self, options.custom_bindings)
   self.ins = inspector
+  local bound = {}
   if options.only then
     for _,name in ipairs(options.only) do
       local elem = inspector:find(name)
       if elem then
+        table.insert(bound, elem)
         private.bindElem(self, elem, options)
       else
         print(string.format("Element '%s' not found.", name))
@@ -96,7 +103,12 @@ function lib:bind(inspector, options)
   end
 
   for elem in inspector:children() do
+    table.insert(bound, elem)
     private.bindElem(self, elem, options)
+  end
+
+  if options.lib_name then
+    private.makeLibFile(self, options.lib_name, bound)
   end
   private.copyDubFiles(self)
 end
@@ -107,7 +119,7 @@ function lib:build(opts)
   for _, e in ipairs(opts.inputs) do
     files = files .. ' ' .. e
   end
-  local flags = ''
+  local flags = ' -I.'
   for _, e in ipairs(opts.includes or {}) do
     flags = flags .. ' -I' .. e
   end
@@ -301,6 +313,12 @@ function lib:bindName(method)
   else
     return method.name
   end
+end
+
+-- Output the header for a class by removing the current path
+-- or 'header_base',
+function lib:header(class)
+  return string.gsub(class.header, self.header_base .. '/', '')
 end
 --=============================================== Methods that can be customized
 
@@ -767,3 +785,19 @@ function private:insertByArg(res, func, index)
   return need_top
 end
 
+function private:makeLibFile(lib_name, list)
+  if not self.lib_template then
+    local dir = lk.dir()
+    self.lib_template = dub.Template {path = dir .. '/lua/lib_open.cpp'}
+  end
+  local res = self.lib_template:run {
+    list     = list,
+    lib_name = lib_name,
+    self     = self,
+  }
+
+  local path = self.output_directory .. lk.Dir.sep .. lib_name .. '_open.cpp'
+  local file = io.open(path, 'w')
+  file:write(res)
+  file:close()
+end

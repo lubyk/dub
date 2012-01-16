@@ -85,6 +85,57 @@ function should.notGetSelfInStaticMethod()
   assertNotMatch('self', res)
 end
 
+function should.createLibFile()
+  local tmp_path = 'test/tmp'
+  binder:bind(ins, {
+    output_directory = tmp_path,
+    -- Execute all lua_open in a single go
+    -- with lua_MyLib.
+    -- This creates a MyLib_open.cpp file
+    -- that has to be included in build.
+    lib_name = 'MyLib',
+  })
+  assertTrue(lk.exist(tmp_path .. '/MyLib_open.cpp'))
+  local res = lk.readall(tmp_path .. '/MyLib_open.cpp')
+  assertMatch('int luaopen_Box%(lua_State %*L%);', res)
+  assertMatch('int luaopen_Vect%(lua_State %*L%);', res)
+  assertMatch('luaopen_MyLib%(lua_State %*L%) %{', res)
+  assertMatch('luaopen_Box%(L%);', res)
+  assertMatch('luaopen_Vect%(L%);', res)
+
+  assertPass(function()
+    -- Build MyLib.so
+    binder:build {
+      output   = 'test/tmp/MyLib.so',
+      inputs   = {
+        'test/tmp/dub/dub.cpp',
+        'test/tmp/Vect.cpp',
+        'test/tmp/Box.cpp',
+        'test/tmp/MyLib_open.cpp',
+        'test/fixtures/pointers/vect.cpp',
+      },
+      includes = {
+        'test/tmp',
+      },
+    }
+    package.cpath = tmp_path .. '/?.so'
+    -- Must require Vect first because Box depends on Vect class and
+    -- only Vect.so has static members for Vect.
+    require 'MyLib'
+    assertType('table', Vect)
+    assertType('table', Box)
+  end, function()
+    -- teardown
+    package.loaded.MyLib = nil
+    package.cpath = cpath_bak
+    if not Vect then
+      test.abort = true
+    end
+    Vect = nil
+    Box  = nil
+  end)
+end
+
 function should.bindCompileAndLoad()
   -- create tmp directory
   local tmp_path = lk.dir() .. '/tmp'
@@ -96,30 +147,26 @@ function should.bindCompileAndLoad()
     
     -- Build Vect.so
     binder:build {
-      work_dir = lk.dir(),
-      output   = 'tmp/Vect.so',
+      output   = 'test/tmp/Vect.so',
       inputs   = {
-        'tmp/dub/dub.cpp',
-        'tmp/Vect.cpp',
-        'fixtures/pointers/vect.cpp',
+        'test/tmp/dub/dub.cpp',
+        'test/tmp/Vect.cpp',
+        'test/fixtures/pointers/vect.cpp',
       },
       includes = {
-        'tmp',
-        'fixtures/pointers',
+        'test/tmp',
       },
     }
     
     -- Build Box.so
     binder:build {
-      work_dir = lk.dir(),
-      output   = 'tmp/Box.so',
+      output   = 'test/tmp/Box.so',
       inputs   = {
-        'tmp/dub/dub.cpp',
-        'tmp/Box.cpp',
+        'test/tmp/dub/dub.cpp',
+        'test/tmp/Box.cpp',
       },
       includes = {
-        'tmp',
-        'fixtures/pointers',
+        'test/tmp',
       },
     }
     package.cpath = tmp_path .. '/?.so'
