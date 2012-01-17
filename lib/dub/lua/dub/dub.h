@@ -84,22 +84,27 @@ public:
 // =============================================== dub_pushclass
 // ======================================================================
 
+struct DubUserdata {
+  void *ptr;
+  bool gc;
+};
+
 /** Push a custom type on the stack.
  * Since the value is passed as a pointer, we assume it has been created
  * using 'new' and Lua can safely call delete when it needs to garbage-
  * -collect it.
  */
-void dub_pushudata(lua_State *L, void *ptr, const char *type_name);
+void dub_pushudata(lua_State *L, void *ptr, const char *type_name, bool gc = true);
 
 template<class T>
-struct DubUserdata {
+struct DubFullUserdata {
   T *ptr;
   T obj;
 };
 
 template<class T>
 void dub_pushfulldata(lua_State *L, const T &obj, const char *type_name) {
-  DubUserdata<T> *copy = (DubUserdata<T>*)lua_newuserdata(L, sizeof(DubUserdata<T>));
+  DubFullUserdata<T> *copy = (DubFullUserdata<T>*)lua_newuserdata(L, sizeof(DubFullUserdata<T>));
   copy->obj = obj;
   // now **copy gives back the object.
   copy->ptr = &copy->obj;

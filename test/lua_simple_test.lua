@@ -21,7 +21,6 @@ function should.autoload()
   assertType('table', dub.LuaBinder)
 end
 
---[[
 function should.bindClass()
   local Simple = ins:find('Simple')
   local res = binder:bindClass(Simple)
@@ -31,7 +30,11 @@ end
 function should.bindConstructor()
   local Simple = ins:find('Simple')
   local res = binder:bindClass(Simple)
+  local ctor = Simple:method('Simple')
   assertMatch('"new"[ ,]+Simple_Simple', res)
+  -- garbage collect new
+  local res = binder:functionBody(Simple, ctor)
+  assertMatch('pushudata[^\n]+, true%);', res)
 end
 
 function should.bindDestructor()
@@ -40,19 +43,22 @@ function should.bindDestructor()
   local res = binder:bindClass(Simple)
   assertMatch('Simple__Simple', res)
   local res = binder:functionBody(Simple, dtor)
-  assertMatch('if %(%*self%) delete %*self', res)
+  assertMatch('DubUserdata %*userdata = [^\n]+"Simple"', res)
+  assertMatch('if %(userdata%->gc%)', res)
+  assertMatch('Simple %*self = %(Simple%*%)userdata%->ptr;', res)
+  assertMatch('delete self;', res)
+  assertMatch('userdata%->gc = false;', res)
 end
 
 function should.bindStatic()
   local Simple = ins:find('Simple')
   local met = Simple:method('pi')
   local res = binder:bindClass(Simple)
-  assertMatch('Simple_pi', res)
+  assertMatch('pi', res)
   local res = binder:functionBody(Simple, met)
   assertNotMatch('self', res)
-  assertEqual('Simple_pi', binder:bindName(met))
+  assertEqual('pi', binder:bindName(met))
 end
---]]
 
 local function makeSignature(met)
   local res = {}
@@ -219,6 +225,12 @@ end
 
 function should.haveType()
   local s = Simple(1.4)
+  assertEqual("Simple", s.type)
+end
+
+function should.haveDefaultToString()
+  local s = Simple(1.4)
+  assertMatch('Simple: 0x[0-9a-f]+', s:__tostring())
   assertEqual("Simple", s.type)
 end
 

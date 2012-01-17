@@ -60,9 +60,10 @@ TypeException::TypeException(lua_State *L, int narg, const char *type, bool is_s
 // ======================================================================
 // =============================================== dub_pushudata
 // ======================================================================
-void dub_pushudata(lua_State *L, void *ptr, const char *type_name) {
-  void **userdata = (void**)lua_newuserdata(L, sizeof(void*));
-  *userdata = ptr;
+void dub_pushudata(lua_State *L, void *ptr, const char *type_name, bool gc) {
+  DubUserdata *userdata = (DubUserdata*)lua_newuserdata(L, sizeof(DubUserdata));
+  userdata->ptr = ptr;
+  userdata->gc = gc;
 
   // the userdata is now on top of the stack
 

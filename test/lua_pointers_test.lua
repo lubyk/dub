@@ -26,11 +26,27 @@ local ins = dub.Inspector {
 
 --=============================================== Special types
 function should.resolveStdString()
-  local Box  = ins:find('Box')
-  local ctor = Box:method('Box')
-  local res  = binder:functionBody(Box, ctor)
+  local Box = ins:find('Box')
+  local met = Box:method('Box')
+  local res = binder:functionBody(Box, met)
   assertMatch('size_t name_sz_;', res)
   assertMatch('const char %*name = dub_checklstring%(L, 1, %&name_sz_%);', res)
+end
+
+function should.notGcReturnedPointer()
+  local Box = ins:find('Box')
+  local met = Box:method('size')
+  local res = binder:functionBody(Box, met)
+  -- no gc
+  assertMatch('pushudata[^\n]+, false%);', res)
+end
+
+function should.gcReturnedPointerMarkedAsGc()
+  local Box = ins:find('Box')
+  local met = Box:method('copySize')
+  local res = binder:functionBody(Box, met)
+  -- no gc
+  assertMatch('pushudata[^\n]+, true%);', res)
 end
 
 --=============================================== Set/Get vars.
@@ -107,6 +123,7 @@ end
 function should.createLibFileWithCustomNames()
   local tmp_path = 'test/tmp'
   lk.rmTree(tmp_path, true)
+
   os.execute('mkdir -p '..tmp_path)
   -- Our binder resolves types differently due to MyLib so we
   -- need our own inspector.
@@ -182,7 +199,7 @@ function should.createLibFile()
     INPUT    = 'test/fixtures/pointers',
     doc_dir  = lk.dir() .. '/tmp',
   }
-  lk.rmTree(tmp_path)
+
   os.execute('mkdir -p ' .. tmp_path)
   binder:bind(ins, {
     output_directory = tmp_path,
@@ -194,6 +211,7 @@ function should.createLibFile()
     -- Forces classes to live in MyLib.Foobar
     lib_prefix = 'MyLib',
   })
+
   assertTrue(lk.exist(tmp_path .. '/MyLib.cpp'))
   local res = lk.readall(tmp_path .. '/MyLib.cpp')
   assertMatch('int luaopen_Box%(lua_State %*L%);', res)
@@ -247,6 +265,7 @@ function should.bindCompileAndLoad()
   os.execute("mkdir -p "..tmp_path)
 
   binder:bind(ins, {output_directory = tmp_path})
+
   local cpath_bak = package.cpath
   assertPass(function()
     
@@ -459,6 +478,33 @@ function should.readBoxAttributes()
   local sz = v.size_
   assertEqual(2, sz.x)
   assertEqual(3, sz.y)
+end
+
+-- Changes should propagate back to Vect in Box.
+function should.notCopyPointer()
+  local b = Box('Cat', Vect(2,3))
+  local sz = b:size()
+  sz.x = 5
+  assertEqual(5, b.size_.x)
+end
+
+-- Changes should propagate back to Vect in Box.
+function should.notCopyAttribute()
+  local b = Box('Cat', Vect(2,3))
+  local sz = b.size_
+  sz.x = 5
+  assertEqual(5, b.size_.x)
+end
+
+-- Should not gc
+function should.notGCPointerToMember()
+  local b = Box('Cat', Vect(2,3))
+  local sz = b.size_
+  sz:__gc() -- does nothing
+  sz.x = 4
+  sz = nil
+  collectgarbage()
+  assertEqual(4, b.size_.x)
 end
 
 function should.writeBoxAttributes()

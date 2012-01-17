@@ -114,7 +114,17 @@ function should.listStaticMethods()
   for meth in Box:methods() do
     table.insert(res, meth.name)
   end
-  assertValueEqual({'_Box', Box.GET_ATTR_NAME, Box.SET_ATTR_NAME, 'Box', 'name', 'surface', 'MakeBox'}, res)
+  assertValueEqual({
+    '_Box',
+    Box.GET_ATTR_NAME,
+    Box.SET_ATTR_NAME,
+    'Box',
+    'name',
+    'surface',
+    'size',
+    'copySize',
+    'MakeBox',
+  }, res)
 end
 
 function should.staticMethodShouldBeStatic()

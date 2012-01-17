@@ -201,19 +201,22 @@ function lib:functionBody(class, method)
   end
   local res = ''
   if method.dtor then
-    res = res .. private.getSelf(self, class, method, true)
+    res = res .. format('DubUserdata *userdata = ((DubUserdata*)dub_checksdata(L, 1, "%s"));', self:libName(class))
     if custom then
       res = res .. custom
     else
-      res = res .. format('if (*%s) delete *%s;\n', self.SELF, self.SELF)
-      res = res .. format('*%s = NULL;\n', self.SELF)
+      res = res .. 'if (userdata->gc) {\n'
+      res = res .. format('  %s *self = (%s*)userdata->ptr;\n', class.name, class.name)
+      res = res .. '  delete self;\n'
+      res = res .. '}\n'
+      res = res .. 'userdata->gc = false;\n'
       res = res .. 'return 0;'
     end
   else
     local param_delta = 0
     if not method.static then
       -- We need self
-      res = res .. private.getSelf(self, class, method, false, method.is_get_attr)
+      res = res .. private.getSelf(self, class, method, method.is_get_attr)
       param_delta = 1
     end
     if method.has_defaults then
@@ -409,15 +412,9 @@ end
 --- Find the userdata from the current lua_State. The userdata can
 -- be directly passed as first parameter or it can be inside a table as
 -- 'super'.
-function private.getSelf(self, class, method, need_fullptr, need_mt)
-  local fmt
+function private.getSelf(self, class, method, need_mt)
   local nmt
-  if need_fullptr then
-    -- Need userdata pointer, not just the pointer to object
-    fmt = '%s **%s = ((%s**)%s(L, 1, "%s"%s));\n'
-  else
-    fmt = '%s *%s = *((%s**)%s(L, 1, "%s"%s));\n'
-  end
+  local fmt = '%s *%s = *((%s**)%s(L, 1, "%s"%s));\n'
   if need_mt then
     -- Type accessor should leave metatable on stack.
     nmt = ', true'
@@ -588,14 +585,26 @@ function private:pushValue(method, value, return_value)
   elseif lua.type == 'userdata' then
     -- resolved value
     local rtype = lua.rtype
+    local gc
     if not ctype.ptr then
-      if method.parent.dub.destroy == 'free' then
-        res = format('dub_pushfulldata<%s>(L, %s, "%s");', rtype.name, value, lua.mt_name)
+      if method.is_get_attr then
+        -- Return pointer to member: WARNING: same risks as C++ dangling pointers.
+        res = format('dub_pushudata(L, &%s, "%s", false);', value, lua.mt_name)
       else
-        res = format('dub_pushudata(L, new %s(%s), "%s");', rtype.name, value, lua.mt_name)
+        -- Return value is not a pointer: we have a copy
+        if method.parent.dub.destroy == 'free' then
+          res = format('dub_pushfulldata<%s>(L, %s, "%s");', rtype.name, value, lua.mt_name)
+        else
+          res = format('dub_pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
+        end
       end
     else
-      res = format('dub_pushudata(L, %s, "%s");', value, lua.mt_name)
+      -- Return value is a pointer, we should only GC in constructor.
+      if method.ctor or method.dub and method.dub.gc then
+        res = format('dub_pushudata(L, %s, "%s", true);', value, lua.mt_name)
+      else
+        res = format('dub_pushudata(L, %s, "%s", false);', value, lua.mt_name)
+      end
     end
   else
     -- native type

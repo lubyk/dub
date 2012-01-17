@@ -31,7 +31,18 @@ struct Box {
   double surface() {
     return size_.surface();
   }
-  
+
+  // Should not gc.
+  Vect *size() {
+    return &size_;
+  }
+
+  /** Copy of size pointer. Should be garbage collected.
+   * @dub gc: true
+   */
+  Vect *copySize() {
+    return new Vect(size_);
+  }
 };
 
 #endif // POINTERS_BOX_H_

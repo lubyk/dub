@@ -31,11 +31,29 @@ static int {{class.name}}_{{method.cname}}(lua_State *L) {
 
 {% end %}
 
+{% if not class:method('__tostring') then %}
+
+// --=============================================== __tostring
+static int {{class.name}}___tostring(lua_State *L) {
+{% if class.dub.destroy == 'free' then %}
+  {{class.name}} **userdata = (({{class.name}}**)dub_checksdata_n(L, 1, "{{self:libName(class)}}"));
+  lua_pushfstring(L, "{{self:libName(class)}}: %p (full)", *userdata);
+{% else %}
+  DubUserdata *userdata = ((DubUserdata*)dub_checksdata_n(L, 1, "{{self:libName(class)}}"));
+  lua_pushfstring(L, "{{self:libName(class)}}: %p", userdata->ptr);
+{% end %}
+  return 1;
+}
+{% end %}
+
 // --=============================================== METHODS
 
 static const struct luaL_Reg {{class.name}}_member_methods[] = {
 {% for method in class:methods() do %}
   { {{string.format('%-15s, %-20s', '"'..self:bindName(method)..'"', class.name .. '_' .. method.cname)}} },
+{% end %}
+{% if not class:method('__tostring') then %}
+  { {{string.format('%-15s, %-20s', '"__tostring"', class.name .. '___tostring')}} },
 {% end %}
   { NULL, NULL},
 };
