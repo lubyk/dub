@@ -87,6 +87,15 @@ function lib:bind(inspector, options)
     self.header_base = lk.absolutizePath(options.header_base)
   end
 
+  if options.single_lib then
+    -- default is to prefix mt types with lib name
+    options.lib_prefix = options.lib_prefix or options.single_lib
+  end
+
+  if options.lib_prefix == false then
+    options.lib_prefix = nil
+  end
+
   if options.lib_prefix then
     -- This is the root of all classes.
     inspector.db.name = options.lib_prefix
@@ -107,8 +116,10 @@ function lib:bind(inspector, options)
     end
   else
     for elem in inspector:children() do
-      table.insert(bound, elem)
-      private.bindElem(self, elem, options)
+      if elem.type == 'dub.Class' then
+        table.insert(bound, elem)
+        private.bindElem(self, elem, options)
+      end
     end
   end
 
@@ -415,8 +426,8 @@ end
 
 -- Output the header for a class by removing the current path
 -- or 'header_base',
-function lib:header(class)
-  return string.gsub(class.header, self.header_base .. '/', '')
+function lib:header(header)
+  return string.gsub(header, self.header_base .. '/', '')
 end
 --=============================================== Methods that can be customized
 
@@ -432,6 +443,11 @@ end
 -- bindings. This can be used to rename classes or namespaces.
 function lib:name(elem)
   return elem.name
+end
+
+-- Return the 'public' name to use for a constant.
+function lib:constName(name)
+  return name
 end
 
 function lib:libName(elem)
@@ -949,11 +965,11 @@ end
 function private:makeLibFile(lib_name, list)
   if not self.lib_template then
     local dir = lk.dir()
-    self.lib_template = dub.Template {path = dir .. '/lua/lib_open.cpp'}
+    self.lib_template = dub.Template {path = dir .. '/lua/lib.cpp'}
   end
   local res = self.lib_template:run {
-    list     = list,
-    lib_name = lib_name,
+    lib      = self.ins.db,
+    classes  = list,
     self     = self,
   }
 

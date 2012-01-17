@@ -10,9 +10,9 @@
 require 'lubyk'
 local should = test.Suite('dub.Inspector - constants')
 
-local ins = dub.Inspector {
-  INPUT   = 'test/fixtures/constants',
-  doc_dir = lk.dir() .. '/tmp',
+local ins  = dub.Inspector {
+  INPUT    = 'test/fixtures/constants',
+  doc_dir  = lk.dir() .. '/tmp',
 }
 
 local Car = ins:find('Car')
@@ -39,6 +39,37 @@ end
 
 function should.haveConstants()
   assertTrue(Car.has_constants)
+end
+
+function should.findGlobalEnum()
+  local enum = ins:find('GlobalConstant')
+  assertEqual('dub.Enum', enum.type)
+end
+
+function should.haveGlobalConstants()
+  assertTrue(ins.db.has_constants)
+end
+
+function should.listGlobalConstants()
+  local res = {}
+  for const in ins.db:constants() do
+    table.insert(res, const)
+  end
+  assertValueEqual({
+    'One',
+    'Two',
+    'Three',
+  }, res)
+end
+
+function should.listConstHeaders()
+  local res = {}
+  for h in ins.db:constHeaders() do
+    table.insert(res, string.sub(h, -17, -1))
+  end
+  assertValueEqual({
+    'constants/types.h',
+  }, res)
 end
 
 function should.findEnumByFullname()

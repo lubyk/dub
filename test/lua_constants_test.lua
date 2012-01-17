@@ -36,6 +36,14 @@ function should.resolveEnumTypeAsNumber()
   local met = Car:method(Car.SET_ATTR_NAME)
   local lua = binder:luaType(Car, {name = 'Brand'})
   assertEqual('number', lua.type)
+  assertEqual('Car::Brand', lua.rtype.cast)
+end
+
+function should.resolveGlobalEnumTypeAsNumber()
+  local Car = ins:find('Car')
+  local lua = binder:luaType(Car, {name = 'GlobalConstant'})
+  assertEqual('number', lua.type)
+  assertEqual('GlobalConstant', lua.rtype.cast)
 end
 
 --=============================================== Set/Get enum type.
@@ -50,20 +58,31 @@ end
 
 --=============================================== Build
 function should.bindCompileAndLoad()
+  local ins = dub.Inspector {
+    INPUT    = 'test/fixtures/constants',
+    doc_dir  = lk.dir() .. '/tmp',
+  }
+
   -- create tmp directory
   local tmp_path = lk.dir() .. '/tmp'
   os.execute("mkdir -p "..tmp_path)
 
-  binder:bind(ins, {output_directory = tmp_path})
+  binder:bind(ins, {
+    output_directory = tmp_path,
+    -- Execute all lua_open in a single go
+    -- with lua_openb2 (creates traffic.cpp).
+    single_lib = 'traffic',
+  })
   local cpath_bak = package.cpath
   assertPass(function()
     
-    -- Build Car.so
+    -- Build traffic.so
     binder:build {
-      output   = 'test/tmp/Car.so',
+      output   = 'test/tmp/traffic.so',
       inputs   = {
         'test/tmp/dub/dub.cpp',
         'test/tmp/Car.cpp',
+        'test/tmp/traffic.cpp',
       },
       includes = {
         'test/tmp',
@@ -74,14 +93,16 @@ function should.bindCompileAndLoad()
     package.cpath = tmp_path .. '/?.so'
     -- Must require Car first because Box depends on Car class and
     -- only Car.so has static members for Car.
-    require 'Car'
-    assertType('table', Car)
+    require 'traffic'
+    assertType('table', traffic.Car)
   end, function()
     -- teardown
-    package.loaded.Car = nil
+    package.loaded.traffic = nil
     package.cpath = cpath_bak
-    if not Car then
+    if not traffic.Car then
       test.abort = true
+    else
+      Car = traffic.Car
     end
   end)
   --lk.rmTree(tmp_path, true)
@@ -120,6 +141,12 @@ function should.writeBadEnumValue()
   c.brand = 938
   assertEqual(938, c.brand)
   assertEqual('???', c:brandName())
+end
+
+function should.readGlobalConstant()
+  assertEqual(1, traffic.One)
+  assertEqual(2, traffic.Two)
+  assertEqual(55, traffic.Three)
 end
 
 --=============================================== Car alternate binding style

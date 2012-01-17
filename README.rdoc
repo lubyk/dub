@@ -28,6 +28,7 @@ Currently, the parser supports:
  * simple type garbage collection optimization (no __gc method)
  * hand made bindings for special cases
  * class enums
+ * global enums
  * build system
  * group multiple bindings in a single library
  * rewrite class or library names
@@ -36,8 +37,6 @@ Currently, the parser supports:
 = TODO
 
  * documentation
- * namespace enums
- * group constant defines
 
 = Usage
 

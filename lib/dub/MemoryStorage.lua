@@ -26,6 +26,8 @@ setmetatable(lib, {
       cache          = {},
       sorted_cache   = {},
       functions_list = {},
+      constants_list = {},
+      const_headers  = {},
     }
     return setmetatable(self, lib)
   end
@@ -153,10 +155,27 @@ end
 function lib:constants(parent)
   -- make sure we have parsed the headers
   private.parseHeaders(self)
-  private.parseHeaders(parent)
+  if parent then
+    private.parseHeaders(parent)
+  else
+    parent = self
+  end
   local co = co or coroutine.create(private.iterator)
   return function()
     local ok, elem = coroutine.resume(co, parent.constants_list)
+    if ok then
+      return elem
+    end
+  end
+end
+
+--- Return an iterator over the headers where constants are defined.
+function lib:constHeaders()
+  -- make sure we have parsed the headers
+  private.parseHeaders(self)
+  local co = co or coroutine.create(private.iterator)
+  return function()
+    local ok, elem = coroutine.resume(co, self.const_headers)
     if ok then
       return elem
     end
@@ -356,6 +375,8 @@ function parse:sectiondef(elem, header)
   local kind = elem.kind
   if kind == 'public-func' or 
      -- methods
+     kind == 'enum' or
+     -- global enum
      kind == 'typedef' or
      -- typedef
      kind == 'public-attrib' or
@@ -368,6 +389,10 @@ function parse:sectiondef(elem, header)
      -- enum, sub-types
      then
     parse.children(self, elem, header)
+    if kind == 'enum' then
+      -- global enum
+      table.insert(self.const_headers, header.file)
+    end
   elseif kind == 'private-func' then
     -- private methods (to detect private dtor)
     for _, elem in ipairs(elem) do
@@ -439,9 +464,15 @@ function parse:enum(elem, header)
     list     = list,
     ctype    = lib.makeType('double'),
   }
-  enum.ctype.cast = self:fullname() .. '::' .. name
-  enum.ctype.create_name = self:fullname() .. '::' .. name .. ' '
-  enum.ctype.scope = self:fullname()
+  if self.name then
+    enum.ctype.cast = self:fullname() .. '::' .. name
+    enum.ctype.create_name = self:fullname() .. '::' .. name .. ' '
+    enum.ctype.scope = self:fullname()
+  else
+    enum.ctype.cast = name
+    enum.ctype.create_name = name .. ' '
+  end
+
   self.has_constants = true
   return enum
 end
