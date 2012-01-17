@@ -171,6 +171,9 @@ void *dub_checkudata(lua_State *L, int ud, const char *tname, bool keep_mt = fal
 
 // Super aware userdata calls (finds userdata inside provided table with table.super).
 void *dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw(dub::TypeException);
+// Return true if the type is correct. Used to resolve overloaded functions when there
+// is no other alternative (arg count, native types).
+bool dub_issdata(lua_State *L, int ud, const char *tname, int type);
 // Does not throw exceptions. This method behaves exactly like luaL_checkudata but searches
 // for table.super before calling lua_error.
 void *dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw();

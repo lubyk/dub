@@ -39,7 +39,13 @@ setmetatable(lib, {
     self.dub = self.dub or {}
     self.static = self.static or self.ctor
     self.has_defaults = self.params_list.first_default and true
-    self.first_default= self.params_list.first_default
+    if self.has_defaults then
+      self.first_default = self.params_list.first_default
+      -- minimal number of arguments
+      self.min_arg_size = self.first_default - 1
+    else
+      self.min_arg_size = #self.params_list
+    end
     setmetatable(self, lib)
     self:setName(self.name)
     self.sign = private.makeSignature(self)

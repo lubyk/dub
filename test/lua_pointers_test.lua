@@ -501,8 +501,6 @@ function should.notGcOwnerBeforePointer()
   local sz = b.size_
   b = nil
   collectgarbage()
-  -- b is not deleted yet because 'sz' points to b through
-  -- the userdata env.
   sz.x = 4
 end
 

@@ -53,6 +53,26 @@ public:
     return 0;
   }
 
+  /** Overloaded method that can be decided by arg size.
+   */
+  int testA(Foo *f) {
+    return 1;
+  }
+
+  int testA(Bar *b, double d) {
+    return 2;
+  }
+
+  /** Overloaded method that can be only be decided by arg type.
+   */
+  int testB(Foo *f) {
+    return 1;
+  }
+
+  int testB(Bar *b) {
+    return 2;
+  }
+
   // to test deep nesting overloaded decision tree
   double addAll(double d, double d2, double d3) {
     return d + d2 + d3;

@@ -88,14 +88,15 @@ function should.listMethods()
   for meth in Vectf:methods() do
     table.insert(res, meth.name)
   end
-  assertValueEqual({'~Vectf', 
-    Vectf.GET_ATTR_NAME,
-    Vectf.SET_ATTR_NAME,
+  assertValueEqual({
     'Vectf',
     'surface',
     'operator+',
     'addToX',
     'addTwo',
+    '~Vectf', 
+    Vectf.GET_ATTR_NAME,
+    Vectf.SET_ATTR_NAME,
   }, res)
 end
 

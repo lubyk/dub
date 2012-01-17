@@ -22,7 +22,7 @@ Currently, the parser supports:
  * bindings for superclass
  * automatic casting to base class
  * default argument values
- * overloaded functions
+ * overloaded functions with optimized method selection from arguments
  * operator overloading (even operator[], operator() and operator+= and such)
  * return value optimization (no copy)
  * simple type garbage collection optimization (no __gc method)

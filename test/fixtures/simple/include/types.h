@@ -6,4 +6,10 @@
  */
 typedef double MyFloat;
 
+struct Foo {
+};
+
+struct Bar {
+};
+
 #endif // SIMPLE_INCLUDE_TYPES_H_

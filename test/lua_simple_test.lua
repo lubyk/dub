@@ -106,7 +106,9 @@ local function treeTest(tree)
     return tree.argsstring
   else
     for k, v in pairs(tree) do
-      res[k] = treeTest(v)
+      if k ~= '.count' then
+        res[k] = treeTest(v)
+      end
     end
   end
   return res
@@ -117,8 +119,10 @@ function should.makeOverloadedDecisionTree()
   local met = Simple:method('add')
   local tree, need_top = binder:decisionTree(met.overloaded)
   assertValueEqual({
-    Simple = '(const Simple &o)',
-    number = '(MyFloat v, double w=10)',
+    ['1'] = {
+      Simple = '(const Simple &o)',
+      number = '(MyFloat v, double w=10)',
+    }
   }, treeTest(tree))
   -- need_top because we have defaults
   assertTrue(need_top)
@@ -129,15 +133,41 @@ function should.makeOverloadedNestedResolveTree()
   local met = Simple:method('mul')
   local tree, need_top = binder:decisionTree(met.overloaded)
   assertValueEqual({
-    _ = '()',
-    Simple = '(const Simple &o)',
-    number = {
-      _ = '(double d)',
-      number = '(double d, double d2)',
+    ['2'] = '(double d, double d2)',
+    ['1'] = {
+     Simple = '(const Simple &o)',
+     number = '(double d)',
     },
+    ['0'] = '()',
   }, treeTest(tree))
   assertTrue(need_top)
 end
+
+function should.favorArgSizeInDecisionTree()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('testA')
+  local tree, need_top = binder:decisionTree(met.overloaded)
+  assertValueEqual({
+    ['2'] = '(Bar *b, double d)',
+    ['1'] = '(Foo *f)',
+  }, treeTest(tree))
+  -- need_top because we have defaults
+  assertTrue(need_top)
+end
+
+function should.userArgTypeToSelect()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('testB')
+  local tree, need_top = binder:decisionTree(met.overloaded)
+  assertValueEqual({
+    ['1'] = {
+      Foo = '(Foo *f)',
+      Bar = '(Bar *b)',
+    },
+  }, treeTest(tree))
+  assertFalse(need_top)
+end
+
 
 --=============================================== Overloaded
 

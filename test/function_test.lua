@@ -25,7 +25,7 @@ function should.autoload()
   assertType('table', dub.Function)
 end
 
-function should.beAClass()
+function should.beAFunction()
   assertEqual('dub.Function', makeFunction().type)
 end
 
@@ -38,6 +38,13 @@ function should.haveParams()
     table.insert(res, {i, param.name})
   end
   assertValueEqual({{1, 'v'}, {2, 'w'}}, res)
+end
+
+function should.haveMinArgSize()
+  local func = makeFunction('add')
+  assertEqual('(MyFloat v, double w=10)', func.argsstring)
+  assertTrue(func.has_defaults)
+  assertEqual(1, func.min_arg_size)
 end
 
 function should.haveReturnValue()

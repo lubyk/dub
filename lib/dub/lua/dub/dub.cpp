@@ -29,8 +29,8 @@
 #include "dub/dub.h"
 
 #define DUB_EXCEPTION_BUFFER_SIZE 256  
-#define TYPE_EXCEPTION_MSG "%s expected, %s"
-#define TYPE_EXCEPTION_SMSG "%s expected, %s (using super)"
+#define TYPE_EXCEPTION_MSG "expected %s, found %s"
+#define TYPE_EXCEPTION_SMSG "expected %s, found %s (using super)"
 #define DUB_MAX_IN_SHIFT 4294967296
 
 using namespace dub;
@@ -215,6 +215,14 @@ void *dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt) th
     luaL_error(L, TYPE_EXCEPTION_MSG, tname, luaL_typename(L, ud));
   }
   return p;
+}
+
+bool dub_issdata(lua_State *L, int ud, const char *tname, int type) {
+  if (type == LUA_TUSERDATA || type == LUA_TTABLE) {
+    return getsdata(L, ud, tname, false) != NULL;
+  } else {
+    return false;
+  }
 }
 
 void *dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt) throw(TypeException) {

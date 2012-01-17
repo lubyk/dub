@@ -201,7 +201,7 @@ function lib:functionBody(class, method)
   end
   local res = ''
   if method.dtor then
-    res = res .. format('DubUserdata *userdata = ((DubUserdata*)dub_checksdata(L, 1, "%s"));', self:libName(class))
+    res = res .. format('DubUserdata *userdata = ((DubUserdata*)dub_checksdata(L, 1, "%s"));\n', self:libName(class))
     if custom then
       res = res .. custom
     else
@@ -221,7 +221,7 @@ function lib:functionBody(class, method)
     end
     if method.has_defaults then
       -- We need arg count
-      res = res .. 'int top__  = lua_gettop(L);\n'
+      res = res .. 'int top__ = lua_gettop(L);\n'
     end
     if method.is_set_attr then
       res = res .. private.switch(self, class, method, param_delta, private.setAttrBody, class.attributes)
@@ -232,7 +232,7 @@ function lib:functionBody(class, method)
     elseif method.overloaded then
       local tree, need_top = self:decisionTree(method.overloaded)
       if need_top and not method.has_defaults then
-        res = res .. 'int top__  = lua_gettop(L);\n'
+        res = res .. 'int top__ = lua_gettop(L);\n'
       end
       res = res .. private.expandTree(self, tree, class, param_delta, 1, '')
     else
@@ -251,24 +251,102 @@ function private:detectType(pos, type_name)
   end
 end
 
-function private:expandTree(tree, class, param_delta, pos, indent)
+function private:expandTreeByType(tree, class, param_delta, pos, indent)
   local res = ''
   local keys = {}
   local type_count = 0
   for k, v in pairs(tree) do
-    if k == '_' then
+    -- collect keys, sorted by native type first
+    -- because they are easier to detect with lua_type
+    if self.NATIVE_TO_TLUA[k] then
       table.insert(keys, 1, k)
     else
-      type_count = type_count + 1
       table.insert(keys, k)
     end
   end
-  local got_type
   local last_key = #keys
   if last_key == 1 then
     -- single entry in decision, just go deeper
     return private.expandTree(self, tree[keys[1]], class, param_delta, pos + 1, indent)
   end
+
+  res = res .. format('int type__ = lua_type(L, %i);\n', param_delta + pos)
+  for i, type_name in ipairs(keys) do
+    local list = tree[type_name]
+    if i > 1 then
+      res = res .. '} else '
+    end
+    if i == last_key then
+      res = res .. '{\n'
+    else
+      res = res .. format('if (%s) {\n', private.detectType(self, param_delta + pos, type_name))
+    end
+    if list.type == 'dub.Function' then
+      -- done
+      res = res .. '  ' .. private.callWithParams(self, class, list, param_delta, '  ') .. '\n'
+    else
+      -- continue expanding
+      res = res .. '  ' .. private.expandTree(self, list, class, param_delta, pos + 1, '  ') .. '\n'
+    end
+  end
+  res = res .. '}'
+  return string.gsub(res, '\n', '\n' .. indent)
+end -- expandTreeByTyp
+
+function private:expandTree(tree, class, param_delta, pos, indent)
+  local res = ''
+  local keys = {}
+  local type_count = 0
+  for k, v in pairs(tree) do
+    -- skip the keys count entry
+    if k ~= '.count' then
+      -- cast to number
+      local nb = k + 0
+      local done
+      for i, ek in ipairs(keys) do
+        -- insert biggest first
+        if nb > ek then
+          table.insert(keys, i, nb)
+          done = true
+          break
+        end
+      end
+      if not done then
+        -- insert at the end
+        table.insert(keys, nb)
+      end
+    end
+  end
+
+  local last_key = #keys
+  if last_key == 1 then
+    -- single entry in decision, just go deeper
+    return private.expandTreeByType(self, tree[keys[1]..''], class, param_delta, pos, indent)
+  end
+
+  for i, min_arg in ipairs(keys) do
+    local list = tree[min_arg..'']
+    if i > 1 then
+      res = res .. '} else '
+    end
+    if i == last_key then
+      res = res .. '{\n'
+    else
+      res = res .. format('if (top__ >= %i) {\n', param_delta + min_arg)
+    end
+    if list.type == 'dub.Function' then
+      -- done
+      res = res .. '  ' .. private.callWithParams(self, class, list, param_delta, '  ') .. '\n'
+    else
+      -- continue expanding
+      res = res .. '  ' .. private.expandTreeByType(self, list, class, param_delta, pos, '  ') .. '\n'
+    end
+  end
+  res = res .. '}'
+  return string.gsub(res, '\n', '\n' .. indent)
+end -- expandTree (by position)
+
+function private.dummy()
 
   local close  = '}'
   local if_ind = ''
@@ -748,7 +826,7 @@ function private:switch(class, method, delta, bfunc, iterator)
         res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) luaL_error(L, KEY_EXCEPTION_MSG, key);\n', name)
       else
         -- No error on bad read or cast: just return nil.
-        res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) return 0;\n', name)
+        res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) return 0;\n', self:libName(elem))
       end
       res = res .. '    ' .. string.gsub(body, '\n', '\n    ') .. '\n  }\n'
     end
@@ -789,20 +867,45 @@ end
 -- See lua_simple_test for the output of this tree.
 function lib:decisionTree(list)
   local res = {}
+  -- keep keys count
+  res['.count'] = 0
   local need_top = false
   for _, func in ipairs(list) do
-    need_top = private.insertByArg(self, res, func) or need_top
+    need_top = private.insertByTop(self, res, func) or need_top
   end
   return res, need_top
 end
 
+
+function private:insertByTop(res, func, index)
+  index = index or 1
+  -- force string keys
+  local top_key  = format('%i', func.min_arg_size)
+  local list     = res[top_key]
+  local need_top = func.has_defaults
+  if list then
+    -- we need to make decision on argument type
+    if list.type == 'dub.Function' then
+      local f = list
+      list = {}
+      res[top_key] = list
+      private.insertByArg(self, list, f, index)
+    end
+    need_top = private.insertByArg(self, list, func, index) or need_top
+  else
+    res[top_key] = func
+    res['.count'] = res['.count'] + 1
+    need_top = need_top or res['.count'] > 1
+  end
+  return need_top
+end
 
 -- Insert a function into the hash, using the argument at the given
 -- index to filter
 function private:insertByArg(res, func, index)
   index = index or 1
   local param = func.params_list[index]
-  local need_top = func.has_defaults
+  local need_top = false
   if not param or func.first_default == index then
     need_top = true
     -- no param here
@@ -813,6 +916,7 @@ function private:insertByArg(res, func, index)
       res._ = func
     end
   end
+
   if param then
     local type_name
     if param.lua.type == 'userdata' then
@@ -829,12 +933,14 @@ function private:insertByArg(res, func, index)
       if list.type == 'dub.Function' then
         local f = list
         list = {}
+        -- to keep keys count
+        list[1] = 0
         res[type_name] = list
         -- move previous func further down
-        need_top = private.insertByArg(self, list, f, index + 1) or need_top
+        need_top = private.insertByTop(self, list, f, index + 1) or need_top
       end
       -- insert new func
-      need_top = private.insertByArg(self, list, func, index + 1) or need_top
+      need_top = private.insertByTop(self, list, func, index + 1) or need_top
     end
   end
   return need_top

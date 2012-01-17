@@ -107,7 +107,12 @@ function should.listMembers()
   for child in ins:children() do
     table.insert(res, child.name)
   end
-  assertValueEqual({'Simple', 'MyFloat'}, res)
+  assertValueEqual({
+    'Simple',
+    'Foo',
+    'Bar',
+    'MyFloat',
+  }, res)
 end
 
 function should.listMemberMethods()
@@ -122,6 +127,8 @@ function should.listMemberMethods()
     'value',
     'add',
     'mul',
+    'testA',
+    'testB',
     'addAll',
     'setValue',
     'isZero',

@@ -90,10 +90,8 @@ function should.listMethods()
   assertValueEqual({
     'd',
 --    'd_set',
-    '_Vect',
-    Vect.GET_ATTR_NAME,
-    Vect.SET_ATTR_NAME,
     'Vect:static',
+    '~Vect',
     'surface',
     'operator+',
     'operator+=',
@@ -105,6 +103,8 @@ function should.listMethods()
     'operator<=',
     'operator==',
     'operator()',
+    Vect.GET_ATTR_NAME,
+    Vect.SET_ATTR_NAME,
   }, res)
 end
 
@@ -112,18 +112,22 @@ function should.listStaticMethods()
   local Box = ins:find('Box')
   local res = {}
   for meth in Box:methods() do
-    table.insert(res, meth.name)
+    local name = meth.name
+    if meth.static then
+      name = name .. ':static'
+    end
+    table.insert(res, name)
   end
   assertValueEqual({
-    '_Box',
-    Box.GET_ATTR_NAME,
-    Box.SET_ATTR_NAME,
-    'Box',
+    'Box:static',
     'name',
     'surface',
     'size',
     'copySize',
-    'MakeBox',
+    'MakeBox:static',
+    '~Box',
+    Box.GET_ATTR_NAME,
+    Box.SET_ATTR_NAME,
   }, res)
 end
 

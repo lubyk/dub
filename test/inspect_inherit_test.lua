@@ -37,16 +37,16 @@ function should.listSuperMethods()
     table.insert(res, elem.name)
   end
   assertValueEqual({
-    'computeAge',
-    'name',
-    'position',
-    '_Child',
-    '_get_',
-    '_set_',
-    '_cast_',
     'Child',
     'x',
     'y',
+    'name',
+    '~Child',
+    '_get_',
+    '_set_',
+    '_cast_',
+    'computeAge',
+    'position',
   }, res)
 end
 
@@ -57,10 +57,10 @@ function should.listSuperAttributes()
     table.insert(res, elem.name)
   end
   assertValueEqual({
+    'teeth',
     'birth_year',
     'status',
     'happy',
-    'teeth',
   }, res)
 end
 

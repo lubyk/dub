@@ -18,7 +18,6 @@ local ins = dub.Inspector {
   doc_dir  = lk.dir() .. '/tmp',
 }
 
-test.speed = true
 --=============================================== Nogc bindings
 
 function should.bindClass()

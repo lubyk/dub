@@ -36,6 +36,12 @@ public:
     return pos_y_;
   }
 
+  /** Should not inherit overloaded/virtuals twice.
+   */
+  std::string name() {
+    return std::string("Child ").append(Parent::name());
+  }
+
 };
 
 #endif // INHERIT_CHILD_H_
