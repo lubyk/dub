@@ -152,22 +152,39 @@ function lib:constants(parent)
   end
 end
 
-function lib:resolveType(parent, name)
+local function resolveOne(scope, name)
+  local t = scope:findChild(name)
+  if t then
+    if t.type == 'dub.Class' then
+      -- real type
+      return t
+    elseif t.type == 'dub.Typedef' or
+      t.type == 'dub.Enum' then
+      -- alias type
+      return t.ctype
+    end
+  end
+end
+
+function lib:resolveType(scope, name)
   -- Do we have a typedef or enum ?
-  local td
-  while parent do
-    td = parent:findChild(name)
-    if td then
-      if td.type == 'dub.Class' then
-        -- real type
-        return td
-      elseif td.type == 'dub.Typedef' or
-        td.type == 'dub.Enum' then
-        -- alias type
-        return td.ctype
+  -- Look in nested scopes
+  local t
+  while scope do
+    t = resolveOne(scope, name)
+    if t then
+      return t
+    end
+    if scope.type == 'dub.Class' then
+      -- Look in superclasses
+      for super in scope:superclasses() do
+        t = resolveOne(super, name)
+        if t then
+          return t
+        end
       end
     end
-    parent = parent.parent
+    scope = scope.parent
   end
   -- not found (could be a native type)
   return nil
@@ -364,13 +381,21 @@ end
 function parse:variable(elem, header)
   local name = elem:find('name')[1]
   local child  = {
-    name   = name,
-    type   = 'dub.Attribute',
-    ctype  = parse.type(elem),
-    static = elem.static == 'yes',
+    name       = name,
+    type       = 'dub.Attribute',
+    ctype      = parse.type(elem),
+    static     = elem.static == 'yes',
+    argsstring = elem:find('argsstring')[1],
   }
-  self.has_variables = true
-  table.insert(self.variables_list, child)
+  local dim = child.argsstring and string.match(child.argsstring, '^%[(.*)%]$')
+  if dim then
+    child.array_dim = dim
+    -- Transform into two dub.Function name(int) and set_name(int)
+    private.makeAttrArrayMethods(self, child)
+  else
+    self.has_variables = true
+    table.insert(self.variables_list, child)
+  end
   return child
 end
 
@@ -586,6 +611,37 @@ function private:makeSpecialMethods()
   if #self.super_list > 0 or self.dub.super then
     private.makeCast(self)
   end
+end
+
+-- self == class
+function private:makeAttrArrayMethods(attr)
+  local name = attr.name
+  local child = dub.Function {
+    db            = self.db,
+    parent        = self,
+    name          = attr.name,
+    params_list   = {{
+      type     = 'dub.Param',
+      name     = 'i',
+      position = 1,
+      ctype    = lib.makeType('size_t'),
+    }},
+    return_value  = attr.ctype,
+    definition    = 'Read ' .. name,
+    argsstring    = '(size_t i)',
+    location      = '',
+    desc          = 'Read attribute '..name..' for ' .. self.name .. '.',
+    static        = false,
+    xml           = nil,
+    -- Should not be inherited by sub-classes
+    no_inherit    = true,
+    member        = true,
+    array_get     = true,
+    array_dim     = attr.array_dim,
+  }
+  table.insert(self.functions_list, child)
+  table.insert(self.sorted_cache, child)
+  self.cache[child.name] = child
 end
 
 -- self == class

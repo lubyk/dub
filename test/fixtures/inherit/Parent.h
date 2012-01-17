@@ -13,13 +13,25 @@ class Parent : public GrandParent {
   // Private attribute
   std::string name_;
 public:
-  // public attribute (child should inherit this)
-  bool married;
+  enum MaritalStatus {
+    Single,
+    Married,
+    Poly,
+    Depends,
+  };
 
-  Parent(const std::string &name, bool married_, int birth_year)
+  // public attribute (child should inherit this)
+  MaritalStatus status;
+
+  // test boolean attribute
+  bool happy;
+
+  Parent(const std::string &name, MaritalStatus status_, int birth_year)
     : GrandParent(birth_year)
     , name_(name)
-    , married(married_) {}
+    , status(status_)
+    , happy(true)
+    {}
 
   /** Method that should be inherited by child.
    */

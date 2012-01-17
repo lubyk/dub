@@ -105,11 +105,11 @@ function lib:bind(inspector, options)
         print(string.format("Element '%s' not found.", name))
       end
     end
-  end
-
-  for elem in inspector:children() do
-    table.insert(bound, elem)
-    private.bindElem(self, elem, options)
+  else
+    for elem in inspector:children() do
+      table.insert(bound, elem)
+      private.bindElem(self, elem, options)
+    end
   end
 
   if options.single_lib then
@@ -169,8 +169,20 @@ function private:callWithParams(class, method, param_delta, indent, custom)
   if custom then
     res = res .. custom
   else
-    local call = private.doCall(self, class, method)
-    res = res .. private.pushReturnValue(self, class, method, call)
+    if method.array_get or method.array_set then
+      local i_name = method.params_list[1].name
+      res = res .. format('if (!%s || %s > %s) return 0;\n', i_name, i_name, method.array_dim)
+    end
+    if method.array_set then
+      -- C array attribute set
+      local i_name = method.params_list[1].name
+      res = method.name .. '[' .. i_name .. '] = '
+      res = res .. private.paramForCall(method.params_list[2]) .. ';\n'
+      res = res .. 'return 0;'
+    else
+      local call = private.doCall(self, class, method)
+      res = res .. private.pushReturnValue(self, class, method, call)
+    end
   end
   return string.gsub(res, '\n', '\n' .. indent)
 end
@@ -373,12 +385,7 @@ function lib:luaType(parent, ctype)
     end
   else
     -- userdata
-    local mt_name
-    if rtype.type == 'dub.Class' then
-      mt_name = self:libName(rtype)
-    else
-      mt_name = rtype.name
-    end
+    local mt_name = self:libName(rtype)
     return {
       type = 'userdata',
       -- Resolved type
@@ -442,7 +449,13 @@ function lib:resolveTypes(base)
   if base.resolved_for == 'lua' then
     -- done
     return
+  else
+    base.resolved_for = 'lua'
   end
+  if base.index_op then
+    self:resolveTypes(base.index_op)
+  end
+
   local list = base.overloaded or {base}
   for _, method in ipairs(list) do
     local parent = method.parent
@@ -463,7 +476,6 @@ function lib:resolveTypes(base)
     end
     method.lua_signature = sign
   end
-  base.resolved_for = 'lua'
 end
 
 -- Retrieve a parameter and detect native type/userdata in param.
@@ -500,33 +512,46 @@ function private:getParam(method, param, delta)
   return res
 end
 
----
-function private:doCall(class, method)
-  local res = method.name .. '('
-  local first = true
-  for param in method:params() do
-    local lua = param.lua
-    if not first then
-      res = res .. ', '
-    else
-      first = false
-    end
-    if lua.cast then
-      -- Special accessor
-      res = res .. lua.cast(param.name)
-    elseif lua.type == 'userdata' then
-      -- custom type
-      if param.ctype.ptr then
-        res = res .. param.name
-      else
-        res = res .. '*' .. param.name
-      end
-    else
-      -- native type
+function private.paramForCall(param)
+  local lua = param.lua
+  local res = ''
+  if lua.cast then
+    -- Special accessor
+    res = res .. lua.cast(param.name)
+  elseif lua.type == 'userdata' then
+    -- custom type
+    if param.ctype.ptr then
       res = res .. param.name
+    else
+      res = res .. '*' .. param.name
     end
+  else
+    -- native type
+    res = res .. param.name
   end
-  res = res .. ')'
+  return res
+end
+
+function private:doCall(class, method)
+  local res
+  if method.array_get then
+    -- C array attribute get
+    i_name = method.params_list[1].name
+    res = method.name .. '[' .. i_name .. '-1]'
+  else
+    res = method.name .. '('
+    local first = true
+    for param in method:params() do
+      local lua = param.lua
+      if not first then
+        res = res .. ', '
+      else
+        first = false
+      end
+      res = res .. private.paramForCall(param)
+    end
+    res = res .. ')'
+  end
   if method.ctor then
     res = 'new ' .. res
   elseif method.static then
@@ -649,7 +674,8 @@ end
 
 -- function body to get a variable.
 function private:getAttrBody(method, attr, delta)
-  attr.ctype.lua = self:luaType(method.parent, attr.ctype)
+  local lua = self:luaType(method.parent, attr.ctype)
+  attr.ctype.lua = lua
   local accessor
   if attr.static then
     accessor = format('%s::%s', method.parent.name, attr.name)
@@ -672,7 +698,6 @@ function private:switch(class, method, delta, bfunc, iterator)
     -- operator[]
     res = res .. format('if (lua_type(L, %i) != LUA_TSTRING) {\n', delta + 1)
     method.index_op.name = 'operator[]'
-    self:resolveTypes(method.index_op)
     res = res .. '  ' .. private.callWithParams(self, class, method.index_op, delta, '  ') .. '\n'
     res = res .. '}'
     if not class.has_variables then

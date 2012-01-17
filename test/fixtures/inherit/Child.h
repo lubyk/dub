@@ -23,8 +23,8 @@ public:
   // public attribute (child should inherit this)
   double teeth;
 
-  Child(const std::string &name, bool married, int birth_year, double x, double y)
-    : Mother(name, married, birth_year)
+  Child(const std::string &name, MaritalStatus s, int birth_year, double x, double y)
+    : Mother(name, s, birth_year)
     , pos_x_(x)
     , pos_y_(y) {}
 

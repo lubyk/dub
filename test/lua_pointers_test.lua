@@ -49,19 +49,37 @@ end
 function should.bindComplexSetMethod()
   -- __newindex for non-native types
   local Box = ins:find('Box')
-  local set = Box:method(Box.SET_ATTR_NAME)
   local res = binder:bindClass(Box)
   assertMatch('__newindex.*Box__set_', res)
+  local set = Box:method(Box.SET_ATTR_NAME)
   local res = binder:functionBody(Box, set)
   assertMatch('self%->size_ = %*%*%(%(Vect%*%*%)', res)
+end
+
+function should.ignoreArrayAttrInSet()
+  -- __newindex for non-native types
+  local Vect = ins:find('Vect')
+  local res = binder:bindClass(Vect)
+  assertMatch('"d".*Vect_d', res)
+  local set = Vect:method(Vect.SET_ATTR_NAME)
+  local res = binder:functionBody(Vect, set)
+  assertNotMatch('self%->d ', res)
+end
+
+function should.ignoreArrayAttrInGet()
+  -- __newindex for simple (native) types
+  local Vect = ins:find('Vect')
+  local get = Vect:method(Vect.GET_ATTR_NAME)
+  local res = binder:functionBody(Vect, get)
+  assertNotMatch('self%->d', res)
 end
 
 function should.bindSimpleGetMethod()
   -- __newindex for simple (native) types
   local Vect = ins:find('Vect')
-  local get = Vect:method(Vect.GET_ATTR_NAME)
   local res = binder:bindClass(Vect)
   assertMatch('__index.*Vect__get_', res)
+  local get = Vect:method(Vect.GET_ATTR_NAME)
   local res = binder:functionBody(Vect, get)
   assertMatch('lua_pushnumber%(L, self%->x%);', res)
   -- static member
@@ -88,6 +106,8 @@ end
 
 function should.createLibFileWithCustomNames()
   local tmp_path = 'test/tmp'
+  lk.rmTree(tmp_path, true)
+  os.execute('mkdir -p '..tmp_path)
   -- Our binder resolves types differently due to MyLib so we
   -- need our own inspector.
   local ins = dub.Inspector {
@@ -293,6 +313,26 @@ function should.writeVectAttributes()
   assertEqual(51, v:surface())
 end
 
+function should.readArrayAttributes()
+  local v = Vect(1,2)
+  assertEqual(4, v:d(1))
+  assertEqual(5, v:d(2))
+  assertEqual(6, v:d(3))
+  assertNil(v:d(0))
+  assertNil(v:d(4))
+end
+
+function should.writeArrayAttributes()
+  local v = Vect(1,2)
+  --v.set_d(1, 10)
+  -- Could enable : v.d[1] = 1.5
+  -- by doing some work on a DubObject:
+  -- v.d          ==> return {self = self, key = 'd'}
+  -- v.d[1] = 1.5 ==> function __newindex({self=self, key='d'}, k, v)
+  --                     self._d_set(k, v)
+  --                  end
+  --assertEqual(13, v.d(1))
+end
 
 function should.accessStaticAttributes()
   local t, v = Vect(1,1), Vect(1,1)

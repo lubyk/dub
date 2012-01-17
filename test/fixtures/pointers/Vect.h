@@ -2,16 +2,20 @@
 #define POINTERS_VECT_H_
 
 #include <cstring> // size_t
+#define MAX_DIM 3
 
 /** This class is used to test:
  *   * accessing public members
  *   * return value optimization
  *   * basic memory leakage
  *   * operator overloading
+ *   * C array attributes
  */
 struct Vect {
   double x;
   double y;
+
+  double d[MAX_DIM];
 
   // static member access
   static size_t create_count;
@@ -24,6 +28,8 @@ struct Vect {
     // to test return value optimization.
     // and memory leakage.
     ++create_count;
+    for (size_t i=0; i<MAX_DIM; ++i)
+      d[i] = i + 1 + tx + ty;
   }
   Vect(const Vect &v)
     : x(v.x)

@@ -10,9 +10,10 @@
 require 'lubyk'
 local should = test.Suite('dub.Inspector - pointers')
 
-local ins = dub.Inspector {
-  INPUT   = 'test/fixtures/pointers',
-  doc_dir = lk.dir() .. '/tmp',
+local ins  = dub.Inspector {
+  INPUT    = 'test/fixtures/pointers',
+  doc_dir  = lk.dir() .. '/tmp',
+  keep_xml = true,
 }
 
 local Vect = ins:find('Vect')
@@ -71,6 +72,12 @@ function should.listAttributes()
   }, res)
 end
 
+function should.detectArrayAttributes()
+  local d = Vect:findChild('d')
+  assertEqual('d', d.name)
+  assertEqual('MAX_DIM', d.array_dim)
+end
+
 function should.listMethods()
   local res = {}
   for meth in Vect:methods() do
@@ -81,6 +88,8 @@ function should.listMethods()
     table.insert(res, name)
   end
   assertValueEqual({
+    'd',
+--    'd_set',
     '_Vect',
     Vect.GET_ATTR_NAME,
     Vect.SET_ATTR_NAME,

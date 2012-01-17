@@ -10,8 +10,8 @@
  */
 class Mother : public Parent {
 public:
-  Mother(const std::string &name, bool married, int birth_year)
-    : Parent(name, married, birth_year) {}
+  Mother(const std::string &name, MaritalStatus s, int birth_year)
+    : Parent(name, s, birth_year) {}
 };
 
 #endif // INHERIT_HIDDEN_MOTHER_H_
