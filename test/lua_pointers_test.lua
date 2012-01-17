@@ -11,6 +11,7 @@ param_
     * accessing complex public members.
     * accessing public members
     * return value optimization
+    * library prefix and single library file (require 'MyLib', MyLib.Vect)
 
 --]]------------------------------------------------------
 require 'lubyk'
@@ -87,21 +88,31 @@ end
 
 function should.createLibFile()
   local tmp_path = 'test/tmp'
+  -- Our binder resolves types differently due to MyLib so we
+  -- need our own inspector.
+  local ins = dub.Inspector {
+    INPUT    = 'test/fixtures/pointers',
+    doc_dir  = lk.dir() .. '/tmp',
+  }
   binder:bind(ins, {
     output_directory = tmp_path,
     -- Execute all lua_open in a single go
     -- with lua_MyLib.
     -- This creates a MyLib_open.cpp file
     -- that has to be included in build.
-    lib_name = 'MyLib',
+    single_lib = 'MyLib',
+    -- Forces classes to live in MyLib.Foobar
+    lib_prefix = 'MyLib',
   })
-  assertTrue(lk.exist(tmp_path .. '/MyLib_open.cpp'))
-  local res = lk.readall(tmp_path .. '/MyLib_open.cpp')
+  assertTrue(lk.exist(tmp_path .. '/MyLib.cpp'))
+  local res = lk.readall(tmp_path .. '/MyLib.cpp')
   assertMatch('int luaopen_Box%(lua_State %*L%);', res)
   assertMatch('int luaopen_Vect%(lua_State %*L%);', res)
   assertMatch('luaopen_MyLib%(lua_State %*L%) %{', res)
   assertMatch('luaopen_Box%(L%);', res)
   assertMatch('luaopen_Vect%(L%);', res)
+  local res = lk.readall(tmp_path .. '/Vect.cpp')
+  assertMatch('"MyLib.Vect"', res)
 
   assertPass(function()
     -- Build MyLib.so
@@ -111,7 +122,7 @@ function should.createLibFile()
         'test/tmp/dub/dub.cpp',
         'test/tmp/Vect.cpp',
         'test/tmp/Box.cpp',
-        'test/tmp/MyLib_open.cpp',
+        'test/tmp/MyLib.cpp',
         'test/fixtures/pointers/vect.cpp',
       },
       includes = {
@@ -122,18 +133,22 @@ function should.createLibFile()
     -- Must require Vect first because Box depends on Vect class and
     -- only Vect.so has static members for Vect.
     require 'MyLib'
-    assertType('table', Vect)
-    assertType('table', Box)
+    assertType('table', MyLib.Vect)
+    assertType('table', MyLib.Box)
   end, function()
     -- teardown
     package.loaded.MyLib = nil
     package.cpath = cpath_bak
-    if not Vect then
+    if not MyLib then
       test.abort = true
     end
-    Vect = nil
-    Box  = nil
   end)
+end
+
+function should.useVectInMyLib()
+  local v = MyLib.Vect(2,2.5)
+  assertEqual('MyLib.Vect', v.type)
+  assertEqual(5, v:surface())
 end
 
 function should.bindCompileAndLoad()

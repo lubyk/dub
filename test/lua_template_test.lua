@@ -50,15 +50,14 @@ function should.bindCompileAndLoad()
   assertPass(function()
     -- Build Vectf.so
     binder:build {
-      work_dir = lk.dir(),
-      output   = 'tmp/Vectf.so',
+      output   = 'test/tmp/Vectf.so',
       inputs   = {
-        'tmp/dub/dub.cpp',
-        'tmp/Vectf.cpp',
+        'test/tmp/dub/dub.cpp',
+        'test/tmp/Vectf.cpp',
       },
       includes = {
-        'tmp',
-        'fixtures/template',
+        'test/tmp',
+        'test/fixtures/template',
       },
     }
     package.cpath = tmp_path .. '/?.so'

@@ -215,7 +215,7 @@ void *dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt) thro
 // =============================================== dub_register
 // ======================================================================
 
-#define DUB_INIT_CODE "local new = %s.new\nsetmetatable(%s, {\n __call = function(_, ...)\n   return new(...)\n end,\n})\n"
+#define DUB_INIT_CODE "local class = %s.%s\nlocal new = class.new\nsetmetatable(class, {\n __call = function(_, ...)\n   return new(...)\n end,\n})\n"
 // The metatable lives in libname.ClassName_
 void dub_register(lua_State *L, const char *libname, const char *class_name) {
   // meta-table should be on top
@@ -242,8 +242,20 @@ void dub_register(lua_State *L, const char *libname, const char *class_name) {
     // <mt>."type" = "class_name"
   }
   lua_settable(L, -3);
+
+
   // <mt>
   lua_getglobal(L, libname);
+  if (lua_isnil(L, -1)) {
+    lua_pop(L, 1);
+    lua_newtable(L);
+    // <mt> <lib>
+    lua_pushvalue(L, -1);
+    // <mt> <lib> <lib>
+    // _G.libname = <lib>
+    lua_setglobal(L, libname);
+    // <mt> <lib>
+  }
   // <mt> <lib>
   lua_pushstring(L, class_name);
   // <mt> <lib> "Foobar"
@@ -255,12 +267,13 @@ void dub_register(lua_State *L, const char *libname, const char *class_name) {
   // <mt>
 
   // Setup the __call meta-table with an upvalue
-  size_t sz = strlen(DUB_INIT_CODE) + 2 * strlen(class_name) + 1;
+  size_t sz = strlen(DUB_INIT_CODE) + strlen(class_name) + strlen(libname) + 2;
   char *lua_code = (char*)malloc(sizeof(char) * sz);
-  snprintf(lua_code, sz, DUB_INIT_CODE, class_name, class_name);
+  snprintf(lua_code, sz, DUB_INIT_CODE, libname, class_name);
   /*
-  local new = Foobar.new
-  setmetatable(Foobar, {
+  local class = lib.Foobar
+  local new = class.new
+  setmetatable(class, {
     __call = function(...)
       return new(...)
     end,

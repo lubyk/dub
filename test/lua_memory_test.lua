@@ -54,28 +54,26 @@ function should.bindCompileAndLoad()
   assertPass(function()
     -- Build Nogc.so
     binder:build {
-      work_dir = lk.dir(),
-      output   = 'tmp/Nogc.so',
+      output   = 'test/tmp/Nogc.so',
       inputs   = {
-        'tmp/dub/dub.cpp',
-        'tmp/Nogc.cpp',
+        'test/tmp/dub/dub.cpp',
+        'test/tmp/Nogc.cpp',
       },
       includes = {
-        'tmp',
-        'fixtures/memory',
+        'test/tmp',
+        'test/fixtures/memory',
       },
     }
     -- Build Withgc.so
     binder:build {
-      work_dir = lk.dir(),
-      output   = 'tmp/Withgc.so',
+      output   = 'test/tmp/Withgc.so',
       inputs   = {
-        'tmp/dub/dub.cpp',
-        'tmp/Withgc.cpp',
+        'test/tmp/dub/dub.cpp',
+        'test/tmp/Withgc.cpp',
       },
       includes = {
-        'tmp',
-        'fixtures/memory',
+        'test/tmp',
+        'test/fixtures/memory',
       },
     }
     package.cpath = tmp_path .. '/?.so'

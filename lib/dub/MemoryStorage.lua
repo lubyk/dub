@@ -173,6 +173,10 @@ function lib:resolveType(parent, name)
   return nil
 end
 
+function lib:fullname()
+  return self.name
+end
+
 --=============================================== PRIVATE
 
 function private.iterator(list)
@@ -403,7 +407,7 @@ function parse:typedef(elem, header)
     desc        = (elem:find('detaileddescription') or {})[1],
     xml         = elem,
     definition  = elem:find('definition')[1],
-    header_path = header.h_path,
+    header_path = header.file,
   }
   typ.ctype.create_name = typ.name .. ' '
   return typ
@@ -717,7 +721,7 @@ function private:resolveTypedef(elem)
         self.cache[class.name] = class
         table.insert(self.sorted_cache, class)
         class.typedef = elem.definition .. ';'
-        class.header = elem.header_path
+        class.header  = elem.header_path
         return class
       end
     end

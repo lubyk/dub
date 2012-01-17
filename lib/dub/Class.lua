@@ -64,7 +64,7 @@ function lib:constants()
 end
 
 function lib:fullname()
-  if self.parent and self.parent ~= self.db then
+  if self.parent and self.parent.name then
     return self.parent:fullname() .. '::' .. self.name
   else
     return self.name

@@ -65,29 +65,27 @@ function should.bindCompileAndLoad()
     -- Build Child.so
     --
     binder:build {
-      work_dir = lk.dir(),
-      output   = 'tmp/Child.so',
+      output   = 'test/tmp/Child.so',
       inputs   = {
-        'tmp/dub/dub.cpp',
-        'tmp/Child.cpp',
+        'test/tmp/dub/dub.cpp',
+        'test/tmp/Child.cpp',
       },
       includes = {
-        'tmp',
-        'fixtures/inherit',
+        'test/tmp',
+        'test/fixtures/inherit',
       },
     }
 
     -- Build Parent.so
     binder:build {
-      work_dir = lk.dir(),
-      output   = 'tmp/Parent.so',
+      output   = 'test/tmp/Parent.so',
       inputs   = {
-        'tmp/dub/dub.cpp',
-        'tmp/Parent.cpp',
+        'test/tmp/dub/dub.cpp',
+        'test/tmp/Parent.cpp',
       },
       includes = {
-        'tmp',
-        'fixtures/inherit',
+        'test/tmp',
+        'test/fixtures/inherit',
       },
     }
 

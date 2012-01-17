@@ -50,12 +50,7 @@ static const struct dub_const_Reg {{class.name}}_const[] = {
 };
 {% end %}
 
-#ifdef DUB_LUA_LOAD
-// These bindings are part of a larger library.
-int luaload_{{class.name}}(lua_State *L)
-#else
 extern "C" int luaopen_{{class.name}}(lua_State *L)
-#endif
 {
   // Create the metatable which will contain all the member methods
   luaL_newmetatable(L, "{{self:libName(class)}}");

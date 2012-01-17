@@ -178,15 +178,14 @@ function should.bindCompileAndLoad()
   local s
   assertPass(function()
     binder:build {
-      work_dir = lk.dir(),
-      output   = 'tmp/Simple.so',
+      output   = 'test/tmp/Simple.so',
       inputs   = {
-        'tmp/dub/dub.cpp',
-        'tmp/Simple.cpp',
+        'test/tmp/dub/dub.cpp',
+        'test/tmp/Simple.cpp',
       },
       includes = {
-        'tmp',
-        'fixtures/simple/include',
+        'test/tmp',
+        'test/fixtures/simple/include',
       },
     }
     package.cpath = tmp_path .. '/?.so'

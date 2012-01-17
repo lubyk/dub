@@ -60,15 +60,14 @@ function should.bindCompileAndLoad()
     
     -- Build Car.so
     binder:build {
-      work_dir = lk.dir(),
-      output   = 'tmp/Car.so',
+      output   = 'test/tmp/Car.so',
       inputs   = {
-        'tmp/dub/dub.cpp',
-        'tmp/Car.cpp',
+        'test/tmp/dub/dub.cpp',
+        'test/tmp/Car.cpp',
       },
       includes = {
-        'tmp',
-        'fixtures/constants',
+        'test/tmp',
+        'test/fixtures/constants',
       },
     }
     

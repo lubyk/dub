@@ -86,6 +86,11 @@ function lib:bind(inspector, options)
   if options.header_base then
     self.header_base = lk.absolutizePath(options.header_base)
   end
+
+  if options.lib_prefix then
+    -- This is the root of all classes.
+    inspector.db.name = options.lib_prefix
+  end
   self.output_directory = self.output_directory or options.output_directory
   private.parseCustomBindings(self, options.custom_bindings)
   self.ins = inspector
@@ -107,8 +112,8 @@ function lib:bind(inspector, options)
     private.bindElem(self, elem, options)
   end
 
-  if options.lib_name then
-    private.makeLibFile(self, options.lib_name, bound)
+  if options.single_lib then
+    private.makeLibFile(self, options.single_lib, bound)
   end
   private.copyDubFiles(self)
 end
@@ -331,8 +336,8 @@ function lib:customTypeAccessor(method)
 end
 
 function lib:libName(elem)
-  if elem.type == 'dub.MemoryStorage' then
-    -- root
+  -- default name for dub.MemoryStorage
+  if not elem.name then
     return '_G'
   else
     return string.gsub(elem:fullname(), '::', '.')
@@ -353,10 +358,18 @@ function lib:luaType(parent, ctype)
       }
     end
   else
+    -- userdata
+    local mt_name
+    if rtype.type == 'dub.Class' then
+      mt_name = self:libName(rtype)
+    else
+      mt_name = rtype.name
+    end
     return {
       type = 'userdata',
       -- Resolved type
-      rtype = rtype,
+      rtype   = rtype,
+      mt_name = mt_name,
     }
   end
 end
@@ -448,15 +461,9 @@ function private:getParam(method, param, delta)
   local rtype = lua.rtype
   if lua.type == 'userdata' then
     -- userdata
-    local lib_name
-    if rtype.type == 'dub.Class' then
-      lib_name = self:libName(rtype)
-    else
-      lib_name = rtype.name
-    end
     type_method = self:customTypeAccessor(method)
     res = format('*((%s**)%s(L, %i, "%s"))',
-      rtype.name, type_method, param.position + delta, lib_name)
+      rtype.name, type_method, param.position + delta, lua.mt_name)
   else
     -- native lua type
     local prefix = private.checkPrefix(self, method)
@@ -544,12 +551,12 @@ function private:pushValue(method, value, return_value)
     local rtype = lua.rtype
     if not ctype.ptr then
       if method.parent.dub.destroy == 'free' then
-        res = format('dub_pushfulldata<%s>(L, %s, "%s");', rtype.name, value, ctype.name)
+        res = format('dub_pushfulldata<%s>(L, %s, "%s");', rtype.name, value, lua.mt_name)
       else
-        res = format('dub_pushudata(L, new %s(%s), "%s");', rtype.name, value, ctype.name)
+        res = format('dub_pushudata(L, new %s(%s), "%s");', rtype.name, value, lua.mt_name)
       end
     else
-      res = format('dub_pushudata(L, %s, "%s");', value, rtype.name)
+      res = format('dub_pushudata(L, %s, "%s");', value, lua.mt_name)
     end
   else
     -- native type
@@ -796,7 +803,7 @@ function private:makeLibFile(lib_name, list)
     self     = self,
   }
 
-  local path = self.output_directory .. lk.Dir.sep .. lib_name .. '_open.cpp'
+  local path = self.output_directory .. lk.Dir.sep .. lib_name .. '.cpp'
   local file = io.open(path, 'w')
   file:write(res)
   file:close()

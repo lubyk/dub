@@ -46,12 +46,9 @@ function should.listMethods()
   assertEqual(m, class:method('setValue'))
 end
 
-function should.listHeaders()
-  local h
-  for header in class:headers() do
-    h = header
-  end
-  assertEqual('simple.h', h)
+function should.haveHeader()
+  local path = lk.absolutizePath(lk.dir() .. '/fixtures/simple/include/simple.h')
+  assertEqual(path, class.header)
 end
 
 function should.detectDestructor()
