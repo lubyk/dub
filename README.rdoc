@@ -15,7 +15,7 @@ Currently, the parser supports:
  * public attributes read/write
  * public class methods
  * public static attributes read/write
- * pointer to member
+ * pointer to member (no dangling pointers)
  * natural casting from std::string to string type (can include '\0')
  * class instantiation from templates through typedefs
  * class alias through typedefs

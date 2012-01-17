@@ -600,7 +600,7 @@ function private:pushValue(method, value, return_value)
       end
     else
       -- Return value is a pointer, we should only GC in constructor.
-      if method.ctor or method.dub and method.dub.gc then
+      if method.static or method.dub and method.dub.gc then
         res = format('dub_pushudata(L, %s, "%s", true);', value, lua.mt_name)
       else
         res = format('dub_pushudata(L, %s, "%s", false);', value, lua.mt_name)

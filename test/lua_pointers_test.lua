@@ -496,24 +496,14 @@ function should.notCopyAttribute()
   assertEqual(5, b.size_.x)
 end
 
-function should.bad()
-  if false then
-    -- THIS IS WHAT SHOULD NOT BE DONE WITH POINTER TO MEMBERS:
-    local b = Box('Cat', Vect(2,3))
-    local sz = b.size_
-    b = nil
-    collectgarbage()
-    -- BANG!
-    sz.x = 4
-  else
-    -- THIS IS OK
-    local b = Box('Cat', Vect(2,3))
-    -- Make a copy
-    local sz = Vect(b.size_)
-    b = nil
-    collectgarbage()
-    sz.x = 4
-  end
+function should.notGcOwnerBeforePointer()
+  local b = Box('Cat', Vect(2,3))
+  local sz = b.size_
+  b = nil
+  collectgarbage()
+  -- b is not deleted yet because 'sz' points to b through
+  -- the userdata env.
+  sz.x = 4
 end
 
 -- Should not gc

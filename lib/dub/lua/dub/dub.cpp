@@ -63,6 +63,19 @@ TypeException::TypeException(lua_State *L, int narg, const char *type, bool is_s
 void dub_pushudata(lua_State *L, void *ptr, const char *type_name, bool gc) {
   DubUserdata *userdata = (DubUserdata*)lua_newuserdata(L, sizeof(DubUserdata));
   userdata->ptr = ptr;
+  if (!gc) {
+    // Point to owner to avoid owner gc.
+    // <self> ... <obj>
+    lua_newtable(L);
+    // <self> .. <obj> <{}>
+    lua_pushvalue(L, 1);
+    // <self> .. <obj> <{}>._ = <self>
+    lua_setfield(L, -2, "_");
+    // <self> .. <obj> <{}>
+    lua_setfenv(L, -2);
+    // ... <obj>
+  }
+
   userdata->gc = gc;
 
   // the userdata is now on top of the stack
