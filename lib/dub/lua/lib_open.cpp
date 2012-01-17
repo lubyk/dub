@@ -10,13 +10,13 @@
 
 extern "C" {
 {% for _, class in ipairs(list) do %}
-int luaopen_{{class.name}}(lua_State *L);
+int luaopen_{{self:name(class)}}(lua_State *L);
 {% end %}
 }
 
 extern "C" int luaopen_{{lib_name}}(lua_State *L) {
 {% for _, class in ipairs(list) do %}
-  luaopen_{{class.name}}(L);
+  luaopen_{{self:name(class)}}(L);
 {% end %}
   return 0;
 }

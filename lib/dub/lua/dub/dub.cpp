@@ -245,8 +245,9 @@ void dub_register(lua_State *L, const char *libname, const char *class_name) {
 
 
   // <mt>
-  lua_getglobal(L, libname);
+  lua_getfield(L, LUA_GLOBALSINDEX, libname);
   if (lua_isnil(L, -1)) {
+    // no global table called libname
     lua_pop(L, 1);
     lua_newtable(L);
     // <mt> <lib>
@@ -256,6 +257,7 @@ void dub_register(lua_State *L, const char *libname, const char *class_name) {
     lua_setglobal(L, libname);
     // <mt> <lib>
   }
+
   // <mt> <lib>
   lua_pushstring(L, class_name);
   // <mt> <lib> "Foobar"

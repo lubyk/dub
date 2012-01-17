@@ -335,12 +335,26 @@ function lib:customTypeAccessor(method)
   end
 end
 
+-- Return the 'public' name to use for the element in the
+-- bindings. This can be used to rename classes or namespaces.
+function lib:name(elem)
+  return elem.name
+end
+
 function lib:libName(elem)
   -- default name for dub.MemoryStorage
   if not elem.name then
     return '_G'
   else
-    return string.gsub(elem:fullname(), '::', '.')
+    local res = ''
+    while elem and elem.name do
+      if res ~= '' then
+        res = '.' .. res
+      end
+      res = (self:name(elem) or elem.name) .. res
+      elem = elem.parent
+    end
+    return res
   end
 end
 
@@ -717,7 +731,7 @@ end
 
 function private:bindElem(elem, options)
   if elem.type == 'dub.Class' then
-    local path = self.output_directory .. lk.Dir.sep .. elem.name .. '.cpp'
+    local path = self.output_directory .. lk.Dir.sep .. self:name(elem) .. '.cpp'
     local file = io.open(path, 'w')
     file:write(self:bindClass(elem))
     file:close()

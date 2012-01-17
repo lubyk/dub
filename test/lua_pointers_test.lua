@@ -86,6 +86,74 @@ function should.notGetSelfInStaticMethod()
   assertNotMatch('self', res)
 end
 
+function should.createLibFileWithCustomNames()
+  local tmp_path = 'test/tmp'
+  -- Our binder resolves types differently due to MyLib so we
+  -- need our own inspector.
+  local ins = dub.Inspector {
+    INPUT    = 'test/fixtures/pointers',
+    doc_dir  = lk.dir() .. '/tmp',
+  }
+  local binder = dub.LuaBinder()
+  function binder:name(elem)
+    local name = elem.name
+    if name == 'Vect' then
+      return 'V'
+    elseif name == 'Box' then
+      return 'B'
+    end
+  end
+  binder:bind(ins, {
+    output_directory = tmp_path,
+    -- Execute all lua_open in a single go
+    -- with lua_MyLib.
+    -- This creates a MyLib_open.cpp file
+    -- that has to be included in build.
+    single_lib = 'foo',
+    -- Forces classes to live in MyLib.Foobar
+    lib_prefix = 'foo',
+  })
+  local res = lk.readall(tmp_path .. '/V.cpp')
+  assertMatch('"foo.V"', res)
+  assertMatch('luaopen_V%(', res)
+
+  assertPass(function()
+    -- Build foo.so
+    binder:build {
+      output   = 'test/tmp/foo.so',
+      inputs   = {
+        'test/tmp/dub/dub.cpp',
+        'test/tmp/V.cpp',
+        'test/tmp/B.cpp',
+        'test/tmp/foo.cpp',
+        'test/fixtures/pointers/vect.cpp',
+      },
+      includes = {
+        'test/tmp',
+      },
+    }
+    package.cpath = tmp_path .. '/?.so'
+    -- Must require Vect first because Box depends on Vect class and
+    -- only Vect.so has static members for Vect.
+    require 'foo'
+    assertType('table', foo.V)
+    assertType('table', foo.B)
+  end, function()
+    -- teardown
+    package.loaded.foo = nil
+    package.cpath = cpath_bak
+    if not foo then
+      test.abort = true
+    end
+  end)
+end
+
+function should.useVectInMyLib()
+  local v = foo.V(2,2.5)
+  assertEqual('foo.V', v.type)
+  assertEqual(5, v:surface())
+end
+
 function should.createLibFile()
   local tmp_path = 'test/tmp'
   -- Our binder resolves types differently due to MyLib so we
@@ -94,6 +162,8 @@ function should.createLibFile()
     INPUT    = 'test/fixtures/pointers',
     doc_dir  = lk.dir() .. '/tmp',
   }
+  lk.rmTree(tmp_path)
+  os.execute('mkdir -p ' .. tmp_path)
   binder:bind(ins, {
     output_directory = tmp_path,
     -- Execute all lua_open in a single go
@@ -129,7 +199,7 @@ function should.createLibFile()
         'test/tmp',
       },
     }
-    package.cpath = tmp_path .. '/?.so'
+    package.cpath = tmp_path .. '/?.so;'
     -- Must require Vect first because Box depends on Vect class and
     -- only Vect.so has static members for Vect.
     require 'MyLib'

@@ -50,7 +50,7 @@ static const struct dub_const_Reg {{class.name}}_const[] = {
 };
 {% end %}
 
-extern "C" int luaopen_{{class.name}}(lua_State *L)
+extern "C" int luaopen_{{self:name(class)}}(lua_State *L)
 {
   // Create the metatable which will contain all the member methods
   luaL_newmetatable(L, "{{self:libName(class)}}");
@@ -63,7 +63,7 @@ extern "C" int luaopen_{{class.name}}(lua_State *L)
   // register member methods
   luaL_register(L, NULL, {{ class.name }}_member_methods);
   // save meta-table in {{self:libName(class.parent)}}
-  dub_register(L, "{{self:libName(class.parent)}}", "{{class.name}}");
+  dub_register(L, "{{self:libName(class.parent)}}", "{{self:name(class)}}");
 
   return 1;
 }
