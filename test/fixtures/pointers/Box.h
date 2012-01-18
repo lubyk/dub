@@ -11,6 +11,7 @@
  *   * accessing complex public members.
  *   * custom public member accessors.
  *   * pointer member types and gc.
+ *   * complex default values.
  */
 struct Box {
 
@@ -24,7 +25,7 @@ struct Box {
    */
   const Vect *const_vect;
 
-  Box(const std::string &name, const Vect &size)
+  Box(const std::string &name, const Vect &size = Vect(0,0))
     : name_(name)
     , size_(size)
     , position(NULL)

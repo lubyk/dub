@@ -173,6 +173,13 @@ function should.haveGetMethod()
   assertTrue(set.is_get_attr)
 end
 
+function should.parseCompoundNameInDefault()
+  local Box = ins:find('Box')
+  local met = Box:method('Box')
+  local p = met.params_list[2]
+  assertEqual('Vect(0, 0)', p.default)
+end
+
 function should.parseAddOperator()
   local met = Vect:method('operator+')
   assertTrue(met.member)

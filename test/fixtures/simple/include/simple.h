@@ -38,11 +38,11 @@ public:
   /** Method overloading without default parameters.
    */
   Simple mul(const Simple &o) {
-    return Simple(value_ * o.value_);
+    return Simple(value_ + o.value_);
   }
 
-  double mul(double d) {
-    return value_ * d;
+  double mul(double d, const char* c) {
+    return value_ + d + strlen(c);
   }
 
   double mul(double d, double d2) {
@@ -65,12 +65,16 @@ public:
 
   /** Overloaded method that can be only be decided by arg type.
    */
-  int testB(Foo *f) {
+  int testB(Foo *f, double d) {
     return 1;
   }
 
-  int testB(Bar *b) {
+  int testB(Bar *b, double d) {
     return 2;
+  }
+
+  int testB(Bar *b, const char *c) {
+    return 3;
   }
 
   // to test deep nesting overloaded decision tree

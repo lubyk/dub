@@ -105,10 +105,9 @@ local function treeTest(tree)
   if tree.type == 'dub.Function' then
     return tree.argsstring
   else
-    for k, v in pairs(tree) do
-      if k ~= '.count' then
-        res[k] = treeTest(v)
-      end
+    res.pos = tree.pos
+    for k, v in pairs(tree.map) do
+      res[k] = treeTest(v)
     end
   end
   return res
@@ -120,9 +119,11 @@ function should.makeOverloadedDecisionTree()
   local tree, need_top = binder:decisionTree(met.overloaded)
   assertValueEqual({
     ['1'] = {
-      Simple = '(const Simple &o)',
+      pos    = 1,
       number = '(MyFloat v, double w=10)',
-    }
+      Simple = '(const Simple &o)',
+    },
+    ['2'] = '(MyFloat v, double w=10)',
   }, treeTest(tree))
   -- need_top because we have defaults
   assertTrue(need_top)
@@ -133,11 +134,12 @@ function should.makeOverloadedNestedResolveTree()
   local met = Simple:method('mul')
   local tree, need_top = binder:decisionTree(met.overloaded)
   assertValueEqual({
-    ['2'] = '(double d, double d2)',
-    ['1'] = {
-     Simple = '(const Simple &o)',
-     number = '(double d)',
+    ['2'] = {
+      pos    = 2,
+      number = '(double d, double d2)',
+      string = '(double d, const char *c)',
     },
+    ['1'] = '(const Simple &o)',
     ['0'] = '()',
   }, treeTest(tree))
   assertTrue(need_top)
@@ -155,14 +157,19 @@ function should.favorArgSizeInDecisionTree()
   assertTrue(need_top)
 end
 
-function should.userArgTypeToSelect()
+function should.useArgTypeToSelect()
   local Simple = ins:find('Simple')
   local met = Simple:method('testB')
   local tree, need_top = binder:decisionTree(met.overloaded)
   assertValueEqual({
-    ['1'] = {
-      Foo = '(Foo *f)',
-      Bar = '(Bar *b)',
+    ['2'] = {
+      pos = 2,
+      number = {
+        pos = 1,
+        Foo = '(Foo *f, double d)',
+        Bar = '(Bar *b, double d)',
+      },
+      string = '(Bar *b, const char *c)',
     },
   }, treeTest(tree))
   assertFalse(need_top)
@@ -181,7 +188,7 @@ function should.haveOverloadedList()
   end
   assertValueEqual({
     'Simple',
-    'number',
+    'number, string',
     'number, number',
     '',
   }, res)
@@ -294,9 +301,9 @@ end
 function should.callOverloaded()
   local s = Simple(2.4)
   local s2 = s:add(Simple(10))
-  assertEqual(12.4, s2:value())
   assertEqual(0, s:mul())
-  assertEqual(4.8, s:mul(2))
+  assertEqual(14.8, s:mul(s2):value())
+  assertEqual(11.4, s:mul(3, 'foobar'))
   assertEqual(28, s:mul(14, 2))
   assertEqual(13, s:addAll(3, 4, 6))
   assertEqual(16, s:addAll(3, 4, 6, "foo"))

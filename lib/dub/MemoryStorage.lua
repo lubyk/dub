@@ -577,12 +577,16 @@ function parse.params(elem, header)
 end
 
 function parse.param(elem, position)
+  local default = elem:find('defval')
+  if default then
+    default = private.flatten(default)
+  end
   return {
     type     = 'dub.Param',
     name     = elem:find('declname')[1],
     position = position,
     ctype    = parse.type(elem),
-    default  = (elem:find('defval') or {})[1],
+    default  = default,
   }
 end
 
@@ -788,10 +792,12 @@ function private.flatten(xml)
   else
     local res = ''
     for i, e in ipairs(xml) do
-      if i > 1 then
-        res = res .. ' '
+      local f = private.flatten(e)
+      if i > 1 and string.sub(f, 1, 1) ~= '(' then
+        res = res .. ' ' .. f
+      else
+        res = res .. f
       end
-      res = res .. private.flatten(e)
     end
     return res
   end

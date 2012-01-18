@@ -23,7 +23,6 @@ local ins = dub.Inspector {
   INPUT    = 'test/fixtures/pointers',
   doc_dir  = lk.dir() .. '/tmp',
 }
-
 --=============================================== Special types
 function should.resolveStdString()
   local Box = ins:find('Box')
@@ -47,6 +46,15 @@ function should.gcReturnedPointerMarkedAsGc()
   local res = binder:functionBody(Box, met)
   -- no gc
   assertMatch('pushudata[^\n]+, true%);', res)
+end
+
+function should.useTopInMethodWithDefaults()
+  local Box = ins:find('Box')
+  local met = Box:method('Box')
+  local res = binder:functionBody(Box, met)
+  -- no gc
+  assertMatch('new Box%(std::string%(name, name_sz_%), %*size%);', res)
+  assertMatch('new Box%(std::string%(name, name_sz_%)%);', res)
 end
 
 --=============================================== Set/Get vars.
@@ -378,11 +386,14 @@ function should.executeVectMethods()
 end
 
 function should.overloadAdd()
-  local v1, s2 = Vect(1.2, -1), Vect(4, 2)
-  local v = v1 + s2
+  local v1, v2 = Vect(1.2, -1), Vect(4, 2)
+  local v = v1 + v2
   assertEqual(5.2, v.x)
   assertEqual(1, v.y)
-  assertEqual(5.2, v:surface())
+  assertEqual(1.2, v1.x)
+  assertEqual(-1, v1.y)
+  assertEqual(4, v2.x)
+  assertEqual(2, v2.y)
 end
 
 function should.overloadSub()
@@ -460,15 +471,18 @@ end
 
 -- operator-=
 function should.overloadSube()
-  local v = Vect(7, 2)
-  v:sub(Vect(3,2))
-  assertEqual(4, v.x)
-  assertEqual(0, v.y)
+  local a = Vect(7, 3)
+  local b = Vect(1, 2)
+  a:sub(b)
+  assertEqual(6, a.x)
+  assertEqual(1, a.y)
+  assertEqual(1, b.x)
+  assertEqual(2, b.y)
 end
 --=============================================== Box
 
 function should.createBoxObject()
-  local v = Box('Cat', Vect(2,3))
+  local v = Box('Cat')
   assertType('userdata', v)
 end
 
@@ -532,7 +546,7 @@ function should.writeBoxAttributes()
 end
 
 function should.returnNilOnNullPointer()
-  local b = Box('any', Vect(1,2))
+  local b = Box('any')
   assertNil(b.position)
   assertNil(b.const_vect)
 end
@@ -547,18 +561,18 @@ function should.getPointerMember()
   assertEqual(v, w) -- not the same udata but operator==
 end
 
-function should.getCopyOfConstPointerMember()
+function should.getCastOfConstPointerMember()
   local b = Box('any', Vect(1,2))
   local v = Vect(4,4)
   b.const_vect = v
+  -- const cast (remove constness)
   local w = b.const_vect
   w.x = 123.45
-  assertEqual(4, v.x)
-  assertEqual(4, b.const_vect.x)
+  assertEqual(123.45, v.x)
 end
 
 function should.setPointerMember()
-  local b = Box('any', Vect(1,2))
+  local b = Box('any')
   local v = Vect(4,4)
   b.position = v
   b.position.x = 5
@@ -566,7 +580,7 @@ function should.setPointerMember()
 end
 
 function should.protectGcOfSetMember()
-  local b = Box('any', Vect(1,2))
+  local b = Box('any')
   local v = Vect(4,4)
   local watch = Vect(0,0)
   collectgarbage()
@@ -583,7 +597,7 @@ function should.protectGcOfSetMember()
 end
 
 function should.protectGcOfOwner()
-  local b = Box('any', Vect(1,2))
+  local b = Box('any')
   local v = Vect(4,4)
   local watch = Vect(0,0)
   collectgarbage()

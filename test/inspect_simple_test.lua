@@ -132,7 +132,8 @@ function should.listMemberMethods()
     'addAll',
     'setValue',
     'isZero',
-    'pi'}, res)
+    'pi',
+  }, res)
 end
 
 function should.listParamsOnMethod()
@@ -181,7 +182,7 @@ function should.detectOverloadFunctions()
   local met = Simple:method('add')
   assertTrue(met.overloaded)
   local met = Simple:method('mul')
-  assertTrue(met.overloaded)
+  assertEqual(4, #met.overloaded)
 end
 
 --=============================================== Overloaded
@@ -205,7 +206,7 @@ function should.haveOverloadedList()
   end
   assertValueEqual({
     'Simple',
-    'double',
+    'double, char',
     'double, double',
     '',
   }, res)
