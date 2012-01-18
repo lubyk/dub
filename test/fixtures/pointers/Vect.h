@@ -32,6 +32,7 @@ struct Vect {
     for (size_t i=0; i<MAX_DIM; ++i)
       d[i] = i + 1 + tx + ty;
   }
+
   Vect(const Vect &v)
     : x(v.x)
     , y(v.y) {
@@ -39,6 +40,7 @@ struct Vect {
     // and memory leakage.
     ++copy_count;
   }
+
   Vect(const Vect *v)
     : x(v->x)
     , y(v->y) {

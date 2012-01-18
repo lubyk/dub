@@ -16,6 +16,10 @@ local binder = dub.LuaBinder()
 local ins = dub.Inspector {
   INPUT    = 'test/fixtures/memory',
   doc_dir  = lk.dir() .. '/tmp',
+  PREDEFINED = {
+    'SOME_FUNCTION_MACRO(x)=',
+    'OTHER_FUNCTION_MACRO(x)=',
+  }
 }
 
 --=============================================== Nogc bindings

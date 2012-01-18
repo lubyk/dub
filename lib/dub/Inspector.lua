@@ -62,6 +62,9 @@ function lib:parse(opts)
   if type(opts.INPUT) == 'table' then
     opts.INPUT = lk.join(opts.INPUT, ' ')
   end
+  if type(opts.PREDEFINED) == 'table' then
+    opts.PREDEFINED = lk.join(opts.PREDEFINED, ' \\\n                         ')
+  end
 
   -- Generate Doxyfile
   doxyfile:write(doxytemplate:run({doc_dir = doc_dir, opts = opts}))

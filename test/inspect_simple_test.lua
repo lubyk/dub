@@ -17,7 +17,6 @@ os.execute('mkdir -p '..tmp_path)
 local ins = dub.Inspector {
   INPUT   = 'test/fixtures/simple/include',
   doc_dir = lk.dir() .. '/tmp',
-  keep_xml= true,
 }
 
 --=============================================== TESTS

@@ -13,7 +13,6 @@ local should = test.Suite('dub.Inspector - pointers')
 local ins  = dub.Inspector {
   INPUT    = 'test/fixtures/pointers',
   doc_dir  = lk.dir() .. '/tmp',
-  keep_xml = true,
 }
 
 local Vect = ins:find('Vect')
