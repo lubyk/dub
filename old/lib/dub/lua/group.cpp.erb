@@ -1,9 +1,0 @@
-<% @group.members.each do |f| %>
-<%= function(f) %>
-
-<% end %>
-
-/** Overloaded function chooser for <%= @group.name %>(...) */
-<%= signature(@group.first, 0) %> {
-<%= indent(chooser_body, 2) %>
-}

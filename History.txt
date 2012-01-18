@@ -1,3 +1,13 @@
+== 2.0
+* Complete rewrite in Lua
+  * Most of the previous features are there (but not all).
+  * Added support for attributes read/write.
+  * Garbage collection protection for pointers.
+  * Return value optimization.
+  * Garbage collection optimization (an idea from Tim Mensch).
+  * Doxygen parsing (no need to provide xml).
+  * ...
+
 == 1.1
 
 * Minor enhancement
