@@ -925,6 +925,14 @@ function private:insertByTop(res, func, index)
   return need_top
 end
 
+local function hasMorePositions(skip_index, max_index)
+  for i=1,max_index do
+    if not skip_index[i] then
+      return true
+    end
+  end
+  return false
+end
 -- Insert a function into the hash, using the argument at the given
 -- index to filter
 function private:insertByArg(res, func, max_index, skip_index)
@@ -934,7 +942,7 @@ function private:insertByArg(res, func, max_index, skip_index)
     res.map = func
     res.list = {func}
     return
-  elseif max_index == 0 or (skip_index and #skip_index == max_index) then
+  elseif max_index == 0 or skip_index and not hasMorePositions(skip_index, max_index) then
     print("No more arguments to decide....", max_index)
     table.insert(res.list, func)
     for _, func in ipairs(res.list) do
