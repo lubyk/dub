@@ -265,7 +265,7 @@ function lib:functionBody(class, method)
       end
       res = res .. '}'
     else
-      res = res .. private.callWithParams(self, class, method, param_delta, '  ', custom) .. '\n'
+      res = res .. private.callWithParams(self, class, method, param_delta, '', custom)
     end
   end
   return res
