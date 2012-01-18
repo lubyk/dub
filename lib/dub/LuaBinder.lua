@@ -297,7 +297,7 @@ function private:expandTreeByType(tree, class, param_delta, indent, max_arg)
   local last_key = #keys
   if last_key == 1 then
     -- single entry in decision, just go deeper
-    return private.expandTreeByType(self, tree[keys[1]], class, param_delta, indent, max_arg)
+    return private.expandTreeByType(self, tree.map[keys[1]], class, param_delta, indent, max_arg)
   end
 
   res = res .. format('int type__ = lua_type(L, %i);\n', param_delta + pos)
