@@ -1,6 +1,7 @@
 #ifndef POINTERS_VECT_H_
 #define POINTERS_VECT_H_
 
+#include <cstdio>
 #include <cstring> // size_t
 #define MAX_DIM 3
 

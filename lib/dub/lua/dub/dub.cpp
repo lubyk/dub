@@ -58,22 +58,67 @@ TypeException::TypeException(lua_State *L, int narg, const char *type, bool is_s
   Exception(is_super ? TYPE_EXCEPTION_SMSG : TYPE_EXCEPTION_MSG, type, luaL_typename(L, narg)) {}
 
 // ======================================================================
+// =============================================== dub_protect
+// ======================================================================
+
+// TODO: Can we make this faster ?
+inline void push_own_env(lua_State *L, int ud) {
+  lua_getfenv(L, ud);
+  // ... <udata> ... <env>
+  lua_pushstring(L, ".");
+  // ... <udata> ... <env> "."
+  lua_rawget(L, -2); // <env>["."]
+  // ... <udata> ... <env> <??>
+  if (!lua_rawequal(L, -1, ud)) {
+    // ... <udata> ... <env> <nil>
+    // does not have it's own env table
+    lua_pop(L, 2);
+    // ... <udata> ... 
+    // Create env table
+    lua_newtable(L);
+    // ... <udata> ... <env>
+    lua_pushstring(L, ".");
+    // ... <udata> ... <env> "."
+    lua_pushvalue(L, ud);
+    // ... <udata> ... <env> "." <udata>
+    lua_rawset(L, -3); // env["."] = udata
+    // ... <udata> ... <env>
+    lua_pushvalue(L, -1);
+    // ... <udata> ... <env> <env>
+    if (!lua_setfenv(L, ud)) {
+      luaL_error(L, "Could not set userdata env on '%s'.", lua_typename(L, lua_type(L, ud)));
+    }
+    // ... <udata> ... <env>
+  } else {
+    // ... <udata> ... <env> <self>
+    // has its own env table
+    lua_pop(L, 1);
+    // ... <udata> ... <env>
+  }                            
+}
+
+void dub_protect(lua_State *L, int owner, int original, const char *key) {
+  // Point to original to avoid original gc before owner.
+  push_own_env(L, owner);
+  // ... <env>
+  lua_pushvalue(L, original);
+  // ... <env> <original>
+  lua_setfield(L, -2, key); // env["key"] = <original>
+  // ... <env>
+  lua_pop(L, 1);
+  // ...
+}
+
+// ======================================================================
 // =============================================== dub_pushudata
 // ======================================================================
+
 void dub_pushudata(lua_State *L, void *ptr, const char *type_name, bool gc) {
   DubUserdata *userdata = (DubUserdata*)lua_newuserdata(L, sizeof(DubUserdata));
   userdata->ptr = ptr;
   if (!gc) {
-    // Point to owner to avoid owner gc.
-    // <self> ... <obj>
-    lua_newtable(L);
-    // <self> .. <obj> <{}>
-    lua_pushvalue(L, 1);
-    // <self> .. <obj> <{}>._ = <self>
-    lua_setfield(L, -2, "_");
-    // <self> .. <obj> <{}>
-    lua_setfenv(L, -2);
-    // ... <obj>
+    // Point to original (self) to avoid original gc.
+    dub_protect(L, lua_gettop(L), 1, "_");
   }
 
   userdata->gc = gc;

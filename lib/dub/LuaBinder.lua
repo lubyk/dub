@@ -682,8 +682,12 @@ function private:pushValue(method, value, return_value)
     local gc
     if not ctype.ptr then
       if method.is_get_attr then
-        -- Return pointer to member: WARNING: same risks as C++ dangling pointers.
-        res = format('dub_pushudata(L, &%s, "%s", false);', value, lua.mt_name)
+        if ctype.const then
+          -- copy
+          res = format('dub_pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
+        else
+          res = format('dub_pushudata(L, &%s, "%s", false);', value, lua.mt_name)
+        end
       else
         -- Return value is not a pointer: we have a copy
         if method.parent.dub.destroy == 'free' then
@@ -693,11 +697,19 @@ function private:pushValue(method, value, return_value)
         end
       end
     else
-      -- Return value is a pointer, we should only GC in constructor.
-      if method.static or method.dub and method.dub.gc then
-        res = format('dub_pushudata(L, %s, "%s", true);', value, lua.mt_name)
+      -- Return value is a pointer
+      res = format('%sretval__ = %s;\n', ctype.create_name, value)
+      res = res .. 'if (!retval__) return 0;\n'
+      if ctype.const then
+        -- copy
+        res = res .. format('dub_pushudata(L, new %s(*retval__), "%s", true);', rtype.name, lua.mt_name)
       else
-        res = format('dub_pushudata(L, %s, "%s", false);', value, lua.mt_name)
+        -- We should only GC in constructor.
+        if method.static or method.dub and method.dub.gc then
+          res = res .. format('dub_pushudata(L, retval__, "%s", true);', lua.mt_name)
+        else
+          res = res .. format('dub_pushudata(L, retval__, "%s", false);', lua.mt_name)
+        end
       end
     end
   else
@@ -750,6 +762,9 @@ function private:setAttrBody(method, attr, delta)
     -- custom type
     if not param.ctype.ptr then
       p = '*' .. p
+    else
+      -- protect from gc
+      res = res .. format('dub_protect(L, 1, %i, "%s");\n', param.position + delta, param.name)
     end
   else
     -- native type

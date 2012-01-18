@@ -508,11 +508,15 @@ end
 function should.notGCPointerToMember()
   local b = Box('Cat', Vect(2,3))
   local sz = b.size_
+  local watch = Vect(0,0)
+  collectgarbage()
+  watch.destroy_count = 0
+  watch.create_count = 0
+  watch.copy_count = 0
   sz:__gc() -- does nothing
-  sz.x = 4
   sz = nil
   collectgarbage()
-  assertEqual(4, b.size_.x)
+  assertEqual(0, watch.destroy_count)
 end
 
 function should.writeBoxAttributes()
@@ -525,6 +529,76 @@ function should.writeBoxAttributes()
   assertEqual(8, v.size_.x)
   assertEqual(1.5, v.size_.y)
   assertEqual(12, v:surface())
+end
+
+function should.returnNilOnNullPointer()
+  local b = Box('any', Vect(1,2))
+  assertNil(b.position)
+  assertNil(b.const_vect)
+end
+
+function should.getPointerMember()
+  local b = Box('any', Vect(1,2))
+  local v = Vect(4,4)
+  b.position = v
+  local w = b.position
+  w.x = 123.45
+  assertEqual(123.45, v.x)
+  assertEqual(v, w) -- not the same udata but operator==
+end
+
+function should.getCopyOfConstPointerMember()
+  local b = Box('any', Vect(1,2))
+  local v = Vect(4,4)
+  b.const_vect = v
+  local w = b.const_vect
+  w.x = 123.45
+  assertEqual(4, v.x)
+  assertEqual(4, b.const_vect.x)
+end
+
+function should.setPointerMember()
+  local b = Box('any', Vect(1,2))
+  local v = Vect(4,4)
+  b.position = v
+  b.position.x = 5
+  assertEqual(5, v.x)
+end
+
+function should.protectGcOfSetMember()
+  local b = Box('any', Vect(1,2))
+  local v = Vect(4,4)
+  local watch = Vect(0,0)
+  collectgarbage()
+  watch.destroy_count = 0
+
+  b.position = v
+  v = nil
+  collectgarbage() -- should not collect v
+  assertEqual(0, watch.destroy_count)
+
+  b = nil
+  collectgarbage() -- should collect b and v
+  assertEqual(2, watch.destroy_count) -- b internal size + v
+end
+
+function should.protectGcOfOwner()
+  local b = Box('any', Vect(1,2))
+  local v = Vect(4,4)
+  local watch = Vect(0,0)
+  collectgarbage()
+  watch.destroy_count = 0
+
+  b.position = v
+  local w = b.position
+  b = nil
+  v = nil
+  collectgarbage() -- should not collect v
+  assertEqual(0, watch.destroy_count)
+
+  w = nil
+  collectgarbage() -- should collect w, b and v
+  assertEqual(2, watch.destroy_count) -- b internal size + (v == w)
 end
 
 function should.executeBoxMethods()

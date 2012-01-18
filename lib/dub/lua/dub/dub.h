@@ -184,6 +184,14 @@ void *dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt = f
 #define dub_checkboolean(L,n) (lua_toboolean(L,n))
 
 // ======================================================================
+// =============================================== dub_protect
+// ======================================================================
+/** Protect garbage collection from pointers stored in objects or
+ * retrieved in userdata copies.
+ */
+void dub_protect(lua_State *L, int owner, int original, const char *key);
+
+// ======================================================================
 // =============================================== dub_register
 // ======================================================================
 void dub_register(lua_State *L, const char *libname, const char *class_name);
