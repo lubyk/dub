@@ -515,6 +515,12 @@ parse['function'] = function(self, elem, header)
     ctor          = self.is_class and name == self.name,
     dub           = parse.dub(elem) or {},
   }
+
+  if not child then
+    -- invalid child
+    return nil
+  end
+
   if self.name == name then
     -- Constructor
     child.return_value = lib.makeType(name .. ' *')

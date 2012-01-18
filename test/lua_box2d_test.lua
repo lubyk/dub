@@ -62,6 +62,7 @@ function should.bindCompileAndLoad()
       'b2Body',
       'b2Shape',
       'b2PolygonShape',
+      'b2CircleShape',
       'b2FixtureDef',
     },
     -- Remove this part in headers

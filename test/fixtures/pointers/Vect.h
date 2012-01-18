@@ -132,6 +132,12 @@ struct Vect {
       return 0;
     }
   }
+
+  // unknown operator should be ignored.
+  Vect& operator=( int px ) {
+    x = px;
+    return *this;
+  }
 };
 
 #endif // POINTERS_VECT_H_
