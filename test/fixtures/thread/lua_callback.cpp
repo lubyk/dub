@@ -12,3 +12,16 @@ void Callback::call(float value) {
   }
 }
   
+double Callback::getValue(const std::string &key) {
+  lua_State *L = lua_;
+  if (pushLuaValue(key.c_str())) {
+    if (lua_isnumber(L, -1)) {
+      // ... <nb>
+      double d = lua_tonumber(L, -1);
+      lua_pop(L, 1);
+      // ...
+      return d;
+    }
+  }
+  return 0;
+}

@@ -10,6 +10,7 @@
   * Added support for custom bindings on attributes.
   * Added 'Doxyfile' option on inspector to allow custom Doxyfile.
   * Added support for void *userdata to store Lua types.
+  * Added support for transparent native table wrapping.
   * ...
 
 == 1.1

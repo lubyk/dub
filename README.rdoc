@@ -37,6 +37,7 @@ Currently, the parser supports:
  * build system
  * group multiple bindings in a single library
  * rewrite class or library names
+ * native Lua table wrapping setmetatable({super = obj}, Vect)
  * well tested
 
 = TODO

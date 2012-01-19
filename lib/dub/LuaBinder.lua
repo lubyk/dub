@@ -743,7 +743,7 @@ end
 -- Detect platform
 function private.platform()
   local name = io.popen('uname'):read()
-  if string.match(name, 'Darwin') then
+  if not name or string.match(name, 'Darwin') then
     return 'macosx'
   else
     -- FIXME: detect other platforms...
@@ -881,22 +881,21 @@ function private:switch(class, method, delta, bfunc, iterator)
       local name = elem.name
       res = res .. format('  case %s: {\n', dub.hash(name, sz))
       -- get or set value
-      if method.is_set_attr then
-        res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) luaL_error(L, KEY_EXCEPTION_MSG, key);\n', name)
-      else
-        -- No error on bad read or cast: just return nil.
-        res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) return 0;\n', self:libName(elem))
-      end
+      res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) break;\n', self:libName(elem))
       res = res .. '    ' .. string.gsub(body, '\n', '\n    ') .. '\n  }\n'
     end
   end
-  res = res .. '  default:\n'
+  res = res .. '}\n'
   if method.is_set_attr then
-    res = res .. '    throw dub::Exception(KEY_EXCEPTION_MSG, key);\n'
-  else
-    res = res .. '    return 0;\n'
+    res = res .. 'if (lua_istable(L, 1)) {\n'
+    -- <tbl> <'key'> <value>
+    res = res .. '  lua_rawset(L, 1);\n'
+    res = res .. '} else {\n'
+    res = res .. '  luaL_error(L, KEY_EXCEPTION_MSG, key);\n'
+    res = res .. '}\n'
+    -- If <self> is a table, write there
   end
-  res = res .. '}'
+  res = res .. 'return 0;'
   return res
 end
 

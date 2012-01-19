@@ -348,6 +348,15 @@ function should.readArrayAttributes()
   assertNil(v:d(4))
 end
 
+function should.writeBadAttribute()
+  local v = Vect(1,2)
+  -- this operation is just ignored
+  assertError("invalid key 'xcvx'", function()
+    v.xcvx = 'foo'
+  end)
+  assertNil(v.xcvx)
+end
+
 function should.writeArrayAttributes()
   local v = Vect(1,2)
   --v.set_d(1, 10)
@@ -683,6 +692,17 @@ function should.createAndDestroy()
   createAndDestroyMany()
   assertEqual(vm_size, collectgarbage('count'))
 end
+
+--=============================================== Wrap usdata in table
+
+function should.findObjectInTable()
+  local v = Vect(2,-4)
+  local o = setmetatable({super = v}, Vect)
+  assertEqual(2, o.x)
+  o.hep = 'Mea Lua'
+  assertEqual('Mea Lua', o.hep)
+end
+
 
 test.all()
 
