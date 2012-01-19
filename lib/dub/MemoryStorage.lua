@@ -42,8 +42,12 @@ setmetatable(lib, {
 function lib:parse(xml_dir, not_lazy)
   local xml_headers = self.xml_headers
   local dir = lk.Dir(xml_dir)
-  -- Parse header (.h) content
-  for file in dir:glob('%_8h.xml') do
+  -- Parse header (.h) content first
+  for file in dir:glob('_8h.xml') do
+    table.insert(xml_headers, {path = file, dir = xml_dir})
+  end
+  -- Parse namespace content
+  for file in dir:glob('namespace_.*.xml') do
     table.insert(xml_headers, {path = file, dir = xml_dir})
   end
   if not_lazy then
@@ -200,7 +204,7 @@ local function resolveOne(self, scope, name)
   local fullname = base .. name
   local t = self:findByFullname(fullname)
   if t then
-    if t.type == 'dub.Class' then
+    if t.type == 'dub.Class' or t.type == 'dub.CTemplate' then
       -- real type
       return t
     elseif t.type == 'dub.Typedef' or
@@ -330,6 +334,16 @@ function parse:header(header, not_lazy)
   local h_path = data:find('location').file
   local base, h_file = lk.directory(h_path)
   header.file = h_path
+
+  if data.kind == 'namespace' then
+    local namespace = dub.Namespace {
+      name   = data:find('compoundname')[1],
+      parent = self,
+      db     = self.db or self,
+    }
+    self.cache[namespace.name] = namespace
+    self = namespace
+  end
   self.header = h_path
 
   self.dub = parse.dub(data) or self.dub
@@ -545,6 +559,8 @@ end
 function parse:typedef(elem, header)
   local typ = {
     type        = 'dub.Typedef',
+    parent      = self, 
+    db          = self.db or self,
     name        = elem:find('name')[1],
     ctype       = parse.type(elem),
     desc        = (elem:find('detaileddescription') or {})[1],
@@ -895,13 +911,19 @@ function parse.dub(elem)
   return nil
 end
 
+-- function lib:find(scope, name)
+--   return self:findByFullname(name) or 
+--   self:findByFullname(elem.parent:fullname() .. '::' .. name)
+-- end
+
 function private:resolveTypedef(elem)
   if elem.type == 'dub.Typedef' then
     -- try to resolve and make a full class
     local name, types = string.match(elem.ctype.name, '^(.*) < (.+) >$')
     if name then
       types = lk.split(types, ', ')
-      local template = self:findByFullname(name)
+      -- Try to find the template.
+      local template = self:resolveType(elem.parent, name)
       if template and template.type == 'dub.CTemplate' then
         local class = template:resolveTemplateParams(elem.name, types)
         self.cache[class.name] = class

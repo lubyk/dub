@@ -33,6 +33,19 @@ function should.findNamespace()
   assertEqual('Nem', A:namespace().name)
 end
 
+function should.findTemplate()
+  local TRect = ins:find('Nem::TRect')
+  assertEqual('TRect', TRect.name)
+  assertEqual('dub.CTemplate', TRect.type)
+end
+
+function should.findTypdefByFullname()
+  local Rect = ins:find('Nem::Rect')
+  assertEqual('Rect', Rect.name)
+  assertEqual('Nem', Rect:namespace().name)
+  assertEqual('dub.Class', Rect.type)
+end
+
 function should.findNestedClassByFullname()
   local C = ins:find('Nem::B::C')
   assertEqual('dub.Class', C.type)

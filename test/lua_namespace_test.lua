@@ -101,6 +101,7 @@ function should.changeNamespaceNameOnBind()
       'Nem::A',
       'Nem::B',
       'Nem::B::C',
+      'Nem::Rect',
       'Vect',
     },
     custom_bindings = 'test/fixtures/namespace',
@@ -128,6 +129,7 @@ function should.changeNamespaceNameOnBind()
         'test/tmp/moo_B_C.cpp',
         'test/tmp/moo.cpp',
         'test/tmp/Vect.cpp',
+        'test/tmp/moo_Rect.cpp',
         'test/fixtures/pointers/vect.cpp',
       },
       includes = {
@@ -228,6 +230,11 @@ function should.setAnyLuaValue()
   assertEqual(4.53, a.userdata)
 end
 
+function should.buildTemplate()
+  local r = moo.Rect(4,3)
+  assertEqual(4, r.w)
+  assertEqual(3, r.h)
+end
 test.all()
 
 

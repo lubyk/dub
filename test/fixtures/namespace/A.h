@@ -1,9 +1,12 @@
 #ifndef NAMESPACE_A_H_
 #define NAMESPACE_A_H_
 
+#include "TRect.h"
 #include <string>
 
 namespace Nem {
+
+typedef TRect<int> Rect;
 
 /** This class is used to test:
  *   * classes in namespace
