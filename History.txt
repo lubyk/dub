@@ -7,6 +7,9 @@
   * Garbage collection optimization (an idea from Tim Mensch).
   * Doxygen parsing (no need to provide xml).
   * Added support for nested classes and namespaces.
+  * Added support for custom bindings on attributes.
+  * Added 'Doxyfile' option on inspector to allow custom Doxyfile.
+  * Added support for void *userdata to store Lua types.
   * ...
 
 == 1.1

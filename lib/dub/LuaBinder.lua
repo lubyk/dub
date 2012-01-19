@@ -188,7 +188,7 @@ function private:callWithParams(class, method, param_delta, indent, custom, max_
   end
   if custom then
     res = res .. custom
-    if not string.match(custom, 'return[ ]+[0-9]+[ ]') then
+    if not string.match(custom, 'return[ ]+[^ ]') then
       res = res .. '\nreturn 0;'
     end
   else
@@ -757,7 +757,7 @@ function private:setAttrBody(method, attr, delta)
     local custom
     custom = (method.parent.custom_bindings[method.parent.name] or {})[attr.name]
     if custom and custom.set then
-      return custom
+      return custom.set
     end
   end
 
@@ -816,7 +816,7 @@ function private:getAttrBody(method, attr, delta)
     local custom
     custom = (method.parent.custom_bindings[method.parent.name] or {})[attr.name]
     if custom and custom.get then
-      return custom
+      return custom.get
     end
   end
 

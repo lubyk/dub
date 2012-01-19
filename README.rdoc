@@ -13,6 +13,7 @@ Currently, the parser supports:
 
  * public methods
  * public attributes read/write
+ * custom read/write attributes (with void *userdata helper)
  * public class methods
  * public static attributes read/write
  * pointer to member (gc protected)
@@ -29,7 +30,7 @@ Currently, the parser supports:
  * return value optimization (no copy)
  * simple type garbage collection optimization (no __gc method)
  * hand made bindings for special cases
- * namespace support
+ * namespace
  * nested classes
  * class enums
  * global enums

@@ -1,23 +1,11 @@
 lua:
   '~A':
     cleanup: |
-      if (self->userdata) {
-        luaL_unref((int)self->userdata);
-        self->userdata = NULL;
-      }
+      DubRef::cleanup(L, &self->userdata);
   userdata:
+  # This is an experimental feature to allow arbitrary values attached to
+  # void* pointers.
     set: |
-      if (self->userdata) {
-        luaL_unref((int)self->userdata);
-        self->userdata = NULL;
-      }
-      if (!lua_isnil(L, -1) {
-        self->userdata = (void*)luaL_ref(L, LUA_REGISTRYINDEX);
-      }
+      return DubRef::set(L, &self->userdata, 3);
     get: |
-      if (self->userdata) {
-        lua_rawgeti(L, LUA_REGISTRYINDEX, (int)self->userdata);
-        return 1;
-      } else {
-        return 0;
-      }
+      return DubRef::push(L, self->userdata);

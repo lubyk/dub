@@ -54,21 +54,27 @@ function lib:parse(opts)
       end
     end
   end
+
   private.execute('mkdir -p ' .. doc_dir)
-  local doxypath = doc_dir .. '/Doxyfile'
-  local doxyfile = io.open(doxypath, 'w')
 
-  local doxytemplate = dub.Template {path = lk.dir() .. '/Doxyfile'}
-  if type(opts.INPUT) == 'table' then
-    opts.INPUT = lk.join(opts.INPUT, ' ')
-  end
-  if type(opts.PREDEFINED) == 'table' then
-    opts.PREDEFINED = lk.join(opts.PREDEFINED, ' \\\n                         ')
+  local doxypath = opts.Doxyfile
+  if not doxypath then
+    doxypath = doc_dir .. '/Doxyfile'
+    local doxyfile = io.open(doxypath, 'w')
+
+    local doxytemplate = dub.Template {path = lk.dir() .. '/Doxyfile'}
+    if type(opts.INPUT) == 'table' then
+      opts.INPUT = lk.join(opts.INPUT, ' ')
+    end
+    if type(opts.PREDEFINED) == 'table' then
+      opts.PREDEFINED = lk.join(opts.PREDEFINED, ' \\\n                         ')
+    end
+
+    -- Generate Doxyfile
+    doxyfile:write(doxytemplate:run({doc_dir = doc_dir, opts = opts}))
+    doxyfile:close()
   end
 
-  -- Generate Doxyfile
-  doxyfile:write(doxytemplate:run({doc_dir = doc_dir, opts = opts}))
-  doxyfile:close()
   -- Generate xml
   self:doxygen(doxypath)
   -- Parse xml

@@ -89,6 +89,47 @@ struct DubUserdata {
   bool gc;
 };
 
+// To ease storing a LuaRef in a void* pointer.
+struct DubRef {
+  int ref;
+
+  static int set(lua_State *L, void **ptr, int id) {
+    if (lua_isnil(L, id)) {
+      cleanup(L, ptr);
+    } else {
+      DubRef *ref;
+      if (*ptr) {
+        ref = (DubRef*)*ptr;
+        luaL_unref(L, LUA_REGISTRYINDEX, ref->ref);
+      } else {
+        ref = new DubRef();
+        *ptr = ref;
+      }
+      ref->ref = luaL_ref(L, LUA_REGISTRYINDEX);
+    }
+    return 0;
+  }
+
+  static int push(lua_State *L, void *ptr) {
+    if (ptr) {
+      DubRef *ref = (DubRef*)ptr;
+      lua_rawgeti(L, LUA_REGISTRYINDEX, ref->ref);
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  static void cleanup(lua_State *L, void **ptr) {
+    if (*ptr) {
+      DubRef *ref = (DubRef*)*ptr;
+      luaL_unref(L, LUA_REGISTRYINDEX, ref->ref);
+      delete ref;
+      *ptr = NULL;
+    }
+  }
+};
+
 /** Push a custom type on the stack.
  * Since the value is passed as a pointer, we assume it has been created
  * using 'new' and Lua can safely call delete when it needs to garbage-

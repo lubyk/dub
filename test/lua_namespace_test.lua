@@ -15,7 +15,9 @@ local should = test.Suite('dub.LuaBinder - namespace')
 local binder = dub.LuaBinder()
 
 local ins = dub.Inspector {
-  INPUT    = 'test/fixtures/namespace',
+  INPUT    = {
+    'test/fixtures/namespace',
+  },
   doc_dir  = lk.dir() .. '/tmp',
 }
 
@@ -67,7 +69,11 @@ function should.changeNamespaceNameOnBind()
   -- Cannot reuse inspector with different binder settings (Nem.B.C
   -- found instead of moo.B.C)
   local ins = dub.Inspector {
-    INPUT    = 'test/fixtures/namespace',
+    INPUT    = {
+      'test/fixtures/namespace',
+      -- This is just to have the Vect class for gc testing.
+      'test/fixtures/pointers',
+    },
     doc_dir  = lk.dir() .. '/tmp',
   }
 
@@ -95,7 +101,9 @@ function should.changeNamespaceNameOnBind()
       'Nem::A',
       'Nem::B',
       'Nem::B::C',
-    }
+      'Vect',
+    },
+    custom_bindings = 'test/fixtures/namespace',
   })
   binder.name = nil
   local res = lk.readall(tmp_path .. '/moo_A.cpp')
@@ -119,6 +127,8 @@ function should.changeNamespaceNameOnBind()
         'test/tmp/moo_B.cpp',
         'test/tmp/moo_B_C.cpp',
         'test/tmp/moo.cpp',
+        'test/tmp/Vect.cpp',
+        'test/fixtures/pointers/vect.cpp',
       },
       includes = {
         'test/tmp',
@@ -166,6 +176,56 @@ function should.findNestedClass()
   local b = moo.B(c)
   assertEqual(456, b.c:nb())
   assertEqual(456, b.nb_)
+end
+
+function should.useCustomAccessor()
+  local a = moo.A()
+  local watch = Vect(0,0)
+  assertNil(a.userdata)
+  collectgarbage()
+  watch.create_count  = 0
+  watch.destroy_count = 0
+  local v = Vect(3, 4)
+  assertEqual(1, watch.create_count)
+  a.userdata = v
+  assertEqual(4, a.userdata.y)
+  assertEqual(1, watch.create_count)
+  v = nil
+  collectgarbage() -- should not release v
+  assertEqual(0, watch.destroy_count)
+  a = nil
+  collectgarbage() -- should release v
+  collectgarbage() -- should release v
+  assertEqual(1, watch.destroy_count)
+end
+
+function should.useCustomAccessor()
+  local a = moo.A()
+  local watch = Vect(0,0)
+  collectgarbage()
+  watch.create_count  = 0
+  watch.destroy_count = 0
+  local v = Vect(3, 7)
+  assertEqual(1, watch.create_count)
+  a.userdata = v
+  assertEqual(1, a.userdata.x)
+  assertEqual(1, watch.create_count)
+  v = nil
+  collectgarbage() -- should not release v
+  assertEqual(3, a.userdata.x)
+  assertEqual(0, watch.destroy_count)
+  a.userdata = nil
+  collectgarbage() -- should release v
+  assertEqual(1, watch.destroy_count)
+end
+
+function should.setAnyLuaValue()
+  local a = moo.A()
+  local e = {}
+  a.userdata = e
+  assertEqual(e, a.userdata)
+  a.userdata = 4.53
+  assertEqual(4.53, a.userdata)
 end
 
 test.all()
