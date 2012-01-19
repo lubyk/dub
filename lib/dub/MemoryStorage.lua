@@ -28,6 +28,7 @@ setmetatable(lib, {
       functions_list = {},
       constants_list = {},
       const_headers  = {},
+      resolved_cache = {},
     }
     return setmetatable(self, lib)
   end
@@ -41,6 +42,7 @@ setmetatable(lib, {
 function lib:parse(xml_dir, not_lazy)
   local xml_headers = self.xml_headers
   local dir = lk.Dir(xml_dir)
+  -- Parse header (.h) content
   for file in dir:glob('%_8h.xml') do
     table.insert(xml_headers, {path = file, dir = xml_dir})
   end
@@ -53,6 +55,10 @@ function lib:findByFullname(name)
   -- split name components
   local parts = lk.split(name, '::')
   local current = self
+  if self.name == parts[1] then
+    -- remove pseudo-scope
+    table.remove(parts, 1)
+  end
   for i, part in ipairs(parts) do
     local child = self:findChildFor(current, part)
     if not child then
@@ -71,7 +77,9 @@ end
 
 function lib:findChildFor(parent, name)
   -- Any element at the root of the name space
-  return parent.cache[name] or private.parseHeaders(parent, name)
+  if parent.is_scope or parent == self then
+    return parent.cache[name] or private.parseHeaders(parent, name)
+  end
 end
 
 --- Return an iterator over the functions of this class/namespace.
@@ -182,8 +190,15 @@ function lib:constHeaders()
   end
 end
 
-local function resolveOne(scope, name)
-  local t = scope:findChild(name)
+local function resolveOne(self, scope, name)
+  local base = scope:fullname()
+  if base then
+    base = base .. '::'
+  else
+    base = ''
+  end
+  local fullname = base .. name
+  local t = self:findByFullname(fullname)
   if t then
     if t.type == 'dub.Class' then
       -- real type
@@ -197,19 +212,30 @@ local function resolveOne(scope, name)
 end
 
 function lib:resolveType(scope, name)
+  local fullname = scope:fullname()
+  if fullname then
+    fullname = fullname .. '::' .. name
+  else
+    fullname = name
+  end
+  local t = self.resolved_cache[fullname]
+  if t ~= nil then
+    return t
+  end
   -- Do we have a typedef or enum ?
   -- Look in nested scopes
-  local t
   while scope do
-    t = resolveOne(scope, name)
+    t = resolveOne(self, scope, name)
     if t then
+      self.resolved_cache[fullname] = t
       return t
     end
     if scope.type == 'dub.Class' then
       -- Look in superclasses
       for super in scope:superclasses() do
-        t = resolveOne(super, name)
+        t = resolveOne(self, super, name)
         if t then
+          self.resolved_cache[fullname] = t
           return t
         end
       end
@@ -217,6 +243,7 @@ function lib:resolveType(scope, name)
     scope = scope.parent
   end
   -- not found (could be a native type)
+  self.resolved_cache[fullname] = false
   return nil
 end
 
@@ -313,7 +340,17 @@ end
 function parse:children(elem_list, header, not_lazy)
   local cache = self.cache
   local sorted_cache = self.sorted_cache
+  -- First parse namespaces
+  local collect = {}
   for _, elem in ipairs(elem_list) do
+    if elem.xml == 'innernamespace' then
+      table.insert(collect, 1, elem)
+    else
+      table.insert(collect, elem)
+    end
+  end
+  -- Then parse the other elements.
+  for _, elem in ipairs(collect) do
     local func = parse[elem.xml]
     if func then
       local child = func(self, elem, header, not_lazy)
@@ -334,29 +371,57 @@ function parse:basecompoundref(elem, header)
 end
 
 function parse:innernamespace(elem, header)
-  return {
-    type = 'dub.Namespace',
-    name = elem[1]
+  local name = elem[1]
+  if self.cache[name] then
+    return nil
+  end
+  return dub.Namespace {
+    name   = name,
+    parent = self,
+    db     = self.db or self,
   }
 end
 
 function parse:innerclass(elem, header, not_lazy)
+  local name  = elem[1]
+  local parent = self
+  if string.match(name, '::') then
+    -- inside a namespace or class
+    parent = self.db or self
+    local parts = lk.split(name, '::')
+    local i = #parts
+    name = parts[i]
+    parts[i] = nil
+    for i, part in ipairs(parts) do
+      local child = parent.cache[part]
+      if not child then
+        assert(false, "Could not find parent '"..part.."' in '"..parent:fullname().."'.")
+      end
+      parent = child
+    end
+  end
+
   local class = dub.Class {
     -- self can be a class or db (root)
     db      = self.db or self,
-    parent  = self,
-    name    = elem[1],
+    parent  = parent,
+    name    = name,
     xml     = elem,
     xml_headers  = {
       {path = header.dir .. lk.Dir.sep .. elem.refid .. '.xml', dir = header.dir}
     },
   }
+  if not parent.cache[class.name] then
+    parent.cache[class.name] = class
+    table.insert(parent.sorted_cache, class)
+  end
+
   if not_lazy then
     private.parseAll(class)
   end
+  
   -- Create --get--, --set-- and ~Destructor if needed.
   private.makeSpecialMethods(class)
-  return class
 end
 
 function parse:templateparamlist(elem, header)
@@ -521,9 +586,9 @@ parse['function'] = function(self, elem, header)
     return nil
   end
 
-  if self.name == name then
+  if self.is_class and self.name == name then
     -- Constructor
-    child.return_value = lib.makeType(name .. ' *')
+    child.return_value = lib.makeType(self.create_name)
   elseif name == 'operator[]' then
     -- Special case for index method
     child.is_get_attr  = true

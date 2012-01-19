@@ -312,11 +312,16 @@ void dub_register(lua_State *L, const char *libname, const char *class_name) {
 
 
   // <mt>
-  lua_getfield(L, LUA_GLOBALSINDEX, libname);
+  // get or create Foo.Bar.Baz table.
+  const char *tbl_err = luaL_findtable(L, LUA_GLOBALSINDEX, libname, 1);
+  if (tbl_err) {
+    fprintf(stderr, "Could load '%s' into '%s' ('%s' is not a table).\n", class_name, libname, tbl_err);
+    return; // mt table not registered and not properly configured
+  }
+      
   if (lua_isnil(L, -1)) {
     // no global table called libname
     lua_pop(L, 1);
-    lua_newtable(L);
     // <mt> <lib>
     lua_pushvalue(L, -1);
     // <mt> <lib> <lib>

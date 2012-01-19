@@ -6,6 +6,7 @@
   * Return value optimization.
   * Garbage collection optimization (an idea from Tim Mensch).
   * Doxygen parsing (no need to provide xml).
+  * Added support for nested classes and namespaces.
   * ...
 
 == 1.1

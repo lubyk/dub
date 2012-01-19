@@ -77,7 +77,7 @@ function should.bindComplexSetMethod()
   assertMatch('__newindex.*Box__set_', res)
   local set = Box:method(Box.SET_ATTR_NAME)
   local res = binder:functionBody(Box, set)
-  assertMatch('self%->size_ = %*%*%(%(Vect%*%*%)', res)
+  assertMatch('self%->size_ = %*%*%(%(Vect %*%*%)', res)
 end
 
 function should.ignoreArrayAttrInSet()
@@ -118,7 +118,7 @@ function should.bindComplexGetMethod()
   local res = binder:bindClass(Box)
   assertMatch('__index.*Box__get_', res)
   local res = binder:functionBody(Box, set)
-  assertMatch('self%->size_ = %*%*%(%(Vect%*%*%)', res)
+  assertMatch('self%->size_ = %*%*%(%(Vect %*%*%)', res)
 end
 
 function should.notGetSelfInStaticMethod()
@@ -154,13 +154,12 @@ function should.createLibFileWithCustomNames()
     -- with lua_MyLib.
     -- This creates a MyLib_open.cpp file
     -- that has to be included in build.
+    -- Also forces classes to live in foo.ClassName
     single_lib = 'foo',
-    -- Forces classes to live in MyLib.Foobar
-    lib_prefix = 'foo',
   })
-  local res = lk.readall(tmp_path .. '/V.cpp')
+  local res = lk.readall(tmp_path .. '/foo_V.cpp')
   assertMatch('"foo.V"', res)
-  assertMatch('luaopen_V%(', res)
+  assertMatch('luaopen_foo_V%(', res)
 
   assertPass(function()
     -- Build foo.so
@@ -168,8 +167,8 @@ function should.createLibFileWithCustomNames()
       output   = 'test/tmp/foo.so',
       inputs   = {
         'test/tmp/dub/dub.cpp',
-        'test/tmp/V.cpp',
-        'test/tmp/B.cpp',
+        'test/tmp/foo_V.cpp',
+        'test/tmp/foo_B.cpp',
         'test/tmp/foo.cpp',
         'test/fixtures/pointers/vect.cpp',
       },
@@ -222,12 +221,12 @@ function should.createLibFile()
 
   assertTrue(lk.exist(tmp_path .. '/MyLib.cpp'))
   local res = lk.readall(tmp_path .. '/MyLib.cpp')
-  assertMatch('int luaopen_Box%(lua_State %*L%);', res)
-  assertMatch('int luaopen_Vect%(lua_State %*L%);', res)
+  assertMatch('int luaopen_MyLib_Box%(lua_State %*L%);', res)
+  assertMatch('int luaopen_MyLib_Vect%(lua_State %*L%);', res)
   assertMatch('luaopen_MyLib%(lua_State %*L%) %{', res)
-  assertMatch('luaopen_Box%(L%);', res)
-  assertMatch('luaopen_Vect%(L%);', res)
-  local res = lk.readall(tmp_path .. '/Vect.cpp')
+  assertMatch('luaopen_MyLib_Box%(L%);', res)
+  assertMatch('luaopen_MyLib_Vect%(L%);', res)
+  local res = lk.readall(tmp_path .. '/MyLib_Vect.cpp')
   assertMatch('"MyLib.Vect"', res)
 
   assertPass(function()
@@ -236,8 +235,8 @@ function should.createLibFile()
       output   = 'test/tmp/MyLib.so',
       inputs   = {
         'test/tmp/dub/dub.cpp',
-        'test/tmp/Vect.cpp',
-        'test/tmp/Box.cpp',
+        'test/tmp/MyLib_Vect.cpp',
+        'test/tmp/MyLib_Box.cpp',
         'test/tmp/MyLib.cpp',
         'test/fixtures/pointers/vect.cpp',
       },

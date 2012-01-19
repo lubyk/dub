@@ -9,6 +9,10 @@
 #include "dub/dub.h"
 #include "{{self:header(class.header)}}"
 
+{% if class:namespace() then %}
+using namespace {{class:namespace().name}};
+{% end %}
+
 {% for method in class:methods() do %}
 /** {{method:fullname()}}
  * {{method.location}}
@@ -68,7 +72,7 @@ static const struct dub_const_Reg {{class.name}}_const[] = {
 };
 {% end %}
 
-extern "C" int luaopen_{{self:name(class)}}(lua_State *L)
+extern "C" int luaopen_{{self:openName(class)}}(lua_State *L)
 {
   // Create the metatable which will contain all the member methods
   luaL_newmetatable(L, "{{self:libName(class)}}");

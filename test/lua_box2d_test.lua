@@ -174,7 +174,7 @@ function should.runHelloWorld()
     local position = body:GetPosition()
     local angle = body:GetAngle()
 
-    printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle)
+    --printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle)
   end
 
   -- When the world destructor is called, all bodies and joints are freed. This can

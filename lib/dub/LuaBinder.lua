@@ -89,7 +89,11 @@ function lib:bind(inspector, options)
 
   if options.single_lib then
     -- default is to prefix mt types with lib name
-    options.lib_prefix = options.lib_prefix or options.single_lib
+    if options.lib_prefix == false then
+      options.lib_prefix = nil
+    else
+      options.lib_prefix = options.lib_prefix or options.single_lib
+    end
   end
 
   if options.lib_prefix == false then
@@ -100,6 +104,7 @@ function lib:bind(inspector, options)
     -- This is the root of all classes.
     inspector.db.name = options.lib_prefix
   end
+
   self.output_directory = self.output_directory or options.output_directory
   private.parseCustomBindings(self, options.custom_bindings)
   self.ins = inspector
@@ -183,6 +188,9 @@ function private:callWithParams(class, method, param_delta, indent, custom, max_
   end
   if custom then
     res = res .. custom
+    if not string.match(custom, 'return[ ]+[0-9]+[ ]') then
+      res = res .. '\nreturn 0;'
+    end
   else
     if method.array_get or method.array_set then
       local i_name = method.params_list[1].name
@@ -210,18 +218,17 @@ function lib:functionBody(class, method)
   if class.custom_bindings then
     custom = (class.custom_bindings[method.parent.name] or {})[method.name]
   end
-  if custom then
-    -- strip last newline
-    custom = string.sub(custom, 1, -2)
-  end
   local res = ''
   if method.dtor then
     res = res .. format('DubUserdata *userdata = ((DubUserdata*)dub_checksdata(L, 1, "%s"));\n', self:libName(class))
-    if custom then
-      res = res .. custom
+    if custom and custom.body then
+      res = res .. custom.body
     else
       res = res .. 'if (userdata->gc) {\n'
-      res = res .. format('  %s *self = (%s*)userdata->ptr;\n', class.name, class.name)
+      res = res .. format('  %sself = (%s)userdata->ptr;\n', class.create_name, class.create_name)
+      if custom and custom.cleanup then
+        res = res .. '  ' .. string.gsub(custom.cleanup, '\n', '\n  ')
+      end
       res = res .. '  delete self;\n'
       res = res .. '}\n'
       res = res .. 'userdata->gc = false;\n'
@@ -265,7 +272,7 @@ function lib:functionBody(class, method)
       end
       res = res .. '}'
     else
-      res = res .. private.callWithParams(self, class, method, param_delta, '', custom)
+      res = res .. private.callWithParams(self, class, method, param_delta, '', custom and custom.body)
     end
   end
   return res
@@ -424,6 +431,16 @@ function lib:name(elem)
   return elem.name
 end
 
+-- Return the 'lua_open' name to use for the element in the
+-- bindings.
+function lib:openName(elem)
+  if not self.options.single_lib then
+    return self:name(elem)
+  else
+    return string.gsub(self:libName(elem), '%.', '_')
+  end
+end
+
 -- Return the 'public' name to use for a constant.
 function lib:constName(name)
   return name
@@ -488,14 +505,14 @@ end
 -- 'super'.
 function private.getSelf(self, class, method, need_mt)
   local nmt
-  local fmt = '%s *%s = *((%s**)%s(L, 1, "%s"%s));\n'
+  local fmt = '%s%s = *((%s*)%s(L, 1, "%s"%s));\n'
   if need_mt then
     -- Type accessor should leave metatable on stack.
     nmt = ', true'
   else
     nmt = ''
   end
-  return format(fmt, class.name, self.SELF, class.name, self:customTypeAccessor(method), self:libName(class), nmt)
+  return format(fmt, class.create_name, self.SELF, class.create_name, self:customTypeAccessor(method), self:libName(class), nmt)
 end
 
 --- Prepare a variable with a function parameter.
@@ -506,9 +523,6 @@ function private:getParamVar(method, param, delta)
   if lua.push then
     -- special push/pull type
     return p .. '\n'
-  elseif lua.type == 'userdata' then
-    -- custom type
-    return format('%s *%s = %s;\n', rtype.name, param.name, p)
   else
     -- native type
     return format('%s%s = %s;\n', rtype.create_name, param.name, p)
@@ -559,8 +573,8 @@ function private:getParam(method, param, delta)
   if lua.type == 'userdata' then
     -- userdata
     type_method = self:customTypeAccessor(method)
-    res = format('*((%s**)%s(L, %i, "%s"))',
-      rtype.name, type_method, param.position + delta, lua.mt_name)
+    res = format('*((%s*)%s(L, %i, "%s"))',
+      rtype.create_name, type_method, param.position + delta, lua.mt_name)
   else
     -- native lua type
     local prefix = private.checkPrefix(self, method)
@@ -604,7 +618,11 @@ function private:doCall(class, method, max_arg)
     i_name = method.params_list[1].name
     res = method.name .. '[' .. i_name .. '-1]'
   else
-    res = method.name .. '('
+    if method.ctor then
+      res = string.sub(class.create_name, 1, -3) .. '('
+    else
+      res = method.name .. '('
+    end
     local first = true
     for param in method:params() do
       if param.position > max_arg then
@@ -680,7 +698,9 @@ function private:pushValue(method, value, return_value)
       end
     else
       -- Return value is a pointer
-      res = format('%sretval__ = %s;\n', ctype.create_name, value)
+      res = format('%s%sretval__ = %s;\n', 
+        (ctype.const and 'const ') or '',
+        rtype.create_name, value)
       if not method.ctor then
         res = res .. 'if (!retval__) return 0;\n'
       end
@@ -733,6 +753,14 @@ end
 
 -- function body to set a variable.
 function private:setAttrBody(method, attr, delta)
+  if method.parent.custom_bindings then
+    local custom
+    custom = (method.parent.custom_bindings[method.parent.name] or {})[attr.name]
+    if custom and custom.set then
+      return custom
+    end
+  end
+
   local name = attr.name
   local res = ''
   local param = {
@@ -772,9 +800,9 @@ function private:castBody(method, super, delta)
   if super.dub.cast == false then
     return
   end
-  local name = super.name
+  local name = super.create_name
   local res = ''
-  res = res .. format('*retval__ = static_cast<%s*>(self);\n', name)
+  res = res .. format('*retval__ = static_cast<%s>(self);\n', name)
   res = res .. 'return 1;'
   return res
 end
@@ -783,6 +811,13 @@ end
 function private:getAttrBody(method, attr, delta)
   if attr.ctype.const and self.options.read_const_member == 'no' then
     return nil
+  end
+  if method.parent.custom_bindings then
+    local custom
+    custom = (method.parent.custom_bindings[method.parent.name] or {})[attr.name]
+    if custom and custom.get then
+      return custom
+    end
   end
 
   local lua = self:luaType(method.parent, attr.ctype)
@@ -867,7 +902,7 @@ end
 
 function private:bindElem(elem, options)
   if elem.type == 'dub.Class' then
-    local path = self.output_directory .. lk.Dir.sep .. self:name(elem) .. '.cpp'
+    local path = self.output_directory .. lk.Dir.sep .. self:openName(elem) .. '.cpp'
     local file = io.open(path, 'w')
     file:write(self:bindClass(elem))
     file:close()
@@ -881,8 +916,18 @@ function private:parseCustomBindings(custom)
     custom = {}
     for yaml_file in dir:glob('%.yml') do
       local name = string.match(yaml_file, '([^/]+)%.yml$')
-      local yml = yaml.loadpath(yaml_file)
-      custom[name] = yml.lua
+      local lua = yaml.loadpath(yaml_file).lua
+      for method_name, body in pairs(lua) do
+        if type(body) == 'string' then
+          -- strip last newline
+          lua[method_name] = {body = string.sub(body, 1, -2)}
+        else
+          for k, v in pairs(body) do
+            body[k] = string.sub(v, 1, -2)
+          end
+        end
+      end
+      custom[name] = lua
     end
   end
   self.custom_bindings = custom or {}
@@ -1028,6 +1073,7 @@ function private:makeLibFile(lib_name, list)
   end
   local res = self.lib_template:run {
     lib      = self.ins.db,
+    lib_name = lib_name,
     classes  = list,
     self     = self,
   }

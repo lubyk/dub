@@ -29,6 +29,8 @@ Currently, the parser supports:
  * return value optimization (no copy)
  * simple type garbage collection optimization (no __gc method)
  * hand made bindings for special cases
+ * namespace support
+ * nested classes
  * class enums
  * global enums
  * build system

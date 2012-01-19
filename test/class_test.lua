@@ -12,10 +12,6 @@ local should = test.Suite('dub.Class')
 local ins = dub.Inspector {
   doc_dir = 'test/tmp',
   INPUT   = 'test/fixtures/simple/include',
-  PREDEFINED = {
-    'SOME_FUNCTION_MACRO(x)=',
-    'OTHER_FUNCTION_MACRO(x)=',
-  }
 }
 
 local class = ins:find('Simple')

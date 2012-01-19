@@ -10,6 +10,7 @@
 local lib     = {
   type          = 'dub.Class',
   is_class      = true,
+  is_scope      = true,
   SET_ATTR_NAME = '_set_',
   GET_ATTR_NAME = '_get_',
   CAST_NAME     = '_cast_',
@@ -21,17 +22,28 @@ dub.Class     = lib
 --=============================================== dub.Class()
 setmetatable(lib, {
   __call = function(lib, self)
-    self.cache          = {}
-    self.sorted_cache   = {}
-    self.functions_list = {}
-    self.variables_list = {}
-    self.constants_list = {}
-    self.super_list     = {}
-    self.dub            = self.dub or {}
-    self.xml_headers    = self.xml_headers or {}
-    return setmetatable(self, lib)
+    return lib.new(self)
   end
 })
+
+-- For sub-classes of dub.Class (dub.Namespace, dub.CTemplate)
+function lib.__call(lib, self)
+  return lib.new(self)
+end
+
+function lib.new(self)
+  self.cache          = {}
+  self.sorted_cache   = {}
+  self.functions_list = {}
+  self.variables_list = {}
+  self.constants_list = {}
+  self.super_list     = {}
+  self.dub            = self.dub or {}
+  self.xml_headers    = self.xml_headers or {}
+  setmetatable(self, lib)
+  self:setName(self.name)
+  return self
+end
 
 --=============================================== PUBLIC METHODS
 
@@ -71,5 +83,37 @@ function lib:fullname()
   end
 end
 
---=============================================== PRIVATE
+function lib:setName(name)
+  if not name then
+    return
+  end
+  self.name = name
+  -- Remove namespace from name
+  local create_name = ''
+  local current = self
+  while current and current.is_scope do
+    if current ~= self then
+      create_name = '::' .. create_name
+    end
+    create_name = current.name .. create_name
+    current = current.parent
+    if current.type == 'dub.Namespace' then
+      break
+    end
+  end
+  self.create_name = create_name .. ' *'
+end
 
+-- Return the enclosing namespace or nil if none found.
+function lib:namespace()
+  local p = self.parent
+  while p do
+    if p.type == 'dub.Namespace' then
+      return p
+    else
+      p = p.parent
+    end
+  end
+end
+
+--=============================================== PRIVATE

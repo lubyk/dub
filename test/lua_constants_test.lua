@@ -81,7 +81,7 @@ function should.bindCompileAndLoad()
       output   = 'test/tmp/traffic.so',
       inputs   = {
         'test/tmp/dub/dub.cpp',
-        'test/tmp/Car.cpp',
+        'test/tmp/traffic_Car.cpp',
         'test/tmp/traffic.cpp',
       },
       includes = {

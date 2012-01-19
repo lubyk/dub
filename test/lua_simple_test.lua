@@ -45,7 +45,7 @@ function should.bindDestructor()
   local res = binder:functionBody(Simple, dtor)
   assertMatch('DubUserdata %*userdata = [^\n]+"Simple"', res)
   assertMatch('if %(userdata%->gc%)', res)
-  assertMatch('Simple %*self = %(Simple%*%)userdata%->ptr;', res)
+  assertMatch('Simple %*self = %(Simple %*%)userdata%->ptr;', res)
   assertMatch('delete self;', res)
   assertMatch('userdata%->gc = false;', res)
 end

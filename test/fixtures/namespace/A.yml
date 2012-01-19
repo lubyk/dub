@@ -1,0 +1,23 @@
+lua:
+  '~A':
+    cleanup: |
+      if (self->userdata) {
+        luaL_unref((int)self->userdata);
+        self->userdata = NULL;
+      }
+  userdata:
+    set: |
+      if (self->userdata) {
+        luaL_unref((int)self->userdata);
+        self->userdata = NULL;
+      }
+      if (!lua_isnil(L, -1) {
+        self->userdata = (void*)luaL_ref(L, LUA_REGISTRYINDEX);
+      }
+    get: |
+      if (self->userdata) {
+        lua_rawgeti(L, LUA_REGISTRYINDEX, (int)self->userdata);
+        return 1;
+      } else {
+        return 0;
+      }
