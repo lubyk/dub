@@ -39,7 +39,7 @@ function should.parseClasses()
     'b2Vec2',
     'SetZero',
     'Set',
-    'operator-',
+    'operator- ',
     'operator()',
     'operator+=',
     'operator-=',

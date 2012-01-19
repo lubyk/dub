@@ -12,6 +12,7 @@ local lib     = {
   OP_TO_NAME = {
     ['+']  = 'add',
     ['-']  = 'sub',
+    ['- '] = 'unm',
     ['*']  = 'mul',
     ['/']  = 'div',
     ['=='] = 'eq',
@@ -88,10 +89,6 @@ function lib:setName(name)
   elseif string.match(name, '^operator') then
     local n = string.match(name, '^operator(.+)$')
     local op = self.OP_TO_NAME[n]
-    if n == '-' and #self.params_list == 0 then
-      -- Special case for '-' (minus/unary minus).
-      op = 'unm'
-    end
     if op then
       self.cname = 'operator_' .. op
     else

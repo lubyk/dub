@@ -404,6 +404,13 @@ function should.overloadAdd()
   assertEqual(2, v2.y)
 end
 
+function should.overloadMinus()
+  local v1 = Vect(7, 2)
+  local v = -v1
+  assertEqual(-7, v.x)
+  assertEqual(-2, v.y)
+end
+
 function should.overloadSub()
   local v1, s2 = Vect(7, 2), Vect(4, 2)
   local v = v1 - s2

@@ -21,7 +21,7 @@ public:
 
   /** Read a value from the scripting language.
    */
-  double getKey(const std::string key);
+  double getValue(const std::string key);
 
 private:
   friend class Caller;

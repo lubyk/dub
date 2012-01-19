@@ -74,16 +74,16 @@ struct Vect {
     return Vect(x - v.x, y - v.y);
   }
 
+  /** Unary minus.
+   */
+  Vect operator-() {
+    return Vect(-x, -y);
+  }
+
   void operator-=(const Vect &v) {
     x -= v.x;
     y -= v.y;
   }
-
-  /** Unary minus. TODO
-   */
-  //Vect operator-() {
-  //  return Vect(-x, -y);
-  //}
 
   Vect operator*(double d) {
     return Vect(d*x, d*y);

@@ -620,6 +620,12 @@ parse['function'] = function(self, elem, header)
     end
   end
 
+  if name == 'operator-' and #child.params_list == 0 then
+    -- unary minus trick
+    name = 'operator- '
+    child:setName(name)
+  end
+
   local exist = self.cache[name]
   if exist then
     local list = exist.overloaded

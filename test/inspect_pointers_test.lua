@@ -121,6 +121,8 @@ function should.listMethods()
     'operator+',
     'operator+=',
     'operator-',
+    -- unary minus
+    'operator- ',
     'operator-=',
     'operator*',
     'operator/',

@@ -45,6 +45,7 @@ local lib     = {
   LUA_NATIVE_OP = {
     add   = true,
     sub   = true,
+    unm   = true,
     mul   = true,
     div   = true,
     eq    = true,
