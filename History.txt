@@ -1,4 +1,4 @@
-== 2.0
+== 2.0.0 2012-01-21
 * Complete rewrite in Lua
   * Most of the previous features are there (but not all).
   * Added support for attributes read/write.

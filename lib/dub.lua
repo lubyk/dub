@@ -7,7 +7,7 @@
 
 --]]------------------------------------------------------
 dub = Autoload('dub')
-dub.version = '2.0'
+dub.VERSION = '2.0.0'
 
 local DUB_MAX_IN_SHIFT = 4294967296
 
