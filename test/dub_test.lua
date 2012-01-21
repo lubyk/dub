@@ -16,7 +16,10 @@ function should.findMinHash()
   assertEqual(14, dub.minHash {'a', 'b', 'ab', 'ac', 'ca', 'bobli'})
   assertEqual(14, dub.minHash {'a', 'b', 'ab', 'ac', 'ca', 'bobli', 'malc'})
   assertEqual(3, dub.minHash {'name_', 'size_'})
-  assertEqual(1, dub.minHash {})
+end
+
+function should.returnNilMinHashOnEmptyList()
+  assertNil(dub.minHash {})
 end
 
 function should.hash()
