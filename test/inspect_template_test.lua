@@ -100,5 +100,16 @@ function should.listMethods()
   }, res)
 end
 
+function should.ignoreTemplatedMembers()
+  local Foo = ins:find('Foo')
+  local res = {}
+  for meth in Foo:methods() do
+    table.insert(res, meth.name)
+  end
+  assertValueEqual({
+    '~Foo',
+  }, res)
+end
+
 test.all()
 

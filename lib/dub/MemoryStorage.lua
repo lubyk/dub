@@ -440,7 +440,9 @@ end
 
 function parse:templateparamlist(elem, header)
   -- change self from dub.Class to dub.CTemplate
-  setmetatable(self, dub.CTemplate)
+  if self.type == 'dub.Class' then
+    setmetatable(self, dub.CTemplate)
+  end
   self.template_params = {}
   for _, param in ipairs(elem) do
     local name = private.flatten(param:find('type')[1])
@@ -578,6 +580,7 @@ parse['function'] = function(self, elem, header)
     return nil
   end
 
+
   local child = dub.Function {
     -- self can be a class or db (root)
     db            = self.db or self,
@@ -596,9 +599,13 @@ parse['function'] = function(self, elem, header)
     ctor          = self.is_class and name == self.name,
     dub           = parse.dub(elem) or {},
   }
+  local template_params = elem:find('templateparamlist')
+  if template_params then
+    parse.templateparamlist(child, template_params, header)
+  end
 
-  if not child then
-    -- invalid child
+  if not child or child.template_params then
+    -- invalid child (we ignore templated functions for now)
     return nil
   end
 

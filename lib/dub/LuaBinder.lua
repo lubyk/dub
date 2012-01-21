@@ -737,7 +737,10 @@ function private:copyDubFiles()
     -- path to current file
     local dir = lk.dir()
     local dub_dir = dir .. '/lua/dub'
-    os.execute(format("cp -r '%s' '%s'", dub_dir, base_path))
+    for file in lfs.dir(dub_dir) do
+      local res = lk.readall(dub_dir .. '/' .. file)
+      lk.writeall(base_path .. '/dub/' .. file, res, true)
+    end
   end
 end
 
@@ -903,9 +906,7 @@ end
 function private:bindElem(elem, options)
   if elem.type == 'dub.Class' then
     local path = self.output_directory .. lk.Dir.sep .. self:openName(elem) .. '.cpp'
-    local file = io.open(path, 'w')
-    file:write(self:bindClass(elem))
-    file:close()
+    lk.writeall(path, self:bindClass(elem), true)
   end
 end
 
@@ -1079,7 +1080,5 @@ function private:makeLibFile(lib_name, list)
   }
 
   local path = self.output_directory .. lk.Dir.sep .. lib_name .. '.cpp'
-  local file = io.open(path, 'w')
-  file:write(res)
-  file:close()
+  lk.writeall(path, res, true)
 end
