@@ -1,3 +1,9 @@
+== 2.0.1
+
+* Minor enhancement
+  * Should not add namespace to typedef of template in namespace.
+  * Should check doxygen header versions.
+
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua
   * Most of the previous features are there (but not all).

@@ -60,6 +60,6 @@ public:
   }
 };
 
-}; // Nem
+} // Nem
 #endif // NAMESPACE_B_H_
 

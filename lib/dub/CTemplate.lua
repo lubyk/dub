@@ -22,7 +22,7 @@ setmetatable(lib, dub.Class)
 --=============================================== PUBLIC METHODS
 
 -- Returns a dub.Class by resolving the given parameters.
-function lib:resolveTemplateParams(name, types)
+function lib:resolveTemplateParams(parent, name, types)
   local name_to_type = {}
   name_to_type[self.name] = name
   local all_resolved = true
@@ -38,7 +38,7 @@ function lib:resolveTemplateParams(name, types)
     -- Make class
     local class = dub.Class {
       db           = self.db,
-      parent       = self.parent,
+      parent       = parent or self.parent,
       name         = name,
     }
     -- Rebuild methods

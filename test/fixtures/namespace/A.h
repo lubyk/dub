@@ -34,5 +34,6 @@ public:
   }
 };
 
-}; // Nem
+} // Nem
+
 #endif // NAMESPACE_A_H_

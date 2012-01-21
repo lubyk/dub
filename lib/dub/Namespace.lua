@@ -35,3 +35,11 @@ end
 function lib:setName(name)
   self.name = name
 end
+
+function lib:fullname()
+  if self.parent and self.parent.type ~= 'dub.MemoryStorage' then
+    return self.parent:fullname() .. '::' .. self.name
+  else
+    return self.name
+  end
+end

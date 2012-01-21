@@ -908,6 +908,7 @@ function private:switch(class, method, delta, bfunc, iterator)
 
   -- get key hash
   local sz = dub.minHash(class, iterator, 'name')
+  assert(sz, string.format("Something is wrong when creating function body '%s' for class '%s'.", method.name, class.name))
   res = res .. format('int key_h = dub_hash(key, %i);\n', sz)
   -- switch
   res = res .. 'switch(key_h) {\n'

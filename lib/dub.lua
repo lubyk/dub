@@ -42,6 +42,10 @@ function dub.minHash(list_or_obj, func, accessor)
     end
   end
   local list_sz = #list
+  if list_sz == 0 then
+    -- This is an error.
+    return nil
+  end
   local sz = 1
   while true do
     sz = sz + 1

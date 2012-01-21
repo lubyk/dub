@@ -91,6 +91,26 @@ function should.findAttributesInParent()
   }, res)
 end
 
+function should.resolveElementsOutOfNamespace()
+  local e = ins:find('nmRectf')
+  assertEqual('dub.Class', e.type)
+  assertEqual('nmRectf', e:fullname())
+end
+
+function should.resolveElementsOutOfNamespace()
+  local e = ins:find('Nem::Rectf')
+  assertEqual('dub.Class', e.type)
+  assertEqual('Nem::Rectf', e:fullname())
+end
+
+function should.notUseSingleLibNameInNamespace()
+  ins.db.name = 'foo'
+  local e = ins:find('Nem')
+  assertEqual('dub.Namespace', e.type)
+  assertEqual('Nem', e:fullname())
+  ins.db.name = nil
+end
+
 function should.findMethodsInParent()
   local B = ins:find('Nem::B')
   local res = {}

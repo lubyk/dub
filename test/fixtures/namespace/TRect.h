@@ -20,6 +20,6 @@ public:
   {}
 };
 
-}; // Nem
+} // Nem
 #endif // NAMESPACE_T_RECT_H_
 
