@@ -42,6 +42,14 @@ function should.bindGetMethodWithSuperAttrs()
   assertMatch('lua_pushnumber%(L, self%->birth_year%);', res)
 end
 
+function should.bindCastWithTemplateParent()
+  -- __newindex for simple (native) types
+  local Orphan = ins:find('Orphan')
+  local met = Orphan:method(Orphan.CAST_NAME)
+  local res = binder:functionBody(Orphan, met)
+  assertMatch('%*retval__ = static_cast<Foo< int > %*>%(self%);', res)
+end
+
 function should.notBindSuperStaticMethods()
   local Child = ins:find('Child')
   local res = binder:bindClass(Child)
@@ -89,9 +97,23 @@ function should.bindCompileAndLoad()
       },
     }
 
+    -- Build Orphan.so
+    binder:build {
+      output   = 'test/tmp/Orphan.so',
+      inputs   = {
+        'test/tmp/dub/dub.cpp',
+        'test/tmp/Orphan.cpp',
+      },
+      includes = {
+        'test/tmp',
+        'test/fixtures/inherit',
+      },
+    }
+
     package.cpath = tmp_path .. '/?.so'
     require 'Child'
     require 'Parent'
+    require 'Orphan'
     assertType('table', Child)
   end, function()
     -- teardown

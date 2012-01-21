@@ -282,10 +282,19 @@ end
 -- Iterate superclass hierarchy.
 function private:superIterator(base)
   for _, name in ipairs(base.super_list) do
-    local super = self:findByFullname(name)
-    if super then
-      private.superIterator(self, super)
-      coroutine.yield(super)
+    local super = self:resolveType(base.parent or self, name)
+    if not super then
+      -- Yield an empty class that can be used for casting
+      coroutine.yield(dub.Class {
+        name = name,
+        parent = base.parent,
+        create_name = name .. ' *',
+      })
+    else
+      if super then
+        private.superIterator(self, super)
+        coroutine.yield(super)
+      end
     end
   end
   -- Find pseudo parents

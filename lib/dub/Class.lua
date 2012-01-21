@@ -83,6 +83,15 @@ function lib:fullname()
   end
 end
 
+-- Return true if the class needs a cast method (it has
+-- known superclasses).
+function lib:needCast()
+  for super in self:superclasses() do
+    return true
+  end
+  return false
+end
+
 function lib:setName(name)
   if not name then
     return

@@ -10,9 +10,9 @@
 require 'lubyk'
 local should = test.Suite('dub.Inspector - inherit')
 
-local ins = dub.Inspector {
-  INPUT   = 'test/fixtures/inherit',
-  doc_dir = lk.dir() .. '/tmp',
+local ins  = dub.Inspector {
+  INPUT    = 'test/fixtures/inherit',
+  doc_dir  = lk.dir() .. '/tmp',
 }
 
 --=============================================== TESTS
@@ -27,6 +27,31 @@ function should.listSuperClasses()
     'GrandParent',
     'Parent',
     'ChildHelper',
+  }, res)
+end
+
+function should.listUnknownParents()
+  local Orphan = ins:find 'Orphan'
+  local res = {}
+  for elem in Orphan:superclasses() do
+    table.insert(res, elem.name)
+  end
+  assertValueEqual({
+    'Foo< int >',
+    'Bar',
+  }, res)
+end
+
+function should.haveCastForUnknownParent()
+  local Orphan = ins:find 'Orphan'
+  local res = {}
+  for elem in Orphan:methods() do
+    table.insert(res, elem.name)
+  end
+  assertValueEqual({
+    'Orphan',
+    '~Orphan',
+    '_cast_',
   }, res)
 end
 
