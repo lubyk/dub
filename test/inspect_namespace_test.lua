@@ -22,6 +22,27 @@ function should.findNamespace()
   local Nem = ins:find('Nem')
   assertEqual('dub.Namespace', Nem.type)
 end
+              
+function should.listNamespaces()
+  local res = {}
+  for nm in ins.db:namespaces() do
+    table.insert(res, nm.name)
+  end
+  assertValueEqual({
+    'Nem',
+  }, res)
+end
+
+function should.listHeaders()
+  local res = {}
+  for h in ins.db:headers({ins:find('A')}) do
+    table.insert(res, string.sub(h, -13, -1))
+  end
+  assertValueEqual({
+    'mespace/nem.h',
+    'namespace/A.h',
+  }, res)
+end
 
 function should.findByFullname()
   local A = ins:find('Nem::A')
@@ -124,6 +145,19 @@ function should.findMethodsInParent()
     '~B',
     B.GET_ATTR_NAME,
     B.SET_ATTR_NAME,
+  }, res)
+end
+
+--=============================================== global functions
+
+function should.listGlobalFunctions()
+  local res = {}
+  for func in ins.db:functions() do
+    table.insert(res, func:fullcname())
+  end
+  assertValueEqual({
+    'addTwoOut',
+    'Nem::addTwo',
   }, res)
 end
 

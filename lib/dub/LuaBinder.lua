@@ -239,21 +239,28 @@ function private:callWithParams(class, method, param_delta, indent, custom, max_
 end
 
 --- Create the body of the bindings for a given method/function.
-function lib:functionBody(class, method)
+function lib:functionBody(parent, method)
+  if not method then
+    -- Just one parameter: global function. When creating method, we need the
+    -- class because it could be a superclass method we are biding and thus the
+    -- parent is not the correct one.
+    method = parent
+    parent = method.parent
+  end
   -- Resolve C++ types to native lua types.
   self:resolveTypes(method)
   local custom
-  if class.custom_bindings then
-    custom = (class.custom_bindings[method.parent.name] or {})[method.name]
+  if parent.custom_bindings then
+    custom = (parent.custom_bindings[method.parent.name] or {})[method.name]
   end
   local res = ''
   if method.dtor then
-    res = res .. format('DubUserdata *userdata = ((DubUserdata*)dub_checksdata(L, 1, "%s"));\n', self:libName(class))
+    res = res .. format('DubUserdata *userdata = ((DubUserdata*)dub_checksdata(L, 1, "%s"));\n', self:libName(parent))
     if custom and custom.body then
       res = res .. custom.body
     else
       res = res .. 'if (userdata->gc) {\n'
-      res = res .. format('  %sself = (%s)userdata->ptr;\n', class.create_name, class.create_name)
+      res = res .. format('  %sself = (%s)userdata->ptr;\n', parent.create_name, parent.create_name)
       if custom and custom.cleanup then
         res = res .. '  ' .. string.gsub(custom.cleanup, '\n', '\n  ')
       end
@@ -264,26 +271,26 @@ function lib:functionBody(class, method)
     end
   else
     local param_delta = 0
-    if not method.static then
+    if method.member then
       -- We need self
-      res = res .. private.getSelf(self, class, method, method.is_get_attr)
+      res = res .. private.getSelf(self, parent, method, method.is_get_attr)
       param_delta = 1
     end
     if method.has_defaults then
       -- We need arg count
     end
     if method.is_set_attr then
-      res = res .. private.switch(self, class, method, param_delta, private.setAttrBody, class.attributes)
+      res = res .. private.switch(self, parent, method, param_delta, private.setAttrBody, parent.attributes)
     elseif method.is_get_attr then
-      res = res .. private.switch(self, class, method, param_delta, private.getAttrBody, class.attributes)
+      res = res .. private.switch(self, parent, method, param_delta, private.getAttrBody, parent.attributes)
     elseif method.is_cast then
-      res = res .. private.switch(self, class, method, param_delta, private.castBody, class.superclasses)
+      res = res .. private.switch(self, parent, method, param_delta, private.castBody, parent.superclasses)
     elseif method.overloaded then
       local tree, need_top = self:decisionTree(method.overloaded)
       if need_top then
         res = res .. 'int top__ = lua_gettop(L);\n'
       end
-      res = res .. private.expandTree(self, tree, class, param_delta, '')
+      res = res .. private.expandTree(self, tree, parent, param_delta, '')
     elseif not custom and method.has_defaults then
       res = res .. 'int top__ = lua_gettop(L);\n'
       local last, first = #method.params_list, method.first_default - 1
@@ -296,11 +303,11 @@ function lib:functionBody(class, method)
         else
           res = res .. format('if (top__ >= %i) {\n', param_delta + i)
         end
-        res = res .. '  ' .. private.callWithParams(self, class, method, param_delta, '  ', nil, i) .. '\n'
+        res = res .. '  ' .. private.callWithParams(self, parent, method, param_delta, '  ', nil, i) .. '\n'
       end
       res = res .. '}'
     else
-      res = res .. private.callWithParams(self, class, method, param_delta, '', custom and custom.body)
+      res = res .. private.callWithParams(self, parent, method, param_delta, '', custom and custom.body)
     end
   end
   return res
@@ -578,6 +585,7 @@ function lib:resolveTypes(base)
   for _, method in ipairs(list) do
     local parent = method.parent
     local sign = ''
+    assert(method.params_list)
     for i, param in ipairs(method.params_list) do
       if i > 1 then
         sign = sign .. ', '
@@ -643,7 +651,7 @@ function private.paramForCall(param)
   return res
 end
 
-function private:doCall(class, method, max_arg)
+function private:doCall(parent, method, max_arg)
   local max_arg = max_arg or #method.params_list
   local res
   if method.array_get then
@@ -652,7 +660,7 @@ function private:doCall(class, method, max_arg)
     res = method.name .. '[' .. i_name .. '-1]'
   else
     if method.ctor then
-      res = string.sub(class.create_name, 1, -3) .. '('
+      res = string.sub(parent.create_name, 1, -3) .. '('
     else
       res = method.name .. '('
     end
@@ -673,10 +681,10 @@ function private:doCall(class, method, max_arg)
   end
   if method.ctor then
     res = 'new ' .. res
-  elseif method.static then
-    res = class.name .. '::' .. res
-  else
+  elseif method.member then
     res = self.SELF .. '->' .. res
+  elseif parent.is_scope then
+    res = parent.name .. '::' .. res
   end
   
   return res;
@@ -723,7 +731,7 @@ function private:pushValue(method, value, return_value)
         end
       else
         -- Return value is not a pointer: we have a copy
-        if method.parent.dub.destroy == 'free' then
+        if method.parent.dub and method.parent.dub.destroy == 'free' then
           res = format('dub_pushfulldata<%s>(L, %s, "%s");', rtype.name, value, lua.mt_name)
         else
           res = format('dub_pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
@@ -1042,12 +1050,11 @@ function private:insertByArg(res, func, max_index, skip_index)
         -- already used, cannot use again
       else
         local lua = func.params_list[i].lua
-        assert(lua, func.name .. func.argsstring)
         local type_name = (lua.type == 'userdata' and lua.rtype.name) or lua.type
-        local d = diff[i]
+        local d = diff[i..'']
         if not d then
-          diff[i] = {position = i, count = 0, map = {}, weight = 0}
-          d = diff[i]
+          diff[i..''] = {position = i, count = 0, map = {}, weight = 0}
+          d = diff[i..'']
         end
         local list = d.map[type_name]
         if not list then
@@ -1067,10 +1074,9 @@ function private:insertByArg(res, func, max_index, skip_index)
       end
     end
   end
-
   -- Select best match
   local match
-  for _, d in ipairs(diff) do
+  for _, d in pairs(diff) do
     if not match then
       match = d
     elseif d.weight > match.weight then
@@ -1080,6 +1086,7 @@ function private:insertByArg(res, func, max_index, skip_index)
     end
   end
 
+  assert(match, func.name.. ' '.. func.header)
   if match.count < #res.list then
     local skip_index = skip_index or {}
     skip_index[match.position] = true

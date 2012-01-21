@@ -14,7 +14,7 @@ using namespace {{class:namespace().name}};
 {% end %}
 
 {% for method in class:methods() do %}
-/** {{method:fullname()}}
+/** {{method:nameWithArgs()}}
  * {{method.location}}
  */
 static int {{class.name}}_{{method.cname}}(lua_State *L) {

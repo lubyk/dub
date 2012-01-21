@@ -28,6 +28,15 @@ local ins = dub.Inspector {
   doc_dir = lk.dir() .. '/tmp',
 }
 
+function should.ignoreFunctionsWithComplexParams()
+  local res = {}
+  for func in ins.db:functions() do
+    res[func.name] = func
+  end
+  assertNil(res.b2GetPointStates)
+  assertEqual('dub.Function', res.b2PairLessThan.type)
+end
+
 --=============================================== TESTS
 function should.parseClasses()
   local b2Vec2 = ins:find('b2Vec2')

@@ -1,9 +1,13 @@
-== 2.0.1
+== 2.1.0
+
+* Major enhancement
+  * Added support for functions (not class methods).
 
 * Minor enhancement
   * Should not add namespace to typedef of template in namespace.
   * Should check doxygen header versions.
   * Should create cast for unresolved templated parents.
+
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua

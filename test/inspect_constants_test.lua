@@ -64,7 +64,7 @@ end
 
 function should.listConstHeaders()
   local res = {}
-  for h in ins.db:constHeaders() do
+  for h in ins.db:headers({}) do
     table.insert(res, string.sub(h, -17, -1))
   end
   assertValueEqual({

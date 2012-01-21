@@ -52,7 +52,7 @@ function should.castValueForEnumTypes()
   -- __newindex for simple (native) types
   local Car = ins:find('Car')
   local set = Car:method(Car.SET_ATTR_NAME)
-  local res = binder:functionBody(Car, set)
+  local res = binder:functionBody(set)
   assertMatch('self%->brand = %(Car::Brand%)luaL_checknumber%(L, 3%);', res)
 end
 

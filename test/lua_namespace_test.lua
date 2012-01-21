@@ -35,12 +35,28 @@ function should.useFullnameInMetaName()
   assertMatch('dub_pushudata%(L, retval__, "Nem.A", true%);', res)
 end
 
+function should.bindGlobalFunction()
+  local met = ins:find('Nem::addTwo')
+  local res = binder:functionBody(met)
+  assertMatch('B %*a = %*%(%(B %*%*%)dub_checksdata%(L, 1, "Nem.B"%)%);', res)
+  assertMatch('B %*b = %*%(%(B %*%*%)dub_checksdata%(L, 2, "Nem.B"%)%);', res)
+  assertMatch('lua_pushnumber%(L, Nem::addTwo%(%*a, %*b%)%);', res)
+end
+
+function should.bindGlobalFunctionNotInNamespace()
+  local met = ins:find('addTwoOut')
+  local res = binder:functionBody(met)
+  assertMatch('B %*a = %*%(%(B %*%*%)dub_checksdata%(L, 1, "Nem.B"%)%);', res)
+  assertMatch('B %*b = %*%(%(B %*%*%)dub_checksdata%(L, 2, "Nem.B"%)%);', res)
+  assertMatch('lua_pushnumber%(L, addTwoOut%(%*a, %*b%)%);', res)
+end
+
 --=============================================== nested class
 
 function should.useFullnameInCtor()
   local C   = ins:find('Nem::B::C')
   local met = C:method('C')
-  local res = binder:functionBody(C, met)
+  local res = binder:functionBody(met)
   assertMatch('B::C %*retval__', res)
   assertMatch('new B::C%(', res)
   assertMatch('dub_pushudata%(L, retval__, "Nem.B.C", true%);', res)
@@ -49,7 +65,7 @@ end
 function should.properlyResolveReturnTypeInMethod()
   local C   = ins:find('Nem::B')
   local met = C:method('getC')
-  local res = binder:functionBody(C, met)
+  local res = binder:functionBody(met)
   assertMatch('B::C %*retval__ = self%->getC%(%);', res)
   assertMatch('dub_pushudata%(L, retval__, "Nem.B.C", false%);', res)
 end
@@ -57,7 +73,7 @@ end
 function should.properlyResolveTypeInGetAttr()
   local C   = ins:find('Nem::B::C')
   local met = C:method('C')
-  local res = binder:functionBody(C, met)
+  local res = binder:functionBody(met)
   assertMatch('B::C %*retval__', res)
   assertMatch('new B::C%(', res)
   assertMatch('dub_pushudata%(L, retval__, "Nem.B.C", true%);', res)
@@ -157,6 +173,12 @@ function should.changeNamespaceNameOnBind()
   end)
 end
 
+function should.bindGlobalFunctions()
+  --local res = lk.readall(tmp_path .. '/moo.cpp')
+  --assertMatch('XXXXX', res)
+end
+
+
 function should.findA()
   local a = moo.A()
   assertEqual('moo.A', a.type)
@@ -235,6 +257,14 @@ function should.buildTemplate()
   assertEqual(4, r.w)
   assertEqual(3, r.h)
 end
+
+function should.callGlobalFunction()
+  local a = moo.B(1)
+  local b = moo.B(2)
+  assertEqual(3, moo.addTwo(a,b))
+  assertEqual(3, moo.addTwoOut(a,b))
+end
+
 test.all()
 
 

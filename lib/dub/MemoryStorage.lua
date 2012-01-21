@@ -21,16 +21,19 @@ setmetatable(lib, {
   __call = function(lib)
     local self = {
       -- xml definitions list
-      xml_headers    = {},
+      xml_headers     = {},
       -- .h header files
-      headers_list   = {},
-      cache          = {},
-      sorted_cache   = {},
-      functions_list = {},
-      constants_list = {},
-      const_headers  = {},
-      resolved_cache = {},
+      headers_list    = {},
+      cache           = {},
+      sorted_cache    = {},
+      functions_list  = {},
+      constants_list  = {},
+      const_headers   = {},
+      resolved_cache  = {},
+      namespaces_list = {},
     }
+    -- Just so that we can pass the db as any scope.
+    self.db = self
     return setmetatable(self, lib)
   end
 })
@@ -89,6 +92,9 @@ end
 
 --- Return an iterator over the functions of this class/namespace.
 function lib:functions(parent)
+  if not parent then
+    return private.allGlobalFunctions(self)
+  end
   -- make sure we have parsed the headers
   private.parseHeaders(parent)
   local co = coroutine.create(private.iteratorWithSuper)
@@ -124,13 +130,35 @@ function lib:variables(parent)
   end
 end
 
---- Return an iterator over the functions of this class/namespace.
-function lib:headers(parent)
+--- Return an iterator over all the headers of this library.
+function lib:headers(classes)
   -- make sure we have parsed the headers
-  private.parseHeaders(parent)
-  local co = coroutine.create(private.iterator)
+  private.parseHeaders(self)
+  local co = coroutine.create(function()
+    local seen = {}
+    -- For each bound class
+    for _, class in ipairs(classes) do
+      local h = class.header
+      if not seen[h] then
+        coroutine.yield(h)
+      end
+    end
+    -- For every global function
+    for func in self:functions() do
+      local h = func.header
+      if not seen[h] then
+        coroutine.yield(h)
+      end
+    end
+    -- For every constant
+    for i, h in ipairs(self.const_headers) do
+      if not seen[h] then
+        coroutine.yield(h)
+      end
+    end
+  end)
   return function()
-    local ok, elem = coroutine.resume(co, parent.headers_list)
+    local ok, elem = coroutine.resume(co)
     if ok then
       return elem
     end
@@ -182,13 +210,13 @@ function lib:constants(parent)
   end
 end
 
---- Return an iterator over the headers where constants are defined.
-function lib:constHeaders()
+--- Return an iterator over the namespaces in root.
+function lib:namespaces()
   -- make sure we have parsed the headers
   private.parseHeaders(self)
-  local co = co or coroutine.create(private.iterator)
+  local co = coroutine.create(private.iterator)
   return function()
-    local ok, elem = coroutine.resume(co, self.const_headers)
+    local ok, elem = coroutine.resume(co, self.namespaces_list)
     if ok then
       return elem
     end
@@ -353,8 +381,14 @@ function parse:header(header, not_lazy)
       parent = self,
       db     = self.db or self,
     }
-    self.cache[namespace.name] = namespace
-    self = namespace
+    if self.cache[namespace.name] then
+      -- do not add again
+      self = self.cache[namespace.name]
+    else
+      self.cache[namespace.name] = namespace
+      table.insert(self.namespaces_list, namespace)
+      self = namespace
+    end
   end
   self.header = h_path
 
@@ -401,11 +435,13 @@ function parse:innernamespace(elem, header)
   if self.cache[name] then
     return nil
   end
-  return dub.Namespace {
+  local namespace = dub.Namespace {
     name   = name,
     parent = self,
     db     = self.db or self,
   }
+  table.insert(self.namespaces_list, namespace)
+  return namespace
 end
 
 function parse:innerclass(elem, header, not_lazy)
@@ -470,6 +506,8 @@ function parse:sectiondef(elem, header)
      -- methods
      kind == 'enum' or
      -- global enum
+     kind == 'func' or
+     -- global func
      kind == 'typedef' or
      -- typedef
      kind == 'public-attrib' or
@@ -589,20 +627,28 @@ end
     
 parse['function'] = function(self, elem, header)
   local name = elem:find('name')[1]
-  if name == '~' .. self.name and self.dub.destroy == 'free' then
-    return nil
+  if self.is_class then
+    if name == '~' .. self.name and self.dub.destroy == 'free' then
+      return nil
+    end
   end
 
+  local argsstring = elem:find('argsstring')[1]
+  if string.match(argsstring, '%.%.%.') or string.match(argsstring, '%[') then
+    -- cannot deal with vararg or array types
+    return nil
+  end
 
   local child = dub.Function {
     -- self can be a class or db (root)
     db            = self.db or self,
     parent        = self,
+    header        = header.file,
     name          = name,
     params_list   = parse.params(elem, header),
     return_value  = parse.retval(elem),
     definition    = elem:find('definition')[1],
-    argsstring    = elem:find('argsstring')[1],
+    argsstring    = argsstring,
     location      = private.makeLocation(elem, header),
     desc          = (elem:find('detaileddescription') or {})[1],
     static        = elem.static == 'yes' or (self.name == name),
@@ -991,6 +1037,31 @@ function private.checkDoxygenVersion(data)
     local pattern = '^'..string.gsub(DOXYGEN_VERSION, '%.', '%.')
     if not string.match(str, pattern) then
       print(string.format("WARNING: XML generated by Doxygen '%s'. This version of Dub was tested with version '%s'.", str, DOXYGEN_VERSION))
+    end
+  end
+end
+
+function private.iteratorWithScopes(scopes, key)
+  for _, scope in ipairs(scopes) do
+    local list = scope[key]
+    for _, elem in ipairs(list) do
+      coroutine.yield(elem)
+    end
+  end
+end
+
+function private:allGlobalFunctions()
+  -- make sure we have parsed the headers
+  private.parseHeaders(self)
+  local co = coroutine.create(private.iteratorWithScopes)
+  local scopes = {self}
+  for _, namespace in ipairs(self.namespaces_list) do
+    table.insert(scopes, namespace)
+  end
+  return function()
+    local ok, elem = coroutine.resume(co, scopes, 'functions_list')
+    if ok then
+      return elem
     end
   end
 end
