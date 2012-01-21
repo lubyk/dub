@@ -49,7 +49,6 @@ extern "C" {
 }
 #endif
 
-#include <stdlib.h>  // malloc
 #include <string>    // std::string for Exception
 #include <exception> // std::exception
 

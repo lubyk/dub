@@ -32,9 +32,12 @@ local lib     = {
     uint16_t   = 'number',
     uint32_t   = 'number',
     char       = 'number',
-    ['unsigned char'] = 'number',
-    ['signed int']    = 'number',
-    ['unsigned int']  = 'number',
+    short      = 'number',
+    ['unsigned char']  = 'number',
+    ['signed int']     = 'number',
+    ['unsigned int']   = 'number',
+    ['signed short']   = 'number',
+    ['unsigned short'] = 'number',
 
     bool       = 'boolean',
 
@@ -136,10 +139,19 @@ function lib:bind(inspector, options)
       end
     end
   else
+    local ignore = {}
+    if options.ignore then
+      for _, name in ipairs(options.ignore) do
+        ignore[name] = true
+      end
+    end
+    
     for elem in inspector:children() do
       if elem.type == 'dub.Class' then
-        table.insert(bound, elem)
-        private.bindElem(self, elem, options)
+        if not ignore[elem.name] then
+          table.insert(bound, elem)
+          private.bindElem(self, elem, options)
+        end
       end
     end
   end
