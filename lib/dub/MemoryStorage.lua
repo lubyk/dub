@@ -568,6 +568,7 @@ function parse:typedef(elem, header)
     desc        = (elem:find('detaileddescription') or {})[1],
     xml         = elem,
     definition  = elem:find('definition')[1],
+    location    = private.makeLocation(elem, header),
     header_path = header.file,
   }
   typ.ctype.create_name = typ.name .. ' '
@@ -598,14 +599,35 @@ parse['function'] = function(self, elem, header)
     dtor          = self.is_class and name == '~' .. self.name,
     ctor          = self.is_class and name == self.name,
     dub           = parse.dub(elem) or {},
+    pure_virtual  = elem.virt == 'pure-virtual',
   }
+
+  if not child then
+    -- invalid child
+    return nil
+  end
+
+  if child.pure_virtual then
+    self.abstract = true
+    -- remove ctor
+    for i, met in ipairs(self.functions_list) do
+      if met.name == self.name then
+        table.remove(self.functions_list, i)
+        break
+      end
+    end
+    self.cache[self.name] = nil
+  elseif child.ctor and self.abstract then
+    return nil
+  end
+
   local template_params = elem:find('templateparamlist')
   if template_params then
     parse.templateparamlist(child, template_params, header)
   end
 
-  if not child or child.template_params then
-    -- invalid child (we ignore templated functions for now)
+  if child.template_params then
+    -- we ignore templated functions for now
     return nil
   end
 
@@ -859,8 +881,7 @@ function private:makeSetAttribute()
 end
 
 function private:makeCast()
-  if not self.has_variables or
-     self.cache[self.CAST_NAME] then
+  if self.cache[self.CAST_NAME] then
     return
   end
   local name = self.CAST_NAME

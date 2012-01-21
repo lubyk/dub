@@ -48,6 +48,14 @@ function should.gcReturnedPointerMarkedAsGc()
   assertMatch('pushudata[^\n]+, true%);', res)
 end
 
+function should.notBindCtorInAbstractType()
+  local Abstract = ins:find('Abstract')
+  local res = binder:bindClass(Abstract)
+  -- no ctor
+  assertNotMatch('"new"XXXX', res)
+  assertNotMatch('Abstract_Abstract', res)
+end
+
 function should.useTopInMethodWithDefaults()
   local Box = ins:find('Box')
   local met = Box:method('Box')
@@ -68,6 +76,22 @@ function should.bindSimpleSetMethod()
   assertMatch('self%->x = luaL_checknumber%(L, 3%);', res)
   -- static member
   assertMatch('Vect::create_count = luaL_checknumber%(L, 3%);', res)
+end
+
+function should.bindCharAsNumber()
+  local Vect = ins:find('Vect')
+  local met = Vect:method('someChar')
+  local res = binder:functionBody(Vect, met)
+  assertMatch('char c = dub_checknumber%(L, 2%);', res)
+  assertMatch('lua_pushnumber%(L, self%->someChar%(c%)%);', res)
+end
+
+function should.bindConstCharPtrAsString()
+  local Vect = ins:find('Vect')
+  local met = Vect:method('someStr')
+  local res = binder:functionBody(Vect, met)
+  assertMatch('const char %*s = dub_checkstring%(L, 2%);', res)
+  assertMatch('lua_pushstring%(L, self%->someStr%(s%)%);', res)
 end
 
 function should.bindComplexSetMethod()
@@ -146,6 +170,8 @@ function should.createLibFileWithCustomNames()
       return 'V'
     elseif name == 'Box' then
       return 'B'
+    else
+      return name
     end
   end
   binder:bind(ins, {
@@ -169,6 +195,9 @@ function should.createLibFileWithCustomNames()
         'test/tmp/dub/dub.cpp',
         'test/tmp/foo_V.cpp',
         'test/tmp/foo_B.cpp',
+        'test/tmp/foo_Abstract.cpp',
+        'test/tmp/foo_AbstractSub.cpp',
+        'test/tmp/foo_AbstractHolder.cpp',
         'test/tmp/foo.cpp',
         'test/fixtures/pointers/vect.cpp',
       },
@@ -182,9 +211,11 @@ function should.createLibFileWithCustomNames()
     require 'foo'
     assertType('table', foo.V)
     assertType('table', foo.B)
+    assertType('table', foo.Abstract)
+    assertType('table', foo.AbstractSub)
+    assertType('table', foo.AbstractHolder)
   end, function()
     -- teardown
-    package.loaded.foo = nil
     package.cpath = cpath_bak
     if not foo then
       test.abort = true
@@ -237,6 +268,9 @@ function should.createLibFile()
         'test/tmp/dub/dub.cpp',
         'test/tmp/MyLib_Vect.cpp',
         'test/tmp/MyLib_Box.cpp',
+        'test/tmp/MyLib_Abstract.cpp',
+        'test/tmp/MyLib_AbstractSub.cpp',
+        'test/tmp/MyLib_AbstractHolder.cpp',
         'test/tmp/MyLib.cpp',
         'test/fixtures/pointers/vect.cpp',
       },
@@ -635,6 +669,16 @@ function should.executeBoxMethods()
   assertEqual(6, v:surface())
 end
 
+function should.passDoubleForChar()
+  local v = Vect(0,0)
+  assertEqual(45, v:someChar(45))
+end
+
+function should.passStringForConstCharPtr()
+  local v = Vect(0,0)
+  assertEqual('hello World', v:someStr('hello World'))
+end
+
 --=============================================== std::string with \0
 
 function should.handleBinaryData()
@@ -710,6 +754,15 @@ function should.findObjectInTable()
   assertEqual('Mea Lua', o.hep)
 end
 
+--=============================================== Call methods on abstract type
+
+function should.callMethodsOnAbstractType()
+  local a = foo.AbstractSub(100)
+  local b = foo.AbstractHolder(a)
+  local c = b:getPtr()
+  assertEqual(123, c:pureVirtual(23))
+  assertMatch('foo.Abstract', c.type)
+end
 
 test.all()
 

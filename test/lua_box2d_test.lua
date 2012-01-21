@@ -29,6 +29,25 @@ local ins = dub.Inspector {
 }
 local binder = dub.LuaBinder()
 
+
+function should.resolveUint8()
+  local b2ContactFeature = ins:find('b2ContactFeature')
+  local indexA = b2ContactFeature.variables_list[1]
+  assertEqual('indexA', indexA.name)
+  assertEqual('uint8', indexA.ctype.name)
+  local rtype = binder:luaType(b2ContactFeature, indexA.ctype)
+  assertEqual('number', rtype.type)
+end
+
+function should.resolveUnsignedInt()
+  local b2ContactID = ins:find('b2ContactID')
+  local key = b2ContactID.variables_list[2]
+  assertEqual('key', key.name)
+  assertEqual('uint32', key.ctype.name)
+  local rtype = binder:luaType(b2ContactID, key.ctype)
+  assertEqual('number', rtype.type)
+end
+
 --=============================================== Build
 
 function should.bindCompileAndLoad()

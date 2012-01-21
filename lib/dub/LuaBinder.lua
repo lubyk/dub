@@ -21,9 +21,24 @@ local lib     = {
     float      = 'number',
     size_t     = 'number',
     int        = 'number',
-    ['signed int'] = 'number',
+    uint       = 'number',
+    uint8      = 'number',
+    uint16     = 'number',
+    uint32     = 'number',
+    int8_t     = 'number',
+    int16_t    = 'number',
+    int32_t    = 'number',
+    uint8_t    = 'number',
+    uint16_t   = 'number',
+    uint32_t   = 'number',
+    char       = 'number',
+    ['unsigned char'] = 'number',
+    ['signed int']    = 'number',
+    ['unsigned int']  = 'number',
+
     bool       = 'boolean',
-    ['char']   = 'string',
+
+    ['char *'] = 'string',
     ['std::string'] = {
       type   = 'std::string',
       -- Get value from Lua.
@@ -466,7 +481,12 @@ end
 
 function lib:luaType(parent, ctype)
   local rtype  = parent.db:resolveType(parent, ctype.name) or ctype
-  local native = self.TYPE_TO_NATIVE[rtype.name]
+  local native
+  if ctype.ptr then
+    native = self.TYPE_TO_NATIVE[rtype.name..' *']
+  else
+    native = self.TYPE_TO_NATIVE[rtype.name] or self.TYPE_TO_NATIVE[rtype.name]
+  end
   if native then
     if type(native) == 'table' then
       native.rtype = native

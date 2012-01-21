@@ -13,6 +13,7 @@ require 'lubyk'
 --=============================================== Only if Box2D present
 local box2d_path = lk.dir() .. '/fixtures/Box2D'
 if not lk.exist(box2d_path) then
+  print('skip Box2D')
   return
 end
 

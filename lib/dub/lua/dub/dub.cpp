@@ -282,7 +282,7 @@ void *dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt) thro
 // =============================================== dub_register
 // ======================================================================
 
-#define DUB_INIT_CODE "local class = %s.%s\nlocal new = class.new\nsetmetatable(class, {\n __call = function(_, ...)\n   return new(...)\n end,\n})\n"
+#define DUB_INIT_CODE "local class = %s.%s\nlocal new = class.new\nif new then\nsetmetatable(class, {\n __call = function(_, ...)\n   return new(...)\n end,\n})\nend\n"
 // The metatable lives in libname.ClassName_
 void dub_register(lua_State *L, const char *libname, const char *class_name) {
   // meta-table should be on top
@@ -344,14 +344,18 @@ void dub_register(lua_State *L, const char *libname, const char *class_name) {
   size_t sz = strlen(DUB_INIT_CODE) + strlen(class_name) + strlen(libname) + 2;
   char *lua_code = (char*)malloc(sizeof(char) * sz);
   snprintf(lua_code, sz, DUB_INIT_CODE, libname, class_name);
+  //printf("%s\n", lua_code);
   /*
   local class = lib.Foobar
   local new = class.new
-  setmetatable(class, {
-    __call = function(...)
-      return new(...)
-    end,
-  })
+  -- new can be nil for abstract types
+  if new then
+    setmetatable(class, {
+      __call = function(...)
+        return new(...)
+      end,
+    })
+  end
   */
   int error = luaL_loadbuffer(L, lua_code, strlen(lua_code), "Dub init code") ||
               lua_pcall(L, 0, 0, 0);

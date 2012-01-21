@@ -13,12 +13,32 @@ local should = test.Suite('dub.Inspector - pointers')
 local ins  = dub.Inspector {
   INPUT    = 'test/fixtures/pointers',
   doc_dir  = lk.dir() .. '/tmp',
+  keep_xml = true,
 }
 
 local Vect = ins:find('Vect')
 local Box  = ins:find('Box')
 
 --=============================================== TESTS
+
+function should.notHaveCtorForAbstractTypes()
+  local Abstract = ins:find('Abstract')
+  assertTrue(Abstract.abstract)
+  local res = {}
+  for met in Abstract:methods() do
+    table.insert(res, met.name)
+  end
+  assertValueEqual({
+    'pureVirtual',
+    '~Abstract',
+  }, res)
+end
+
+function should.detectPureVirtualFunctions()
+  local Abstract = ins:find('Abstract')
+  local pureVirtual = Abstract:method('pureVirtual')
+  assertTrue(pureVirtual.pure_virtual)
+end
 
 function should.findVectClass()
   assertEqual('dub.Class', Vect.type)
@@ -131,6 +151,8 @@ function should.listMethods()
     'operator==',
     'operator()',
     Vect.GET_ATTR_NAME,
+    'someChar',
+    'someStr',
     Vect.SET_ATTR_NAME,
   }, res)
 end

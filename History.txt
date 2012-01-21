@@ -11,6 +11,7 @@
   * Added 'Doxyfile' option on inspector to allow custom Doxyfile.
   * Added support for void *userdata to store Lua types.
   * Added support for transparent native table wrapping.
+  * Added support for abstract types and casting to these types.
   * ...
 
 == 1.1

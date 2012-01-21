@@ -9,6 +9,7 @@
  *   * simple bindings
  *   * default parameters
  *   * overloaded methods.
+ *   * char/ const char* types
  */
 class Simple {
 

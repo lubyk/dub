@@ -138,6 +138,14 @@ struct Vect {
     x = px;
     return *this;
   }
+
+  char someChar(char c) {
+    return c;
+  }
+
+  const char *someStr(const char *s) {
+    return s;
+  }
 };
 
 #endif // POINTERS_VECT_H_
