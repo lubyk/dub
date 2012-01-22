@@ -18,11 +18,11 @@ dub.Inspector = lib
 
 --=============================================== dub.Inspector()
 setmetatable(lib, {
-  __call = function(lib, inputs)
+  __call = function(lib, opts)
     local self = {db = dub.MemoryStorage()}
     setmetatable(self, lib)
-    if inputs then
-      self:parse(inputs)
+    if opts then
+      self:parse(opts)
     end
     return self
   end
@@ -32,8 +32,8 @@ setmetatable(lib, {
 -- Add xml headers to the database. If not_lazy is set, parse everything
 -- directly (not when needed). Only set this option if the xml files
 -- will be removed before queries.
-function lib:parseXml(xml_dir, not_lazy)
-  self.db:parse(xml_dir, not_lazy)
+function lib:parseXml(xml_dir, not_lazy, ignore_list)
+  self.db:parse(xml_dir, not_lazy, ignore_list)
 end
 
 function lib:parse(opts)
@@ -78,7 +78,7 @@ function lib:parse(opts)
   -- Generate xml
   self:doxygen(doxypath)
   -- Parse xml
-  self:parseXml(doc_dir .. '/xml', true)
+  self:parseXml(doc_dir .. '/xml', true, opts.ignore)
   if not opts.keep_xml then
     if not opts.doc_dir then
       lk.rmTree(doc_dir, true)

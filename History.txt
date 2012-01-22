@@ -7,7 +7,7 @@
   * Should not add namespace to typedef of template in namespace.
   * Should check doxygen header versions.
   * Should create cast for unresolved templated parents.
-
+  * Added 'ignore' setting for parser.
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua

@@ -101,6 +101,22 @@ public:
   bool isZero() {
     return value_ == 0;
   }
+
+  void shouldBeIgnored() {
+  }
+
+protected:
+  bool somethingNotToBind(double d) {
+    return false;
+  }
+
+private:
+  bool someOtherThingNotToBind() {
+    return false;
+  }
 };
+
+void badFuncToIgnore(const char *foo) {
+}
 
 #endif // SIMPLE_INCLUDE_SIMPLE_H_

@@ -43,7 +43,9 @@ setmetatable(lib, {
 
 -- Parse xml directory and find header files. This will allow
 -- us to find definitions as needed.
-function lib:parse(xml_dir, not_lazy)
+function lib:parse(xml_dir, not_lazy, ignore_list)
+  self.ignore = {}
+  private.buildIgnoreList(self, nil, ignore_list)
   local xml_headers = self.xml_headers
   local dir = lk.Dir(xml_dir)
   -- Parse header (.h) content first
@@ -284,6 +286,9 @@ function lib:fullname()
   return self.name
 end
 
+function lib:ignored(fullname)
+  return self.ignore[fullname]
+end
 --=============================================== PRIVATE
 
 function private.iterator(list)
@@ -1062,6 +1067,24 @@ function private:allGlobalFunctions()
     local ok, elem = coroutine.resume(co, scopes, 'functions_list')
     if ok then
       return elem
+    end
+  end
+end
+
+function private:buildIgnoreList(base, list)
+  if not list then
+    return
+  end
+  if base then
+    base = base .. '::'
+  else
+    base = ''
+  end
+  for k, name in pairs(list) do
+    if type(name) == 'string' then
+      self.ignore[base .. name] = true
+    else
+      private.buildIgnoreList(self, base .. k, name)
     end
   end
 end

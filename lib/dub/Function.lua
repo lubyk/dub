@@ -53,6 +53,11 @@ setmetatable(lib, {
       -- invalid name (usually an unknown operator)
       return nil
     end
+    
+    if self.db:ignored(self:fullname()) then
+      return nil
+    end
+
     self.sign = private.makeSignature(self)
     return self
   end
@@ -74,6 +79,9 @@ end
 function lib:nameWithArgs()
   return self.definition .. self.argsstring
 end
+
+-- Full name for function.
+lib.fullname = dub.Class.fullname
 
 -- Full C name for function.
 function lib:fullcname()
@@ -129,3 +137,4 @@ function private.makeSignature(met)
   end
   return res
 end
+
