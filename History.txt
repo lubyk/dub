@@ -8,6 +8,7 @@
   * Should check doxygen header versions.
   * Should create cast for unresolved templated parents.
   * Added 'ignore' setting for parser.
+  * Ignoring 'struct' keyword in param (C++ name scoping rules apply).
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua

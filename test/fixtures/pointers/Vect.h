@@ -139,10 +139,12 @@ struct Vect {
     return *this;
   }
 
+  // char mapped to number
   char someChar(char c) {
     return c;
   }
 
+  // const char * mapped to string
   const char *someStr(const char *s) {
     return s;
   }

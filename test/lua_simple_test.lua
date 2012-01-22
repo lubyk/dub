@@ -100,6 +100,32 @@ function should.useArgCountWhenDefaults()
   assertMatch('lua_gettop%(L%)', res)
 end
 
+function should.properlyBindStructParam()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('showBuf')
+  local res = binder:functionBody(Simple, met)
+  assertMatch('Simple::MyBuf %*buf = %*%(%(Simple::MyBuf %*%*%)', res)
+  assertMatch('self%->showBuf%(%*buf%)', res)
+end
+
+function should.properlyBindClassByValue()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('showSimple')
+  local res = binder:functionBody(Simple, met)
+  assertMatch('Simple %*p = %*%(%(Simple %*%*%)', res)
+  assertMatch('self%->showSimple%(%*p%)', res)
+end
+
+function should.resolveStructTypes()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('showBuf')
+  binder:resolveTypes(met)
+  assertValueEqual({
+    'userdata',
+  }, makeSignature(met))
+  assertEqual('MyBuf', met.lua_signature)
+end
+
 local function treeTest(tree)
   local res = {}
   if tree.type == 'dub.Function' then

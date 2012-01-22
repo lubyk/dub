@@ -102,6 +102,22 @@ public:
     return value_ == 0;
   }
 
+  struct MyBuf {
+    double d;
+  };
+
+  /** Struct by value parameter.
+   */
+  double showBuf(MyBuf buf) {
+    return buf.d;
+  }
+
+  /** Class by value.
+   */
+  double showSimple(Simple p) {
+    return p.value_;
+  }
+
   void shouldBeIgnored() {
   }
 

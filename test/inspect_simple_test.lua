@@ -137,6 +137,8 @@ function should.listMemberMethods()
     'addAll',
     'setValue',
     'isZero',
+    'showBuf',
+    'showSimple',
     'pi',
   }, res)
 end
@@ -229,6 +231,25 @@ end
 
 function should.resolveNativeTypes()
   assertEqual('double', ins:resolveType('MyFloat').name)
+end
+
+--=============================================== struct by value
+function should.parseStructParam()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('showBuf')
+  local p = met.params_list[1]
+  assertEqual('struct MyBuf', p.ctype.name)
+  assertFalse(p.ctype.ptr)
+  assertEqual('struct MyBuf ', p.ctype.create_name)
+end
+
+function should.parseClassByValueParam()
+  local Simple = ins:find('Simple')
+  local met = Simple:method('showSimple')
+  local p = met.params_list[1]
+  assertEqual('Simple', p.ctype.name)
+  assertFalse(p.ctype.ptr)
+  assertEqual('Simple ', p.ctype.create_name)
 end
 
 test.all()

@@ -803,6 +803,7 @@ function lib.makeType(str)
     create_name = create_name .. ' '
   end
   typename = string.gsub(typename, 'const ', '')
+  typename = string.gsub(typename, 'struct ', '')
   return {
     def   = str,
     name  = typename,
