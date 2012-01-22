@@ -53,13 +53,7 @@ function lib:resolveTemplateParams(parent, name, types)
   end
 end
 
-function lib:fullname()
-  if self.parent then
-    return self.parent:fullname() .. '::' .. self.name
-  else
-    return self.name
-  end
-end
+lib.fullname = dub.Class.fullname
 
 --=============================================== PRIVATE
 
