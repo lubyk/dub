@@ -563,12 +563,19 @@ end
 
 function parse:variable(elem, header)
   local name = elem:find('name')[1]
+  local definition = elem:find('definition')[1]
+  if string.match(definition, '@') then
+    -- ignore
+    return nil
+  end
+
   local child  = {
     name       = name,
     type       = 'dub.Attribute',
     ctype      = parse.type(elem),
     static     = elem.static == 'yes',
     argsstring = elem:find('argsstring')[1],
+    definition = definition,
   }
   local dim = child.argsstring and string.match(child.argsstring, '^%[(.*)%]$')
   if dim then

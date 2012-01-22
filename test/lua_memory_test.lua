@@ -80,10 +80,23 @@ function should.bindCompileAndLoad()
         'test/fixtures/memory',
       },
     }
+    -- Build Union.so
+    binder:build {
+      output   = 'test/tmp/Union.so',
+      inputs   = {
+        'test/tmp/dub/dub.cpp',
+        'test/tmp/Union.cpp',
+      },
+      includes = {
+        'test/tmp',
+        'test/fixtures/memory',
+      },
+    }
     package.cpath = tmp_path .. '/?.so'
     --require 'Box'
     require 'Nogc'
     require 'Withgc'
+    require 'Union'
     assertType('table', Nogc)
     assertType('table', Withgc)
   end, function()
@@ -134,6 +147,22 @@ function should.createAndDestroy()
     runGcTest(Nogc.new)
     runGcTest(Withgc.new)
   end
+end
+
+--=============================================== UNION
+
+function should.considerAnonUnionAsMembers()
+  local u = Union(10, 15, 4, 100)
+  assertEqual(10,  u.h)
+  assertEqual(15,  u.s)
+  assertEqual(4,   u.v)
+  assertEqual(100, u.a)
+  local c = 10 + (15 * 2^8) + (4 * 2^16) + (100 * 2^24)
+  assertEqual(c,  u.c)
+
+  u.a = 11
+  local c = 10 + (15 * 2^8) + (4 * 2^16) + (11 * 2^24)
+  assertEqual(c,  u.c)
 end
 
 test.all()

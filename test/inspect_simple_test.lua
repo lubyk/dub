@@ -238,9 +238,9 @@ function should.parseStructParam()
   local Simple = ins:find('Simple')
   local met = Simple:method('showBuf')
   local p = met.params_list[1]
-  assertEqual('struct MyBuf', p.ctype.name)
+  assertEqual('MyBuf', p.ctype.name)
   assertFalse(p.ctype.ptr)
-  assertEqual('struct MyBuf ', p.ctype.create_name)
+  assertEqual('MyBuf ', p.ctype.create_name)
 end
 
 function should.parseClassByValueParam()

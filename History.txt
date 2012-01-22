@@ -2,6 +2,7 @@
 
 * Major enhancement
   * Added support for functions (not class methods).
+  * Anonymous union support.
 
 * Minor enhancement
   * Should not add namespace to typedef of template in namespace.

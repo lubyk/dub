@@ -16,7 +16,7 @@ local ins  = dub.Inspector {
   PREDEFINED = {
     'SOME_FUNCTION_MACRO(x)=',
     'OTHER_FUNCTION_MACRO(x)=',
-  }
+  },
 }
 
 --=============================================== TESTS
@@ -78,6 +78,25 @@ end
 function should.notSeeMacroAsAttribute()
   local Pen = ins:find('Pen')
   assertFalse(Pen.has_variables)
+end
+
+--=============================================== UNION
+
+local Union = ins:find('Union')
+
+function should.parseUnionMembers()
+  local uni_a = Union.variables_list[1]
+  local res = {}
+  for var in Union:attributes() do
+    table.insert(res, var.name..':'..var.ctype.name)
+  end
+  assertValueEqual({
+    'h:uint8_t',
+    's:uint8_t',
+    'v:uint8_t',
+    'a:uint8_t',
+    'c:uint32_t',
+  }, res)
 end
 
 test.all()
