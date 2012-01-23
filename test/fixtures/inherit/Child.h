@@ -2,7 +2,10 @@
 #define INHERIT_CHILD_H_
 
 // Simulate complex inclusion (think external lib)
-#include "../inherit_hidden/Mother.h"
+// This class needs the "../inherit_hidden/Mother.h" header to compile.
+class Mother;
+
+#include "Parent.h"
 
 #include <string>
 
@@ -23,10 +26,7 @@ public:
   // public attribute (child should inherit this)
   double teeth;
 
-  Child(const std::string &name, MaritalStatus s, int birth_year, double x, double y)
-    : Mother(name, s, birth_year)
-    , pos_x_(x)
-    , pos_y_(y) {}
+  Child(const std::string &name, MaritalStatus s, int birth_year, double x, double y);
 
   double x() {
     return pos_x_;
@@ -38,10 +38,7 @@ public:
 
   /** Should not inherit overloaded/virtuals twice.
    */
-  std::string name() {
-    return std::string("Child ").append(Parent::name());
-  }
-
+  std::string name();
 };
 
 #endif // INHERIT_CHILD_H_

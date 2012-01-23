@@ -96,7 +96,10 @@ dub.LuaBinder = lib
 --=============================================== dub.LuaBinder()
 setmetatable(lib, {
   __call = function(lib, options)
-    local self = {options = options or {}}
+    local self = {
+      options       = options or {},
+      extra_headers = {},
+    }
     self.header_base = lfs.currentdir()
     return setmetatable(self, lib)
   end
@@ -109,6 +112,9 @@ function lib:bind(inspector, options)
   if options.header_base then
     self.header_base = lk.absolutizePath(options.header_base)
   end
+  self.extra_headers = {}
+  private.parseExtraHeadersList(self, nil, options.extra_headers)
+  
 
   if options.single_lib then
     -- default is to prefix mt types with lib name
@@ -449,12 +455,45 @@ function lib:bindName(method)
   end
 end
 
+-- Return an iterator over the header of the element plus any
+-- extra header defined via 'extra_headers'.
+function lib:headers(elem)
+  local headers
+  if elem then
+    local fullname = elem:fullname()
+    headers  = self.extra_headers[fullname] or {}
+  else
+    headers = self.extra_headers['::'] or {}
+  end
+  local co = coroutine.create(function()
+    for _, h in ipairs(headers) do
+      coroutine.yield(h)
+    end
+    if elem then
+      coroutine.yield(elem.header)
+    else
+      -- No element, binding library
+      for h in self.ins.db:headers(self.bound_classes) do
+        -- Iterates over all bound_classes, global functions and
+        -- constants.
+        coroutine.yield(h)
+      end
+    end
+  end)
+  return function()
+    local ok, elem = coroutine.resume(co)
+    if ok then
+      return elem
+    end
+  end
+end
+--=============================================== Methods that can be customized
+
 -- Output the header for a class by removing the current path
 -- or 'header_base',
 function lib:header(header)
   return string.gsub(header, self.header_base .. '/', '')
 end
---=============================================== Methods that can be customized
 
 function lib:customTypeAccessor(method)
   if method:neverThrows() then
@@ -1117,6 +1156,7 @@ function private:makeLibFile(lib_name, list)
     local dir = lk.dir()
     self.lib_template = dub.Template {path = dir .. '/lua/lib.cpp'}
   end
+  self.bound_classes = list
   local res = self.lib_template:run {
     lib      = self.ins.db,
     lib_name = lib_name,
@@ -1126,4 +1166,25 @@ function private:makeLibFile(lib_name, list)
 
   local path = self.output_directory .. lk.Dir.sep .. lib_name .. '.cpp'
   lk.writeall(path, res, true)
+end
+
+function private:parseExtraHeadersList(base, list)
+  if not list then
+    return
+  end
+  for k, elem in pairs(list) do
+    if type(k) == 'number' then
+      local extra_list = self.extra_headers[base or '::']
+      if not extra_list then
+        extra_list = {}
+        self.extra_headers[base or '::'] = extra_list
+      end
+      table.insert(extra_list, elem)
+    elseif base then
+      -- sub type
+      private.parseExtraHeadersList(self, base..'::'..k, elem)
+    else
+      private.parseExtraHeadersList(self, k, elem)
+    end
+  end
 end

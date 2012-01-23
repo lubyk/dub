@@ -65,6 +65,11 @@ function should.bindCompileAndLoad()
   binder:bind(ins, {
     output_directory = tmp_path,
     custom_bindings = 'test/fixtures/inherit',
+    extra_headers = {
+      Child = {
+        "../inherit_hidden/Mother.h",
+      }
+    }
   })
   local cpath_bak = package.cpath
   local dub_cpp = tmp_path .. '/dub/dub.cpp'
@@ -77,6 +82,7 @@ function should.bindCompileAndLoad()
       inputs   = {
         'test/tmp/dub/dub.cpp',
         'test/tmp/Child.cpp',
+        'test/fixtures/inherit/child.cpp',
       },
       includes = {
         'test/tmp',
