@@ -605,7 +605,7 @@ function parse:enum(elem, header)
     name     = name,
     location = private.makeLocation(elem, header),
     list     = list,
-    ctype    = lib.makeType('double'),
+    ctype    = lib.makeType('int'),
   }
   if self.name then
     enum.ctype.cast = self:fullname() .. '::' .. name

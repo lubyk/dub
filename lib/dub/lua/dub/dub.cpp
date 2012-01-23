@@ -145,7 +145,7 @@ lua_Number dub_checknumber(lua_State *L, int narg) throw(TypeException) {
   return d;
 }
 
-lua_Integer dub_checkinteger(lua_State *L, int narg) throw(TypeException) {
+lua_Integer dub_checkint(lua_State *L, int narg) throw(TypeException) {
   lua_Integer d = lua_tointeger(L, narg);
   if (d == 0 && !lua_isnumber(L, narg))  /* avoid extra test when d is not 0 */
     throw TypeException(L, narg, lua_typename(L, LUA_TNUMBER));

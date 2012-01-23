@@ -16,28 +16,32 @@ local lib     = {
   -- By default does an strcmp to ensure correct attribute key.
   ASSERT_ATTR_KEY = true,
   LUA_STACK_SIZE_NAME = 'DubStackSize',
-  TYPE_TO_NATIVE = {
+  CHECK_TO_NATIVE = {
+    -- default is to use the same type (number = 'number')
+    int        = 'number',
+  },
+  TYPE_TO_CHECK = {
     double     = 'number',
     float      = 'number',
-    size_t     = 'number',
-    int        = 'number',
-    uint       = 'number',
-    uint8      = 'number',
-    uint16     = 'number',
-    uint32     = 'number',
-    int8_t     = 'number',
-    int16_t    = 'number',
-    int32_t    = 'number',
-    uint8_t    = 'number',
-    uint16_t   = 'number',
-    uint32_t   = 'number',
-    char       = 'number',
-    short      = 'number',
-    ['unsigned char']  = 'number',
-    ['signed int']     = 'number',
-    ['unsigned int']   = 'number',
-    ['signed short']   = 'number',
-    ['unsigned short'] = 'number',
+    size_t     = 'int',
+    int        = 'int',
+    uint       = 'int',
+    uint8      = 'int',
+    uint16     = 'int',
+    uint32     = 'int',
+    int8_t     = 'int',
+    int16_t    = 'int',
+    int32_t    = 'int',
+    uint8_t    = 'int',
+    uint16_t   = 'int',
+    uint32_t   = 'int',
+    char       = 'int',
+    short      = 'int',
+    ['unsigned char']  = 'int',
+    ['signed int']     = 'int',
+    ['unsigned int']   = 'int',
+    ['signed short']   = 'int',
+    ['unsigned short'] = 'int',
 
     bool       = 'boolean',
 
@@ -500,19 +504,20 @@ end
 
 function lib:luaType(parent, ctype)
   local rtype  = parent.db:resolveType(parent, ctype.name) or ctype
-  local native
+  local check
   if ctype.ptr then
-    native = self.TYPE_TO_NATIVE[rtype.name..' *']
+    check = self.TYPE_TO_CHECK[rtype.name..' *']
   else
-    native = self.TYPE_TO_NATIVE[rtype.name] or self.TYPE_TO_NATIVE[rtype.name]
+    check = self.TYPE_TO_CHECK[rtype.name] or self.TYPE_TO_CHECK[rtype.name]
   end
-  if native then
-    if type(native) == 'table' then
-      native.rtype = native
-      return native
+  if check then
+    if type(check) == 'table' then
+      check.rtype = check
+      return check
     else
       return {
-        type  = native,
+        type  = self.CHECK_TO_NATIVE[check] or check,
+        check = check,
         -- Resolved type
         rtype = rtype,
       }
@@ -623,9 +628,9 @@ function private:getParam(method, param, delta)
       -- special accessor
       res = lua.pull(param.name, param.position + delta, prefix)
     elseif rtype.cast then
-      res = format('(%s)%scheck%s(L, %i)', rtype.cast, prefix, lua.type, param.position + delta)
+      res = format('(%s)%scheck%s(L, %i)', rtype.cast, prefix, lua.check, param.position + delta)
     else
-      res = format('%scheck%s(L, %i)', prefix, lua.type, param.position + delta)
+      res = format('%scheck%s(L, %i)', prefix, lua.check, param.position + delta)
     end
   end
   return res

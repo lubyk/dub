@@ -100,8 +100,8 @@ function should.resolveEnumWithParent()
   local Parent = ins:find 'Parent'
   local b = ins.db:resolveType(Child, 'MaritalStatus')
   assertValueEqual({
-    name        = 'double',
-    def         = 'double',
+    name        = 'int',
+    def         = 'int',
     create_name = 'Parent::MaritalStatus ',
     cast        = 'Parent::MaritalStatus',
     -- This is used to output default enum values.

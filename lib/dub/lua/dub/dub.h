@@ -206,7 +206,6 @@ void dub_register_const(lua_State *L, const dub_const_Reg *l);
 lua_Number dub_checknumber(lua_State *L, int narg) throw(dub::TypeException);
 lua_Integer dub_checkint(lua_State *L, int narg) throw(dub::TypeException);
 const char *dub_checklstring(lua_State *L, int narg, size_t *len) throw(dub::TypeException);
-lua_Integer dub_checkinteger(lua_State *L, int narg) throw(dub::TypeException);
 void *dub_checkudata(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw(dub::TypeException);
 
 // Super aware userdata calls (finds userdata inside provided table with table.super).
@@ -219,7 +218,6 @@ bool dub_issdata(lua_State *L, int ud, const char *tname, int type);
 void *dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw();
 
 #define dub_checkstring(L,n) (dub_checklstring(L, (n), NULL))
-#define dub_checkint(L,n) ((int)dub_checkinteger(L, (n)))
 #define luaL_checkboolean(L,n) (lua_toboolean(L,n))
 #define dub_checkboolean(L,n) (lua_toboolean(L,n))
 

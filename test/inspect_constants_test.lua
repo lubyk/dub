@@ -24,8 +24,8 @@ function should.resolveEnumType()
   local Car = ins:find('Car')
   local b = db:resolveType(Car, 'Brand')
   assertValueEqual({
-    name        = 'double',
-    def         = 'double',
+    name        = 'int',
+    def         = 'int',
     create_name = 'Car::Brand ',
     cast        = 'Car::Brand',
     -- This is used to output default enum values.

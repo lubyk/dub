@@ -75,14 +75,14 @@ function should.bindSimpleSetMethod()
   local res = binder:functionBody(Vect, set)
   assertMatch('self%->x = luaL_checknumber%(L, 3%);', res)
   -- static member
-  assertMatch('Vect::create_count = luaL_checknumber%(L, 3%);', res)
+  assertMatch('Vect::create_count = luaL_checkint%(L, 3%);', res)
 end
 
 function should.bindCharAsNumber()
   local Vect = ins:find('Vect')
   local met = Vect:method('someChar')
   local res = binder:functionBody(Vect, met)
-  assertMatch('char c = dub_checknumber%(L, 2%);', res)
+  assertMatch('char c = dub_checkint%(L, 2%);', res)
   assertMatch('lua_pushnumber%(L, self%->someChar%(c%)%);', res)
 end
 
