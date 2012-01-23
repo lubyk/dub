@@ -14,6 +14,8 @@ local ins = dub.Inspector {
   INPUT    = 'test/fixtures/template',
   doc_dir  = lk.dir() .. '/tmp',
 }
+  local obj = ins:find('nmRect32')
+  print(obj.type)
 
 --=============================================== TESTS
 function should.findCTemplate()
@@ -27,28 +29,70 @@ function should.haveCTemplateParams()
   assertValueEqual({'T'}, TVect.template_params)
 end
 
+function should.findCTemplateInNamespace()
+  local obj = ins:find('Nem::TRect')
+  assertEqual('dub.CTemplate', obj.type)
+end
+
 function should.haveAttributes()
-  local TVect = ins:find('TVect')
+  local obj = ins:find('TVect')
   local res = {}
-  for attr in TVect:attributes() do
+  for attr in obj:attributes() do
     table.insert(res, attr.name .. ':' .. attr.ctype.name)
   end
   assertValueEqual({'x:T', 'y:T'}, res)
 end
 
+function should.haveAttributesInNamespace()
+  local obj = ins:find('Nem::TRect')
+  local res = {}
+  for attr in obj:attributes() do
+    table.insert(res, attr.name .. ':' .. attr.ctype.name)
+  end
+  assertValueEqual({
+    'x1:T',
+    'y1:T',
+    'x2:T',
+    'y2:T',
+  }, res)
+end
+
 function should.resolveTypedef()
-  local Vectf = ins:find('Vectf')
-  assertEqual('dub.Class', Vectf.type)
-  assertEqual('Vectf', Vectf.name)
+  local obj = ins:find('Vectf')
+  assertEqual('dub.Class', obj.type)
+  assertEqual('Vectf', obj.name)
 end
 
 function should.resolveAttributeTypes()
-  local Vectf = ins:find('Vectf')
+  local obj = ins:find('Vectf')
   local res = {}
-  for attr in Vectf:attributes() do
+  for attr in obj:attributes() do
     table.insert(res, attr.name .. ':' .. attr.ctype.name)
   end
-  assertValueEqual({'x:float', 'y:float'}, res)
+  assertValueEqual({
+    'x:float',
+    'y:float',
+  }, res)
+end
+
+function should.resolveTypedefInNamespace()
+  local obj = ins:find('nmRect32')
+  assertEqual('dub.Class', obj.type)
+  assertEqual('nmRect32', obj.name)
+end
+
+function should.resolveAttributeTypesInNamespace()
+  local obj = ins:find('nmRect32')
+  local res = {}
+  for attr in obj:attributes() do
+    table.insert(res, attr.name .. ':' .. attr.ctype.name)
+  end
+  assertValueEqual({
+    'x1:int32_t',
+    'y1:int32_t',
+    'x2:int32_t',
+    'y2:int32_t',
+  }, res)
 end
 
 function should.resolveParamTypes()

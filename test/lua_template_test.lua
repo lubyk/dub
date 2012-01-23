@@ -23,15 +23,21 @@ local ins = dub.Inspector {
 --=============================================== Vectf bindings
 
 function should.bindClass()
-  local Vectf = ins:find('Vectf')
-  local res = binder:bindClass(Vectf)
+  local obj = ins:find('Vectf')
+  local res = binder:bindClass(obj)
   assertMatch('luaopen_Vect', res)
 end
 
+function should.bindClassFromTemplateInNamespace()
+  local obj = ins:find('nmRect32')
+  local res = binder:bindClass(obj)
+  assertMatch('self%->x1 = luaL_checkint%(L, 3%);', res)
+end
+
 function should.bindMethod()
-  local Vectf = ins:find('Vectf')
-  local met = Vectf:method('surface')
-  local res = binder:functionBody(Vectf, met)
+  local obj = ins:find('Vectf')
+  local met = obj:method('surface')
+  local res = binder:functionBody(obj, met)
   assertMatch('lua_pushnumber%(L, self%->surface%(%)%);', res)
 end
 

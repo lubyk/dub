@@ -145,7 +145,7 @@ function lib:bind(inspector, options)
         table.insert(bound, elem)
         private.bindElem(self, elem, options)
       else
-        print(string.format("Element '%s' not found.", name))
+        print(string.format("Could not bind '%s' (not found).", name))
       end
     end
   else
