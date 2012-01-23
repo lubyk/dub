@@ -756,11 +756,13 @@ function parse.params(elem, header)
   local first_default
   for _, p in ipairs(elem) do
     if p.xml == 'param' then
-      i = i + 1
-      local param = parse.param(p, i)
-      table.insert(res, param)
-      if param.default and not first_default then
-        first_default = param.position
+      local param = parse.param(p, i+1)
+      if param then
+        i = i + 1
+        table.insert(res, param)
+        if param.default and not first_default then
+          first_default = param.position
+        end
       end
     end
   end
@@ -769,15 +771,31 @@ function parse.params(elem, header)
 end
 
 function parse.param(elem, position)
+  local declname = elem:find('declname')
+
+  if not declname then
+    -- unnamed parameter
+    declname = string.format("p%d",position);
+  else
+    declname = declname[1]
+  end
+  
   local default = elem:find('defval')
   if default then
     default = private.flatten(default)
   end
+
+  local ctype = parse.type(elem)
+  if not ctype then
+    -- type was 'void'
+    return nil
+  end
+
   return {
     type     = 'dub.Param',
-    name     = elem:find('declname')[1],
+    name     = declname,
     position = position,
-    ctype    = parse.type(elem),
+    ctype    = ctype,
     default  = default,
   }
 end
@@ -795,7 +813,7 @@ function parse.type(elem)
   if type(ctype) == 'table' then
     ctype = private.flatten(ctype)
   end
-  if ctype then
+  if ctype and ctype ~= 'void' then
     return lib.makeType(ctype)
   end
 end

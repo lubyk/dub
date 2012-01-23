@@ -12,6 +12,9 @@
   * Ignoring 'struct' keyword in param (C++ name scoping rules apply).
   * Casting enum types to 'int' instead of double.
   * Added 'extra_headers' option to binder.
+  * Fixed bug with unamed method parameters (Tim Mensch).
+  * Fixed bug with void parameter (Tim Mensch).
+  * Fixed bug where lua stack would grow during class registration (Tim Mensch).
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua

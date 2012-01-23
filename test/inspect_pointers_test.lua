@@ -56,6 +56,21 @@ function should.parseParamTypes()
   assertEqual('Vect', p2.ctype.name)
 end
 
+function should.assignDefaultNamesToParams()
+  local met = Vect:method('unamed')
+  local p1  = met.params_list[1]
+  local p2  = met.params_list[2]
+  assertEqual('p1', p1.name)
+  assertEqual('double', p1.ctype.name)
+  assertEqual('p2', p2.name)
+  assertEqual('int', p2.ctype.name)
+end
+
+function should.notConfuseVoidAsType()
+  local met = Vect:method('noparam')
+  assertEqual(0, #met.params_list)
+end
+
 function should.parsePointerParamTypes()
   local met = Box:method('MakeBox')
   local p1   = met.params_list[1]
@@ -152,6 +167,8 @@ function should.listMethods()
     Vect.GET_ATTR_NAME,
     'someChar',
     'someStr',
+    'unamed',
+    'noparam',
     Vect.SET_ATTR_NAME,
   }, res)
 end

@@ -11,6 +11,7 @@
  *   * basic memory leakage
  *   * operator overloading
  *   * C array attributes
+ *   * unamed and void parameters
  */
 struct Vect {
   double x;
@@ -147,6 +148,14 @@ struct Vect {
   // const char * mapped to string
   const char *someStr(const char *s) {
     return s;
+  }
+
+  /** Unamed parameters.
+   */
+  double unamed(double, int);
+
+  int noparam(void) {
+    return 1;
   }
 };
 

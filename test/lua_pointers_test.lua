@@ -679,6 +679,16 @@ function should.passStringForConstCharPtr()
   assertEqual('hello World', v:someStr('hello World'))
 end
 
+function should.callMethodWithUnamedParams()
+  local v = Vect(0,0)
+  assertEqual(9.5, v:unamed(3.5, 3))
+end
+
+function should.callVoidMethod()
+  local v = Vect(0,0)
+  assertEqual(1, v:noparam())
+end
+
 --=============================================== std::string with \0
 
 function should.handleBinaryData()

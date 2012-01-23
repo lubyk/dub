@@ -87,5 +87,7 @@ extern "C" int luaopen_{{lib_name}}(lua_State *L) {
   dub_register_const(L, {{lib_name}}_const);
 {% end %}
   luaL_register(L, NULL, {{lib_name}}_functions);
+  // <lib>
+  lua_pop(L, 1);
   return 0;
 }
