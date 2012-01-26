@@ -151,6 +151,17 @@ function should.useSelfErrorHandler()
   assertEqual('test/lua_thread_test.lua:145: Failure....', r)
 end
 
+function should.printErrorIfNoErrorHandler()
+  local c = thread.Callback('Alan Watts')
+  local r
+  function c:callback(value)
+    error('Normal output during testing.')
+  end
+  assertPass(function()
+    makeCall(c, 'something')
+  end)
+end
+
 --=============================================== Memory
 
 function should.passSameObjectWhenStoredAsPointer()
