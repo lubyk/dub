@@ -1,7 +1,7 @@
 #ifndef THREAD_CALLER_H_
 #define THREAD_CALLER_H_
 
-#include "dub/dub.h"
+#include "Callback.h"
 
 #include <string>
 
@@ -11,7 +11,8 @@ class Caller {
 public:
   Callback *clbk_;
 
-  Caller() {}
+  Caller(Callback *c=NULL)
+    : clbk_(c) {}
 
   /** Simulate a call from C++
    */

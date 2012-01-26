@@ -13,15 +13,15 @@ local should = test.Suite('dub.Inspector - thread')
 local ins = dub.Inspector {
   INPUT    = 'test/fixtures/thread',
   doc_dir  = lk.dir() .. '/tmp',
+  keep_xml = true,
 }
 
+local Callback = ins:find('Callback')
 --=============================================== TESTS
 
--- TODO
--- function should.markClassAsThread()
---   local Callback = ins:find 'Callback'
---   assertTrue(Callback.thread)
--- end
+function should.markClassAsThread()
+  assertEqual('pushobject', Callback.dub.push)
+end
 
 test.all()
 

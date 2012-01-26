@@ -760,7 +760,12 @@ function private:pushValue(method, value, return_value)
     -- resolved value
     local rtype = lua.rtype
     local gc
+
     if not ctype.ptr then
+      -- Call return value is not a pointer. This should never happen with
+      -- a type that uses a custom push method.
+      assert(not rtype.dub or not rtype.dub.push,
+        string.format("Types with @dub 'push' setting should not be passed as values (%s).", method:fullname()))
       if method.is_get_attr then
         if ctype.const then
           if self.options.read_const_member == 'copy' then
@@ -782,27 +787,40 @@ function private:pushValue(method, value, return_value)
         end
       end
     else
-      -- Return value is a pointer
+      -- Return value is a pointer.
       res = format('%s%sretval__ = %s;\n', 
         (ctype.const and 'const ') or '',
         rtype.create_name, value)
       if not method.ctor then
         res = res .. 'if (!retval__) return 0;\n'
       end
+      local push_method = rtype.dub and rtype.dub.push
+      local custom_push
+      if push_method then
+        custom_push = true
+        push_method = 'retval__->'.. push_method
+      else
+        push_method = 'dub_pushudata'
+      end
       if ctype.const then
+        assert(not custom_push, string.format("Types with @dub 'push' setting should not be passed as const types (%s).", method:fullname()))
         if self.options.read_const_member == 'copy' then
           -- copy
-          res = res .. format('dub_pushudata(L, new %s(*retval__), "%s", true);', rtype.name, lua.mt_name)
+          res = res .. format('%s(L, new %s(*retval__), "%s", true);',
+                              push_method, rtype.name, lua.mt_name)
         else
           -- cast
-          res = res .. format('dub_pushudata(L, const_cast<%s*>(retval__), "%s", false);', rtype.name, lua.mt_name)
+          res = res .. format('%s(L, const_cast<%s*>(retval__), "%s", false);',
+                              push_method, rtype.name, lua.mt_name)
         end
       else
         -- We should only GC in constructor.
         if method.static or method.dub and method.dub.gc then
-          res = res .. format('dub_pushudata(L, retval__, "%s", true);', lua.mt_name)
+          res = res .. format('%s(L, retval__, "%s", true);',
+                              push_method, lua.mt_name)
         else
-          res = res .. format('dub_pushudata(L, retval__, "%s", false);', lua.mt_name)
+          res = res .. format('%s(L, retval__, "%s", false);',
+                              push_method, lua.mt_name)
         end
       end
     end

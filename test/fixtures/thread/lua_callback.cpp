@@ -1,27 +1,23 @@
 #include "Callback.h"
 
-void Callback::call(float value) {
-  lua_State *L = lua_;
-  if (!pushLuaCallback("callback")) return;
+void Callback::call(const std::string &msg) {
+  if (!dub_pushcallback("callback")) return;
   // <func> <self>
-  lua_pushnumber(L, value);
-  // <func> <self> <number>
-  int status = lua_pcall(L, 3, 0, 0);
-  if (status) {
-    fprintf(stderr, "Error in 'callback': %s\n", lua_tostring(L, -1));
-  }
+  lua_pushlstring(dub_L, msg.data(), msg.length());
+  // <func> <self> <msg>
+  dub_call(2, 0);
 }
   
 double Callback::getValue(const std::string &key) {
-  lua_State *L = lua_;
-  if (pushLuaValue(key.c_str())) {
-    if (lua_isnumber(L, -1)) {
-      // ... <nb>
-      double d = lua_tonumber(L, -1);
-      lua_pop(L, 1);
-      // ...
-      return d;
-    }
+  lua_State *L = dub_L;
+  double d = 0;
+  dub_pushvalue(key.c_str());
+  if (lua_isnumber(L, -1)) {
+    // ... <nb>
+    d = lua_tonumber(L, -1);
   }
-  return 0;
+  lua_pop(L, 1);
+  return d;
 }
+
+int Callback::destroy_count = 0;

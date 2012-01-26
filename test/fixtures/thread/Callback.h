@@ -9,19 +9,35 @@ class Caller;
 /** This class is used to test:
  *   * read values defined in the scripting language (self access from C++).
  *   * execute callbacks from C++. 
+ *
+ * @dub push: pushobject
  */
-class Callback : public DubThread {
+class Callback : public dub::Thread {
 public:
-  Callback(const std::string &name_)
-    : name(name_) {}
+  static int destroy_count;
 
+  Callback(const std::string &name_)
+    : name(name_) {
+  }
+
+  ~Callback() {
+    ++destroy_count;
+  }
   /** Test C++ attributes mixed with Lua values.
    */
   std::string name;
 
   /** Read a value from the scripting language.
    */
-  double getValue(const std::string key);
+  double getValue(const std::string &key);
+
+  double anyMethod(double d) {
+    return d + 100;
+  }
+
+  std::string getName() {
+    return name;
+  }
 
 private:
   friend class Caller;

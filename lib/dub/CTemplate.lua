@@ -123,7 +123,9 @@ function private.resolveType(ctype, name_to_type)
     return
   end
   local resolv = name_to_type[ctype.name]
+      
   if resolv then
+    local t = dub.MemoryStorage.makeType(resolv)
     return dub.MemoryStorage.makeType(resolv)
   else
     return ctype

@@ -39,6 +39,7 @@ function lib.new(self)
   self.constants_list = {}
   self.super_list     = {}
   self.dub            = self.dub or {}
+  self.dub_type       = self.dub.type
   self.xml_headers    = self.xml_headers or {}
   setmetatable(self, lib)
   self:setName(self.name)

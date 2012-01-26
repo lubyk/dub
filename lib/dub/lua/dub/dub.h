@@ -53,8 +53,14 @@ extern "C" {
 #include <exception> // std::exception
 
 // Rename macro
-#define DubObject dub::LuaObject
-#define DubThread dub::LuaThread
+#define DubObject dub::Object
+#define DubThread dub::Thread
+
+struct DubUserdata {
+  void *ptr;
+  bool gc;
+};
+
 // ======================================================================
 // =============================================== dub::Exception
 // ======================================================================
@@ -77,16 +83,77 @@ public:
   explicit TypeException(lua_State *L, int narg, const char *type, bool is_super = false);
 };
 
+/** This class allows an object to be deleted from either C++ or Lua.
+ * When Lua deletes the object, dub_destroy is called. When C++ deletes
+ * the object, the related userdata is invalidated.
+ */
+class Object {
+public:
+  Object() : dub_userdata_(NULL) {}
+
+  /** The destructor marks the userdata as deleted so that Lua no
+   * longer tries to access it.
+   */
+  virtual ~Object() {
+    // Invalidate Lua userdata.
+    if (dub_userdata_) dub_userdata_->ptr = NULL;
+  }
+
+  /** This is called on object instanciation by dub instead of
+   * dub_pushudata to setup dub_userdata_.
+   */
+  virtual void pushobject(lua_State *L, void *ptr, const char *type_name, bool gc = true);
+
+protected:
+  /** Pointer to the userdata. *userdata => pointer to C++ object.
+   */
+  DubUserdata *dub_userdata_;
+};
+
+/** This class creates a 'self' table on prepares a thread
+ * that can be used for callbacks from C++ to Lua.
+ */
+class Thread : public Object {
+public:
+  Thread()
+    : dub_L(NULL) {}
+  /** This is called on object instanciation by dub to create the lua
+   * thread, prepare the <self> table and setup metamethods. This is
+   * called instead of dub_pushudata.
+   * <udata> <mt>
+   */
+  virtual void pushobject(lua_State *L, void *ptr, const char *type_name, bool gc = true) throw(dub::Exception);
+
+  /** Push function 'name' found in <self> on the stack with <self> as
+   * first argument.
+   */
+  bool dub_pushcallback(const char *name);
+
+  /** Push any lua value from self on the stack.
+   */
+  void dub_pushvalue(const char *name);
+  
+  /** Execute the protected call. If an error occurs, dub tries to find
+   * an 'error' function in <self> and calls this function with the
+   * error string. If no error function is found, the error message is
+   * just printed out to stderr.
+   */
+  bool dub_call(int param_count, int retval_count);
+
+protected:
+  /** Lua thread that contains <self> on stack position 1.
+   */
+  lua_State *dub_L;
+  /** Type name (allows faster check for cast).
+   */
+  const char *dub_typename_;
+};
+
 } // dub
 
 // ======================================================================
 // =============================================== dub_pushclass
 // ======================================================================
-
-struct DubUserdata {
-  void *ptr;
-  bool gc;
-};
 
 // To ease storing a LuaRef in a void* pointer.
 struct DubRef {
