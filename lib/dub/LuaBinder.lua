@@ -815,7 +815,7 @@ function private:pushValue(method, value, return_value)
         end
       else
         -- We should only GC in constructor.
-        if method.static or method.dub and method.dub.gc then
+        if (method.static and method.name==lua.mt_name) or method.dub and method.dub.gc then
           res = res .. format('%s(L, retval__, "%s", true);',
                               push_method, lua.mt_name)
         else
