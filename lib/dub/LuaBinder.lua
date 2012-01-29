@@ -783,7 +783,11 @@ function private:pushValue(method, value, return_value)
         if method.parent.dub and method.parent.dub.destroy == 'free' then
           res = format('dub_pushfulldata<%s>(L, %s, "%s");', rtype.name, value, lua.mt_name)
         else
-          res = format('dub_pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
+          if (not return_value.const) and return_value.def:match("&$") then
+            res = format('dub_pushudata(L, &%s, "%s", false);', value, lua.mt_name)
+          else
+            res = format('dub_pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
+          end
         end
       end
     else
