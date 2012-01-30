@@ -1057,14 +1057,26 @@ function private:switch(class, method, delta, bfunc, iterator)
     end
   end
   res = res .. '}\n'
+
+  local custom = (self.options.custom_bindings and self.options.custom_bindings[class.name])
+  				 or {}
   if method.is_set_attr then
-    res = res .. 'if (lua_istable(L, 1)) {\n'
-    -- <tbl> <'key'> <value>
-    res = res .. '  lua_rawset(L, 1);\n'
-    res = res .. '} else {\n'
-    res = res .. '  luaL_error(L, KEY_EXCEPTION_MSG, key);\n'
-    res = res .. '}\n'
-    -- If <self> is a table, write there
+    if custom._set_suffix then
+      res = res .. custom._set_suffix
+    else
+      res = res .. 'if (lua_istable(L, 1)) {\n'
+      -- <tbl> <'key'> <value>
+      res = res .. '  lua_rawset(L, 1);\n'
+      res = res .. '} else {\n'
+      res = res .. '  luaL_error(L, KEY_EXCEPTION_MSG, key);\n'
+      res = res .. '}\n'
+      -- If <self> is a table, write there
+    end
+  elseif method.is_get_attr then
+    if custom._get_suffix then
+      res = res .. custom._get_suffix
+      return res -- skip the return 0 below
+    end
   end
   res = res .. 'return 0;'
   return res
