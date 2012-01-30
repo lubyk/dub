@@ -504,9 +504,15 @@ function lib:customTypeAccessor(method)
 end
 
 -- Return the 'public' name to use for the element in the
--- bindings. This can be used to rename classes or namespaces.
+-- bindings. This can be used to rename classes or namespaces. Instead
+-- of rewriting this method, users can also use the 'name_filter' option.
 function lib:name(elem)
-  return elem.name
+  local func = self.options.name_filter
+  if func then
+    return func(elem)
+  else
+    return elem.name
+  end
 end
 
 -- Return the 'lua_open' name to use for the element in the
@@ -519,9 +525,26 @@ function lib:openName(elem)
   end
 end
 
--- Return the 'public' name to use for a constant.
+-- Return the 'public' name to use for a constant. Instead of rewriting this
+-- method, users can also use the 'const_name_filter' option.
 function lib:constName(name)
-  return name
+  local func = self.options.const_name_filter
+  if func then
+    return func(name)
+  else
+    return name
+  end
+end
+
+-- Return the 'public' name to use for an attribute. Instead of rewriting this
+-- method, users can also use the 'attr_name_filter' option.
+function lib:attrName(elem)
+  local func = self.options.attr_name_filter
+  if func then
+    return func(elem)
+  else
+    return elem.name
+  end
 end
 
 function lib:libName(elem)
@@ -997,10 +1020,10 @@ function private:switch(class, method, delta, bfunc, iterator)
     filter = function(elem)
       return self:libName(elem)
     end
-  elseif self.options.attr_name_filter then
-    filter = self.options.attr_name_filter
   else
-    filter = function(elem) return elem.name end
+    filter = function(elem)
+      return self:attrName(elem)
+    end
   end
 
   local filtered_iterator = function()

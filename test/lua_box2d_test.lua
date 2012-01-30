@@ -59,19 +59,6 @@ function should.bindCompileAndLoad()
   -- How to avoid this step ?
   local c = ins:find('b2Vec2')
 
-  function binder:name(elem)
-    local name = elem.name
-    if name then
-      name = string.match(name, '^b2(.+)') or name
-    end
-    return name
-  end
-
-  function binder:constName(name)
-    name = string.match(name, '^b2_(.+)') or name
-    return name
-  end
-
   binder:bind(ins, {
     output_directory = tmp_path,
     only = {
@@ -89,6 +76,21 @@ function should.bindCompileAndLoad()
     -- Execute all lua_open in a single go
     -- with lua_openb2 (creates b2.cpp).
     single_lib = 'b2',
+
+    -- Class and function name alterations
+    name_filter = function(elem)
+      local name = elem.name
+      if name then
+        name = string.match(name, '^b2(.+)') or name
+      end
+      return name
+    end,
+
+    const_name_filter = function(name)
+      name = string.match(name, '^b2_(.+)') or name
+      return name
+    end,
+
   })
 
   local cpath_bak = package.cpath

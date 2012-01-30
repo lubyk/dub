@@ -14,8 +14,6 @@ local ins = dub.Inspector {
   INPUT    = 'test/fixtures/template',
   doc_dir  = lk.dir() .. '/tmp',
 }
-  local obj = ins:find('nmRect32')
-  print(obj.type)
 
 --=============================================== TESTS
 function should.findCTemplate()
@@ -138,7 +136,7 @@ function should.listMethods()
     'operator+',
     'addToX',
     'addTwo',
-    '~Vectf', 
+    '~Vectf',
     Vectf.GET_ATTR_NAME,
     Vectf.SET_ATTR_NAME,
   }, res)
