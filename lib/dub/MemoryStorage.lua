@@ -108,7 +108,9 @@ function lib:functions(parent)
     while true do
       local ok, elem = coroutine.resume(co, parent, 'functions_list')
       if ok and elem then
-        if not seen[elem.name] then
+        if parent.dub.destroy=="free" and elem.dtor then
+          -- do nothing: no destructor should be generated in this case
+        elseif not seen[elem.name] then
           seen[elem.name] = true
           return elem
         end
@@ -779,7 +781,7 @@ function parse.param(elem, position)
   else
     declname = declname[1]
   end
-  
+
   local default = elem:find('defval')
   if default then
     default = private.flatten(default)
