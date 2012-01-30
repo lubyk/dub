@@ -778,16 +778,27 @@ function private:pushValue(method, value, return_value)
         else
           res = format('dub_pushudata(L, &%s, "%s", false);', value, lua.mt_name)
         end
+      elseif return_value.ref then
+        -- Return value is a reference.
+        if ctype.const then
+          if self.options.read_const_member == 'copy' then
+            -- copy
+            res = format('dub_pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
+          else
+            -- cast
+            res = format('dub_pushudata(L, const_cast<%s*>(&%s), "%s", false);', rtype.name, value, lua.mt_name)
+          end
+        else
+          -- not const ref
+          res = format('dub_pushudata(L, &%s, "%s", false);', value, lua.mt_name)
+        end
       else
-        -- Return value is not a pointer: we have a copy
+        -- Return by value.
         if method.parent.dub and method.parent.dub.destroy == 'free' then
           res = format('dub_pushfulldata<%s>(L, %s, "%s");', rtype.name, value, lua.mt_name)
         else
-          if (not return_value.const) and return_value.def:match("&$") then
-            res = format('dub_pushudata(L, &%s, "%s", false);', value, lua.mt_name)
-          else
-            res = format('dub_pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
-          end
+          -- Allocate on the heap.
+          res = format('dub_pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
         end
       end
     else
@@ -819,7 +830,7 @@ function private:pushValue(method, value, return_value)
         end
       else
         -- We should only GC in constructor.
-        if (method.static and method.name==lua.mt_name) or method.dub and method.dub.gc then
+        if method.ctor or (method.dub and method.dub.gc) then
           res = res .. format('%s(L, retval__, "%s", true);',
                               push_method, lua.mt_name)
         else

@@ -188,6 +188,8 @@ function should.listStaticMethods()
     'name',
     'surface',
     'size',
+    'sizeRef',
+    'constRef',
     'copySize',
     'MakeBox:static',
     '~Box',

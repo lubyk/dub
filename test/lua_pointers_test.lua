@@ -559,6 +559,21 @@ function should.notCopyAttribute()
   assertEqual(5, b.size_.x)
 end
 
+function should.notCopyRef()
+  local b = Box('Cat', Vect(2,3))
+  local sz = b:sizeRef()
+  sz.x = 5
+  assertEqual(5, b.size_.x)
+end
+
+-- Default behavior is 'cast' (which might not be a good idea).
+function should.castConstRef()
+  local b = Box('Cat', Vect(2,3))
+  local sz = b:constRef()
+  b.size_.x = 14
+  assertEqual(14, sz.x)
+end
+
 function should.notGcOwnerBeforePointer()
   local b = Box('Cat', Vect(2,3))
   local sz = b.size_

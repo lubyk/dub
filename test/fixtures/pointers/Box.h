@@ -32,6 +32,10 @@ struct Box {
     , const_vect(NULL)
   {}
 
+  /** Set gc to on. 
+   *
+   * @dub gc: true
+   */
   static Box *MakeBox(const char *name, Vect *size) {
     Box *b = new Box(std::string(name), *size);
     return b;
@@ -50,6 +54,16 @@ struct Box {
   // Should not gc.
   Vect *size() {
     return &size_;
+  }
+
+  // Should not gc either.
+  Vect &sizeRef() {
+    return size_;
+  }
+
+  // Should not gc.
+  const Vect &constRef() {
+    return size_;
   }
 
   /** Copy of size pointer. Should be garbage collected.
