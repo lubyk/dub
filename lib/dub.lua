@@ -30,15 +30,14 @@ end
 
 -- Find the minimal modulo value for the list of keys to
 -- avoid collisions.
-function dub.minHash(list_or_obj, func, accessor)
+function dub.minHash(list_or_obj, func)
   local list
-  if not accessor then
-    accessor = func
+  if not func then
     list = list_or_obj
   else
     list = {}
-    for elem in func(list_or_obj) do
-      table.insert(list, elem)
+    for name in func(list_or_obj) do
+      table.insert(list, name)
     end
   end
   local list_sz = #list
@@ -51,9 +50,6 @@ function dub.minHash(list_or_obj, func, accessor)
     sz = sz + 1
     local hashes = {}
     for i, key in ipairs(list) do
-      if accessor then
-        key = key[accessor]
-      end
       local h = dub.hash(key, sz)
       if hashes[h] then
         break

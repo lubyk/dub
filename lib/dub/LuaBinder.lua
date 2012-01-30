@@ -991,40 +991,46 @@ function private:switch(class, method, delta, bfunc, iterator)
     res = res .. 'void **retval__ = (void**)lua_newuserdata(L, sizeof(void*));\n'
   end
 
-  local filter = self.options.attr_name_filter
+  local filter
 
-  local filtered_iterator = iterator
+  if method.is_cast then
+    filter = function(elem)
+      return self:libName(elem)
+    end
+  elseif self.options.attr_name_filter then
+    filter = self.options.attr_name_filter
+  else
+    filter = function(elem) return elem.name end
+  end
 
-  if filter then
-    filtered_iterator = function()
-      local function new_iterator()
-        for elem in iterator(class) do
-          local name = filter(elem.name)
-          if name then
-            coroutine.yield( { name=name } )
-          end
+  local filtered_iterator = function()
+    local function new_iterator()
+      for elem in iterator(class) do
+        local name = filter(elem)
+        if name then
+          coroutine.yield(name)
         end
       end
-      return coroutine.wrap(new_iterator)
     end
-  else
-    filter = function(s) return s end
+    return coroutine.wrap(new_iterator)
   end
 
   -- get key hash
-  local sz = dub.minHash(class, filtered_iterator, 'name')
+  local sz = dub.minHash(class, filtered_iterator)
   assert(sz, string.format("Something is wrong when creating function body '%s' for class '%s'.", method.name, class.name))
   res = res .. format('int key_h = dub_hash(key, %i);\n', sz)
   -- switch
   res = res .. 'switch(key_h) {\n'
   for elem in iterator(class) do
-    local body = bfunc(self, method, elem, delta)
-    if body then
-      local name = elem.name
-      res = res .. format('  case %s: {\n', dub.hash(filter(name), sz))
-      -- get or set value
-      res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) break;\n', filter(name))
-      res = res .. '    ' .. string.gsub(body, '\n', '\n    ') .. '\n  }\n'
+    local lua_name = filter(elem)
+    if lua_name then
+      local body = bfunc(self, method, elem, delta)
+      if body then
+        res = res .. format('  case %s: {\n', dub.hash(lua_name, sz))
+        -- get or set value
+        res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) break;\n', lua_name)
+        res = res .. '    ' .. string.gsub(body, '\n', '\n    ') .. '\n  }\n'
+      end
     end
   end
   res = res .. '}\n'

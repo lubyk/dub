@@ -74,8 +74,8 @@ function should.bindCompileAndLoad()
     -- with lua_openb2 (creates traffic.cpp).
     single_lib = 'traffic',
     -- Attribute name filter
-    attr_name_filter = function(attr_name)
-      return attr_name:match('^(.*)_') or attr_name
+    attr_name_filter = function(attr)
+      return attr.name:match('^(.*)_') or attr.name
     end,
   })
 
