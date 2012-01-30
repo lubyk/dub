@@ -991,32 +991,24 @@ function private:switch(class, method, delta, bfunc, iterator)
     res = res .. 'void **retval__ = (void**)lua_newuserdata(L, sizeof(void*));\n'
   end
 
-  local filter = self.options.name_filter or function(s) return s end
+  local filter = self.options.attr_name_filter
 
   local filtered_iterator = iterator
 
-  if self.options.name_filter then
+  if filter then
     filtered_iterator = function()
       local function new_iterator()
-
-        local list={}
         for elem in iterator(class) do
-          list[#list+1]= elem
-        end
-
-        for _,elem in ipairs(list) do
-
-          if elem and elem.name then
-            coroutine.yield( { name=filter(elem.name) } )
-          else
-            break
+          local name = filter(elem.name)
+          if name then
+            coroutine.yield( { name=name } )
           end
         end
-        return nil
       end
-
       return coroutine.wrap(new_iterator)
     end
+  else
+    filter = function(s) return s end
   end
 
   -- get key hash
@@ -1029,7 +1021,7 @@ function private:switch(class, method, delta, bfunc, iterator)
     local body = bfunc(self, method, elem, delta)
     if body then
       local name = elem.name
-      res = res .. format('  case %s: {\n', dub.hash(filter(name), sz), filter(name))
+      res = res .. format('  case %s: {\n', dub.hash(filter(name), sz))
       -- get or set value
       res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) break;\n', filter(name))
       res = res .. '    ' .. string.gsub(body, '\n', '\n    ') .. '\n  }\n'

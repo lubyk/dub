@@ -16,6 +16,7 @@
   * Fixed bug with unamed method parameters (Tim Mensch).
   * Fixed bug with void parameter (Tim Mensch).
   * Fixed bug where lua stack would grow during class registration (Tim Mensch).
+  * Added 'attr_name_filter' to rename attributes.
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua

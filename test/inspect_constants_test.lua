@@ -75,7 +75,7 @@ end
 function should.findEnumByFullname()
   local Brand = ins:find('Car::Brand')
   assertEqual('Brand', Brand.name)
-  assertMatch('test/fixtures/constants/Car.h:16', Brand.location)
+  assertMatch('test/fixtures/constants/Car.h:17', Brand.location)
 end
 
 function should.listConstants()

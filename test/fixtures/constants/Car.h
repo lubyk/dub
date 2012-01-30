@@ -7,6 +7,7 @@
  *   * class constants (enums).
  *   * enum attributes read/write.
  *   * alternate binding definition (using Car.new instead of Car())
+ *   * rename attribute filter.
  */
 class Car {
 public:
@@ -24,11 +25,11 @@ public:
    */
   Brand brand;
 
-  std::string name;
+  std::string name_;
 
   Car(const char * n, Brand b = Polluty)
     : brand(b)
-    , name(n) {
+    , name_(n) {
   }
 
   void setBrand(Brand b) {

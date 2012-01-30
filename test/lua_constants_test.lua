@@ -73,7 +73,12 @@ function should.bindCompileAndLoad()
     -- Execute all lua_open in a single go
     -- with lua_openb2 (creates traffic.cpp).
     single_lib = 'traffic',
+    -- Attribute name filter
+    attr_name_filter = function(attr_name)
+      return attr_name:match('^(.*)_') or attr_name
+    end,
   })
+
   local cpath_bak = package.cpath
   assertPass(function()
     
