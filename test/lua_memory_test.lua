@@ -22,6 +22,7 @@ local ins = dub.Inspector {
   }
 }
 
+
 --=============================================== Nogc bindings
 
 function should.bindClass()
@@ -34,6 +35,13 @@ function should.notBindDestructor()
   local Nogc = ins:find('Nogc')
   local res = binder:bindClass(Nogc)
   assertNotMatch('__gc', res)
+end
+
+function should.pushFullUserdataInRetval()
+  local Nogc = ins:find('Nogc')
+  local met = Nogc:method('operator+')
+  local res = binder:functionBody(Nogc, met)
+  assertMatch('dub_pushfulldata<Nogc>%(L, self%->operator%+%(%*v%), "Nogc"%);', res)
 end
 
 function should.bindDestructor()
