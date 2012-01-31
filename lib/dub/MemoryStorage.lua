@@ -396,7 +396,10 @@ function parse:header(header, not_lazy)
   end
   self.header = h_path
 
-  self.dub = parse.dub(data) or self.dub
+  local opt = parse.opt(data)
+  if opt then
+    self:setOpt(opt)
+  end
   parse.children(self, data, header, not_lazy)
   header.parsed = true
 end
@@ -667,7 +670,7 @@ parse['function'] = function(self, elem, header)
     member        = self.is_class,
     dtor          = self.is_class and name == '~' .. self.name,
     ctor          = self.is_class and name == self.name,
-    dub           = parse.dub(elem) or {},
+    dub           = parse.opt(elem) or {},
     pure_virtual  = elem.virt == 'pure-virtual',
   }
 
@@ -1013,15 +1016,15 @@ function private.flatten(xml)
 end
 
 function parse.detaileddescription(self, elem, header)
-  local dub = parse.dub(elem)
-  if dub then
-    self.dub = dub
+  local opt = parse.opt(elem)
+  if opt then
+    self:setOpt(opt)
   end
 end
 
 local parseOpt = dub.OptParser.parse
 
-function parse.dub(elem)
+function parse.opt(elem)
   -- This would not work if simplesect is not the first one
   local sect = elem:find('simplesect', 'kind', 'par')
   if sect then

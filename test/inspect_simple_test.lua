@@ -19,7 +19,7 @@ local ins = dub.Inspector {
   doc_dir = lk.dir() .. '/tmp',
   ignore  = {
     Simple = {
-      'shouldBeIgnored',
+      'ignoreInInspector',
     },
     'badFuncToIgnore',
   },

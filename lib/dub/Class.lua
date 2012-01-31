@@ -38,12 +38,16 @@ function lib.new(self)
   self.variables_list = {}
   self.constants_list = {}
   self.super_list     = {}
-  self.dub            = self.dub or {}
-  self.dub_type       = self.dub.type
+  
   self.xml_headers    = self.xml_headers or {}
   setmetatable(self, lib)
+  self:setOpt(self.dub or {})
   self:setName(self.name)
-  return self
+  if self.dub.ignore == true then
+    return nil
+  else
+    return self
+  end
 end
 
 --=============================================== PUBLIC METHODS
@@ -112,6 +116,12 @@ function lib:setName(name)
     end
   end
   self.create_name = create_name .. ' *'
+end
+
+function lib:setOpt(opt)
+  self.dub      = opt or {}
+  self.dub_type = self.dub.type
+  self.ignore   = self.dub.ignore or {}
 end
 
 -- Return the enclosing namespace or nil if none found.

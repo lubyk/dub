@@ -36,6 +36,7 @@ function lib.parse(str)
       for elem in value:gmatch('[^,]+') do
         elem = private.strip(elem)
         table.insert(list, elem)
+        list[elem] = true
       end
       value = list
     else

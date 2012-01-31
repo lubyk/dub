@@ -31,9 +31,14 @@ function should.parseTrueFalse()
   }, parseOpt('foo: false\nbar: true'))
 end
 
-function should.parseList()
+-- Parses lists both as dict and array.
+function should.parseListAsHash()
   assertValueEqual({
-    list = {'Parent', 'GrandParent', 'three'},
+    list = {'Parent', 'GrandParent', 'three',
+      Parent = true,
+      GrandParent = true,
+      three = true,
+    },
   }, parseOpt('list: Parent, GrandParent, three'))
 end
 

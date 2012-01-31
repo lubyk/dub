@@ -10,6 +10,8 @@
  *   * default parameters
  *   * overloaded methods.
  *   * char/ const char* types
+ * 
+ * @dub ignore: shouldBeIgnored, publicButInternal
  */
 class Simple {
 
@@ -119,6 +121,13 @@ public:
   }
 
   void shouldBeIgnored() {
+  }
+
+  void publicButInternal() {
+  }
+
+  // ignored in inspector
+  void ignoreInInspector() {
   }
 
 protected:
