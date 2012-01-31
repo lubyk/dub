@@ -10,6 +10,24 @@ require 'lubyk'
 -- Run the test with the dub directory as current path.
 local should = test.Suite('dub.LuaBinder - simple')
 local binder = dub.LuaBinder()
+local custom_bindings = {
+  Map = {
+    -- DO NOT THROW HERE !!
+    _set_suffix = [[
+// <self> "key" value
+const char *s = luaL_checkstring(L, -1);
+self->setVal(key, s);
+]],
+    _get_suffix = [[
+// <self> "key"
+std::string v;
+if (self->getVal(key, &v)) {
+lua_pushlstring(L, v.data(), v.length());
+return 1;
+}
+]],
+  },
+}
 
 local ins = dub.Inspector {
   INPUT   = 'test/fixtures/simple/include',
@@ -58,6 +76,14 @@ function should.bindStatic()
   local res = binder:functionBody(Simple, met)
   assertNotMatch('self', res)
   assertEqual('pi', binder:bindName(met))
+end
+
+function should.buildGetSet()
+  binder.custom_bindings = custom_bindings
+  local Map = ins:find('Map')
+  local res = binder:bindClass(Map)
+  assertMatch('self%->getVal%(key, &v%)', res)
+  assertMatch('self%->setVal%(key, s%)', res)
 end
 
 local function makeSignature(met)
@@ -242,7 +268,14 @@ function should.bindCompileAndLoad()
   local tmp_path = lk.dir() .. '/tmp'
   lk.rmTree(tmp_path, true)
   os.execute("mkdir -p "..tmp_path)
-  binder:bind(ins, {output_directory = tmp_path, only = {'Simple'}})
+  binder:bind(ins, {
+    output_directory = tmp_path,
+    custom_bindings  = custom_bindings,
+    only = {
+      'Simple',
+      'Map',
+    },
+  })
   local cpath_bak = package.cpath
   local s
   assertPass(function()
@@ -257,14 +290,27 @@ function should.bindCompileAndLoad()
         'test/fixtures/simple/include',
       },
     }
+
+    binder:build {
+      output   = 'test/tmp/Map.so',
+      inputs   = {
+        'test/tmp/dub/dub.cpp',
+        'test/tmp/Map.cpp',
+      },
+      includes = {
+        'test/tmp',
+        'test/fixtures/simple/include',
+      },
+    }
     package.cpath = tmp_path .. '/?.so'
     require 'Simple'
     assertType('table', Simple)
+    require 'Map'
+    assertType('table', Map)
   end, function()
     -- teardown
-    package.loaded.Simple = nil
     package.cpath = cpath_bak
-    if not Simple then
+    if not Simple or not Map then
       test.abort = true
     end
   end)
@@ -344,5 +390,19 @@ function should.properlyHandleErrorMessagesInOverloaded()
     s:addAll(3, 4, 6, true)
   end)
 end
+
+function should.useCustomGetSet()
+  local m = Map()
+  m.animal = 'Cat'
+  assertEqual('Cat', m.animal)
+  assertNil(m.thing)
+  m.thing  = 'Stone'
+  assertEqual('Cat', m.animal)
+  assertValueEqual({
+    animal = 'Cat',
+    thing  = 'Stone',
+  }, m:map())
+end
+
 
 test.all()

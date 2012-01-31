@@ -32,12 +32,12 @@ function should.notHaveADestructor()
     table.insert(res, name)
   end
   assertValueEqual({
+    -- No ~Nogc destructor
+    Nogc.SET_ATTR_NAME,
+    Nogc.GET_ATTR_NAME,
     'Nogc:static',
     'surface',
     'operator+',
-    -- No ~Nogc destructor
-    Nogc.GET_ATTR_NAME,
-    Nogc.SET_ATTR_NAME,
   }, res)
 end       
               

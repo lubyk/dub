@@ -322,6 +322,7 @@ function private:superIterator(base)
         name = name,
         parent = base.parent,
         create_name = name .. ' *',
+        db = self,
       })
     else
       if super then
@@ -372,6 +373,7 @@ require 'lubyk'
 --- Parse a header definition and return element 
 -- identified by 'name' if found.
 function parse:header(header, not_lazy)
+  header.parsed = true
   local data = xml.load(header.path)
   private.checkDoxygenVersion(data)
   data = data:find('compounddef')
@@ -401,7 +403,6 @@ function parse:header(header, not_lazy)
     self:setOpt(opt)
   end
   parse.children(self, data, header, not_lazy)
-  header.parsed = true
 end
 
 function parse:children(elem_list, header, not_lazy)
@@ -488,9 +489,6 @@ function parse:innerclass(elem, header, not_lazy)
   if not_lazy then
     private.parseAll(class)
   end
-  
-  -- Create --get--, --set-- and ~Destructor if needed.
-  private.makeSpecialMethods(class)
 end
 
 function parse:templateparamlist(elem, header)
@@ -532,14 +530,15 @@ function parse:sectiondef(elem, header)
       table.insert(self.const_headers, header.file)
     end
   elseif kind == 'private-func' then
-    -- private methods (to detect private dtor)
+    -- private methods (to detect private ctor/dtor)
     for _, elem in ipairs(elem) do
       if elem.xml == 'memberdef' and
          elem.kind == 'function' then
 
         local name = elem:find('name')[1]
-        if name == '~' .. self.name then
-          -- Private dtor
+        if name == '~' .. self.name or
+           name ==        self.name then
+          -- Private dtor or ctor
           self.cache[name] = 'private'
         end
       end
@@ -848,6 +847,34 @@ function private.makeLocation(elem, header)
 end
 
 -- self == class
+function private:makeConstructor()
+  if self.cache[self.name] or self.abstract then
+    -- Constructor not needed.
+    return
+  end
+  local name = self.name
+  local child = dub.Function {
+    db            = self.db,
+    parent        = self,
+    name          = name,
+    params_list   = {},
+    return_value  = lib.makeType(self.create_name),
+    definition    = name,
+    argsstring    = '()',
+    location      = '',
+    desc          = name .. ' default constructor.',
+    static        = true,
+    xml           = nil,
+    ctor          = true,
+    member        = true,
+  }
+  -- constructor goes on top
+  table.insert(self.functions_list, 1, child)
+  table.insert(self.sorted_cache, 1, child)
+  self.cache['~' .. name] = child
+end
+
+-- self == class
 function private:makeDestructor()
   if self.cache['~' .. self.name] or self.dub.destroy == 'free' then
     -- Destructor not needed.
@@ -869,18 +896,30 @@ function private:makeDestructor()
     dtor          = true,
     member        = true,
   }
-  table.insert(self.functions_list, child)
+  -- destructor goes on top list
+  table.insert(self.functions_list, 1, child)
+  table.insert(self.sorted_cache, 1, child)
   self.cache['~' .. name] = child
 end
 
-function private:makeSpecialMethods()
-  -- Force destructor creation when needed.
-  private.makeDestructor(self)
-  private.makeGetAttribute(self)
-  private.makeSetAttribute(self)
-  if #self.super_list > 0 or self.dub.super then
-    private.makeCast(self)
+-- We pass custom_bindings so that we create get/set methods
+-- even if we do not have public attributes but we have custom
+-- code for these methods. This should be called just before
+-- binding (once everything is parsed).
+function lib.makeSpecialMethods(class, custom_bindings)
+  if custom_bindings then
+    -- Only run this when called from the bindings generator (once
+    -- everything is parsed).
+    private.makeConstructor(class)
+  else
+    custom_bindings = {}
   end
+  if #class.super_list > 0 or class.dub.super then
+    private.makeCast(class)
+  end
+  private.makeGetAttribute(class, custom_bindings[class.name] or {})
+  private.makeSetAttribute(class, custom_bindings[class.name] or {})
+  private.makeDestructor(class)
 end
 
 -- self == class
@@ -915,9 +954,10 @@ function private:makeAttrArrayMethods(attr)
 end
 
 -- self == class
-function private:makeGetAttribute()
-  if not self.has_variables or
-     self.cache[self.GET_ATTR_NAME] then
+function private:makeGetAttribute(custom_bindings)
+  if self.cache[self.GET_ATTR_NAME] or
+     (not self:hasVariables() and
+      not custom_bindings._get_suffix) then
     return
   end
   local name = self.GET_ATTR_NAME
@@ -938,14 +978,15 @@ function private:makeGetAttribute()
     is_get_attr   = true,
     member        = true,
   }
-  table.insert(self.functions_list, child)
-  table.insert(self.sorted_cache, child)
+  table.insert(self.functions_list, 1, child)
+  table.insert(self.sorted_cache, 1, child)
   self.cache[child.name] = child
 end
 
-function private:makeSetAttribute()
-  if not self.has_variables or
-     self.cache[self.SET_ATTR_NAME] then
+function private:makeSetAttribute(custom_bindings)
+  if self.cache[self.SET_ATTR_NAME] or 
+     (not self:hasVariables() and
+      not custom_bindings._set_suffix) then
     return
   end
   local name = self.SET_ATTR_NAME
@@ -966,8 +1007,8 @@ function private:makeSetAttribute()
     is_set_attr   = true,
     member        = true,
   }
-  table.insert(self.functions_list, child)
-  table.insert(self.sorted_cache, child)
+  table.insert(self.functions_list, 1, child)
+  table.insert(self.sorted_cache, 1, child)
   self.cache[child.name] = child
 end
 
@@ -993,8 +1034,8 @@ function private:makeCast()
     is_cast       = true,
     member        = true,
   }
-  table.insert(self.functions_list, child)
-  table.insert(self.sorted_cache, child)
+  table.insert(self.functions_list, 1, child)
+  table.insert(self.sorted_cache, 1, child)
   self.cache[child.name] = child
 end
 

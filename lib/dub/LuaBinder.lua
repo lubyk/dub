@@ -15,7 +15,7 @@ local lib     = {
   TYPE_ACCESSOR = 'checksdata',
   -- By default does an strcmp to ensure correct attribute key.
   ASSERT_ATTR_KEY = true,
-  LUA_STACK_SIZE_NAME = 'DubStackSize',
+  LUA_STACK_SIZE_NAME = 'LuaStackSize',
   CHECK_TO_NATIVE = {
     -- default is to use the same type (number = 'number')
     int        = 'number',
@@ -97,8 +97,9 @@ dub.LuaBinder = lib
 setmetatable(lib, {
   __call = function(lib, options)
     local self = {
-      options       = options or {},
-      extra_headers = {},
+      options         = options or {},
+      extra_headers   = {},
+      custom_bindings = {},
     }
     self.header_base = lfs.currentdir()
     return setmetatable(self, lib)
@@ -203,16 +204,13 @@ end
 
 --- Return a string containing the Lua bindings for a class.
 function lib:bindClass(class)
+  dub.MemoryStorage.makeSpecialMethods(class, self.custom_bindings)
   if not self.class_template then
     -- path to current file
     local dir = lk.dir()
     self.class_template = dub.Template {path = dir .. '/lua/class.cpp'}
   end
-  class.custom_bindings = self.custom_bindings
-  local res = self.class_template:run {class = class, self = self}
-  -- Cleanup
-  class.custom_bindings = nil
-  return res
+  return self.class_template:run {class = class, self = self}
 end
 
 function private:callWithParams(class, method, param_delta, indent, custom, max_arg)
@@ -259,10 +257,7 @@ function lib:functionBody(parent, method)
   end
   -- Resolve C++ types to native lua types.
   self:resolveTypes(method)
-  local custom
-  if parent.custom_bindings then
-    custom = (parent.custom_bindings[method.parent.name] or {})[method.name]
-  end
+  local custom = (self.custom_bindings[method.parent.name] or {})[method.name]
   local res = ''
   if method.dtor then
     res = res .. format('DubUserdata *userdata = ((DubUserdata*)dub_checksdata(L, 1, "%s"));\n', self:libName(parent))
@@ -624,6 +619,13 @@ end
 
 --- Prepare a variable with a function parameter.
 function private:getParamVar(method, param, delta)
+  if param.ctype.create_name == 'lua_State *' then
+    if param.name == 'L' then
+      return ''
+    else
+      return param.name .. ' = L;\n'
+    end
+  end
   local p = private.getParam(self, method, param, delta)
   local lua = param.lua
   local rtype = lua.rtype
@@ -897,12 +899,9 @@ end
 
 -- function body to set a variable.
 function private:setAttrBody(method, attr, delta)
-  if method.parent.custom_bindings then
-    local custom
-    custom = (method.parent.custom_bindings[method.parent.name] or {})[attr.name]
-    if custom and custom.set then
-      return custom.set
-    end
+  local custom = (self.custom_bindings[method.parent.name] or {})[attr.name]
+  if custom and custom.set then
+    return custom.set
   end
 
   local name = attr.name
@@ -956,12 +955,9 @@ function private:getAttrBody(method, attr, delta)
   if attr.ctype.const and self.options.read_const_member == 'no' then
     return nil
   end
-  if method.parent.custom_bindings then
-    local custom
-    custom = (method.parent.custom_bindings[method.parent.name] or {})[attr.name]
-    if custom and custom.get then
-      return custom.get
-    end
+  local custom = (self.custom_bindings[method.parent.name] or {})[attr.name]
+  if custom and custom.get then
+    return custom.get
   end
 
   local lua = self:luaType(method.parent, attr.ctype)
@@ -990,7 +986,7 @@ function private:switch(class, method, delta, bfunc, iterator)
     method.index_op.name = 'operator[]'
     res = res .. '  ' .. private.callWithParams(self, class, method.index_op, delta, '  ') .. '\n'
     res = res .. '}'
-    if not class.has_variables then
+    if not class:hasVariables() then
       return res
     else
       res = res .. '\n'
@@ -1040,26 +1036,29 @@ function private:switch(class, method, delta, bfunc, iterator)
 
   -- get key hash
   local sz = dub.minHash(class, filtered_iterator)
-  assert(sz, string.format("Something is wrong when creating function body '%s' for class '%s'.", method.name, class.name))
-  res = res .. format('int key_h = dub_hash(key, %i);\n', sz)
-  -- switch
-  res = res .. 'switch(key_h) {\n'
-  for elem in iterator(class) do
-    local lua_name = filter(elem)
-    if lua_name then
-      local body = bfunc(self, method, elem, delta)
-      if body then
-        res = res .. format('  case %s: {\n', dub.hash(lua_name, sz))
-        -- get or set value
-        res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) break;\n', lua_name)
-        res = res .. '    ' .. string.gsub(body, '\n', '\n    ') .. '\n  }\n'
+  if not sz then
+    -- get/set without any public variables but using
+    -- suffix code
+  else
+    res = res .. format('int key_h = dub_hash(key, %i);\n', sz)
+    -- switch
+    res = res .. 'switch(key_h) {\n'
+    for elem in iterator(class) do
+      local lua_name = filter(elem)
+      if lua_name then
+        local body = bfunc(self, method, elem, delta)
+        if body then
+          res = res .. format('  case %s: {\n', dub.hash(lua_name, sz))
+          -- get or set value
+          res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) break;\n', lua_name)
+          res = res .. '    ' .. string.gsub(body, '\n', '\n    ') .. '\n  }\n'
+        end
       end
     end
+    res = res .. '}\n'
   end
-  res = res .. '}\n'
 
-  local custom = (self.options.custom_bindings and self.options.custom_bindings[class.name])
-  				 or {}
+  local custom = self.custom_bindings[method.parent.name] or {}
   if method.is_set_attr then
     if custom._set_suffix then
       res = res .. custom._set_suffix
@@ -1075,7 +1074,6 @@ function private:switch(class, method, delta, bfunc, iterator)
   elseif method.is_get_attr then
     if custom._get_suffix then
       res = res .. custom._get_suffix
-      return res -- skip the return 0 below
     end
   end
   res = res .. 'return 0;'

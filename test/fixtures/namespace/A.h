@@ -28,7 +28,7 @@ public:
     , userdata(NULL)
   {}
 
-  DubStackSize __tostring(lua_State *L) {
+  LuaStackSize __tostring(lua_State *L) {
     lua_pushfstring(L, "<B %p ('%s')>", this, name.c_str());
     return 1;
   }

@@ -49,9 +49,9 @@ function should.haveCastForUnknownParent()
     table.insert(res, elem.name)
   end
   assertValueEqual({
-    'Orphan',
     '~Orphan',
     '_cast_',
+    'Orphan',
   }, res)
 end
 
@@ -62,14 +62,14 @@ function should.listSuperMethods()
     table.insert(res, elem.name)
   end
   assertValueEqual({
+    '~Child',
+    '_set_',
+    '_get_',
+    '_cast_',
     'Child',
     'x',
     'y',
     'name',
-    '~Child',
-    '_get_',
-    '_set_',
-    '_cast_',
     'computeAge',
     'position',
   }, res)
@@ -86,6 +86,21 @@ function should.listSuperAttributes()
     'birth_year',
     'status',
     'happy',
+  }, res)
+end
+
+function should.haveVariables()
+  local GrandChild = ins:find 'GrandChild'
+  assertTrue(GrandChild:hasVariables())
+  local res = {}
+  for elem in GrandChild:attributes() do
+    table.insert(res, elem.name)
+  end
+  assertValueEqual({
+    'birth_year',
+    'status',
+    'happy',
+    'teeth',
   }, res)
 end
 

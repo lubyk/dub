@@ -54,6 +54,7 @@ end
 
 --- Return a child element from name.
 function lib:findChild(name)
+  private.makeSpecialMethods(self)
   return self.db:findChildFor(self, name)
 end
 
@@ -62,6 +63,8 @@ lib.method = lib.findChild
 
 --- Return an iterator over the methods of this class.
 function lib:methods()
+  -- Create --get--, --set-- and ~Destructor if needed.
+  private.makeSpecialMethods(self)
   return self.db:functions(self)
 end
 
@@ -73,6 +76,20 @@ end
 --- Return an iterator over the superclasses of this class.
 function lib:superclasses()
   return self.db:superclasses(self)
+end
+
+function lib:hasVariables()
+  if self.has_variables then
+    return true
+  end
+  -- Look in inheritance chain
+  for super in self:superclasses() do
+    if super:hasVariables() then
+      self.has_variables = true
+      return true
+    end
+  end
+  return false
 end
 
 --- Return an iterator over the constants defined in this class.
@@ -137,3 +154,10 @@ function lib:namespace()
 end
 
 --=============================================== PRIVATE
+function private:makeSpecialMethods()
+  if self.made_special_methods then
+    return
+  end
+  self.made_special_methods = true
+  dub.MemoryStorage.makeSpecialMethods(self)
+end

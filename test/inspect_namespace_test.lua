@@ -139,12 +139,12 @@ function should.findMethodsInParent()
     table.insert(res, met.name)
   end
   assertValueEqual({
+    '~B',
+    B.SET_ATTR_NAME,
+    B.GET_ATTR_NAME,
     'B',
     '__tostring',
     'getC',
-    '~B',
-    B.GET_ATTR_NAME,
-    B.SET_ATTR_NAME,
   }, res)
 end
 

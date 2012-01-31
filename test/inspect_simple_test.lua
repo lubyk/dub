@@ -113,6 +113,7 @@ function should.listMembers()
     table.insert(res, child.name)
   end
   assertValueEqual({
+    'Map',
     'Simple',
     'Foo',
     'Bar',

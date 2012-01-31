@@ -41,6 +41,12 @@ public:
   std::string name();
 };
 
+/** This class should have set/get methods defined
+ * because it inherits attributes from its parents.
+ */
+class GrandChild : public Child {
+public:
+};
 #endif // INHERIT_CHILD_H_
 
 

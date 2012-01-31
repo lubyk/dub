@@ -7,5 +7,5 @@
 class ChildHelper {
 public:
   // Special method with multiple return values.
-  DubStackSize position();
+  LuaStackSize position();
 };

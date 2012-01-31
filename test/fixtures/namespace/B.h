@@ -26,7 +26,7 @@ public:
       : nb_(nb)
     {}
 
-    DubStackSize __tostring(lua_State *L) {
+    LuaStackSize __tostring(lua_State *L) {
       lua_pushfstring(L, "<C %p (%i)>", this, nb_);
       return 1;
     }
@@ -50,7 +50,7 @@ public:
     , c(c_)
   {}
 
-  DubStackSize __tostring(lua_State *L) {
+  LuaStackSize __tostring(lua_State *L) {
     lua_pushfstring(L, "<B %p (%i)>", this, nb_);
     return 1;
   }

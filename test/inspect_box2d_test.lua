@@ -46,6 +46,9 @@ function should.parseClasses()
     table.insert(res, met.name)
   end
   assertValueEqual({
+    '~b2Vec2',
+    b2Vec2.SET_ATTR_NAME,
+    b2Vec2.GET_ATTR_NAME,
     'b2Vec2',
     'SetZero',
     'Set',
@@ -59,9 +62,6 @@ function should.parseClasses()
     'Normalize',
     'IsValid',
     'Skew',
-    '~b2Vec2',
-    '_get_',
-    '_set_',
   }, res)
 end
 

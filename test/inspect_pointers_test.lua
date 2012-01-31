@@ -28,8 +28,8 @@ function should.notHaveCtorForAbstractTypes()
     table.insert(res, met.name)
   end
   assertValueEqual({
-    'pureVirtual',
     '~Abstract',
+    'pureVirtual',
   }, res)
 end
 
@@ -147,10 +147,11 @@ function should.listMethods()
     table.insert(res, name)
   end
   assertValueEqual({
+    Vect.SET_ATTR_NAME,
     'd',
---    'd_set',
     'Vect:static',
     '~Vect',
+--  'd_set',
     'surface',
     'operator+',
     'operator+=',
@@ -169,7 +170,6 @@ function should.listMethods()
     'someStr',
     'unamed',
     'noparam',
-    Vect.SET_ATTR_NAME,
   }, res)
 end
 
@@ -184,6 +184,9 @@ function should.listStaticMethods()
     table.insert(res, name)
   end
   assertValueEqual({
+    '~Box',
+    Box.SET_ATTR_NAME,
+    Box.GET_ATTR_NAME,
     'Box:static',
     'name',
     'surface',
@@ -192,9 +195,6 @@ function should.listStaticMethods()
     'constRef',
     'copySize',
     'MakeBox:static',
-    '~Box',
-    Box.GET_ATTR_NAME,
-    Box.SET_ATTR_NAME,
   }, res)
 end
 

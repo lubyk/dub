@@ -37,7 +37,7 @@
 #endif
 #define KEY_EXCEPTION_MSG "invalid key '%s'"
 
-typedef int DubStackSize;
+typedef int LuaStackSize;
 
 #ifdef __cplusplus
 extern "C" {
