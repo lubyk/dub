@@ -17,6 +17,7 @@
   * Fixed bug with void parameter (Tim Mensch).
   * Fixed bug where lua stack would grow during class registration (Tim Mensch).
   * Added 'attr_name_filter' to rename attributes.
+  * Removed 'yaml' dependency and changed @dub options format.
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua

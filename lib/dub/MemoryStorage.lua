@@ -332,8 +332,7 @@ function private:superIterator(base)
   end
   -- Find pseudo parents
   if base.dub.super then
-    local list = lk.split(base.dub.super, ',')
-    private.superIterator(self, {super_list = list, dub = {}})
+    private.superIterator(self, {super_list = base.dub.super, dub = {}})
   end
 end
 
@@ -1020,15 +1019,17 @@ function parse.detaileddescription(self, elem, header)
   end
 end
 
+local parseOpt = dub.OptParser.parse
+
 function parse.dub(elem)
   -- This would not work if simplesect is not the first one
   local sect = elem:find('simplesect', 'kind', 'par')
   if sect then
     if (sect:find('title') or {})[1] == 'Bindings info:' then
-      local txt = sect:find('para')[1]
+      local txt = private.flatten(sect:find('para'))
       -- HACK TO RECREATE NEWLINES...
       txt = string.gsub(txt, ' ([a-z]+):', '\n%1:')
-      return yaml.load(txt)
+      return parseOpt(txt)
     end
   end
   return nil
