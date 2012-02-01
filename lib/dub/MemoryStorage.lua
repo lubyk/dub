@@ -529,7 +529,7 @@ function parse:sectiondef(elem, header)
       -- global enum
       table.insert(self.const_headers, header.file)
     end
-  elseif kind == 'private-func' then
+  elseif kind == 'private-func' or kind == 'protected-func' then
     -- private methods (to detect private ctor/dtor)
     for _, elem in ipairs(elem) do
       if elem.xml == 'memberdef' and
@@ -985,7 +985,7 @@ function private:makeGetAttribute(custom_bindings)
 end
 
 function private:makeSetAttribute(custom_bindings)
-  if self.cache[self.SET_ATTR_NAME] or 
+  if self.cache[self.SET_ATTR_NAME] or
      (not self:hasVariables() and
       not custom_bindings._set_suffix) then
     return
