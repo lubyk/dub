@@ -31,7 +31,7 @@ static int {{class.name}}_{{method.cname}}(lua_State *L) {
   } catch (...) {
     lua_pushfstring(L, "{{self:libName(method)}}: Unknown exception");
   }
-  return lua_error(L);
+  return dub_error(L);
 {% end %}
 }
 

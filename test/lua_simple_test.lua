@@ -360,7 +360,7 @@ function should.bindMethodWithoutReturn()
 end
 
 function should.raiseErrorOnMissingParam()
-  assertError('Simple: number expected, got no value', function()
+  assertError('lua_simple_test.lua:[0-9]+: Simple.Simple: number expected, got no value', function()
     Simple()
   end)
 end
@@ -386,7 +386,7 @@ function should.properlyHandleErrorMessagesInOverloaded()
   assertError('addAll: string expected, got nil', function()
     s:addAll(3, 4, 6, nil)
   end)
-  assertError('addAll: string expected, got boolean', function()
+  assertError('Simple.addAll: string expected, got boolean', function()
     s:addAll(3, 4, 6, true)
   end)
 end
@@ -403,6 +403,5 @@ function should.useCustomGetSet()
     thing  = 'Stone',
   }, m:map())
 end
-
 
 test.all()

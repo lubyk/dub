@@ -10,7 +10,7 @@
 --]]------------------------------------------------------
 require 'lubyk'
 -- Run the test with the dub directory as current path.
-local should = test.Suite('dub.LuaBinder - template')
+local should = test.Suite('dub.LuaBinder - memory')
 local binder = dub.LuaBinder()
 
 local ins_opts = {
@@ -167,7 +167,7 @@ function should.destroyFromCpp()
   -- Destructor called in C++
   assertEqual("Pen 'Arty' is dying...", o.message)
   -- Object is dead in Lua
-  assertError('mem.Pen.name: using deleted mem.Pen', function()
+  assertError('lua_memory_test.lua:[0-9]+: mem.Pen.name: using deleted mem.Pen', function()
     p:name()
   end)
 end

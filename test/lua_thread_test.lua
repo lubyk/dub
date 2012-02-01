@@ -178,6 +178,17 @@ function should.passSameObjectWhenStoredAsPointer()
   assertEqual(c, owner.clbk_) -- same table
 end
 
+function should.destroyFromCpp()
+  local c = thread.Callback('Arty')
+  local o = thread.Caller(c)
+  o:destroyCallback()
+  -- Destructor called in C++
+  -- Object is dead in Lua
+  assertError('using deleted thread.Callback', function()
+   c.name = 'foo'
+  end)
+end
+
 function should.notGcWhenStored()
   collectgarbage()
   local watch = thread.Callback('Foobar')

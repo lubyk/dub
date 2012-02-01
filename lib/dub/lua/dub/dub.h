@@ -288,12 +288,25 @@ void **dub_checksdata_d(lua_State *L, int ud, const char *tname) throw(dub::Exce
 // is no other alternative (arg count, native types).
 bool dub_issdata(lua_State *L, int ud, const char *tname, int type);
 // Does not throw exceptions. This method behaves exactly like luaL_checkudata but searches
-// for table.super before calling lua_error.
-void **dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw();
+// for table.super before calling lua_error. We cannot use throw() because of differing
+// implementations for luaL_error (luajit throws an exception on luaL_error).
+void **dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt = false);
 
 #define dub_checkstring(L,n) (dub_checklstring(L, (n), NULL))
 #define luaL_checkboolean(L,n) (lua_toboolean(L,n))
 #define dub_checkboolean(L,n) (lua_toboolean(L,n))
+
+
+
+
+// ======================================================================
+// =============================================== dub_error
+// ======================================================================
+// This calls lua_Error after preparing the error message with line
+// and number.
+int dub_error(lua_State *L);
+
+
 
 // ======================================================================
 // =============================================== dub_protect

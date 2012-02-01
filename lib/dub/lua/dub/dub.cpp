@@ -36,6 +36,7 @@
 #define DEAD_EXCEPTION_MSG  "using deleted %s"
 #define DUB_MAX_IN_SHIFT 4294967296
 #define DUB_INIT_CODE "local class = %s.%s\nlocal new = class.new\nif new then\nsetmetatable(class, {\n __call = function(_, ...)\n   return new(...)\n end,\n})\nend\n"
+#define DUB_INIT_ERR "[string \"Dub init code\"]"
 #define DUB_ERRFUNC "local self = self\nlocal print = print\nreturn function(...)\nlocal err = self.error\nif err then\nerr(self,...)\nelse\nprint(...)\nend\nend"
 
 using namespace dub;
@@ -245,6 +246,37 @@ bool Thread::dub_call(int param_count, int retval_count) {
   return true;
 }
 
+
+
+
+// ======================================================================
+// =============================================== dub_error
+// ======================================================================
+// This calls lua_Error after preparing the error message with line
+// and number.
+int dub_error(lua_State *L) {
+  // ... <msg>
+  luaL_where(L, 1);
+  // ... <msg> <where>
+  // Does it match 'Dub init code' ?
+  const char *w = lua_tostring(L, -1);
+  if (!strncmp(w, DUB_INIT_ERR, strlen(DUB_INIT_ERR))) {
+    // error in ctor, show calling place, not dub init code.
+    lua_pop(L, 1);
+    luaL_where(L, 2);
+  }
+  // ... <msg> <where>
+  lua_pushvalue(L, -2);
+  // ... <msg> <where> <msg>
+  lua_remove(L, -3);
+  // ... <where> <msg>
+  lua_concat(L, 2);
+  return lua_error(L);
+}
+
+
+
+
 // ======================================================================
 // =============================================== dub_protect
 // ======================================================================
@@ -446,7 +478,7 @@ static inline void **getsdata(lua_State *L, int ud, const char *tname, bool keep
   return p;
 }
 
-void **dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt) throw() {
+void **dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt) {
   void **p = getsdata(L, ud, tname, keep_mt);
   if (!p) {
     luaL_error(L, TYPE_EXCEPTION_MSG, tname, luaL_typename(L, ud));

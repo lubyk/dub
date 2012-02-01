@@ -19,7 +19,7 @@ local ins = dub.Inspector {
 local Callback = ins:find('Callback')
 --=============================================== TESTS
 
-function should.markClassAsThread()
+function should.useCustomPush()
   assertEqual('pushobject', Callback.dub.push)
 end
 

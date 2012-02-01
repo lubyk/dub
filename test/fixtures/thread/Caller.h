@@ -21,6 +21,15 @@ public:
       clbk_->call(msg);
     }
   }
+
+  /** Simulate delete from C++
+   */
+  void destroyCallback() {
+    if (clbk_) {
+      delete clbk_;
+      clbk_ = NULL;
+    }
+  }
 };
 
 #endif // THREAD_CALLER_H_
