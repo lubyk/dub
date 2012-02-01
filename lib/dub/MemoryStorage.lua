@@ -727,7 +727,7 @@ parse['function'] = function(self, elem, header)
   end
 
   local exist = self.cache[name]
-  if exist then
+  if exist and exist ~= 'private' then
     local list = exist.overloaded
     if not list then
       list = {exist}
@@ -743,6 +743,7 @@ parse['function'] = function(self, elem, header)
     -- not not add it again in cache
     return nil
   else
+    -- We do not have a previous function or we had a private ctor/dtor.
     local list = self.functions_list
     if list then
       table.insert(list, child)

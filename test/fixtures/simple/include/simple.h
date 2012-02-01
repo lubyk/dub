@@ -10,12 +10,16 @@
  *   * default parameters
  *   * overloaded methods.
  *   * char/ const char* types
+ *   * private and public ctor
  * 
  * @dub ignore: shouldBeIgnored, publicButInternal
  */
 class Simple {
 
   double value_;
+  /** Private ctor should not confuse parser.
+   */
+  Simple() : value_(0) {}
 public:
   Simple(double v) : value_(v) {}
   
