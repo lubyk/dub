@@ -623,7 +623,7 @@ function private:getParamVar(method, param, delta)
     if param.name == 'L' then
       return ''
     else
-      return param.name .. ' = L;\n'
+      return "lua_State * ".. param.name .. ' = L;\n'
     end
   end
   local p = private.getParam(self, method, param, delta)
