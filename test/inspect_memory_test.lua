@@ -71,6 +71,7 @@ function should.notHaveMacroFunctions()
     'Pen:static',
     'setOwner',
     '~Pen',
+    'name',
     -- no SOME_FUNCTION_MACRO or OTHER_FUNCTION_MACRO
   }, res)
 end      

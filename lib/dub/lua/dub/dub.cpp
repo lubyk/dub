@@ -33,6 +33,7 @@
 #define DUB_EXCEPTION_BUFFER_SIZE 256  
 #define TYPE_EXCEPTION_MSG "expected %s, found %s"
 #define TYPE_EXCEPTION_SMSG "expected %s, found %s (using super)"
+#define DEAD_EXCEPTION_MSG  "using deleted %s"
 #define DUB_MAX_IN_SHIFT 4294967296
 #define DUB_INIT_CODE "local class = %s.%s\nlocal new = class.new\nif new then\nsetmetatable(class, {\n __call = function(_, ...)\n   return new(...)\n end,\n})\nend\n"
 #define DUB_ERRFUNC "local self = self\nlocal print = print\nreturn function(...)\nlocal err = self.error\nif err then\nerr(self,...)\nelse\nprint(...)\nend\nend"
@@ -344,8 +345,8 @@ const char *dub_checklstring(lua_State *L, int narg, size_t *len) throw(TypeExce
   return s;
 }
 
-void *dub_checkudata(lua_State *L, int ud, const char *tname, bool keep_mt) throw(TypeException) {
-  void *p = lua_touserdata(L, ud);
+void **dub_checkudata(lua_State *L, int ud, const char *tname, bool keep_mt) throw(dub::Exception) {
+  void **p = (void**)lua_touserdata(L, ud);
   if (p != NULL) {  /* value is a userdata? */
     if (lua_getmetatable(L, ud)) {  /* does it have a metatable? */
       lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
@@ -357,6 +358,9 @@ void *dub_checkudata(lua_State *L, int ud, const char *tname, bool keep_mt) thro
           // keep 1 metatable on top (needed by bindings)
           lua_pop(L, 1);
         }
+        if (!*p) {
+          throw dub::Exception(DEAD_EXCEPTION_MSG, tname);
+        }
         return p;
       }
     }
@@ -366,7 +370,7 @@ void *dub_checkudata(lua_State *L, int ud, const char *tname, bool keep_mt) thro
 }
 
 
-static inline void *dub_cast_ud(lua_State *L, int ud, const char *tname) {
+static inline void **dub_cast_ud(lua_State *L, int ud, const char *tname) {
   // .. <ud> ... <mt> <mt>
   lua_pop(L, 1);
   // ... <ud> ... <mt>
@@ -380,7 +384,7 @@ static inline void *dub_cast_ud(lua_State *L, int ud, const char *tname) {
     // ... <ud> ... <mt> cast_func <ud> "OtherType"
     lua_call(L, 2, 1);
     // ... <ud> ... <mt> <ud>
-    void *p = lua_touserdata(L, -1);
+    void **p = (void**)lua_touserdata(L, -1);
     if (p != NULL) {
       // done
       return p;
@@ -392,8 +396,8 @@ static inline void *dub_cast_ud(lua_State *L, int ud, const char *tname) {
   return NULL;
 }
 
-static inline void*getsdata(lua_State *L, int ud, const char *tname, bool keep_mt) throw() {
-  void *p = lua_touserdata(L, ud);
+static inline void **getsdata(lua_State *L, int ud, const char *tname, bool keep_mt) throw() {
+  void **p = (void**)lua_touserdata(L, ud);
   if (p != NULL) {  /* value is a userdata? */
     if (lua_getmetatable(L, ud)) {  /* does it have a metatable? */
       lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
@@ -414,7 +418,7 @@ static inline void*getsdata(lua_State *L, int ud, const char *tname, bool keep_m
     // ... <ud> ... <'super'>
     lua_rawget(L, ud);
     // ... <ud> ... <ud?>
-    p = lua_touserdata(L, -1);
+    p = (void**)lua_touserdata(L, -1);
     if (p != NULL) {
       if (lua_getmetatable(L, -1)) {  /* does it have a metatable? */
         lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
@@ -442,10 +446,13 @@ static inline void*getsdata(lua_State *L, int ud, const char *tname, bool keep_m
   return p;
 }
 
-void *dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt) throw() {
-  void *p = getsdata(L, ud, tname, keep_mt);
+void **dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt) throw() {
+  void **p = getsdata(L, ud, tname, keep_mt);
   if (!p) {
     luaL_error(L, TYPE_EXCEPTION_MSG, tname, luaL_typename(L, ud));
+  } else if (!*p) {
+    // dead object
+    luaL_error(L, DEAD_EXCEPTION_MSG, tname);
   }
   return p;
 }
@@ -458,11 +465,23 @@ bool dub_issdata(lua_State *L, int ud, const char *tname, int type) {
   }
 }
 
-void *dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt) throw(TypeException) {
-  void *p = getsdata(L, ud, tname, keep_mt);
+void **dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt) throw(dub::Exception) {
+  void **p = getsdata(L, ud, tname, keep_mt);
+  if (!p) {
+    throw dub::TypeException(L, ud, tname);
+  } else if (!*p) {
+    // dead object
+    throw dub::Exception(DEAD_EXCEPTION_MSG, tname);
+  }
+  return p;
+}
+
+void **dub_checksdata_d(lua_State *L, int ud, const char *tname) throw(dub::Exception) {
+  void **p = getsdata(L, ud, tname, false);
   if (!p) {
     throw dub::TypeException(L, ud, tname);
   }
+  // do not check for dead objects
   return p;
 }
 
@@ -575,5 +594,3 @@ void dub_register_const(lua_State *L, const dub_const_Reg*l) {
     lua_setfield(L, -2, l->name);
   }
 }
-
-

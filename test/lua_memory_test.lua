@@ -13,7 +13,7 @@ require 'lubyk'
 local should = test.Suite('dub.LuaBinder - template')
 local binder = dub.LuaBinder()
 
-local ins = dub.Inspector {
+local ins_opts = {
   INPUT    = 'test/fixtures/memory',
   doc_dir  = lk.dir() .. '/tmp',
   PREDEFINED = {
@@ -21,6 +21,7 @@ local ins = dub.Inspector {
     'OTHER_FUNCTION_MACRO(x)=',
   }
 }
+local ins = dub.Inspector(ins_opts)
 
 
 --=============================================== Nogc bindings
@@ -44,6 +45,13 @@ function should.pushFullUserdataInRetval()
   assertMatch('dub_pushfulldata<Nogc>%(L, self%->operator%+%(%*v%), "Nogc"%);', res)
 end
 
+function should.useCustomPush()
+  local Pen = ins:find('Pen')
+  local met = Pen:method('Pen')
+  local res = binder:functionBody(Pen, met)
+  assertMatch('retval__%->pushobject%(L, retval__, "Pen", true%);', res)
+end
+
 function should.bindDestructor()
   local Withgc = ins:find('Withgc')
   local res = binder:bindClass(Withgc)
@@ -58,42 +66,29 @@ function should.bindCompileAndLoad()
   lk.rmTree(tmp_path, true)
   os.execute("mkdir -p "..tmp_path)
 
-  -- How to avoid this step ?
-  ins:find('Nogc')
-  ins:find('Withgc')
-  binder:bind(ins, {output_directory = tmp_path})
+  local ins = dub.Inspector(ins_opts)
+  binder:bind(ins, {
+    output_directory = tmp_path,
+    single_lib = 'mem',
+    attr_name_filter = function(elem)
+      return elem.name:match('(.*)_$') or elem.name
+    end,
+  })
   local cpath_bak = package.cpath
   assertPass(function()
-    -- Build Nogc.so
+    -- Build mem.so
     binder:build {
-      output   = 'test/tmp/Nogc.so',
+      output   = 'test/tmp/mem.so',
       inputs   = {
         'test/tmp/dub/dub.cpp',
-        'test/tmp/Nogc.cpp',
-      },
-      includes = {
-        'test/tmp',
-        'test/fixtures/memory',
-      },
-    }
-    -- Build Withgc.so
-    binder:build {
-      output   = 'test/tmp/Withgc.so',
-      inputs   = {
-        'test/tmp/dub/dub.cpp',
-        'test/tmp/Withgc.cpp',
-      },
-      includes = {
-        'test/tmp',
-        'test/fixtures/memory',
-      },
-    }
-    -- Build Union.so
-    binder:build {
-      output   = 'test/tmp/Union.so',
-      inputs   = {
-        'test/tmp/dub/dub.cpp',
-        'test/tmp/Union.cpp',
+        'test/tmp/mem_Nogc.cpp',
+        'test/tmp/mem_Withgc.cpp',
+        'test/tmp/mem_Union.cpp',
+        'test/tmp/mem_Pen.cpp',
+        'test/tmp/mem_Owner.cpp',
+        'test/tmp/mem_PrivateDtor.cpp',
+        'test/fixtures/memory/owner.cpp',
+        'test/tmp/mem.cpp',
       },
       includes = {
         'test/tmp',
@@ -102,17 +97,12 @@ function should.bindCompileAndLoad()
     }
     package.cpath = tmp_path .. '/?.so'
     --require 'Box'
-    require 'Nogc'
-    require 'Withgc'
-    require 'Union'
-    assertType('table', Nogc)
-    assertType('table', Withgc)
+    require 'mem'
+    assertType('table', mem)
   end, function()
     -- teardown
-    package.loaded.Box = nil
-    package.loaded.Nogc = nil
     package.cpath = cpath_bak
-    if not Nogc then
+    if not mem then
       test.abort = true
     end
   end)
@@ -148,19 +138,42 @@ end
 
 function should.createAndDestroy()
   if test.speed then
-    runGcTest(Nogc.new,   "__gc optimization:      create and destroy 100'000 elements: %.2f ms.")
-    runGcTest(Withgc.new, "Normal __gc:            create and destroy 100'000 elements: %.2f ms.")
-    runGcTest(Withgc,     "Normal __gc and __call: create and destroy 100'000 elements: %.2f ms.")
+    runGcTest(mem.Nogc.new,   "__gc optimization:      create and destroy 100'000 elements: %.2f ms.")
+    runGcTest(mem.Withgc.new, "Normal __gc:            create and destroy 100'000 elements: %.2f ms.")
+    runGcTest(mem.Withgc,     "Normal __gc and __call: create and destroy 100'000 elements: %.2f ms.")
   else
-    runGcTest(Nogc.new)
-    runGcTest(Withgc.new)
+    runGcTest(mem.Nogc.new)
+    runGcTest(mem.Withgc.new)
   end
 end
 
 --=============================================== UNION
 
+function should.destroyFromLua()
+  local p = mem.Pen('Arty')
+  local o = mem.Owner()
+  p:setOwner(o)
+  p = nil
+  collectgarbage()
+  collectgarbage()
+  -- Destructor called in C++
+  assertEqual("Pen 'Arty' is dying...", o.message)
+end
+
+function should.destroyFromCpp()
+  local p = mem.Pen('Arty')
+  local o = mem.Owner(p)
+  o:destroyPen()
+  -- Destructor called in C++
+  assertEqual("Pen 'Arty' is dying...", o.message)
+  -- Object is dead in Lua
+  assertError('mem.Pen.name: using deleted mem.Pen', function()
+    p:name()
+  end)
+end
+
 function should.considerAnonUnionAsMembers()
-  local u = Union(10, 15, 4, 100)
+  local u = mem.Union(10, 15, 4, 100)
   assertEqual(10,  u.h)
   assertEqual(15,  u.s)
   assertEqual(4,   u.v)

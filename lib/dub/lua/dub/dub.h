@@ -95,8 +95,12 @@ public:
    * longer tries to access it.
    */
   virtual ~Object() {
-    // Invalidate Lua userdata.
-    if (dub_userdata_) dub_userdata_->ptr = NULL;
+    if (dub_userdata_) {
+      // Protect from gc.
+      dub_userdata_->gc = false;
+      // Invalidate Lua userdata.
+      dub_userdata_->ptr = NULL;
+    }
   }
 
   /** This is called on object instanciation by dub instead of
@@ -273,16 +277,19 @@ void dub_register_const(lua_State *L, const dub_const_Reg *l);
 lua_Number dub_checknumber(lua_State *L, int narg) throw(dub::TypeException);
 lua_Integer dub_checkint(lua_State *L, int narg) throw(dub::TypeException);
 const char *dub_checklstring(lua_State *L, int narg, size_t *len) throw(dub::TypeException);
-void *dub_checkudata(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw(dub::TypeException);
+void **dub_checkudata(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw(dub::Exception);
 
 // Super aware userdata calls (finds userdata inside provided table with table.super).
-void *dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw(dub::TypeException);
+void **dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw(dub::Exception);
+// Super aware userdata calls that DOES NOT check for dangling pointers (used in 
+// __gc binding).
+void **dub_checksdata_d(lua_State *L, int ud, const char *tname) throw(dub::Exception);
 // Return true if the type is correct. Used to resolve overloaded functions when there
 // is no other alternative (arg count, native types).
 bool dub_issdata(lua_State *L, int ud, const char *tname, int type);
 // Does not throw exceptions. This method behaves exactly like luaL_checkudata but searches
 // for table.super before calling lua_error.
-void *dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw();
+void **dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw();
 
 #define dub_checkstring(L,n) (dub_checklstring(L, (n), NULL))
 #define luaL_checkboolean(L,n) (lua_toboolean(L,n))

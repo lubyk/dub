@@ -2,17 +2,18 @@
 #define MEMORY_OWNER_H_
 
 #include <string>
+class Pen;
 
 /** This class is used to monitor:
  *   * Deletion from C++.
  *   * Deletion from the scripting language.
  */
 class Owner {
-  std::string pen_name_;
   Pen *pen_;
 public:
-  Owner()
-    : pen_(NULL) {}
+  std::string message_;
+
+  Owner(Pen *pen = NULL);
 
   ~Owner();
 
@@ -21,16 +22,7 @@ public:
   void setMessage(const std::string &msg) {
     message_ = msg;
   }
-};
 
-#include "Pen.h"
-Owner::own(Pen *pen) {
-  pen_ = pen;
-  pen_->setOwner(this);
-}
-Owner::~Owner() {
-  if (pen_) {
-    pen_->setOwner(NULL);
-  }
-}
+  void destroyPen();
+};
 #endif // MEMORY_OWNER_H_
