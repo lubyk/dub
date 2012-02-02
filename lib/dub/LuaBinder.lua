@@ -235,7 +235,7 @@ function private:callWithParams(class, method, param_delta, indent, custom, max_
     if method.array_set then
       -- C array attribute set
       local i_name = method.params_list[1].name
-      res = method.name .. '[' .. i_name .. '] = '
+      res = res .. 'self->' .. method.name .. '[' .. i_name .. '-1] = '
       res = res .. private.paramForCall(method.params_list[2]) .. ';\n'
       res = res .. 'return 0;'
     else

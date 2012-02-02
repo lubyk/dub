@@ -393,14 +393,8 @@ end
 
 function should.writeArrayAttributes()
   local v = Vect(1,2)
-  --v.set_d(1, 10)
-  -- Could enable : v.d[1] = 1.5
-  -- by doing some work on a DubObject:
-  -- v.d          ==> return {self = self, key = 'd'}
-  -- v.d[1] = 1.5 ==> function __newindex({self=self, key='d'}, k, v)
-  --                     self._d_set(k, v)
-  --                  end
-  --assertEqual(13, v.d(1))
+  v:d(1, 10)
+  assertEqual(10, v:d(1))
 end
 
 function should.accessStaticAttributes()

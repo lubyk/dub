@@ -952,6 +952,42 @@ function private:makeAttrArrayMethods(attr)
   table.insert(self.functions_list, child)
   table.insert(self.sorted_cache, child)
   self.cache[child.name] = child
+
+  child.overloaded = {child}
+  local overloaded = child.overloaded
+  child = dub.Function {
+    db            = self.db,
+    parent        = self,
+    name          = attr.name,
+    params_list   = {
+      {
+        type     = 'dub.Param',
+        name     = 'i',
+        position = 1,
+        ctype    = lib.makeType('size_t'),
+      }, 
+      {
+        type     = 'dub.Param',
+        name     = 'v',
+        position = 2,
+        ctype    = attr.ctype,
+      }, 
+    },
+    return_value  = nil,
+    definition    = 'Write ' .. name,
+    argsstring    = string.format('(size_t i, %s %s)', attr.ctype.name, name),
+    location      = '',
+    desc          = 'Write attribute '..name..' for ' .. self.name .. '.',
+    static        = false,
+    xml           = nil,
+    -- Should not be inherited by sub-classes
+    no_inherit    = true,
+    member        = true,
+    array_set     = true,
+    array_dim     = attr.array_dim,
+  }
+
+  table.insert(overloaded, child)
 end
 
 -- self == class
