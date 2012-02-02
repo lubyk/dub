@@ -42,6 +42,14 @@ public:
 
   OTHER_FUNCTION_MACRO(x);
 
+  /** We declare this method so that Doxygen sees it (Doxygen does not parse
+   * dub::Object) and adds the method to the generated xml. We can then ensure
+   * that the 'push' method is ignored even if seen.
+   */
+  virtual void pushobject(lua_State *L, void *ptr, const char *type_name, bool gc = true) {
+    dub::Object::pushobject(L, ptr, type_name, gc);
+  }
+
 };
 
 #endif // MEMORY_PEN_H_

@@ -56,7 +56,7 @@ setmetatable(lib, {
     
     if self.db:ignored(self:fullname()) or
        self.dub.ignore == true or
-       (self.parent.is_class and self.parent.ignore[self.name]) then
+       (self.parent.is_class and self.parent:ignoreFunc(self.name)) then
       return nil
     end
 

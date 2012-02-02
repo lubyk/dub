@@ -73,6 +73,7 @@ function should.notHaveMacroFunctions()
     '~Pen',
     'name',
     -- no SOME_FUNCTION_MACRO or OTHER_FUNCTION_MACRO
+    -- no pushobject
   }, res)
 end      
 

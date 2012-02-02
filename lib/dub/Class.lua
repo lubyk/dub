@@ -153,6 +153,10 @@ function lib:namespace()
   end
 end
 
+function lib:ignoreFunc(name)
+  return self.ignore[name] or name == self.dub.push
+end
+
 --=============================================== PRIVATE
 function private:makeSpecialMethods()
   if self.made_special_methods then
