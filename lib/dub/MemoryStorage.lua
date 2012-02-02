@@ -994,7 +994,8 @@ end
 function private:makeGetAttribute(custom_bindings)
   if self.cache[self.GET_ATTR_NAME] or
      (not self:hasVariables() and
-      not custom_bindings._get_suffix) then
+      not custom_bindings.get_suffix
+     ) then
     return
   end
   local name = self.GET_ATTR_NAME
@@ -1023,7 +1024,8 @@ end
 function private:makeSetAttribute(custom_bindings)
   if self.cache[self.SET_ATTR_NAME] or
      (not self:hasVariables() and
-      not custom_bindings._set_suffix) then
+      not custom_bindings.set_suffix
+     ) then
     return
   end
   local name = self.SET_ATTR_NAME

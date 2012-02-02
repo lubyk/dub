@@ -23,6 +23,15 @@ local ins = dub.Inspector {
   INPUT    = 'test/fixtures/pointers',
   doc_dir  = lk.dir() .. '/tmp',
 }
+
+local custom_bindings = {
+  Custom = {
+    attributes = {
+      url = {set = 'setUrl', get = 'getUrl'},
+    },
+  },
+}
+
 --=============================================== Special types
 function should.resolveStdString()
   local Box = ins:find('Box')
@@ -52,7 +61,7 @@ function should.notBindCtorInAbstractType()
   local Abstract = ins:find('Abstract')
   local res = binder:bindClass(Abstract)
   -- no ctor
-  assertNotMatch('"new"XXXX', res)
+  assertNotMatch('"new"', res)
   assertNotMatch('Abstract_Abstract', res)
 end
 
@@ -134,7 +143,6 @@ function should.bindSimpleGetMethod()
   assertMatch('lua_pushnumber%(L, Vect::create_count%);', res)
 end
 
-
 function should.bindComplexGetMethod()
   -- __newindex for non-native types
   local Box = ins:find('Box')
@@ -144,6 +152,41 @@ function should.bindComplexGetMethod()
   local res = binder:functionBody(Box, set)
   assertMatch('self%->size_ = %*%*%(%(Vect %*%*%)', res)
 end
+
+--=============================================== Custom set/get
+
+function should.bindCustomGetSet()
+  local Custom = ins:find('Custom')
+  binder.custom_bindings = custom_bindings
+  -- First bind class to ensure type resolution and method
+  -- generation is done.
+  local res = binder:bindClass(Custom)
+
+  local met = Custom:method(Custom.GET_ATTR_NAME)
+  local res = binder:functionBody(Custom, met)
+  assertMatch('DUB_ASSERT_KEY%(key, "url"%)', res)
+  assertMatch('self%->getUrl%(%).data%(%)', res)
+
+  met = Custom:method(Custom.SET_ATTR_NAME)
+  res = binder:functionBody(Custom, met)
+  assertMatch('DUB_ASSERT_KEY%(key, "url"%)', res)
+  assertMatch('self%->setUrl%(std::string%(url, url_sz_%)%);', res)
+end
+
+function should.useProperDeltaInCustomSet()
+  local Custom = ins:find('Custom')
+  binder.custom_bindings = custom_bindings
+  -- First bind class to ensure type resolution and method
+  -- generation is done.
+  local res = binder:bindClass(Custom)
+
+  met = Custom:method(Custom.SET_ATTR_NAME)
+  res = binder:functionBody(Custom, met)
+  assertMatch('DUB_ASSERT_KEY%(key, "url"%)', res)
+  assertMatch('url = dub_checklstring%(L, 3', res)
+end
+
+--=============================================== Misc
 
 function should.notGetSelfInStaticMethod()
   local Box = ins:find('Box')
@@ -176,6 +219,7 @@ function should.createLibFileWithCustomNames()
   end
   binder:bind(ins, {
     output_directory = tmp_path,
+    custom_bindings  = custom_bindings,
     -- Execute all lua_open in a single go
     -- with lua_MyLib.
     -- This creates a MyLib_open.cpp file
@@ -198,6 +242,7 @@ function should.createLibFileWithCustomNames()
         'test/tmp/foo_Abstract.cpp',
         'test/tmp/foo_AbstractSub.cpp',
         'test/tmp/foo_AbstractHolder.cpp',
+        'test/tmp/foo_Custom.cpp',
         'test/tmp/foo.cpp',
         'test/fixtures/pointers/vect.cpp',
       },
@@ -214,6 +259,7 @@ function should.createLibFileWithCustomNames()
     assertType('table', foo.Abstract)
     assertType('table', foo.AbstractSub)
     assertType('table', foo.AbstractHolder)
+    assertType('table', foo.Custom)
   end, function()
     -- teardown
     package.cpath = cpath_bak
@@ -271,6 +317,7 @@ function should.createLibFile()
         'test/tmp/MyLib_Abstract.cpp',
         'test/tmp/MyLib_AbstractSub.cpp',
         'test/tmp/MyLib_AbstractHolder.cpp',
+        'test/tmp/MyLib_Custom.cpp',
         'test/tmp/MyLib.cpp',
         'test/fixtures/pointers/vect.cpp',
       },
@@ -781,6 +828,16 @@ function should.callMethodsOnAbstractType()
   local c = b:getPtr()
   assertEqual(123, c:pureVirtual(23))
   assertMatch('foo.Abstract', c.type)
+end
+
+--=============================================== Custom set/get
+
+function should.useCustomSetGet()
+  local c = foo.Custom('one/two', 4)
+  assertEqual('/root/one/two', c.url)
+  c.url = 'bar/baz'
+  assertEqual('/root/bar/baz', c:getUrl())
+  assertEqual('/root/bar/baz', c.url)
 end
 
 test.all()

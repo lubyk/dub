@@ -13,12 +13,12 @@ local binder = dub.LuaBinder()
 local custom_bindings = {
   Map = {
     -- DO NOT THROW HERE !!
-    _set_suffix = [[
+    set_suffix = [[
 // <self> "key" value
 const char *s = luaL_checkstring(L, -1);
 self->setVal(key, s);
 ]],
-    _get_suffix = [[
+    get_suffix = [[
 // <self> "key"
 std::string v;
 if (self->getVal(key, &v)) {

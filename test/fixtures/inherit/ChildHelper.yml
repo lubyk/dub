@@ -1,5 +1,6 @@
 lua:
-  position: |
-    lua_pushnumber(L, self->x());
-    lua_pushnumber(L, self->y());
-    return 2;
+  methods:
+    position: |
+      lua_pushnumber(L, self->x());
+      lua_pushnumber(L, self->y());
+      return 2;

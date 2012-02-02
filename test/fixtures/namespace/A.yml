@@ -1,11 +1,13 @@
 lua:
-  '~A':
-    cleanup: |
-      DubRef::cleanup(L, &self->userdata);
-  userdata:
-  # This is an experimental feature to allow arbitrary values attached to
-  # void* pointers.
-    set: |
-      return DubRef::set(L, &self->userdata, 3);
-    get: |
-      return DubRef::push(L, self->userdata);
+  methods:
+    '~A':
+      cleanup: |
+        DubRef::cleanup(L, &self->userdata);
+  attributes:
+    userdata:
+    # This is an experimental feature to allow arbitrary values attached to
+    # void* pointers.
+      set: |
+        return DubRef::set(L, &self->userdata, 3);
+      get: |
+        return DubRef::push(L, self->userdata);

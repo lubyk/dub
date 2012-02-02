@@ -13,6 +13,7 @@ Currently, the parser supports:
 
  * public methods
  * public attributes read/write
+ * pseudo-attributes read/write by calling getter/setter methods.
  * custom read/write attributes (with void *userdata helper, union handling)
  * public class methods
  * public static attributes read/write
