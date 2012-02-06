@@ -114,6 +114,7 @@ function should.listMembers()
   end
   assertValueEqual({
     'Map',
+    'SubMap',
     'Simple',
     'Foo',
     'Bar',

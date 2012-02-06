@@ -97,9 +97,10 @@ function private:resolveAttributes(class, name_to_type)
   local list = class.variables_list
   for attr in self:attributes() do
     table.insert(list, {
-      type  = 'dub.Attribute',
-      name  = attr.name,
-      ctype = private.resolveType(attr.ctype, name_to_type),
+      type   = 'dub.Attribute',
+      parent = class,
+      name   = attr.name,
+      ctype  = private.resolveType(attr.ctype, name_to_type),
     })
   end
 end

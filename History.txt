@@ -4,6 +4,7 @@
   * Added support for functions (not class methods).
   * Anonymous union support.
   * Added support for Callbacks from C++.
+  * Added support for pseudo-attributes (get/set methods).
 
 * Minor enhancement
   * Should not add namespace to typedef of template in namespace.

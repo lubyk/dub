@@ -243,6 +243,7 @@ function should.createLibFileWithCustomNames()
         'test/tmp/foo_AbstractSub.cpp',
         'test/tmp/foo_AbstractHolder.cpp',
         'test/tmp/foo_Custom.cpp',
+        'test/tmp/foo_SubCustom.cpp',
         'test/tmp/foo.cpp',
         'test/fixtures/pointers/vect.cpp',
       },
@@ -260,6 +261,7 @@ function should.createLibFileWithCustomNames()
     assertType('table', foo.AbstractSub)
     assertType('table', foo.AbstractHolder)
     assertType('table', foo.Custom)
+    assertType('table', foo.SubCustom)
   end, function()
     -- teardown
     package.cpath = cpath_bak
@@ -318,6 +320,7 @@ function should.createLibFile()
         'test/tmp/MyLib_AbstractSub.cpp',
         'test/tmp/MyLib_AbstractHolder.cpp',
         'test/tmp/MyLib_Custom.cpp',
+        'test/tmp/MyLib_SubCustom.cpp',
         'test/tmp/MyLib.cpp',
         'test/fixtures/pointers/vect.cpp',
       },
@@ -840,5 +843,12 @@ function should.useCustomSetGet()
   assertEqual('/root/bar/baz', c.url)
 end
 
+function should.useCustomSetGetInSubClass()
+  local c = foo.SubCustom('one/two', 4)
+  assertEqual('/root/one/two', c.url)
+  c.url = 'bar/baz'
+  assertEqual('/root/bar/baz', c:getUrl())
+  assertEqual('/root/bar/baz', c.url)
+end
 test.all()
 

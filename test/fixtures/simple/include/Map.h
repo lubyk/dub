@@ -45,5 +45,9 @@ public:
   }
 };
 
+/** Should inherit pseudo accessor 'map'.
+ */
+class SubMap : public Map {
+};
 #endif // SIMPLE_INCLUDE_MAP_H_
 

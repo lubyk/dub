@@ -258,7 +258,7 @@ function lib:functionBody(parent, method)
 
   -- Resolve C++ types to native lua types.
   self:resolveTypes(method)
-  local custom = private.customMetBinding(self, method.parent.name, method.name)
+  local custom = private.customMetBinding(self, parent, method)
   local res = ''
 
   if method.dtor then
@@ -900,18 +900,18 @@ function private.platform()
 end
 
 -- function body to set a variable.
-function private:setAttrBody(method, attr, delta)
-  local custom = private.customAttrBinding(self, method.parent.name, attr.name)
+function private:setAttrBody(class, method, attr, delta)
+  local custom = private.customAttrBinding(self, class, attr)
   if custom and custom.set then
     if custom.set:match(';') then
       -- Full custom binding definition
       return custom.set
     else
       -- Alias to a function call
-      local met = method.parent:method(custom.set)
+      local met = class:method(custom.set) or attr.parent:method(custom.set)
       assert(met, format("Custom attribute binding for '%s' but '%s' method not found.", attr.name, custom.set))
       self:resolveTypes(met)
-      return private.callWithParams(self, met.parent, met, delta + 1, '')
+      return private.callWithParams(self, class, met, delta + 1, '')
     end
   end
 
@@ -922,7 +922,7 @@ function private:setAttrBody(method, attr, delta)
     ctype    = attr.ctype,
     position = 2,
   }
-  local lua = self:luaType(method.parent, param.ctype)
+  local lua = self:luaType(class, param.ctype)
   param.lua = lua
   local p = private.getParam(self, method, param, delta)
   if type(lua.cast) == 'function' then
@@ -941,7 +941,7 @@ function private:setAttrBody(method, attr, delta)
     -- native type
   end
   if attr.static then
-    res = res .. format('%s::%s = %s;\n', method.parent.name, name, p)
+    res = res .. format('%s::%s = %s;\n', attr.parent.name, name, p)
   else
     res = res .. format('self->%s = %s;\n', name, p)
   end
@@ -950,7 +950,7 @@ function private:setAttrBody(method, attr, delta)
 end
 
 -- function body to set a variable.
-function private:castBody(method, super, delta)
+function private:castBody(class, method, super, delta)
   if super.dub.cast == false then
     return
   end
@@ -962,29 +962,29 @@ function private:castBody(method, super, delta)
 end
 
 -- function body to get a variable.
-function private:getAttrBody(method, attr, delta)
+function private:getAttrBody(class, method, attr, delta)
   if attr.ctype.const and self.options.read_const_member == 'no' then
     return nil
   end
-  local custom = private.customAttrBinding(self, method.parent.name, attr.name)
+  local custom = private.customAttrBinding(self, class, attr)
   if custom and custom.get then
     if custom.get:match(';') then
       -- Full custom binding definition
       return custom.get
     else
       -- Alias to a function call
-      local met = method.parent:method(custom.get)
+      local met = class:method(custom.get) or attr.parent:method(custom.get)
       assert(met, format("Custom attribute binding for '%s' but '%s' method not found.", attr.name, custom.get))
       self:resolveTypes(met)
-      return private.callWithParams(self, met.parent, met, delta, '')
+      return private.callWithParams(self, class, met, delta, '')
     end
   end
 
-  local lua = self:luaType(method.parent, attr.ctype)
+  local lua = self:luaType(class, attr.ctype)
   attr.ctype.lua = lua
   local accessor
   if attr.static then
-    accessor = format('%s::%s', method.parent.name, attr.name)
+    accessor = format('%s::%s', attr.parent.name, attr.name)
   else
     accessor = format('self->%s', attr.name)
   end
@@ -999,7 +999,7 @@ function private:switch(class, method, delta, bfunc, iterator)
     ctype    = dub.MemoryStorage.makeType('const char *'),
     position = 1,
   }
-  param.lua = self:luaType(method.parent, param.ctype)
+  param.lua = self:luaType(class, param.ctype)
   if method.index_op then
     -- operator[]
     res = res .. format('if (lua_type(L, %i) != LUA_TSTRING) {\n', delta + 1)
@@ -1066,7 +1066,7 @@ function private:switch(class, method, delta, bfunc, iterator)
     for elem in iterator(class) do
       local lua_name = filter(elem)
       if lua_name then
-        local body = bfunc(self, method, elem, delta)
+        local body = bfunc(self, class, method, elem, delta)
         if body then
           res = res .. format('  case %s: {\n', dub.hash(lua_name, sz))
           -- get or set value
@@ -1306,16 +1306,35 @@ function private:parseExtraHeadersList(base, list)
   end
 end
 
-function private:customAttrBinding(class_name, attr_name)
-  local custom = self.custom_bindings[class_name]
-  local custom = custom and custom.attributes
-  return custom and custom[attr_name]
+
+local function getCustomBinding(custom_bindings, parent, key, elem)
+  -- 1. current class
+  local custom = custom_bindings[parent.name]
+  custom = custom and custom[key]
+  custom = custom and custom[elem.name]
+  if custom then
+    return custom
+  end
+  -- 2. elem.parent
+  custom = custom_bindings[elem.parent.name]
+  custom = custom and custom[key]
+  custom = custom and custom[elem.name]
+  if custom then
+    return custom
+  end
+end
+-- Try to find a custom attribute binding. Search order:
+-- 1. current class  (current class being bound: can be a sub-class)
+-- 2. attr.parent    (class where the attribute/pseudo-attribute is defined)
+function private:customAttrBinding(parent, attr)
+  return getCustomBinding(self.custom_bindings, parent, 'attributes', attr)
 end
 
-function private:customMetBinding(class_name, method_name)
-  local custom = self.custom_bindings[class_name]
-  local custom = custom and custom.methods
-  return custom and custom[method_name]
+-- Try to find custom binding definitions. Search order:
+-- 1. current class   (current class being bound: can be a sub-class)
+-- 2. method.parent   (class where the method is defined)
+function private:customMetBinding(parent, method)
+  return getCustomBinding(self.custom_bindings, parent, 'methods', method)
 end
 
 -- Add extra methods and attributes as needed by settings in 
@@ -1331,7 +1350,9 @@ function private:expandClass(class)
       if not cache[name] then
         class.has_variables = true
         local attr = {
-          name  = name,
+          type   = 'dub.PseudoAttribute',
+          name   = name,
+          parent = class,
           -- dummy type
           ctype = dub.MemoryStorage.makeType('void'),
         }

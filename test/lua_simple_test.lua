@@ -274,6 +274,7 @@ function should.bindCompileAndLoad()
     only = {
       'Simple',
       'Map',
+      'SubMap',
     },
   })
   local cpath_bak = package.cpath
@@ -302,11 +303,25 @@ function should.bindCompileAndLoad()
         'test/fixtures/simple/include',
       },
     }
+
+    binder:build {
+      output   = 'test/tmp/SubMap.so',
+      inputs   = {
+        'test/tmp/dub/dub.cpp',
+        'test/tmp/SubMap.cpp',
+      },
+      includes = {
+        'test/tmp',
+        'test/fixtures/simple/include',
+      },
+    }
     package.cpath = tmp_path .. '/?.so'
     require 'Simple'
     assertType('table', Simple)
     require 'Map'
     assertType('table', Map)
+    require 'SubMap'
+    assertType('table', SubMap)
   end, function()
     -- teardown
     package.cpath = cpath_bak
@@ -393,6 +408,19 @@ end
 
 function should.useCustomGetSet()
   local m = Map()
+  m.animal = 'Cat'
+  assertEqual('Cat', m.animal)
+  assertNil(m.thing)
+  m.thing  = 'Stone'
+  assertEqual('Cat', m.animal)
+  assertValueEqual({
+    animal = 'Cat',
+    thing  = 'Stone',
+  }, m:map())
+end
+
+function should.useCustomGetSet()
+  local m = SubMap()
   m.animal = 'Cat'
   assertEqual('Cat', m.animal)
   assertNil(m.thing)

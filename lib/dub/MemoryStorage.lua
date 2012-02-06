@@ -572,6 +572,7 @@ function parse:variable(elem, header)
 
   local child  = {
     name       = name,
+    parent     = self,
     type       = 'dub.Attribute',
     ctype      = parse.type(elem),
     static     = elem.static == 'yes',
