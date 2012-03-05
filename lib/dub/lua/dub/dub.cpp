@@ -36,7 +36,7 @@
 #define TYPE_EXCEPTION_SMSG "expected %s, found %s (using super)"
 #define DEAD_EXCEPTION_MSG  "using deleted %s"
 #define DUB_MAX_IN_SHIFT 4294967296
-#define DUB_INIT_CODE "local class = %s.%s\nlocal new = class.new\nif new then\nsetmetatable(class, {\n __call = function(_, ...)\n   return new(...)\n end,\n})\nend\n"
+#define DUB_INIT_CODE "local class = %s.%s\nif class.new then\nsetmetatable(class, {\n __call = function(lib, ...)\n   return lib.new(...)\n end,\n})\nend\n"
 #define DUB_INIT_ERR "[string \"Dub init code\"]"
 #define DUB_ERRFUNC "local self = self\nlocal print = print\nreturn function(...)\nlocal err = self.error\nif err then\nerr(self,...)\nelse\nprint(...)\nend\nend"
 
@@ -586,12 +586,14 @@ void dub_register(lua_State *L, const char *libname, const char *class_name) {
   //printf("%s\n", lua_code);
   /*
   local class = lib.Foobar
-  local new = class.new
   -- new can be nil for abstract types
-  if new then
+  if class.new then
     setmetatable(class, {
-      __call = function(...)
-        return new(...)
+      __call = function(lib, ...)
+        -- We could keep lib.new in an upvalue but this
+        -- prevents rewriting class.new in Lua which is
+        -- very useful.
+        return lib.new(...)
       end,
     })
   end
