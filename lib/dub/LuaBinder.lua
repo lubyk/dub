@@ -157,14 +157,7 @@ function lib:bind(inspector, options)
       end
     end
     
-    for elem in inspector:children() do
-      if elem.type == 'dub.Class' then
-        if not ignore[elem.name] then
-          table.insert(bound, elem)
-          private.bindElem(self, elem, options)
-        end
-      end
-    end
+    private.bindAll(self, inspector, bound, ignore)
   end
 
   if options.single_lib then
@@ -1098,6 +1091,21 @@ function private:switch(class, method, delta, bfunc, iterator)
   end
   res = res .. 'return 0;'
   return res
+end
+
+function private:bindAll(parent, bound, ignore)
+  for elem in parent:children() do
+    if elem.type == 'dub.Class' then
+      if not ignore[elem.name] then
+        table.insert(bound, elem)
+        private.bindElem(self, elem, options)
+      end
+    elseif elem.type == 'dub.Namespace' then
+      if not ignore[elem.name] then
+        private.bindAll(self, elem, bound, ignore)
+      end
+    end
+  end
 end
 
 function private:bindElem(elem, options)

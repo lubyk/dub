@@ -52,10 +52,6 @@ extern "C" {
 #include <string>    // std::string for Exception
 #include <exception> // std::exception
 
-// Rename macro
-#define DubObject dub::Object
-#define DubThread dub::Thread
-
 struct DubUserdata {
   void *ptr;
   bool gc;

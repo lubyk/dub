@@ -168,12 +168,13 @@ function lib:headers(classes)
 end
 
 --- Return an iterator over the variables of this class/namespace.
-function lib:children()
+function lib:children(parent)
+  parent = parent or self
   -- make sure we have parsed the headers
-  private.parseHeaders(self)
+  private.parseHeaders(parent)
   local co = coroutine.create(private.iterator)
   return function()
-    local ok, elem = coroutine.resume(co, self.sorted_cache)
+    local ok, elem = coroutine.resume(co, parent.sorted_cache)
     if ok then
       return elem
     end

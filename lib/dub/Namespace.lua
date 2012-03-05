@@ -43,3 +43,7 @@ function lib:fullname()
     return self.name
   end
 end
+
+function lib:children()
+  return self.db:children(self)
+end

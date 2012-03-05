@@ -51,6 +51,28 @@ function should.bindGlobalFunctionNotInNamespace()
   assertMatch('lua_pushnumber%(L, addTwoOut%(%*a, %*b%)%);', res)
 end
 
+function should.bindAll()
+  local tmp_path = 'test/tmp'
+  lk.rmTree(tmp_path, true)
+
+  binder:bind(ins, {
+    output_directory = tmp_path,
+    single_lib = 'moo',
+    lib_prefix = false,
+  })
+  local files = {}
+  for file in lk.Dir(tmp_path):list() do
+    local base, filename = lk.directory(file)
+    table.insert(files, filename)
+  end
+  assertValueEqual({
+    'dub',
+    'moo.cpp',
+    'Nem_A.cpp',
+    'Nem_B.cpp',
+  }, files)
+end
+
 --=============================================== nested class
 
 function should.useFullnameInCtor()
