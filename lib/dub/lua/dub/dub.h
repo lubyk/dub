@@ -29,6 +29,8 @@
 #ifndef DUB_BINDING_GENERATOR_DUB_H_
 #define DUB_BINDING_GENERATOR_DUB_H_
 
+#include <string.h>  // strlen strcmp
+
 #ifndef DUB_ASSERT_KEY
 #define DUB_ASSERT_KEY(k, m) strcmp(k, m)
 // Use this to avoid the overhead of strcmp in get/set of public attributes.
@@ -122,7 +124,7 @@ public:
    * called instead of dub_pushudata.
    * <udata> <mt>
    */
-  virtual void pushobject(lua_State *L, void *ptr, const char *type_name, bool gc = true) throw(dub::Exception);
+  virtual void pushobject(lua_State *L, void *ptr, const char *type_name, bool gc = true);
 
   /** Push function 'name' found in <self> on the stack with <self> as
    * first argument.

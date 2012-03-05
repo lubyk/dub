@@ -29,6 +29,7 @@
 #include "dub/dub.h"
 
 #include <stdlib.h>  // malloc
+#include <string.h>  // strlen strcmp
 
 #define DUB_EXCEPTION_BUFFER_SIZE 256  
 #define TYPE_EXCEPTION_MSG "expected %s, found %s"
@@ -96,7 +97,7 @@ void Object::pushobject(lua_State *L, void *ptr, const char *tname, bool gc) {
 // ======================================================================
 // =============================================== dub::Thread
 // ======================================================================
-void Thread::pushobject(lua_State *L, void *ptr, const char *tname, bool gc) throw(dub::Exception) {
+void Thread::pushobject(lua_State *L, void *ptr, const char *tname, bool gc) {
   if (dub_L) {
     if (!strcmp(tname, dub_typename_)) {
       // We do not care about gc being false here since we share the same userdata

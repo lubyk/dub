@@ -86,7 +86,7 @@ local lib     = {
   COMPILER       = 'g++',
   COMPILER_FLAGS = {
     macosx = '-g -Wall -Wl,-headerpad_max_install_names -flat_namespace -undefined suppress -dynamic -bundle -fPIC',
-    linux  = '-g -Wall -Wl,-headerpad_max_install_names -flat_namespace -undefined suppress -dynamic -fPIC',
+    linux  = '-g -Wall -Wl,-headerpad_max_install_names -shared -fPIC',
   }
 }
 local private = {}
@@ -181,7 +181,7 @@ function lib:build(opts)
   end
   local cmd = 'cd ' .. work_dir .. ' && '
   cmd = cmd .. self.COMPILER .. ' ' 
-  cmd = cmd .. self.COMPILER_FLAGS[private.platform()] .. ' '
+  cmd = cmd .. self.COMPILER_FLAGS[Lubyk.plat] .. ' '
   cmd = cmd .. flags .. ' '
   cmd = cmd .. '-o ' .. opts.output .. ' '
   cmd = cmd .. files
@@ -909,17 +909,6 @@ function private:copyDubFiles()
       local res = lk.readall(dub_dir .. '/' .. file)
       lk.writeall(base_path .. '/dub/' .. file, res, true)
     end
-  end
-end
-
--- Detect platform
-function private.platform()
-  local name = io.popen('uname'):read()
-  if not name or string.match(name, 'Darwin') then
-    return 'macosx'
-  else
-    -- FIXME: detect other platforms...
-    return 'linux'
   end
 end
 

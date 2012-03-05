@@ -10,13 +10,14 @@
 require 'lubyk'
 local should = test.Suite('dub.Inspector - simple')
 
+local base = lk.dir()
 local tmp_path = lk.dir() .. '/tmp'
 lk.rmTree(tmp_path, true)
 os.execute('mkdir -p '..tmp_path)
 
 local ins = dub.Inspector {
-  INPUT   = 'test/fixtures/simple/include',
-  doc_dir = lk.dir() .. '/tmp',
+  INPUT   = base .. '/fixtures/simple/include',
+  doc_dir = base .. '/tmp',
   ignore  = {
     Simple = {
       'ignoreInInspector',
@@ -110,15 +111,16 @@ end
 function should.listMembers()
   local res = {}
   for child in ins:children() do
-    table.insert(res, child.name)
+    lk.insertSorted(res, child.name)
   end
   assertValueEqual({
-    'Map',
-    'SubMap',
-    'Simple',
-    'Foo',
     'Bar',
+    'Foo',
+    'Map',
     'MyFloat',
+    'Reg',
+    'Simple',
+    'SubMap',
   }, res)
 end
 
@@ -252,6 +254,13 @@ function should.parseClassByValueParam()
   assertEqual('Simple', p.ctype.name)
   assertFalse(p.ctype.ptr)
   assertEqual('Simple ', p.ctype.create_name)
+end
+
+--=============================================== registration name
+
+function should.parseRegistrationName()
+  local c = ins:find('Reg')
+  assertEqual('Reg_core', c.dub.register)
 end
 
 test.all()

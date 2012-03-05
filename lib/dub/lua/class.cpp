@@ -64,7 +64,7 @@ static const struct dub_const_Reg {{class.name}}_const[] = {
 {% for const in class:constants() do %}
   { {{string.format('%-15s, %-20s', '"'.. const ..'"', class.name..'::'..const)}} },
 {% end %}
-  { NULL, NULL},
+  { NULL, 0},
 };
 {% end %}
 
@@ -81,7 +81,7 @@ extern "C" int luaopen_{{self:openName(class)}}(lua_State *L)
   // register member methods
   luaL_register(L, NULL, {{ class.name }}_member_methods);
   // save meta-table in {{self:libName(class.parent)}}
-  dub_register(L, "{{self:libName(class.parent)}}", "{{self:name(class)}}");
+  dub_register(L, "{{self:libName(class.parent)}}", "{{class.dub.register or self:name(class)}}");
   // <mt>
   lua_pop(L, 1);
   return 0;

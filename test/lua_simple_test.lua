@@ -29,9 +29,10 @@ return 1;
   },
 }
 
+local base = lk.dir()
 local ins = dub.Inspector {
-  INPUT   = 'test/fixtures/simple/include',
-  doc_dir = lk.dir() .. '/tmp',
+  INPUT   = base .. '/fixtures/simple/include',
+  doc_dir = base .. '/tmp',
 }
 
 --=============================================== TESTS
@@ -262,10 +263,10 @@ end
 --=============================================== Build
 
 function should.bindCompileAndLoad()
-  local ins = dub.Inspector 'test/fixtures/simple/include'
+  local ins = dub.Inspector(base .. '/fixtures/simple/include')
 
   -- create tmp directory
-  local tmp_path = lk.dir() .. '/tmp'
+  local tmp_path = base .. '/tmp'
   lk.rmTree(tmp_path, true)
   os.execute("mkdir -p "..tmp_path)
   binder:bind(ins, {
@@ -275,53 +276,69 @@ function should.bindCompileAndLoad()
       'Simple',
       'Map',
       'SubMap',
+      'Reg',
     },
   })
   local cpath_bak = package.cpath
   local s
   assertPass(function()
     binder:build {
-      output   = 'test/tmp/Simple.so',
+      output   = base .. '/tmp/Simple.so',
       inputs   = {
-        'test/tmp/dub/dub.cpp',
-        'test/tmp/Simple.cpp',
+        base .. '/tmp/dub/dub.cpp',
+        base .. '/tmp/Simple.cpp',
       },
       includes = {
-        'test/tmp',
-        'test/fixtures/simple/include',
+        base .. '/tmp',
+        base .. '/fixtures/simple/include',
       },
     }
 
     binder:build {
-      output   = 'test/tmp/Map.so',
+      output   = base .. '/tmp/Map.so',
       inputs   = {
-        'test/tmp/dub/dub.cpp',
-        'test/tmp/Map.cpp',
+        base .. '/tmp/dub/dub.cpp',
+        base .. '/tmp/Map.cpp',
       },
       includes = {
-        'test/tmp',
-        'test/fixtures/simple/include',
+        base .. '/tmp',
+        base .. '/fixtures/simple/include',
       },
     }
 
     binder:build {
-      output   = 'test/tmp/SubMap.so',
+      output   = base .. '/tmp/SubMap.so',
       inputs   = {
-        'test/tmp/dub/dub.cpp',
-        'test/tmp/SubMap.cpp',
+        base .. '/tmp/dub/dub.cpp',
+        base .. '/tmp/SubMap.cpp',
       },
       includes = {
-        'test/tmp',
-        'test/fixtures/simple/include',
+        base .. '/tmp',
+        base .. '/fixtures/simple/include',
       },
     }
-    package.cpath = tmp_path .. '/?.so'
+
+    binder:build {
+      output   = base .. '/tmp/Reg.so',
+      inputs   = {
+        base .. '/tmp/dub/dub.cpp',
+        base .. '/tmp/Reg.cpp',
+      },
+      includes = {
+        base .. '/tmp',
+        base .. '/fixtures/simple/include',
+      },
+    }
+    package.cpath = base .. '/tmp/?.so'
     require 'Simple'
     assertType('table', Simple)
     require 'Map'
     assertType('table', Map)
     require 'SubMap'
     assertType('table', SubMap)
+    require 'Reg'
+    assertType('nil', Reg)
+    assertType('table', Reg_core)
   end, function()
     -- teardown
     package.cpath = cpath_bak
@@ -430,6 +447,18 @@ function should.useCustomGetSet()
     animal = 'Cat',
     thing  = 'Stone',
   }, m:map())
+end
+
+--=============================================== registration name
+
+function should.registerWithRegistrationName()
+  -- require done after build.
+  assertNil(Reg)
+  assertType('table', Reg_core)
+  local r = Reg_core('hey')
+  -- Should recognize r as Reg type
+  local r2 = Reg_core(r)
+  assertEqual('hey', r2:name())
 end
 
 test.all()
