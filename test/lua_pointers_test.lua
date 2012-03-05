@@ -850,5 +850,12 @@ function should.useCustomSetGetInSubClass()
   assertEqual('/root/bar/baz', c:getUrl())
   assertEqual('/root/bar/baz', c.url)
 end
+
+--=============================================== __tostring with string_format
+function should.useFormatInToString()
+  local b = Box('box name', Vect(1,2))
+  assertMatch("Box: 0x[0-9a-f]+ %('box name' 1x2%)", b:__tostring())
+end
+
 test.all()
 

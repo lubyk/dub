@@ -1098,9 +1098,11 @@ function private.flatten(xml)
 end
 
 function parse.detaileddescription(self, elem, header)
-  local opt = parse.opt(elem)
+  local opt= parse.opt(elem)
   if opt then
     self:setOpt(opt)
+  elseif opt == nil then
+    print(string.format("Could not parse @dub settings: %s", xml.dump(elem)))
   end
 end
 
@@ -1113,11 +1115,11 @@ function parse.opt(elem)
     if (sect:find('title') or {})[1] == 'Bindings info:' then
       local txt = private.flatten(sect:find('para'))
       -- HACK TO RECREATE NEWLINES...
-      txt = string.gsub(txt, ' ([a-z]+):', '\n%1:')
+      txt = string.gsub(txt, ' ([A-Z_a-z]+):', '\n%1:')
       return parseOpt(txt)
     end
   end
-  return nil
+  return false
 end
 
 -- function lib:find(scope, name)

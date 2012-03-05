@@ -41,13 +41,7 @@ static int {{class.name}}_{{method.cname}}(lua_State *L) {
 
 // --=============================================== __tostring
 static int {{class.name}}___tostring(lua_State *L) {
-{% if class.dub.destroy == 'free' then %}
-  {{class.name}} **userdata = (({{class.name}}**)dub_checksdata_n(L, 1, "{{self:libName(class)}}"));
-  lua_pushfstring(L, "{{self:libName(class)}}: %p (full)", *userdata);
-{% else %}
-  DubUserdata *userdata = ((DubUserdata*)dub_checksdata_n(L, 1, "{{self:libName(class)}}"));
-  lua_pushfstring(L, "{{self:libName(class)}}: %p", userdata->ptr);
-{% end %}
+  {| self:toStringBody(class) |}
   return 1;
 }
 {% end %}

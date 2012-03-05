@@ -24,8 +24,16 @@ setmetatable(lib, {
 function lib.parse(str)
   local res = {}
   for line in str:gmatch("[^\r\n]+") do
-    local key, value = line:match(' *([a-z]+): *(.-) *$')
-    if value == 'false' then
+    local key, value = line:match(' *([A-Za-z_]+): *(.-) *$')
+    if not key then
+      return nil
+    end
+    local str = value:match('^"(.*)"$') or
+                value:match("^'(.*)'$")
+    if str then
+      -- string
+      value = str
+    elseif value == 'false' then
       value = false
     elseif value == 'true' then
       value = true
@@ -39,8 +47,6 @@ function lib.parse(str)
         list[elem] = true
       end
       value = list
-    else
-      value = private.parseString(value)
     end
 
     res[key] = value
@@ -49,11 +55,6 @@ function lib.parse(str)
 end
 
 --=============================================== PRIVATE
-
-function private.parseString(str)
-  return str:match('^"(.*)"$') or
-         str:match("^'(.*)'$") or str
-end
 
 function private.strip(str)
   return str:match('^ *(.-) *$')

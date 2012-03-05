@@ -5,6 +5,7 @@
   * Anonymous union support.
   * Added support for Callbacks from C++.
   * Added support for pseudo-attributes (get/set methods).
+  * Added support for string_format and string_args to customize __tostring from @dub.
 
 * Minor enhancement
   * Should not add namespace to typedef of template in namespace.

@@ -12,6 +12,10 @@
  *   * custom public member accessors.
  *   * pointer member types and gc.
  *   * complex default values.
+ *   * customized __tostring from dub settings.
+ *
+ *  @dub string_format: '%%s' %%fx%%f
+ *       string_args: self->name_.c_str(), self->size_.x, self->size_.y
  */
 struct Box {
 

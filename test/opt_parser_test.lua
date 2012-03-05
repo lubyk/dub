@@ -24,6 +24,18 @@ function should.parseString()
   }, parseOpt('foo: "hell on the rocks: yes"'))
 end
 
+function should.parseUnderscoreKey()
+  assertValueEqual({
+    string_format = '%s:%i',
+    string_args = {
+      'self->hostname()',
+      'self->port()',
+      ['self->hostname()'] = true,
+      ['self->port()'] = true,
+    },
+  }, parseOpt('string_format: %s:%i\nstring_args: self->hostname(), self->port()'))
+end
+
 function should.parseTrueFalse()
   assertValueEqual({
     foo = false,

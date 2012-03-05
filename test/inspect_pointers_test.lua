@@ -13,6 +13,7 @@ local should = test.Suite('dub.Inspector - pointers')
 local ins  = dub.Inspector {
   INPUT    = 'test/fixtures/pointers',
   doc_dir  = lk.dir() .. '/tmp',
+  keep_xml = true,
 }
 
 local Vect = ins:find('Vect')
@@ -284,6 +285,18 @@ function should.ignoreOverloadedWithSameType()
   local met = Vect:method('Vect')
   assertTrue(met.overloaded)
   assertEqual(2, #met.overloaded)
+end
+
+function should.parseStringArgs()
+  assertEqual("'%s' %fx%f", Box.dub.string_format)
+  assertValueEqual({
+    'self->name_.c_str()',
+    'self->size_.x',
+    'self->size_.y',
+    ['self->name_.c_str()'] = true,
+    ['self->size_.x'] = true,
+    ['self->size_.y'] = true,
+  }, Box.dub.string_args)
 end
 
 test.all()

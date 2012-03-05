@@ -586,6 +586,37 @@ function lib:luaType(parent, ctype)
   end
 end
 
+local dummy_to_string_method = {
+  neverThrows = function()
+    return true
+  end,
+}
+function lib:toStringBody(class)
+  local res = ''
+  -- We need self
+  res = res .. private.getSelf(self, class, dummy_to_string_method, false)
+  if class.dub.string_format then
+    local args = class.dub.string_args
+    if type(args) == 'table' then
+      args = lk.join(args, ', ')
+    end
+    res = res .. format("lua_pushfstring(L, \"%s: %%p (%s)\", %s, %s);\n",
+                        self:libName(class),
+                        class.dub.string_format,
+                        self.SELF,
+                        args)
+  else
+    local fmt
+    if class.dub.destroy == 'free' then
+      fmt = "lua_pushfstring(L, \"%s: %%p (full)\", %s);\n"
+    else
+      fmt = "lua_pushfstring(L, \"%s: %%p\", %s);\n"
+    end
+    res = res .. format(fmt, self:libName(class), self.SELF)
+  end
+  return res
+end
+
 --=============================================== PRIVATE
 
 -- if this method does never throw, we can use luaL_check...
