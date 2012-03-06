@@ -7,6 +7,7 @@
   * Added support for pseudo-attributes (get/set methods).
   * Added support for string_format and string_args to customize __tostring from @dub.
   * Added support for 'register' option in @dub.
+  * Added support for custom destructor: 'destructor' option in @dub.
 
 * Minor enhancement
   * Should not add namespace to typedef of template in namespace.

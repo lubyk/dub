@@ -139,6 +139,10 @@ function lib:setOpt(opt)
   self.dub      = opt or {}
   self.dub_type = self.dub.type
   self.ignore   = self.dub.ignore or {}
+  local dtor = self.dub.destructor
+  if dtor then
+    self.ignore[dtor] = true
+  end
 end
 
 -- Return the enclosing namespace or nil if none found.

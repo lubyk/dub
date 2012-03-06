@@ -13,9 +13,10 @@ require 'lubyk'
 local should = test.Suite('dub.LuaBinder - memory')
 local binder = dub.LuaBinder()
 
+local base = lk.dir()
 local ins_opts = {
-  INPUT    = 'test/fixtures/memory',
-  doc_dir  = lk.dir() .. '/tmp',
+  INPUT    = base .. '/fixtures/memory',
+  doc_dir  = base .. '/tmp',
   PREDEFINED = {
     'SOME_FUNCTION_MACRO(x)=',
     'OTHER_FUNCTION_MACRO(x)=',
@@ -78,21 +79,22 @@ function should.bindCompileAndLoad()
   assertPass(function()
     -- Build mem.so
     binder:build {
-      output   = 'test/tmp/mem.so',
+      output   = base .. '/tmp/mem.so',
       inputs   = {
-        'test/tmp/dub/dub.cpp',
-        'test/tmp/mem_Nogc.cpp',
-        'test/tmp/mem_Withgc.cpp',
-        'test/tmp/mem_Union.cpp',
-        'test/tmp/mem_Pen.cpp',
-        'test/tmp/mem_Owner.cpp',
-        'test/tmp/mem_PrivateDtor.cpp',
-        'test/fixtures/memory/owner.cpp',
-        'test/tmp/mem.cpp',
+        base .. '/tmp/dub/dub.cpp',
+        base .. '/tmp/mem_Nogc.cpp',
+        base .. '/tmp/mem_Withgc.cpp',
+        base .. '/tmp/mem_Union.cpp',
+        base .. '/tmp/mem_Pen.cpp',
+        base .. '/tmp/mem_Owner.cpp',
+        base .. '/tmp/mem_PrivateDtor.cpp',
+        base .. '/tmp/mem_CustomDtor.cpp',
+        base .. '/fixtures/memory/owner.cpp',
+        base .. '/tmp/mem.cpp',
       },
       includes = {
-        'test/tmp',
-        'test/fixtures/memory',
+        base .. '/tmp',
+        base .. '/fixtures/memory',
       },
     }
     package.cpath = tmp_path .. '/?.so'
@@ -184,6 +186,21 @@ function should.considerAnonUnionAsMembers()
   u.a = 11
   local c = 10 + (15 * 2^8) + (4 * 2^16) + (11 * 2^24)
   assertEqual(c,  u.c)
+end
+
+--=============================================== Custom dtor
+
+function should.useCustomDtor()
+  local d = mem.CustomDtor()
+  local t
+  function d:callback()
+    t = true
+  end
+  assertNil(t)
+  d = nil
+  collectgarbage('collect')
+  collectgarbage('collect')
+  assertTrue(t)
 end
 
 test.all()

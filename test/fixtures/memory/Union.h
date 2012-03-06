@@ -4,6 +4,8 @@
 #include "dub/dub.h"
 #include <string>
 
+#include <stdint.h>
+
 /** This class is used to test:
  *   * access to anonymous union members (custom bindings)
  */

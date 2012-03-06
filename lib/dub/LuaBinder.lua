@@ -264,7 +264,12 @@ function lib:functionBody(parent, method)
       if custom and custom.cleanup then
         res = res .. '  ' .. string.gsub(custom.cleanup, '\n', '\n  ')
       end
-      res = res .. '  delete self;\n'
+      local dtor = parent.dub.destructor or method.parent.dub.destructor
+      if dtor then
+        res = res .. format('  self->%s();\n', dtor)
+      else
+        res = res .. '  delete self;\n'
+      end
       res = res .. '}\n'
       res = res .. 'userdata->gc = false;\n'
       res = res .. 'return 0;'

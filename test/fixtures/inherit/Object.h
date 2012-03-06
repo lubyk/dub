@@ -1,7 +1,7 @@
 #ifndef INHERIT_OBJECT_H_
 #define INHERIT_OBJECT_H_
 
-#include <string>
+#include <stdio.h>
 
 /** This class is used to test:
  *   * make sure non public inheritance is not followed.

@@ -10,9 +10,11 @@
 require 'lubyk'
 local should = test.Suite('dub.Inspector - memory')
 
+local base = lk.dir()
 local ins  = dub.Inspector {
-  INPUT    = 'test/fixtures/memory',
+  INPUT    = base .. '/fixtures/memory',
   doc_dir  = lk.dir() .. '/tmp',
+  keep_xml = true,
   PREDEFINED = {
     'SOME_FUNCTION_MACRO(x)=',
     'OTHER_FUNCTION_MACRO(x)=',
@@ -98,6 +100,27 @@ function should.parseUnionMembers()
     'v:uint8_t',
     'a:uint8_t',
     'c:uint32_t',
+  }, res)
+end
+
+--=============================================== Custo dtor
+
+local CustomDtor = ins:find('CustomDtor')
+
+function should.parseDub()
+  assertEqual('finalize', CustomDtor.dub.destructor)
+end
+
+function should.ignoreDtor()
+  local res = {}
+  for m in CustomDtor:methods() do
+    table.insert(res, m.name)
+  end
+
+  assertValueEqual({
+    'CustomDtor',
+    '~CustomDtor',
+    -- No 'finalize'
   }, res)
 end
 
