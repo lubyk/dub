@@ -19,7 +19,7 @@ local ins = dub.Inspector {
   INPUT    = {
     base .. '/fixtures/namespace',
   },
-  doc_dir  = lk.dir() .. '/tmp',
+  doc_dir  = base .. '/tmp',
 }
 
 --=============================================== bindings
@@ -113,7 +113,7 @@ function should.changeNamespaceNameOnBind()
       -- This is just to have the Vect class for gc testing.
       base .. '/fixtures/pointers',
     },
-    doc_dir  = lk.dir() .. '/tmp',
+    doc_dir  = base .. '/tmp',
   }
 
   local tmp_path = base .. '/tmp'
@@ -135,6 +135,10 @@ function should.changeNamespaceNameOnBind()
     -- This creates a MyLib_open.cpp file
     -- that has to be included in build.
     single_lib = 'moo',
+    -- This is used to bind the namespace constants and
+    -- functions.
+    namespace  = 'Nem',
+    -- What is this ??
     lib_prefix = false,
     only = {
       'Nem::A',
@@ -281,11 +285,17 @@ function should.buildTemplate()
   assertEqual(3, r.h)
 end
 
-function should.callGlobalFunction()
+function should.callNamespaceFunction()
   local a = moo.B(1)
   local b = moo.B(2)
   assertEqual(3, moo.addTwo(a,b))
-  assertEqual(3, moo.addTwoOut(a,b))
+  assertNil(moo.addTwoOut)
+end
+
+function should.readNamespaceConstant()
+  assertEqual(1, moo.One)
+  assertEqual(2, moo.Two)
+  assertEqual(55, moo.Three)
 end
 
 test.all()

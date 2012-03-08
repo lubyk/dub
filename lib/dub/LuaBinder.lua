@@ -116,18 +116,23 @@ function lib:bind(inspector, options)
   self.extra_headers = {}
   private.parseExtraHeadersList(self, nil, options.extra_headers)
   
-
-  if options.single_lib then
-    -- default is to prefix mt types with lib name
-    if options.lib_prefix == false then
-      options.lib_prefix = nil
-    else
-      options.lib_prefix = options.lib_prefix or options.single_lib
-    end
+  local namespace_name = options.namespace or options.single_lib
+  if namespace_name then
+    self.namespace = inspector:find(namespace_name)
   end
-
-  if options.lib_prefix == false then
-    options.lib_prefix = nil
+  if options.single_lib then
+    -- default is to:
+    --   * prefix mt types with lib name if we do not have a namespace
+    --   * not prefix if we have a namespace
+    if self.namespace then
+      -- in a namespace. Leave lib_prefix to nil or false.
+    else
+      if options.lib_prefix == false then
+        options.lib_prefix = nil
+      else
+        options.lib_prefix = options.lib_prefix or options.single_lib
+      end
+    end
   end
 
   if options.lib_prefix then
@@ -461,10 +466,12 @@ function lib:headers(elem)
     headers = self.extra_headers['::'] or {}
   end
   local co = coroutine.create(function()
+    -- Extra headers
     for _, h in ipairs(headers) do
       coroutine.yield(h)
     end
     if elem then
+      -- Class header
       coroutine.yield(elem.header)
     else
       -- No element, binding library
@@ -1307,14 +1314,21 @@ function private:makeLibFile(lib_name, list)
     self.lib_template = dub.Template {path = dir .. '/lua/lib.cpp'}
   end
   self.bound_classes = list
+  -- lib is a namespace
+  local lib = self.namespace
+  if not lib then
+    -- lib is the global environment.
+    lib = self.ins.db
+  end
   local res = self.lib_template:run {
-    lib      = self.ins.db,
+    lib      = lib,
     lib_name = lib_name,
     classes  = list,
     self     = self,
   }
 
-  local path = self.output_directory .. lk.Dir.sep .. lib_name .. '.cpp'
+  local openname = self.options.luaopen or lib_name
+  local path = self.output_directory .. lk.Dir.sep .. openname .. '.cpp'
   lk.writeall(path, res, true)
 end
 

@@ -6,6 +6,9 @@
 
 namespace Nem {
 
+/** When resolving TRect to Rect, we remember the header where this
+ * resolution happened.
+ */
 typedef TRect<int> Rect;
 
 /** This class is used to test:

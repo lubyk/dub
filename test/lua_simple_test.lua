@@ -392,7 +392,7 @@ function should.bindMethodWithoutReturn()
 end
 
 function should.raiseErrorOnMissingParam()
-  assertError('lua_simple_test.lua:[0-9]+: Simple.Simple: number expected, got no value', function()
+  assertError('lua_simple_test.lua:[0-9]+: Simple.Simple: expected number, found no value', function()
     Simple()
   end)
 end
@@ -415,10 +415,10 @@ end
 
 function should.properlyHandleErrorMessagesInOverloaded()
   local s = Simple(2.4)
-  assertError('addAll: string expected, got nil', function()
+  assertError('addAll: expected string, found nil', function()
     s:addAll(3, 4, 6, nil)
   end)
-  assertError('Simple.addAll: string expected, got boolean', function()
+  assertError('Simple.addAll: expected string, found boolean', function()
     s:addAll(3, 4, 6, true)
   end)
 end

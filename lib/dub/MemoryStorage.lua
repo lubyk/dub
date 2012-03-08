@@ -7,7 +7,7 @@
 
 --]]------------------------------------------------------
 
-local lib     = {
+local lib = {
   type = 'dub.MemoryStorage', 
 }
 -- Pattern to check for Doxygen version
@@ -54,7 +54,7 @@ function lib:parse(xml_dir, not_lazy, ignore_list)
     table.insert(xml_headers, {path = file, dir = xml_dir})
   end
   -- Parse namespace content
-  for file in dir:glob('namespace_.*.xml') do
+  for file in dir:glob('namespace.*.xml') do
     table.insert(xml_headers, {path = file, dir = xml_dir})
   end
   if not_lazy then
@@ -144,6 +144,7 @@ function lib:headers(classes)
       local h = class.header
       if not seen[h] then
         coroutine.yield(h)
+        seen[h] = true
       end
     end
     -- For every global function
@@ -151,12 +152,23 @@ function lib:headers(classes)
       local h = func.header
       if not seen[h] then
         coroutine.yield(h)
+        seen[h] = true
       end
     end
     -- For every constant
     for i, h in ipairs(self.const_headers) do
       if not seen[h] then
         coroutine.yield(h)
+        seen[h] = true
+      end
+    end
+    -- For every namespace
+    for _, n in ipairs(self.namespaces_list) do
+      for i, h in ipairs(n.const_headers) do
+        if not seen[h] then
+          coroutine.yield(h)
+          seen[h] = true
+        end
       end
     end
   end)
@@ -528,7 +540,7 @@ function parse:sectiondef(elem, header)
      then
     parse.children(self, elem, header)
     if kind == 'enum' then
-      -- global enum
+      -- global or namespace enum
       table.insert(self.const_headers, header.file)
     end
   elseif kind == 'private-func' or kind == 'protected-func' then
@@ -635,7 +647,7 @@ function parse:typedef(elem, header)
     xml         = elem,
     definition  = elem:find('definition')[1],
     location    = private.makeLocation(elem, header),
-    header_path = header.file,
+    header_path = elem:find('location').file,
   }
   typ.ctype.create_name = typ.name .. ' '
   return typ

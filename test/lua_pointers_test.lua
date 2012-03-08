@@ -19,9 +19,10 @@ require 'lubyk'
 local should = test.Suite('dub.LuaBinder - pointers')
 local binder = dub.LuaBinder()
 
+local base = lk.dir()
 local ins = dub.Inspector {
-  INPUT    = 'test/fixtures/pointers',
-  doc_dir  = lk.dir() .. '/tmp',
+  INPUT    = base .. '/fixtures/pointers',
+  doc_dir  = base .. '/tmp',
 }
 
 local custom_bindings = {
@@ -234,21 +235,21 @@ function should.createLibFileWithCustomNames()
   assertPass(function()
     -- Build foo.so
     binder:build {
-      output   = 'test/tmp/foo.so',
+      output   = base .. '/tmp/foo.so',
       inputs   = {
-        'test/tmp/dub/dub.cpp',
-        'test/tmp/foo_V.cpp',
-        'test/tmp/foo_B.cpp',
-        'test/tmp/foo_Abstract.cpp',
-        'test/tmp/foo_AbstractSub.cpp',
-        'test/tmp/foo_AbstractHolder.cpp',
-        'test/tmp/foo_Custom.cpp',
-        'test/tmp/foo_SubCustom.cpp',
-        'test/tmp/foo.cpp',
-        'test/fixtures/pointers/vect.cpp',
+        base .. '/tmp/dub/dub.cpp',
+        base .. '/tmp/foo_V.cpp',
+        base .. '/tmp/foo_B.cpp',
+        base .. '/tmp/foo_Abstract.cpp',
+        base .. '/tmp/foo_AbstractSub.cpp',
+        base .. '/tmp/foo_AbstractHolder.cpp',
+        base .. '/tmp/foo_Custom.cpp',
+        base .. '/tmp/foo_SubCustom.cpp',
+        base .. '/tmp/foo.cpp',
+        base .. '/fixtures/pointers/vect.cpp',
       },
       includes = {
-        'test/tmp',
+        base .. '/tmp',
       },
     }
     package.cpath = tmp_path .. '/?.so'
@@ -311,21 +312,21 @@ function should.createLibFile()
   assertPass(function()
     -- Build MyLib.so
     binder:build {
-      output   = 'test/tmp/MyLib.so',
+      output   = base .. '/tmp/MyLib.so',
       inputs   = {
-        'test/tmp/dub/dub.cpp',
-        'test/tmp/MyLib_Vect.cpp',
-        'test/tmp/MyLib_Box.cpp',
-        'test/tmp/MyLib_Abstract.cpp',
-        'test/tmp/MyLib_AbstractSub.cpp',
-        'test/tmp/MyLib_AbstractHolder.cpp',
-        'test/tmp/MyLib_Custom.cpp',
-        'test/tmp/MyLib_SubCustom.cpp',
-        'test/tmp/MyLib.cpp',
-        'test/fixtures/pointers/vect.cpp',
+        base .. '/tmp/dub/dub.cpp',
+        base .. '/tmp/MyLib_Vect.cpp',
+        base .. '/tmp/MyLib_Box.cpp',
+        base .. '/tmp/MyLib_Abstract.cpp',
+        base .. '/tmp/MyLib_AbstractSub.cpp',
+        base .. '/tmp/MyLib_AbstractHolder.cpp',
+        base .. '/tmp/MyLib_Custom.cpp',
+        base .. '/tmp/MyLib_SubCustom.cpp',
+        base .. '/tmp/MyLib.cpp',
+        base .. '/fixtures/pointers/vect.cpp',
       },
       includes = {
-        'test/tmp',
+        base .. '/tmp',
       },
     }
     package.cpath = tmp_path .. '/?.so;'
@@ -355,41 +356,41 @@ function should.bindCompileAndLoad()
   local tmp_path = lk.dir() .. '/tmp'
   os.execute("mkdir -p "..tmp_path)
 
-  binder:bind(ins, {output_directory = tmp_path})
+  binder:bind(ins, {
+    output_directory = tmp_path,
+    single_lib = 'vbox',
+    lib_prefix = false,
+    only = {
+      'Box',
+      'Vect',
+    }
+  })
 
   local cpath_bak = package.cpath
   assertPass(function()
     
-    -- Build Vect.so
+    -- Build Vect and Box as a single library because Box depends
+    -- on the global Vect::create_count.
     binder:build {
-      output   = 'test/tmp/Vect.so',
+      output   = base .. '/tmp/vbox.so',
       inputs   = {
-        'test/tmp/dub/dub.cpp',
-        'test/tmp/Vect.cpp',
-        'test/fixtures/pointers/vect.cpp',
+        base .. '/tmp/dub/dub.cpp',
+        base .. '/tmp/Vect.cpp',
+        base .. '/tmp/Box.cpp',
+        base .. '/tmp/vbox.cpp',
+        base .. '/fixtures/pointers/vect.cpp',
       },
       includes = {
-        'test/tmp',
+        base .. '/tmp',
       },
     }
     
-    -- Build Box.so
-    binder:build {
-      output   = 'test/tmp/Box.so',
-      inputs   = {
-        'test/tmp/dub/dub.cpp',
-        'test/tmp/Box.cpp',
-      },
-      includes = {
-        'test/tmp',
-      },
-    }
     package.cpath = tmp_path .. '/?.so'
     -- Must require Vect first because Box depends on Vect class and
     -- only Vect.so has static members for Vect.
-    require 'Vect'
-    require 'Box'
+    require 'vbox'
     assertType('table', Vect)
+    assertType('table', Box)
   end, function()
     -- teardown
     package.loaded.Box = nil

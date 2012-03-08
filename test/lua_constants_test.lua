@@ -17,10 +17,11 @@ require 'lubyk'
 -- Run the test with the dub directory as current path.
 local should = test.Suite('dub.LuaBinder - constants')
 local binder = dub.LuaBinder()
+local base = lk.dir()
 
 local ins = dub.Inspector {
-  INPUT    = 'test/fixtures/constants',
-  doc_dir  = lk.dir() .. '/tmp',
+  INPUT    = base .. '/fixtures/constants',
+  doc_dir  = base .. '/tmp',
 }
 
 --=============================================== Constants in mt table
@@ -60,12 +61,12 @@ end
 --=============================================== Build
 function should.bindCompileAndLoad()
   local ins = dub.Inspector {
-    INPUT    = 'test/fixtures/constants',
-    doc_dir  = lk.dir() .. '/tmp',
+    INPUT    = base .. '/fixtures/constants',
+    doc_dir  = base .. '/tmp',
   }
 
   -- create tmp directory
-  local tmp_path = lk.dir() .. '/tmp'
+  local tmp_path = base .. '/tmp'
   os.execute("mkdir -p "..tmp_path)
 
   binder:bind(ins, {
@@ -84,15 +85,15 @@ function should.bindCompileAndLoad()
     
     -- Build traffic.so
     binder:build {
-      output   = 'test/tmp/traffic.so',
+      output   = base .. '/tmp/traffic.so',
       inputs   = {
-        'test/tmp/dub/dub.cpp',
-        'test/tmp/traffic_Car.cpp',
-        'test/tmp/traffic.cpp',
+        base .. '/tmp/dub/dub.cpp',
+        base .. '/tmp/traffic_Car.cpp',
+        base .. '/tmp/traffic.cpp',
       },
       includes = {
-        'test/tmp',
-        'test/fixtures/constants',
+        base .. '/tmp',
+        base .. '/fixtures/constants',
       },
     }
     

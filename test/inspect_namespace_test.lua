@@ -10,9 +10,10 @@
 require 'lubyk'
 local should = test.Suite('dub.Inspector - namespace')
 
+local base = lk.dir()
 local ins  = dub.Inspector {
-  INPUT    = 'test/fixtures/namespace',
-  doc_dir  = lk.dir() .. '/tmp',
+  INPUT    = base .. '/fixtures/namespace',
+  doc_dir  = base .. '/tmp',
   keep_xml = true,
 }
 
@@ -35,12 +36,13 @@ end
 
 function should.listHeaders()
   local res = {}
-  for h in ins.db:headers({ins:find('A')}) do
-    table.insert(res, string.sub(h, -13, -1))
+  for h in ins.db:headers({ins:find('Nem::A')}) do
+    lk.insertSorted(res, string.match(h, '/([^/]+/[^/]+)$'))
   end
   assertValueEqual({
-    'mespace/nem.h',
     'namespace/A.h',
+    'namespace/constants.h',
+    'namespace/nem.h',
   }, res)
 end
 
@@ -148,9 +150,9 @@ function should.findMethodsInParent()
   }, res)
 end
 
---=============================================== global functions
+--=============================================== namespace functions
 
-function should.listGlobalFunctions()
+function should.listNamespaceFunctions()
   local res = {}
   for func in ins.db:functions() do
     table.insert(res, func:fullcname())
@@ -158,6 +160,28 @@ function should.listGlobalFunctions()
   assertValueEqual({
     'addTwoOut',
     'Nem::addTwo',
+  }, res)
+end
+
+--=============================================== namespace constants
+
+function should.findNamespaceConstants()
+  local n = ins:find('Nem')
+  local enum = ins:find('Nem::NamespaceConstant')
+  assertEqual('dub.Enum', enum.type)
+  assertTrue(n.has_constants)
+end
+
+function should.listNamespaceConstants()
+  local n = ins:find('Nem')
+  local res = {}
+  for const in n:constants() do
+    lk.insertSorted(res, const)
+  end
+  assertValueEqual({
+    'One',
+    'Three',
+    'Two',
   }, res)
 end
 
