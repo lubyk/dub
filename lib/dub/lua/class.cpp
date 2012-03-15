@@ -27,9 +27,9 @@ static int {{class.name}}_{{method.cname}}(lua_State *L) {
   try {
     {| self:functionBody(class, method) |}
   } catch (std::exception &e) {
-    lua_pushfstring(L, "{{self:libName(method)}}: %s", e.what());
+    lua_pushfstring(L, "{{method.name}}: %s", e.what());
   } catch (...) {
-    lua_pushfstring(L, "{{self:libName(method)}}: Unknown exception");
+    lua_pushfstring(L, "{{method.name}}: Unknown exception");
   }
   return dub_error(L);
 {% end %}

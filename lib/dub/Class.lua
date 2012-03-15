@@ -139,6 +139,11 @@ function lib:setOpt(opt)
   self.dub      = opt or {}
   self.dub_type = self.dub.type
   self.ignore   = self.dub.ignore or {}
+  if type(self.ignore) == 'string' then
+    self.ignore = { self.ignore,
+      [self.ignore] = true,
+    }
+  end
   local dtor = self.dub.destructor
   if dtor then
     self.ignore[dtor] = true

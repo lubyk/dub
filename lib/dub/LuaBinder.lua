@@ -211,6 +211,15 @@ function lib:bindClass(class)
   return self.class_template:run {class = class, self = self}
 end
 
+function lib:addCustomTypes(list)
+  for k, v in pairs(list) do
+    if not v.type then
+      v.type = k
+    end
+    self.TYPE_TO_CHECK[k] = v
+  end
+end
+
 function private:callWithParams(class, method, param_delta, indent, custom, max_arg)
   local max_arg = max_arg or #method.params_list
   local res = ''
