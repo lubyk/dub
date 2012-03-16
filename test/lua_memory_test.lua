@@ -115,14 +115,14 @@ end
 
 local function createAndDestroyMany(ctor)
   local t = {}
-  local start = worker:now()
+  local start = now()
   for i = 1,100000 do
     table.insert(t, ctor(1,3))
   end
   t = nil
   collectgarbage()
   collectgarbage()
-  return worker:now() - start
+  return now() - start
 end
 
 local function runGcTest(ctor, fmt)
@@ -169,7 +169,7 @@ function should.destroyFromCpp()
   -- Destructor called in C++
   assertEqual("Pen 'Arty' is dying...", o.message)
   -- Object is dead in Lua
-  assertError('lua_memory_test.lua:[0-9]+: mem.Pen.name: using deleted mem.Pen', function()
+  assertError('lua_memory_test.lua:[0-9]+: name: using deleted mem.Pen', function()
     p:name()
   end)
 end

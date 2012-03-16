@@ -172,11 +172,11 @@ local function createMany(ctor)
   local Noisy = Car.Noisy
   local t = {}
   collectgarbage('stop')
-  local start = worker:now()
+  local start = now()
   for i = 1,100000 do
     table.insert(t, ctor('simple string', Noisy))
   end
-  local elapsed = worker:now() - start
+  local elapsed = now() - start
   t = nil
   collectgarbage('collect')
   return elapsed

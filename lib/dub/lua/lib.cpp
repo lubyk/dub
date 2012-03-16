@@ -71,7 +71,6 @@ extern "C" int luaopen_{{self.options.luaopen or lib_name}}(lua_State *L) {
   luaopen_{{self:openName(class)}}(L);
 {% end %}
 
-{% if lib.has_constants or #lib.functions_list > 0 then %}
   // Create the table which will contain all the constants
   lua_getfield(L, LUA_GLOBALSINDEX, "{{lib_name}}");
   if (lua_isnil(L, -1)) {
@@ -86,7 +85,6 @@ extern "C" int luaopen_{{self.options.luaopen or lib_name}}(lua_State *L) {
     // <lib>
   }
   // <lib>
-{% end %}
 {% if lib.has_constants then %}
   // register global constants
   dub_register_const(L, {{lib_name}}_const);
