@@ -26,6 +26,8 @@
   * Binding all classes now works inside a namespace.
   * Added support for custom bindings with default values.
   * Added @dub bind: false option to not create bindings.
+  * Added @dub destructor: false option to not destroy from lua.
+  * @dub ignore can be used to ignore attributes.
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua

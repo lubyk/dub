@@ -915,7 +915,11 @@ function private:pushValue(method, value, return_value)
     -- native type
     res = format('lua_push%s(L, %s);', lua.type, value)
   end
-  return res .. '\nreturn 1;'
+  if string.match(res, '^return ') then
+    return res
+  else
+    return res .. '\nreturn 1;'
+  end
 end
 
 function private:copyDubFiles()

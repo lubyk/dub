@@ -6,16 +6,20 @@
 #define MAX_DIM 3
 
 /** This class is used to test:
- *   * accessing public members
+ *   * accessing public attributes
  *   * return value optimization
  *   * basic memory leakage
  *   * operator overloading
  *   * C array attributes
  *   * unamed and void parameters
+ *   * ignore attributes
+ *
+ * @dub ignore: z
  */
 struct Vect {
   double x;
   double y;
+  double z;
 
   double d[MAX_DIM];
 

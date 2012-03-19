@@ -600,7 +600,8 @@ end
 function parse:variable(elem, header)
   local name = elem:find('name')[1]
   local definition = elem:find('definition')[1]
-  if string.match(definition, '@') then
+  if string.match(definition, '@') or
+     self.ignore[name] then
     -- ignore
     return nil
   end
@@ -913,7 +914,9 @@ end
 
 -- self == class
 function private:makeDestructor()
-  if self.cache['~' .. self.name] or self.dub.destroy == 'free' then
+  if self.cache['~' .. self.name]  or
+     self.ignore['~' .. self.name] or
+     self.dub.destroy == 'free' then
     -- Destructor not needed.
     return
   end

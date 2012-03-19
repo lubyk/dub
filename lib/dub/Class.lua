@@ -144,11 +144,15 @@ function lib:setOpt(opt)
       [self.ignore] = true,
     }
   end
+
   if type(self.dub.super) == 'string' then
     self.dub.super = { self.dub.super }
   end
+
   local dtor = self.dub.destructor
-  if dtor then
+  if dtor == false then
+    self.ignore['~'..self.name] = true
+  elseif dtor then
     self.ignore[dtor] = true
   end
 end

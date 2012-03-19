@@ -89,6 +89,8 @@ function should.bindCompileAndLoad()
         base .. '/tmp/mem_Owner.cpp',
         base .. '/tmp/mem_PrivateDtor.cpp',
         base .. '/tmp/mem_CustomDtor.cpp',
+        base .. '/tmp/mem_NoDtor.cpp',
+        base .. '/tmp/mem_NoDtorCleaner.cpp',
         base .. '/fixtures/memory/owner.cpp',
         base .. '/tmp/mem.cpp',
       },
@@ -201,6 +203,29 @@ function should.useCustomDtor()
   collectgarbage('collect')
   collectgarbage('collect')
   assertTrue(t)
+end
+
+--=============================================== No dtor
+
+function should.notUseDtor()
+  local d = mem.NoDtor('Hulk')
+  local cleaner = mem.NoDtorCleaner(d)
+  local t
+  -- When d is deleted, it calls cleaner->deleted which
+  -- calls this callback.
+  function cleaner:callback(s)
+    t = s
+  end
+  assertNil(t)
+  d = nil
+  collectgarbage('collect')
+  collectgarbage('collect')
+  -- Callback not called: d is not deleted
+  assertNil(t)
+  -- Explicitely delete attached NoDtor.
+  cleaner:cleanup()
+  -- Callback called: d is deleted
+  assertEqual('Hulk', t)
 end
 
 test.all()

@@ -124,6 +124,26 @@ function should.ignoreDtor()
   }, res)
 end
 
+--=============================================== No dtor
+
+local NoDtor = ins:find('NoDtor')
+
+function should.parseNoDtorDub()
+  assertEqual(false, NoDtor.dub.destructor)
+end
+
+function should.ignoreFalseDtor()
+  local res = {}
+  for m in NoDtor:methods() do
+    table.insert(res, m.name)
+  end
+
+  assertValueEqual({
+    'NoDtor',
+    -- No '~NoDtor'
+  }, res)
+end
+
 test.all()
 
 
