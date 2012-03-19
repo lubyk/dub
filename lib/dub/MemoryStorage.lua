@@ -113,6 +113,8 @@ function lib:functions(parent)
           seen[elem.name] = true
           return elem
         end
+      elseif not ok then
+        print(elem, debug.traceback(co))
       else
         return nil
       end
@@ -129,6 +131,8 @@ function lib:variables(parent)
     local ok, elem = coroutine.resume(co, parent, 'variables_list')
     if ok then
       return elem
+    else
+      print(elem, debug.traceback(co))
     end
   end
 end
@@ -176,6 +180,8 @@ function lib:headers(classes)
     local ok, elem = coroutine.resume(co)
     if ok then
       return elem
+    else
+      print(elem, debug.traceback(co))
     end
   end
 end
@@ -190,6 +196,8 @@ function lib:children(parent)
     local ok, elem = coroutine.resume(co, parent.sorted_cache)
     if ok then
       return elem
+    else
+      print(elem, debug.traceback(co))
     end
   end
 end
@@ -199,11 +207,13 @@ function lib:superclasses(parent)
   -- make sure we have parsed the headers
   private.parseHeaders(self)
   private.parseHeaders(parent)
-  local co = co or coroutine.create(private.superIterator)
+  local co = coroutine.create(private.superIterator)
   return function()
     local ok, elem = coroutine.resume(co, self, parent)
     if ok then
       return elem
+    else
+      print(elem, debug.traceback(co))
     end
   end
 end
@@ -217,11 +227,13 @@ function lib:constants(parent)
   else
     parent = self
   end
-  local co = co or coroutine.create(private.iterator)
+  local co = coroutine.create(private.iterator)
   return function()
     local ok, elem = coroutine.resume(co, parent.constants_list)
     if ok then
       return elem
+    else
+      print(elem, debug.traceback(co))
     end
   end
 end
@@ -235,6 +247,8 @@ function lib:namespaces()
     local ok, elem = coroutine.resume(co, self.namespaces_list)
     if ok then
       return elem
+    else
+      print(elem, debug.traceback(co))
     end
   end
 end
@@ -327,27 +341,34 @@ function private.iteratorWithSuper(elem, key)
 end
 
 -- Iterate superclass hierarchy.
-function private:superIterator(base)
+function private:superIterator(base, seen)
+  -- Only iterate over a parent once
+  local seen = seen or {}
   for _, name in ipairs(base.super_list) do
+    local class
     local super = self:resolveType(base.parent or self, name)
     if not super then
       -- Yield an empty class that can be used for casting
-      coroutine.yield(dub.Class {
+      class = dub.Class {
         name = name,
         parent = base.parent,
         create_name = name .. ' *',
         db = self,
-      })
+      }
     else
-      if super then
-        private.superIterator(self, super)
-        coroutine.yield(super)
-      end
+      class = super
+    end
+    local fullname = class:fullname()
+    if not seen[fullname] then
+      seen[fullname] = true
+      private.superIterator(self, class)
+      coroutine.yield(class)
     end
   end
+
   -- Find pseudo parents
   if base.dub.super then
-    private.superIterator(self, {super_list = base.dub.super, dub = {}})
+    private.superIterator(self, {super_list = base.dub.super, dub = {}}, seen)
   end
 end
 
@@ -1194,6 +1215,8 @@ function private:allGlobalFunctions()
     local ok, elem = coroutine.resume(co, scopes, 'functions_list')
     if ok then
       return elem
+    else
+      print(elem, debug.traceback(co))
     end
   end
 end

@@ -24,6 +24,8 @@
   * Added 'attr_name_filter' to rename attributes.
   * Removed 'yaml' dependency and changed @dub options format.
   * Binding all classes now works inside a namespace.
+  * Added support for custom bindings with default values.
+  * Added @dub bind: false option to not create bindings.
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua

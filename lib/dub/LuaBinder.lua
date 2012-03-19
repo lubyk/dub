@@ -213,7 +213,7 @@ end
 
 function lib:addCustomTypes(list)
   for k, v in pairs(list) do
-    if not v.type then
+    if type(v) == 'table' and not v.type then
       v.type = k
     end
     self.TYPE_TO_CHECK[k] = v
@@ -310,7 +310,7 @@ function lib:functionBody(parent, method)
         res = res .. 'int top__ = lua_gettop(L);\n'
       end
       res = res .. private.expandTree(self, tree, parent, param_delta, '')
-    elseif not custom and method.has_defaults then
+    elseif method.has_defaults then
       res = res .. 'int top__ = lua_gettop(L);\n'
       local last, first = #method.params_list, method.first_default - 1
       for i=last, first, -1 do
@@ -322,7 +322,7 @@ function lib:functionBody(parent, method)
         else
           res = res .. format('if (top__ >= %i) {\n', param_delta + i)
         end
-        res = res .. '  ' .. private.callWithParams(self, parent, method, param_delta, '  ', nil, i) .. '\n'
+        res = res .. '  ' .. private.callWithParams(self, parent, method, param_delta, '  ', custom and custom['arg'..i], i) .. '\n'
       end
       res = res .. '}'
     else
@@ -1137,7 +1137,7 @@ end
 function private:bindAll(parent, bound, ignore)
   for elem in parent:children() do
     if elem.type == 'dub.Class' then
-      if not ignore[elem.name] then
+      if not ignore[elem.name] and not (elem.dub.bind == false) then
         table.insert(bound, elem)
         private.bindElem(self, elem, options)
       end
@@ -1156,6 +1156,7 @@ function private:bindElem(elem, options)
   end
 end
 
+local strip = lk.strip
 function private:parseCustomBindings(custom)
   if type(custom) == 'string' then
     -- This is a directory. Build table.
@@ -1167,14 +1168,14 @@ function private:parseCustomBindings(custom)
       local lua = yaml.loadpath(yaml_file).lua
       for _, group in pairs(lua) do
         -- attributes, methods
-        for name, body in pairs(group) do
+        for name, value in pairs(group) do
           -- each attribute or method
-          if type(body) == 'string' then
+          if type(value) == 'string' then
             -- strip last newline
-            group[name] = {body = string.sub(body, 1, -2)}
+            group[name] = {body = strip(value)}
           else
-            for k, v in pairs(body) do
-              body[k] = string.sub(v, 1, -2)
+            for k, v in pairs(value) do
+              value[k] = strip(v)
             end
           end
         end

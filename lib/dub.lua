@@ -31,13 +31,21 @@ end
 -- Find the minimal modulo value for the list of keys to
 -- avoid collisions.
 function dub.minHash(list_or_obj, func)
-  local list
+  local list = {}
   if not func then
-    list = list_or_obj
+    for _, name in ipairs(list_or_obj) do
+      if not list[name] then
+        list[name] = true
+        table.insert(list, name)
+      end
+    end
   else
     list = {}
     for name in func(list_or_obj) do
-      table.insert(list, name)
+      if not list[name] then
+        list[name] = true
+        table.insert(list, name)
+      end
     end
   end
   local list_sz = #list
@@ -45,6 +53,7 @@ function dub.minHash(list_or_obj, func)
     -- This is an error.
     return nil
   end
+
   local sz = 1
   while true do
     sz = sz + 1

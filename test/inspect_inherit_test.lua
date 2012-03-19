@@ -72,6 +72,7 @@ function should.listSuperMethods()
     'name',
     'computeAge',
     'position',
+    'addToX',
   }, res)
 end
 

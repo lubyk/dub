@@ -144,6 +144,9 @@ function lib:setOpt(opt)
       [self.ignore] = true,
     }
   end
+  if type(self.dub.super) == 'string' then
+    self.dub.super = { self.dub.super }
+  end
   local dtor = self.dub.destructor
   if dtor then
     self.ignore[dtor] = true

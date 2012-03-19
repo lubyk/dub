@@ -8,4 +8,7 @@ class ChildHelper {
 public:
   // Special method with multiple return values.
   LuaStackSize position();
+
+  // Custom bindings with default values.
+  double addToX(double n=4);
 };

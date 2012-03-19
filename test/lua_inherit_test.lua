@@ -16,9 +16,11 @@ require 'lubyk'
 local should = test.Suite('dub.LuaBinder - inherit')
 local binder = dub.LuaBinder()
 
+local base = lk.dir()
+
 local ins = dub.Inspector {
-  INPUT    = 'test/fixtures/inherit',
-  doc_dir  = lk.dir() .. '/tmp',
+  INPUT    = base .. '/fixtures/inherit',
+  doc_dir  = base .. '/tmp',
 }
 
 --=============================================== Set/Get vars.
@@ -57,14 +59,14 @@ function should.notBindSuperStaticMethods()
 end
 
 function should.bindCompileAndLoad()
+  local tmp_path = base .. '/tmp'
   -- create tmp directory
-  local tmp_path = lk.dir() .. '/tmp'
   lk.rmTree(tmp_path, true)
   os.execute('mkdir -p '..tmp_path)
 
   binder:bind(ins, {
-    output_directory = tmp_path,
-    custom_bindings = 'test/fixtures/inherit',
+    output_directory = base .. '/tmp',
+    custom_bindings  = base .. '/fixtures/inherit',
     extra_headers = {
       Child = {
         "../inherit_hidden/Mother.h",
@@ -78,41 +80,41 @@ function should.bindCompileAndLoad()
     -- Build Child.so
     --
     binder:build {
-      output   = 'test/tmp/Child.so',
+      output   = base .. '/tmp/Child.so',
       inputs   = {
-        'test/tmp/dub/dub.cpp',
-        'test/tmp/Child.cpp',
-        'test/fixtures/inherit/child.cpp',
+        base .. '/tmp/dub/dub.cpp',
+        base .. '/tmp/Child.cpp',
+        base .. '/fixtures/inherit/child.cpp',
       },
       includes = {
-        'test/tmp',
-        'test/fixtures/inherit',
+        base .. '/tmp',
+        base .. '/fixtures/inherit',
       },
     }
 
     -- Build Parent.so
     binder:build {
-      output   = 'test/tmp/Parent.so',
+      output   = base .. '/tmp/Parent.so',
       inputs   = {
-        'test/tmp/dub/dub.cpp',
-        'test/tmp/Parent.cpp',
+        base .. '/tmp/dub/dub.cpp',
+        base .. '/tmp/Parent.cpp',
       },
       includes = {
-        'test/tmp',
-        'test/fixtures/inherit',
+        base .. '/tmp',
+        base .. '/fixtures/inherit',
       },
     }
 
     -- Build Orphan.so
     binder:build {
-      output   = 'test/tmp/Orphan.so',
+      output   = base .. '/tmp/Orphan.so',
       inputs   = {
-        'test/tmp/dub/dub.cpp',
-        'test/tmp/Orphan.cpp',
+        base .. '/tmp/dub/dub.cpp',
+        base .. '/tmp/Orphan.cpp',
       },
       includes = {
-        'test/tmp',
-        'test/fixtures/inherit',
+        base .. '/tmp',
+        base .. '/fixtures/inherit',
       },
     }
 
@@ -180,6 +182,12 @@ function should.useCustomBindings()
   local x, y = c:position()
   assertEqual(1.23, x)
   assertEqual(2.34, y)
+end
+
+function should.useCustomBindingsWithDefaultValue()
+  local c = Child('Romulus', Parent.Depends, -771, 1.23, 2.34)
+  assertEqual(5.23, c:addToX())
+  assertEqual(2.23, c:addToX(1))
 end
 
 test.all()

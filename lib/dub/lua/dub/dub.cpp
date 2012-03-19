@@ -205,8 +205,8 @@ void Thread::pushobject(lua_State *L, void *ptr, const char *tname, bool gc) {
   // L:     <self>
 }
 
-bool Thread::dub_pushcallback(const char *name) {
-  lua_State *L = dub_L;
+bool Thread::dub_pushcallback(const char *name) const {
+  lua_State *L = const_cast<lua_State *>(dub_L);
   lua_getfield(L, 1, name);
   if (lua_isnil(L, -1)) {
     lua_pop(L, 1);
@@ -218,12 +218,14 @@ bool Thread::dub_pushcallback(const char *name) {
   }
 }
 
-void Thread::dub_pushvalue(const char *name) {
-  lua_getfield(dub_L, 1, name);
+void Thread::dub_pushvalue(const char *name) const {
+  lua_State *L = const_cast<lua_State *>(dub_L);
+  lua_getfield(L, 1, name);
 }
 
-bool Thread::dub_call(int param_count, int retval_count) {
-  int status = lua_pcall(dub_L, param_count, retval_count, 2);
+bool Thread::dub_call(int param_count, int retval_count) const {
+  lua_State *L = const_cast<lua_State *>(dub_L);
+  int status = lua_pcall(L, param_count, retval_count, 2);
   if (status) {
     if (status == LUA_ERRRUN) {
       // failure properly handled by the error handler
