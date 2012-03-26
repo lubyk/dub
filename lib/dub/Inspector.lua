@@ -11,6 +11,10 @@
 local lib     = {
   type = 'dub.Inspector',
   DOXYGEN_CMD = 'doxygen',
+  DOXYGEN_CMD = {
+    macosx = '/Applications/Doxygen.app/Contents/Resources/doxygen',
+    linux  = 'doxygen',
+  }
 }
 local private = {}
 lib.__index   = lib
@@ -94,7 +98,7 @@ function lib:parse(opts)
 end
 
 function lib:doxygen(doxyfile)
-  private.execute(self.DOXYGEN_CMD .. ' ' .. doxyfile)
+  private.execute(self.DOXYGEN_CMD[Lubyk.plat] .. ' ' .. doxyfile)
 end
 
 -- A class in a namespace is queried with 'std::string'.

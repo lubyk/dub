@@ -422,6 +422,10 @@ function parse:header(header, not_lazy)
       parent = self,
       db     = self.db or self,
     }
+    if string.match(namespace.name, '::') then
+      -- Ignore: nested namespaces not supported now.
+      return
+    end
     if self.cache[namespace.name] then
       -- do not add again
       self = self.cache[namespace.name]
@@ -478,6 +482,12 @@ function parse:innernamespace(elem, header)
   if self.cache[name] then
     return nil
   end
+
+  if self.type ~= 'dub.MemoryStorage' or
+   string.match(name, '::') then
+    -- Ignore nested namespaces for now.
+    return
+  end
   local namespace = dub.Namespace {
     name   = name,
     parent = self,
@@ -500,7 +510,9 @@ function parse:innerclass(elem, header, not_lazy)
     for i, part in ipairs(parts) do
       local child = parent.cache[part]
       if not child then
-        assert(false, "Could not find parent '"..part.."' in '"..parent:fullname().."'.")
+        -- Ignore: this can be due to nested namespaces.
+        return nil
+        --assert(false, "Could not find parent '"..part.."' in '"..parent:fullname().."'.")
       end
       parent = child
     end
