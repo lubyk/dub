@@ -7,6 +7,8 @@ The generator uses the xml output from Doxygen to avoid parsing C++ code by itse
 
 Homepage: [lubyk/dub](http://lubyk.org/en/project311.html)
 
+Please donate so we can free up some time to write good documentation...
+
 [![Click here to lend your support to: Doxygen based Lua binder (Dub) and make a donation at www.pledgie.com !](https://www.pledgie.com/campaigns/17041.png?skin_name=chrome)](http://www.pledgie.com/campaigns/17041)
 
 
