@@ -28,7 +28,8 @@
   * Added @dub bind: false option to not create bindings.
   * Added @dub destructor: false option to not destroy from lua.
   * @dub ignore can be used to ignore attributes.
-  * Ignoring nested namespaces instead of crash.
+  * Warn on nested namespaces instead of crash.
+  * Better handling of unknown (opaque) types.
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua

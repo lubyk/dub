@@ -11,12 +11,23 @@ require 'lubyk'
 local should = test.Suite('dub.Inspector - namespace')
 
 local base = lk.dir()
-local ins  = dub.Inspector {
-  INPUT    = base .. '/fixtures/namespace',
-  doc_dir  = base .. '/tmp',
-  keep_xml = true,
-}
+local ins
 
+function should.setup()
+  dub.warn = function() end
+  if not ins then
+    ins = dub.Inspector {
+      INPUT    = {
+        base .. '/fixtures/namespace',
+      },
+      doc_dir  = base .. '/tmp',
+    }
+  end
+end
+
+function should.teardown()
+  dub.warn = dub.warn_method
+end
 --=============================================== TESTS
               
 function should.findNamespace()

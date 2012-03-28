@@ -23,6 +23,14 @@ local ins = dub.Inspector {
   doc_dir  = base .. '/tmp',
 }
 
+function should.setup()
+  dub.warn = function() end
+end
+
+function should.teardown()
+  dub.warn = dub.warn_method
+end
+
 --=============================================== Set/Get vars.
 function should.bindSetMethodWithSuperAttrs()
   -- __newindex for simple (native) types
@@ -58,6 +66,19 @@ function should.notBindSuperStaticMethods()
   assertNotMatch('getName', res)
 end
 
+--=============================================== Unknown type
+
+function should.properlyBindUnknownTypes()
+  local Child = ins:find('Child')
+  local met = Child:method('methodWithUnknown')
+  local res = binder:functionBody(Child, met)
+  assertMatch('Unk1 %*x = %*%(%(Unk1 %*%*%)dub_checksdata%(L, 2, "Unk1"%)%);', res)
+  assertMatch('Unk2 %*y = %*%(%(Unk2 %*%*%)dub_checksdata%(L, 3, "Unk2"%)%);', res)
+  assertMatch('methodWithUnknown%(%*x, y%)', res)
+end
+
+--=============================================== Compile
+
 function should.bindCompileAndLoad()
   local tmp_path = base .. '/tmp'
   -- create tmp directory
@@ -73,8 +94,8 @@ function should.bindCompileAndLoad()
       }
     }
   })
+
   local cpath_bak = package.cpath
-  local dub_cpp = tmp_path .. '/dub/dub.cpp'
   local s
   assertPass(function()
     -- Build Child.so
@@ -188,6 +209,17 @@ function should.useCustomBindingsWithDefaultValue()
   local c = Child('Romulus', Parent.Depends, -771, 1.23, 2.34)
   assertEqual(5.23, c:addToX())
   assertEqual(2.23, c:addToX(1))
+end
+
+--=============================================== Unknown types
+
+function should.useUnknownTypes()
+  local w = dub.warn
+  dub.warn = function() end
+    local c = Child('Romulus', Parent.Depends, -771, 1.23, 2.34)
+    local f, b = c:returnUnk1(4), c:returnUnk2(5)
+  dub.warn = w
+  assertEqual(9, c:methodWithUnknown(f, b))
 end
 
 test.all()

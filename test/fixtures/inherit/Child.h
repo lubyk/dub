@@ -13,6 +13,7 @@ class Mother;
  *   * attribute inheritance
  *   * method inheritance
  *   * custom bindings
+ *   * unknown types
  * 
  * Since Doxygen does not know that Mother is a Parent, we tell this. We also
  * use 'mixin' of custom bindings from ChildHelper.
@@ -35,6 +36,25 @@ public:
   double y() {
     return pos_y_;
   }
+
+  /** Unknown Unk1 type.
+   */
+  Unk1 returnUnk1(double value) {
+    return Unk1(value);
+  }
+
+  /** Unknown Unk2 type.
+   */
+  Unk2 returnUnk2(double value) {
+    return Unk2(value);
+  }
+
+  /** Unknown arguments.
+   */
+  double methodWithUnknown(Unk1 x, Unk2 *y) {
+    return x.value() + y->value();
+  }
+    
 
   /** Should not inherit overloaded/virtuals twice.
    */

@@ -341,9 +341,15 @@ void dub_pushudata(lua_State *L, void *ptr, const char *tname, bool gc) {
   userdata->gc = gc;
 
   // the userdata is now on top of the stack
+  luaL_getmetatable(L, tname);
+  if (lua_isnil(L, -1)) {
+    lua_pop(L, 1);
+    // create empty metatable on the fly for opaque types.
+    luaL_newmetatable(L, tname);
+  }
+  // <udata> <mt>
 
   // set metatable (contains methods)
-  luaL_getmetatable(L, tname);
   lua_setmetatable(L, -2);
 }
 

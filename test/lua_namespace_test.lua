@@ -15,12 +15,23 @@ local should = test.Suite('dub.LuaBinder - namespace')
 local binder = dub.LuaBinder()
 
 local base = lk.dir()
-local ins = dub.Inspector {
-  INPUT    = {
-    base .. '/fixtures/namespace',
-  },
-  doc_dir  = base .. '/tmp',
-}
+local ins
+
+function should.setup()
+  dub.warn = function() end
+  if not ins then
+    ins = dub.Inspector {
+      INPUT    = {
+        base .. '/fixtures/namespace',
+      },
+      doc_dir  = base .. '/tmp',
+    }
+  end
+end
+
+function should.teardown()
+  dub.warn = dub.warn_method
+end
 
 --=============================================== bindings
 

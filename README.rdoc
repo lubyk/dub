@@ -1,3 +1,5 @@
+<a href='http://www.pledgie.com/campaigns/17041'><img alt='Click here to lend your support to: Doxygen based Lua binder (Dub) and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/17041.png?skin_name=chrome' border='0' /></a>
+
 = Dub (Doxygen based Ubiquitous Binder)
 
 This is a tool to ease the creation of scripting language bindings for a C++ library.

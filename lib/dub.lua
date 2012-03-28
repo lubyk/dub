@@ -71,3 +71,12 @@ function dub.minHash(list_or_obj, func)
   end
 end
 
+local shown_warnings = {}
+function dub.warn(fmt, ...)
+  local msg = string.format(fmt, ...)
+  if not shown_warnings[msg] then
+    print('warning:', msg)
+    shown_warnings[msg] = true
+  end
+end
+dub.warn_method = dub.warn

@@ -305,34 +305,20 @@ void **dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt = 
 #define luaL_checkboolean(L,n) (lua_toboolean(L,n))
 #define dub_checkboolean(L,n) (lua_toboolean(L,n))
 
-
-
-
-// ======================================================================
-// =============================================== dub_error
-// ======================================================================
 // This calls lua_Error after preparing the error message with line
 // and number.
 int dub_error(lua_State *L);
 
-
-
-// ======================================================================
-// =============================================== dub_protect
-// ======================================================================
 /** Protect garbage collection from pointers stored in objects or
  * retrieved in userdata copies.
  */
 void dub_protect(lua_State *L, int owner, int original, const char *key);
 
-// ======================================================================
-// =============================================== dub_register
-// ======================================================================
+/** Register a class inside a library, creating empty tables as
+ * needed.
+ */
 void dub_register(lua_State *L, const char *libname, const char *class_name);
 
-// ======================================================================
-// =============================================== dub_hash
-// ======================================================================
 // sdbm function: taken from http://www.cse.yorku.ca/~oz/hash.html
 // This version is slightly adapted to cope with different
 // hash sizes (and to be easy to write in Lua).

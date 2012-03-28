@@ -21,22 +21,23 @@ local lib     = {
     int        = 'number',
   },
   TYPE_TO_CHECK = {
-    double     = 'number',
-    float      = 'number',
-    size_t     = 'int',
-    int        = 'int',
-    uint       = 'int',
-    uint8      = 'int',
-    uint16     = 'int',
-    uint32     = 'int',
-    int8_t     = 'int',
-    int16_t    = 'int',
-    int32_t    = 'int',
-    uint8_t    = 'int',
-    uint16_t   = 'int',
-    uint32_t   = 'int',
-    char       = 'int',
-    short      = 'int',
+    double       = 'number',
+    float        = 'number',
+    size_t       = 'int',
+    int          = 'int',
+    uint         = 'int',
+    uint8        = 'int',
+    uint16       = 'int',
+    uint32       = 'int',
+    int8_t       = 'int',
+    int16_t      = 'int',
+    int32_t      = 'int',
+    uint8_t      = 'int',
+    uint16_t     = 'int',
+    uint32_t     = 'int',
+    char         = 'int',
+    short        = 'int',
+    LuaStackSize = 'int',
     ['unsigned char']  = 'int',
     ['signed int']     = 'int',
     ['unsigned int']   = 'int',
@@ -576,26 +577,9 @@ function lib:libName(elem)
 end
 
 function lib:luaType(parent, ctype)
-  local rtype  = parent.db:resolveType(parent, ctype.name) or ctype
-  local check
-  if ctype.ptr then
-    check = self.TYPE_TO_CHECK[rtype.name..' *']
-  else
-    check = self.TYPE_TO_CHECK[rtype.name] or self.TYPE_TO_CHECK[rtype.name]
-  end
-  if check then
-    if type(check) == 'table' then
-      check.rtype = check
-      return check
-    else
-      return {
-        type  = self.CHECK_TO_NATIVE[check] or check,
-        check = check,
-        -- Resolved type
-        rtype = rtype,
-      }
-    end
-  else
+  local rtype = parent.db:resolveType(parent, ctype.name)
+
+  if rtype and rtype.type == 'dub.Class' then
     -- userdata
     local mt_name = self:libName(rtype)
     return {
@@ -604,6 +588,45 @@ function lib:luaType(parent, ctype)
       rtype   = rtype,
       mt_name = mt_name,
     }
+  else
+    -- If the database cannot resolve type, use provided ctype.
+    rtype = rtype or ctype
+
+    -- Is it a native lua type ?
+    local check
+    if ctype.ptr then
+      check = self.TYPE_TO_CHECK[rtype.name..' *']
+    else
+      check = self.TYPE_TO_CHECK[rtype.name]
+    end
+    if check then
+      if type(check) == 'table' then
+        check.rtype = check
+        return check
+      else
+        return {
+          type  = self.CHECK_TO_NATIVE[check] or check,
+          check = check,
+          -- Resolved type
+          rtype = rtype,
+        }
+      end
+    else
+      -- Not a native type and not known to the db: treat as 
+      -- an unknown userdata type.
+      local mt_name = self:libName(ctype)
+      if mt_name ~= 'void' and mt_name ~= 'lua_State' then
+        dub.warn("Using unknown type '%s'.", mt_name)
+      end
+      -- Cache userdata type
+      ctype.rtype = ctype.rtype or {
+        type = 'userdata',
+        -- Resolved type
+        rtype   = private.makeType(ctype.name .. ' *'),
+        mt_name = mt_name,
+      }
+      return ctype.rtype
+    end
   end
 end
 
@@ -1034,7 +1057,7 @@ function private:switch(class, method, delta, bfunc, iterator)
   -- get key
   local param = {
     name     = 'key',
-    ctype    = dub.MemoryStorage.makeType('const char *'),
+    ctype    = private.makeType('const char *'),
     position = 1,
   }
   param.lua = self:luaType(class, param.ctype)
@@ -1415,7 +1438,7 @@ function private:expandClass(class)
           name   = name,
           parent = class,
           -- dummy type
-          ctype = dub.MemoryStorage.makeType('void'),
+          ctype = private.makeType('void'),
         }
         table.insert(list, attr)
         cache[name] = attr
@@ -1424,3 +1447,5 @@ function private:expandClass(class)
   end
   dub.MemoryStorage.makeSpecialMethods(class, self.custom_bindings)
 end
+
+private.makeType = dub.MemoryStorage.makeType
