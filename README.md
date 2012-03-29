@@ -56,46 +56,46 @@ Currently, the parser supports:
 Create an inspector that will inspect a list of headers given by 'INPUT' (a list
 of files and directories. You need to have Doxygen installed
 
-  local ins = dub.Inspector {
-    INPUT    = 'foo/include',
-    -- optional
-    DOXYGEN_CMD = 'path/to/doxygen',
-  }
+    local ins = dub.Inspector {
+      INPUT    = 'foo/include',
+      -- optional
+      DOXYGEN_CMD = 'path/to/doxygen',
+    }
   
 Create bindings:
 
-  local binder = dub.LuaBinder()
-
-  binder:bind(ins, {
-    output_directory = 'tmp',
-  })
+    local binder = dub.LuaBinder()
+  
+    binder:bind(ins, {
+      output_directory = 'tmp',
+    })
     
 You should now have a 'cpp' file for each class in tmp.
 
 Example to build a class called 'Vect':
 
-  binder:build {
-    work_dir = '.',
-    output   = 'tmp/Vect.so',
-    inputs   = {
-      'tmp/dub/dub.cpp',
-      'tmp/Vect.cpp',
-      'fixtures/pointers/vect.cpp',
-    },
-    includes = {
-      'tmp',
-      'foo/include',
-    },
-  }     
+    binder:build {
+      work_dir = '.',
+      output   = 'tmp/Vect.so',
+      inputs   = {
+        'tmp/dub/dub.cpp',
+        'tmp/Vect.cpp',
+        'fixtures/pointers/vect.cpp',
+      },
+      includes = {
+        'tmp',
+        'foo/include',
+      },
+    }     
 
 You can now use your class:
 
-  package.cpath = package.cpath .. 'tmp/?.so;'
-  require 'Vect'
-  local v = Vect(1,3)
-  v.x = 4
-  print(v.x)
-  -- etc
+    package.cpath = package.cpath .. 'tmp/?.so;'
+    require 'Vect'
+    local v = Vect(1,3)
+    v.x = 4
+    print(v.x)
+    -- etc
 
 Please read the tests for more detail until the documentation is updated.
 
@@ -105,33 +105,33 @@ The bindings are made to look as close as possible to the C++ versions. This mea
 
 Lua bindings usage examples:
 
-  -- Create a Car instance, Car.Noisy is a constant defined in a C++ enum.
-  local car = Car('my car', Car.Noisy)
-
-  -- Execute the C++ 'brandName' method.
-  print(car:brandName())
-
-  -- Set the name of the car (public C++ attribute, a std::string here).
-  car.name = 'my old car'
-
-  -- Get the std::string name
-  print(car.name)
-
-  -- You can store \0 in strings
-  car.name = 'my old car\0which I did not like'
-
-  -- Create a vector
-  local v1 = Vect(1,2)
-  local v2 = Vect(4,5)
-
-  -- Calls the overloaded operator+(). This is return value optimized to allocate a single Vect.
-  local v3 = v1 + v2
-
-  -- operator*(double d)
-  v3 = v1 * 4
-
-  -- cross product
-  -- operator*(const Vect &v)
-  print(v3 * Vect(1,2))
+    -- Create a Car instance, Car.Noisy is a constant defined in a C++ enum.
+    local car = Car('my car', Car.Noisy)
+  
+    -- Execute the C++ 'brandName' method.
+    print(car:brandName())
+  
+    -- Set the name of the car (public C++ attribute, a std::string here).
+    car.name = 'my old car'
+  
+    -- Get the std::string name
+    print(car.name)
+  
+    -- You can store \0 in strings
+    car.name = 'my old car\0which I did not like'
+  
+    -- Create a vector
+    local v1 = Vect(1,2)
+    local v2 = Vect(4,5)
+  
+    -- Calls the overloaded operator+(). This is return value optimized to allocate a single Vect.
+    local v3 = v1 + v2
+  
+    -- operator*(double d)
+    v3 = v1 * 4
+  
+    -- cross product
+    -- operator*(const Vect &v)
+    print(v3 * Vect(1,2))
 
 
