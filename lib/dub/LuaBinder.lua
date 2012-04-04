@@ -142,7 +142,11 @@ function lib:bind(inspector, options)
   end
 
   self.output_directory = self.output_directory or options.output_directory
-  private.parseCustomBindings(self, options.custom_bindings)
+
+  if options.custom_bindings then
+    self:parseCustomBindings(options.custom_bindings)
+  end
+
   self.ins = inspector
   local bound = {}
   if options.only then
@@ -221,37 +225,34 @@ function lib:addCustomTypes(list)
   end
 end
 
-function private:callWithParams(class, method, param_delta, indent, custom, max_arg)
-  local max_arg = max_arg or #method.params_list
-  local res = ''
-  for param in method:params() do
-    if param.position > max_arg then
-      break
-    end
-    res = res .. private.getParamVar(self, method, param, param_delta)
-  end
-  if custom then
-    res = res .. custom
-    if not string.match(custom, 'return[ ]+[^ ]') then
-      res = res .. '\nreturn 0;'
-    end
-  else
-    if method.array_get or method.array_set then
-      local i_name = method.params_list[1].name
-      res = res .. format('if (!%s || %s > %s) return 0;\n', i_name, i_name, method.array_dim)
-    end
-    if method.array_set then
-      -- C array attribute set
-      local i_name = method.params_list[1].name
-      res = res .. 'self->' .. method.name .. '[' .. i_name .. '-1] = '
-      res = res .. private.paramForCall(method.params_list[2]) .. ';\n'
-      res = res .. 'return 0;'
-    else
-      local call = private.doCall(self, class, method, max_arg)
-      res = res .. private.pushReturnValue(self, class, method, call)
+local strip = lk.strip
+function lib:parseCustomBindings(custom)
+  if type(custom) == 'string' then
+    -- This is a directory. Build table.
+    local dir = lk.Dir(custom)
+    custom = {}
+    for yaml_file in dir:glob('%.yml') do
+      -- Class or global function name.
+      local elem_name = string.match(yaml_file, '([^/]+)%.yml$')
+      local lua = yaml.loadpath(yaml_file).lua
+      for _, group in pairs(lua) do
+        -- attributes, methods
+        for name, value in pairs(group) do
+          -- each attribute or method
+          if type(value) == 'string' then
+            -- strip last newline
+            group[name] = {body = strip(value)}
+          else
+            for k, v in pairs(value) do
+              value[k] = strip(v)
+            end
+          end
+        end
+      end
+      custom[elem_name] = lua
     end
   end
-  return string.gsub(res, '\n', '\n' .. indent)
+  self.custom_bindings = custom or {}
 end
 
 --- Create the body of the bindings for a given method/function.
@@ -331,6 +332,41 @@ function lib:functionBody(parent, method)
     end
   end
   return res
+end
+
+--=============================================== PRIVATE
+
+function private:callWithParams(class, method, param_delta, indent, custom, max_arg)
+  local max_arg = max_arg or #method.params_list
+  local res = ''
+  for param in method:params() do
+    if param.position > max_arg then
+      break
+    end
+    res = res .. private.getParamVar(self, method, param, param_delta)
+  end
+  if custom then
+    res = res .. custom
+    if not string.match(custom, 'return[ ]+[^ ]') then
+      res = res .. '\nreturn 0;'
+    end
+  else
+    if method.array_get or method.array_set then
+      local i_name = method.params_list[1].name
+      res = res .. format('if (!%s || %s > %s) return 0;\n', i_name, i_name, method.array_dim)
+    end
+    if method.array_set then
+      -- C array attribute set
+      local i_name = method.params_list[1].name
+      res = res .. 'self->' .. method.name .. '[' .. i_name .. '-1] = '
+      res = res .. private.paramForCall(method.params_list[2]) .. ';\n'
+      res = res .. 'return 0;'
+    else
+      local call = private.doCall(self, class, method, max_arg)
+      res = res .. private.pushReturnValue(self, class, method, call)
+    end
+  end
+  return string.gsub(res, '\n', '\n' .. indent)
 end
 
 function private:detectType(pos, type_name)
@@ -1183,36 +1219,6 @@ function private:bindElem(elem, options)
   end
 end
 
-local strip = lk.strip
-function private:parseCustomBindings(custom)
-  if type(custom) == 'string' then
-    -- This is a directory. Build table.
-    local dir = lk.Dir(custom)
-    custom = {}
-    for yaml_file in dir:glob('%.yml') do
-      -- Class or global function name.
-      local elem_name = string.match(yaml_file, '([^/]+)%.yml$')
-      local lua = yaml.loadpath(yaml_file).lua
-      for _, group in pairs(lua) do
-        -- attributes, methods
-        for name, value in pairs(group) do
-          -- each attribute or method
-          if type(value) == 'string' then
-            -- strip last newline
-            group[name] = {body = strip(value)}
-          else
-            for k, v in pairs(value) do
-              value[k] = strip(v)
-            end
-          end
-        end
-      end
-      custom[elem_name] = lua
-    end
-  end
-  self.custom_bindings = custom or {}
-end
-
 -- See lua_simple_test for the output of this tree.
 function lib:decisionTree(list)
   local res = {count = 0, map = {}}
@@ -1407,6 +1413,7 @@ local function getCustomBinding(custom_bindings, parent, key, elem)
     return custom
   end
 end
+
 -- Try to find a custom attribute binding. Search order:
 -- 1. current class  (current class being bound: can be a sub-class)
 -- 2. attr.parent    (class where the attribute/pseudo-attribute is defined)
@@ -1416,7 +1423,7 @@ end
 
 -- Try to find custom binding definitions. Search order:
 -- 1. current class   (current class being bound: can be a sub-class)
--- 2. method.parent   (class where the method is defined)
+-- 2. method.parent   (class/namespace/db where the method is defined)
 function private:customMetBinding(parent, method)
   return getCustomBinding(self.custom_bindings, parent, 'methods', method)
 end

@@ -15,15 +15,15 @@ local should = test.Suite('dub.LuaBinder - namespace')
 local binder = dub.LuaBinder()
 
 local base = lk.dir()
+binder:parseCustomBindings(base .. '/fixtures/namespace')
+
 local ins
 
 function should.setup()
   dub.warn = function() end
   if not ins then
     ins = dub.Inspector {
-      INPUT    = {
-        base .. '/fixtures/namespace',
-      },
+      INPUT    = base .. '/fixtures/namespace',
       doc_dir  = base .. '/tmp',
     }
   end
@@ -53,6 +53,16 @@ function should.bindGlobalFunction()
   assertMatch('B %*a = %*%(%(B %*%*%)dub_checksdata%(L, 1, "Nem.B"%)%);', res)
   assertMatch('B %*b = %*%(%(B %*%*%)dub_checksdata%(L, 2, "Nem.B"%)%);', res)
   assertMatch('lua_pushnumber%(L, Nem::addTwo%(%*a, %*b%)%);', res)
+end
+
+function should.useCustomBindingsForGlobal()
+  local met = ins:find('Nem::customGlobal')
+  local res = binder:functionBody(met)
+  assertMatch('float a = dub_checknumber%(L, 1%);', res)
+  assertMatch('float b = dub_checknumber%(L, 2%);', res)
+  assertMatch('lua_pushnumber%(L, a %+ b%);', res)
+  assertMatch('lua_pushstring%(L, "custom global"%);', res)
+  assertMatch('return 2;', res)
 end
 
 function should.bindGlobalFunctionNotInNamespace()
@@ -300,7 +310,17 @@ function should.callNamespaceFunction()
   local a = moo.B(1)
   local b = moo.B(2)
   assertEqual(3, moo.addTwo(a,b))
+end
+
+function should.notHaveFunctionOutOfNamespace()
   assertNil(moo.addTwoOut)
+end
+
+function should.callCustomGlobal()
+  assertValueEqual({
+    9,
+    "custom global",
+  }, {moo.customGlobal(4, 5)})
 end
 
 function should.readNamespaceConstant()

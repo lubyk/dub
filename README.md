@@ -19,6 +19,7 @@ Currently, the parser supports:
 * public methods
 * public attributes read/write
 * pseudo-attributes read/write by calling getter/setter methods.
+* custom bindings (for methods and global functions).
 * custom read/write attributes (with void *userdata helper, union handling)
 * public class methods
 * public static attributes read/write
@@ -35,7 +36,6 @@ Currently, the parser supports:
 * operator overloading (even operator[], operator() and operator+= and such)
 * return value optimization (no copy)
 * simple type garbage collection optimization (no __gc method)
-* hand made bindings for special cases
 * namespace
 * nested classes
 * class enums
@@ -45,7 +45,7 @@ Currently, the parser supports:
 * rewrite class or library names
 * native Lua table wrapping setmetatable({super = obj}, Vect)
 * callback from C++ with error handling in Lua.
-* well tested
+* fully tested
 
 # TODO
 

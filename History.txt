@@ -30,6 +30,7 @@
   * @dub ignore can be used to ignore attributes.
   * Warn on nested namespaces instead of crash.
   * Better handling of unknown (opaque) types.
+  * Added tests for custom global function bindings.
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua
