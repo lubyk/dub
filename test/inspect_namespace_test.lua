@@ -166,11 +166,13 @@ end
 function should.listNamespaceFunctions()
   local res = {}
   for func in ins.db:functions() do
-    table.insert(res, func:fullcname())
+    lk.insertSorted(res, func:fullcname())
   end
   assertValueEqual({
-    'addTwoOut',
     'Nem::addTwo',
+    'Nem::customGlobal',
+    'addTwoOut',
+    'customGlobalOut',
   }, res)
 end
 
