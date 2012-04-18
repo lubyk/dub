@@ -652,7 +652,7 @@ function lib:luaType(parent, ctype)
       -- an unknown userdata type.
       local mt_name = self:libName(ctype)
       if mt_name ~= 'void' and mt_name ~= 'lua_State' then
-        dub.warn("Using unknown type '%s'.", mt_name)
+        dub.warn("Using unknown type '%s' (parent = %s).", mt_name, parent and parent.name or '??')
       end
       -- Cache userdata type
       ctype.rtype = ctype.rtype or {

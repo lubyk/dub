@@ -128,7 +128,7 @@ function lib:setName(name)
     end
     create_name = current.name .. create_name
     current = current.parent
-    if current.type == 'dub.Namespace' then
+    if current and current.type == 'dub.Namespace' then
       break
     end
   end
