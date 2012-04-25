@@ -29,7 +29,7 @@ return 1;
   },
 }
 
-local base = lk.dir()
+local base = lk.scriptDir()
 local ins = dub.Inspector {
   INPUT   = base .. '/fixtures/simple/include',
   doc_dir = base .. '/tmp',

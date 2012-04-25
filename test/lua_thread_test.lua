@@ -19,7 +19,7 @@ local print_out
 
 local ins = dub.Inspector {
   INPUT    = 'test/fixtures/thread',
-  doc_dir  = lk.dir() .. '/tmp',
+  doc_dir  = lk.scriptDir() .. '/tmp',
 }
 
 --=============================================== Callback bindings
@@ -36,10 +36,10 @@ end
 function should.bindCompileAndLoad()
   local ins = dub.Inspector {
     INPUT    = 'test/fixtures/thread',
-    doc_dir  = lk.dir() .. '/tmp',
+    doc_dir  = lk.scriptDir() .. '/tmp',
   }
   -- create tmp directory
-  local tmp_path = lk.dir() .. '/tmp'
+  local tmp_path = lk.scriptDir() .. '/tmp'
   lk.rmTree(tmp_path, true)
   os.execute("mkdir -p "..tmp_path)
 

@@ -47,7 +47,7 @@ function should.listMethods()
 end
 
 function should.haveHeader()
-  local path = lk.absolutizePath(lk.dir() .. '/fixtures/simple/include/simple.h')
+  local path = lk.absolutizePath(lk.scriptDir() .. '/fixtures/simple/include/simple.h')
   assertEqual(path, class.header)
 end
 

@@ -12,7 +12,7 @@ local should = test.Suite('dub.Inspector - thread')
 
 local ins = dub.Inspector {
   INPUT    = 'test/fixtures/thread',
-  doc_dir  = lk.dir() .. '/tmp',
+  doc_dir  = lk.scriptDir() .. '/tmp',
   keep_xml = true,
 }
 

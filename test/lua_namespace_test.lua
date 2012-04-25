@@ -14,7 +14,7 @@ require 'lubyk'
 local should = test.Suite('dub.LuaBinder - namespace')
 local binder = dub.LuaBinder()
 
-local base = lk.dir()
+local base = lk.scriptDir()
 binder:parseCustomBindings(base .. '/fixtures/namespace')
 
 local ins

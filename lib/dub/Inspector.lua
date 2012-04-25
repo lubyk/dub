@@ -71,7 +71,7 @@ function lib:parse(opts)
     doxypath = doc_dir .. '/Doxyfile'
     local doxyfile = io.open(doxypath, 'w')
 
-    local doxytemplate = dub.Template {path = lk.dir() .. '/Doxyfile'}
+    local doxytemplate = dub.Template {path = lk.scriptDir() .. '/Doxyfile'}
     if type(opts.INPUT) == 'table' then
       opts.INPUT = lk.join(opts.INPUT, ' ')
     end

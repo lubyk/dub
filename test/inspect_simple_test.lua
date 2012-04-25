@@ -10,8 +10,8 @@
 require 'lubyk'
 local should = test.Suite('dub.Inspector - simple')
 
-local base = lk.dir()
-local tmp_path = lk.dir() .. '/tmp'
+local base = lk.scriptDir()
+local tmp_path = lk.scriptDir() .. '/tmp'
 lk.rmTree(tmp_path, true)
 os.execute('mkdir -p '..tmp_path)
 

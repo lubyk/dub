@@ -19,7 +19,7 @@ require 'lubyk'
 local should = test.Suite('dub.LuaBinder - pointers')
 local binder = dub.LuaBinder()
 
-local base = lk.dir()
+local base = lk.scriptDir()
 local ins = dub.Inspector {
   INPUT    = base .. '/fixtures/pointers',
   doc_dir  = base .. '/tmp',
@@ -205,7 +205,7 @@ function should.createLibFileWithCustomNames()
   -- need our own inspector.
   local ins = dub.Inspector {
     INPUT    = 'test/fixtures/pointers',
-    doc_dir  = lk.dir() .. '/tmp',
+    doc_dir  = lk.scriptDir() .. '/tmp',
   }
   local binder = dub.LuaBinder()
   function binder:name(elem)
@@ -284,7 +284,7 @@ function should.createLibFile()
   -- need our own inspector.
   local ins = dub.Inspector {
     INPUT    = 'test/fixtures/pointers',
-    doc_dir  = lk.dir() .. '/tmp',
+    doc_dir  = lk.scriptDir() .. '/tmp',
   }
 
   os.execute('mkdir -p ' .. tmp_path)
@@ -353,7 +353,7 @@ end
 
 function should.bindCompileAndLoad()
   -- create tmp directory
-  local tmp_path = lk.dir() .. '/tmp'
+  local tmp_path = lk.scriptDir() .. '/tmp'
   os.execute("mkdir -p "..tmp_path)
 
   binder:bind(ins, {

@@ -210,7 +210,7 @@ function lib:bindClass(class)
   private.expandClass(self, class)
   if not self.class_template then
     -- path to current file
-    local dir = lk.dir()
+    local dir = lk.scriptDir()
     self.class_template = dub.Template {path = dir .. '/lua/class.cpp'}
   end
   return self.class_template:run {class = class, self = self}
@@ -300,6 +300,7 @@ function lib:functionBody(parent, method)
     if method.has_defaults then
       -- We need arg count
     end
+
     if method.is_set_attr then
       res = res .. private.switch(self, parent, method, param_delta, private.setAttrBody, parent.attributes)
     elseif method.is_get_attr then
@@ -987,7 +988,7 @@ function private:copyDubFiles()
     local base_path = self.output_directory .. dub_path
     os.execute(format("mkdir -p '%s'", base_path))
     -- path to current file
-    local dir = lk.dir()
+    local dir = lk.scriptDir()
     local dub_dir = dir .. '/lua/dub'
     for file in lfs.dir(dub_dir) do
       local res = lk.readall(dub_dir .. '/' .. file)
@@ -1353,7 +1354,7 @@ end
 
 function private:makeLibFile(lib_name, list)
   if not self.lib_template then
-    local dir = lk.dir()
+    local dir = lk.scriptDir()
     self.lib_template = dub.Template {path = dir .. '/lua/lib.cpp'}
   end
   self.bound_classes = list

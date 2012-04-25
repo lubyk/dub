@@ -13,7 +13,7 @@ require 'lubyk'
 local should = test.Suite('dub.LuaBinder - memory')
 local binder = dub.LuaBinder()
 
-local base = lk.dir()
+local base = lk.scriptDir()
 local ins_opts = {
   INPUT    = base .. '/fixtures/memory',
   doc_dir  = base .. '/tmp',
@@ -63,7 +63,7 @@ end
 
 function should.bindCompileAndLoad()
   -- create tmp directory
-  local tmp_path = lk.dir() .. '/tmp'
+  local tmp_path = lk.scriptDir() .. '/tmp'
   lk.rmTree(tmp_path, true)
   os.execute("mkdir -p "..tmp_path)
 
@@ -117,14 +117,14 @@ end
 
 local function createAndDestroyMany(ctor)
   local t = {}
-  local start = now()
+  local start = elapsed()
   for i = 1,100000 do
     table.insert(t, ctor(1,3))
   end
   t = nil
   collectgarbage()
   collectgarbage()
-  return now() - start
+  return elapsed() - start
 end
 
 local function runGcTest(ctor, fmt)

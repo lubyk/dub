@@ -10,10 +10,10 @@
 require 'lubyk'
 local should = test.Suite('dub.Inspector - memory')
 
-local base = lk.dir()
+local base = lk.scriptDir()
 local ins  = dub.Inspector {
   INPUT    = base .. '/fixtures/memory',
-  doc_dir  = lk.dir() .. '/tmp',
+  doc_dir  = lk.scriptDir() .. '/tmp',
   keep_xml = true,
   PREDEFINED = {
     'SOME_FUNCTION_MACRO(x)=',

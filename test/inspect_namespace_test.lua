@@ -10,7 +10,7 @@
 require 'lubyk'
 local should = test.Suite('dub.Inspector - namespace')
 
-local base = lk.dir()
+local base = lk.scriptDir()
 local ins
 
 function should.setup()

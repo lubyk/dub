@@ -1,8 +1,8 @@
 require 'lubyk'
 
 local ins  = dub.Inspector {
-  INPUT    = lk.dir(),
-  doc_dir  = lk.dir() .. '/../doc',
+  INPUT    = lk.scriptDir(),
+  doc_dir  = lk.scriptDir() .. '/../doc',
   html     = true,
 }
 

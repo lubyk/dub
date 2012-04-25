@@ -256,7 +256,7 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>The worker should be created only once and is responsible for timing and lua locking.</para><para><simplesect kind="par"><title>Bindings info:</title><para>string_format:&apos;%f&apos; string_args:&apos;(*userdata)-&gt;<ref refid="classlubyk_1_1_worker_1a94b0ab5968283fe3dda40e8f23d6ef77" kindref="member">now()</ref>&apos; </para></simplesect>
+<para>The worker should be created only once and is responsible for timing and lua locking.</para><para><simplesect kind="par"><title>Bindings info:</title><para>string_format:&apos;%f&apos; string_args:&apos;(*userdata)-&gt;<ref refid="classlubyk_1_1_worker_1a94b0ab5968283fe3dda40e8f23d6ef77" kindref="member">elapsed()</ref>&apos; </para></simplesect>
 </para>    </detaileddescription>
     <collaborationgraph>
       <node id="2524">

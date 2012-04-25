@@ -38,7 +38,7 @@ public:
   std::string name() {
     return name_;
   }
-
+  
   /** Static method that should not be inherited.
    */
   static std::string getName(Parent *parent) {

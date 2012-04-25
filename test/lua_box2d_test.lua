@@ -11,7 +11,7 @@
 require 'lubyk'
 
 --=============================================== Only if Box2D present
-local box2d_path = lk.dir() .. '/fixtures/Box2D'
+local box2d_path = lk.scriptDir() .. '/fixtures/Box2D'
 if not lk.exist(box2d_path) then
   return
 end
@@ -25,7 +25,7 @@ local ins = dub.Inspector {
     box2d_path .. '/Box2D/Collision/Shapes',
     box2d_path .. '/Box2D/Dynamics',
   },
-  doc_dir = lk.dir() .. '/tmp',
+  doc_dir = lk.scriptDir() .. '/tmp',
 }
 local binder = dub.LuaBinder()
 
@@ -52,7 +52,7 @@ end
 
 function should.bindCompileAndLoad()
   -- create tmp directory
-  local tmp_path = lk.dir() .. '/tmp'
+  local tmp_path = lk.scriptDir() .. '/tmp'
   lk.rmTree(tmp_path, true)
   os.execute('mkdir -p ' .. tmp_path)
 

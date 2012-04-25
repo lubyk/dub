@@ -17,7 +17,7 @@ require 'lubyk'
 -- Run the test with the dub directory as current path.
 local should = test.Suite('dub.LuaBinder - constants')
 local binder = dub.LuaBinder()
-local base = lk.dir()
+local base = lk.scriptDir()
 
 local ins = dub.Inspector {
   INPUT    = base .. '/fixtures/constants',
@@ -172,11 +172,11 @@ local function createMany(ctor)
   local Noisy = Car.Noisy
   local t = {}
   collectgarbage('stop')
-  local start = now()
+  local start = elapsed()
   for i = 1,100000 do
     table.insert(t, ctor('simple string', Noisy))
   end
-  local elapsed = now() - start
+  local elapsed = elapsed() - start
   t = nil
   collectgarbage('collect')
   return elapsed

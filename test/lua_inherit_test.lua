@@ -16,7 +16,7 @@ require 'lubyk'
 local should = test.Suite('dub.LuaBinder - inherit')
 local binder = dub.LuaBinder()
 
-local base = lk.dir()
+local base = lk.scriptDir()
 
 local ins = dub.Inspector {
   INPUT    = base .. '/fixtures/inherit',

@@ -12,7 +12,7 @@ local should = test.Suite('dub.Inspector - template')
 
 local ins = dub.Inspector {
   INPUT    = 'test/fixtures/template',
-  doc_dir  = lk.dir() .. '/tmp',
+  doc_dir  = lk.scriptDir() .. '/tmp',
 }
 
 --=============================================== TESTS

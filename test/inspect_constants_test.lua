@@ -12,7 +12,7 @@ local should = test.Suite('dub.Inspector - constants')
 
 local ins  = dub.Inspector {
   INPUT    = 'test/fixtures/constants',
-  doc_dir  = lk.dir() .. '/tmp',
+  doc_dir  = lk.scriptDir() .. '/tmp',
 }
 
 local Car = ins:find('Car')

@@ -55,7 +55,6 @@ public:
     return x.value() + y->value();
   }
     
-
   /** Should not inherit overloaded/virtuals twice.
    */
   std::string name();
