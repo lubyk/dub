@@ -309,6 +309,9 @@ void **dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt = 
 // and number.
 int dub_error(lua_State *L);
 
+// This is a Lua binding called whenever we ask for obj:deleted() in Lua
+int dub_isDeleted(lua_State *L);
+
 /** Protect garbage collection from pointers stored in objects or
  * retrieved in userdata copies.
  */

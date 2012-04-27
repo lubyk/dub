@@ -174,6 +174,7 @@ function should.destroyFromCpp()
   assertError('lua_memory_test.lua:[0-9]+: name: using deleted mem.Pen', function()
     p:name()
   end)
+  assertTrue(p:deleted())
 end
 
 function should.considerAnonUnionAsMembers()

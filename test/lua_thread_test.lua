@@ -148,7 +148,7 @@ function should.useSelfErrorHandler()
     r = ...
   end
   makeCall(c, 'something')
-  assertMatch('test/lua_thread_test.lua:[0-9]+: Failure....', r)
+  assertMatch('test/lua_thread_test.lua:%d+: Failure....', r)
 end
 
 function should.printErrorIfNoErrorHandler()

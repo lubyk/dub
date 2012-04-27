@@ -630,3 +630,10 @@ void dub_register_const(lua_State *L, const dub_const_Reg*l) {
     lua_setfield(L, -2, l->name);
   }
 }
+
+// This is called whenever we ask for obj:deleted() in Lua
+int dub_isDeleted(lua_State *L) {
+  void **p = (void**)lua_touserdata(L, 1);
+  lua_pushboolean(L, p && !*p);
+  return 1;
+}
