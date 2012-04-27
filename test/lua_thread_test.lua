@@ -185,7 +185,8 @@ function should.destroyFromCpp()
   -- Destructor called in C++
   -- Object is dead in Lua
   assertError('using deleted thread.Callback', function()
-   c.name = 'foo'
+    assertTrue(c:deleted())
+    c.name = 'foo'
   end)
 end
 

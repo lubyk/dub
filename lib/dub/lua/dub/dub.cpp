@@ -437,8 +437,15 @@ static inline void **getsdata(lua_State *L, int ud, const char *tname, bool keep
       lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
       if (lua_rawequal(L, -1, -2)) {
         // same (correct) metatable
+        lua_pop(L, keep_mt ? 1 : 2);
       } else {
         p = dub_cast_ud(L, ud, tname);
+        // ... <ud> ... <ud> <mt/nil>
+        if (p && keep_mt) {
+          lua_remove(L, -2);
+        } else {
+          lua_pop(L, 2);
+        }
       }
     }
   } else if (lua_istable(L, ud)) {
@@ -454,27 +461,36 @@ static inline void **getsdata(lua_State *L, int ud, const char *tname, bool keep
     // ... <ud> ... <ud?>
     p = (void**)lua_touserdata(L, -1);
     if (p != NULL) {
+      // ... <ud> ... <ud>
       if (lua_getmetatable(L, -1)) {  /* does it have a metatable? */
+        // ... <ud> ... <ud> <mt>
         lua_getfield(L, LUA_REGISTRYINDEX, tname);  /* get correct metatable */
+        // ... <ud> ... <ud> <mt> <mt>
         if (lua_rawequal(L, -1, -2)) {
           // same (correct) metatable
           lua_remove(L, -3);
           // ... <ud> ... <mt> <mt>
+          lua_pop(L, keep_mt ? 1 : 2);
         } else {
+          lua_remove(L, -3);
+          // ... <ud> ... <mt> <mt>
           p = dub_cast_ud(L, ud, tname);
+          // ... <ud> ... <ud> <mt/nil>
+          if (p && keep_mt) {
+            lua_remove(L, -2);
+            // ... <ud> ... <mt>
+          } else {
+            lua_pop(L, 2);
+            // ... <ud> ...
+          }
         }
+      } else {
+        lua_pop(L, 1);
+        // ... <ud> ...
       }
     } else {
-      lua_pop(L, -1);
-      // ... <ud> ...
-    }
-  }
-  if (p) {
-    if (!keep_mt) {
-      lua_pop(L, 2);
-    } else {
-      // keep 1 metatable on top (needed by bindings)
       lua_pop(L, 1);
+      // ... <ud> ...
     }
   }
   return p;
@@ -634,6 +650,18 @@ void dub_register_const(lua_State *L, const dub_const_Reg*l) {
 // This is called whenever we ask for obj:deleted() in Lua
 int dub_isDeleted(lua_State *L) {
   void **p = (void**)lua_touserdata(L, 1);
+  if (p == NULL && lua_istable(L, 1)) {
+    // get p from super
+    // <ud>
+    // TODO: optimize by storing key in registry ?
+    lua_pushlstring(L, "super", 5);
+    // <ud> 'super'
+    lua_rawget(L, 1);
+    // <ud> <ud?>
+    p = (void**)lua_touserdata(L, 2);
+    lua_pop(L, 1);
+    // <ud>
+  }
   lua_pushboolean(L, p && !*p);
   return 1;
 }
