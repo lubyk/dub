@@ -362,9 +362,9 @@ function private:superIterator(base, seen)
     end
     local fullname = class:fullname()
     if not seen[fullname] then
+      coroutine.yield(class)
       seen[fullname] = true
       private.superIterator(self, class, seen)
-      coroutine.yield(class)
     end
   end
 

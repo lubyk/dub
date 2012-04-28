@@ -32,6 +32,7 @@
   * Warn on nested namespaces instead of crash.
   * Better handling of unknown (opaque) types.
   * Added tests for custom global function bindings.
+  * Should list super classes in C++ visibility order (from child to parent).
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua

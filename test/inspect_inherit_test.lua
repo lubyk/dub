@@ -24,8 +24,8 @@ function should.listSuperClasses()
     table.insert(res, elem.name)
   end
   assertValueEqual({
-    'GrandParent',
     'Parent',
+    'GrandParent',
     'ChildHelper',
   }, res)
 end
@@ -87,9 +87,9 @@ function should.listSuperAttributes()
   end
   assertValueEqual({
     'teeth',
-    'birth_year',
     'status',
     'happy',
+    'birth_year',
   }, res)
 end
 
@@ -101,10 +101,10 @@ function should.haveVariables()
     table.insert(res, elem.name)
   end
   assertValueEqual({
-    'birth_year',
+    'teeth',
     'status',
     'happy',
-    'teeth',
+    'birth_year',
   }, res)
 end
 
