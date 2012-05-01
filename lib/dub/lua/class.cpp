@@ -82,7 +82,7 @@ extern "C" int luaopen_{{self:openName(class)}}(lua_State *L)
   // register member methods
   luaL_register(L, NULL, {{ class.name }}_member_methods);
   // save meta-table in {{self:libName(class.parent)}}
-  dub_register(L, "{{self:libName(class.parent)}}", "{{class.dub.register or self:name(class)}}");
+  dub_register(L, "{{self:libName(class.parent)}}", "{{class.dub.register or self:name(class)}}", "{{self:name(class)}}");
   // <mt>
   lua_pop(L, 1);
   return 0;

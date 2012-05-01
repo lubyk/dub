@@ -322,7 +322,7 @@ void dub_protect(lua_State *L, int owner, int original, const char *key);
 /** Register a class inside a library, creating empty tables as
  * needed.
  */
-void dub_register(lua_State *L, const char *libname, const char *class_name);
+void dub_register(lua_State *L, const char *libname, const char *reg_name, const char *class_name = NULL);
 
 // sdbm function: taken from http://www.cse.yorku.ca/~oz/hash.html
 // This version is slightly adapted to cope with different

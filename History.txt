@@ -33,6 +33,7 @@
   * Better handling of unknown (opaque) types.
   * Added tests for custom global function bindings.
   * Should list super classes in C++ visibility order (from child to parent).
+  * Class.type should reflect class name, not registration name.
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua
