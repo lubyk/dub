@@ -107,8 +107,10 @@ public:
 
   /** This is called on object instanciation by dub instead of
    * dub_pushudata to setup dub_userdata_.
+   *
+   * TODO: Do we really have to make this virtual ?
    */
-  virtual void pushobject(lua_State *L, void *ptr, const char *type_name, bool gc = true);
+  void pushobject(lua_State *L, void *ptr, const char *type_name, bool gc = true);
 
 protected:
   /** Pointer to the userdata. *userdata => pointer to C++ object.
@@ -128,7 +130,7 @@ public:
    * called instead of dub_pushudata.
    * <udata> <mt>
    */
-  virtual void pushobject(lua_State *L, void *ptr, const char *type_name, bool gc = true);
+  void pushobject(lua_State *L, void *ptr, const char *type_name, bool gc = true);
 
   /** Push function 'name' found in <self> on the stack with <self> as
    * first argument.

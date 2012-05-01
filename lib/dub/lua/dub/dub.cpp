@@ -456,7 +456,7 @@ static inline void **getsdata(lua_State *L, int ud, const char *tname, bool keep
     // ... <ud> ...
     // TODO: optimize by storing key in registry ?
     lua_pushlstring(L, "super", 5);
-    // ... <ud> ... <'super'>
+    // ... <ud> ... 'super'
     lua_rawget(L, ud);
     // ... <ud> ... <ud?>
     p = (void**)lua_touserdata(L, -1);
