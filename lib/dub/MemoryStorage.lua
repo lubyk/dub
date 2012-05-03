@@ -415,7 +415,7 @@ function parse:header(header, not_lazy)
   private.checkDoxygenVersion(data)
   data = data:find('compounddef')
   local h_path = data:find('location').file
-  local base, h_file = lk.directory(h_path)
+  local base, h_file = lk.pathDir(h_path)
   header.file = h_path
 
   if data.kind == 'namespace' then

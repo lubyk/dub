@@ -507,11 +507,19 @@ void **dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt) {
   return p;
 }
 
-bool dub_issdata(lua_State *L, int ud, const char *tname, int type) {
+void **dub_issdata(lua_State *L, int ud, const char *tname, int type) {
   if (type == LUA_TUSERDATA || type == LUA_TTABLE) {
-    return getsdata(L, ud, tname, false) != NULL;
+    void **p = getsdata(L, ud, tname, false);
+    if (!p) {
+      return NULL;
+    } else if (!*p) {
+      // dead object
+      throw dub::Exception(DEAD_EXCEPTION_MSG, tname);
+    } else {
+      return p;
+    }
   } else {
-    return false;
+    return NULL;
   }
 }
 

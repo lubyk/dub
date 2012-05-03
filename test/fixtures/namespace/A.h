@@ -2,6 +2,7 @@
 #define NAMESPACE_A_H_
 
 #include "TRect.h"
+#include "B.h"
 #include <string>
 
 namespace Nem {
@@ -16,6 +17,7 @@ typedef TRect<int> Rect;
  *   * custom __tostring method
  *   * lua_State pseudo-parameter
  *   * custom accessor
+ *   * overwriten methods
  */
 class A {
 public:
@@ -35,6 +37,15 @@ public:
     lua_pushfstring(L, "<B %p ('%s')>", this, name.c_str());
     return 1;
   }
+
+  std::string over(A *a) {
+    return "A";
+  }
+
+  std::string over(B *b) {
+    return "B";
+  }
+
 };
 
   /** Nested namespace. Ignored for now.

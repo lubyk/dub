@@ -84,7 +84,7 @@ function should.bindAll()
   })
   local files = {}
   for file in lk.Dir(tmp_path):list() do
-    local base, filename = lk.directory(file)
+    local base, filename = lk.pathDir(file)
     lk.insertSorted(files, filename)
   end
   assertValueEqual({
@@ -329,6 +329,16 @@ function should.readNamespaceConstant()
   assertEqual(55, moo.Three)
 end
 
+function should.decideOver()
+  local a = moo.A(1)
+  local b = moo.B(2)
+  assertPass(function()
+    assertEqual('A', a:over(a))
+  end)
+  assertPass(function()
+    assertEqual('B', a:over(b))
+  end)
+end
 test.all()
 
 

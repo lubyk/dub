@@ -10,6 +10,7 @@
   * Added support for custom destructor: 'destructor' option in @dub.
   * Added 'namespace' option (support for namespace constants and functions.
   * Added :deleted() on all class bindings to detect C++ deleted objects from Lua.
+  * Optimized 'dub_issdata' when the only type resolution involves userdata.
 
 * Minor enhancement
   * Should not add namespace to typedef of template in namespace.

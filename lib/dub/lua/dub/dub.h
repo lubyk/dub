@@ -295,9 +295,10 @@ void **dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt = fa
 // Super aware userdata calls that DOES NOT check for dangling pointers (used in 
 // __gc binding).
 void **dub_checksdata_d(lua_State *L, int ud, const char *tname) throw(dub::Exception);
-// Return true if the type is correct. Used to resolve overloaded functions when there
-// is no other alternative (arg count, native types).
-bool dub_issdata(lua_State *L, int ud, const char *tname, int type);
+// Return pointer if the type is correct. Used to resolve overloaded functions when there
+// is no other alternative (arg count, native types). We return the pointer so that we can
+// optimize away the corresponding 'dub_checksdata'.
+void **dub_issdata(lua_State *L, int ud, const char *tname, int type);
 // Does not throw exceptions. This method behaves exactly like luaL_checkudata but searches
 // for table.super before calling lua_error. We cannot use throw() because of differing
 // implementations for luaL_error (luajit throws an exception on luaL_error).

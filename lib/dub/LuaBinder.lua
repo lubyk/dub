@@ -373,9 +373,9 @@ end
 function private:detectType(pos, type_name)
   local k = self.NATIVE_TO_TLUA[type_name]
   if k then
-    return format('type__ == %s', k)
+    return format('type__ == %s', k), false
   else
-    return format('dub_issdata(L, %i, "%s", type__)', pos, type_name)
+    return format('dub_issdata(L, %i, "%s", type__)', pos, type_name), true
   end
 end
 
@@ -400,6 +400,40 @@ function private:expandTreeByType(tree, class, param_delta, indent, max_arg)
   end
 
   res = res .. format('int type__ = lua_type(L, %i);\n', param_delta + pos)
+  local ptr_for_pos = tree.ptr_for_pos
+  if not ptr_for_pos then
+    ptr_for_pos = {}
+    tree.ptr_for_pos = ptr_for_pos
+  end
+  local clauses = {}
+
+  -- Parse types once to make sure we declare the ptri__ pointers before
+  -- we start using them in the type tests.
+  for i, type_name in ipairs(keys) do
+    if i == last_key then
+      -- Never needed
+      break
+    end
+    local clause, need_ptr = private.detectType(self, param_delta + pos, type_name)
+    if need_ptr then
+      local ptr_name = format('ptr%i__', param_delta + pos)
+      if not ptr_for_pos[param_delta + pos] then
+        ptr_for_pos[param_delta + pos] = ptr_name
+        res = res .. format('void **%s;\n', ptr_name)
+      end
+
+      -- This ensures that we only use the ptr if there was a dub_issdata clause
+      -- before (pointer is up-to-date).
+      ptr_for_pos[format('%s-%i', type_name, param_delta + pos)] = ptr_name
+
+      clauses[i] = format(' (%s = %s) ', ptr_name, clause)
+    else
+      clauses[i] = clause
+    end
+  end
+
+
+
   for i, type_name in ipairs(keys) do
     local elem = tree.map[type_name]
     if i > 1 then
@@ -408,10 +442,11 @@ function private:expandTreeByType(tree, class, param_delta, indent, max_arg)
     if i == last_key then
       res = res .. '{\n'
     else
-      res = res .. format('if (%s) {\n', private.detectType(self, param_delta + pos, type_name))
+      res = res .. format('if (%s) {\n', clauses[i])
     end
     if elem.type == 'dub.Function' then
       -- done
+      elem.ptr_for_pos = ptr_for_pos
       res = res .. '  ' .. private.callWithParams(self, class, elem, param_delta, '  ', nil, max_arg) .. '\n'
     else
       -- continue expanding
@@ -782,29 +817,36 @@ end
 
 -- Retrieve a parameter and detect native type/userdata in param.
 function private:getParam(method, param, delta)
-  local res
   local lua = param.lua
   local ctype = param.ctype
   -- Resolved ctype
   local rtype = lua.rtype
+  if lua.mt_name and method.ptr_for_pos then
+    local ptr = method.ptr_for_pos[format('%s-%i', lua.mt_name, delta + param.position)]
+    if ptr then
+      -- Only use ptr once (the first entry
+      return format('*((%s*)%s)',
+        rtype.create_name, ptr)
+    end
+  end
+  
   if lua.type == 'userdata' then
     -- userdata
     type_method = self:customTypeAccessor(method)
-    res = format('*((%s*)%s(L, %i, "%s"))',
+    return format('*((%s*)%s(L, %i, "%s"))',
       rtype.create_name, type_method, param.position + delta, lua.mt_name)
   else
     -- native lua type
     local prefix = private.checkPrefix(self, method)
     if lua.pull then
       -- special accessor
-      res = lua.pull(param.name, param.position + delta, prefix)
+      return lua.pull(param.name, param.position + delta, prefix)
     elseif rtype.cast then
-      res = format('(%s)%scheck%s(L, %i)', rtype.cast, prefix, lua.check, param.position + delta)
+      return format('(%s)%scheck%s(L, %i)', rtype.cast, prefix, lua.check, param.position + delta)
     else
-      res = format('%scheck%s(L, %i)', prefix, lua.check, param.position + delta)
+      return format('%scheck%s(L, %i)', prefix, lua.check, param.position + delta)
     end
   end
-  return res
 end
 
 function private.paramForCall(param)
@@ -1295,7 +1337,7 @@ function private:insertByArg(res, func, max_index, skip_index)
         -- already used, cannot use again
       else
         local lua = func.params_list[i].lua
-        local type_name = (lua.type == 'userdata' and lua.rtype.name) or lua.type
+        local type_name = (lua.type == 'userdata' and lua.mt_name) or lua.type
         local d = diff[i..'']
         if not d then
           diff[i..''] = {position = i, count = 0, map = {}, weight = 0}
