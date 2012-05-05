@@ -171,12 +171,12 @@ function should.changeNamespaceNameOnBind()
     custom_bindings = base .. '/fixtures/namespace',
   })
   binder.name = nil
-  local res = lk.readall(tmp_path .. '/moo_A.cpp')
+  local res = lk.readAll(tmp_path .. '/moo_A.cpp')
   assertNotMatch('moo%.Nem', res)
   assertMatch('"moo%.A"', res)
   assertMatch('luaopen_moo_A', res)
 
-  local res = lk.readall(tmp_path .. '/moo_B_C.cpp')
+  local res = lk.readAll(tmp_path .. '/moo_B_C.cpp')
   assertNotMatch('moo%.Nem', res)
   assertMatch('"moo%.B%.C"', res)
   assertMatch('luaopen_moo_B_C', res)
@@ -222,7 +222,7 @@ function should.changeNamespaceNameOnBind()
 end
 
 function should.bindGlobalFunctions()
-  --local res = lk.readall(tmp_path .. '/moo.cpp')
+  --local res = lk.readAll(tmp_path .. '/moo.cpp')
   --assertMatch('XXXXX', res)
 end
 

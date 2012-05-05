@@ -1033,7 +1033,7 @@ function private:copyDubFiles()
     local dir = lk.scriptDir()
     local dub_dir = dir .. '/lua/dub'
     for file in lfs.dir(dub_dir) do
-      local res = lk.readall(dub_dir .. '/' .. file)
+      local res = lk.readAll(dub_dir .. '/' .. file)
       lk.writeall(base_path .. '/dub/' .. file, res, true)
     end
   end
