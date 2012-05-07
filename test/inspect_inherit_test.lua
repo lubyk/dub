@@ -30,16 +30,22 @@ function should.listSuperClasses()
   }, res)
 end
 
+function should.teardown()
+  dub.warn = dub.printWarn
+end
+
 function should.listUnknownParents()
-  local Orphan = ins:find 'Orphan'
-  local res = {}
-  for elem in Orphan:superclasses() do
-    table.insert(res, elem.name)
-  end
-  assertValueEqual({
-    'Foo< int >',
-    'Bar',
-  }, res)
+  dub.warn = dub.silentWarn
+    local Orphan = ins:find 'Orphan'
+    local res = {}
+    for elem in Orphan:superclasses() do
+      table.insert(res, elem.name)
+    end
+    assertValueEqual({
+      'Foo< int >',
+      'Bar',
+    }, res)
+  dub.warn = dub.printWarn
 end
 
 function should.haveCastForUnknownParent()

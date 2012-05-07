@@ -35,6 +35,7 @@
   * Added tests for custom global function bindings.
   * Should list super classes in C++ visibility order (from child to parent).
   * Class.type should reflect class name, not registration name.
+  * Should not create 'cast' method when superclasses have 'cast: false'.
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua

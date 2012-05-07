@@ -14,6 +14,8 @@ local lib     = {
   SET_ATTR_NAME = '_set_',
   GET_ATTR_NAME = '_get_',
   CAST_NAME     = '_cast_',
+  -- Can be overwritten by dub.cast parameter
+  should_cast   = true,
 }
 local private = {}
 lib.__index   = lib
@@ -154,6 +156,11 @@ function lib:setOpt(opt)
     self.ignore['~'..self.name] = true
   elseif dtor then
     self.ignore[dtor] = true
+  end
+
+  -- cast
+  if self.dub.cast == false then
+    self.should_cast = false
   end
 end
 

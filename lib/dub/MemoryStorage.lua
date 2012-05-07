@@ -277,6 +277,7 @@ local function resolveOne(self, scope, name)
 end
 
 function lib:resolveType(scope, name)
+  name = name:gsub('%.', '::')
   local fullname = scope:fullname()
   if fullname then
     fullname = fullname .. '::' .. name
@@ -351,11 +352,13 @@ function private:superIterator(base, seen)
     local super = self:resolveType(base.parent or self, name)
     if not super then
       -- Yield an empty class that can be used for casting
+      dub.warn("Class definition not found for '%s' (using empty class).", name)
       class = dub.Class {
         name = name,
         parent = base.parent,
         create_name = name .. ' *',
         db = self,
+        should_cast = true,
       }
     else
       class = super
@@ -972,12 +975,30 @@ function lib.makeSpecialMethods(class, custom_bindings)
   else
     custom_bindings = {}
   end
-  if #class.super_list > 0 or class.dub.super then
+    
+  if private.needsCast(class.db, class) then
     private.makeCast(class)
   end
+
   private.makeGetAttribute(class, custom_bindings[class.name] or {})
   private.makeSetAttribute(class, custom_bindings[class.name] or {})
   private.makeDestructor(class)
+end
+
+function private:needsCast(class)
+  for _, name in ipairs(class.super_list) do
+    local super = self:resolveType(class.parent or self, name)
+    if super and super.should_cast then
+      return true
+    end
+  end
+  for _, name in ipairs(class.dub.super or {}) do
+    local super = self:resolveType(class.parent or self, name)
+    if super and super.should_cast then
+      return true
+    end
+  end
+  return false
 end
 
 -- self == class

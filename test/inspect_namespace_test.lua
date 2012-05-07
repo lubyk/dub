@@ -14,7 +14,7 @@ local base = lk.scriptDir()
 local ins
 
 function should.setup()
-  dub.warn = function() end
+  dub.warn = dub.silentWarn
   if not ins then
     ins = dub.Inspector {
       INPUT    = {
@@ -26,7 +26,7 @@ function should.setup()
 end
 
 function should.teardown()
-  dub.warn = dub.warn_method
+  dub.warn = dub.printWarn
 end
 --=============================================== TESTS
               

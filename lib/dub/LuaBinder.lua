@@ -1091,7 +1091,7 @@ end
 
 -- function body to set a variable.
 function private:castBody(class, method, super, delta)
-  if super.dub.cast == false then
+  if not super.should_cast then
     return
   end
   local name = super.create_name

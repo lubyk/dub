@@ -24,11 +24,11 @@ local ins = dub.Inspector {
 }
 
 function should.setup()
-  dub.warn = function() end
+  dub.warn = dub.silentWarn
 end
 
 function should.teardown()
-  dub.warn = dub.warn_method
+  dub.warn = dub.printWarn
 end
 
 --=============================================== Set/Get vars.

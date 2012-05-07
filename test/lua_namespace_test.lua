@@ -20,7 +20,7 @@ binder:parseCustomBindings(base .. '/fixtures/namespace')
 local ins
 
 function should.setup()
-  dub.warn = function() end
+  dub.warn = dub.silentWarn
   if not ins then
     ins = dub.Inspector {
       INPUT    = base .. '/fixtures/namespace',
@@ -30,7 +30,7 @@ function should.setup()
 end
 
 function should.teardown()
-  dub.warn = dub.warn_method
+  dub.warn = dub.printWarn
 end
 
 --=============================================== bindings
