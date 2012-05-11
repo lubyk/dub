@@ -3,7 +3,7 @@
 This is a tool to ease the creation of scripting language bindings for a C++ library.
 It was initially developed to create the OpenCV bindings for Lua in Lubyk (http://lubyk.org).
 
-The generator uses the xml output from Doxygen to avoid parsing C++ code by itself.
+The generator uses Doxygen to parse C++ headers.
 
 Homepage: [lubyk/dub](http://lubyk.org/en/project311.html)
 
