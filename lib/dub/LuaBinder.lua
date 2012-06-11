@@ -102,7 +102,7 @@ setmetatable(lib, {
       extra_headers   = {},
       custom_bindings = {},
     }
-    self.header_base = lfs.currentdir()
+    self.header_base = {'^'..lfs.currentdir()..'/(.*)$'}
     return setmetatable(self, lib)
   end
 })
@@ -112,7 +112,13 @@ setmetatable(lib, {
 function lib:bind(inspector, options)
   self.options = options
   if options.header_base then
-    self.header_base = lk.absolutizePath(options.header_base)
+    if type(options.header_base) == 'string' then
+      options.header_base = {options.header_base}
+    end
+    self.header_base = {}
+    for i, base in ipairs(options.header_base) do
+      self.header_base[i] = '^'..lk.absolutizePath(base)..'/(.*)$'
+    end
   end
   self.extra_headers = {}
   private.parseExtraHeadersList(self, nil, options.extra_headers)
@@ -576,7 +582,13 @@ end
 -- Output the header for a class by removing the current path
 -- or 'header_base',
 function lib:header(header)
-  return string.gsub(header, self.header_base .. '/', '')
+  for _, base in ipairs(self.header_base) do
+    local h = string.match(header, base)
+    if h then
+      return h
+    end
+  end
+  return header
 end
 
 function lib:customTypeAccessor(method)
