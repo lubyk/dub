@@ -10,6 +10,16 @@ struct Abstract {
   virtual double pureVirtual(double d) = 0;
 };
 
+/** Make sure abstract types are detected even if all pure virtual functions
+ * are ignored.
+ *
+ * @dub ignore: pureVirtual
+ */
+struct AbstractIgnored {
+  AbstractIgnored() {}
+  virtual double pureVirtual(double d) = 0;
+};
+
 class AbstractSub : public Abstract {
   double n_;
 public:

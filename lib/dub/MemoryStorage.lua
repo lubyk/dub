@@ -730,13 +730,9 @@ parse['function'] = function(self, elem, header)
     dub           = parse.opt(elem) or {},
     pure_virtual  = elem.virt == 'pure-virtual',
   }
+  local pure_virtual = elem.virt == 'pure-virtual'
 
-  if not child then
-    -- invalid child
-    return nil
-  end
-
-  if child.pure_virtual then
+  if pure_virtual then
     self.abstract = true
     -- remove ctor
     for i, met in ipairs(self.functions_list) do
@@ -746,9 +742,15 @@ parse['function'] = function(self, elem, header)
       end
     end
     self.cache[self.name] = nil
-  elseif child.ctor and self.abstract then
+  elseif child and child.ctor and self.abstract then
     return nil
   end
+
+  if not child then
+    -- invalid or ignored child
+    return nil
+  end
+
 
   local template_params = elem:find('templateparamlist')
   if template_params then

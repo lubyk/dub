@@ -34,6 +34,19 @@ function should.notHaveCtorForAbstractTypes()
   }, res)
 end
 
+function should.notHaveCtorForAbstractTypesWithIgnoredMethods()
+  local Abstract = ins:find('AbstractIgnored')
+  assertTrue(Abstract.abstract)
+  local res = {}
+  for met in Abstract:methods() do
+    table.insert(res, met.name)
+  end
+  assertValueEqual({
+    '~AbstractIgnored',
+  }, res)
+end
+
+
 function should.detectPureVirtualFunctions()
   local Abstract = ins:find('Abstract')
   local pureVirtual = Abstract:method('pureVirtual')

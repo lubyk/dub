@@ -37,6 +37,7 @@
   * Class.type should reflect class name, not registration name.
   * Should not create 'cast' method when superclasses have 'cast: false'.
   * Allow multiple 'header_base' paths to remove (removes the first one matching).
+  * Make sure abstract types are detected even if all pure virtual functions are ignored.
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua
