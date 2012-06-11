@@ -45,8 +45,16 @@ function lib:parse(opts)
     opts = {INPUT = opts}
   end
   assert(opts.INPUT, "Missing 'INPUT' field")
+
+  if opts.html then
+    opts.GENERATE_HTML = 'YES'
+    opts.keep_xml = true
+  end
+
   local doc_dir = opts.doc_dir
-  if not doc_dir then
+  if opts.keep_xml and not doc_dir then
+    doc_dir = 'dub-doc'
+  elseif not doc_dir then
     doc_dir = 'dub-tmp'
     local i = 0
     while true do
@@ -60,11 +68,6 @@ function lib:parse(opts)
   end
 
   private.execute('mkdir -p ' .. doc_dir)
-
-  if opts.html then
-    opts.GENERATE_HTML = 'YES'
-  end
-
 
   local doxypath = opts.Doxyfile
   if not doxypath then
