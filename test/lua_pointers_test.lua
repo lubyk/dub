@@ -690,6 +690,15 @@ function should.setPointerMember()
   assertEqual(5, v.x)
 end
 
+function should.setNonPointerMember()
+  local b = Box('any')
+  local v = Vect(4,4)
+  b.size_ = v
+  b.size_.x = 5
+  assertEqual(4, v.x)
+  assertEqual(5, b.size_.x)
+end
+
 function should.protectGcOfSetMember()
   local b = Box('any')
   local v = Vect(4,4)

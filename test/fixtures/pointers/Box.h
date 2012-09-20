@@ -20,7 +20,11 @@
 struct Box {
 
   std::string name_;
+  
+  /** Full other type (copy).
+   */
   Vect size_;
+  
   /** Pointer to other type.
    */
   Vect *position;
