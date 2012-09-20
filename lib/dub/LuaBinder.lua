@@ -1255,7 +1255,8 @@ end
 function private:bindAll(parent, bound, ignore)
   for elem in parent:children() do
     if elem.type == 'dub.Class' then
-      if not ignore[elem.name] and not (elem.dub.bind == false) then
+      if not ignore[elem.name] and
+         not (elem.dub.bind == false) then
         table.insert(bound, elem)
         private.bindElem(self, elem, options)
       end
