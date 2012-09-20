@@ -4,6 +4,8 @@
 #include "Vect.h"
 #include <string>
 
+typedef struct Vect Vortex;
+
 /** This class is used to test:
  *   * passing classes around as arguments.
  *   * casting script strings to std::string.
@@ -23,7 +25,7 @@ struct Box {
   
   /** Full other type (copy).
    */
-  Vect size_;
+  Vortex size_;
   
   /** Pointer to other type.
    */

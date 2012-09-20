@@ -18,6 +18,7 @@ local ins  = dub.Inspector {
 
 local Vect = ins:find('Vect')
 local Box  = ins:find('Box')
+local Vortex = ins:find('Vortex')
 
 --=============================================== TESTS
 
@@ -310,6 +311,11 @@ function should.parseStringArgs()
     ['self->size_.x'] = true,
     ['self->size_.y'] = true,
   }, Box.dub.string_args)
+end
+
+function should.parseTypedef()
+  assertEqual('dub.Typedef', Vortex.type) 
+  assertEqual('Vect', Vortex.ctype.name)
 end
 
 test.all()

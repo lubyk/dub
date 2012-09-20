@@ -268,9 +268,10 @@ local function resolveOne(self, scope, name)
     if t.type == 'dub.Class' or t.type == 'dub.CTemplate' then
       -- real type
       return t
-    elseif t.type == 'dub.Typedef' or
-      t.type == 'dub.Enum' then
+    elseif t.type == 'dub.Typedef' then
       -- alias type
+      return resolveOne(self, scope, t.ctype.name) or t.ctype
+    elseif t.type == 'dub.Enum' then
       return t.ctype
     end
   end

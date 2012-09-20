@@ -163,5 +163,6 @@ struct Vect {
   }
 };
 
+
 #endif // POINTERS_VECT_H_
 
