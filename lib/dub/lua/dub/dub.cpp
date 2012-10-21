@@ -39,7 +39,21 @@
 #define DUB_MAX_IN_SHIFT 4294967296
 #define DUB_INIT_CODE "local class = %s.%s\nif class.new then\nsetmetatable(class, {\n __call = function(lib, ...)\n   return lib.new(...)\n end,\n})\nend\n"
 #define DUB_INIT_ERR "[string \"Dub init code\"]"
-#define DUB_ERRFUNC "local self = self\nlocal print = print\nreturn function(...)\nlocal err = self.error\nif err then\nerr(self,...)\nelse\nprint(...)\nend\nend"
+// Define the callback error function. We store the error function in
+// self._errfunc so that it can also be used from Lua (this error function
+// captures the currently global 'print' which is useful for remote network objects).
+#define DUB_ERRFUNC "local self = self\n\
+local print = print\n\
+local errfunc = function(...)\n\
+  local err = self.error\n\
+  if err then\n\
+    err(self, ...)\n\
+  else\n\
+    print('error', ...)\n\
+  end\n\
+end\n\
+self._errfunc = errfunc\n\
+return errfunc"
 
 using namespace dub;
 
@@ -233,7 +247,7 @@ bool Thread::dub_call(int param_count, int retval_count) const {
       // memory allocation failure
       fprintf(stderr, "Memory allocation failure (%s).\n", lua_tostring(dub_L, -1));
     } else {
-    // error in error handler
+      // error in error handler
       fprintf(stderr, "Error in error handler (%s).\n", lua_tostring(dub_L, -1));
     }
     lua_pop(dub_L, 1);

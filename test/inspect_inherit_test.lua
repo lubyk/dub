@@ -24,6 +24,7 @@ function should.listSuperClasses()
     table.insert(res, elem.name)
   end
   assertValueEqual({
+    'Mother',
     'Parent',
     'GrandParent',
     'ChildHelper',

@@ -153,21 +153,28 @@ end
 
 function should.printErrorIfNoErrorHandler()
   local print_bak = print
-  -- On object the created default error handler calls print. We hack
-  -- print to get the output.
-  function print(s)
-    print_out = s
+  local print_out
+  -- On object creation, the created default error handler calls print provided in
+  -- the creation environment.
+  function print(typ, msg)
+    print_out = typ .. ': ' .. msg
   end
   local c = thread.Callback('Alan Watts')
   local r
+  -- Print captured in c env, we can change it back.
+  print = print_bak
+
   function c:callback(value)
     error('Printed error.')
   end
   assertPass(function()
     makeCall(c, 'something')
   end)
-  print = print_bak
-  assertMatch('lua_thread_test.lua.*Printed error', print_out)
+  assertMatch('error: .*lua_thread_test.lua.*Printed error', print_out)
+
+  assertType('function', c._errfunc)
+  c._errfunc('hello')
+  assertMatch('error: hello', print_out)
 end
 
 --=============================================== Memory
