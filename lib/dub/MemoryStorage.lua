@@ -348,27 +348,33 @@ end
 function private:superIterator(base, seen)
   -- Only iterate over a parent once
   local seen = seen or {}
+  local sl = base.super_labels or {}
   for _, name in ipairs(base.super_list) do
+    local name = sl[name] or name
     local class
     local super = self:resolveType(base.parent or self, name)
-    if not super then
-      -- Yield an empty class that can be used for casting
-      dub.warn(5, "Class definition not found for '%s' (using empty class).", name)
-      class = dub.Class {
-        name = name,
-        parent = base.parent,
-        create_name = name .. ' *',
-        db = self,
-        should_cast = true,
-      }
+    if not super and name == 'dub::Thread' then
+      -- ignore
     else
-      class = super
-    end
-    local fullname = class:fullname()
-    if not seen[fullname] then
-      coroutine.yield(class)
-      seen[fullname] = true
-      private.superIterator(self, class, seen)
+      if not super then
+        -- Yield an empty class that can be used for casting
+        dub.warn(5, "Class definition not found for '%s' (using empty class).", name)
+        class = dub.Class {
+          name = name,
+          parent = base.parent,
+          create_name = name .. ' *',
+          db = self,
+          should_cast = true,
+        }
+      else
+        class = super
+      end
+      local fullname = class:fullname()
+      if not seen[fullname] then
+        coroutine.yield(class)
+        seen[fullname] = true
+        private.superIterator(self, class, seen)
+      end
     end
   end
 
@@ -478,11 +484,44 @@ function parse:children(elem_list, header, not_lazy)
   end
 end
 
+-- This is parsed before inheritancegraph.
 function parse:basecompoundref(elem, header)
   if elem.prot == 'public' then
     table.insert(self.super_list, elem[1])
   end
 end
+
+-- <inheritancegraph>
+--   <node id="1">
+--     <label>Foo</label>
+--     <link refid="class_foo"/>
+--   </node>
+--   <node id="2">
+--     <label>dub::Thread</label>
+--   </node>
+-- </inheritancegraph>
+function parse:inheritancegraph(elem_list, header)
+  -- Full label
+  local super_labels = self.super_labels or {}
+  self.super_labels = super_labels
+  for _, elem in ipairs(elem_list) do
+    if elem.xml == 'node' and elem.id ~= '0' then
+      local label
+      for _, n in ipairs(elem) do
+        if n.xml == 'label' then
+          label = n[1]
+          break
+        end
+      end
+      if label then
+        -- Translate basecompoundref name to full label
+        local name = string.match(label, '::([^:]+)$') or label
+        super_labels[name] = label
+      end
+    end
+  end
+end
+
 
 function parse:innernamespace(elem, header)
   local name = elem[1]
@@ -992,7 +1031,9 @@ function lib.makeSpecialMethods(class, custom_bindings)
 end
 
 function private:needsCast(class)
+  local sl = self.super_labels or {}
   for _, name in ipairs(class.super_list) do
+    local name = sl[name] or name
     local super = self:resolveType(class.parent or self, name)
     if super and super.should_cast then
       return true

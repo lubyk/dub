@@ -6,13 +6,18 @@
 #include <string>
 class Caller;
 
+/** When adding a second parent, casting is triggered for dub::Thread.
+ */
+class Foo {
+};
+
 /** This class is used to test:
  *   * read values defined in the scripting language (self access from C++).
  *   * execute callbacks from C++. 
  *
  * @dub push: pushobject
  */
-class Callback : public dub::Thread {
+class Callback : public Foo, public dub::Thread {
 public:
   static int destroy_count;
 

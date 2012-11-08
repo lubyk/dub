@@ -38,6 +38,7 @@ function should.bindCompileAndLoad()
     INPUT    = 'test/fixtures/thread',
     doc_dir  = lk.scriptDir() .. '/tmp',
   }
+
   -- create tmp directory
   local tmp_path = lk.scriptDir() .. '/tmp'
   lk.rmTree(tmp_path, true)
@@ -61,6 +62,7 @@ function should.bindCompileAndLoad()
         'test/tmp/thread.cpp',
         'test/tmp/thread_Callback.cpp',
         'test/tmp/thread_Caller.cpp',
+        'test/tmp/thread_Foo.cpp',
         'test/fixtures/thread/lua_callback.cpp',
       },
       includes = {
@@ -75,7 +77,7 @@ function should.bindCompileAndLoad()
   end, function()
     -- teardown
     package.cpath = cpath_bak
-    if not thread.Callback then
+    if not thread or not thread.Callback then
       test.abort = true
     end
   end)
@@ -119,6 +121,14 @@ function should.readAndWriteLuaValues()
   assertNil(c.bar)
 end
 
+function should.notCastDubTemplate()
+  -- __newindex for simple (native) types
+  local Callback = ins:find('Callback')
+  local met = Callback:method(Callback.CAST_NAME)
+  local res = binder:functionBody(Callback, met)
+  assertMatch('DUB_ASSERT_KEY%(key, "Foo"%)', res)
+  assertNotMatch('Thread', res)
+end
 --=============================================== Callback from C++
 
 local function makeCall(c, ...)
