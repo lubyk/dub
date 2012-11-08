@@ -47,6 +47,7 @@ local lib     = {
     bool       = 'boolean',
 
     ['char *'] = 'string',
+    ['unsigned char *'] = 'string',
     ['std::string'] = {
       type   = 'std::string',
       -- Get value from Lua.
@@ -700,7 +701,11 @@ function lib:luaType(parent, ctype)
       -- an unknown userdata type.
       local mt_name = self:libName(ctype)
       if mt_name ~= 'void' and mt_name ~= 'lua_State' then
-        dub.warn("Using unknown type '%s' (parent = %s).", mt_name, parent and parent.name or '??')
+        if rtype.ptr then
+          dub.warn(5, "Using unknown type '%s *' (parent = %s).", mt_name, parent and parent.name or '??')
+        else
+          dub.warn(5, "Using unknown type '%s' (parent = %s).", mt_name, parent and parent.name or '??')
+        end
       end
       -- Cache userdata type
       ctype.rtype = ctype.rtype or {
@@ -1330,10 +1335,10 @@ function private:insertByArg(res, func, max_index, skip_index)
     res.list = {func}
     return
   elseif max_index == 0 or skip_index and not hasMorePositions(skip_index, max_index) then
-    print("No more arguments to decide....", max_index)
-    table.insert(res.list, func)
+    dub.warn(1, "No more arguments to decide (index=%i, parent=%s, function=%s)", max_index, func.parent.name, func.name)
+    dub.warn(1, func.name .. func.argsstring)
     for _, func in ipairs(res.list) do
-      print(func.name .. func.argsstring)
+      dub.warn(1, func.name .. func.argsstring)
     end
     return
   elseif res.map.type == 'dub.Function' then

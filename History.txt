@@ -38,6 +38,8 @@
   * Should not create 'cast' method when superclasses have 'cast: false'.
   * Allow multiple 'header_base' paths to remove (removes the first one matching).
   * Make sure abstract types are detected even if all pure virtual functions are ignored.
+  * Support for warn levels (5 = all, 4 = less, ..., 1 = errors).
+  * Fixed a bug preventing dub from detecting ignored attributes.
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua

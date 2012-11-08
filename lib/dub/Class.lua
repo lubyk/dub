@@ -151,6 +151,10 @@ function lib:setOpt(opt)
     self.dub.super = { self.dub.super }
   end
 
+  if self.dub.abstract then
+    self.abstract = true
+  end
+
   local dtor = self.dub.destructor
   if dtor == false then
     self.ignore['~'..self.name] = true

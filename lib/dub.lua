@@ -72,18 +72,23 @@ function dub.minHash(list_or_obj, func)
 end
 
 local shown_warnings = {}
-function dub.printWarn(fmt, ...)
+function dub.printWarn(level, fmt, ...)
+  if level > dub.warn_level then
+    return
+  end
   local msg = string.format(fmt, ...)
   if not shown_warnings[msg] then
     print('warning:', msg)
     shown_warnings[msg] = true
   end
 end
-function dub.silentWarn(fmt, ...)
+function dub.silentWarn(level, fmt, ...)
   local msg = string.format(fmt, ...)
   if not shown_warnings[msg] then
     shown_warnings[msg] = true
   end
 end
 dub.warn = dub.printWarn
+
+dub.warn_level = 5
 
