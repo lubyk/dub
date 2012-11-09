@@ -474,6 +474,18 @@ function should.executeVectMethods()
   assertEqual(4.08, v:surface())
 end
 
+-- operator=
+function should.overloadSet()
+  local v, v2 = Vect(1.2, -1), Vect(4, 2)
+  -- Calls operator= internally.
+  v:set(v2)
+  assertEqual(4, v.x)
+  assertEqual(2, v.y)
+  v2.x = 5
+  -- not changed
+  assertEqual(4, v.x)
+end
+
 function should.overloadAdd()
   local v1, v2 = Vect(1.2, -1), Vect(4, 2)
   local v = v1 + v2

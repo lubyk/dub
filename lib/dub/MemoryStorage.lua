@@ -744,6 +744,7 @@ parse['function'] = function(self, elem, header)
     dub           = parse.opt(elem) or {},
     pure_virtual  = elem.virt == 'pure-virtual',
   }
+
   local pure_virtual = elem.virt == 'pure-virtual'
 
   if pure_virtual then

@@ -20,6 +20,8 @@ local lib     = {
     ['<='] = 'le',
     ['()'] = 'call',
     ['[]'] = 'index',
+    -- set with equal
+    ['=']  = 'sete',
     -- add equal
     ['+='] = 'adde',
     -- sub equal

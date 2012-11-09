@@ -168,6 +168,7 @@ function should.listMethods()
     '~Vect',
 --  'd_set',
     'surface',
+    'operator=',
     'operator+',
     'operator+=',
     'operator-',

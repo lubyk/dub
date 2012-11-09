@@ -66,6 +66,11 @@ struct Vect {
 
   // operator overloading
 
+  void operator=(const Vect &v) {
+    x = v.x;
+    y = v.y;
+  }
+
   Vect operator+(const Vect &v) {
     return Vect(x + v.x, y + v.y);
   }

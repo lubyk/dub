@@ -11,6 +11,7 @@
   * Added 'namespace' option (support for namespace constants and functions.
   * Added :deleted() on all class bindings to detect C++ deleted objects from Lua.
   * Optimized 'dub_issdata' when the only type resolution involves userdata.
+  * Automatically transform operator= to "set" method.
 
 * Minor enhancement
   * Should not add namespace to typedef of template in namespace.
