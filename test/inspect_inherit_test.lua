@@ -24,10 +24,10 @@ function should.listSuperClasses()
     table.insert(res, elem.name)
   end
   assertValueEqual({
-    'Mother',
     'Parent',
     'GrandParent',
     'ChildHelper',
+    'Mother',
   }, res)
 end
 
@@ -35,7 +35,7 @@ function should.teardown()
   dub.warn = dub.printWarn
 end
 
-function should.listUnknownParents()
+function should.listUnknownParentsDeclaredInDubComment()
   dub.warn = dub.silentWarn
     local Orphan = ins:find 'Orphan'
     local res = {}
@@ -43,8 +43,8 @@ function should.listUnknownParents()
       table.insert(res, elem.name)
     end
     assertValueEqual({
-      'Foo< int >',
       'Bar',
+      'Foo< int >',
     }, res)
   dub.warn = dub.printWarn
 end

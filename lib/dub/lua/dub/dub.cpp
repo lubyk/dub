@@ -343,7 +343,9 @@ void dub_protect(lua_State *L, int owner, int original, const char *key) {
 // =============================================== dub_pushudata
 // ======================================================================
 
-void dub_pushudata(lua_State *L, void *ptr, const char *tname, bool gc) {
+void dub_pushudata(lua_State *L, const void *cptr, const char *tname, bool gc) {
+  // To avoid users spending time with const issues.
+  void *ptr = const_cast<void*>(cptr);
   // If anything is changed here, it must be reflected in dub::Object::pushobject.
   DubUserdata *userdata = (DubUserdata*)lua_newuserdata(L, sizeof(DubUserdata));
   userdata->ptr = ptr;

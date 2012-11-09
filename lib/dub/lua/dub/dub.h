@@ -215,8 +215,12 @@ struct DubRef {
  * Since the value is passed as a pointer, we assume it has been created
  * using 'new' and Lua can safely call delete when it needs to garbage-
  * -collect it.
+ *
+ * Constness: we const cast all passed values to ease passing read-only
+ * arguments without requiring users to fiddle with constness which is not
+ * a notion part of Lua anyway.
  */
-void dub_pushudata(lua_State *L, void *ptr, const char *type_name, bool gc = true);
+void dub_pushudata(lua_State *L, const void *ptr, const char *type_name, bool gc = true);
 
 template<class T>
 struct DubFullUserdata {

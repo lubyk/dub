@@ -113,7 +113,11 @@ function lib:functions(parent)
           -- do nothing: no destructor should be generated in this case
         elseif not seen[elem.name] then
           seen[elem.name] = true
-          return elem
+          if parent.ignore[elem.name] then
+            -- ignore
+          else
+            return elem
+          end
         end
       elseif not ok then
         print(elem, debug.traceback(co))
@@ -345,16 +349,15 @@ function private.iteratorWithSuper(elem, key)
 end
 
 -- Iterate superclass hierarchy.
-function private:superIterator(base, seen)
+function private:superIterator(base, seen, allow_cast_class)
   -- Only iterate over a parent once
   local seen = seen or {}
-  local sl = base.super_labels or {}
   for _, name in ipairs(base.super_list) do
-    local name = sl[name] or name
     local class
     local super = self:resolveType(base.parent or self, name)
-    if not super and name == 'dub::Thread' then
-      -- ignore
+    if not super and not allow_cast_class then
+      -- Ignore empty class if not explicitely declared in
+      -- @dub super statement.
     else
       if not super then
         -- Yield an empty class that can be used for casting
@@ -380,7 +383,7 @@ function private:superIterator(base, seen)
 
   -- Find pseudo parents
   if base.dub.super then
-    private.superIterator(self, {super_list = base.dub.super, dub = {}}, seen)
+    private.superIterator(self, {super_list = base.dub.super, dub = {}}, seen, true)
   end
 end
 
@@ -490,38 +493,6 @@ function parse:basecompoundref(elem, header)
     table.insert(self.super_list, elem[1])
   end
 end
-
--- <inheritancegraph>
---   <node id="1">
---     <label>Foo</label>
---     <link refid="class_foo"/>
---   </node>
---   <node id="2">
---     <label>dub::Thread</label>
---   </node>
--- </inheritancegraph>
-function parse:inheritancegraph(elem_list, header)
-  -- Full label
-  local super_labels = self.super_labels or {}
-  self.super_labels = super_labels
-  for _, elem in ipairs(elem_list) do
-    if elem.xml == 'node' and elem.id ~= '0' then
-      local label
-      for _, n in ipairs(elem) do
-        if n.xml == 'label' then
-          label = n[1]
-          break
-        end
-      end
-      if label then
-        -- Translate basecompoundref name to full label
-        local name = string.match(label, '::([^:]+)$') or label
-        super_labels[name] = label
-      end
-    end
-  end
-end
-
 
 function parse:innernamespace(elem, header)
   local name = elem[1]
@@ -1031,9 +1002,7 @@ function lib.makeSpecialMethods(class, custom_bindings)
 end
 
 function private:needsCast(class)
-  local sl = self.super_labels or {}
   for _, name in ipairs(class.super_list) do
-    local name = sl[name] or name
     local super = self:resolveType(class.parent or self, name)
     if super and super.should_cast then
       return true

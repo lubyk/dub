@@ -16,6 +16,7 @@ class Bar {
  *   * unresolved super class (no typedef).
  *   * multiple super classes.
  * 
+ * @dub super: Foo< int >
  */
 class Orphan : public Foo<int>, public Bar {
 public:

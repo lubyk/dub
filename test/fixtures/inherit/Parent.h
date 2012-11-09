@@ -44,6 +44,9 @@ public:
   static std::string getName(Parent *parent) {
     return parent->name_;
   }
+
+  virtual void virtFunc() {
+  }
 };
 
 #endif // INHERIT_PARENT_H_

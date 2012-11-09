@@ -1162,8 +1162,9 @@ function private:switch(class, method, delta, bfunc, iterator)
     res = res .. format('if (lua_type(L, %i) != LUA_TSTRING) {\n', delta + 1)
     method.index_op.name = 'operator[]'
     res = res .. '  ' .. private.callWithParams(self, class, method.index_op, delta, '  ') .. '\n'
-    res = res .. '}'
+    res = res .. '}\n'
     if not class:hasVariables() then
+      res = res .. 'return 0;'
       return res
     else
       res = res .. '\n'

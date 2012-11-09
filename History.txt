@@ -41,7 +41,7 @@
   * Support for warn levels (5 = all, 4 = less, ..., 1 = errors).
   * Fixed a bug preventing dub from detecting ignored attributes.
   * Fixed a bug where dub would not recognize the correct super class.
-  * Disabling dub::Thread casting if not seen by doxygen.
+  * Only cast to unknown classes when explicitely declared in @dub.
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua

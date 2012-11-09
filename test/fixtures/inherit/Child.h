@@ -14,10 +14,12 @@ class Mother;
  *   * method inheritance
  *   * custom bindings
  *   * unknown types
+ *   * ignore methods from parent
  * 
  * Since Doxygen does not know that Mother is a Parent, we tell this. We also
  * use 'mixin' of custom bindings from ChildHelper.
- * @dub super: Parent, ChildHelper
+ * @dub super: Parent, ChildHelper, Mother
+ *      ignore: virtFunc
  */
 class Child : public Mother {
   // Private attribute
