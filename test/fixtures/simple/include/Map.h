@@ -6,6 +6,7 @@
 
 /** This class is used to test
  *   * custom get/set suffix without public attributes.
+ *   * changed method name with "name".
  * 
  * @dub ignore: getVal, setVal
  */
@@ -27,6 +28,14 @@ public:
 
   void setVal(const char *key, const char *value) {
     map_.insert(Pair(key, value));
+  }
+
+  /** Change this method's name in the bindings.
+   *
+   * @dub name: bar
+   */
+  int foo(int x) {
+    return x;
   }
   
   /** Test methods with lua_State parameter and LuaStackSize

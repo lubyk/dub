@@ -256,6 +256,14 @@ function should.parseClassByValueParam()
   assertEqual('Simple ', p.ctype.create_name)
 end
 
+--=============================================== method name
+
+function should.parseRegistrationName()
+  local c = ins:find('Map')
+  local m = c:method('foo')
+  assertEqual('bar', m.dub.name)
+end
+
 --=============================================== registration name
 
 function should.parseRegistrationName()

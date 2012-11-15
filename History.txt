@@ -12,6 +12,7 @@
   * Added :deleted() on all class bindings to detect C++ deleted objects from Lua.
   * Optimized 'dub_issdata' when the only type resolution involves userdata.
   * Automatically transform operator= to "set" method.
+  * Added support for @dub name: "xxx" in method.
 
 * Minor enhancement
   * Should not add namespace to typedef of template in namespace.

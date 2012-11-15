@@ -228,6 +228,20 @@ function should.useArgTypeToSelect()
   assertFalse(need_top)
 end
 
+--=============================================== method name
+
+function should.useCustomNameInBindings()
+  local Map = ins:find('Map')
+  local m = Map:method('foo')
+  local res = binder:functionBody(Map, m)
+  assertMatch('self%->foo%(x%)', res)
+  local res = binder:bindClass(Map)
+  -- Should use bound name in error warnings.
+  assertMatch("bar: %%s", res)
+  assertMatch("bar: Unknown exception", res)
+  assertMatch('"bar" *, Map_foo', res)
+  assertMatch('"bar" *, Map_foo', res)
+end
 
 --=============================================== Overloaded
 
@@ -392,7 +406,7 @@ function should.bindMethodWithoutReturn()
 end
 
 function should.raiseErrorOnMissingParam()
-  assertError('lua_simple_test.lua:[0-9]+: Simple: expected number, found no value', function()
+  assertError('lua_simple_test.lua:[0-9]+: new: expected number, found no value', function()
     Simple()
   end)
 end
@@ -447,6 +461,13 @@ function should.useCustomGetSet()
     animal = 'Cat',
     thing  = 'Stone',
   }, m:map())
+end
+
+--=============================================== custom name
+
+function should.useCustomName()
+  local m = Map()
+  assertEqual(5, m:bar(5))
 end
 
 --=============================================== registration name

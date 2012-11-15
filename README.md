@@ -47,6 +47,7 @@ Currently, the parser supports:
 * callback from C++ with error handling in Lua (with self.error).
 * error function captures current 'print' function and can be used with self._errfunc.
 * fully tested
+* custom method binding name
 
 # TODO
 

@@ -80,7 +80,8 @@ local lib     = {
   },
   -- Lua type constants
   NATIVE_TO_TLUA = {
-    number = 'LUA_TNUMBER',
+    number  = 'LUA_TNUMBER',
+    boolean = 'LUA_TBOOLEAN',
   },
   -- Relative path to copy dub headers and cpp files. Must be
   -- relative to the bindings output directory.
@@ -516,10 +517,11 @@ end -- expandTree (by position)
 
 function lib:bindName(method)
   local name = method.name
-  if method.bind_name then
+  local dname = method.dub.name
+  if dname then
     -- This is to let users define custom binding name (overwrite '+'
     -- methods for example).
-    return method.bind_name
+    return dname
   end
   if method.ctor then
     return 'new'
