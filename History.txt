@@ -44,6 +44,7 @@
   * Fixed a bug preventing dub from detecting ignored attributes.
   * Fixed a bug where dub would not recognize the correct super class.
   * Only cast to unknown classes when explicitely declared in @dub.
+  * Including "lua.h" instead of "dub/lua.h" to not force dub's lua.h.
 
 == 2.0.0 2012-01-21
 * Complete rewrite in Lua

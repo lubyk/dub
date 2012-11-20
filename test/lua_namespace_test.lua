@@ -198,6 +198,8 @@ function should.changeNamespaceNameOnBind()
       },
       includes = {
         base .. '/tmp',
+        -- This is for lua.h
+        base .. '/tmp/dub',
         base .. '/fixtures/namespace',
       },
     }

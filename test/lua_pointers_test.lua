@@ -251,6 +251,8 @@ function should.createLibFileWithCustomNames()
       },
       includes = {
         base .. '/tmp',
+        -- This is for lua.h
+        base .. '/tmp/dub',
       },
     }
     package.cpath = tmp_path .. '/?.so'

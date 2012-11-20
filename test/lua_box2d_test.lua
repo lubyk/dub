@@ -108,6 +108,8 @@ function should.bindCompileAndLoad()
       },
       includes = {
         'test/tmp',
+        -- This is for lua.h
+        'test/tmp/dub',
         box2d_path,
         'test/fixtures/Box2D',
       },

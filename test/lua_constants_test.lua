@@ -93,6 +93,8 @@ function should.bindCompileAndLoad()
       },
       includes = {
         base .. '/tmp',
+        -- This is for lua.h
+        base .. '/tmp/dub',
         base .. '/fixtures/constants',
       },
     }

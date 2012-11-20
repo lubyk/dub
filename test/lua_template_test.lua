@@ -63,6 +63,8 @@ function should.bindCompileAndLoad()
       },
       includes = {
         'test/tmp',
+        -- This is for lua.h
+        'test/tmp/dub',
         'test/fixtures/template',
       },
     }
