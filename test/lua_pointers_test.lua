@@ -228,7 +228,7 @@ function should.createLibFileWithCustomNames()
     -- Also forces classes to live in foo.ClassName
     single_lib = 'foo',
   })
-  local res = lk.readAll(tmp_path .. '/foo_V.cpp')
+  local res = lk.content(tmp_path .. '/foo_V.cpp')
   assertMatch('"foo.V"', res)
   assertMatch('luaopen_foo_V%(', res)
 
@@ -303,13 +303,13 @@ function should.createLibFile()
   })
 
   assertTrue(lk.exist(tmp_path .. '/MyLib.cpp'))
-  local res = lk.readAll(tmp_path .. '/MyLib.cpp')
+  local res = lk.content(tmp_path .. '/MyLib.cpp')
   assertMatch('int luaopen_MyLib_Box%(lua_State %*L%);', res)
   assertMatch('int luaopen_MyLib_Vect%(lua_State %*L%);', res)
   assertMatch('luaopen_MyLib%(lua_State %*L%) %{', res)
   assertMatch('luaopen_MyLib_Box%(L%);', res)
   assertMatch('luaopen_MyLib_Vect%(L%);', res)
-  local res = lk.readAll(tmp_path .. '/MyLib_Vect.cpp')
+  local res = lk.content(tmp_path .. '/MyLib_Vect.cpp')
   assertMatch('"MyLib.Vect"', res)
 
   assertPass(function()

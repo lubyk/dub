@@ -242,7 +242,7 @@ function lib:parseCustomBindings(custom)
     for yaml_file in dir:glob('%.yml') do
       -- Class or global function name.
       local elem_name = string.match(yaml_file, '([^/]+)%.yml$')
-      local lua = yaml.loadpath(yaml_file).lua
+      local lua = yaml.load(lk.content(yaml_file)).lua
       for _, group in pairs(lua) do
         -- attributes, methods
         for name, value in pairs(group) do
@@ -1052,7 +1052,7 @@ function private:copyDubFiles()
     local dir = lk.scriptDir()
     local dub_dir = dir .. '/lua/dub'
     for file in lfs.dir(dub_dir) do
-      local res = lk.readAll(dub_dir .. '/' .. file)
+      local res = lk.content(dub_dir .. '/' .. file)
       lk.writeall(base_path .. '/dub/' .. file, res, true)
     end
   end
