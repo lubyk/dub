@@ -120,7 +120,7 @@ function lib:bind(inspector, options)
     end
     self.header_base = {}
     for i, base in ipairs(options.header_base) do
-      self.header_base[i] = '^'..lk.absolutizePath(base)..'/(.*)$'
+      self.header_base[i] = '^'..lub.absolutizePath(base)..'/(.*)$'
     end
   end
   self.extra_headers = {}
@@ -219,8 +219,8 @@ function lib:bindClass(class)
   private.expandClass(self, class)
   if not self.class_template then
     -- path to current file
-    local dir = lk.scriptDir()
-    self.class_template = dub.Template {path = dir .. '/lua/class.cpp'}
+    local dir = lub.scriptDir()
+    self.class_template = lub.Template {path = dir .. '/lua/class.cpp'}
   end
   return self.class_template:run {class = class, self = self}
 end
@@ -234,16 +234,16 @@ function lib:addCustomTypes(list)
   end
 end
 
-local strip = lk.strip
+local strip = lub.strip
 function lib:parseCustomBindings(custom)
   if type(custom) == 'string' then
     -- This is a directory. Build table.
-    local dir = lk.Dir(custom)
+    local dir = lub.Dir(custom)
     custom = {}
     for yaml_file in dir:glob('%.yml') do
       -- Class or global function name.
       local elem_name = string.match(yaml_file, '([^/]+)%.yml$')
-      local lua = yaml.load(lk.content(yaml_file)).lua
+      local lua = yaml.load(lub.content(yaml_file)).lua
       for _, group in pairs(lua) do
         -- attributes, methods
         for name, value in pairs(group) do
@@ -734,7 +734,7 @@ function lib:toStringBody(class)
   if class.dub.string_format then
     local args = class.dub.string_args
     if type(args) == 'table' then
-      args = lk.join(args, ', ')
+      args = lub.join(args, ', ')
     end
     res = res .. format("lua_pushfstring(L, \"%s: %%p (%s)\", %s, %s);\n",
                         self:libName(class),
@@ -1050,11 +1050,11 @@ function private:copyDubFiles()
     local base_path = self.output_directory .. dub_path
     os.execute(format("mkdir -p '%s'", base_path))
     -- path to current file
-    local dir = lk.scriptDir()
+    local dir = lub.scriptDir()
     local dub_dir = dir .. '/lua/dub'
     for file in lfs.dir(dub_dir) do
-      local res = lk.content(dub_dir .. '/' .. file)
-      lk.writeall(base_path .. '/dub/' .. file, res, true)
+      local res = lub.content(dub_dir .. '/' .. file)
+      lub.writeall(base_path .. '/dub/' .. file, res, true)
     end
   end
 end
@@ -1279,8 +1279,8 @@ end
 
 function private:bindElem(elem, options)
   if elem.type == 'dub.Class' then
-    local path = self.output_directory .. lk.Dir.sep .. self:openName(elem) .. '.cpp'
-    lk.writeall(path, self:bindClass(elem), true)
+    local path = self.output_directory .. lub.Dir.sep .. self:openName(elem) .. '.cpp'
+    lub.writeall(path, self:bindClass(elem), true)
   end
 end
 
@@ -1418,8 +1418,8 @@ end
 
 function private:makeLibFile(lib_name, list)
   if not self.lib_template then
-    local dir = lk.scriptDir()
-    self.lib_template = dub.Template {path = dir .. '/lua/lib.cpp'}
+    local dir = lub.scriptDir()
+    self.lib_template = lub.Template {path = dir .. '/lua/lib.cpp'}
   end
   self.bound_classes = list
   -- lib is a namespace
@@ -1436,8 +1436,8 @@ function private:makeLibFile(lib_name, list)
   }
 
   local openname = self.options.luaopen or lib_name
-  local path = self.output_directory .. lk.Dir.sep .. openname .. '.cpp'
-  lk.writeall(path, res, true)
+  local path = self.output_directory .. lub.Dir.sep .. openname .. '.cpp'
+  lub.writeall(path, res, true)
 end
 
 function private:parseExtraHeadersList(base, list)

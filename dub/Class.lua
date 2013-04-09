@@ -34,7 +34,7 @@ end
 --     name    = name,
 --     xml     = elem,
 --     xml_headers  = {
---       {path = header.dir .. lk.Dir.sep .. elem.refid .. '.xml', dir = header.dir}
+--       {path = header.dir .. lub.Dir.sep .. elem.refid .. '.xml', dir = header.dir}
 --     },
 --   }
 function lib.new(def)

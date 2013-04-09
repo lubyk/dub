@@ -17,8 +17,8 @@ local private = {}
 -- nodoc
 lib.private = private
 
--- Odd minor version numbers are never released and are used during development.
-lib.VERSION = '2.2.1'
+-- Current version of 'dub' respecting [semantic versioning](http://semver.org).
+lib.VERSION = '2.2.0'
 
 local DUB_MAX_IN_SHIFT = 4294967296
 
