@@ -1,9 +1,10 @@
 --[[------------------------------------------------------
 
-  dub.MemoryStorage
-  -----------------
+  # MemoryStorage
 
-  This is used to store all definitions in memory.
+  (internal) This is used to store all definitions in memory.
+
+  TODO: UPDATE FOR "lub"
 
 --]]------------------------------------------------------
 

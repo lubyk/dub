@@ -1,13 +1,24 @@
 --[[------------------------------------------------------
+  # Lua C++ binding generator
 
-  dub
-  ---
+  Create lua bindings by parsing C++ header files using [doxygen](http://doxygen.org).
 
-  This file loads the dub library.
+  This module is part of [lubyk](http://lubyk.org) project.  
+  Install with [luarocks](http://luarocks.org) or [luadist](http://luadist.org).
+
+    $ luarocks install dub    or    luadist install dub
+  
 
 --]]------------------------------------------------------
-dub = Autoload('dub')
-dub.VERSION = '2.1.~'
+local lub = require 'lub'
+local lib = lub.Autoload 'dub' 
+local private = {}
+
+-- nodoc
+lib.private = private
+
+-- Odd minor version numbers are never released and are used during development.
+lib.VERSION = '2.2.1'
 
 local DUB_MAX_IN_SHIFT = 4294967296
 
@@ -18,7 +29,8 @@ local function shiftleft(v, nb)
   return r
 end
 
-function dub.hash(str, sz)
+--=============================================== PRIVATE
+function private.hash(str, sz)
   local h = 0
   for i=1,string.len(str) do
     local c = string.byte(str,i)
@@ -30,7 +42,7 @@ end
 
 -- Find the minimal modulo value for the list of keys to
 -- avoid collisions.
-function dub.minHash(list_or_obj, func)
+function private.minHash(list_or_obj, func)
   local list = {}
   if not func then
     for _, name in ipairs(list_or_obj) do
@@ -72,7 +84,7 @@ function dub.minHash(list_or_obj, func)
 end
 
 local shown_warnings = {}
-function dub.printWarn(level, fmt, ...)
+function private.printWarn(level, fmt, ...)
   if level > dub.warn_level then
     return
   end
@@ -82,13 +94,23 @@ function dub.printWarn(level, fmt, ...)
     shown_warnings[msg] = true
   end
 end
-function dub.silentWarn(level, fmt, ...)
+
+function private.silentWarn(level, fmt, ...)
   local msg = string.format(fmt, ...)
   if not shown_warnings[msg] then
     shown_warnings[msg] = true
   end
 end
-dub.warn = dub.printWarn
 
-dub.warn_level = 5
+-- Warning function. Can be overwriten. The `level` parameter is a value between
+-- 1 and 10 (the higher the level the less important the message).
+-- function lib.warn(level, format, ...)
 
+-- nodoc
+lib.warn = private.printWarn
+
+-- Default warning level (anything below or equal to this level will be
+-- notified).
+lib.warn_level = 5
+
+return lib

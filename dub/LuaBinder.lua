@@ -1,9 +1,10 @@
 --[[------------------------------------------------------
 
-  dub.LuaBinder
-  -------------
+  # LuaBinder
 
   Use the dub.Inspector to create Lua bindings.
+
+  TODO: UPDATE FOR "lub"
 
 --]]------------------------------------------------------
 local format  = string.format

@@ -1,0 +1,45 @@
+{% mod = require 'dub' %}
+package = "{{mod.type}}"
+version = "{{mod.VERSION}}-1"
+source = {
+  url = "http://lubyk.org/archive/{{mod.type}}-REL-{{mod.VERSION}}.tar.gz",
+  dir = '{{mod.type}}-REL-{{mod.VERSION}}',
+}
+description = {
+  summary = "Lua binding generator from C++ code (uses Doxygen to parse C++ comments)."
+  detailed = [[
+    A powerful binding generator for C++ code with support for attributes,
+    callbacks, errors on callbacks, enums, nested classes, operators, public
+    attributes, etc.
+  ]],
+  homepage = "http://doc.lubyk.org/{{mod.type}}.html",
+  license = "MIT"
+}
+dependencies = {
+  "lua >= 5.1, < 5.3",
+  "lub ~> 1.0",
+}
+build = {
+  type = 'builtin',
+  modules = {
+    {{string.format("[%-17s] = '%s/%s.lua'", "'"..mod.type.."'", mod.type, 'init')}},
+{% for file in lfs.dir(mod.type) do %}
+{% if file ~= 'init.lua' and file:match('.lua$') then file = file:sub(1, -5) %}
+    {{string.format("[%-17s] = '%s/%s.lua'", "'"..mod.type..'.'..file.."'", mod.type, file)}},
+{% end %}
+{% end %}
+  },
+  install = {
+    -- These assets are needed to generate the bindings.
+    lua = {
+      ['dub.assets.Doxyfile'         ] = 'dub/assets/Doxyfile',
+      ['dub.assets.lua.class_cpp'    ] = 'dub/assets/lua/class.cpp',
+      ['dub.assets.lua.lib_cpp'      ] = 'dub/assets/lua/lib.cpp',
+      ['dub.assets.lua.dub.dub_cpp'  ] = 'dub/assets/lua/dub/dub.cpp',
+      ['dub.assets.lua.dub.dub_h'    ] = 'dub/assets/lua/dub/dub.h',
+      ['dub.assets.lua.dub.lauxlib_h'] = 'dub/assets/lua/dub/lauxlib.h',
+      ['dub.assets.lua.dub.lua_h'    ] = 'dub/assets/lua/dub/lua.h',
+      ['dub.assets.lua.dub.luaconf.h'] = 'dub/assets/lua/dub/luaconf.h',
+    },
+  }
+}

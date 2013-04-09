@@ -1,9 +1,10 @@
 --[[------------------------------------------------------
 
-  dub.OptParser
-  -------------
+  # "dub" options parser
 
-  Simplified yaml parser to retrieve @dub inline options.
+  (internal) Simplified yaml parser to retrieve @dub inline options.
+
+  TODO: UPDATE FOR "lub"
 
 --]]------------------------------------------------------
 

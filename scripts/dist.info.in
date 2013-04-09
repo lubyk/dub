@@ -1,0 +1,16 @@
+{% mod = require 'lut' %}
+--- This file is part of Lubyk project
+
+name = "{{mod.type}}"
+version = "{{mod.VERSION}}"
+
+desc = "Lua binding generator from C++ code (uses Doxygen to parse C++ comments)."
+author = "Gaspard Bucher"
+license = "MIT"
+url = "http://doc.lubyk.org/{{mod.type}}.html"
+maintainer = "Gaspard Bucher"
+
+depends = {
+  "lua >= 5.1, < 5.3",
+  "lub ~> 1.0",
+}

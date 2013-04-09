@@ -1,14 +1,13 @@
 --[[------------------------------------------------------
+  # C++ Class definition.
 
-  dub.Class
-  ---------
-
-  A class/struct definition.
+  (internal) A C++ class/struct definition.
 
 --]]------------------------------------------------------
 
-local lib     = {
-  type          = 'dub.Class',
+local lub = require 'lub'
+local dub = require 'dub'
+local lib = lub.class('dub.Class', {
   is_class      = true,
   is_scope      = true,
   SET_ATTR_NAME = '_set_',
@@ -16,24 +15,30 @@ local lib     = {
   CAST_NAME     = '_cast_',
   -- Can be overwritten by dub.cast parameter
   should_cast   = true,
-}
-local private = {}
-lib.__index   = lib
-dub.Class     = lib
-
---=============================================== dub.Class()
-setmetatable(lib, {
-  __call = function(lib, self)
-    return lib.new(self)
-  end
 })
+local private = {}
 
--- For sub-classes of dub.Class (dub.Namespace, dub.CTemplate)
+-- This lets sub-classes of dub.Class like dub.Namespace or dub.CTemplate
+-- use the same call convention to create new objects.
 function lib.__call(lib, self)
   return lib.new(self)
 end
 
-function lib.new(self)
+-- Create a new class definition. Most of the attributes are passed with
+-- `def`. Usage example:
+--
+--   local class = dub.Class {
+--     -- self can be a class or db (root)
+--     db      = self.db or self,
+--     parent  = parent,
+--     name    = name,
+--     xml     = elem,
+--     xml_headers  = {
+--       {path = header.dir .. lk.Dir.sep .. elem.refid .. '.xml', dir = header.dir}
+--     },
+--   }
+function lib.new(def)
+  local self = def
   self.cache          = {}
   self.sorted_cache   = {}
   self.functions_list = {}
@@ -52,34 +57,38 @@ function lib.new(self)
   end
 end
 
---=============================================== PUBLIC METHODS
+-- ## Public methods
 
---- Return a child element from name.
+-- Return a child element from `name` or nil if nothing is found. Uses the
+-- database internally.
 function lib:findChild(name)
   private.makeSpecialMethods(self)
   return self.db:findChildFor(self, name)
 end
 
---- Return a method from a given name.
+-- Return a method from a given @name@.
+-- function lib:method(name)
+
 lib.method = lib.findChild
 
---- Return an iterator over the methods of this class.
+-- Return an iterator over the methods of this class.
 function lib:methods()
   -- Create --get--, --set-- and ~Destructor if needed.
   private.makeSpecialMethods(self)
   return self.db:functions(self)
 end
 
---- Return an iterator over the attributes of this class.
+-- Return an iterator over the attributes of this class.
 function lib:attributes()
   return self.db:variables(self)
 end
 
---- Return an iterator over the superclasses of this class.
+-- Return an iterator over the superclasses of this class.
 function lib:superclasses()
   return self.db:superclasses(self)
 end
 
+-- Returns true if the class has variables (public C attributes).
 function lib:hasVariables()
   if self.has_variables then
     return true
@@ -94,11 +103,12 @@ function lib:hasVariables()
   return false
 end
 
---- Return an iterator over the constants defined in this class.
+-- Return an iterator over the constants defined in this class.
 function lib:constants()
   return self.db:constants(self)
 end
 
+-- The fullname of the class in the form of @parent::ClassName@.
 function lib:fullname()
   if self.parent and self.parent.name then
     return self.parent:fullname() .. '::' .. self.name
@@ -116,6 +126,7 @@ function lib:needCast()
   return false
 end
 
+-- Set the class name and C++ object creation type.
 function lib:setName(name)
   if not name then
     return
@@ -137,6 +148,7 @@ function lib:setName(name)
   self.create_name = create_name .. ' *'
 end
 
+-- Set options (usually from parsed C++ class comment).
 function lib:setOpt(opt)
   self.dub      = opt or {}
   self.dub_type = self.dub.type
@@ -180,11 +192,14 @@ function lib:namespace()
   end
 end
 
+-- Return true if the given function name should be ignored (do not create
+-- bindings).
 function lib:ignoreFunc(name)
   return self.ignore[name] or name == self.dub.push
 end
 
 --=============================================== PRIVATE
+
 function private:makeSpecialMethods()
   if self.made_special_methods then
     return
@@ -192,3 +207,5 @@ function private:makeSpecialMethods()
   self.made_special_methods = true
   dub.MemoryStorage.makeSpecialMethods(self)
 end
+
+return lib

@@ -8,3 +8,4 @@ build
 test/fixtures/Box2D
 test/tmp
 tmp
+/html

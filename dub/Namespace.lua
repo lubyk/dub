@@ -1,10 +1,11 @@
 --[[------------------------------------------------------
 
-  dub.Namespace
-  -------------
+  # C++ Namespace definition.
 
-  A C++ namespace definition with nested classes, enums
+  (internal) A C++ namespace definition with nested classes, enums
   and functions.
+
+  TODO: UPDATE FOR "lub"
 
 --]]------------------------------------------------------
 

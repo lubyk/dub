@@ -1,27 +1,26 @@
 --[[------------------------------------------------------
 
-  dub.CTemplate
-  -------------
+  # A C++ template definition.
 
-  A C++ Template definition.
+  (internal) C++ template definition. This is a sub-class of dub.Class.
 
 --]]------------------------------------------------------
-
-local lib     = {
-  type        = 'dub.CTemplate',
-  template    = true,
-}
+local lub = require 'lub'
+local dub = require 'dub'
+local lib = lub.class 'dub.CTemplate'
 local private = {}
-lib.__index   = lib
-dub.CTemplate = lib
+
+-- nodoc
+lib.template = true
+
+-- CTemplate is a sub-class of dub.Class
 setmetatable(lib, dub.Class)
 
---=============================================== Ctor never used
--- We transform a dub.Class while parsing template params.
+-- # Constructor
+-- The Constructor is never used. We transform a dub.Class while parsing
+-- template parameters.
 
---=============================================== PUBLIC METHODS
-
--- Returns a dub.Class by resolving the given parameters.
+-- Returns a dub.Class by resolving the template parameters.
 function lib:resolveTemplateParams(parent, name, types)
   local name_to_type = {}
   name_to_type[self.name] = name
@@ -53,6 +52,7 @@ function lib:resolveTemplateParams(parent, name, types)
   end
 end
 
+-- nodoc
 lib.fullname = dub.Class.fullname
 
 --=============================================== PRIVATE
@@ -133,3 +133,4 @@ function private.resolveType(ctype, name_to_type)
   end
 end
     
+return lib

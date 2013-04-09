@@ -1,11 +1,12 @@
 --[[------------------------------------------------------
 
-  dub.Inspector
-  -------------
+  # Inspector
 
   The Inspector 'knows' about the functions and classes
   and can answer queries. It first the main entry point to
   parse and create bindings.
+
+  TODO: UPDATE FOR "lub"
 
 --]]------------------------------------------------------
 local lib     = {
