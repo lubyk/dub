@@ -4,6 +4,8 @@
 #include <map>
 #include <string>
 
+namespace reg {
+
 /** This class is used to test
  *   * custom registration name: require registers Reg_core
  *     instead of Reg (but metatable is 'Reg').
@@ -22,6 +24,7 @@ public:
   }
 };
 
+} // reg
 #endif // SIMPLE_INCLUDE_REG_H_
 
 

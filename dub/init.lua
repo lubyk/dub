@@ -29,20 +29,9 @@ local function shiftleft(v, nb)
   return r
 end
 
---=============================================== PRIVATE
-function private.hash(str, sz)
-  local h = 0
-  for i=1,string.len(str) do
-    local c = string.byte(str,i)
-    h = c + shiftleft(h, 6) + shiftleft(h, 16) - h
-    h = h % DUB_MAX_IN_SHIFT
-  end
-  return h % sz
-end
-
 -- Find the minimal modulo value for the list of keys to
 -- avoid collisions.
-function private.minHash(list_or_obj, func)
+function lib.minHash(list_or_obj, func)
   local list = {}
   if not func then
     for _, name in ipairs(list_or_obj) do
@@ -71,7 +60,7 @@ function private.minHash(list_or_obj, func)
     sz = sz + 1
     local hashes = {}
     for i, key in ipairs(list) do
-      local h = dub.hash(key, sz)
+      local h = lib.hash(key, sz)
       if hashes[h] then
         break
       elseif i == list_sz then
@@ -83,9 +72,20 @@ function private.minHash(list_or_obj, func)
   end
 end
 
+function lib.hash(str, sz)
+  local h = 0
+  for i=1,string.len(str) do
+    local c = string.byte(str,i)
+    h = c + shiftleft(h, 6) + shiftleft(h, 16) - h
+    h = h % DUB_MAX_IN_SHIFT
+  end
+  return h % sz
+end
+--=============================================== PRIVATE
+
 local shown_warnings = {}
-function private.printWarn(level, fmt, ...)
-  if level > dub.warn_level then
+function lib.printWarn(level, fmt, ...)
+  if level > lib.warn_level then
     return
   end
   local msg = string.format(fmt, ...)
@@ -95,7 +95,7 @@ function private.printWarn(level, fmt, ...)
   end
 end
 
-function private.silentWarn(level, fmt, ...)
+function lib.silentWarn(level, fmt, ...)
   local msg = string.format(fmt, ...)
   if not shown_warnings[msg] then
     shown_warnings[msg] = true
@@ -107,7 +107,7 @@ end
 -- function lib.warn(level, format, ...)
 
 -- nodoc
-lib.warn = private.printWarn
+lib.warn = lib.printWarn
 
 -- Default warning level (anything below or equal to this level will be
 -- notified).

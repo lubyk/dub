@@ -6,9 +6,14 @@
   Test basic binding with the 'simple' class.
 
 --]]------------------------------------------------------
-require 'lubyk'
+local lub = require 'lub'
+local lut = require 'lut'
 -- Run the test with the dub directory as current path.
-local should = test.Suite('dub.LuaBinder - simple')
+local should = lut.Test('dub.LuaBinder - simple', {coverage = false})
+
+local Simple, Map, SubMap, reg
+
+local dub = require 'dub'
 local binder = dub.LuaBinder()
 local custom_bindings = {
   Map = {
@@ -29,7 +34,7 @@ return 1;
   },
 }
 
-local base = lk.scriptDir()
+local base = lub.path('|')
 local ins = dub.Inspector {
   INPUT   = base .. '/fixtures/simple/include',
   doc_dir = base .. '/tmp',
@@ -42,7 +47,10 @@ end
 
 function should.bindClass()
   local Simple = ins:find('Simple')
-  local res = binder:bindClass(Simple)
+  local res
+  assertPass(function()
+    res = binder:bindClass(Simple)
+  end)
   assertMatch('luaopen_Simple', res)
 end
 
@@ -281,7 +289,7 @@ function should.bindCompileAndLoad()
 
   -- create tmp directory
   local tmp_path = base .. '/tmp'
-  lk.rmTree(tmp_path, true)
+  lub.rmTree(tmp_path, true)
   os.execute("mkdir -p "..tmp_path)
   binder:bind(ins, {
     output_directory = tmp_path,
@@ -290,9 +298,17 @@ function should.bindCompileAndLoad()
       'Simple',
       'Map',
       'SubMap',
-      'Reg',
     },
   })
+  binder:bind(ins, {
+    output_directory = tmp_path,
+    single_lib = 'reg',
+    lib_prefix = false,
+    only = {
+      'reg::Reg',
+    },
+  })
+  
   local cpath_bak = package.cpath
   local s
   assertPass(function()
@@ -339,10 +355,11 @@ function should.bindCompileAndLoad()
     }
 
     binder:build {
-      output   = base .. '/tmp/Reg.so',
+      output   = base .. '/tmp/reg.so',
       inputs   = {
         base .. '/tmp/dub/dub.cpp',
-        base .. '/tmp/Reg.cpp',
+        base .. '/tmp/reg.cpp',
+        base .. '/tmp/reg_Reg.cpp',
       },
       includes = {
         base .. '/tmp',
@@ -352,20 +369,19 @@ function should.bindCompileAndLoad()
       },
     }
     package.cpath = base .. '/tmp/?.so'
-    require 'Simple'
+    Simple = require 'Simple'
     assertType('table', Simple)
-    require 'Map'
+    Map = require 'Map'
     assertType('table', Map)
-    require 'SubMap'
+    SubMap = require 'SubMap'
     assertType('table', SubMap)
-    require 'Reg'
-    assertType('nil', Reg)
-    assertType('table', Reg_core)
+    reg = require 'reg'
+    assertType('table', reg)
   end, function()
     -- teardown
     package.cpath = cpath_bak
     if not Simple or not Map then
-      test.abort = true
+      lut.Test.abort = true
     end
   end)
   --lk.rmTree(tmp_path, true)
@@ -482,12 +498,12 @@ end
 
 function should.registerWithRegistrationName()
   -- require done after build.
-  assertNil(Reg)
-  assertType('table', Reg_core)
-  local r = Reg_core('hey')
+  assertNil(reg.Reg)
+  assertType('table', reg.Reg_core)
+  local r = reg.Reg_core('hey')
   -- Should recognize r as Reg type
-  local r2 = Reg_core(r)
+  local r2 = reg.Reg_core(r)
   assertEqual('hey', r2:name())
 end
 
-test.all()
+should:test()

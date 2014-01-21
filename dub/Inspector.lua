@@ -7,6 +7,7 @@
 
 --]]------------------------------------------------------
 local lub     = require 'lub'
+local dub     = require 'dub'
 local lib     = lub.class 'dub.Inspector'
 local private = {}
 
@@ -58,6 +59,7 @@ function lib:resolveType(name)
   return self.db:resolveType(self.db, name)
 end
 
+
 --=============================================== PRIVATE
 
 -- Add xml headers to the database. If `not_lazy` is set, parse everything
@@ -70,7 +72,7 @@ function private:parse(opts)
   if type(opts) == 'string' then
     opts = {INPUT = opts}
   end
-  assert(opts.INPUT, "Missing 'INPUT' field")
+  assert(opts and opts.INPUT, "Missing 'INPUT' field")
 
   if opts.html then
     opts.GENERATE_HTML = 'YES'
@@ -100,7 +102,7 @@ function private:parse(opts)
     doxypath = doc_dir .. '/Doxyfile'
     local doxyfile = io.open(doxypath, 'w')
 
-    local doxytemplate = dub.Template {path = lub.scriptDir() .. '/Doxyfile'}
+    local doxytemplate = lub.Template {path = lub.path('|assets/Doxyfile')}
     if type(opts.INPUT) == 'table' then
       opts.INPUT = lub.join(opts.INPUT, ' ')
     end

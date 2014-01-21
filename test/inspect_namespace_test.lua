@@ -7,10 +7,12 @@
   of classes.
 
 --]]------------------------------------------------------
-require 'lubyk'
-local should = test.Suite('dub.Inspector - namespace')
+local lub = require 'lub'
+local lut = require 'lut'
 
-local base = lk.scriptDir()
+local dub = require 'dub'
+local should = lut.Test('dub.Inspector - namespace', {coverage = false})
+
 local ins
 
 function should.setup()
@@ -18,9 +20,9 @@ function should.setup()
   if not ins then
     ins = dub.Inspector {
       INPUT    = {
-        base .. '/fixtures/namespace',
+        lub.path '|fixtures/namespace',
       },
-      doc_dir  = base .. '/tmp',
+      doc_dir  = lub.path '|tmp',
     }
   end
 end
@@ -48,7 +50,7 @@ end
 function should.listHeaders()
   local res = {}
   for h in ins.db:headers({ins:find('Nem::A')}) do
-    lk.insertSorted(res, string.match(h, '/([^/]+/[^/]+)$'))
+    lub.insertSorted(res, string.match(h, '/([^/]+/[^/]+)$'))
   end
   assertValueEqual({
     'namespace/A.h',
@@ -166,7 +168,7 @@ end
 function should.listNamespaceFunctions()
   local res = {}
   for func in ins.db:functions() do
-    lk.insertSorted(res, func:fullcname())
+    lub.insertSorted(res, func:fullcname())
   end
   assertValueEqual({
     'Nem::addTwo',
@@ -189,7 +191,7 @@ function should.listNamespaceConstants()
   local n = ins:find('Nem')
   local res = {}
   for const in n:constants() do
-    lk.insertSorted(res, const)
+    lub.insertSorted(res, const)
   end
   assertValueEqual({
     'One',
@@ -198,6 +200,6 @@ function should.listNamespaceConstants()
   }, res)
 end
 
-test.all()
+should:test()
 
 

@@ -28,7 +28,7 @@ function should.bindClass()
   local Callback = ins:find('Callback')
   local met = Callback:method('Callback')
   local res = binder:functionBody(Callback, met)
-  assertMatch('retval__%->pushobject%(L, retval__, "Callback", true%);', res)
+  assertMatch('retval__%->dub_pushobject%(L, retval__, "Callback", true%);', res)
 end
 
 --=============================================== Build

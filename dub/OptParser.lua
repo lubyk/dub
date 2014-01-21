@@ -4,23 +4,15 @@
 
   (internal) Simplified yaml parser to retrieve @dub inline options.
 
-  TODO: UPDATE FOR "lub"
-
 --]]------------------------------------------------------
-
-local lib     = {
-  type          = 'dub.OptParser',
-}
+local lub     = require 'lub'
+local lib     = lub.class 'dub.OptParser'
 local private = {}
-lib.__index   = lib
-dub.OptParser = lib
 
 --=============================================== dub.Class()
-setmetatable(lib, {
-  __call = function(lib, str)
-    return lib.parse(str)
-  end
-})
+function lib.new(str)
+  return lib.parse(str)
+end
 
 function lib.parse(str)
   local res = {}
@@ -60,3 +52,5 @@ end
 function private.strip(str)
   return str:match('^ *(.-) *$')
 end
+
+return lib

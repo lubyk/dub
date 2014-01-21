@@ -4,12 +4,11 @@
 
   Use the dub.Inspector to create Lua bindings.
 
-  TODO: UPDATE FOR "lub"
-
 --]]------------------------------------------------------
+local lub     = require 'lub'
+local dub     = require 'dub'
 local format  = string.format
-local lib     = {
-  type = 'dub.LuaBinder',
+local lib     = lub.class('dub.LuaBinder', {
   SELF = 'self',
   -- By default, we try to access userdata in field 'super'. This is not
   -- slower then checkudata if the element passed is a userdata.
@@ -92,23 +91,20 @@ local lib     = {
     macosx = '-g -Wall -Wl,-headerpad_max_install_names -flat_namespace -undefined suppress -dynamic -bundle -fPIC',
     linux  = '-g -Wall -Wl,-headerpad_max_install_names -shared -fPIC',
   }
-}
+})
+
 local private = {}
-lib.__index   = lib
-dub.LuaBinder = lib
 
 --=============================================== dub.LuaBinder()
-setmetatable(lib, {
-  __call = function(lib, options)
-    local self = {
-      options         = options or {},
-      extra_headers   = {},
-      custom_bindings = {},
-    }
-    self.header_base = {'^'..lfs.currentdir()..'/(.*)$'}
-    return setmetatable(self, lib)
-  end
-})
+function lib.new(options)
+  local self = {
+    options         = options or {},
+    extra_headers   = {},
+    custom_bindings = {},
+  }
+  self.header_base = {'^'..lfs.currentdir()..'/(.*)$'}
+  return setmetatable(self, lib)
+end
 
 --=============================================== PUBLIC METHODS
 -- Add xml headers to the database
@@ -200,7 +196,8 @@ function lib:build(opts)
   end
   local cmd = 'cd ' .. work_dir .. ' && '
   cmd = cmd .. self.COMPILER .. ' ' 
-  cmd = cmd .. self.COMPILER_FLAGS[Lubyk.plat] .. ' '
+  -- FIXME
+  cmd = cmd .. self.COMPILER_FLAGS['macosx' or lub.plat] .. ' '
   cmd = cmd .. flags .. ' '
   cmd = cmd .. '-o ' .. opts.output .. ' '
   cmd = cmd .. files
@@ -219,10 +216,9 @@ function lib:bindClass(class)
   private.expandClass(self, class)
   if not self.class_template then
     -- path to current file
-    local dir = lub.scriptDir()
-    self.class_template = lub.Template {path = dir .. '/lua/class.cpp'}
+    self.class_template = lub.Template {path = lub.path('|assets/lua/class.cpp')}
   end
-  return self.class_template:run {class = class, self = self}
+  return self.class_template:run {dub = dub, class = class, self = self}
 end
 
 function lib:addCustomTypes(list)
@@ -280,7 +276,7 @@ function lib:functionBody(parent, method)
   local res = ''
 
   if method.dtor then
-    res = res .. format('DubUserdata *userdata = ((DubUserdata*)dub_checksdata_d(L, 1, "%s"));\n', self:libName(parent))
+    res = res .. format('DubUserdata *userdata = ((DubUserdata*)dub::checksdata_d(L, 1, "%s"));\n', self:libName(parent))
     if custom and custom.body then
       res = res .. custom.body
     else
@@ -384,7 +380,7 @@ function private:detectType(pos, type_name)
   if k then
     return format('type__ == %s', k), false
   else
-    return format('dub_issdata(L, %i, "%s", type__)', pos, type_name), true
+    return format('dub::issdata(L, %i, "%s", type__)', pos, type_name), true
   end
 end
 
@@ -431,7 +427,7 @@ function private:expandTreeByType(tree, class, param_delta, indent, max_arg)
         res = res .. format('void **%s;\n', ptr_name)
       end
 
-      -- This ensures that we only use the ptr if there was a dub_issdata clause
+      -- This ensures that we only use the ptr if there was a dub::issdata clause
       -- before (pointer is up-to-date).
       ptr_for_pos[format('%s-%i', type_name, param_delta + pos)] = ptr_name
 
@@ -597,7 +593,7 @@ end
 
 function lib:customTypeAccessor(method)
   if method:neverThrows() then
-    return 'dub_checksdata_n'
+    return 'dub::checksdata_n'
   else
     return private.checkPrefix(self, method) .. self.TYPE_ACCESSOR
   end
@@ -761,7 +757,7 @@ function private:checkPrefix(method)
      method:neverThrows() then
     return 'luaL_'
   else
-    return 'dub_'
+    return 'dub::'
   end
 end
 --- Find the userdata from the current lua_State. The userdata can
@@ -964,35 +960,35 @@ function private:pushValue(method, value, return_value)
         if ctype.const then
           if self.options.read_const_member == 'copy' then
             -- copy
-            res = format('dub_pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
+            res = format('dub::pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
           else
             -- cast
-            res = format('dub_pushudata(L, const_cast<%s*>(&%s), "%s", false);', rtype.name, value, lua.mt_name)
+            res = format('dub::pushudata(L, const_cast<%s*>(&%s), "%s", false);', rtype.name, value, lua.mt_name)
           end
         else
-          res = format('dub_pushudata(L, &%s, "%s", false);', value, lua.mt_name)
+          res = format('dub::pushudata(L, &%s, "%s", false);', value, lua.mt_name)
         end
       elseif return_value.ref then
         -- Return value is a reference.
         if ctype.const then
           if self.options.read_const_member == 'copy' then
             -- copy
-            res = format('dub_pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
+            res = format('dub::pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
           else
             -- cast
-            res = format('dub_pushudata(L, const_cast<%s*>(&%s), "%s", false);', rtype.name, value, lua.mt_name)
+            res = format('dub::pushudata(L, const_cast<%s*>(&%s), "%s", false);', rtype.name, value, lua.mt_name)
           end
         else
           -- not const ref
-          res = format('dub_pushudata(L, &%s, "%s", false);', value, lua.mt_name)
+          res = format('dub::pushudata(L, &%s, "%s", false);', value, lua.mt_name)
         end
       else
         -- Return by value.
         if method.parent.dub and method.parent.dub.destroy == 'free' then
-          res = format('dub_pushfulldata<%s>(L, %s, "%s");', rtype.name, value, lua.mt_name)
+          res = format('dub::pushfulldata<%s>(L, %s, "%s");', rtype.name, value, lua.mt_name)
         else
           -- Allocate on the heap.
-          res = format('dub_pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
+          res = format('dub::pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
         end
       end
     else
@@ -1009,7 +1005,7 @@ function private:pushValue(method, value, return_value)
         custom_push = true
         push_method = 'retval__->'.. push_method
       else
-        push_method = 'dub_pushudata'
+        push_method = 'dub::pushudata'
       end
       if ctype.const then
         assert(not custom_push, string.format("Types with @dub 'push' setting should not be passed as const types (%s).", method:fullname()))
@@ -1050,8 +1046,7 @@ function private:copyDubFiles()
     local base_path = self.output_directory .. dub_path
     os.execute(format("mkdir -p '%s'", base_path))
     -- path to current file
-    local dir = lub.scriptDir()
-    local dub_dir = dir .. '/lua/dub'
+    local dub_dir = lub.path '|assets/lua/dub'
     for file in lfs.dir(dub_dir) do
       local res = lub.content(dub_dir .. '/' .. file)
       lub.writeall(base_path .. '/dub/' .. file, res, true)
@@ -1095,7 +1090,7 @@ function private:setAttrBody(class, method, attr, delta)
       p = '*' .. p
     else
       -- protect from gc
-      res = res .. format('dub_protect(L, 1, %i, "%s");\n', param.position + delta, param.name)
+      res = res .. format('dub::protect(L, 1, %i, "%s");\n', param.position + delta, param.name)
     end
   else
     -- native type
@@ -1221,7 +1216,7 @@ function private:switch(class, method, delta, bfunc, iterator)
     -- get/set without any public variables but using
     -- suffix code
   else
-    res = res .. format('int key_h = dub_hash(key, %i);\n', sz)
+    res = res .. format('int key_h = dub::hash(key, %i);\n', sz)
     -- switch
     res = res .. 'switch(key_h) {\n'
     for elem in iterator(class) do
@@ -1262,7 +1257,9 @@ function private:switch(class, method, delta, bfunc, iterator)
 end
 
 function private:bindAll(parent, bound, ignore)
+  print('bindAll', parent.name)
   for elem in parent:children() do
+    print('  ', elem.name, elem.type)
     if elem.type == 'dub.Class' then
       if not ignore[elem.name] and
          not (elem.dub.bind == false) then
@@ -1418,8 +1415,7 @@ end
 
 function private:makeLibFile(lib_name, list)
   if not self.lib_template then
-    local dir = lub.scriptDir()
-    self.lib_template = lub.Template {path = dir .. '/lua/lib.cpp'}
+    self.lib_template = lub.Template {path = lub.path('|assets/lua/lib.cpp')}
   end
   self.bound_classes = list
   -- lib is a namespace
@@ -1429,6 +1425,7 @@ function private:makeLibFile(lib_name, list)
     lib = self.ins.db
   end
   local res = self.lib_template:run {
+    dub      = dub,
     lib      = lib,
     lib_name = lib_name,
     classes  = list,
@@ -1521,3 +1518,5 @@ function private:expandClass(class)
 end
 
 private.makeType = dub.MemoryStorage.makeType
+
+return lib

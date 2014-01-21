@@ -7,17 +7,19 @@
   the 'simple' class.
 
 --]]------------------------------------------------------
-require 'lubyk'
-local should = test.Suite('dub.Inspector - simple')
+local lub = require 'lub'
+local lut = require 'lut'
 
-local base = lk.scriptDir()
-local tmp_path = lk.scriptDir() .. '/tmp'
-lk.rmTree(tmp_path, true)
+local dub = require 'dub'
+local should = lut.Test('dub.Inspector - simple', {coverage = false})
+
+local tmp_path = lub.path '|tmp'
+lub.rmTree(tmp_path, true)
 os.execute('mkdir -p '..tmp_path)
 
 local ins = dub.Inspector {
-  INPUT   = base .. '/fixtures/simple/include',
-  doc_dir = base .. '/tmp',
+  INPUT   = lub.path '|fixtures/simple/include',
+  doc_dir = lub.path '|tmp',
   ignore  = {
     Simple = {
       'ignoreInInspector',
@@ -32,15 +34,8 @@ function should.loadDub()
 end
 
 function should.createInspector()
-  local foo = dub.Inspector()
+  local foo = dub.Inspector(lub.path '|fixtures/simple/include')
   assertType('table', foo)
-end
-
-function should.parseXml()
-  local simple = dub.Inspector()
-  assertPass(function()
-    simple:parseXml('test/fixtures/simple/doc/xml')
-  end)
 end
 
 function should.findSimpleClass()
@@ -111,16 +106,16 @@ end
 function should.listMembers()
   local res = {}
   for child in ins:children() do
-    lk.insertSorted(res, child.name)
+    lub.insertSorted(res, child.name)
   end
   assertValueEqual({
     'Bar',
     'Foo',
     'Map',
     'MyFloat',
-    'Reg',
     'Simple',
     'SubMap',
+    'reg',
   }, res)
 end
 
@@ -271,4 +266,4 @@ function should.parseRegistrationName()
   assertEqual('Reg_core', c.dub.register)
 end
 
-test.all()
+should:test()

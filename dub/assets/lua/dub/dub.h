@@ -57,6 +57,7 @@ extern "C" {
 // Helpers to check for explicit 'false' or 'true' return values.
 #define lua_isfalse(L,i) (lua_isboolean(L,i) && !lua_toboolean(L,i))
 #define lua_istrue(L,i)  (lua_isboolean(L,i) && lua_toboolean(L,i))
+#define luaL_checkboolean(L,n) (lua_toboolean(L,n))
 
 struct DubUserdata {
   void *ptr;
@@ -106,11 +107,10 @@ public:
   }
 
   /** This is called on object instanciation by dub instead of
-   * dub_pushudata to setup dub_userdata_.
+   * dub::pushudata to setup dub_userdata_.
    *
-   * TODO: Do we really have to make this virtual ?
    */
-  void pushobject(lua_State *L, void *ptr, const char *type_name, bool gc = true);
+  void dub_pushobject(lua_State *L, void *ptr, const char *type_name, bool gc = true);
 
 protected:
   /** Pointer to the userdata. *userdata => pointer to C++ object.
@@ -127,10 +127,10 @@ public:
     : dub_L(NULL) {}
   /** This is called on object instanciation by dub to create the lua
    * thread, prepare the <self> table and setup metamethods. This is
-   * called instead of dub_pushudata.
+   * called instead of dub::pushudata.
    * <udata> <mt>
    */
-  void pushobject(lua_State *L, void *ptr, const char *type_name, bool gc = true);
+  void dub_pushobject(lua_State *L, void *ptr, const char *type_name, bool gc = true);
 
   /** Push function 'name' found in <self> on the stack with <self> as
    * first argument.
@@ -164,10 +164,8 @@ protected:
   const char *dub_typename_;
 };
 
-} // dub
-
 // ======================================================================
-// =============================================== dub_pushclass
+// =============================================== dub::pushclass
 // ======================================================================
 
 // To ease storing a LuaRef in a void* pointer.
@@ -220,7 +218,7 @@ struct DubRef {
  * arguments without requiring users to fiddle with constness which is not
  * a notion part of Lua anyway.
  */
-void dub_pushudata(lua_State *L, const void *ptr, const char *type_name, bool gc = true);
+void pushudata(lua_State *L, const void *ptr, const char *type_name, bool gc = true);
 
 template<class T>
 struct DubFullUserdata {
@@ -229,7 +227,7 @@ struct DubFullUserdata {
 };
 
 template<class T>
-void dub_pushfulldata(lua_State *L, const T &obj, const char *type_name) {
+void pushfulldata(lua_State *L, const T &obj, const char *type_name) {
   DubFullUserdata<T> *copy = (DubFullUserdata<T>*)lua_newuserdata(L, sizeof(DubFullUserdata<T>));
   copy->obj = obj;
   // now **copy gives back the object.
@@ -243,13 +241,13 @@ void dub_pushfulldata(lua_State *L, const T &obj, const char *type_name) {
 }
 
 template<class T>
-void dub_pushclass(lua_State *L, const T &obj, const char *type_name) {
+void pushclass(lua_State *L, const T &obj, const char *type_name) {
   T *copy = new T(obj);
-  dub_pushudata(L, (void*)copy, type_name);
+  pushudata(L, (void*)copy, type_name);
 }
 
 // ======================================================================
-// =============================================== dub_pushclass2
+// =============================================== dub::pushclass2
 // ======================================================================
 
 /** Push a custom type on the stack and give it the pointer to the userdata.
@@ -257,7 +255,7 @@ void dub_pushclass(lua_State *L, const T &obj, const char *type_name) {
  * invalidates the userdatum by calling 
  */
 template<class T>
-void dub_pushclass2(lua_State *L, T *ptr, const char *type_name) {
+void pushclass2(lua_State *L, T *ptr, const char *type_name) {
   T **userdata = (T**)lua_newuserdata(L, sizeof(T*));
   *userdata = ptr;
 
@@ -275,13 +273,13 @@ void dub_pushclass2(lua_State *L, T *ptr, const char *type_name) {
 // =============================================== constants
 // ======================================================================
 
-typedef struct dub_const_Reg {
+typedef struct const_Reg {
   const char *name;
   double value;
-} dub_const_Reg;
+} const_Reg;
 
 // register constants in the table at the top
-void dub_register_const(lua_State *L, const dub_const_Reg *l);
+void register_const(lua_State *L, const const_Reg *l);
 
 // ======================================================================
 // =============================================== dub_check ...
@@ -289,49 +287,57 @@ void dub_register_const(lua_State *L, const dub_const_Reg *l);
 
 // These provide the same funcionality as their equivalent luaL_check... but they
 // throw std::exception which can be caught (eventually to call lua_error).
-lua_Number dub_checknumber(lua_State *L, int narg) throw(dub::TypeException);
-lua_Integer dub_checkint(lua_State *L, int narg) throw(dub::TypeException);
-const char *dub_checklstring(lua_State *L, int narg, size_t *len) throw(dub::TypeException);
-void **dub_checkudata(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw(dub::Exception);
+lua_Number checknumber(lua_State *L, int narg) throw(dub::TypeException);
+lua_Integer checkint(lua_State *L, int narg) throw(dub::TypeException);
+const char *checklstring(lua_State *L, int narg, size_t *len) throw(dub::TypeException);
+void **checkudata(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw(dub::Exception);
 
 // Super aware userdata calls (finds userdata inside provided table with table.super).
-void **dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw(dub::Exception);
+void **checksdata(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw(dub::Exception);
 // Super aware userdata calls that DOES NOT check for dangling pointers (used in 
 // __gc binding).
-void **dub_checksdata_d(lua_State *L, int ud, const char *tname) throw(dub::Exception);
+void **checksdata_d(lua_State *L, int ud, const char *tname) throw(dub::Exception);
 // Return pointer if the type is correct. Used to resolve overloaded functions when there
 // is no other alternative (arg count, native types). We return the pointer so that we can
 // optimize away the corresponding 'dub_checksdata'.
-void **dub_issdata(lua_State *L, int ud, const char *tname, int type);
+void **issdata(lua_State *L, int ud, const char *tname, int type);
 // Does not throw exceptions. This method behaves exactly like luaL_checkudata but searches
 // for table.super before calling lua_error. We cannot use throw() because of differing
 // implementations for luaL_error (luajit throws an exception on luaL_error).
-void **dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt = false);
+void **checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt = false);
 
-#define dub_checkstring(L,n) (dub_checklstring(L, (n), NULL))
-#define luaL_checkboolean(L,n) (lua_toboolean(L,n))
-#define dub_checkboolean(L,n) (lua_toboolean(L,n))
+inline const char *checkstring(lua_State *L, int narg) throw(dub::TypeException) {
+  return checklstring(L, narg, NULL);
+}
+
+inline int checkboolean(lua_State *L, int narg) throw() {
+  return lua_toboolean(L, narg);
+}
 
 // This calls lua_Error after preparing the error message with line
 // and number.
-int dub_error(lua_State *L);
+int error(lua_State *L);
 
 // This is a Lua binding called whenever we ask for obj:deleted() in Lua
-int dub_isDeleted(lua_State *L);
+int isDeleted(lua_State *L);
 
 /** Protect garbage collection from pointers stored in objects or
  * retrieved in userdata copies.
  */
-void dub_protect(lua_State *L, int owner, int original, const char *key);
+void protect(lua_State *L, int owner, int original, const char *key);
 
-/** Register a class inside a library, creating empty tables as
- * needed.
+/** Prepare index function, setup 'type' field and __call metamethod.
  */
-void dub_register(lua_State *L, const char *libname, const char *reg_name, const char *class_name = NULL);
+void setup(lua_State *L, const char *libname, const char *class_name);
 
 // sdbm function: taken from http://www.cse.yorku.ca/~oz/hash.html
 // This version is slightly adapted to cope with different
 // hash sizes (and to be easy to write in Lua).
-int dub_hash(const char *str, int sz);
+int hash(const char *str, int sz);
+
+// Simple debugging function to print stack content.
+void printStack(lua_State *L, const char *msg = NULL);
+
+} // dub
   
 #endif // DUB_BINDING_GENERATOR_DUB_H_

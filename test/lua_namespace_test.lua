@@ -341,6 +341,7 @@ function should.decideOver()
     assertEqual('B', a:over(b))
   end)
 end
-test.all()
+
+should:test()
 
 

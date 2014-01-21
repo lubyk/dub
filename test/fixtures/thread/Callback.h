@@ -15,7 +15,7 @@ class Foo {
  *   * read values defined in the scripting language (self access from C++).
  *   * execute callbacks from C++. 
  *
- * @dub push: pushobject
+ * @dub push: dub_pushobject
  */
 class Callback : public Foo, public dub::Thread {
 public:

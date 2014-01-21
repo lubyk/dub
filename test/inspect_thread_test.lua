@@ -20,7 +20,7 @@ local Callback = ins:find('Callback')
 --=============================================== TESTS
 
 function should.useCustomPush()
-  assertEqual('pushobject', Callback.dub.push)
+  assertEqual('dub_pushobject', Callback.dub.push)
 end
 
 test.all()

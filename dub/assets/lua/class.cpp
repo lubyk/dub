@@ -31,7 +31,7 @@ static int {{class.name}}_{{method.cname}}(lua_State *L) {
   } catch (...) {
     lua_pushfstring(L, "{{self:bindName(method)}}: Unknown exception");
   }
-  return dub_error(L);
+  return dub::error(L);
 {% end %}
 }
 
@@ -55,13 +55,13 @@ static const struct luaL_Reg {{class.name}}_member_methods[] = {
 {% if not class:method('__tostring') then %}
   { {{string.format('%-15s, %-20s', '"__tostring"', class.name .. '___tostring')}} },
 {% end %}
-  { "deleted"      , dub_isDeleted        },
+  { "deleted"      , dub::isDeleted        },
   { NULL, NULL},
 };
 
 {% if class.has_constants then %}
 // --=============================================== CONSTANTS
-static const struct dub_const_Reg {{class.name}}_const[] = {
+static const struct dub::const_Reg {{class.name}}_const[] = {
 {% for const in class:constants() do %}
   { {{string.format('%-15s, %-20s', '"'.. const ..'"', class.name..'::'..const)}} },
 {% end %}
@@ -76,14 +76,13 @@ extern "C" int luaopen_{{self:openName(class)}}(lua_State *L)
   // <mt>
 {% if class.has_constants then %}
   // register class constants
-  dub_register_const(L, {{class.name}}_const);
+  dub::register_const(L, {{class.name}}_const);
 {% end %}
 
   // register member methods
   luaL_register(L, NULL, {{ class.name }}_member_methods);
-  // save meta-table in {{self:libName(class.parent)}}
-  dub_register(L, "{{self:libName(class.parent)}}", "{{class.dub.register or self:name(class)}}", "{{self:name(class)}}");
+  // setup meta-table
+  dub::setup(L, "{{self:libName(class.parent)}}", "{{self:name(class)}}");
   // <mt>
-  lua_pop(L, 1);
-  return 0;
+  return 1;
 }

@@ -37,7 +37,7 @@
 #define TYPE_EXCEPTION_SMSG "expected %s, found %s (using super)"
 #define DEAD_EXCEPTION_MSG  "using deleted %s"
 #define DUB_MAX_IN_SHIFT 4294967296
-#define DUB_INIT_CODE "local class = %s.%s\nif class.new then\nsetmetatable(class, {\n __call = function(lib, ...)\n   return lib.new(...)\n end,\n})\nend\n"
+#define DUB_INIT_CODE "local class = ...\nif class.new then\nsetmetatable(class, {\n __call = function(lib, ...)\n   return lib.new(...)\n end,\n})\nend\n"
 #define DUB_INIT_ERR "[string \"Dub init code\"]"
 // Define the callback error function. We store the error function in
 // self._errfunc so that it can also be used from Lua (this error function
@@ -56,6 +56,24 @@ self._errfunc = errfunc\n\
 return errfunc"
 
 using namespace dub;
+
+void dub::printStack(lua_State *L, const char *msg) {
+  int top = lua_gettop(L);
+  if (msg) {
+    printf("============ %s (%i)\n", msg, top);
+  } else {
+    printf("============ (%i)\n", top);
+  }
+  for(int i=1; i<=top; ++i) {
+    if (lua_isstring(L, i)) {
+      printf("  \"%s\"\n", lua_tostring(L, i));
+    } else {
+      printf("  %s\n", lua_typename(L, lua_type(L, i)));
+    }
+
+  }
+  printf("===============================\n");
+}  
 
 // ======================================================================
 // =============================================== dub::Exception
@@ -82,7 +100,7 @@ TypeException::TypeException(lua_State *L, int narg, const char *type, bool is_s
 // ======================================================================
 // =============================================== dub::Object
 // ======================================================================
-void Object::pushobject(lua_State *L, void *ptr, const char *tname, bool gc) {
+void Object::dub_pushobject(lua_State *L, void *ptr, const char *tname, bool gc) {
   DubUserdata *udata = (DubUserdata*)lua_newuserdata(L, sizeof(DubUserdata));
   udata->ptr = ptr;
   udata->gc  = gc;
@@ -106,7 +124,7 @@ void Object::pushobject(lua_State *L, void *ptr, const char *tname, bool gc) {
 // ======================================================================
 // =============================================== dub::Thread
 // ======================================================================
-void Thread::pushobject(lua_State *L, void *ptr, const char *tname, bool gc) {
+void Thread::dub_pushobject(lua_State *L, void *ptr, const char *tname, bool gc) {
   if (dub_L) {
     if (!strcmp(tname, dub_typename_)) {
       // Pushing same type again.
@@ -120,7 +138,7 @@ void Thread::pushobject(lua_State *L, void *ptr, const char *tname, bool gc) {
     } else {
       // Type cast.
       assert(!gc);
-      dub_pushudata(L, ptr, tname, gc);
+      dub::pushudata(L, ptr, tname, gc);
       // <udata>
     }
     return;
@@ -131,7 +149,7 @@ void Thread::pushobject(lua_State *L, void *ptr, const char *tname, bool gc) {
   //--=============================================== setup super
   lua_newtable(L);
   // <self>
-  Object::pushobject(L, ptr, tname, gc);
+  Object::dub_pushobject(L, ptr, tname, gc);
   // <self> <udata>
   dub_typename_ = tname;
   lua_pushlstring(L, "super", 5);
@@ -260,11 +278,11 @@ bool Thread::dub_call(int param_count, int retval_count) const {
 
 
 // ======================================================================
-// =============================================== dub_error
+// =============================================== dub::error
 // ======================================================================
 // This calls lua_Error after preparing the error message with line
 // and number.
-int dub_error(lua_State *L) {
+int dub::error(lua_State *L) {
   // ... <msg>
   luaL_where(L, 1);
   // ... <msg> <where>
@@ -288,7 +306,7 @@ int dub_error(lua_State *L) {
 
 
 // ======================================================================
-// =============================================== dub_protect
+// =============================================== dub::protect
 // ======================================================================
 
 // TODO: Can we make this faster ?
@@ -327,7 +345,7 @@ inline void push_own_env(lua_State *L, int ud) {
   }                            
 }
 
-void dub_protect(lua_State *L, int owner, int original, const char *key) {
+void dub::protect(lua_State *L, int owner, int original, const char *key) {
   // Point to original to avoid original gc before owner.
   push_own_env(L, owner);
   // ... <env>
@@ -340,18 +358,18 @@ void dub_protect(lua_State *L, int owner, int original, const char *key) {
 }
 
 // ======================================================================
-// =============================================== dub_pushudata
+// =============================================== dub::pushudata
 // ======================================================================
 
-void dub_pushudata(lua_State *L, const void *cptr, const char *tname, bool gc) {
+void dub::pushudata(lua_State *L, const void *cptr, const char *tname, bool gc) {
   // To avoid users spending time with const issues.
   void *ptr = const_cast<void*>(cptr);
-  // If anything is changed here, it must be reflected in dub::Object::pushobject.
+  // If anything is changed here, it must be reflected in dub::Object::dub_pushobject.
   DubUserdata *userdata = (DubUserdata*)lua_newuserdata(L, sizeof(DubUserdata));
   userdata->ptr = ptr;
   if (!gc) {
     // Point to original (self) to avoid original gc.
-    dub_protect(L, lua_gettop(L), 1, "_");
+    dub::protect(L, lua_gettop(L), 1, "_");
   }
 
   userdata->gc = gc;
@@ -370,32 +388,32 @@ void dub_pushudata(lua_State *L, const void *cptr, const char *tname, bool gc) {
 }
 
 // ======================================================================
-// =============================================== dub_check ...
+// =============================================== dub::check ...
 // ======================================================================
 // These methods are slight adaptations from luaxlib.c
 // Copyright (C) 1994-2008 Lua.org, PUC-Rio.
 
-lua_Number dub_checknumber(lua_State *L, int narg) throw(TypeException) {
+lua_Number dub::checknumber(lua_State *L, int narg) throw(TypeException) {
   lua_Number d = lua_tonumber(L, narg);
   if (d == 0 && !lua_isnumber(L, narg))  /* avoid extra test when d is not 0 */
     throw TypeException(L, narg, lua_typename(L, LUA_TNUMBER));
   return d;
 }
 
-lua_Integer dub_checkint(lua_State *L, int narg) throw(TypeException) {
+lua_Integer dub::checkint(lua_State *L, int narg) throw(TypeException) {
   lua_Integer d = lua_tointeger(L, narg);
   if (d == 0 && !lua_isnumber(L, narg))  /* avoid extra test when d is not 0 */
     throw TypeException(L, narg, lua_typename(L, LUA_TNUMBER));
   return d;
 }
 
-const char *dub_checklstring(lua_State *L, int narg, size_t *len) throw(TypeException) {
+const char *dub::checklstring(lua_State *L, int narg, size_t *len) throw(TypeException) {
   const char *s = lua_tolstring(L, narg, len);
   if (!s) throw TypeException(L, narg, lua_typename(L, LUA_TSTRING));
   return s;
 }
 
-void **dub_checkudata(lua_State *L, int ud, const char *tname, bool keep_mt) throw(dub::Exception) {
+void **dub::checkudata(lua_State *L, int ud, const char *tname, bool keep_mt) throw(dub::Exception) {
   void **p = (void**)lua_touserdata(L, ud);
   if (p != NULL) {  /* value is a userdata? */
     if (lua_getmetatable(L, ud)) {  /* does it have a metatable? */
@@ -512,7 +530,7 @@ static inline void **getsdata(lua_State *L, int ud, const char *tname, bool keep
   return p;
 }
 
-void **dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt) {
+void **dub::checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt) {
   void **p = getsdata(L, ud, tname, keep_mt);
   if (!p) {
     luaL_error(L, TYPE_EXCEPTION_MSG, tname, luaL_typename(L, ud));
@@ -523,7 +541,7 @@ void **dub_checksdata_n(lua_State *L, int ud, const char *tname, bool keep_mt) {
   return p;
 }
 
-void **dub_issdata(lua_State *L, int ud, const char *tname, int type) {
+void **dub::issdata(lua_State *L, int ud, const char *tname, int type) {
   if (type == LUA_TUSERDATA || type == LUA_TTABLE) {
     void **p = getsdata(L, ud, tname, false);
     if (!p) {
@@ -539,7 +557,7 @@ void **dub_issdata(lua_State *L, int ud, const char *tname, int type) {
   }
 }
 
-void **dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt) throw(dub::Exception) {
+void **dub::checksdata(lua_State *L, int ud, const char *tname, bool keep_mt) throw(dub::Exception) {
   void **p = getsdata(L, ud, tname, keep_mt);
   if (!p) {
     throw dub::TypeException(L, ud, tname);
@@ -550,7 +568,7 @@ void **dub_checksdata(lua_State *L, int ud, const char *tname, bool keep_mt) thr
   return p;
 }
 
-void **dub_checksdata_d(lua_State *L, int ud, const char *tname) throw(dub::Exception) {
+void **dub::checksdata_d(lua_State *L, int ud, const char *tname) throw(dub::Exception) {
   void **p = getsdata(L, ud, tname, false);
   if (!p) {
     throw dub::TypeException(L, ud, tname);
@@ -560,11 +578,10 @@ void **dub_checksdata_d(lua_State *L, int ud, const char *tname) throw(dub::Exce
 }
 
 // ======================================================================
-// =============================================== dub_register
+// =============================================== dub::setup
 // ======================================================================
 
-void dub_register(lua_State *L, const char *libname, const char *reg_name, const char *type_name) {
-  type_name = type_name ? type_name : reg_name;
+void dub::setup(lua_State *L, const char *libname, const char *type_name) {
   // meta-table should be on top
   // <mt>
   lua_getfield(L, -1, "__index");
@@ -590,43 +607,12 @@ void dub_register(lua_State *L, const char *libname, const char *reg_name, const
   }
   lua_settable(L, -3);
 
-
-  // <mt>
-  // get or create Foo.Bar.Baz table.
-  const char *tbl_err = luaL_findtable(L, LUA_GLOBALSINDEX, libname, 1);
-  if (tbl_err) {
-    fprintf(stderr, "Could load '%s' into '%s' ('%s' is not a table).\n", reg_name, libname, tbl_err);
-    return; // mt table not registered and not properly configured
-  }
-      
-  if (lua_isnil(L, -1)) {
-    // no global table called libname
-    lua_pop(L, 1);
-    // <mt> <lib>
-    lua_pushvalue(L, -1);
-    // <mt> <lib> <lib>
-    // _G.libname = <lib>
-    lua_setglobal(L, libname);
-    // <mt> <lib>
-  }
-
-  // <mt> <lib>
-  lua_pushstring(L, reg_name);
-  // <mt> <lib> "Foobar"
-  lua_pushvalue(L, -3);
-  // <mt> <lib>.Foobar = <mt>
-  lua_settable(L, -3);
-  // <mt> <lib>
-  lua_pop(L, 1);
   // <mt>
 
   // Setup the __call meta-table with an upvalue
-  size_t sz = strlen(DUB_INIT_CODE) + strlen(reg_name) + strlen(libname) + 2;
-  char *lua_code = (char*)malloc(sizeof(char) * sz);
-  snprintf(lua_code, sz, DUB_INIT_CODE, libname, reg_name);
-  //printf("%s\n", lua_code);
+  // printf("%s\n", DUB_INIT_CODE);
   /*
-  local class = lib.Foobar
+  local class = ...
   -- new can be nil for abstract types
   if class.new then
     setmetatable(class, {
@@ -639,17 +625,25 @@ void dub_register(lua_State *L, const char *libname, const char *reg_name, const
     })
   end
   */
-  int error = luaL_loadbuffer(L, lua_code, strlen(lua_code), "Dub init code") ||
-              lua_pcall(L, 0, 0, 0);
+  int error = luaL_loadbuffer(L, DUB_INIT_CODE, strlen(DUB_INIT_CODE), "Dub init code");
   if (error) {
     fprintf(stderr, "%s", lua_tostring(L, -1));
     lua_pop(L, 1);  /* pop error message from the stack */
+  } else {
+    // <mt> <func>
+    lua_pushvalue(L, -2);
+    // <mt> <func> <mt>
+    error = lua_pcall(L, 1, 0, 0);
+    if (error) {
+      fprintf(stderr, "%s", lua_tostring(L, -1));
+      lua_pop(L, 1);  /* pop error message from the stack */
+    }
   }
-  free(lua_code);
+  // free(lua_code);
   // <mt>
 }
 
-int dub_hash(const char *str, int sz) {
+int dub::hash(const char *str, int sz) {
   unsigned int h = 0;
   int c;
 
@@ -663,7 +657,7 @@ int dub_hash(const char *str, int sz) {
 }
 
 // register constants in the table at the top
-void dub_register_const(lua_State *L, const dub_const_Reg*l) {
+void dub::register_const(lua_State *L, const dub::const_Reg*l) {
   for (; l->name; l++) {
     // push each constant into the table at top
     lua_pushnumber(L, l->value);
@@ -672,7 +666,7 @@ void dub_register_const(lua_State *L, const dub_const_Reg*l) {
 }
 
 // This is called whenever we ask for obj:deleted() in Lua
-int dub_isDeleted(lua_State *L) {
+int dub::isDeleted(lua_State *L) {
   void **p = (void**)lua_touserdata(L, 1);
   if (p == NULL && lua_istable(L, 1)) {
     // get p from super

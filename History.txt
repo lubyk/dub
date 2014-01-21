@@ -1,3 +1,11 @@
+== 2.2.0
+
+* Major enhancement
+  * Not touching global namespace anymore: 'require' returns the library.
+  * Moving all 'dub' C++ methods inside 'dub' namespace.
+  * Replacing 'lubyk' dependency by 'lub'
+  * Functions marked as 'ignore' are no longer bound in sub-classes.
+
 == 2.1.0
 
 * Major enhancement

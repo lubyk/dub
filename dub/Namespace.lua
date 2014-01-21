@@ -5,22 +5,18 @@
   (internal) A C++ namespace definition with nested classes, enums
   and functions.
 
-  TODO: UPDATE FOR "lub"
-
 --]]------------------------------------------------------
-
-local lib     = {
-  type        = 'dub.Namespace',
+local lub     = require 'lub'
+local dub     = require 'dub'
+local lib     = lub.class 'dub.MemoryStorage', {
   is_class    = false,
 }
 local private = {}
-lib.__index   = lib
-dub.Namespace = lib
+
 -- Behaves like a class by default
 setmetatable(lib, dub.Class)
 
 --=============================================== dub.Namespace()
-
 function lib.new(self)
   local name = self.name
   self.name = nil
@@ -56,3 +52,5 @@ end
 function lib:children()
   return self.db:children(self)
 end
+
+return lib

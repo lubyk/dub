@@ -4,41 +4,35 @@
 
   (internal) This is used to store all definitions in memory.
 
-  TODO: UPDATE FOR "lub"
-
 --]]------------------------------------------------------
-
-local lib = {
-  type = 'dub.MemoryStorage', 
-}
--- Pattern to check for Doxygen version
-local DOXYGEN_VERSIONS = {"1%.7%.", "1%.8%."}
+local lub     = require 'lub'
+local dub     = require 'dub'
+local lib     = lub.class 'dub.MemoryStorage'
 local private = {}
 local parse   = {}
-lib.__index   = lib
-dub.MemoryStorage = lib
 
---=============================================== dub.Inspector()
-setmetatable(lib, {
-  __call = function(lib)
-    local self = {
-      -- xml definitions list
-      xml_headers     = {},
-      -- .h header files
-      headers_list    = {},
-      cache           = {},
-      sorted_cache    = {},
-      functions_list  = {},
-      constants_list  = {},
-      const_headers   = {},
-      resolved_cache  = {},
-      namespaces_list = {},
-    }
-    -- Just so that we can pass the db as any scope.
-    self.db = self
-    return setmetatable(self, lib)
-  end
-})
+-- Pattern to check for Doxygen version
+local DOXYGEN_VERSIONS = {"1%.7%.", "1%.8%."}
+
+-- Create a new storage engine for parsed content.
+function lib.new()
+  local self = {
+    -- xml definitions list
+    xml_headers     = {},
+    -- .h header files
+    headers_list    = {},
+    cache           = {},
+    sorted_cache    = {},
+    functions_list  = {},
+    constants_list  = {},
+    const_headers   = {},
+    resolved_cache  = {},
+    namespaces_list = {},
+  }
+  -- Just so that we can pass the db as any scope.
+  self.db = self
+  return setmetatable(self, lib)
+end
 
 --=============================================== PUBLIC METHODS
 -- Prepare database
@@ -114,11 +108,7 @@ function lib:functions(parent)
           -- do nothing: no destructor should be generated in this case
         elseif not seen[elem.name] then
           seen[elem.name] = true
-          if parent.ignore[elem.name] then
-            -- ignore
-          else
-            return elem
-          end
+          return elem
         end
       elseif not ok then
         print(elem, debug.traceback(co))
@@ -200,7 +190,7 @@ function lib:children(parent)
   private.parseHeaders(parent)
   local co = coroutine.create(private.iterator)
   return function()
-    local ok, elem = coroutine.resume(co, parent.sorted_cache)
+    local ok, elem = coroutine.resume(co, parent, 'sorted_cache')
     if ok then
       return elem
     else
@@ -236,7 +226,7 @@ function lib:constants(parent)
   end
   local co = coroutine.create(private.iterator)
   return function()
-    local ok, elem = coroutine.resume(co, parent.constants_list)
+    local ok, elem = coroutine.resume(co, parent, 'constants_list')
     if ok then
       return elem
     else
@@ -251,7 +241,7 @@ function lib:namespaces()
   private.parseHeaders(self)
   local co = coroutine.create(private.iterator)
   return function()
-    local ok, elem = coroutine.resume(co, self.namespaces_list)
+    local ok, elem = coroutine.resume(co, self, 'namespaces_list')
     if ok then
       return elem
     else
@@ -328,20 +318,25 @@ function lib:ignored(fullname)
 end
 --=============================================== PRIVATE
 
-function private.iterator(list)
-  for _, child in ipairs(list) do
-    coroutine.yield(child)
+function private.iterator(elem, key)
+  local ignore = elem.ignore or {}
+  for _, child in ipairs(elem[key]) do
+    if not ignore[child.name] then
+      coroutine.yield(child)
+    end
   end
 end
 
 function private.iteratorWithSuper(elem, key)
-  private.iterator(elem[key])
+  private.iterator(elem, key)
   if elem.type == 'dub.Class' then
     for super in elem:superclasses() do
+      local ignore = super.ignore or {}
       for _, child in ipairs(super[key]) do
-        if not child.no_inherit and
-           not child.dtor and
-           not child.static then
+        if not ignore[child.name] and
+           not child.no_inherit   and
+           not child.dtor         and
+           not child.static       then
            coroutine.yield(child)
          end
       end
@@ -419,7 +414,7 @@ function private:parseHeaders(name)
   self.parsed_headers = true
 end
 
-require 'lubyk'
+local xml = require 'xml'
 
 --- Parse a header definition and return element 
 -- identified by 'name' if found.
@@ -429,7 +424,7 @@ function parse:header(header, not_lazy)
   private.checkDoxygenVersion(data)
   data = data:find('compounddef')
   local h_path = data:find('location').file
-  local base, h_file = lub.pathDir(h_path)
+  local base, h_file = lub.dir(h_path)
   header.file = h_path
 
   if data.kind == 'namespace' then
@@ -1306,3 +1301,5 @@ function private:parseIgnoreList(base, list)
     end
   end
 end
+
+return lib

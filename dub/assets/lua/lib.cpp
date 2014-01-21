@@ -58,7 +58,7 @@ static const struct luaL_Reg {{lib_name}}_functions[] = {
 {% if lib.type == 'dub.Namespace' then %}
 // Functions from namespace {{lib.name}}
 {% end %}
-static const struct dub_const_Reg {{lib_name}}_const[] = {
+static const struct dub::const_Reg {{lib_name}}_const[] = {
 {% for const in lib:constants() do %}
   { {{string.format('%-15s, %-20s', '"'.. self:constName(const) ..'"', const)}} },
 {% end %}
@@ -67,30 +67,21 @@ static const struct dub_const_Reg {{lib_name}}_const[] = {
 {% end %}
 
 extern "C" int luaopen_{{self.options.luaopen or lib_name}}(lua_State *L) {
-{% for _, class in ipairs(classes) do %}
-  luaopen_{{self:openName(class)}}(L);
-{% end %}
-
-  // Create the table which will contain all the constants
-  lua_getfield(L, LUA_GLOBALSINDEX, "{{lib_name}}");
-  if (lua_isnil(L, -1)) {
-    // no global table called {{lib_name}}
-    lua_pop(L, 1);
-    lua_newtable(L);
-    // <lib>
-    lua_pushvalue(L, -1);
-    // <lib> <lib>
-    // _G.{{lib_name}} = <lib>
-    lua_setglobal(L, "{{lib_name}}");
-    // <lib>
-  }
+  lua_newtable(L);
   // <lib>
 {% if lib.has_constants then %}
   // register global constants
-  dub_register_const(L, {{lib_name}}_const);
+  dub::register_const(L, {{lib_name}}_const);
 {% end %}
   luaL_register(L, NULL, {{lib_name}}_functions);
   // <lib>
-  lua_pop(L, 1);
-  return 0;
+
+{% for _, class in ipairs(classes) do %}
+  luaopen_{{self:openName(class)}}(L);
+  lua_setfield(L, -2, "{{class.dub.register or self:name(class)}}");
+
+{% end %}
+
+  // <lib>
+  return 1;
 }
