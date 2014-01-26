@@ -6,9 +6,16 @@
   Run all tests, test some helpers.
 
 --]]------------------------------------------------------
-require 'lubyk'
--- Run the test with the dub directory as current path.
-local should = test.Suite('dub')
+local lub = require 'lub'
+local lut = require 'lut'
+local dub = require 'dub'
+
+local should = lut.Test('dub')
+
+-- These functions are private: no coverage testing.
+should.ignore.warn       = true
+should.ignore.printWarn  = true
+should.ignore.silentWarn = true
 
 function should.findMinHash()
   assertEqual(6, dub.minHash {'a', 'b', 'ab', 'ca'})
@@ -37,6 +44,5 @@ function should.hash()
   assertEqual(1, dub.hash('birth_year',2))
 end
 
-test.all()
-
+should:test()
 

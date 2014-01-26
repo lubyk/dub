@@ -10,8 +10,7 @@ local lub = require 'lub'
 local lut = require 'lut'
 local dub = require 'dub'
 
--- Run the test with the dub directory as current path.
-local should = lut.Test('dub.Class') --, {coverage = false})
+local should = lut.Test('dub.Class')
 
 local ins = dub.Inspector {
   doc_dir = 'test/tmp',
