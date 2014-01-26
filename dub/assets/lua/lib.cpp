@@ -73,7 +73,7 @@ extern "C" int luaopen_{{self.options.luaopen or lib_name}}(lua_State *L) {
   // register global constants
   dub::register_const(L, {{lib_name}}_const);
 {% end %}
-  luaL_register(L, NULL, {{lib_name}}_functions);
+  dub::fregister(L, {{lib_name}}_functions);
   // <lib>
 
 {% for _, class in ipairs(classes) do %}

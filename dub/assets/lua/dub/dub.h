@@ -338,6 +338,11 @@ int hash(const char *str, int sz);
 // Simple debugging function to print stack content.
 void printStack(lua_State *L, const char *msg = NULL);
 
+// Compatibility with luaL_register on lua 5.1 and 5.2
+void fregister(lua_State *L, const luaL_Reg *l);
+
+
 } // dub
   
 #endif // DUB_BINDING_GENERATOR_DUB_H_
+

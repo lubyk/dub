@@ -37,6 +37,13 @@
 #define TYPE_EXCEPTION_SMSG "expected %s, found %s (using super)"
 #define DEAD_EXCEPTION_MSG  "using deleted %s"
 #define DUB_MAX_IN_SHIFT 4294967296
+
+#if LUA_VERSION_NUM > 501
+#define DUB_LUA_FIVE_TWO
+#else
+#define DUB_LUA_FIVE_ONE
+#endif 
+
 #define DUB_INIT_CODE "local class = ...\nif class.new then\nsetmetatable(class, {\n __call = function(lib, ...)\n   return lib.new(...)\n end,\n})\nend\n"
 #define DUB_INIT_ERR "[string \"Dub init code\"]"
 // Define the callback error function. We store the error function in
@@ -171,12 +178,16 @@ void Thread::dub_pushobject(lua_State *L, void *ptr, const char *tname, bool gc)
   // <self> <udata> <env>
   lua_pushvalue(L, -1);
   // <self> <udata> <env> <env>
+#ifdef DUB_LUA_FIVE_ONE
   if (!lua_setfenv(L, -3)) { // setfenv(udata, env)
     // <self> <udata> <env>
     lua_pop(L, 3);
     // 
     throw Exception("Could not set userdata env on '%s'.", lua_typename(L, lua_type(L, -3)));
   }
+#else
+  lua_setuservalue(L, -3);
+#endif
 
   // <self> <udata> <env>
   dub_L = lua_newthread(L);
@@ -194,7 +205,18 @@ void Thread::dub_pushobject(lua_State *L, void *ptr, const char *tname, bool gc)
   lua_rawset(L, -3);
   // <self> <udata> <env>
   lua_pushlstring(L, "print", 5);
+  // <self> <udata> <env> "print"
+#ifdef DUB_LUA_FIVE_ONE
   lua_getfield(L, LUA_GLOBALSINDEX, "print");
+  // <self> <udata> <env> "print" (print)
+#else
+  lua_rawgeti(L, LUA_REGISTRYINDEX, LUA_RIDX_GLOBALS);
+  // <self> <udata> <env> "print" <_ENV>
+  lua_getfield(L, -1, "print");
+  // <self> <udata> <env> "print" <_ENV> (print)
+  lua_remove(L, -2);
+  // <self> <udata> <env> "print" (print)
+#endif
   lua_rawset(L, -3);
   // <self> <udata> <env>.print = <print>
   // <self> <udata> <env>
@@ -206,12 +228,16 @@ void Thread::dub_pushobject(lua_State *L, void *ptr, const char *tname, bool gc)
   // <self> <udata> <env> <errloader>
   lua_pushvalue(L, -2);
   // <self> <udata> <env> <errloader> <env>
+#ifdef DUB_LUA_FIVE_ONE
   if (!lua_setfenv(L, -2)) { // setfenv(errloader, env)
     // <self> <udata> <env> <errloader>
     lua_pop(L, 4);
     // 
-    throw Exception("Could not set error function env on '%s'.", lua_typename(L, lua_type(L, -3)));
+    throw Exception("Could not set error function env on '%s'.", lua_typename(L, lua_type(L, -2)));
   }
+#else
+  lua_setuservalue(L, -2);
+#endif
   // <self> <udata> <env> <errloader>
   error = lua_pcall(L, 0, 1, 0);
   if (error) {
@@ -311,8 +337,13 @@ int dub::error(lua_State *L) {
 
 // TODO: Can we make this faster ?
 inline void push_own_env(lua_State *L, int ud) {
+#ifdef DUB_LUA_FIVE_ONE
   lua_getfenv(L, ud);
   // ... <udata> ... <env>
+#else
+  lua_getuservalue(L, ud);
+  // ... <udata> ... <env>
+#endif
   lua_pushstring(L, ".");
   // ... <udata> ... <env> "."
   lua_rawget(L, -2); // <env>["."]
@@ -333,9 +364,13 @@ inline void push_own_env(lua_State *L, int ud) {
     // ... <udata> ... <env>
     lua_pushvalue(L, -1);
     // ... <udata> ... <env> <env>
+#ifdef DUB_LUA_FIVE_ONE
     if (!lua_setfenv(L, ud)) {
       luaL_error(L, "Could not set userdata env on '%s'.", lua_typename(L, lua_type(L, ud)));
     }
+#else
+    lua_setuservalue(L, ud);
+#endif
     // ... <udata> ... <env>
   } else {
     // ... <udata> ... <env> <self>
@@ -683,3 +718,14 @@ int dub::isDeleted(lua_State *L) {
   lua_pushboolean(L, p && !*p);
   return 1;
 }
+
+// Compatibility with luaL_register on lua 5.1 and 5.2
+void dub::fregister(lua_State *L, const luaL_Reg *l) {
+#if DUB_LUA_FIVE_ONE
+  luaL_register(L, NULL, l);
+#else
+  luaL_setfuncs(L, l, 0);
+#endif
+}
+
+
