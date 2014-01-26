@@ -14,14 +14,10 @@
 
   ## Installation
   
-  With [luarocks](http://luarocks.org):
+  Install with [luarocks](http://luarocks.org):
 
     $ luarocks install dub
   
-  With [luadist](http://luadist.org):
-
-    $ luadist install dub
-    
 --]]------------------------------------------------------
 local lub = require 'lub'
 local lib = lub.Autoload 'dub' 
