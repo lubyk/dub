@@ -18,11 +18,7 @@ local lib = lub.class('dub.Class', {
 })
 local private = {}
 
--- This lets sub-classes of dub.Class like dub.Namespace or dub.CTemplate
--- use the same call convention to create new objects.
-function lib.__call(lib, self)
-  return lib.new(self)
-end
+-- # Constructor
 
 -- Create a new class definition. Most of the attributes are passed with
 -- `def`. Usage example:
@@ -38,7 +34,7 @@ end
 --     },
 --   }
 function lib.new(def)
-  local self = def
+  local self = def or {}
   self.cache          = {}
   self.sorted_cache   = {}
   self.functions_list = {}
@@ -57,35 +53,15 @@ function lib.new(def)
   end
 end
 
--- ## Public methods
+-- # Accessors
 
--- Return a child element from `name` or nil if nothing is found. Uses the
--- database internally.
-function lib:findChild(name)
-  private.makeSpecialMethods(self)
-  return self.db:findChildFor(self, name)
-end
-
--- Return a method from a given @name@.
--- function lib:method(name)
-
-lib.method = lib.findChild
-
--- Return an iterator over the methods of this class.
-function lib:methods()
-  -- Create --get--, --set-- and ~Destructor if needed.
-  private.makeSpecialMethods(self)
-  return self.db:functions(self)
-end
-
--- Return an iterator over the attributes of this class.
-function lib:attributes()
-  return self.db:variables(self)
-end
-
--- Return an iterator over the superclasses of this class.
-function lib:superclasses()
-  return self.db:superclasses(self)
+-- The fullname of the class in the form of @parent::ClassName@.
+function lib:fullname()
+  if self.parent and self.parent.name then
+    return self.parent:fullname() .. '::' .. self.name
+  else
+    return self.name
+  end
 end
 
 -- Returns true if the class has variables (public C attributes).
@@ -103,20 +79,6 @@ function lib:hasVariables()
   return false
 end
 
--- Return an iterator over the constants defined in this class.
-function lib:constants()
-  return self.db:constants(self)
-end
-
--- The fullname of the class in the form of @parent::ClassName@.
-function lib:fullname()
-  if self.parent and self.parent.name then
-    return self.parent:fullname() .. '::' .. self.name
-  else
-    return self.name
-  end
-end
-
 -- Return true if the class needs a cast method (it has
 -- known superclasses).
 function lib:needCast()
@@ -124,6 +86,12 @@ function lib:needCast()
     return true
   end
   return false
+end
+
+-- Return true if the given function name should be ignored (do not create
+-- bindings).
+function lib:ignoreFunc(name)
+  return self.ignore[name] or name == self.dub.push
 end
 
 -- Set the class name and C++ object creation type.
@@ -180,6 +148,8 @@ function lib:setOpt(opt)
   end
 end
 
+-- # Find
+
 -- Return the enclosing namespace or nil if none found.
 function lib:namespace()
   local p = self.parent
@@ -192,10 +162,48 @@ function lib:namespace()
   end
 end
 
--- Return true if the given function name should be ignored (do not create
--- bindings).
-function lib:ignoreFunc(name)
-  return self.ignore[name] or name == self.dub.push
+-- Return a child element named `name` or nil if nothing is found. Uses the
+-- database internally.
+function lib:findChild(name)
+  private.makeSpecialMethods(self)
+  return self.db:findChildFor(self, name)
+end
+
+-- Return a method from a given @name@.
+-- function lib:method(name)
+
+-- nodoc
+lib.method = lib.findChild
+
+-- # Iterators
+
+-- Return an iterator over the superclasses of this class.
+function lib:superclasses()
+  return self.db:superclasses(self)
+end
+
+-- Return an iterator over the constants defined in this class.
+function lib:constants()
+  return self.db:constants(self)
+end
+
+-- Return an iterator over the methods of this class.
+function lib:methods()
+  -- Create --get--, --set-- and ~Destructor if needed.
+  private.makeSpecialMethods(self)
+  return self.db:functions(self)
+end
+
+-- Return an iterator over the attributes of this class.
+function lib:attributes()
+  return self.db:variables(self)
+end
+
+-- nodoc
+function lib.__call(lib, ...)
+  -- This lets sub-classes of dub.Class like dub.Namespace or dub.CTemplate
+  -- use the same call convention to create new objects.
+  return lib.new(...)
 end
 
 --=============================================== PRIVATE

@@ -528,7 +528,7 @@ function parse:innerclass(elem, header, not_lazy)
     for i, part in ipairs(parts) do
       local child = parent.cache[part]
       if not child then
-        dub.warn(4, "Ignoring class '%s'.", fullname)
+        dub.warn(5, "Ignoring class '%s'.", fullname)
         -- Ignore: this can be due to nested namespaces.
         return nil
         --assert(false, "Could not find parent '"..part.."' in '"..parent:fullname().."'.")
