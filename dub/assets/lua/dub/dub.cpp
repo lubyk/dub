@@ -721,7 +721,7 @@ int dub::isDeleted(lua_State *L) {
 
 // Compatibility with luaL_register on lua 5.1 and 5.2
 void dub::fregister(lua_State *L, const luaL_Reg *l) {
-#if DUB_LUA_FIVE_ONE
+#ifdef DUB_LUA_FIVE_ONE
   luaL_register(L, NULL, l);
 #else
   luaL_setfuncs(L, l, 0);
