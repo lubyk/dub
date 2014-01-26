@@ -7,6 +7,7 @@
 --]]------------------------------------------------------
 local lub     = require 'lub'
 local lib     = lub.class 'dub.OptParser'
+local insert, match  = table.insert, string.match
 local private = {}
 
 --=============================================== dub.Class()
@@ -36,7 +37,7 @@ function lib.parse(str)
       local list = {}
       for elem in value:gmatch('[^,]+') do
         elem = private.strip(elem)
-        table.insert(list, elem)
+        insert(list, elem)
         list[elem] = true
       end
       value = list
@@ -50,7 +51,7 @@ end
 --=============================================== PRIVATE
 
 function private.strip(str)
-  return str:match('^ *(.-) *$')
+  return match(str, '^ *(.-) *$')
 end
 
 return lib

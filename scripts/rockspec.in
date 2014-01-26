@@ -1,45 +1,45 @@
-{% mod = require 'dub' %}
-package = "{{mod.type}}"
-version = "{{mod.VERSION}}-1"
+{% 
+local lub = require 'lub'
+local lfs = require 'lfs'
+local gsub, format = string.gsub, string.format
+%}
+package = "{{lib.type}}"
+version = "{{lib.VERSION}}-1"
 source = {
-  url = "http://lubyk.org/archive/{{mod.type}}-REL-{{mod.VERSION}}.tar.gz",
-  dir = '{{mod.type}}-REL-{{mod.VERSION}}',
+  url = 'https://github.com/lubyk/{{lib.type}}/archive/REL-{{lib.VERSION}}.tar.gz',
+  dir = '{{lib.type}}-REL-{{lib.VERSION}}',
 }
 description = {
-  summary = "Lua binding generator from C++ code (uses Doxygen to parse C++ comments)."
+  summary = "Lua binding generator from C++ code (uses Doxygen to parse C++ comments).",
   detailed = [[
     A powerful binding generator for C++ code with support for attributes,
     callbacks, errors on callbacks, enums, nested classes, operators, public
     attributes, etc.
   ]],
-  homepage = "http://doc.lubyk.org/{{mod.type}}.html",
+  homepage = "http://doc.lubyk.org/{{lib.type}}.html",
   license = "MIT"
 }
 dependencies = {
-  "lua >= 5.1, < 5.3",
-  "lub ~> 1.0",
+{% for _, v in ipairs(lib.DEPENDS) do %}
+  "{{v}}",
+{% end %}
 }
 build = {
   type = 'builtin',
   modules = {
-    {{string.format("[%-17s] = '%s/%s.lua'", "'"..mod.type.."'", mod.type, 'init')}},
-{% for file in lfs.dir(mod.type) do %}
+    {{format("[%-20s] = '%s/%s.lua'", "'"..lib.type.."'", lib.type, 'init')}},
+{% for file in lfs.dir(lib.type) do %}
 {% if file ~= 'init.lua' and file:match('.lua$') then file = file:sub(1, -5) %}
-    {{string.format("[%-17s] = '%s/%s.lua'", "'"..mod.type..'.'..file.."'", mod.type, file)}},
+    {{format("[%-20s] = '%s/%s.lua'", "'"..lib.type..'.'..file.."'", lib.type, file)}},
 {% end %}
 {% end %}
   },
   install = {
     -- These assets are needed to generate the bindings.
     lua = {
-      ['dub.assets.Doxyfile'         ] = 'dub/assets/Doxyfile',
-      ['dub.assets.lua.class_cpp'    ] = 'dub/assets/lua/class.cpp',
-      ['dub.assets.lua.lib_cpp'      ] = 'dub/assets/lua/lib.cpp',
-      ['dub.assets.lua.dub.dub_cpp'  ] = 'dub/assets/lua/dub/dub.cpp',
-      ['dub.assets.lua.dub.dub_h'    ] = 'dub/assets/lua/dub/dub.h',
-      ['dub.assets.lua.dub.lauxlib_h'] = 'dub/assets/lua/dub/lauxlib.h',
-      ['dub.assets.lua.dub.lua_h'    ] = 'dub/assets/lua/dub/lua.h',
-      ['dub.assets.lua.dub.luaconf.h'] = 'dub/assets/lua/dub/luaconf.h',
+{% for path in lub.Dir('dub/assets'):glob() do %}
+      {{format("[%-32s] = '%s'", "'"..gsub(gsub(path, '%.', '_'), '/', '.').."'", path)}},
+{% end %}
     },
-  }
+  },
 }

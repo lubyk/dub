@@ -1,23 +1,16 @@
-set(MODULE_NAME dub)
-# --------------------------------------------------------------
+project ( dub NONE )
 
-# --------------------------------------------------------------
-#  module
-# --------------------------------------------------------------
-add_custom_target(${MODULE_NAME} true)
+cmake_minimum_required ( VERSION 2.8 )
 
-# --------------------------------------------------------------
-#  install                                     
-# --------------------------------------------------------------
-install(DIRECTORY lib
-  DESTINATION ${LUBYK_LIB}
+include ( cmake/dist.cmake )
+include ( lua )
+
+install (
+  DIRECTORY dub/
+  DESTINATION ${INSTALL_LMOD}/dub
+  COMPONENT Runtime
 )
 
-# --------------------------------------------------------------
-#  test
-# --------------------------------------------------------------
-# add_test(
-#   NAME dub
-#   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-#   COMMAND luajit test/all.lua
-# )
+install_data ( README.md LICENSE )
+
+# install_example ( examples/ )

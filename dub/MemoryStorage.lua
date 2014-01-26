@@ -7,9 +7,14 @@
 --]]------------------------------------------------------
 local lub     = require 'lub'
 local dub     = require 'dub'
+local xml     = require 'xml'
+local pairs, ipairs, format,        gsub,        match,        insert  = 
+      pairs, ipairs, string.format, string.gsub, string.match, table.insert
 local lib     = lub.class 'dub.MemoryStorage'
 local private = {}
 local parse   = {}
+
+local find = xml.find
 
 -- Pattern to check for Doxygen version
 local DOXYGEN_VERSIONS = {"1%.7%.", "1%.8%."}
@@ -46,11 +51,11 @@ function lib:parse(xml_dir, not_lazy, ignore_list)
   local dir = lub.Dir(xml_dir)
   -- Parse header (.h) content first
   for file in dir:glob('_8h.xml') do
-    table.insert(xml_headers, {path = file, dir = xml_dir})
+    insert(xml_headers, {path = file, dir = xml_dir})
   end
   -- Parse namespace content
   for file in dir:glob('namespace.*.xml') do
-    table.insert(xml_headers, {path = file, dir = xml_dir})
+    insert(xml_headers, {path = file, dir = xml_dir})
   end
   if not_lazy then
     private.parseAll(self)
@@ -414,26 +419,24 @@ function private:parseHeaders(name)
   self.parsed_headers = true
 end
 
-local xml = require 'xml'
-
 --- Parse a header definition and return element 
 -- identified by 'name' if found.
 function parse:header(header, not_lazy)
   header.parsed = true
   local data = xml.load(header.path)
   private.checkDoxygenVersion(data)
-  data = data:find('compounddef')
-  local h_path = data:find('location').file
+  data = find(data, 'compounddef')
+  local h_path = find(data, 'location').file
   local base, h_file = lub.dir(h_path)
   header.file = h_path
 
   if data.kind == 'namespace' then
     local namespace = dub.Namespace {
-      name   = data:find('compoundname')[1],
+      name   = find(data, 'compoundname')[1],
       parent = self,
       db     = self.db or self,
     }
-    if string.match(namespace.name, '::') then
+    if match(namespace.name, '::') then
       -- Ignore: nested namespaces not supported now.
       dub.warn(5, "Ignoring nested namespace '%s'.", namespace.name)
       return
@@ -443,7 +446,7 @@ function parse:header(header, not_lazy)
       self = self.cache[namespace.name]
     else
       self.cache[namespace.name] = namespace
-      table.insert(self.namespaces_list, namespace)
+      insert(self.namespaces_list, namespace)
       self = namespace
     end
   end
@@ -463,9 +466,9 @@ function parse:children(elem_list, header, not_lazy)
   local collect = {}
   for _, elem in ipairs(elem_list) do
     if elem.xml == 'innernamespace' then
-      table.insert(collect, 1, elem)
+      insert(collect, 1, elem)
     else
-      table.insert(collect, elem)
+      insert(collect, elem)
     end
   end
   -- Then parse the other elements.
@@ -475,7 +478,7 @@ function parse:children(elem_list, header, not_lazy)
       local child = func(self, elem, header, not_lazy)
       if child then
         cache[child.name] = child
-        table.insert(sorted_cache, child)
+        insert(sorted_cache, child)
       end
     else
       --print('skipping', elem.xml)
@@ -486,7 +489,7 @@ end
 -- This is parsed before inheritancegraph.
 function parse:basecompoundref(elem, header)
   if elem.prot == 'public' then
-    table.insert(self.super_list, elem[1])
+    insert(self.super_list, elem[1])
   end
 end
 
@@ -497,7 +500,7 @@ function parse:innernamespace(elem, header)
   end
 
   if self.type ~= 'dub.MemoryStorage' or
-   string.match(name, '::') then
+   match(name, '::') then
     -- Ignore nested namespaces for now.
     dub.warn(5, "Ignoring nested namespace '%s'.", name)
     return
@@ -507,7 +510,7 @@ function parse:innernamespace(elem, header)
     parent = self,
     db     = self.db or self,
   }
-  table.insert(self.namespaces_list, namespace)
+  insert(self.namespaces_list, namespace)
   return namespace
 end
 
@@ -515,7 +518,7 @@ function parse:innerclass(elem, header, not_lazy)
   local fullname = elem[1]
   local name = fullname
   local parent = self
-  if string.match(fullname, '::') then
+  if match(fullname, '::') then
     -- inside a namespace or class
     parent = self.db or self
     local parts = lub.split(fullname, '::')
@@ -546,7 +549,7 @@ function parse:innerclass(elem, header, not_lazy)
   }
   if not parent.cache[class.name] then
     parent.cache[class.name] = class
-    table.insert(parent.sorted_cache, class)
+    insert(parent.sorted_cache, class)
   end
 
   if not_lazy then
@@ -561,10 +564,10 @@ function parse:templateparamlist(elem, header)
   end
   self.template_params = {}
   for _, param in ipairs(elem) do
-    local name = private.flatten(param:find('type')[1])
-    name = string.gsub(name, 'class ', '')
-    name = string.gsub(name, 'typename ', '')
-    table.insert(self.template_params, name)
+    local name = private.flatten(find(param, 'type')[1])
+    name = gsub(name, 'class ', '')
+    name = gsub(name, 'typename ', '')
+    insert(self.template_params, name)
   end
 end
 
@@ -590,7 +593,7 @@ function parse:sectiondef(elem, header)
     parse.children(self, elem, header)
     if kind == 'enum' then
       -- global or namespace enum
-      table.insert(self.const_headers, header.file)
+      insert(self.const_headers, header.file)
     end
   elseif kind == 'private-func' or kind == 'protected-func' then
     -- private methods (to detect private ctor/dtor)
@@ -598,7 +601,7 @@ function parse:sectiondef(elem, header)
       if elem.xml == 'memberdef' and
          elem.kind == 'function' then
 
-        local name = elem:find('name')[1]
+        local name = find(elem, 'name')[1]
         if name == '~' .. self.name or
            name ==        self.name then
           -- Private dtor or ctor
@@ -618,7 +621,7 @@ function parse:memberdef(elem, header)
     local child = func(self, elem, header)
     if child then
       cache[child.name] = child
-      table.insert(sorted_cache, child)
+      insert(sorted_cache, child)
     end
   else
     --print('skipping memberdef ', kind)
@@ -626,9 +629,9 @@ function parse:memberdef(elem, header)
 end
 
 function parse:variable(elem, header)
-  local name = elem:find('name')[1]
-  local definition = elem:find('definition')[1]
-  if string.match(definition, '@') or
+  local name = find(elem, 'name')[1]
+  local definition = find(elem, 'definition')[1]
+  if match(definition, '@') or
      -- ignore defined in class
      self.ignore[name] or
      -- ignore defined in inspector
@@ -643,17 +646,17 @@ function parse:variable(elem, header)
     type       = 'dub.Attribute',
     ctype      = parse.type(elem),
     static     = elem.static == 'yes',
-    argsstring = elem:find('argsstring')[1],
+    argsstring = find(elem, 'argsstring')[1],
     definition = definition,
   }
-  local dim = child.argsstring and string.match(child.argsstring, '^%[(.*)%]$')
+  local dim = child.argsstring and match(child.argsstring, '^%[(.*)%]$')
   if dim then
     child.array_dim = dim
     -- Transform into two dub.Function name(int) and set_name(int)
     private.makeAttrArrayMethods(self, child)
   else
     self.has_variables = true
-    table.insert(self.variables_list, child)
+    insert(self.variables_list, child)
   end
   return child
 end
@@ -663,12 +666,12 @@ function parse:enum(elem, header)
   local list = {}
   for _, v in ipairs(elem) do
     if v.xml == 'enumvalue' then
-      local const = v:find('name')[1]
-      table.insert(list, const)
-      table.insert(constants, const)
+      local const = find(v, 'name')[1]
+      insert(list, const)
+      insert(constants, const)
     end
   end
-  local name = elem:find('name')[1]
+  local name = find(elem, 'name')[1]
   local enum = {
     type     = 'dub.Enum',
     name     = name,
@@ -694,28 +697,28 @@ function parse:typedef(elem, header)
     type        = 'dub.Typedef',
     parent      = self, 
     db          = self.db or self,
-    name        = elem:find('name')[1],
+    name        = find(elem, 'name')[1],
     ctype       = parse.type(elem),
-    desc        = (elem:find('detaileddescription') or {})[1],
+    desc        = (find(elem, 'detaileddescription') or {})[1],
     xml         = elem,
-    definition  = elem:find('definition')[1],
+    definition  = find(elem, 'definition')[1],
     location    = private.makeLocation(elem, header),
-    header_path = elem:find('location').file,
+    header_path = find(elem, 'location').file,
   }
   typ.ctype.create_name = typ.name .. ' '
   return typ
 end
     
 parse['function'] = function(self, elem, header)
-  local name = elem:find('name')[1]
+  local name = find(elem, 'name')[1]
   if self.is_class then
     if name == '~' .. self.name and self.dub.destroy == 'free' then
       return nil
     end
   end
 
-  local argsstring = elem:find('argsstring')[1]
-  if string.match(argsstring, '%.%.%.') or string.match(argsstring, '%[') then
+  local argsstring = find(elem, 'argsstring')[1]
+  if match(argsstring, '%.%.%.') or match(argsstring, '%[') then
     -- cannot deal with vararg or array types
     return nil
   end
@@ -728,10 +731,10 @@ parse['function'] = function(self, elem, header)
     name          = name,
     params_list   = parse.params(elem, header),
     return_value  = parse.retval(elem),
-    definition    = elem:find('definition')[1],
+    definition    = find(elem, 'definition')[1],
     argsstring    = argsstring,
     location      = private.makeLocation(elem, header),
-    desc          = (elem:find('detaileddescription') or {})[1],
+    desc          = (find(elem, 'detaileddescription') or {})[1],
     static        = elem.static == 'yes' or (self.name == name),
     xml           = elem,
     member        = self.is_class,
@@ -763,7 +766,7 @@ parse['function'] = function(self, elem, header)
   end
 
 
-  local template_params = elem:find('templateparamlist')
+  local template_params = find(elem, 'templateparamlist')
   if template_params then
     parse.templateparamlist(child, template_params, header)
   end
@@ -809,7 +812,7 @@ parse['function'] = function(self, elem, header)
         return nil
       end
     end
-    table.insert(list, child)
+    insert(list, child)
     exist.overloaded = list
     -- not not add it again in cache
     return nil
@@ -817,14 +820,14 @@ parse['function'] = function(self, elem, header)
     -- We do not have a previous function or we had a private ctor/dtor.
     local list = self.functions_list
     if list then
-      table.insert(list, child)
+      insert(list, child)
     end
     return child
   end
 end
 
 function parse.params(elem, header)
-  local res = {str = elem:find('argsstring')[1]}
+  local res = {str = find(elem, 'argsstring')[1]}
   local i = 0
   local first_default
   for _, p in ipairs(elem) do
@@ -832,7 +835,7 @@ function parse.params(elem, header)
       local param = parse.param(p, i+1)
       if param then
         i = i + 1
-        table.insert(res, param)
+        insert(res, param)
         if param.default and not first_default then
           first_default = param.position
         end
@@ -844,16 +847,16 @@ function parse.params(elem, header)
 end
 
 function parse.param(elem, position)
-  local declname = elem:find('declname')
+  local declname = find(elem, 'declname')
 
   if not declname then
     -- unnamed parameter
-    declname = string.format("p%d",position);
+    declname = format("p%d",position);
   else
     declname = declname[1]
   end
 
-  local default = elem:find('defval')
+  local default = find(elem, 'defval')
   if default then
     default = private.flatten(default)
   end
@@ -882,7 +885,7 @@ end
 
 -- Return a string like 'float' or 'MyFloat'.
 function parse.type(elem)
-  local ctype = elem:find('type')
+  local ctype = find(elem, 'type')
   if type(ctype) == 'table' then
     ctype = private.flatten(ctype)
   end
@@ -894,26 +897,26 @@ end
 -- This can be used by binders to create types on the fly.
 function lib.makeType(str)
   local typename = str
-  typename = string.gsub(typename, ' &', '')
+  typename = gsub(typename, ' &', '')
   local create_name = typename
-  typename = string.gsub(typename, ' %*', '')
+  typename = gsub(typename, ' %*', '')
   if typename == create_name then
     create_name = create_name .. ' '
   end
-  typename = string.gsub(typename, 'const ', '')
-  typename = string.gsub(typename, 'struct ', '')
+  typename = gsub(typename, 'const ', '')
+  typename = gsub(typename, 'struct ', '')
   return {
     def   = str,
     name  = typename,
     create_name = create_name,
-    ptr   = string.match(str, '%*'),
-    const = string.match(str, 'const'),
-    ref   = string.match(str, '&'),
+    ptr   = match(str, '%*'),
+    const = match(str, 'const'),
+    ref   = match(str, '&'),
   }
 end
 
 function private.makeLocation(elem, header)
-  local loc  = elem:find('location')
+  local loc  = find(elem, 'location')
   local file = lub.absToRel(loc.file, lfs.currentdir())
   return file .. ':' .. loc.line
 end
@@ -941,8 +944,8 @@ function private:makeConstructor()
     member        = true,
   }
   -- constructor goes on top
-  table.insert(self.functions_list, 1, child)
-  table.insert(self.sorted_cache, 1, child)
+  insert(self.functions_list, 1, child)
+  insert(self.sorted_cache, 1, child)
   self.cache['~' .. name] = child
 end
 
@@ -971,8 +974,8 @@ function private:makeDestructor()
     member        = true,
   }
   -- destructor goes on top list
-  table.insert(self.functions_list, 1, child)
-  table.insert(self.sorted_cache, 1, child)
+  insert(self.functions_list, 1, child)
+  insert(self.sorted_cache, 1, child)
   self.cache['~' .. name] = child
 end
 
@@ -1040,8 +1043,8 @@ function private:makeAttrArrayMethods(attr)
     array_get     = true,
     array_dim     = attr.array_dim,
   }
-  table.insert(self.functions_list, child)
-  table.insert(self.sorted_cache, child)
+  insert(self.functions_list, child)
+  insert(self.sorted_cache, child)
   self.cache[child.name] = child
 
   child.overloaded = {child}
@@ -1066,7 +1069,7 @@ function private:makeAttrArrayMethods(attr)
     },
     return_value  = nil,
     definition    = 'Write ' .. name,
-    argsstring    = string.format('(size_t i, %s %s)', attr.ctype.name, name),
+    argsstring    = format('(size_t i, %s %s)', attr.ctype.name, name),
     location      = '',
     desc          = 'Write attribute '..name..' for ' .. self.name .. '.',
     static        = false,
@@ -1078,7 +1081,7 @@ function private:makeAttrArrayMethods(attr)
     array_dim     = attr.array_dim,
   }
 
-  table.insert(overloaded, child)
+  insert(overloaded, child)
 end
 
 -- self == class
@@ -1107,8 +1110,8 @@ function private:makeGetAttribute(custom_bindings)
     is_get_attr   = true,
     member        = true,
   }
-  table.insert(self.functions_list, 1, child)
-  table.insert(self.sorted_cache, 1, child)
+  insert(self.functions_list, 1, child)
+  insert(self.sorted_cache, 1, child)
   self.cache[child.name] = child
 end
 
@@ -1137,8 +1140,8 @@ function private:makeSetAttribute(custom_bindings)
     is_set_attr   = true,
     member        = true,
   }
-  table.insert(self.functions_list, 1, child)
-  table.insert(self.sorted_cache, 1, child)
+  insert(self.functions_list, 1, child)
+  insert(self.sorted_cache, 1, child)
   self.cache[child.name] = child
 end
 
@@ -1164,8 +1167,8 @@ function private:makeCast()
     is_cast       = true,
     member        = true,
   }
-  table.insert(self.functions_list, 1, child)
-  table.insert(self.sorted_cache, 1, child)
+  insert(self.functions_list, 1, child)
+  insert(self.sorted_cache, 1, child)
   self.cache[child.name] = child
 end
 
@@ -1191,7 +1194,7 @@ function parse.detaileddescription(self, elem, header)
   if opt then
     self:setOpt(opt)
   elseif opt == nil then
-    print(string.format("Could not parse @dub settings: %s", xml.dump(elem)))
+    print(format("Could not parse @dub settings: %s", xml.dump(elem)))
   end
 end
 
@@ -1199,12 +1202,12 @@ local parseOpt = dub.OptParser.parse
 
 function parse.opt(elem)
   -- This would not work if simplesect is not the first one
-  local sect = elem:find('simplesect', 'kind', 'par')
+  local sect = find(elem, 'simplesect', 'kind', 'par')
   if sect then
-    if (sect:find('title') or {})[1] == 'Bindings info:' then
-      local txt = private.flatten(sect:find('para'))
+    if (find(sect, 'title') or {})[1] == 'Bindings info:' then
+      local txt = private.flatten(find(sect, 'para'))
       -- HACK TO RECREATE NEWLINES...
-      txt = string.gsub(txt, ' ([A-Z_a-z]+):', '\n%1:')
+      txt = gsub(txt, ' ([A-Z_a-z]+):', '\n%1:')
       return parseOpt(txt)
     end
   end
@@ -1219,7 +1222,7 @@ end
 function private:resolveTypedef(elem)
   if elem.type == 'dub.Typedef' then
     -- try to resolve and make a full class
-    local name, types = string.match(elem.ctype.name, '^(.*) < (.+) >$')
+    local name, types = match(elem.ctype.name, '^(.*) < (.+) >$')
     if name then
       types = lub.split(types, ', ')
       -- Try to find the template.
@@ -1227,7 +1230,7 @@ function private:resolveTypedef(elem)
       if template and template.type == 'dub.CTemplate' then
         local class = template:resolveTemplateParams(elem.parent, elem.name, types)
         self.cache[class.name] = class
-        table.insert(self.sorted_cache, class)
+        insert(self.sorted_cache, class)
         class.typedef = elem.definition .. ';'
         class.header  = elem.header_path
         return class
@@ -1239,14 +1242,14 @@ end
 
 local checked_versions = {}
 function private.checkDoxygenVersion(data)
-  local str = (data:find('doxygen') or {version='???'}).version
+  local str = (find(data, 'doxygen') or {version='???'}).version
   if not checked_versions[str] then
     checked_versions[str] = true
     local ok = false
     local versions = {}
     for pat in ipairs(DOXYGEN_VERSIONS) do
-      table.insert(versions, string.gsub(pat,'%%','')..'x')
-      if string.match(str, '^'..pat) then
+      insert(versions, gsub(pat,'%%','')..'x')
+      if match(str, '^'..pat) then
         ok = true
         break
       end
@@ -1272,7 +1275,7 @@ function private:allGlobalFunctions()
   local co = coroutine.create(private.iteratorWithScopes)
   local scopes = {self}
   for _, namespace in ipairs(self.namespaces_list) do
-    table.insert(scopes, namespace)
+    insert(scopes, namespace)
   end
   return function()
     local ok, elem = coroutine.resume(co, scopes, 'functions_list')

@@ -5,7 +5,7 @@ lut.Doc.make {
   },
   target = 'html',
   format = 'html',
-  header = [[<h1><a href='http://doc.lubyk.org'>Lubyk documentation</a></h1></a> ]],
+  header = [[<h1><a href='http://lubyk.org'>Lubyk</a> documentation</h1> ]],
   index  = [=[
 --[[--
   # Lubyk documentation

@@ -8,7 +8,7 @@
 --]]------------------------------------------------------
 local lub     = require 'lub'
 local dub     = require 'dub'
-local lib     = lub.class 'dub.MemoryStorage', {
+local lib     = lub.class 'dub.Namespace', {
   is_class    = false,
 }
 local private = {}

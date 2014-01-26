@@ -1,8 +1,14 @@
-require 'lubyk'
+local lub = require 'lub'
+local lut = require 'lut'
+local dub = require 'dub'
 
 dub.warn_level = 4
+dub_test = {}
 
 if arg[1] == '--speed' then
-  test.speed = true
+  dub_test.speed = true
 end
-test.files(lk.scriptDir(), '%_test.lua$')
+
+lut.Test.files(lub.path '|')
+
+

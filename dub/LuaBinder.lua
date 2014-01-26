@@ -7,7 +7,8 @@
 --]]------------------------------------------------------
 local lub     = require 'lub'
 local dub     = require 'dub'
-local format  = string.format
+local pairs, ipairs, format,        gsub,        insert  = 
+      pairs, ipairs, string.format, string.gsub, table.insert
 local lib     = lub.class('dub.LuaBinder', {
   SELF = 'self',
   -- By default, we try to access userdata in field 'super'. This is not
@@ -158,10 +159,10 @@ function lib:bind(inspector, options)
     for _,name in ipairs(options.only) do
       local elem = inspector:find(name)
       if elem then
-        table.insert(bound, elem)
+        insert(bound, elem)
         private.bindElem(self, elem, options)
       else
-        print(string.format("Could not bind '%s' (not found).", name))
+        print(format("Could not bind '%s' (not found).", name))
       end
     end
   else
@@ -283,7 +284,7 @@ function lib:functionBody(parent, method)
       res = res .. 'if (userdata->gc) {\n'
       res = res .. format('  %sself = (%s)userdata->ptr;\n', parent.create_name, parent.create_name)
       if custom and custom.cleanup then
-        res = res .. '  ' .. string.gsub(custom.cleanup, '\n', '\n  ')
+        res = res .. '  ' .. gsub(custom.cleanup, '\n', '\n  ')
       end
       local dtor = parent.dub.destructor or method.parent.dub.destructor
       if dtor then
@@ -372,7 +373,7 @@ function private:callWithParams(class, method, param_delta, indent, custom, max_
       res = res .. private.pushReturnValue(self, class, method, call)
     end
   end
-  return string.gsub(res, '\n', '\n' .. indent)
+  return gsub(res, '\n', '\n' .. indent)
 end
 
 function private:detectType(pos, type_name)
@@ -393,9 +394,9 @@ function private:expandTreeByType(tree, class, param_delta, indent, max_arg)
     -- collect keys, sorted by native type first
     -- because they are easier to detect with lua_type
     if self.NATIVE_TO_TLUA[k] then
-      table.insert(keys, 1, k)
+      insert(keys, 1, k)
     else
-      table.insert(keys, k)
+      insert(keys, k)
     end
   end
   local last_key = #keys
@@ -459,7 +460,7 @@ function private:expandTreeByType(tree, class, param_delta, indent, max_arg)
     end
   end
   res = res .. '}'
-  return string.gsub(res, '\n', '\n' .. indent)
+  return gsub(res, '\n', '\n' .. indent)
 end -- expandTreeByTyp
 
 function private:expandTree(tree, class, param_delta, indent)
@@ -473,14 +474,14 @@ function private:expandTree(tree, class, param_delta, indent)
     for i, ek in ipairs(keys) do
       -- insert biggest first
       if nb > ek then
-        table.insert(keys, i, nb)
+        insert(keys, i, nb)
         done = true
         break
       end
     end
     if not done then
       -- insert at the end
-      table.insert(keys, nb)
+      insert(keys, nb)
     end
   end
 
@@ -509,7 +510,7 @@ function private:expandTree(tree, class, param_delta, indent)
     end
   end
   res = res .. '}'
-  return string.gsub(res, '\n', '\n' .. indent)
+  return gsub(res, '\n', '\n' .. indent)
 end -- expandTree (by position)
 
 function lib:bindName(method)
@@ -617,7 +618,7 @@ function lib:openName(elem)
   if not self.options.single_lib then
     return self:name(elem)
   else
-    return string.gsub(self:libName(elem), '%.', '_')
+    return gsub(self:libName(elem), '%.', '_')
   end
 end
 
@@ -772,7 +773,7 @@ function private.getSelf(self, class, method, need_mt)
   else
     nmt = ''
   end
-  return format(fmt, class.create_name, self.SELF, class.create_name, self:customTypeAccessor(method), self:libName(class), nmt)
+  return format(fmt, class.create_name or class.name, self.SELF, class.create_name or class.name, self:customTypeAccessor(method), self:libName(class), nmt)
 end
 
 --- Prepare a variable with a function parameter.
@@ -955,7 +956,7 @@ function private:pushValue(method, value, return_value)
       -- Call return value is not a pointer. This should never happen with
       -- a type that uses a custom push method.
       assert(not rtype.dub or not rtype.dub.push,
-        string.format("Types with @dub 'push' setting should not be passed as values (%s).", method:fullname()))
+        format("Types with @dub 'push' setting should not be passed as values (%s).", method:fullname()))
       if method.is_get_attr then
         if ctype.const then
           if self.options.read_const_member == 'copy' then
@@ -1008,7 +1009,7 @@ function private:pushValue(method, value, return_value)
         push_method = 'dub::pushudata'
       end
       if ctype.const then
-        assert(not custom_push, string.format("Types with @dub 'push' setting should not be passed as const types (%s).", method:fullname()))
+        assert(not custom_push, format("Types with @dub 'push' setting should not be passed as const types (%s).", method:fullname()))
         if self.options.read_const_member == 'copy' then
           -- copy
           res = res .. format('%s(L, new %s(*retval__), "%s", true);',
@@ -1227,7 +1228,7 @@ function private:switch(class, method, delta, bfunc, iterator)
           res = res .. format('  case %s: {\n', dub.hash(lua_name, sz))
           -- get or set value
           res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) break;\n', lua_name)
-          res = res .. '    ' .. string.gsub(body, '\n', '\n    ') .. '\n  }\n'
+          res = res .. '    ' .. gsub(body, '\n', '\n    ') .. '\n  }\n'
         end
       end
     end
@@ -1257,13 +1258,11 @@ function private:switch(class, method, delta, bfunc, iterator)
 end
 
 function private:bindAll(parent, bound, ignore)
-  print('bindAll', parent.name)
   for elem in parent:children() do
-    print('  ', elem.name, elem.type)
     if elem.type == 'dub.Class' then
       if not ignore[elem.name] and
          not (elem.dub.bind == false) then
-        table.insert(bound, elem)
+        insert(bound, elem)
         private.bindElem(self, elem, options)
       end
     elseif elem.type == 'dub.Namespace' then
@@ -1345,7 +1344,7 @@ function private:insertByArg(res, func, max_index, skip_index)
   elseif res.map.type == 'dub.Function' then
     res.list = {res.map, func}
   else
-    table.insert(res.list, func)
+    insert(res.list, func)
   end
 
   -- Build a count of differences by available index [1,max_index]
@@ -1374,7 +1373,7 @@ function private:insertByArg(res, func, max_index, skip_index)
             list = {list, func}
             d.map[type_name] = list
           else
-            table.insert(list, func)
+            insert(list, func)
           end
         end
       end
@@ -1448,7 +1447,7 @@ function private:parseExtraHeadersList(base, list)
         extra_list = {}
         self.extra_headers[base or '::'] = extra_list
       end
-      table.insert(extra_list, elem)
+      insert(extra_list, elem)
     elseif base then
       -- sub type
       private.parseExtraHeadersList(self, base..'::'..k, elem)
@@ -1509,7 +1508,7 @@ function private:expandClass(class)
           -- dummy type
           ctype = private.makeType('void'),
         }
-        table.insert(list, attr)
+        insert(list, attr)
         cache[name] = attr
       end
     end
