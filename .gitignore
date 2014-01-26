@@ -2,9 +2,8 @@
 *.o
 *.a
 *.so
+*.swp
 build
-*.gem
-.*
 test/fixtures/Box2D
 test/tmp
 tmp
