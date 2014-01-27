@@ -9,8 +9,8 @@
 --]]------------------------------------------------------
 local lub = require 'lub'
 local lut = require 'lut'
-
 local dub = require 'dub'
+
 local should = lut.Test('dub.Inspector - simple', {coverage = false})
 
 local tmp_path = lub.path '|tmp'

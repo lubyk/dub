@@ -8,11 +8,15 @@
   test/fixtures/Box2D.
 
 --]]------------------------------------------------------
-require 'lubyk'
+local lub = require 'lub'
+local lut = require 'lut'
+local dub = require 'dub'
+
+local should = lut.Test('dub.LuaBinder - Box2D', {coverage = false})
 
 --=============================================== Only if Box2D present
-local box2d_path = lk.scriptDir() .. '/fixtures/Box2D'
-if not lk.exist(box2d_path) then
+local box2d_path = lub.path '|fixtures/Box2D'
+if not lub.exist(box2d_path) then
   return
 end
 
@@ -25,7 +29,7 @@ local ins = dub.Inspector {
     box2d_path .. '/Box2D/Collision/Shapes',
     box2d_path .. '/Box2D/Dynamics',
   },
-  doc_dir = lk.scriptDir() .. '/tmp',
+  doc_dir = lub.path '|tmp',
 }
 local binder = dub.LuaBinder()
 
@@ -52,8 +56,8 @@ end
 
 function should.bindCompileAndLoad()
   -- create tmp directory
-  local tmp_path = lk.scriptDir() .. '/tmp'
-  lk.rmTree(tmp_path, true)
+  local tmp_path = lub.path '|tmp'
+  lub.rmTree(tmp_path, true)
   os.execute('mkdir -p ' .. tmp_path)
 
   -- How to avoid this step ?
@@ -123,7 +127,7 @@ function should.bindCompileAndLoad()
     package.loaded.b2 = nil
     package.cpath = cpath_bak
     if not b2.Vec2 then
-      test.abort = true
+      lut.Test.abort = true
     end
   end)
 end
@@ -204,5 +208,5 @@ function should.runHelloWorld()
   -- create orphaned pointers, so be careful about your world management.
 end
 
-test.all()
+should:test()
 

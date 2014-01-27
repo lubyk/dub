@@ -68,6 +68,16 @@ function should.listMethods()
   assertEqual(m, Simple:method('setValue'))
 end
 
+function should.notListIgnoredMethods()
+  local m
+  for method in Child:methods() do
+    if method.name == 'virtFunc' then
+      fail("Method 'virtFunc' ignored but listed by 'methods()' iterator")
+    end
+  end
+  assertTrue(true)
+end
+
 function should.haveHeader()
   local path = lub.absolutizePath(lub.path '|fixtures/simple/include/simple.h')
   assertEqual(path, Simple.header)

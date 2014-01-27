@@ -9,22 +9,23 @@
     * proper namespace in bindings
 
 --]]------------------------------------------------------
-require 'lubyk'
--- Run the test with the dub directory as current path.
-local should = test.Suite('dub.LuaBinder - namespace')
+local lub = require 'lub'
+local lut = require 'lut'
+local dub = require 'dub'
+
+local should = lut.Test('dub.LuaBinder - namespace', {coverage = false})
 local binder = dub.LuaBinder()
 
-local base = lk.scriptDir()
-binder:parseCustomBindings(base .. '/fixtures/namespace')
+binder:parseCustomBindings(lub.path '|fixtures/namespace')
 
-local ins
+local ins, moo
 
 function should.setup()
   dub.warn = dub.silentWarn
   if not ins then
     ins = dub.Inspector {
-      INPUT    = base .. '/fixtures/namespace',
-      doc_dir  = base .. '/tmp',
+      INPUT    = lub.path '|fixtures/namespace',
+      doc_dir  = lub.path '|tmp',
     }
   end
 end
@@ -44,22 +45,22 @@ end
 function should.useFullnameInMetaName()
   local A = ins:find('Nem::A')
   local res = binder:bindClass(A)
-  assertMatch('dub_pushudata%(L, retval__, "Nem.A", true%);', res)
+  assertMatch('dub::pushudata%(L, retval__, "Nem.A", true%);', res)
 end
 
 function should.bindGlobalFunction()
   local met = ins:find('Nem::addTwo')
   local res = binder:functionBody(met)
-  assertMatch('B %*a = %*%(%(B %*%*%)dub_checksdata%(L, 1, "Nem.B"%)%);', res)
-  assertMatch('B %*b = %*%(%(B %*%*%)dub_checksdata%(L, 2, "Nem.B"%)%);', res)
+  assertMatch('B %*a = %*%(%(B %*%*%)dub::checksdata%(L, 1, "Nem.B"%)%);', res)
+  assertMatch('B %*b = %*%(%(B %*%*%)dub::checksdata%(L, 2, "Nem.B"%)%);', res)
   assertMatch('lua_pushnumber%(L, Nem::addTwo%(%*a, %*b%)%);', res)
 end
 
 function should.useCustomBindingsForGlobal()
   local met = ins:find('Nem::customGlobal')
   local res = binder:functionBody(met)
-  assertMatch('float a = dub_checknumber%(L, 1%);', res)
-  assertMatch('float b = dub_checknumber%(L, 2%);', res)
+  assertMatch('float a = dub::checknumber%(L, 1%);', res)
+  assertMatch('float b = dub::checknumber%(L, 2%);', res)
   assertMatch('lua_pushnumber%(L, a %+ b%);', res)
   assertMatch('lua_pushstring%(L, "custom global"%);', res)
   assertMatch('return 2;', res)
@@ -68,24 +69,24 @@ end
 function should.bindGlobalFunctionNotInNamespace()
   local met = ins:find('addTwoOut')
   local res = binder:functionBody(met)
-  assertMatch('B %*a = %*%(%(B %*%*%)dub_checksdata%(L, 1, "Nem.B"%)%);', res)
-  assertMatch('B %*b = %*%(%(B %*%*%)dub_checksdata%(L, 2, "Nem.B"%)%);', res)
+  assertMatch('B %*a = %*%(%(B %*%*%)dub::checksdata%(L, 1, "Nem.B"%)%);', res)
+  assertMatch('B %*b = %*%(%(B %*%*%)dub::checksdata%(L, 2, "Nem.B"%)%);', res)
   assertMatch('lua_pushnumber%(L, addTwoOut%(%*a, %*b%)%);', res)
 end
 
 function should.bindAll()
-  local tmp_path = base .. '/tmp'
-  lk.rmTree(tmp_path, true)
+  local tmp_path = lub.path '|tmp'
+  lub.rmTree(tmp_path, true)
 
   binder:bind(ins, {
     output_directory = tmp_path,
     single_lib = 'moo',
-    lib_prefix = false,
+    no_prefix  = true,
   })
   local files = {}
-  for file in lk.Dir(tmp_path):list() do
-    local base, filename = lk.pathDir(file)
-    lk.insertSorted(files, filename)
+  for file in lub.Dir(tmp_path):list() do
+    local base, filename = lub.dir(file)
+    lub.insertSorted(files, filename)
   end
   assertValueEqual({
     'Nem_A.cpp',
@@ -103,7 +104,7 @@ function should.useFullnameInCtor()
   local res = binder:functionBody(met)
   assertMatch('B::C %*retval__', res)
   assertMatch('new B::C%(', res)
-  assertMatch('dub_pushudata%(L, retval__, "Nem.B.C", true%);', res)
+  assertMatch('dub::pushudata%(L, retval__, "Nem.B.C", true%);', res)
 end
 
 function should.properlyResolveReturnTypeInMethod()
@@ -111,7 +112,7 @@ function should.properlyResolveReturnTypeInMethod()
   local met = C:method('getC')
   local res = binder:functionBody(met)
   assertMatch('B::C %*retval__ = self%->getC%(%);', res)
-  assertMatch('dub_pushudata%(L, retval__, "Nem.B.C", false%);', res)
+  assertMatch('dub::pushudata%(L, retval__, "Nem.B.C", false%);', res)
 end
 
 function should.properlyResolveTypeInGetAttr()
@@ -120,7 +121,7 @@ function should.properlyResolveTypeInGetAttr()
   local res = binder:functionBody(met)
   assertMatch('B::C %*retval__', res)
   assertMatch('new B::C%(', res)
-  assertMatch('dub_pushudata%(L, retval__, "Nem.B.C", true%);', res)
+  assertMatch('dub::pushudata%(L, retval__, "Nem.B.C", true%);', res)
 end
 
 --=============================================== Build
@@ -130,15 +131,15 @@ function should.changeNamespaceNameOnBind()
   -- found instead of moo.B.C)
   local ins = dub.Inspector {
     INPUT    = {
-      base .. '/fixtures/namespace',
+      lub.path '|fixtures/namespace',
       -- This is just to have the Vect class for gc testing.
-      base .. '/fixtures/pointers',
+      lub.path '|fixtures/pointers',
     },
-    doc_dir  = base .. '/tmp',
+    doc_dir  = lub.path '|tmp',
   }
 
-  local tmp_path = base .. '/tmp'
-  lk.rmTree(tmp_path, true)
+  local tmp_path = lub.path '|tmp'
+  lub.rmTree(tmp_path, true)
 
   os.execute('mkdir -p '..tmp_path)
   -- This is how we can change namespace scoping
@@ -159,8 +160,8 @@ function should.changeNamespaceNameOnBind()
     -- This is used to bind the namespace constants and
     -- functions.
     namespace  = 'Nem',
-    -- What is this ??
-    lib_prefix = false,
+    -- We need this to avoid nesting prefix
+    no_prefix = true,
     only = {
       'Nem::A',
       'Nem::B',
@@ -168,15 +169,15 @@ function should.changeNamespaceNameOnBind()
       'Nem::Rect',
       'Vect',
     },
-    custom_bindings = base .. '/fixtures/namespace',
+    custom_bindings = lub.path '|fixtures/namespace',
   })
   binder.name = nil
-  local res = lk.content(tmp_path .. '/moo_A.cpp')
+  local res = lub.content(tmp_path .. '/moo_A.cpp')
   assertNotMatch('moo%.Nem', res)
   assertMatch('"moo%.A"', res)
   assertMatch('luaopen_moo_A', res)
 
-  local res = lk.content(tmp_path .. '/moo_B_C.cpp')
+  local res = lub.content(tmp_path .. '/moo_B_C.cpp')
   assertNotMatch('moo%.Nem', res)
   assertMatch('"moo%.B%.C"', res)
   assertMatch('luaopen_moo_B_C', res)
@@ -185,29 +186,29 @@ function should.changeNamespaceNameOnBind()
 
   assertPass(function()
     binder:build {
-      output   = base .. '/tmp/moo.so',
+      output   = lub.path '|tmp/moo.so',
       inputs   = {
-        base .. '/tmp/dub/dub.cpp',
-        base .. '/tmp/moo_A.cpp',
-        base .. '/tmp/moo_B.cpp',
-        base .. '/tmp/moo_B_C.cpp',
-        base .. '/tmp/moo.cpp',
-        base .. '/tmp/Vect.cpp',
-        base .. '/tmp/moo_Rect.cpp',
-        base .. '/fixtures/pointers/vect.cpp',
+        lub.path '|tmp/dub/dub.cpp',
+        lub.path '|tmp/moo_A.cpp',
+        lub.path '|tmp/moo_B.cpp',
+        lub.path '|tmp/moo_B_C.cpp',
+        lub.path '|tmp/moo.cpp',
+        lub.path '|tmp/Vect.cpp',
+        lub.path '|tmp/moo_Rect.cpp',
+        lub.path '|fixtures/pointers/vect.cpp',
       },
       includes = {
-        base .. '/tmp',
+        lub.path '|tmp',
         -- This is for lua.h
-        base .. '/tmp/dub',
-        base .. '/fixtures/namespace',
+        lub.path '|tmp/dub',
+        lub.path '|fixtures/namespace',
       },
     }
 
     local cpath_bak = package.cpath
     package.cpath = tmp_path .. '/?.so'
 
-    require 'moo'
+    moo = require 'moo'
     assertType('table', moo)
     assertType('table', moo.A)
     assertType('table', moo.B)
@@ -224,7 +225,7 @@ function should.changeNamespaceNameOnBind()
 end
 
 function should.bindGlobalFunctions()
-  --local res = lk.content(tmp_path .. '/moo.cpp')
+  --local res = lub.content(tmp_path .. '/moo.cpp')
   --assertMatch('XXXXX', res)
 end
 
@@ -254,12 +255,12 @@ end
 
 function should.useCustomAccessor()
   local a = moo.A()
-  local watch = Vect(0,0)
+  local watch = moo.Vect(0,0)
   assertNil(a.userdata)
   collectgarbage()
   watch.create_count  = 0
   watch.destroy_count = 0
-  local v = Vect(3, 4)
+  local v = moo.Vect(3, 4)
   assertEqual(1, watch.create_count)
   a.userdata = v
   assertEqual(4, a.userdata.y)
@@ -275,11 +276,11 @@ end
 
 function should.useCustomAccessor()
   local a = moo.A()
-  local watch = Vect(0,0)
+  local watch = moo.Vect(0,0)
   collectgarbage()
   watch.create_count  = 0
   watch.destroy_count = 0
-  local v = Vect(3, 7)
+  local v = moo.Vect(3, 7)
   assertEqual(1, watch.create_count)
   a.userdata = v
   assertEqual(1, a.userdata.x)
@@ -314,8 +315,8 @@ function should.callNamespaceFunction()
   assertEqual(3, moo.addTwo(a,b))
 end
 
-function should.notHaveFunctionOutOfNamespace()
-  assertNil(moo.addTwoOut)
+function should.haveFunctionOutOfNamespace()
+  assertEqual('function', type(moo.addTwoOut))
 end
 
 function should.callCustomGlobal()
@@ -343,5 +344,4 @@ function should.decideOver()
 end
 
 should:test()
-
 

@@ -11,17 +11,19 @@ param_
     * cast to super type when needed.
 
 --]]------------------------------------------------------
-require 'lubyk'
--- Run the test with the dub directory as current path.
-local should = test.Suite('dub.LuaBinder - inherit')
+local lub = require 'lub'
+local lut = require 'lut'
+local dub = require 'dub'
+
+local should = lut.Test('dub.LuaBinder - inherit', {coverage = false})
 local binder = dub.LuaBinder()
 
-local base = lk.scriptDir()
-
 local ins = dub.Inspector {
-  INPUT    = base .. '/fixtures/inherit',
-  doc_dir  = base .. '/tmp',
+  INPUT    = lub.path '|fixtures/inherit',
+  doc_dir  = lub.path '|tmp',
 }
+
+local Child, Parent, Orphan
 
 function should.setup()
   dub.warn = dub.silentWarn
@@ -72,22 +74,22 @@ function should.properlyBindUnknownTypes()
   local Child = ins:find('Child')
   local met = Child:method('methodWithUnknown')
   local res = binder:functionBody(Child, met)
-  assertMatch('Unk1 %*x = %*%(%(Unk1 %*%*%)dub_checksdata%(L, 2, "Unk1"%)%);', res)
-  assertMatch('Unk2 %*y = %*%(%(Unk2 %*%*%)dub_checksdata%(L, 3, "Unk2"%)%);', res)
+  assertMatch('Unk1 %*x = %*%(%(Unk1 %*%*%)dub::checksdata%(L, 2, "Unk1"%)%);', res)
+  assertMatch('Unk2 %*y = %*%(%(Unk2 %*%*%)dub::checksdata%(L, 3, "Unk2"%)%);', res)
   assertMatch('methodWithUnknown%(%*x, y%)', res)
 end
 
 --=============================================== Compile
 
 function should.bindCompileAndLoad()
-  local tmp_path = base .. '/tmp'
+  local tmp_path = lub.path '|tmp'
   -- create tmp directory
-  lk.rmTree(tmp_path, true)
+  lub.rmTree(tmp_path, true)
   os.execute('mkdir -p '..tmp_path)
 
   binder:bind(ins, {
-    output_directory = base .. '/tmp',
-    custom_bindings  = base .. '/fixtures/inherit',
+    output_directory = lub.path '|tmp',
+    custom_bindings  = lub.path '|fixtures/inherit',
     extra_headers = {
       Child = {
         "../inherit_hidden/Mother.h",
@@ -101,54 +103,54 @@ function should.bindCompileAndLoad()
     -- Build Child.so
     --
     binder:build {
-      output   = base .. '/tmp/Child.so',
+      output   = lub.path '|tmp/Child.so',
       inputs   = {
-        base .. '/tmp/dub/dub.cpp',
-        base .. '/tmp/Child.cpp',
-        base .. '/fixtures/inherit/child.cpp',
+        lub.path '|tmp/dub/dub.cpp',
+        lub.path '|tmp/Child.cpp',
+        lub.path '|fixtures/inherit/child.cpp',
       },
       includes = {
-        base .. '/tmp',
+        lub.path '|tmp',
         -- This is for lua.h
-        base .. '/tmp/dub',
-        base .. '/fixtures/inherit',
+        lub.path '|tmp/dub',
+        lub.path '|fixtures/inherit',
       },
     }
 
     -- Build Parent.so
     binder:build {
-      output   = base .. '/tmp/Parent.so',
+      output   = lub.path '|tmp/Parent.so',
       inputs   = {
-        base .. '/tmp/dub/dub.cpp',
-        base .. '/tmp/Parent.cpp',
+        lub.path '|tmp/dub/dub.cpp',
+        lub.path '|tmp/Parent.cpp',
       },
       includes = {
-        base .. '/tmp',
+        lub.path '|tmp',
         -- This is for lua.h
-        base .. '/tmp/dub',
-        base .. '/fixtures/inherit',
+        lub.path '|tmp/dub',
+        lub.path '|fixtures/inherit',
       },
     }
 
     -- Build Orphan.so
     binder:build {
-      output   = base .. '/tmp/Orphan.so',
+      output   = lub.path '|tmp/Orphan.so',
       inputs   = {
-        base .. '/tmp/dub/dub.cpp',
-        base .. '/tmp/Orphan.cpp',
+        lub.path '|tmp/dub/dub.cpp',
+        lub.path '|tmp/Orphan.cpp',
       },
       includes = {
-        base .. '/tmp',
+        lub.path '|tmp',
         -- This is for lua.h
-        base .. '/tmp/dub',
-        base .. '/fixtures/inherit',
+        lub.path '|tmp/dub',
+        lub.path '|fixtures/inherit',
       },
     }
 
     package.cpath = tmp_path .. '/?.so'
-    require 'Child'
-    require 'Parent'
-    require 'Orphan'
+    Child  = require 'Child'
+    Parent = require 'Parent'
+    Orphan = require 'Orphan'
     assertType('table', Child)
   end, function()
     -- teardown
@@ -156,7 +158,7 @@ function should.bindCompileAndLoad()
     package.loaded.Parent = nil
     package.cpath = cpath_bak
     if not Child then
-      test.abort = true
+      lut.Test.abort = true
     end
   end)
   --lk.rmTree(tmp_path, true)
@@ -228,5 +230,5 @@ function should.useUnknownTypes()
   assertEqual(9, c:methodWithUnknown(f, b))
 end
 
-test.all()
+should:test()
 

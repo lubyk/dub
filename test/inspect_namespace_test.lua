@@ -9,8 +9,8 @@
 --]]------------------------------------------------------
 local lub = require 'lub'
 local lut = require 'lut'
-
 local dub = require 'dub'
+
 local should = lut.Test('dub.Inspector - namespace', {coverage = false})
 
 local ins
@@ -23,6 +23,7 @@ function should.setup()
         lub.path '|fixtures/namespace',
       },
       doc_dir  = lub.path '|tmp',
+      keep_xml = true,
     }
   end
 end
@@ -178,6 +179,12 @@ function should.listNamespaceFunctions()
   }, res)
 end
 
+function should.setFlagsOnNamespaceFunction()
+  local addTwo = ins:find('Nem::addTwo')
+  assertEqual('dub.Function', addTwo.type)
+  assertEqual(false, addTwo.member)
+end
+
 --=============================================== namespace constants
 
 function should.findNamespaceConstants()
@@ -200,6 +207,17 @@ function should.listNamespaceConstants()
   }, res)
 end
 
-should:test()
+function should.listAllConstants()
+  local res = {}
+  for const in ins.db:constants() do
+    lub.insertSorted(res, const)
+  end
+  assertValueEqual({
+    'One',
+    'Three',
+    'Two',
+  }, res)
+end
 
+should:test()
 

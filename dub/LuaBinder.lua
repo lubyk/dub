@@ -7,8 +7,10 @@
 --]]------------------------------------------------------
 local lub     = require 'lub'
 local dub     = require 'dub'
-local pairs, ipairs, format,        gsub,        insert  = 
-      pairs, ipairs, string.format, string.gsub, table.insert
+local yaml    = require 'yaml'
+
+local pairs, ipairs, format,        gsub,        insert,       sub,        len = 
+      pairs, ipairs, string.format, string.gsub, table.insert, string.sub, string.len
 local lib     = lub.class('dub.LuaBinder', {
   SELF = 'self',
   -- By default, we try to access userdata in field 'super'. This is not
@@ -117,6 +119,8 @@ end
 -- + (namespace):      Only parse elements in the given namespace. If this is set
 --                     `single_lib` can be ommited and the namespace will be used as
 --                     prefix.
+-- + (no_prefix):      When this is set to `true`, do not add any prefix to
+--                     class names.
 -- + (extra_headers):  List of extra header includes to add in generated C++ files.
 function lib:bind(inspector, options)
   self.options = options
@@ -136,7 +140,7 @@ function lib:bind(inspector, options)
     self.namespace = inspector:find(namespace_name)
   end
 
-  if not self.namespace then
+  if not self.namespace and not options.no_prefix then
     -- This is the root of all classes.
     inspector.db.name = options.single_lib
   end
@@ -153,7 +157,7 @@ function lib:bind(inspector, options)
     for _,name in ipairs(options.only) do
       local elem = inspector:find(name)
       if elem then
-        insert(bound, elem)
+        lub.insertSorted(bound, elem, 'name')
         private.bindElem(self, elem, options)
       else
         print(format("Could not bind '%s' (not found).", name))
@@ -234,7 +238,7 @@ function lib:parseCustomBindings(custom)
     for yaml_file in dir:glob('%.yml') do
       -- Class or global function name.
       local elem_name = string.match(yaml_file, '([^/]+)%.yml$')
-      local lua = yaml.load(lub.content(yaml_file)).lua
+      local lua = yaml.parse(lub.content(yaml_file)).lua
       for _, group in pairs(lua) do
         -- attributes, methods
         for name, value in pairs(group) do
@@ -1287,6 +1291,36 @@ function lib:decisionTree(list)
   return res, need_top
 end
 
+function private:openOne(classes, i, res)
+  local class = classes[i]
+  local index = i + 1
+  if not class then return end
+
+  local nclas = classes[i + 1]
+  insert(res, 'luaopen_'..self:openName(class)..'(L);')
+
+  local name  = self:libName(class)
+  local nname = nclas and self:libName(nclas)
+  if nclas and sub(nname, 1, len(name)) == name then
+    -- nclas is a sub-type of class
+    -- <lib> <class>
+    index = private.openOne(self, classes, index, res)
+  end
+  insert(res, '// <'..name..'>')
+  insert(res, 'lua_setfield(L, -2, "'.. (class.dub.register or self:name(class)) ..'");')
+  insert(res, '')
+  return index
+end
+
+function lib:openClasses(classes, indent)
+  indent = indent or '  '
+  local res  = {}
+  local i = 1
+  while i do
+    i = private.openOne(self, classes, i, res)
+  end
+  return lub.join(res, '\n'..indent)
+end
 
 function private:insertByTop(res, func, index)
   -- force string keys
@@ -1416,7 +1450,9 @@ function private:makeLibFile(lib_name, list)
   if not lib then
     -- lib is the global environment.
     lib = self.ins.db
+    lib.has_constants = lib:hasConstants()
   end
+
   local res = self.lib_template:run {
     dub      = dub,
     lib      = lib,

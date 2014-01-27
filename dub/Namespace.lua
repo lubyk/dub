@@ -8,9 +8,9 @@
 --]]------------------------------------------------------
 local lub     = require 'lub'
 local dub     = require 'dub'
-local lib     = lub.class 'dub.Namespace', {
+local lib     = lub.class('dub.Namespace', {
   is_class    = false,
-}
+})
 local private = {}
 
 -- Behaves like a class by default
@@ -18,6 +18,7 @@ setmetatable(lib, dub.Class)
 
 --=============================================== dub.Namespace()
 function lib.new(self)
+  local self = self or {}
   local name = self.name
   self.name = nil
   self.const_headers = {}

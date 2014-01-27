@@ -8,16 +8,17 @@
   test/fixtures/Box2D.
 
 --]]------------------------------------------------------
-require 'lubyk'
+local lub = require 'lub'
+local lut = require 'lut'
+local dub = require 'dub'
 
 --=============================================== Only if Box2D present
-local box2d_path = lk.scriptDir() .. '/fixtures/Box2D'
-if not lk.exist(box2d_path) then
-  print('skip Box2D')
+local box2d_path = lub.path '|fixtures/Box2D'
+if not lub.exist(box2d_path) then
   return
 end
 
-local should = test.Suite('dub.Inspector - Box2D')
+local should = lut.Test('dub.Inspector - Box2D', {coverage = false})
 
 local ins = dub.Inspector {
   INPUT   = {
@@ -25,7 +26,7 @@ local ins = dub.Inspector {
     box2d_path .. '/Box2D/Collision',
     box2d_path .. '/Box2D/Dynamics',
   },
-  doc_dir = lk.scriptDir() .. '/tmp',
+  doc_dir = lub.path '|tmp',
 }
 
 function should.ignoreFunctionsWithComplexParams()
@@ -65,6 +66,6 @@ function should.parseClasses()
   }, res)
 end
 
-test.all()
+should:test()
 
 

@@ -13,16 +13,20 @@ param_
     * return value optimization
 
 --]]------------------------------------------------------
-require 'lubyk'
--- Run the test with the dub directory as current path.
-local should = test.Suite('dub.LuaBinder - constants')
+local lub = require 'lub'
+local lut = require 'lut'
+local dub = require 'dub'
+
+local should = lut.Test('dub.LuaBinder - constants', {coverage = false})
+
 local binder = dub.LuaBinder()
-local base = lk.scriptDir()
 
 local ins = dub.Inspector {
-  INPUT    = base .. '/fixtures/constants',
-  doc_dir  = base .. '/tmp',
+  INPUT    = lub.path '|fixtures/constants',
+  doc_dir  = lub.path '|tmp',
 }
+
+local traffic
 
 --=============================================== Constants in mt table
 function should.haveConstantsInMetatable()
@@ -61,12 +65,12 @@ end
 --=============================================== Build
 function should.bindCompileAndLoad()
   local ins = dub.Inspector {
-    INPUT    = base .. '/fixtures/constants',
-    doc_dir  = base .. '/tmp',
+    INPUT    = lub.path '|fixtures/constants',
+    doc_dir  = lub.path '|tmp',
   }
 
   -- create tmp directory
-  local tmp_path = base .. '/tmp'
+  local tmp_path = lub.path '|tmp'
   os.execute("mkdir -p "..tmp_path)
 
   binder:bind(ins, {
@@ -85,31 +89,31 @@ function should.bindCompileAndLoad()
     
     -- Build traffic.so
     binder:build {
-      output   = base .. '/tmp/traffic.so',
+      output   = lub.path '|tmp/traffic.so',
       inputs   = {
-        base .. '/tmp/dub/dub.cpp',
-        base .. '/tmp/traffic_Car.cpp',
-        base .. '/tmp/traffic.cpp',
+        lub.path '|tmp/dub/dub.cpp',
+        lub.path '|tmp/traffic_Car.cpp',
+        lub.path '|tmp/traffic.cpp',
       },
       includes = {
-        base .. '/tmp',
+        lub.path '|tmp',
         -- This is for lua.h
-        base .. '/tmp/dub',
-        base .. '/fixtures/constants',
+        lub.path '|tmp/dub',
+        lub.path '|fixtures/constants',
       },
     }
     
     package.cpath = tmp_path .. '/?.so'
     -- Must require Car first because Box depends on Car class and
     -- only Car.so has static members for Car.
-    require 'traffic'
+    traffic = require 'traffic'
     assertType('table', traffic.Car)
   end, function()
     -- teardown
     package.loaded.traffic = nil
     package.cpath = cpath_bak
     if not traffic.Car then
-      test.abort = true
+      lut.Test.abort = true
     else
       Car = traffic.Car
     end
@@ -199,7 +203,7 @@ end
 
 
 function should.createAndDestroy()
-  if test.speed then
+  if test_speed then
     runGcTest(Car.new,   "Car.new:                            create 100'000 elements: %.2f ms.")
     runGcTest(Car,       "Car:                                create 100'000 elements: %.2f ms.")
   else
@@ -207,5 +211,5 @@ function should.createAndDestroy()
   end
 end
 
-test.all()
+should:test()
 

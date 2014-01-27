@@ -7,12 +7,15 @@
   of classes.
 
 --]]------------------------------------------------------
-require 'lubyk'
-local should = test.Suite('dub.Inspector - constants')
+local lub = require 'lub'
+local lut = require 'lut'
+local dub = require 'dub'
+
+local should = lut.Test('dub.Inspector - constants', {coverage = false})
 
 local ins  = dub.Inspector {
   INPUT    = 'test/fixtures/constants',
-  doc_dir  = lk.scriptDir() .. '/tmp',
+  doc_dir  = lub.path '|tmp',
 }
 
 local Car = ins:find('Car')
@@ -91,5 +94,5 @@ function should.listConstants()
   }, res)
 end
 
-test.all()
+should:test()
 

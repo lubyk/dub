@@ -76,12 +76,7 @@ extern "C" int luaopen_{{self.options.luaopen or lib_name}}(lua_State *L) {
   dub::fregister(L, {{lib_name}}_functions);
   // <lib>
 
-{% for _, class in ipairs(classes) do %}
-  luaopen_{{self:openName(class)}}(L);
-  lua_setfield(L, -2, "{{class.dub.register or self:name(class)}}");
-
-{% end %}
-
+  {{ self:openClasses(classes) }}
   // <lib>
   return 1;
 }

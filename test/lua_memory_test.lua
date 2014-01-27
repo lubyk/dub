@@ -8,15 +8,16 @@
     * no gc optimization
 
 --]]------------------------------------------------------
-require 'lubyk'
--- Run the test with the dub directory as current path.
-local should = test.Suite('dub.LuaBinder - memory')
+local lub = require 'lub'
+local lut = require 'lut'
+local dub = require 'dub'
+
+local should = lut.Test('dub.LuaBinder - memory', {coverage = false})
 local binder = dub.LuaBinder()
 
-local base = lk.scriptDir()
 local ins_opts = {
-  INPUT    = base .. '/fixtures/memory',
-  doc_dir  = base .. '/tmp',
+  INPUT    = lub.path '|fixtures/memory',
+  doc_dir  = lub.path '|tmp',
   PREDEFINED = {
     'SOME_FUNCTION_MACRO(x)=',
     'OTHER_FUNCTION_MACRO(x)=',
@@ -24,6 +25,7 @@ local ins_opts = {
 }
 local ins = dub.Inspector(ins_opts)
 
+local mem
 
 --=============================================== Nogc bindings
 
@@ -43,14 +45,14 @@ function should.pushFullUserdataInRetval()
   local Nogc = ins:find('Nogc')
   local met = Nogc:method('operator+')
   local res = binder:functionBody(Nogc, met)
-  assertMatch('dub_pushfulldata<Nogc>%(L, self%->operator%+%(%*v%), "Nogc"%);', res)
+  assertMatch('dub::pushfulldata<Nogc>%(L, self%->operator%+%(%*v%), "Nogc"%);', res)
 end
 
 function should.useCustomPush()
   local Pen = ins:find('Pen')
   local met = Pen:method('Pen')
   local res = binder:functionBody(Pen, met)
-  assertMatch('retval__%->pushobject%(L, retval__, "Pen", true%);', res)
+  assertMatch('retval__%->dub_pushobject%(L, retval__, "Pen", true%);', res)
 end
 
 function should.bindDestructor()
@@ -63,8 +65,8 @@ end
 
 function should.bindCompileAndLoad()
   -- create tmp directory
-  local tmp_path = lk.scriptDir() .. '/tmp'
-  lk.rmTree(tmp_path, true)
+  local tmp_path = lub.path '|tmp'
+  lub.rmTree(tmp_path, true)
   os.execute("mkdir -p "..tmp_path)
 
   local ins = dub.Inspector(ins_opts)
@@ -79,40 +81,40 @@ function should.bindCompileAndLoad()
   assertPass(function()
     -- Build mem.so
     binder:build {
-      output   = base .. '/tmp/mem.so',
+      output   = lub.path '|tmp/mem.so',
       inputs   = {
-        base .. '/tmp/dub/dub.cpp',
-        base .. '/tmp/mem_Nogc.cpp',
-        base .. '/tmp/mem_Withgc.cpp',
-        base .. '/tmp/mem_Union.cpp',
-        base .. '/tmp/mem_Pen.cpp',
-        base .. '/tmp/mem_Owner.cpp',
-        base .. '/tmp/mem_PrivateDtor.cpp',
-        base .. '/tmp/mem_CustomDtor.cpp',
-        base .. '/tmp/mem_NoDtor.cpp',
-        base .. '/tmp/mem_NoDtorCleaner.cpp',
-        base .. '/fixtures/memory/owner.cpp',
-        base .. '/tmp/mem.cpp',
+        lub.path '|tmp/dub/dub.cpp',
+        lub.path '|tmp/mem_Nogc.cpp',
+        lub.path '|tmp/mem_Withgc.cpp',
+        lub.path '|tmp/mem_Union.cpp',
+        lub.path '|tmp/mem_Pen.cpp',
+        lub.path '|tmp/mem_Owner.cpp',
+        lub.path '|tmp/mem_PrivateDtor.cpp',
+        lub.path '|tmp/mem_CustomDtor.cpp',
+        lub.path '|tmp/mem_NoDtor.cpp',
+        lub.path '|tmp/mem_NoDtorCleaner.cpp',
+        lub.path '|fixtures/memory/owner.cpp',
+        lub.path '|tmp/mem.cpp',
       },
       includes = {
-        base .. '/tmp',
+        lub.path '|tmp',
         -- This is for lua.h
-        base .. '/tmp/dub',
-        base .. '/fixtures/memory',
+        lub.path '|tmp/dub',
+        lub.path '|fixtures/memory',
       },
     }
     package.cpath = tmp_path .. '/?.so'
     --require 'Box'
-    require 'mem'
+    mem = require 'mem'
     assertType('table', mem)
   end, function()
     -- teardown
     package.cpath = cpath_bak
     if not mem then
-      test.abort = true
+      lut.Test.abort = true
     end
   end)
-  --lk.rmTree(tmp_path, true)
+  --lub.rmTree(tmp_path, true)
 end
 
 --=============================================== Nogc
@@ -143,7 +145,7 @@ local function runGcTest(ctor, fmt)
 end
 
 function should.createAndDestroy()
-  if test.speed then
+  if test_speed then
     runGcTest(mem.Nogc.new,   "__gc optimization:      create and destroy 100'000 elements: %.2f ms.")
     runGcTest(mem.Withgc.new, "Normal __gc:            create and destroy 100'000 elements: %.2f ms.")
     runGcTest(mem.Withgc,     "Normal __gc and __call: create and destroy 100'000 elements: %.2f ms.")
@@ -231,6 +233,5 @@ function should.notUseDtor()
   assertEqual('Hulk', t)
 end
 
-test.all()
-
+should:test()
 

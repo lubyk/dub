@@ -7,12 +7,15 @@
   of classes.
 
 --]]------------------------------------------------------
-require 'lubyk'
-local should = test.Suite('dub.Inspector - pointers')
+local lub = require 'lub'
+local lut = require 'lut'
+local dub = require 'dub'
+
+local should = lut.Test('dub.Inspector - pointers', {coverage = false})
 
 local ins  = dub.Inspector {
   INPUT    = 'test/fixtures/pointers',
-  doc_dir  = lk.scriptDir() .. '/tmp',
+  doc_dir  = lub.path '|tmp',
   keep_xml = true,
 }
 
@@ -319,5 +322,5 @@ function should.parseTypedef()
   assertEqual('Vect', Vortex.ctype.name)
 end
 
-test.all()
+should:test()
 

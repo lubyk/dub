@@ -6,7 +6,7 @@
 /** This class is used to test:
  *   * Custom destructors.
  *
- * @dub push: pushobject
+ * @dub push: dub_pushobject
  *      destructor: finalize
  */
 class CustomDtor : public dub::Thread {

@@ -71,6 +71,8 @@ lib.DEPENDS = { -- doc
   'lub >= 1.0.3, < 1.1',
   -- Uses [Lubyk fast xml library](http://doc.lubyk.org/xml.html)
   'xml ~> 1.0',
+  -- Uses [Lubyk yaml library](http://doc.lubyk.org/yaml.html)
+  'yaml ~> 1.0',
 }
 
 --[[

@@ -7,12 +7,15 @@
   of classes.
 
 --]]------------------------------------------------------
-require 'lubyk'
-local should = test.Suite('dub.Inspector - inherit')
+local lub = require 'lub'
+local lut = require 'lut'
+local dub = require 'dub'
+
+local should = lut.Test('dub.Inspector - inherit', {coverage = false})
 
 local ins  = dub.Inspector {
   INPUT    = 'test/fixtures/inherit',
-  doc_dir  = lk.scriptDir() .. '/tmp',
+  doc_dir  = lub.path '|tmp',
 }
 
 --=============================================== TESTS
@@ -137,7 +140,5 @@ function should.resolveEnumWithParent()
   assertValueEqual(b, c)
 end
 
-test.all()
-
-
+should:test()
 

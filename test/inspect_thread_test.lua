@@ -7,12 +7,15 @@
   of classes.
 
 --]]------------------------------------------------------
-require 'lubyk'
-local should = test.Suite('dub.Inspector - thread')
+local lub = require 'lub'
+local lut = require 'lut'
+local dub = require 'dub'
+
+local should = lut.Test('dub.Inspector - thread', {coverage = false})
 
 local ins = dub.Inspector {
   INPUT    = 'test/fixtures/thread',
-  doc_dir  = lk.scriptDir() .. '/tmp',
+  doc_dir  = lub.path '|tmp',
   keep_xml = true,
 }
 
@@ -23,6 +26,5 @@ function should.useCustomPush()
   assertEqual('dub_pushobject', Callback.dub.push)
 end
 
-test.all()
-
+should:test()
 

@@ -5,7 +5,7 @@
 
 class NoDtor;
 
-/** @dub push: pushobject
+/** @dub push: dub_pushobject
  *       ignore: dead
  */
 class NoDtorCleaner : public dub::Thread {

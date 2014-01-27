@@ -7,13 +7,15 @@
   of classes.
 
 --]]------------------------------------------------------
-require 'lubyk'
-local should = test.Suite('dub.Inspector - memory')
+local lub = require 'lub'
+local lut = require 'lut'
+local dub = require 'dub'
 
-local base = lk.scriptDir()
+local should = lut.Test('dub.Inspector - memory', {coverage = false})
+
 local ins  = dub.Inspector {
-  INPUT    = base .. '/fixtures/memory',
-  doc_dir  = lk.scriptDir() .. '/tmp',
+  INPUT    = lub.path '|fixtures/memory',
+  doc_dir  = lub.path '|tmp',
   keep_xml = true,
   PREDEFINED = {
     'SOME_FUNCTION_MACRO(x)=',
@@ -144,6 +146,5 @@ function should.ignoreFalseDtor()
   }, res)
 end
 
-test.all()
-
+should:test()
 

@@ -2,6 +2,7 @@
 #define NAMESPACE_CONSTANTS_H_
 
 namespace Nem {
+
 /** Constants that should be accessible by Nem.ConstName
  */
 enum NamespaceConstant {

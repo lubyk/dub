@@ -55,7 +55,7 @@ static const struct luaL_Reg {{class.name}}_member_methods[] = {
 {% if not class:method('__tostring') then %}
   { {{string.format('%-15s, %-20s', '"__tostring"', class.name .. '___tostring')}} },
 {% end %}
-  { "deleted"      , dub::isDeleted        },
+  { "deleted"      , dub::isDeleted       },
   { NULL, NULL},
 };
 

@@ -36,6 +36,8 @@ install:
   - cd ..
   # Install xml (not released yet)
   - git clone git://github.com/lubyk/xml.git && cd xml && sudo luarocks-$LUA_VERSION make && cd ..
+  # Install yaml (not released yet)
+  - git clone git://github.com/lubyk/yaml.git && cd yaml && sudo luarocks-$LUA_VERSION make && cd ..
   # Install testing dependency
   - sudo luarocks-$LUA_VERSION install lut
   # Build module
@@ -43,8 +45,7 @@ install:
 
 # Run tests
 script:
-  # FIXME - $LUA -v && $LUA test/all.lua
-  - $LUA -v && $LUA test/lua_pointers_test.lua linux
+  - $LUA -v && $LUA test/all.lua linux
 
 notifications:
   recipients:

@@ -14,7 +14,7 @@
  *   * when an object owned by C++ is deleted in the scripting language.
  *   * macro expansion setting
  * 
- * @dub push: pushobject
+ * @dub push: dub_pushobject
  */
 class Pen : public dub::Object {
   std::string name_;
@@ -46,8 +46,8 @@ public:
    * dub::Object) and adds the method to the generated xml. We can then ensure
    * that the 'push' method is ignored even if seen.
    */
-  virtual void pushobject(lua_State *L, void *ptr, const char *type_name, bool gc = true) {
-    dub::Object::pushobject(L, ptr, type_name, gc);
+  virtual void dub_pushobject(lua_State *L, void *ptr, const char *type_name, bool gc = true) {
+    dub::Object::dub_pushobject(L, ptr, type_name, gc);
   }
 
 };

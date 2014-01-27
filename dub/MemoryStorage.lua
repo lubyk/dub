@@ -139,7 +139,7 @@ function lib:variables(parent)
   end
 end
 
---- Return an iterator over all the headers of this library.
+--- Return an iterator over all the headers of this class and related namespace.
 function lib:headers(classes)
   -- make sure we have parsed the headers
   private.parseHeaders(self)
@@ -222,22 +222,43 @@ end
 
 --- Return an iterator over the constants defined in this parent.
 function lib:constants(parent)
+  local list
   -- make sure we have parsed the headers
   private.parseHeaders(self)
   if parent then
     private.parseHeaders(parent)
+    list = {parent}
   else
-    parent = self
+    list = {self}
+    for namespace in self:namespaces() do
+      insert(list, namespace)
+    end
   end
-  local co = coroutine.create(private.iterator)
+  local co = coroutine.create(function()
+    local seen = {}
+    -- For each namespace, get global constants
+    for _, namespace in ipairs(list) do
+      for _, const in ipairs(namespace.constants_list) do
+        coroutine.yield(const)
+      end
+    end                                   
+  end)
   return function()
-    local ok, elem = coroutine.resume(co, parent, 'constants_list')
+    local ok, elem = coroutine.resume(co)
     if ok then
       return elem
     else
       print(elem, debug.traceback(co))
     end
   end
+end
+
+function lib:hasConstants()
+  if not self.checked_constants then
+    self.checked_constants = true
+    self.has_constants = self:constants()()
+  end
+  return self.has_constants
 end
 
 --- Return an iterator over the namespaces in root.
@@ -334,14 +355,16 @@ end
 
 function private.iteratorWithSuper(elem, key)
   private.iterator(elem, key)
+  local b_ignore = elem.ignore or {}
   if elem.type == 'dub.Class' then
     for super in elem:superclasses() do
       local ignore = super.ignore or {}
       for _, child in ipairs(super[key]) do
-        if not ignore[child.name] and
-           not child.no_inherit   and
-           not child.dtor         and
-           not child.static       then
+        if not ignore[child.name]   and
+           not b_ignore[child.name] and
+           not child.no_inherit     and
+           not child.dtor           and
+           not child.static         then
            coroutine.yield(child)
          end
       end
@@ -497,21 +520,24 @@ end
 
 function parse:innernamespace(elem, header)
   local name = elem[1]
+
   if self.cache[name] then
     return nil
   end
 
   if self.type ~= 'dub.MemoryStorage' or
-   match(name, '::') then
+     match(name, '::') then
     -- Ignore nested namespaces for now.
     dub.warn(5, "Ignoring nested namespace '%s'.", name)
-    return
+    return nil
   end
+
   local namespace = dub.Namespace {
     name   = name,
     parent = self,
     db     = self.db or self,
   }
+  insert(namespace.const_headers, header.file)
   insert(self.namespaces_list, namespace)
   return namespace
 end
@@ -674,13 +700,17 @@ function parse:enum(elem, header)
     end
   end
   local name = find(elem, 'name')[1]
+  local l, f = private.makeLocation(elem, header)
   local enum = {
     type     = 'dub.Enum',
     name     = name,
-    location = private.makeLocation(elem, header),
+    location = l,
     list     = list,
     ctype    = lib.makeType('int'),
   }
+  if self.type == 'dub.Namespace' then
+    insert(self.const_headers, f)
+  end
   if self.name then
     enum.ctype.cast = self:fullname() .. '::' .. name
     enum.ctype.create_name = self:fullname() .. '::' .. name .. ' '
@@ -921,7 +951,7 @@ end
 function private.makeLocation(elem, header)
   local loc  = find(elem, 'location')
   local file = lub.absToRel(loc.file, lfs.currentdir())
-  return file .. ':' .. loc.line
+  return file .. ':' .. loc.line, file
 end
 
 -- self == class
