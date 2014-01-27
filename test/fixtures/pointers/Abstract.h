@@ -7,6 +7,7 @@
  */
 struct Abstract {
   Abstract() {}
+  virtual ~Abstract() {}
   virtual double pureVirtual(double d) = 0;
 };
 
@@ -17,6 +18,7 @@ struct Abstract {
  */
 struct AbstractIgnored {
   AbstractIgnored() {}
+  virtual ~AbstractIgnored() {}
   virtual double pureVirtual(double d) = 0;
 };
 
