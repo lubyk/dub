@@ -187,6 +187,7 @@ void Thread::dub_pushobject(lua_State *L, void *ptr, const char *tname, bool gc)
   }
 #else
   lua_setuservalue(L, -3);
+  // <self> <udata> <env>
 #endif
 
   // <self> <udata> <env>
@@ -345,10 +346,6 @@ inline void push_own_env(lua_State *L, int ud) {
 #ifdef DUB_LUA_FIVE_ONE
   lua_getfenv(L, ud);
   // ... <udata> ... <env>
-#else
-  lua_getuservalue(L, ud);
-  // ... <udata> ... <env>
-#endif
   lua_pushstring(L, ".");
   // ... <udata> ... <env> "."
   lua_rawget(L, -2); // <env>["."]
@@ -357,6 +354,13 @@ inline void push_own_env(lua_State *L, int ud) {
     // ... <udata> ... <env> <nil>
     // does not have it's own env table
     lua_pop(L, 2);
+    // ... <udata> ... 
+#else
+  lua_getuservalue(L, ud);
+  // ... <udata> ... <env/nil>
+  if (lua_isnil(L, -1)) {
+    lua_pop(L, 1);
+#endif
     // ... <udata> ... 
     // Create env table
     lua_newtable(L);
