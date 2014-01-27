@@ -108,7 +108,16 @@ function lib.new(options)
 end
 
 --=============================================== PUBLIC METHODS
--- Add xml headers to the database
+-- Add xml headers to the database. All options in parenthesis are optional.
+--
+-- + output_directory: Path destination for generated C++ files.
+-- + (single_lib):     Name of library when wrapping all classes into a single table.
+--                     This creates a single library instead of one for each class.
+--                     This name will be used as prefix for class metatables.
+-- + (namespace):      Only parse elements in the given namespace. If this is set
+--                     `single_lib` can be ommited and the namespace will be used as
+--                     prefix.
+-- + (extra_headers):  List of extra header includes to add in generated C++ files.
 function lib:bind(inspector, options)
   self.options = options
   if options.header_base then
@@ -123,31 +132,16 @@ function lib:bind(inspector, options)
   self.extra_headers = {}
   private.parseExtraHeadersList(self, nil, options.extra_headers)
   
-  local namespace_name = options.namespace or options.single_lib
   if namespace_name then
     self.namespace = inspector:find(namespace_name)
   end
-  if options.single_lib then
-    -- default is to:
-    --   * prefix mt types with lib name if we do not have a namespace
-    --   * not prefix if we have a namespace
-    if self.namespace then
-      -- in a namespace. Leave lib_prefix to nil or false.
-    else
-      if options.lib_prefix == false then
-        options.lib_prefix = nil
-      else
-        options.lib_prefix = options.lib_prefix or options.single_lib
-      end
-    end
-  end
 
-  if options.lib_prefix then
+  if not self.namespace then
     -- This is the root of all classes.
-    inspector.db.name = options.lib_prefix
+    inspector.db.name = options.single_lib
   end
 
-  self.output_directory = self.output_directory or options.output_directory
+  self.output_directory = assert(options.output_directory, "Missing 'output_directory' setting.")
 
   if options.custom_bindings then
     self:parseCustomBindings(options.custom_bindings)

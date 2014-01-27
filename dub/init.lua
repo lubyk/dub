@@ -7,10 +7,27 @@
   Generated lua bindings do not contain any external dependencies. Dub C++ files
   are copied along with the generated C++ bindings.
 
+
   <html><a href="https://github.com/lubyk/dub"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a></html>
 
   This module is part of the [lubyk](http://lubyk.org) project. *MIT license*
   &copy; Gaspard Bucher 2014.
+
+  ## Speed
+
+  We tried our best to make these bindings as safe and fast as possible,
+  ensuring we do not break return value optimization and we execute as few lines
+  of code between Lua and C++. Even if we did our best to keep the overhead
+  between Lua and C++ as small as possible, calling between Lua and C++ prevents
+  some of the optimizations LuaJIT is very good at.
+
+  When needing very fast execution implying lots of Lua and C++ code, either
+  push all data into C++ structures and work from there or push all data into
+  Lua to avoid binding and function calls overhead.
+
+  For example, it would be a bad idea to loop through all the pixels of an image
+  using operator[](int i) to implement a filter in Lua. In such a case, use [LuaJIT FFI](http://luajit.org/ext_ffi.html)
+  to build a buffer, copy content inside the buffer and work from there.
 
   ## Installation
   
@@ -62,13 +79,13 @@ lib.DEPENDS = { -- doc
     local binder = dub.LuaBinder()
 
     binder:bind(inspector, {
+      -- Mandatory library name. This is used as prefix for class types.
+      lib_name = 'xml',
+
       output_directory = lub.path '|src/bind',
 
       -- Remove this part in included headers
       header_base = lub.path '|include',
-
-      -- Create a single library named 'xm' (not a library for each class).
-      single_lib = 'xml',
 
       -- Open the library with require 'xml.core' (not 'xml') because
       -- we want to add some more Lua methods inside 'xml.lua'.
@@ -235,6 +252,23 @@ lib.DEPENDS = { -- doc
     collectgarbage 'collect'
     --> b is destroyed
 
+  ## Operator overloading
+  
+  All `operator[xx]()` functions in C++ are translated to native Lua operators
+  when possible. See [operators](dub.Function.html#Operator-overloading) for a
+  complete list.
+
+  C++:
+
+    #C++
+    Foo x(4);
+    Foo y(3);
+    Foo z = x + y; // calls x.operator+(y)
+
+  In Lua:
+
+    local x, y = Foo(4), Foo(3)
+    local z = x + y -- calls x:__add(y) which calls operator+()
 
   ## More
 
@@ -254,7 +288,6 @@ lib.DEPENDS = { -- doc
   * automatic casting to base class
   * default argument values
   * overloaded functions with optimized method selection from arguments
-  * operator overloading (even operator[], operator() and operator+= and such)
   * return value optimization (no copy)
   * simple type garbage collection optimization (no __gc method)
   * namespace
@@ -267,6 +300,7 @@ lib.DEPENDS = { -- doc
   * native Lua table wrapping setmetatable({super = obj}, Vect)
   * fully tested
   * custom method binding name
+  * remove exception catching if never throws
 
 
   # C++ exceptions

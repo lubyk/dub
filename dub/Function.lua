@@ -9,30 +9,6 @@ local dub = require 'dub'
 local lib = lub.class 'dub.Function'
 local private = {}
 
--- Function names to use when binding C++ operators.
-lib.OP_TO_NAME = { -- doc
-  ['+']  = 'add',
-  ['-']  = 'sub',
-  ['- '] = 'unm',
-  ['*']  = 'mul',
-  ['/']  = 'div',
-  ['=='] = 'eq',
-  ['<']  = 'lt',
-  ['<='] = 'le',
-  ['()'] = 'call',
-  ['[]'] = 'index',
-  -- set with equal
-  ['=']  = 'sete',
-  -- add equal
-  ['+='] = 'adde',
-  -- sub equal
-  ['-='] = 'sube',
-  -- mul equal
-  ['*='] = 'mule',
-  -- div equal
-  ['/='] = 'dive',
-}
-
 -- Create a new function object with `def` settings. Some important fields in
 -- `def`:
 --
@@ -84,24 +60,73 @@ function lib.new(def)
   return self
 end
 
---=============================================== PUBLIC METHODS
+-- # Operator overloading
+-- Read this table as 'operator[KEY]' translates into lua function '__[VALUE]'.
+-- For example `operator+` becomes `__add`. This works for most methods except
+-- for some operators which do not have a lua equivalent (+=, -=, etc).
 
--- Return an iterator over the params of this function.
-function lib:params()
-  local co = coroutine.create(private.paramsIterator)
-  return function()
-    local ok, value = coroutine.resume(co, self)
-    if ok then
-      return value
-    end
-  end
-end
+lib.OP_TO_NAME = { -- doc
+  --   local v = foo + bar
+  ['+']  = 'add',
+  --   local v = foo - bar
+  ['-']  = 'sub',
+  --   local bar = -foo
+  ['- '] = 'unm',
+  --   local v = foo * bar
+  ['*']  = 'mul',
+  --   local v = foo / bar
+  ['/']  = 'div',
+  --   if (foo == bar) ...
+  ['=='] = 'eq',
+  --   if (foo < bar) ...
+  ['<']  = 'lt',
+  --   if (foo <= bar) ...
+  ['<='] = 'le',
+  -- This is the call on the object itself. Example:
+  --
+  --   local foo = Foo()
+  --   foo() --> call
+  ['()'] = 'call',
+  -- Table access. When binding this method, integer access is very fast but we
+  -- must also hand-code metatable access (to get methods) and attribute access.
+  --
+  -- It is thus better to avoid this operator for it has a non-negligible cost.
+  --
+  --   local x = foo[4]
+  ['[]'] = 'index',
+  -- This is not supported in lua due to the fact that all variables are
+  -- references to objects and the equal sign is used to assign reference. We
+  -- must therefore use 'set':
+  --
+  --   local foo, bar = Simple('I am foo'), Simple('I am bar')
+  --   -- foo = bar would make 'foo' a pointer to bar, not assign
+  --   -- values of bar into foo. We must use:
+  --   foo:set(bar)
+  --   --> C++ foo.operator=(bar)
+  ['=']  = 'sete',
+  -- Mutable operator. No equivalent in Lua.
+  --
+  --   -- Add 50 into foo, mutating foo.
+  --   foo:adde(50)
+  ['+='] = 'adde',
+  -- Mutable operator. No equivalent in Lua.
+  --
+  --   -- Remove 50 from foo, mutating foo.
+  --   foo:sube(50)
+  ['-='] = 'sube',
+  -- Mutable operator. No equivalent in Lua.
+  --
+  --   -- Scale foo by 50, mutating foo.
+  --   foo:mule(50)
+  ['*='] = 'mule',
+  -- Mutable operator. No equivalent in Lua.
+  --
+  --   -- Divide foo by 50, mutating foo.
+  --   foo:dive(50)
+  ['/='] = 'dive',
+}
 
--- String representation of the function name with arguments (used in comments).
--- Example: `drawLine(int x, int y, int x2, int y2, const foo.Pen &pen)`
-function lib:nameWithArgs()
-  return self.definition .. self.argsstring
-end
+-- # Accessors
 
 -- Return the full name of the function (with enclosing namespaces separated
 -- by '::'. Example: `foo::Bar::drawLine`.
@@ -120,10 +145,17 @@ function lib:fullcname()
   end
 end
 
+
+-- String representation of the function name with arguments (used in comments).
+-- Example: `drawLine(int x, int y, int x2, int y2, const foo.Pen &pen)`
+function lib:nameWithArgs()
+  return self.definition .. self.argsstring
+end
+
 -- Returns true if the function does not throw any C++ exception.
 function lib:neverThrows()
-  -- TODO: inspect xml
-  return self.is_set_attr or
+  return self.throw == 'throw ()' or
+         self.is_set_attr or
          self.is_get_attr or
          self.is_cast
 end
@@ -146,6 +178,19 @@ function lib:setName(name)
     self.cname = self.name
   end
   return true
+end
+
+-- # Iterators
+
+-- Return an iterator over the parameters of this function.
+function lib:params()
+  local co = coroutine.create(private.paramsIterator)
+  return function()
+    local ok, value = coroutine.resume(co, self)
+    if ok then
+      return value
+    end
+  end
 end
 
 --=============================================== PRIVATE

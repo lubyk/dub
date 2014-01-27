@@ -419,11 +419,13 @@ function private:parseHeaders(name)
   self.parsed_headers = true
 end
 
+local parser = xml.Parser(xml.Parser.TrimWhitespace)
+
 --- Parse a header definition and return element 
 -- identified by 'name' if found.
 function parse:header(header, not_lazy)
   header.parsed = true
-  local data = xml.load(header.path)
+  local data = parser:load(header.path)
   private.checkDoxygenVersion(data)
   data = find(data, 'compounddef')
   local h_path = find(data, 'location').file
@@ -740,6 +742,7 @@ parse['function'] = function(self, elem, header)
     member        = self.is_class,
     dtor          = self.is_class and name == '~' .. self.name,
     ctor          = self.is_class and name == self.name,
+    throw         = parse.throw(elem),
     dub           = parse.opt(elem) or {},
     pure_virtual  = elem.virt == 'pure-virtual',
   }
@@ -1302,6 +1305,13 @@ function private:parseIgnoreList(base, list)
     else
       private.parseIgnoreList(self, base .. k, name)
     end
+  end
+end
+
+function parse.throw(elem)
+  local ex = find(elem, 'exceptions')
+  if ex then
+    return lub.strip(ex[1])
   end
 end
 

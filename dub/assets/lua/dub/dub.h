@@ -328,7 +328,7 @@ void protect(lua_State *L, int owner, int original, const char *key);
 
 /** Prepare index function, setup 'type' field and __call metamethod.
  */
-void setup(lua_State *L, const char *libname, const char *class_name);
+void setup(lua_State *L, const char *class_name);
 
 // sdbm function: taken from http://www.cse.yorku.ca/~oz/hash.html
 // This version is slightly adapted to cope with different

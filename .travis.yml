@@ -42,7 +42,8 @@ install:
 
 # Run tests
 script:
-  - $LUA -v && $LUA test/all.lua
+  # FIXME - $LUA -v && $LUA test/all.lua
+  - $LUA -v && $LUA test/lua_pointers_test.lua
 
 notifications:
   recipients:

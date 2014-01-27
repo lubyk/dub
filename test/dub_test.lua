@@ -10,7 +10,7 @@ local lub = require 'lub'
 local lut = require 'lut'
 local dub = require 'dub'
 
-local should = lut.Test('dub')
+local should = lut.Test 'dub'
 
 -- These functions are private: no coverage testing.
 should.ignore.warn       = true

@@ -14,15 +14,17 @@ param_
     * library prefix and single library file (require 'MyLib', MyLib.Vect)
 
 --]]------------------------------------------------------
-require 'lubyk'
--- Run the test with the dub directory as current path.
-local should = test.Suite('dub.LuaBinder - pointers')
+local lub = require 'lub'
+local lut = require 'lut'
+local dub = require 'dub'
+local should = lut.Test('dub.LuaBinder - pointers', {coverage = false})
+
+local path = lub.path
 local binder = dub.LuaBinder()
 
-local base = lk.scriptDir()
 local ins = dub.Inspector {
-  INPUT    = base .. '/fixtures/pointers',
-  doc_dir  = base .. '/tmp',
+  INPUT    = path '|fixtures/pointers',
+  doc_dir  = path '|tmp',
 }
 
 local custom_bindings = {
@@ -33,13 +35,15 @@ local custom_bindings = {
   },
 }
 
+local foo, MyLib, vbox, Vect, Box
+
 --=============================================== Special types
 function should.resolveStdString()
   local Box = ins:find('Box')
   local met = Box:method('Box')
   local res = binder:functionBody(Box, met)
   assertMatch('size_t name_sz_;', res)
-  assertMatch('const char %*name = dub_checklstring%(L, 1, %&name_sz_%);', res)
+  assertMatch('const char %*name = dub::checklstring%(L, 1, %&name_sz_%);', res)
 end
 
 function should.notGcReturnedPointer()
@@ -92,7 +96,7 @@ function should.bindCharAsNumber()
   local Vect = ins:find('Vect')
   local met = Vect:method('someChar')
   local res = binder:functionBody(Vect, met)
-  assertMatch('char c = dub_checkint%(L, 2%);', res)
+  assertMatch('char c = dub::checkint%(L, 2%);', res)
   assertMatch('lua_pushnumber%(L, self%->someChar%(c%)%);', res)
 end
 
@@ -100,7 +104,7 @@ function should.bindConstCharPtrAsString()
   local Vect = ins:find('Vect')
   local met = Vect:method('someStr')
   local res = binder:functionBody(Vect, met)
-  assertMatch('const char %*s = dub_checkstring%(L, 2%);', res)
+  assertMatch('const char %*s = dub::checkstring%(L, 2%);', res)
   assertMatch('lua_pushstring%(L, self%->someStr%(s%)%);', res)
 end
 
@@ -184,7 +188,7 @@ function should.useProperDeltaInCustomSet()
   met = Custom:method(Custom.SET_ATTR_NAME)
   res = binder:functionBody(Custom, met)
   assertMatch('DUB_ASSERT_KEY%(key, "url"%)', res)
-  assertMatch('url = dub_checklstring%(L, 3', res)
+  assertMatch('url = dub::checklstring%(L, 3', res)
 end
 
 --=============================================== Misc
@@ -198,14 +202,14 @@ end
 
 function should.createLibFileWithCustomNames()
   local tmp_path = 'test/tmp'
-  lk.rmTree(tmp_path, true)
+  lub.rmTree(tmp_path, true)
 
   os.execute('mkdir -p '..tmp_path)
   -- Our binder resolves types differently due to MyLib so we
   -- need our own inspector.
   local ins = dub.Inspector {
     INPUT    = 'test/fixtures/pointers',
-    doc_dir  = lk.scriptDir() .. '/tmp',
+    doc_dir  = path '|tmp',
   }
   local binder = dub.LuaBinder()
   function binder:name(elem)
@@ -228,37 +232,37 @@ function should.createLibFileWithCustomNames()
     -- Also forces classes to live in foo.ClassName
     single_lib = 'foo',
   })
-  local res = lk.content(tmp_path .. '/foo_V.cpp')
+  local res = lub.content(tmp_path .. '/foo_V.cpp')
   assertMatch('"foo.V"', res)
   assertMatch('luaopen_foo_V%(', res)
 
   assertPass(function()
     -- Build foo.so
     binder:build {
-      output   = base .. '/tmp/foo.so',
+      output   = path '|tmp/foo.so',
       inputs   = {
-        base .. '/tmp/dub/dub.cpp',
-        base .. '/tmp/foo_V.cpp',
-        base .. '/tmp/foo_B.cpp',
-        base .. '/tmp/foo_Abstract.cpp',
-        base .. '/tmp/foo_AbstractIgnored.cpp',
-        base .. '/tmp/foo_AbstractSub.cpp',
-        base .. '/tmp/foo_AbstractHolder.cpp',
-        base .. '/tmp/foo_Custom.cpp',
-        base .. '/tmp/foo_SubCustom.cpp',
-        base .. '/tmp/foo.cpp',
-        base .. '/fixtures/pointers/vect.cpp',
+        path '|tmp/dub/dub.cpp',
+        path '|tmp/foo_V.cpp',
+        path '|tmp/foo_B.cpp',
+        path '|tmp/foo_Abstract.cpp',
+        path '|tmp/foo_AbstractIgnored.cpp',
+        path '|tmp/foo_AbstractSub.cpp',
+        path '|tmp/foo_AbstractHolder.cpp',
+        path '|tmp/foo_Custom.cpp',
+        path '|tmp/foo_SubCustom.cpp',
+        path '|tmp/foo.cpp',
+        path '|fixtures/pointers/vect.cpp',
       },
       includes = {
-        base .. '/tmp',
+        path '|tmp',
         -- This is for lua.h
-        base .. '/tmp/dub',
+        path '|tmp/dub',
       },
     }
     package.cpath = tmp_path .. '/?.so'
     -- Must require Vect first because Box depends on Vect class and
     -- only Vect.so has static members for Vect.
-    require 'foo'
+    foo = require 'foo'
     assertType('table', foo.V)
     assertType('table', foo.B)
     assertType('table', foo.Abstract)
@@ -270,7 +274,7 @@ function should.createLibFileWithCustomNames()
     -- teardown
     package.cpath = cpath_bak
     if not foo then
-      test.abort = true
+      lut.Test.abort = true
     end
   end)
 end
@@ -287,7 +291,7 @@ function should.createLibFile()
   -- need our own inspector.
   local ins = dub.Inspector {
     INPUT    = 'test/fixtures/pointers',
-    doc_dir  = lk.scriptDir() .. '/tmp',
+    doc_dir  = path '|tmp',
   }
 
   os.execute('mkdir -p ' .. tmp_path)
@@ -298,45 +302,43 @@ function should.createLibFile()
     -- This creates a MyLib_open.cpp file
     -- that has to be included in build.
     single_lib = 'MyLib',
-    -- Forces classes to live in MyLib.Foobar
-    lib_prefix = 'MyLib',
   })
 
-  assertTrue(lk.exist(tmp_path .. '/MyLib.cpp'))
-  local res = lk.content(tmp_path .. '/MyLib.cpp')
+  assertTrue(lub.exist(tmp_path .. '/MyLib.cpp'))
+  local res = lub.content(tmp_path .. '/MyLib.cpp')
   assertMatch('int luaopen_MyLib_Box%(lua_State %*L%);', res)
   assertMatch('int luaopen_MyLib_Vect%(lua_State %*L%);', res)
   assertMatch('luaopen_MyLib%(lua_State %*L%) %{', res)
   assertMatch('luaopen_MyLib_Box%(L%);', res)
   assertMatch('luaopen_MyLib_Vect%(L%);', res)
-  local res = lk.content(tmp_path .. '/MyLib_Vect.cpp')
+  local res = lub.content(tmp_path .. '/MyLib_Vect.cpp')
   assertMatch('"MyLib.Vect"', res)
 
   assertPass(function()
     -- Build MyLib.so
     binder:build {
-      output   = base .. '/tmp/MyLib.so',
+      output   = path '|tmp/MyLib.so',
       inputs   = {
-        base .. '/tmp/dub/dub.cpp',
-        base .. '/tmp/MyLib_Vect.cpp',
-        base .. '/tmp/MyLib_Box.cpp',
-        base .. '/tmp/MyLib_Abstract.cpp',
-        base .. '/tmp/MyLib_AbstractIgnored.cpp',
-        base .. '/tmp/MyLib_AbstractSub.cpp',
-        base .. '/tmp/MyLib_AbstractHolder.cpp',
-        base .. '/tmp/MyLib_Custom.cpp',
-        base .. '/tmp/MyLib_SubCustom.cpp',
-        base .. '/tmp/MyLib.cpp',
-        base .. '/fixtures/pointers/vect.cpp',
+        path '|tmp/dub/dub.cpp',
+        path '|tmp/MyLib_Vect.cpp',
+        path '|tmp/MyLib_Box.cpp',
+        path '|tmp/MyLib_Abstract.cpp',
+        path '|tmp/MyLib_AbstractIgnored.cpp',
+        path '|tmp/MyLib_AbstractSub.cpp',
+        path '|tmp/MyLib_AbstractHolder.cpp',
+        path '|tmp/MyLib_Custom.cpp',
+        path '|tmp/MyLib_SubCustom.cpp',
+        path '|tmp/MyLib.cpp',
+        path '|fixtures/pointers/vect.cpp',
       },
       includes = {
-        base .. '/tmp',
+        path '|tmp',
       },
     }
     package.cpath = tmp_path .. '/?.so;'
     -- Must require Vect first because Box depends on Vect class and
     -- only Vect.so has static members for Vect.
-    require 'MyLib'
+    MyLib = require 'MyLib'
     assertType('table', MyLib.Vect)
     assertType('table', MyLib.Box)
   end, function()
@@ -344,7 +346,7 @@ function should.createLibFile()
     package.loaded.MyLib = nil
     package.cpath = cpath_bak
     if not MyLib then
-      test.abort = true
+      lut.Test.abort = true
     end
   end)
 end
@@ -355,15 +357,20 @@ function should.useVectInMyLib()
   assertEqual(5, v:surface())
 end
 
-function should.bindCompileAndLoad()
+local function bindCompileAndLoad()
   -- create tmp directory
-  local tmp_path = lk.scriptDir() .. '/tmp'
+  local tmp_path = path '|tmp'
   os.execute("mkdir -p "..tmp_path)
+
+  -- Rescan to clear cached 'lua' fields in type resolutions.
+  local ins = dub.Inspector {
+    INPUT    = path '|fixtures/pointers',
+    doc_dir  = path '|tmp',
+  }
 
   binder:bind(ins, {
     output_directory = tmp_path,
     single_lib = 'vbox',
-    lib_prefix = false,
     only = {
       'Box',
       'Vect',
@@ -376,23 +383,26 @@ function should.bindCompileAndLoad()
     -- Build Vect and Box as a single library because Box depends
     -- on the global Vect::create_count.
     binder:build {
-      output   = base .. '/tmp/vbox.so',
+      output   = path '|tmp/vbox.so',
       inputs   = {
-        base .. '/tmp/dub/dub.cpp',
-        base .. '/tmp/Vect.cpp',
-        base .. '/tmp/Box.cpp',
-        base .. '/tmp/vbox.cpp',
-        base .. '/fixtures/pointers/vect.cpp',
+        path '|tmp/dub/dub.cpp',
+        path '|tmp/vbox_Vect.cpp',
+        path '|tmp/vbox_Box.cpp',
+        path '|tmp/vbox.cpp',
+        path '|fixtures/pointers/vect.cpp',
       },
       includes = {
-        base .. '/tmp',
+        path '|tmp',
       },
     }
     
     package.cpath = tmp_path .. '/?.so'
     -- Must require Vect first because Box depends on Vect class and
     -- only Vect.so has static members for Vect.
-    require 'vbox'
+    vbox = require 'vbox'
+    assertType('table', vbox)
+    Vect, Box = vbox.Vect, vbox.Box
+
     assertType('table', Vect)
     assertType('table', Box)
   end, function()
@@ -401,10 +411,14 @@ function should.bindCompileAndLoad()
     package.loaded.Vect = nil
     package.cpath = cpath_bak
     if not Vect then
-      test.abort = true
+      lut.Test.abort = true
     end
   end)
-  --lk.rmTree(tmp_path, true)
+  --lub.rmTree(tmp_path, true)
+end
+
+function should.bindCompileAndLoad()
+  bindCompileAndLoad()
 end
 
 --=============================================== Vect
@@ -883,5 +897,5 @@ function should.useFormatInToString()
   assertMatch("Box: 0x[0-9a-f]+ %('box name' 1x2%)", b:__tostring())
 end
 
-test.all()
+should:test()
 

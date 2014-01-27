@@ -6,34 +6,32 @@
   ...
 
 --]]------------------------------------------------------
-require 'lubyk'
-local should = test.Suite('dub.Function')
+local lub = require 'lub'
+local lut = require 'lut'
+local dub = require 'dub'
+
+local should = lut.Test 'dub.Function'
 
 local ins = dub.Inspector {
   doc_dir = 'test/tmp',
   INPUT   = 'test/fixtures/simple/include',
 }
 
--- Test helper to prepare the inspector.
-local function makeFunction(func_name)
-  local func_name = func_name or 'add'
-  return ins:find('Simple'):method(func_name)
-end
+local Simple = ins:find 'Simple'
+local add    = Simple:method 'add'
 
---=============================================== TESTS
 function should.autoload()
   assertType('table', dub.Function)
 end
 
 function should.beAFunction()
-  assertEqual('dub.Function', makeFunction().type)
+  assertEqual('dub.Function', add.type)
 end
 
 function should.haveParams()
-  local func = makeFunction()
   local res = {}
   local i = 0
-  for param in func:params() do
+  for param in add:params() do
     i = i + 1
     table.insert(res, {i, param.name})
   end
@@ -41,48 +39,82 @@ function should.haveParams()
 end
 
 function should.haveMinArgSize()
-  local func = makeFunction('add')
-  assertEqual('(MyFloat v, double w=10)', func.argsstring)
-  assertTrue(func.has_defaults)
-  assertEqual(1, func.min_arg_size)
+  assertEqual('(MyFloat v, double w=10)', add.argsstring)
+  assertTrue(add.has_defaults)
+  assertEqual(1, add.min_arg_size)
 end
 
 function should.haveReturnValue()
-  local func = makeFunction()
-  local ret = func.return_value
+  local ret = add.return_value
   assertEqual('MyFloat', ret.name)
 end
 
-function should.notHaveReturnValue()
-  local func = makeFunction('setValue')
+function should.notHaveReturnValueForSetter()
+  local func = Simple:method 'setValue'
   assertNil(func.return_value)
 end
 
 function should.haveLocation()
-  local func = makeFunction()
-  assertMatch('test/fixtures/simple/include/simple.h:[0-9]+', func.location)
+  assertMatch('test/fixtures/simple/include/simple.h:[0-9]+', add.location)
 end
 
 function should.haveDefinition()
-  local func = makeFunction()
-  assertMatch('MyFloat Simple::add', func.definition)
+  assertMatch('MyFloat Simple::add', add.definition)
 end
 
 function should.haveArgsString()
-  local func = makeFunction()
-  assertMatch('%(MyFloat v, double w=10%)', func.argsstring)
+  assertMatch('%(MyFloat v, double w=10%)', add.argsstring)
 end
 
 function should.markConstructorAsStatic()
-  local func = makeFunction('Simple')
+  local func = Simple:method 'Simple'
   assertTrue(func.static)
 end
 
 function should.haveSignature()
-  local func = makeFunction()
-  assertEqual('MyFloat, double', func.sign)
+  assertEqual('MyFloat, double', add.sign)
 end
 
-test.all()
+function should.respondToNew()
+  local f = dub.Function {
+    name = 'hop',
+    definition = 'hop',
+    argsstring = '(int i)',
+    db   = Simple.db,
+    parent = Simple,
+    params_list = {
+      { type     = 'dub.Param',
+        name     = 'i',
+        position = 1,
+        ctype    = {
+          name = 'int',
+        },
+      }
+    },
+  }
+  assertEqual('dub.Function', f.type)
+  assertEqual('hop(int i)', f:nameWithArgs())
+end
 
+function should.respondToFullname()
+  assertEqual('Simple::add', add:fullname())
+end
 
+function should.respondToNameWithArgs()
+  assertEqual('MyFloat Simple::add(MyFloat v, double w=10)', add:nameWithArgs())
+end
+
+function should.respondToFullcname()
+  assertEqual('Simple::add', add:fullcname())
+end
+
+function should.respondToNeverThrows()
+  local value = Simple:method 'value'
+  assertTrue(value:neverThrows())
+  assertFalse(add:neverThrows())
+end
+
+function should.respondToSetName()
+end
+
+should:test()

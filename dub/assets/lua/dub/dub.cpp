@@ -616,7 +616,7 @@ void **dub::checksdata_d(lua_State *L, int ud, const char *tname) throw(dub::Exc
 // =============================================== dub::setup
 // ======================================================================
 
-void dub::setup(lua_State *L, const char *libname, const char *type_name) {
+void dub::setup(lua_State *L, const char *type_name) {
   // meta-table should be on top
   // <mt>
   lua_getfield(L, -1, "__index");
@@ -630,17 +630,10 @@ void dub::setup(lua_State *L, const char *libname, const char *type_name) {
     lua_pop(L, 1);
   }
   // <mt>
-  lua_pushstring(L, "type");
-  // <mt> "type"
-  if (strcmp(libname, "_G")) {
-    // not in _G
-    lua_pushfstring(L, "%s.%s", libname, type_name);
-    // <mt>."type" = "libname.type_name"
-  } else {
-    lua_pushstring(L, type_name);
-    // <mt>."type" = "type_name"
-  }
-  lua_settable(L, -3);
+  lua_pushstring(L, type_name);
+  // <mt> "type_name"
+  // <mt>."type" = "type_name"
+  lua_setfield(L, -2, "type");
 
   // <mt>
 

@@ -8,7 +8,6 @@
 --]]------------------------------------------------------
 local lub = require 'lub'
 local lut = require 'lut'
--- Run the test with the dub directory as current path.
 local should = lut.Test('dub.LuaBinder - simple', {coverage = false})
 
 local Simple, Map, SubMap, reg

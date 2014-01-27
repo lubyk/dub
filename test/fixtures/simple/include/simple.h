@@ -11,6 +11,7 @@
  *   * overloaded methods.
  *   * char/ const char* types
  *   * private and public ctor
+ *   * neverThrows
  * 
  * @dub ignore: shouldBeIgnored, publicButInternal
  */
@@ -25,7 +26,7 @@ public:
   
   ~Simple() {}
 
-  double value() {
+  double value() throw() {
     return value_;
   }
 
