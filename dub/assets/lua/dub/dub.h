@@ -118,7 +118,7 @@ protected:
   DubUserdata *dub_userdata_;
 };
 
-/** This class creates a 'self' table on prepares a thread
+/** This class creates a 'self' table and prepares a thread
  * that can be used for callbacks from C++ to Lua.
  */
 class Thread : public Object {

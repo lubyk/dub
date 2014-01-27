@@ -28,6 +28,24 @@
   For example, it would be a bad idea to loop through all the pixels of an image
   using operator[](int i) to implement a filter in Lua. In such a case, use [LuaJIT FFI](http://luajit.org/ext_ffi.html)
   to build a buffer, copy content inside the buffer and work from there.
+  
+  ## Use Case
+
+  Some of the main reasons for using this binding generator over other solutions
+  such as 'LuaJIT FFI' are:
+  
+  + memory:        Some libraries put all the burden of memory management on
+                   the end-user. Using FFI bindings, you still have to handle
+                   memory management. By using 'dub', you get garbage
+                   collection protection for pointers. We used this in our
+                   bindings for [Bullet](http://bulletphysics.org/).
+  + abstraction:   Sometime we want to write C++ wrapper code to keep an API
+                   as simple as possible. We did this for custom zmq bindings.
+                   See [callbacks](#Callbacks) for another example.
+  + no magic:      The generated bindings are easy to read C++ files without needing
+                   fancy runtime introspection or advanced C++ features.
+  + customizable:  Method bindings can be customized with custom definitions or
+                   even entire ".cpp" file templates.
 
   ## Installation
   
@@ -165,15 +183,20 @@ lib.DEPENDS = { -- doc
     -- Methods works just like t.super:parse(some_string)
     t:parse(some_string)
 
-  ## Callback from C++ with error handling in Lua
-  
-  TODO: Document (with self.error).
+  ## automatic cast to parent class
 
-  * error function captures current 'print' function and can be used with self._errfunc.
+    local p = foo.SubClassOfBase()
+    local b = foo.Base()
 
-  # Feature list
+  If we have a `setFriend` method which expects `Base*` type. The following
+  code will automatically check if `p` is sub-type of Base and cast it. The
+  Base class knows nothing of SubClassOfBase (which could be defined in
+  another module):
 
-  ## public class methods
+    -- Cast 'p' to foo.Base
+    b:setFriend(p)
+
+  # public class methods
 
   Example:
 
@@ -190,7 +213,7 @@ lib.DEPENDS = { -- doc
     Foo.sayHello()
     --> Hello
   
-  ## public attributes read/write
+  # public attributes read/write
 
   Example:
 
@@ -211,7 +234,10 @@ lib.DEPENDS = { -- doc
     foo:printName()
     --> My name is 'Prometheus'
 
-  ## member pointer assignment (gc protected)
+  # Pointer assignment
+  
+  Pointer assignment is made possible because we use member pointer garbage
+  collection protection. It is thus safer to use in Lua as it is in plain C++ !
 
   Example:
 
@@ -252,7 +278,7 @@ lib.DEPENDS = { -- doc
     collectgarbage 'collect'
     --> b is destroyed
 
-  ## Operator overloading
+  # Operator overloading
   
   All `operator[xx]()` functions in C++ are translated to native Lua operators
   when possible. See [operators](dub.Function.html#Operator-overloading) for a
@@ -270,7 +296,76 @@ lib.DEPENDS = { -- doc
     local x, y = Foo(4), Foo(3)
     local z = x + y -- calls x:__add(y) which calls operator+()
 
-  ## More
+  # Callbacks
+
+  Calling Lua from C++ is made easy by deriving a class from dub::Thread, this
+  class can then be used to call Lua methods on 'self' in an efficient way. For
+  example, let's say we have a native QWidget class and we want to implement the
+  'resized' callback:
+
+    #C++
+    class Widget : public QWidget, public dub::Thread {
+      Q_OBJECT
+    public:
+      Widget(int window_flags)
+      : QWidget(NULL, (Qt::WindowFlags)window_flags = 0) {}
+
+      ~Widget() {}
+      
+    protected:
+      virtual void resizeEvent(QResizeEvent *event) {
+        // If your code is multi-threaded (i.e. no single event loop)
+        // you need to use a mutex here or better yet, use a FIFO queue
+        // and a pipe between threads.
+
+        // Get 'resized' callback on Lua object
+        if (!dub_pushcallback("resized")) return;
+        // dub_L is our object's current thread
+        lua_pushnumber(dub_L, width);
+        lua_pushnumber(dub_L, height);
+
+        // 3 arguments, no return value
+        dub_call(3, 0);
+      }    
+    };
+
+  Usage in Lua:
+
+    win = gui.Widget()
+
+    function win:resized(w, h)
+      print('Hey why did you resize my window ?')
+    end
+
+  Note that the `resized` function defined on `win` object is a regular Lua
+  function and this can be called from Lua as well:
+
+    -- manual call to resized callback
+    win:resized(win:width(), win:height())
+
+
+  ## Errors in callbacks
+
+  If some error occurs during a callback, this error does not disappear in limbo
+  between C++ and Lua (and does not cause the C++ code to crash). The error is
+  captured during the call and either printed out or handled by a custom `error`
+  function defined on the called object.
+
+  Example:
+  
+    win = gui.Widget()
+
+    function win:error(msg)
+      print('Something went wrong in my window.', msg)
+    end
+
+    function win:resized(w, h)
+      if (w > 300) then
+        error('Bird crash!')
+      end
+    end
+  
+  # Other features
 
   As time passes, the undocummented feature list below will shrink. Until then,
   it's better having an idea what Dub does.
@@ -285,7 +380,6 @@ lib.DEPENDS = { -- doc
   * class instantiation from templates through typedefs
   * class alias through typedefs
   * bindings for superclass
-  * automatic casting to base class
   * default argument values
   * overloaded functions with optimized method selection from arguments
   * return value optimization (no copy)
