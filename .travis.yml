@@ -43,7 +43,7 @@ install:
 # Run tests
 script:
   # FIXME - $LUA -v && $LUA test/all.lua
-  - $LUA -v && $LUA test/lua_pointers_test.lua
+  - $LUA -v && $LUA test/lua_pointers_test.lua linux
 
 notifications:
   recipients:

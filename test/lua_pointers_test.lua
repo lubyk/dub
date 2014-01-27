@@ -14,10 +14,17 @@ param_
     * library prefix and single library file (require 'MyLib', MyLib.Vect)
 
 --]]------------------------------------------------------
+-- TODO: remove when lub.plat is implemented
 local lub = require 'lub'
+if arg[1] == 'linux' then
+  PLAT = 'linux'
+else
+  PLAT = 'macosx'
+end
 local lut = require 'lut'
 local dub = require 'dub'
 local should = lut.Test('dub.LuaBinder - pointers', {coverage = false})
+
 
 local path = lub.path
 local binder = dub.LuaBinder()

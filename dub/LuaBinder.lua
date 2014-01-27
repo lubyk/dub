@@ -89,8 +89,8 @@ local lib     = lub.class('dub.LuaBinder', {
   COPY_DUB_PATH  = '',
   COMPILER       = 'g++',
   COMPILER_FLAGS = {
-    macosx = '-g -Wall -Wl,-headerpad_max_install_names -flat_namespace -undefined suppress -dynamic -bundle -fPIC',
-    linux  = '-g -Wall -Wl,-headerpad_max_install_names -shared -fPIC',
+    macosx = '-O2 -g -Wall -Wl,-headerpad_max_install_names -flat_namespace -undefined suppress -dynamic -bundle -fPIC',
+    linux  = '-O2 -g -Wall -Wl,-headerpad_max_install_names -shared -fPIC',
   }
 })
 
@@ -192,7 +192,7 @@ function lib:build(opts)
   local cmd = 'cd ' .. work_dir .. ' && '
   cmd = cmd .. self.COMPILER .. ' ' 
   -- FIXME
-  cmd = cmd .. self.COMPILER_FLAGS['macosx' or lub.plat] .. ' '
+  cmd = cmd .. self.COMPILER_FLAGS[PLAT or 'macosx'] .. ' '
   cmd = cmd .. flags .. ' '
   cmd = cmd .. '-o ' .. opts.output .. ' '
   cmd = cmd .. files
