@@ -89,8 +89,8 @@ local lib     = lub.class('dub.LuaBinder', {
   COPY_DUB_PATH  = '',
   COMPILER       = 'g++',
   COMPILER_FLAGS = {
-    macosx = '-O2 -g -Wall -Wl,-headerpad_max_install_names -flat_namespace -undefined suppress -dynamic -bundle -fPIC',
-    linux  = '-O2 -g -Wall -Wl,-headerpad_max_install_names -shared -fPIC',
+    macosx = '-O2 -fPIC -I/usr/local/include -g -Wall -Wl,-headerpad_max_install_names -flat_namespace -undefined suppress -dynamic -bundle -lstdc++',
+    linux  = '-O2 -fPIC -I/usr/include/lua'..string.match(_VERSION, ' (.*)$')..' -g -Wall -Wl,-headerpad_max_install_names -shared -lstdc++',
   }
 })
 
