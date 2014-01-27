@@ -25,7 +25,7 @@ branches:
     - master
 
 install:
-  - sudo apt-get install lua$LUA_VERSION liblua$LUA_VERSION-dev
+  - sudo apt-get install lua$LUA_VERSION liblua$LUA_VERSION-dev doxygen
   - test "$LUA" = "luajit" && git clone http://luajit.org/git/luajit-2.0.git && cd luajit-2.0/ && sudo make install && cd .. || true
   - git clone git://github.com/keplerproject/luarocks.git
   - cd luarocks
