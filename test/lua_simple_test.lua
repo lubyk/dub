@@ -302,7 +302,6 @@ function should.bindCompileAndLoad()
   binder:bind(ins, {
     output_directory = tmp_path,
     single_lib = 'reg',
-    lib_prefix = false,
     only = {
       'reg::Reg',
     },

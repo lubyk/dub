@@ -64,19 +64,21 @@ end
 
 function lib:findByFullname(name)
   -- split name components
-  local parts = lub.split(name, '::')
+  local parts = type(name) == 'table' and name or lub.split(name, '::')
   local current = self
-  if self.name == parts[1] then
-    -- remove pseudo-scope
-    table.remove(parts, 1)
-  end
   for i, part in ipairs(parts) do
     local child = self:findChildFor(current, part)
     if not child then
-      return nil
+      current = nil
+      break
     else
       current = private.resolveTypedef(self, child)
     end
+  end
+  if not current and self.name == parts[1] then
+    -- remove pseudo-scope
+    table.remove(parts, 1)
+    return self:findByFullname(parts)
   end
   return current
 end
@@ -236,19 +238,32 @@ function lib:constants(parent)
   end
   local co = coroutine.create(function()
     local seen = {}
+    local yaml = require 'yaml'
     -- For each namespace, get global constants
     for _, namespace in ipairs(list) do
-      for _, const in ipairs(namespace.constants_list) do
-        coroutine.yield(const)
+      for _, enum in ipairs(namespace.constants_list) do
+        local scope
+        if enum.parent == self then
+          scope = ''
+        else
+          scope = enum.parent.name
+        end
+
+        for _, name in ipairs(enum.list) do
+          if not seen[name] then
+            seen[name] = true
+            coroutine.yield(name, scope)
+          end
+        end
       end
     end                                   
   end)
   return function()
-    local ok, elem = coroutine.resume(co)
+    local ok, name, scope = coroutine.resume(co)
     if ok then
-      return elem
+      return name, scope
     else
-      print(elem, debug.traceback(co))
+      print(name, debug.traceback(co))
     end
   end
 end
@@ -256,7 +271,7 @@ end
 function lib:hasConstants()
   if not self.checked_constants then
     self.checked_constants = true
-    self.has_constants = self:constants()()
+    self.has_constants = self:constants()() and true
   end
   return self.has_constants
 end
@@ -696,7 +711,6 @@ function parse:enum(elem, header)
     if v.xml == 'enumvalue' then
       local const = find(v, 'name')[1]
       insert(list, const)
-      insert(constants, const)
     end
   end
   local name = find(elem, 'name')[1]
@@ -704,10 +718,12 @@ function parse:enum(elem, header)
   local enum = {
     type     = 'dub.Enum',
     name     = name,
+    parent   = self,
     location = l,
     list     = list,
     ctype    = lib.makeType('int'),
   }
+  insert(constants, enum)
   if self.type == 'dub.Namespace' then
     insert(self.const_headers, f)
   end

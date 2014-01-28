@@ -367,13 +367,114 @@ lib.DEPENDS = { -- doc
       end
     end
   
+  # Custom bindings
+
+  Sometimes we need to write custom code either because 'dub' is cannot guess
+  the proper way to call a function or because we want to make it more Lua-like
+  (allowing multiple return values for example). To use custom bindings, pass
+  the path to a folder containing yaml files (one per class). The yaml file for
+  global functions should be named after the namespace (if any) or '_global.yml'
+  if there is no namespace.
+
+  Things to note when writing the bindings:
+
+  + self: This variable is set before the custom binding code and corresponds
+          to the C++ object the binding is called on. Static methods and plain
+          functions do not have 'self' set.
+  + arguments: Argument types and conversions are handled by dub. You can
+          reference them by their names in the header declaration.
+  + return: If you are returning a value, you must add the call to `return` with
+          the number of values pushed on the stack.
+  + arg count: If your method takes a varying number of arguments, you can use
+          'arg0', 'arg1' to set bindings for each case (see 'showFullScreen'
+          example below).
+  + file name: The name of the YAML file should reflect the namespace or class
+          being bound. For global functions, use "_global.yaml".
+  + inline: You can define the custom bindings by passing a lua table instead
+          of a path to dub.LuaBinder.bind. See below for the format.
+
+  ## YAML file format
+
+  For example, to define custom bindings for Rect::size, you need to create a
+  'Rect.yml' file like this:
+
+    #yaml
+    lua:
+      methods:
+        size: |
+          Point sz = self->size();
+          lua_pushnumber(L, sz.x());
+          lua_pushstring(L, sz.y());
+          return 2;
+
+  You do not have to do the arguments type checking. This is done by dub. You
+  *do* need to return the number of Lua return values if there are any.
+
+  You can also define your own methods by using custom headers instead of the
+  original ones. This is what we did for Qt bindings to whitelist the bindings
+  we wanted. We also chose to declare inexistant methods and bind them by hand:
+
+    #yaml
+    lua:
+      methods:
+        swapFullScreen: |
+          if (!self->isFullScreen()) {
+            self->showFullScreen();
+          } else {
+            self->showNormal();
+          }            
+        showFullScreen:
+          # Varying custom binding on arg count for overloaded-functions.
+          arg0: |
+            self->showFullScreen();
+          arg1: |
+            if (enable) {
+              self->showFullScreen();
+            } else {
+              self->showNormal();
+            }                  
+        globalMove: |
+          self->move(
+            self->mapToParent(
+              self->mapFromGlobal(QPoint(x, y))
+            )
+          );   
+  
+  Note that we do not need to write the code testing argument.
+
+  ## Inline custom bindings
+
+  This is a quick and dirty solution when you only need to define a couple of
+  custom bindings. In this case, you pass a table to the binder:
+
+    local bind = dub.LuaBinder()
+
+    binder:bind(inspector, {
+      lib_name         = 'foo',
+      output_directory = lub.path '|src/bind',
+      custom_bindings  = {
+        Rect = {
+          methods = {
+            size = [=[
+              Point sz = self->size();
+              lua_pushnumber(L, sz.x());
+              lua_pushstring(L, sz.y());
+              return 2; 
+            ]=],
+          },
+        },
+      },
+    })
+
+  The table format is exactly the same as the yaml files except for the 'lua'
+  root key which is not needed.
+
   # Other features
 
   As time passes, the undocummented feature list below will shrink. Until then,
   it's better having an idea what Dub does.
 
   * pseudo-attributes read/write by calling getter/setter methods.
-  * custom bindings (for methods and global functions).
   * custom read/write attributes (with void *userdata helper, union handling)
   * public static attributes read/write
   * pointer to member (gc protected)

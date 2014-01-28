@@ -23,7 +23,8 @@ double addTwoOut(const Nem::B &a, const Nem::B &b) {
   return a.nb_ + b.nb_;
 }
 
-/** Function outside the namespace with custom bindings.
+/** Function outside the namespace with custom bindings. The custom bindings
+ * for global methods must live in [name of lib].yml
  */
 LuaStackSize customGlobalOut(float a, float b);
 

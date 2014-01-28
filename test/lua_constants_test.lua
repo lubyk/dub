@@ -112,7 +112,7 @@ function should.bindCompileAndLoad()
     -- teardown
     package.loaded.traffic = nil
     package.cpath = cpath_bak
-    if not traffic.Car then
+    if not traffic or not traffic.Car then
       lut.Test.abort = true
     else
       Car = traffic.Car
@@ -173,6 +173,11 @@ function should.respondToNew()
 end
 
 --=============================================== Compare speed with extra metatable
+
+-- FIXME
+function elapsed()
+  return 0
+end
 
 local function createMany(ctor)
   local Noisy = Car.Noisy

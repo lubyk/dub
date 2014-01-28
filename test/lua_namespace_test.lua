@@ -219,7 +219,7 @@ function should.changeNamespaceNameOnBind()
     -- teardown
     package.cpath = cpath_bak
     if not moo then
-      test.abort = true
+      lut.Test.abort = true
     end
   end)
 end

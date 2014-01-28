@@ -1,10 +1,7 @@
+# Custom lua bindings for Nem namespace
 lua:
   methods:
     customGlobal: |
       lua_pushnumber(L, a + b);
       lua_pushstring(L, "custom global");
-      return 2;
-    customGlobalOut: |
-      lua_pushnumber(L, a + b);
-      lua_pushstring(L, "custom global out");
       return 2;

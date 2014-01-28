@@ -62,8 +62,8 @@ static const struct luaL_Reg {{class.name}}_member_methods[] = {
 {% if class.has_constants then %}
 // --=============================================== CONSTANTS
 static const struct dub::const_Reg {{class.name}}_const[] = {
-{% for const in class:constants() do %}
-  { {{string.format('%-15s, %-20s', '"'.. const ..'"', class.name..'::'..const)}} },
+{% for name, scope in class:constants() do %}
+  { {{string.format('%-15s, %-20s', '"'.. self:constName(name, scope) ..'"', scope .. '::' .. name)}} },
 {% end %}
   { NULL, 0},
 };

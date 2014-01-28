@@ -59,8 +59,8 @@ static const struct luaL_Reg {{lib_name}}_functions[] = {
 // Functions from namespace {{lib.name}}
 {% end %}
 static const struct dub::const_Reg {{lib_name}}_const[] = {
-{% for const in lib:constants() do %}
-  { {{string.format('%-15s, %-20s', '"'.. self:constName(const) ..'"', const)}} },
+{% for name, scope in lib:constants() do %}
+  { {{string.format('%-15s, %-20s', '"'.. self:constName(name, scope) ..'"', scope .. '::' .. name)}} },
 {% end %}
   { NULL, 0},
 };

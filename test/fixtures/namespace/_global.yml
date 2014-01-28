@@ -1,0 +1,7 @@
+lua:
+  methods:
+    customGlobalOut: |
+      lua_pushnumber(L, a + b);
+      lua_pushstring(L, "custom global out");
+      return 2;
+

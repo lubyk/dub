@@ -23,7 +23,6 @@ function should.setup()
         lub.path '|fixtures/namespace',
       },
       doc_dir  = lub.path '|tmp',
-      keep_xml = true,
     }
   end
 end

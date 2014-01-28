@@ -10,15 +10,19 @@
     * chained typedef
 
 --]]------------------------------------------------------
-require 'lubyk'
--- Run the test with the dub directory as current path.
-local should = test.Suite('dub.LuaBinder - template')
+local lub = require 'lub'
+local lut = require 'lut'
+local dub = require 'dub'
+
+local should = lut.Test('dub.LuaBinder - template', {coverage = false})
 local binder = dub.LuaBinder()
 
 local ins = dub.Inspector {
   INPUT    = 'test/fixtures/template',
-  doc_dir  = lk.scriptDir() .. '/tmp',
+  doc_dir  = lub.path '|tmp',
 }
+
+local Vectf
 
 --=============================================== Vectf bindings
 
@@ -45,8 +49,8 @@ end
 
 function should.bindCompileAndLoad()
   -- create tmp directory
-  local tmp_path = lk.scriptDir() .. '/tmp'
-  lk.rmTree(tmp_path, true)
+  local tmp_path = lub.path '|tmp'
+  lub.rmTree(tmp_path, true)
   os.execute("mkdir -p "..tmp_path)
 
   -- Force resolution of typedef. How to not require this step ?
@@ -70,7 +74,7 @@ function should.bindCompileAndLoad()
     }
     package.cpath = tmp_path .. '/?.so'
     --require 'Box'
-    require 'Vectf'
+    Vectf = require 'Vectf'
     assertType('table', Vectf)
   end, function()
     -- teardown
@@ -78,10 +82,10 @@ function should.bindCompileAndLoad()
     package.loaded.Vectf = nil
     package.cpath = cpath_bak
     if not Vectf then
-      test.abort = true
+      lut.Test.abort = true
     end
   end)
-  --lk.rmTree(tmp_path, true)
+  --lub.rmTree(tmp_path, true)
 end
 
 --=============================================== Vectf
@@ -136,5 +140,5 @@ function should.executeStaticMethods()
   assertEqual(123.5, Vectf.addTwo(120, 3.5))
 end
 
-test.all()
+should:test()
 

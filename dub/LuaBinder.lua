@@ -122,6 +122,8 @@ end
 -- + (no_prefix):      When this is set to `true`, do not add any prefix to
 --                     class names.
 -- + (extra_headers):  List of extra header includes to add in generated C++ files.
+-- + (custom_bindings): Path to a directory containing yaml files with custom
+--                     bindings. Can also be a table. See [Custom Bindings](dub.html#Custom-bindings).
 function lib:bind(inspector, options)
   self.options = options
   if options.header_base then
@@ -622,10 +624,10 @@ end
 
 -- Return the 'public' name to use for a constant. Instead of rewriting this
 -- method, users can also use the 'const_name_filter' option.
-function lib:constName(name)
+function lib:constName(name, enum)
   local func = self.options.const_name_filter
   if func then
-    return func(name)
+    return func(name, enum)
   else
     return name
   end
@@ -653,6 +655,10 @@ function lib:libName(elem)
         res = '.' .. res
       end
       res = (self:name(elem) or elem.name) .. res
+      if elem.type == 'dub.Namespace' then
+        -- no prefix before namespace
+        break
+      end
       elem = elem.parent
     end
     return res
@@ -1490,7 +1496,12 @@ end
 
 local function getCustomBinding(custom_bindings, parent, key, elem)
   -- 1. current class
-  local custom = custom_bindings[parent.name]
+  local custom
+  if parent.type == 'dub.MemoryStorage' then
+    custom = custom_bindings._global
+  else
+    custom = custom_bindings[parent.name]
+  end
   custom = custom and custom[key]
   custom = custom and custom[elem.name]
   if custom then
