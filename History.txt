@@ -7,7 +7,8 @@
   * Replacing 'lubyk' dependency by 'lub'.
   * Functions marked as 'ignore' are no longer bound in sub-classes.
   * Installs with luarocks.
-  * Removing 'single_lib' and using 'name' argument instead.
+  * Removing 'lib_prefix' option and using 'no_prefix' argument instead.
+  * Much improved documentation.
 
 == 2.1.0
 

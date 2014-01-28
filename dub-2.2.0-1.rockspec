@@ -10,6 +10,8 @@ description = {
     A powerful binding generator for C++ code with support for attributes,
     callbacks, errors on callbacks, enums, nested classes, operators, public
     attributes, etc.
+    
+    Full documentation: http://doc.lubyk.org/dub.html
   ]],
   homepage = "http://doc.lubyk.org/dub.html",
   license = "MIT"
