@@ -51,7 +51,8 @@ function should.listHeaders()
   local res = {}
   for h in ins.db:headers({ins:find('Nem::A')}) do
     local name = string.match(h, '/([^/]+/[^/]+)$')
-    if name ~= 'namespace/B.h' then
+    if name ~= 'namespace/B.h' and
+       name ~= 'namespace/Out.h' then
       -- FIXME not sure why B.h header appears when testing with luajit on linux
       -- but not with regular lua.
       lub.insertSorted(res, name)
