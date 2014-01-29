@@ -1,18 +1,21 @@
 --[[------------------------------------------------------
   # Lua C++ binding generator <a href="https://travis-ci.org/lubyk/dub"><img src="https://travis-ci.org/lubyk/dub.png" alt="Build Status"></a> 
   
-
   Create lua bindings by parsing C++ header files using [doxygen](http://doxygen.org).
 
   Generated lua bindings do not contain any external dependencies. Dub C++ files
   are copied along with the generated C++ bindings.
 
-
   <html><a href="https://github.com/lubyk/dub"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a></html>
 
-  This module is part of the [lubyk](http://lubyk.org) project. *MIT license*
-  &copy; Gaspard Bucher 2014.
+  *MIT license* &copy Gaspard Bucher 2014.
 
+  ## Installation
+  
+  With [luarocks](http://luarocks.org):
+
+    $ luarocks install dub
+  
   ## Speed
 
   We tried our best to make these bindings as safe and fast as possible,

@@ -238,7 +238,6 @@ function lib:constants(parent)
   end
   local co = coroutine.create(function()
     local seen = {}
-    local yaml = require 'yaml'
     -- For each namespace, get global constants
     for _, namespace in ipairs(list) do
       for _, enum in ipairs(namespace.constants_list) do
@@ -463,7 +462,7 @@ local parser = xml.Parser(xml.Parser.TrimWhitespace)
 -- identified by 'name' if found.
 function parse:header(header, not_lazy)
   header.parsed = true
-  local data = parser:load(header.path)
+  local data = parser:loadpath(header.path)
   private.checkDoxygenVersion(data)
   data = find(data, 'compounddef')
   local h_path = find(data, 'location').file
