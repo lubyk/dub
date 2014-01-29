@@ -12,7 +12,7 @@ for _, k in ipairs(arg) do
     test_speed = true
   elseif k == 'linux' then
     -- FIXME: Hack until lub.plat works
-    lub.plat = 'linux'
+    PLAT = 'linux'
   end
 end
 
