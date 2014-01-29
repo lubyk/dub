@@ -119,6 +119,11 @@ end
 
 --=============================================== Nogc
 
+-- FIXME
+local function elapsed()
+  return 0
+end
+
 local function createAndDestroyMany(ctor)
   local t = {}
   local start = elapsed()

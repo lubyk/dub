@@ -19,7 +19,7 @@ description = {
 dependencies = {
   "lua >= 5.1, < 5.3",
   "lub >= 1.0.3, < 1.1",
-  "xml ~> 1.0",
+  "xml ~> 1.1",
   "yaml ~> 1.0",
 }
 build = {
