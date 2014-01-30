@@ -16,7 +16,6 @@ local should = lut.Test('dub.Inspector - pointers', {coverage = false})
 local ins  = dub.Inspector {
   INPUT    = 'test/fixtures/pointers',
   doc_dir  = lub.path '|tmp',
-  keep_xml = true,
 }
 
 local Vect = ins:find('Vect')

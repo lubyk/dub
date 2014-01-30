@@ -16,7 +16,6 @@ local should = lut.Test('dub.Inspector - memory', {coverage = false})
 local ins  = dub.Inspector {
   INPUT    = lub.path '|fixtures/memory',
   doc_dir  = lub.path '|tmp',
-  keep_xml = true,
   PREDEFINED = {
     'SOME_FUNCTION_MACRO(x)=',
     'OTHER_FUNCTION_MACRO(x)=',

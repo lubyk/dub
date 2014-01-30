@@ -16,7 +16,6 @@ local should = lut.Test('dub.Inspector - thread', {coverage = false})
 local ins = dub.Inspector {
   INPUT    = 'test/fixtures/thread',
   doc_dir  = lub.path '|tmp',
-  keep_xml = true,
 }
 
 local Callback = ins:find('Callback')
