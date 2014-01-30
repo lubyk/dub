@@ -9,6 +9,8 @@ local lub     = require 'lub'
 local dub     = require 'dub'
 local yaml    = require 'yaml'
 
+local PLAT    = lub.plat()
+
 local pairs, ipairs, format,        gsub,        insert,       sub,        len = 
       pairs, ipairs, string.format, string.gsub, table.insert, string.sub, string.len
 local lib     = lub.class('dub.LuaBinder', {
@@ -92,9 +94,11 @@ local lib     = lub.class('dub.LuaBinder', {
   COMPILER       = 'g++',
   COMPILER_FLAGS = {
     macosx = '-O2 -fPIC -I/usr/local/include -g -Wall -Wl,-headerpad_max_install_names -flat_namespace -undefined suppress -dynamic -bundle -lstdc++',
-    linux  = '-O2 -fPIC -I/usr/include/lua'..string.match(_VERSION, ' (.*)$')..' -g -Wall -Wl,-headerpad_max_install_names -shared -lstdc++',
+    unix   = '-O2 -fPIC -I/usr/include/lua'..string.match(_VERSION, ' (.*)$')..' -g -Wall -Wl,-headerpad_max_install_names -shared -lstdc++',
   }
 })
+lib.COMPILER_FLAGS.linux = lib.COMPILER_FLAGS.unix
+lib.COMPILER_FLAGS.win32 = lib.COMPILER_FLAGS.unix
 
 local private = {}
 
@@ -197,8 +201,7 @@ function lib:build(opts)
   end
   local cmd = 'cd ' .. work_dir .. ' && '
   cmd = cmd .. self.COMPILER .. ' ' 
-  -- FIXME
-  cmd = cmd .. self.COMPILER_FLAGS[PLAT or 'macosx'] .. ' '
+  cmd = cmd .. self.COMPILER_FLAGS[PLAT] .. ' '
   cmd = cmd .. flags .. ' '
   cmd = cmd .. '-o ' .. opts.output .. ' '
   cmd = cmd .. files

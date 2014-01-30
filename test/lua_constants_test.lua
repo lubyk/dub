@@ -174,11 +174,6 @@ end
 
 --=============================================== Compare speed with extra metatable
 
--- FIXME
-function elapsed()
-  return 0
-end
-
 local function createMany(ctor)
   local Noisy = Car.Noisy
   local t = {}
