@@ -92,7 +92,7 @@ function should.bindCompileAndLoad()
     custom_bindings  = lub.path '|fixtures/inherit',
     extra_headers = {
       Child = {
-        "../inherit_hidden/Mother.h",
+        lub.path "|fixtures/inherit_hidden/Mother.h",
       }
     }
   })

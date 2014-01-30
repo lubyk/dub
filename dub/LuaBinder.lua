@@ -593,6 +593,7 @@ end
 -- Output the header for a class by removing the current path
 -- or 'header_base',
 function lib:header(header)
+  local header = lub.absolutizePath(header)
   for _, base in ipairs(self.header_base) do
     local h = string.match(header, base)
     if h then
