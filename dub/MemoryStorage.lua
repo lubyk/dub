@@ -141,43 +141,15 @@ function lib:variables(parent)
   end
 end
 
---- Return an iterator over all the headers of this class and related namespace.
-function lib:headers(classes)
+--- Return an iterator over all the headers ever seen. Used when binding lib
+-- file.
+function lib:headers()
   -- make sure we have parsed the headers
   private.parseHeaders(self)
   local co = coroutine.create(function()
-    local seen = {}
     -- For each bound class
-    for _, class in ipairs(classes) do
-      local h = class.header
-      if not seen[h] then
-        coroutine.yield(h)
-        seen[h] = true
-      end
-    end
-    -- For every global function
-    for func in self:functions() do
-      local h = func.header
-      if not seen[h] then
-        coroutine.yield(h)
-        seen[h] = true
-      end
-    end
-    -- For every constant
-    for i, h in ipairs(self.const_headers) do
-      if not seen[h] then
-        coroutine.yield(h)
-        seen[h] = true
-      end
-    end
-    -- For every namespace
-    for _, n in ipairs(self.namespaces_list) do
-      for i, h in ipairs(n.const_headers) do
-        if not seen[h] then
-          coroutine.yield(h)
-          seen[h] = true
-        end
-      end
+    for _, h in ipairs(self.headers_list) do
+      coroutine.yield(h)
     end
   end)
   return function()
@@ -459,7 +431,7 @@ end
 local parser = xml.Parser(xml.Parser.TrimWhitespace)
 
 --- Parse a header definition and return element 
--- identified by 'name' if found.
+-- identified by 'name' if found. 'self' can be the db or a dub.Class.
 function parse:header(header, not_lazy)
   header.parsed = true
   local data = parser:loadpath(header.path)
@@ -713,7 +685,7 @@ function parse:enum(elem, header)
     end
   end
   local name = find(elem, 'name')[1]
-  local l, f = private.makeLocation(elem, header)
+  local l, f = private.makeLocation(self.db, elem, header)
   local enum = {
     type     = 'dub.Enum',
     name     = name,
@@ -749,7 +721,7 @@ function parse:typedef(elem, header)
     desc        = (find(elem, 'detaileddescription') or {})[1],
     xml         = elem,
     definition  = find(elem, 'definition')[1],
-    location    = private.makeLocation(elem, header),
+    location    = private.makeLocation(self.db, elem, header),
     header_path = find(elem, 'location').file,
   }
   typ.ctype.create_name = typ.name .. ' '
@@ -780,7 +752,7 @@ parse['function'] = function(self, elem, header)
     return_value  = parse.retval(elem),
     definition    = find(elem, 'definition')[1],
     argsstring    = argsstring,
-    location      = private.makeLocation(elem, header),
+    location      = private.makeLocation(self.db, elem, header),
     desc          = (find(elem, 'detaileddescription') or {})[1],
     static        = elem.static == 'yes' or (self.name == name),
     xml           = elem,
@@ -963,9 +935,13 @@ function lib.makeType(str)
   }
 end
 
-function private.makeLocation(elem, header)
+function private:makeLocation(elem, header)
   local loc  = find(elem, 'location')
   local file = lub.absToRel(loc.file, lfs.currentdir())
+  if not self.headers_list[file] then
+    self.headers_list[file] = true
+    lub.insertSorted(self.headers_list, file)
+  end
   return file .. ':' .. loc.line, file
 end
 

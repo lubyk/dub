@@ -554,20 +554,30 @@ function lib:headers(elem)
   else
     headers = self.extra_headers['::'] or {}
   end
+  local seen = {}
   local co = coroutine.create(function()
     -- Extra headers
     for _, h in ipairs(headers) do
-      coroutine.yield(h)
+      if not seen[h] then
+        coroutine.yield(h)
+        seen[h] = true
+      end
     end
     if elem then
       -- Class header
-      coroutine.yield(elem.header)
+      if not seen[h] then
+        coroutine.yield(elem.header)
+        seen[h] = true
+      end
     else
       -- No element, binding library
-      for h in self.ins.db:headers(self.bound_classes) do
+      for h in self.ins.db:headers() do
         -- Iterates over all bound_classes, global functions and
         -- constants.
-        coroutine.yield(h)
+        if not seen[h] then
+          coroutine.yield(h)
+          seen[h] = true
+        end
       end
     end
   end)

@@ -68,9 +68,11 @@ end
 function should.listConstHeaders()
   local res = {}
   for h in ins.db:headers({}) do
-    table.insert(res, string.sub(h, -17, -1))
+    local name = string.match(h, '/([^/]+/[^/]+)$')
+    table.insert(res, name)
   end
   assertValueEqual({
+    'constants/Car.h',
     'constants/types.h',
   }, res)
 end
