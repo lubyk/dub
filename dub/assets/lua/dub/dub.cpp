@@ -172,7 +172,7 @@ void Thread::dub_pushobject(lua_State *L, void *ptr, const char *tname, bool gc)
   // <self> <udata>
   
   //--=============================================== setup lua thread
-  // Create env table
+  // Create env table used for garbage collection protection.
   lua_newtable(L);
   // <self> <udata> <env>
   lua_pushvalue(L, -1);
@@ -240,10 +240,6 @@ void Thread::dub_pushobject(lua_State *L, void *ptr, const char *tname, bool gc)
   // <self> <errfunc> <self> <errfunc>
   lua_xmove(L, dub_L, 2);
   lua_pop(L, 1);
-
-  // FIXME: Why do we need the 'env' table ? Why not just send 'print' and 'self' as arguments
-  // to lua_pcall ?
-  // We use 'env' for garbage collection protection.
 
   // dub_L: <self> <errfunc>
   // L:     <self>
