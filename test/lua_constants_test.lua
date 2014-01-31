@@ -20,6 +20,7 @@ local dub = require 'dub'
 local should = lut.Test('dub.LuaBinder - constants', {coverage = false})
 
 local binder = dub.LuaBinder()
+local elapsed = lub.elapsed
 
 local ins = dub.Inspector {
   INPUT    = lub.path '|fixtures/constants',

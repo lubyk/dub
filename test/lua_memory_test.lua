@@ -13,7 +13,9 @@ local lut = require 'lut'
 local dub = require 'dub'
 
 local should = lut.Test('dub.LuaBinder - memory', {coverage = false})
+
 local binder = dub.LuaBinder()
+local elapsed = lub.elapsed
 
 local ins_opts = {
   INPUT    = lub.path '|fixtures/memory',
