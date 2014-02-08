@@ -1,7 +1,7 @@
+{% -- DEFAULT TEMPLATE FOR MODULE WITH C++. Original in lub project. %}
 {% 
-local lub = require 'lub'
 local lfs = require 'lfs'
-local gsub, format = string.gsub, string.format
+local lub = require 'lub'
 %}
 package = "{{lib.type}}"
 version = "{{lib.VERSION}}-1"
@@ -10,17 +10,13 @@ source = {
   dir = '{{lib.type}}-REL-{{lib.VERSION}}',
 }
 description = {
-  summary = "Lua binding generator from C++ code (uses Doxygen to parse C++ comments).",
+  summary = "{{def.description.summary}}",
   detailed = [[
-    A powerful binding generator for C++ code with support for attributes,
-    callbacks, errors on callbacks, enums, nested classes, operators, public
-    attributes, etc.
-    
-    Full documentation: http://doc.lubyk.org/dub.html
-  ]],
-  homepage = "http://doc.lubyk.org/{{lib.type}}.html",
-  license = "MIT"
+{{def.description.detailed}}]],
+  homepage = "{{def.description.homepage}}",
+  license = "{{def.description.license}}"
 }
+
 dependencies = {
 {% for _, v in ipairs(lib.DEPENDS) do %}
   "{{v}}",
@@ -29,19 +25,65 @@ dependencies = {
 build = {
   type = 'builtin',
   modules = {
-    {{format("[%-20s] = '%s/%s.lua'", "'"..lib.type.."'", lib.type, 'init')}},
+    -- Plain Lua files
+    {{string.format("[%-17s] = '%s/%s.lua'", "'"..lib.type.."'", lib.type, 'init')}},
 {% for file in lfs.dir(lib.type) do %}
 {% if file ~= 'init.lua' and file:match('.lua$') then file = file:sub(1, -5) %}
-    {{format("[%-20s] = '%s/%s.lua'", "'"..lib.type..'.'..file.."'", lib.type, file)}},
+    {{string.format("[%-17s] = '%s/%s.lua'", "'"..lib.type..'.'..file.."'", lib.type, file)}},
 {% end %}
+{% end %}
+{% if not def.pure_lua then %}
+    -- C module
+    {{string.format("[%-17s] = ", "'"..lib.type..".core'")}}{
+      sources = {
+{% for path in lub.Dir('src'):glob('%.c',0) do %}
+        '{{path}}',
+{% end %}
+{% for path in lub.Dir('src/bind'):glob '%.c' do %}
+        '{{path}}',
+{% end %}
+      },
+{% if def.includes and #def.includes > 0 then %}
+      incdirs   = {'{{ lub.join(def.includes, "', '") }}'},
+{% end %}
+{% if def.libraries and #def.libraries > 0 then %}
+      libraries = {'{{ lub.join(def.libraries, "', '") }}'},
+{% end %}
+    },
 {% end %}
   },
+{% if lub.exist(lib.type..'/assets') then %}
   install = {
-    -- These assets are needed to generate the bindings.
+    -- Assets needed by library.
     lua = {
-{% for path in lub.Dir('dub/assets'):glob() do %}
-      {{format("[%-32s] = '%s'", "'"..gsub(gsub(path, '%.', '_'), '/', '.').."'", path)}},
+{% for path in lub.Dir(lib.type..'/assets'):glob() do %}
+      {{string.format("[%-32s] = '%s'", "'"..string.gsub(string.gsub(path, '%.', '_'), '/', '.').."'", path)}},
 {% end %}
     },
   },
+{% end %}
+{% if not def.pure_lua and #def.platspec > 0 then %}
+  platforms = {
+{% for _, plat in ipairs(def.platspec) do %}
+    {{plat}} = {
+      modules = {
+        ['{{lib.type}}.core'] = {
+{% if lub.exist('src/'..plat) then %}
+          sources = {
+{% for path in lub.Dir('src/'..plat):glob '%.c' do %}
+            '{{path}}',
+{% end %}
+          },
+{% end %}
+{% if def.platlibs[plat] then %}
+          libraries = {'{{ lub.join(def.platlibs[plat], "', '") }}'},
+{% end %}
+        },
+      },
+    },
+{% end %}
+  },
+{% end %}
 }
+
+

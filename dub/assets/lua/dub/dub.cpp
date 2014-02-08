@@ -661,6 +661,7 @@ int dub::hash(const char *str, int sz) {
   int c;
 
   while ( (c = *str++) ) {
+    // FIXME: integer constant is too large for 'long' type
     unsigned int h1 = (h << 6)  % DUB_MAX_IN_SHIFT;
     unsigned int h2 = (h << 16) % DUB_MAX_IN_SHIFT;
     h = c + h1 + h2 - h;

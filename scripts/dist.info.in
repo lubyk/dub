@@ -3,11 +3,11 @@
 name = "{{lib.type}}"
 version = "{{lib.VERSION}}"
 
-desc = "Lua binding generator from C++ code (uses Doxygen to parse C++ comments)."
-author = "Gaspard Bucher"
-license = "MIT"
+desc = "{{def.description.summary}}"
+author = "{{def.description.author}}"
+license = "{{def.description.license}}"
 url = "http://doc.lubyk.org/{{lib.type}}.html"
-maintainer = "Gaspard Bucher"
+maintainer = "{{def.description.author}}"
 
 depends = {
 {% for _, v in ipairs(lib.DEPENDS) do %}

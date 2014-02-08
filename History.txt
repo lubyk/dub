@@ -9,6 +9,7 @@
   * Installs with luarocks.
   * Removing 'lib_prefix' option and using 'no_prefix' argument instead.
   * Much improved documentation.
+  * CMake build system.
 
 == 2.1.0
 

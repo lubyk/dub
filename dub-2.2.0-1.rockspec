@@ -7,15 +7,16 @@ source = {
 description = {
   summary = "Lua binding generator from C++ code (uses Doxygen to parse C++ comments).",
   detailed = [[
-    A powerful binding generator for C++ code with support for attributes,
-    callbacks, errors on callbacks, enums, nested classes, operators, public
-    attributes, etc.
-    
-    Full documentation: http://doc.lubyk.org/dub.html
-  ]],
+      A powerful binding generator for C++ code with support for attributes,
+      callbacks, errors on callbacks, enums, nested classes, operators, public
+      attributes, etc.
+      
+      Full documentation: http://doc.lubyk.org/dub.html
+    ]],
   homepage = "http://doc.lubyk.org/dub.html",
   license = "MIT"
 }
+
 dependencies = {
   "lua >= 5.1, < 5.3",
   "lub >= 1.0.3, < 1.1",
@@ -25,18 +26,19 @@ dependencies = {
 build = {
   type = 'builtin',
   modules = {
-    ['dub'               ] = 'dub/init.lua',
-    ['dub.Class'         ] = 'dub/Class.lua',
-    ['dub.CTemplate'     ] = 'dub/CTemplate.lua',
-    ['dub.Function'      ] = 'dub/Function.lua',
-    ['dub.Inspector'     ] = 'dub/Inspector.lua',
-    ['dub.LuaBinder'     ] = 'dub/LuaBinder.lua',
-    ['dub.MemoryStorage' ] = 'dub/MemoryStorage.lua',
-    ['dub.Namespace'     ] = 'dub/Namespace.lua',
-    ['dub.OptParser'     ] = 'dub/OptParser.lua',
+    -- Plain Lua files
+    ['dub'            ] = 'dub/init.lua',
+    ['dub.Class'      ] = 'dub/Class.lua',
+    ['dub.CTemplate'  ] = 'dub/CTemplate.lua',
+    ['dub.Function'   ] = 'dub/Function.lua',
+    ['dub.Inspector'  ] = 'dub/Inspector.lua',
+    ['dub.LuaBinder'  ] = 'dub/LuaBinder.lua',
+    ['dub.MemoryStorage'] = 'dub/MemoryStorage.lua',
+    ['dub.Namespace'  ] = 'dub/Namespace.lua',
+    ['dub.OptParser'  ] = 'dub/OptParser.lua',
   },
   install = {
-    -- These assets are needed to generate the bindings.
+    -- Assets needed by library.
     lua = {
       ['dub.assets.Doxyfile'           ] = 'dub/assets/Doxyfile',
       ['dub.assets.lua.class_cpp'      ] = 'dub/assets/lua/class.cpp',
@@ -46,3 +48,5 @@ build = {
     },
   },
 }
+
+
