@@ -15,7 +15,7 @@ local dub = require 'dub'
 local should = lut.Test('dub.LuaBinder - memory', {coverage = false})
 
 local binder = dub.LuaBinder()
-local elapsed = lub.elapsed
+local elapsed = function() return 0 end
 
 local ins_opts = {
   INPUT    = lub.path '|fixtures/memory',
@@ -148,6 +148,8 @@ end
 
 function should.createAndDestroy()
   if test_speed then
+    local lens = require 'lens'
+    elapsed = lens.elapsed
     runGcTest(mem.Nogc.new,   "__gc optimization:      create and destroy 100'000 elements: %.2f ms.")
     runGcTest(mem.Withgc.new, "Normal __gc:            create and destroy 100'000 elements: %.2f ms.")
     runGcTest(mem.Withgc,     "Normal __gc and __call: create and destroy 100'000 elements: %.2f ms.")

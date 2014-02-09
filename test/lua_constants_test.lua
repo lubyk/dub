@@ -20,7 +20,8 @@ local dub = require 'dub'
 local should = lut.Test('dub.LuaBinder - constants', {coverage = false})
 
 local binder = dub.LuaBinder()
-local elapsed = lub.elapsed
+-- dummy
+local elapsed = function() return 0 end
 
 local ins = dub.Inspector {
   INPUT    = lub.path '|fixtures/constants',
@@ -205,6 +206,8 @@ end
 
 function should.createAndDestroy()
   if test_speed then
+    local lens = require 'lens'
+    elapsed = lens.elapsed
     runGcTest(Car.new,   "Car.new:                            create 100'000 elements: %.2f ms.")
     runGcTest(Car,       "Car:                                create 100'000 elements: %.2f ms.")
   else
