@@ -71,7 +71,7 @@ lib.DEPENDS = { -- doc
   -- Compatible with Lua 5.1, 5.2 and LuaJIT
   'lua >= 5.1, < 5.3',
   -- Uses [Lubyk base library](http://doc.lubyk.org/lub.html)
-  'lub >= 1.0.3, < 1.1',
+  'lub >= 1.0.4, < 1.1',
   -- Uses [Lubyk fast xml library](http://doc.lubyk.org/xml.html)
   'xml ~> 1.1',
   -- Uses [Lubyk yaml library](http://doc.lubyk.org/yaml.html)
