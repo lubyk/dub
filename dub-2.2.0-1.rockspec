@@ -5,9 +5,9 @@ source = {
   dir = 'dub-REL-2.2.0',
 }
 description = {
-  summary = "Lua binding generator from C++ code (uses Doxygen to parse C++ comments).",
+  summary = "Lua binding generator from C/C++ code (uses Doxygen to parse C++ comments).",
   detailed = [[
-      A powerful binding generator for C++ code with support for attributes,
+      A powerful binding generator for C/C++ code with support for attributes,
       callbacks, errors on callbacks, enums, nested classes, operators, public
       attributes, etc.
       

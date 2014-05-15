@@ -1,4 +1,4 @@
-== 2.2.0
+== 2.2.0 2014-05-15
 
 * Major enhancement
   * Generate bindings compatible with Lua 5.2.
@@ -75,7 +75,7 @@
   * Added support for abstract types and casting to these types.
   * ...
 
-== 1.1
+== 1.1 --- Last version written in Ruby
 
 * Minor enhancement
   * We can omit 'return 0' when defining body with yaml.
