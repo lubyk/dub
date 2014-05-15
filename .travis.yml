@@ -34,12 +34,6 @@ install:
   - make build
   - sudo make install  
   - cd ..
-  # Install latest lub (not released yet)
-  - git clone git://github.com/lubyk/lub.git && cd lub && sudo luarocks-$LUA_VERSION make && cd ..
-  # Install yaml (not released yet)
-  - git clone git://github.com/lubyk/yaml.git && cd yaml && sudo luarocks-$LUA_VERSION make && cd ..
-  # Install xml (not released yet)
-  - git clone git://github.com/lubyk/xml.git && cd xml && sudo luarocks-$LUA_VERSION make && cd ..
   # Install testing dependency
   - sudo luarocks-$LUA_VERSION install lut
   # Build module
