@@ -1,9 +1,7 @@
---- This file is part of Lubyk project
-
 name = "dub"
-version = "2.2.0"
+version = "2.2.1"
 
-desc = "Lua binding generator from C++ code (uses Doxygen to parse C++ comments)."
+desc = "Lua binding generator from C/C++ code (uses Doxygen to parse C++ comments)."
 author = "Gaspard Bucher"
 license = "MIT"
 url = "http://doc.lubyk.org/dub.html"
@@ -11,7 +9,8 @@ maintainer = "Gaspard Bucher"
 
 depends = {
   "lua >= 5.1, < 5.3",
-  "lub >= 1.0.4, < 1.1",
-  "xml ~> 1.1",
-  "yaml ~> 1.0",
+  "lub >= 1.0.4, < 2",
+  "xml ~> 1",
+  "yaml ~> 1",
 }
+

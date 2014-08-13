@@ -1,27 +1,27 @@
 package = "dub"
-version = "2.2.0-1"
+version = "2.2.1-1"
 source = {
-  url = 'https://github.com/lubyk/dub/archive/REL-2.2.0.tar.gz',
-  dir = 'dub-REL-2.2.0',
+  url = 'https://github.com/lubyk/dub/archive/REL-2.2.1.tar.gz',
+  dir = 'dub-REL-2.2.1',
 }
 description = {
   summary = "Lua binding generator from C/C++ code (uses Doxygen to parse C++ comments).",
   detailed = [[
-      A powerful binding generator for C/C++ code with support for attributes,
-      callbacks, errors on callbacks, enums, nested classes, operators, public
-      attributes, etc.
-      
-      Full documentation: http://doc.lubyk.org/dub.html
-    ]],
+    A powerful binding generator for C/C++ code with support for attributes,
+    callbacks, errors on callbacks, enums, nested classes, operators, public
+    attributes, etc.
+    
+    Full documentation: http://doc.lubyk.org/dub.html
+  ]],
   homepage = "http://doc.lubyk.org/dub.html",
   license = "MIT"
 }
 
 dependencies = {
   "lua >= 5.1, < 5.3",
-  "lub >= 1.0.4, < 1.1",
-  "xml ~> 1.1",
-  "yaml ~> 1.0",
+  "lub >= 1.0.4, < 2",
+  "xml ~> 1",
+  "yaml ~> 1",
 }
 build = {
   type = 'builtin',
@@ -48,5 +48,4 @@ build = {
     },
   },
 }
-
 

@@ -65,18 +65,40 @@ local private = {}
 lib.private = private
 
 -- Current version of 'dub' respecting [semantic versioning](http://semver.org).
-lib.VERSION = '2.2.0'
+lib.VERSION = '2.2.1'
 
 lib.DEPENDS = { -- doc
   -- Compatible with Lua 5.1, 5.2 and LuaJIT
   'lua >= 5.1, < 5.3',
   -- Uses [Lubyk base library](http://doc.lubyk.org/lub.html)
-  'lub >= 1.0.4, < 1.1',
+  'lub >= 1.0.4, < 2',
   -- Uses [Lubyk fast xml library](http://doc.lubyk.org/xml.html)
-  'xml ~> 1.1',
+  'xml ~> 1',
   -- Uses [Lubyk yaml library](http://doc.lubyk.org/yaml.html)
-  'yaml ~> 1.0',
+  'yaml ~> 1',
 }
+
+-- nodoc
+lib.DESCRIPTION = {
+  summary = "Lua binding generator from C/C++ code (uses Doxygen to parse C++ comments).",
+  detailed = [[
+    A powerful binding generator for C/C++ code with support for attributes,
+    callbacks, errors on callbacks, enums, nested classes, operators, public
+    attributes, etc.
+    
+    Full documentation: http://doc.lubyk.org/dub.html
+  ]],
+  homepage = "http://doc.lubyk.org/"..lib.type..".html",
+  author   = "Gaspard Bucher",
+  license  = "MIT",
+}
+
+-- nodoc
+lib.BUILD = {
+  github   = 'lubyk',
+  pure_lua = true,
+}
+
 
 --[[
   # Usage example

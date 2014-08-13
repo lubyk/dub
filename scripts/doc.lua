@@ -1,3 +1,6 @@
+--
+-- Generate documentation for this project into 'html' folder
+--
 local lut = require 'lut'
 lut.Doc.make {
   sources = {
