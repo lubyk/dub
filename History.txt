@@ -2,6 +2,7 @@
 
 * Minor changes
   * Fixed dependency definitions.
+  * Fixed Doxyfile to avoid doxygen warnings.
 
 == 2.2.0 2014-05-15
 
