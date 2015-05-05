@@ -30,6 +30,8 @@ public:
   double teeth;
 
   Child(const std::string &name, MaritalStatus s, int birth_year, double x, double y);
+  
+  virtual ~Child() {}
 
   double x() {
     return pos_x_;

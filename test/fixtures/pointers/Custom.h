@@ -8,11 +8,9 @@
  */
 class Custom {
   std::string url_;
-  double value_;
 public:
   Custom(const std::string &url, double value)
     : url_(url)
-    , value_(value)
   {}
 
   std::string getUrl() const {

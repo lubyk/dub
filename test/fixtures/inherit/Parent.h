@@ -33,6 +33,8 @@ public:
     , happy(true)
     {}
 
+  virtual ~Parent() {}
+
   /** Method that should be inherited by child.
    */
   std::string name() {

@@ -72,11 +72,11 @@ function should.listSuperMethods()
     table.insert(res, elem.name)
   end
   assertValueEqual({
-    '~Child',
     '_set_',
     '_get_',
     '_cast_',
     'Child',
+    '~Child',
     'x',
     'y',
     'returnUnk1',
