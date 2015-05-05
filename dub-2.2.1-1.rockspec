@@ -1,8 +1,9 @@
 package = "dub"
 version = "2.2.1-1"
 source = {
-  url = 'https://github.com/lubyk/dub/archive/REL-2.2.1.tar.gz',
-  dir = 'dub-REL-2.2.1',
+  url = 'git://github.com/lubyk/dub',
+  tag = 'REL-2.2.1',
+  dir = 'dub',
 }
 description = {
   summary = "Lua binding generator from C/C++ code (uses Doxygen to parse C++ comments).",
