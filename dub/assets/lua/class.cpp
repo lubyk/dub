@@ -69,7 +69,7 @@ static const struct dub::const_Reg {{class.name}}_const[] = {
 };
 {% end %}
 
-extern "C" int luaopen_{{self:openName(class)}}(lua_State *L)
+DUB_EXPORT int luaopen_{{self:openName(class)}}(lua_State *L)
 {
   // Create the metatable which will contain all the member methods
   luaL_newmetatable(L, "{{self:libName(class)}}");

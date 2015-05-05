@@ -41,6 +41,14 @@
 
 typedef int LuaStackSize;
 
+#ifndef DUB_EXPORT
+#ifdef _WIN32
+#define DUB_EXPORT extern "C" __declspec(dllexport)
+#else
+#define DUB_EXPORT extern "C"
+#endif
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif

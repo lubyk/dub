@@ -66,7 +66,7 @@ static const struct dub::const_Reg {{lib_name}}_const[] = {
 };
 {% end %}
 
-extern "C" int luaopen_{{self.options.luaopen or lib_name}}(lua_State *L) {
+DUB_EXPORT int luaopen_{{self.options.luaopen or lib_name}}(lua_State *L) {
   lua_newtable(L);
   // <lib>
 {% if lib.has_constants then %}
