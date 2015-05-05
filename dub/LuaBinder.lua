@@ -87,6 +87,7 @@ local lib     = lub.class('dub.LuaBinder', {
   NATIVE_TO_TLUA = {
     number  = 'LUA_TNUMBER',
     boolean = 'LUA_TBOOLEAN',
+    string  = 'LUA_TSTRING',
   },
   -- Relative path to copy dub headers and cpp files. Must be
   -- relative to the bindings output directory.

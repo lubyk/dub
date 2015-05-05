@@ -2,6 +2,7 @@
 
 * Major changes
   * Fixed binding generation for Windows (missing dllexport). Thanks LPGhatguy.
+  * Fixed string detection in overloaded function decision tree (#7).
 
 * Minor changes
   * Fixed dependency definitions.
