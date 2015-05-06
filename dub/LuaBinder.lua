@@ -23,31 +23,31 @@ local lib     = lub.class('dub.LuaBinder', {
   LUA_STACK_SIZE_NAME = 'LuaStackSize',
   CHECK_TO_NATIVE = {
     -- default is to use the same type (number = 'number')
-    int        = 'number',
+    integer      = 'number',
   },
   TYPE_TO_CHECK = {
     double       = 'number',
     float        = 'number',
-    size_t       = 'int',
-    int          = 'int',
-    uint         = 'int',
-    uint8        = 'int',
-    uint16       = 'int',
-    uint32       = 'int',
-    int8_t       = 'int',
-    int16_t      = 'int',
-    int32_t      = 'int',
-    uint8_t      = 'int',
-    uint16_t     = 'int',
-    uint32_t     = 'int',
-    char         = 'int',
-    short        = 'int',
-    LuaStackSize = 'int',
-    ['unsigned char']  = 'int',
-    ['signed int']     = 'int',
-    ['unsigned int']   = 'int',
-    ['signed short']   = 'int',
-    ['unsigned short'] = 'int',
+    size_t       = 'integer',
+    int          = 'integer',
+    uint         = 'integer',
+    uint8        = 'integer',
+    uint16       = 'integer',
+    uint32       = 'integer',
+    int8_t       = 'integer',
+    int16_t      = 'integer',
+    int32_t      = 'integer',
+    uint8_t      = 'integer',
+    uint16_t     = 'integer',
+    uint32_t     = 'integer',
+    char         = 'integer',
+    short        = 'integer',
+    LuaStackSize = 'integer',
+    ['unsigned char']  = 'integer',
+    ['signed int']     = 'integer',
+    ['unsigned int']   = 'integer',
+    ['signed short']   = 'integer',
+    ['unsigned short'] = 'integer',
 
     bool       = 'boolean',
 
@@ -492,11 +492,17 @@ function private:expandTree(tree, class, param_delta, indent)
   local last_key = #keys
   if last_key == 1 then
     -- single entry in decision, just go deeper
-    return private.expandTreeByType(self, tree.map[keys[1]..''], class, param_delta, indent)
+    if not tree.map[format('%i',keys[1])] then
+      print("MISSING KEY", keys[1])
+      for k,v in pairs(tree.map) do
+        print(k, v)
+      end
+    end
+    return private.expandTreeByType(self, tree.map[format('%i',keys[1])], class, param_delta, indent)
   end
 
   for i, arg_count in ipairs(keys) do
-    local elem = tree.map[arg_count..'']
+    local elem = tree.map[format('%i',arg_count)]
     if i > 1 then
       res = res .. '} else '
     end
@@ -1244,7 +1250,7 @@ function private:switch(class, method, delta, bfunc, iterator)
       if lua_name then
         local body = bfunc(self, class, method, elem, delta)
         if body then
-          res = res .. format('  case %s: {\n', dub.hash(lua_name, sz))
+          res = res .. format('  case %i: {\n', dub.hash(lua_name, sz))
           -- get or set value
           res = res .. format('    if (DUB_ASSERT_KEY(key, "%s")) break;\n', lua_name)
           res = res .. '    ' .. gsub(body, '\n', '\n    ') .. '\n  }\n'

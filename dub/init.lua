@@ -65,11 +65,11 @@ local private = {}
 lib.private = private
 
 -- Current version of 'dub' respecting [semantic versioning](http://semver.org).
-lib.VERSION = '2.2.1'
+lib.VERSION = '2.2.2'
 
 lib.DEPENDS = { -- doc
-  -- Compatible with Lua 5.1, 5.2 and LuaJIT
-  'lua >= 5.1, < 5.3',
+  -- Compatible with Lua 5.1 to 5.3 and LuaJIT
+  'lua >= 5.1, < 5.4',
   -- Uses [Lubyk base library](http://doc.lubyk.org/lub.html)
   'lub >= 1.0.4, < 2',
   -- Uses [Lubyk fast xml library](http://doc.lubyk.org/xml.html)

@@ -3,6 +3,7 @@
 *.a
 *.so
 *.swp
+*.swo
 build
 test/fixtures/Box2D
 test/tmp

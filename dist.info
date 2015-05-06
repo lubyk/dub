@@ -1,5 +1,5 @@
 name = "dub"
-version = "2.2.1"
+version = "2.2.2"
 
 desc = "Lua binding generator from C/C++ code (uses Doxygen to parse C++ comments)."
 author = "Gaspard Bucher"
@@ -8,7 +8,7 @@ url = "http://doc.lubyk.org/dub.html"
 maintainer = "Gaspard Bucher"
 
 depends = {
-  "lua >= 5.1, < 5.3",
+  "lua >= 5.1, < 5.4",
   "lub >= 1.0.4, < 2",
   "xml ~> 1",
   "yaml ~> 1",

@@ -35,7 +35,7 @@ end
 function should.bindClassFromTemplateInNamespace()
   local obj = ins:find('nmRect32')
   local res = binder:bindClass(obj)
-  assertMatch('self%->x1 = luaL_checkint%(L, 3%);', res)
+  assertMatch('self%->x1 = luaL_checkinteger%(L, 3%);', res)
 end
 
 function should.bindMethod()

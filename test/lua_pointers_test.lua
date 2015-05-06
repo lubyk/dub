@@ -91,14 +91,14 @@ function should.bindSimpleSetMethod()
   local res = binder:functionBody(Vect, set)
   assertMatch('self%->x = luaL_checknumber%(L, 3%);', res)
   -- static member
-  assertMatch('Vect::create_count = luaL_checkint%(L, 3%);', res)
+  assertMatch('Vect::create_count = luaL_checkinteger%(L, 3%);', res)
 end
 
 function should.bindCharAsNumber()
   local Vect = ins:find('Vect')
   local met = Vect:method('someChar')
   local res = binder:functionBody(Vect, met)
-  assertMatch('char c = dub::checkint%(L, 2%);', res)
+  assertMatch('char c = dub::checkinteger%(L, 2%);', res)
   assertMatch('lua_pushnumber%(L, self%->someChar%(c%)%);', res)
 end
 
@@ -852,7 +852,7 @@ function should.createAndDestroy()
   createAndDestroyMany()
   local vm_size = collectgarbage('count')
   createAndDestroyMany()
-  assertEqual(vm_size, collectgarbage('count'))
+  assertEqual(vm_size, collectgarbage('count'), 0.1)
 end
 
 --=============================================== Wrap usdata in table
@@ -896,7 +896,8 @@ end
 --=============================================== __tostring with string_format
 function should.useFormatInToString()
   local b = Box('box name', Vect(1,2))
-  assertMatch("Box: 0x[0-9a-f]+ %('box name' 1x2%)", b:__tostring())
+  local m = "Box: 0x[0-9a-f]+ %('box name' ".. 1.0 .."x".. 2.0 .."%)"
+  assertMatch(m, b:__tostring())
 end
 
 should:test()

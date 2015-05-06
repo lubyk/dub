@@ -1,8 +1,8 @@
 package = "dub"
-version = "2.2.1-1"
+version = "2.2.2-1"
 source = {
   url = 'git://github.com/lubyk/dub',
-  tag = 'REL-2.2.1',
+  tag = 'REL-2.2.2',
   dir = 'dub',
 }
 description = {
@@ -19,7 +19,7 @@ description = {
 }
 
 dependencies = {
-  "lua >= 5.1, < 5.3",
+  "lua >= 5.1, < 5.4",
   "lub >= 1.0.4, < 2",
   "xml ~> 1",
   "yaml ~> 1",

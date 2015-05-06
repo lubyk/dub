@@ -1,3 +1,8 @@
+== 2.2.2
+
+* Major changes
+  * Compatibility with lua 5.3.
+  
 == 2.2.1 2015-05-05
 
 * Major changes

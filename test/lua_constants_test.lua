@@ -43,7 +43,7 @@ function should.resolveEnumTypeAsNumber()
   local met = Car:method(Car.SET_ATTR_NAME)
   local lua = binder:luaType(Car, {name = 'Brand'})
   assertEqual('number', lua.type)
-  assertEqual('int', lua.check)
+  assertEqual('integer', lua.check)
   assertEqual('Car::Brand', lua.rtype.cast)
 end
 
@@ -61,7 +61,7 @@ function should.castValueForEnumTypes()
   local Car = ins:find('Car')
   local set = Car:method(Car.SET_ATTR_NAME)
   local res = binder:functionBody(set)
-  assertMatch('self%->brand = %(Car::Brand%)luaL_checkint%(L, 3%);', res)
+  assertMatch('self%->brand = %(Car::Brand%)luaL_checkinteger%(L, 3%);', res)
 end
 
 --=============================================== Build

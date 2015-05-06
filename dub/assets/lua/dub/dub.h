@@ -296,7 +296,7 @@ void register_const(lua_State *L, const const_Reg *l);
 // These provide the same funcionality as their equivalent luaL_check... but they
 // throw std::exception which can be caught (eventually to call lua_error).
 lua_Number checknumber(lua_State *L, int narg) throw(dub::TypeException);
-lua_Integer checkint(lua_State *L, int narg) throw(dub::TypeException);
+lua_Integer checkinteger(lua_State *L, int narg) throw(dub::TypeException);
 const char *checklstring(lua_State *L, int narg, size_t *len) throw(dub::TypeException);
 void **checkudata(lua_State *L, int ud, const char *tname, bool keep_mt = false) throw(dub::Exception);
 
