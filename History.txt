@@ -1,15 +1,13 @@
 == 2.2.2
 
-* Major changes
   * Compatibility with lua 5.3.
+  * Fixed 'header_base' when paths contain lua pattern characters (Thanks Hendrik Muhs).
+  * LuaBinder:bindClass now accepts an options table.
   
 == 2.2.1 2015-05-05
 
-* Major changes
   * Fixed binding generation for Windows (missing dllexport). Thanks LPGhatguy.
   * Fixed string detection in overloaded function decision tree (#7).
-
-* Minor changes
   * Fixed dependency definitions.
   * Fixed Doxyfile to avoid doxygen warnings.
   * Fixed test compile warnings.

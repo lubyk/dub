@@ -126,26 +126,13 @@ end
 --                     prefix.
 -- + (no_prefix):      When this is set to `true`, do not add any prefix to
 --                     class names.
+-- + (header_base):    Part to remove in '#include' directives added to generated files.
+--                     The default value is to remove the path to current directory.
 -- + (extra_headers):  List of extra header includes to add in generated C++ files.
 -- + (custom_bindings): Path to a directory containing yaml files with custom
 --                     bindings. Can also be a table. See [Custom Bindings](dub.html#Custom-bindings).
 function lib:bind(inspector, options)
-  self.options = options
-  if options.header_base then
-    if type(options.header_base) == 'string' then
-      options.header_base = {options.header_base}
-    end
-    self.header_base = {}
-    for i, base in ipairs(options.header_base) do
-      self.header_base[i] = '^'..lub.absolutizePath(base)..'/(.*)$'
-    end
-  end
-  self.extra_headers = {}
-  private.parseExtraHeadersList(self, nil, options.extra_headers)
-  
-  if namespace_name then
-    self.namespace = inspector:find(namespace_name)
-  end
+  private.parseOptions(self, options)
 
   if not self.namespace and not options.no_prefix then
     -- This is the root of all classes.
@@ -153,10 +140,6 @@ function lib:bind(inspector, options)
   end
 
   self.output_directory = assert(options.output_directory, "Missing 'output_directory' setting.")
-
-  if options.custom_bindings then
-    self:parseCustomBindings(options.custom_bindings)
-  end
 
   self.ins = inspector
   local bound = {}
@@ -187,26 +170,36 @@ function lib:bind(inspector, options)
   private.copyDubFiles(self)
 end
 
-function lib:build(opts)
-  local work_dir = opts.work_dir or lfs.currentdir()
+-- Simple build system (mostly used for testing). The `opttions` table contains
+-- the following entries:
+-- + (work_dir):       Build working directory (default is current directory).
+-- + (inputs):         List of C++ input files.
+-- + (includes):       List of include paths.
+-- + (flags):          List of extra compiler flags.
+-- + (compiler):       List of compiler flags. Default is `self.COMPILER`.
+-- + (compiler_flags): List of compiler flags. Default is
+--                     `self.COMPILER_FLAGS[PLAT]`
+-- + (verbose):        Print build commands if `true`.
+function lib:build(options)
+  local work_dir = options.work_dir or lfs.currentdir()
   local files = ''
-  for _, e in ipairs(opts.inputs) do
+  for _, e in ipairs(options.inputs) do
     files = files .. ' ' .. e
   end
   local flags = ' -I.'
-  for _, e in ipairs(opts.includes or {}) do
-    flags = flags .. ' -I' .. e
+  for _, e in ipairs(options.includes or {}) do
+    flags = flags .. ' -I' .. lub.shellQuote(e)
   end
-  if opts.flags then
-    flags = flags .. ' ' .. opts.flags
+  if options.flags then
+    flags = flags .. ' ' .. options.flags
   end
   local cmd = 'cd ' .. work_dir .. ' && '
-  cmd = cmd .. self.COMPILER .. ' ' 
-  cmd = cmd .. self.COMPILER_FLAGS[PLAT] .. ' '
+  cmd = cmd .. (options.compiler or self.COMPILER) .. ' ' 
+  cmd = cmd .. (options.compiler_flags or self.COMPILER_FLAGS[PLAT]) .. ' '
   cmd = cmd .. flags .. ' '
-  cmd = cmd .. '-o ' .. opts.output .. ' '
+  cmd = cmd .. '-o ' .. options.output .. ' '
   cmd = cmd .. files
-  if opts.verbose then
+  if options.verbose then
     print(cmd)
   end
   local pipe = io.popen(cmd)
@@ -217,7 +210,15 @@ function lib:build(opts)
 end
 
 --- Return a string containing the Lua bindings for a class.
-function lib:bindClass(class)
+-- The optional `options` table can contain:
+-- + (header_base):    Part to remove in '#include' directives added to generated files.
+--                     The default value is to remove the path to current directory.
+-- + (extra_headers):  List of extra header includes to add in generated C++ files.
+-- + (custom_bindings): Path to a directory containing yaml files with custom
+--                     bindings. Can also be a table. See [Custom Bindings](dub.html#Custom-bindings).
+function lib:bindClass(class, options)
+  private.parseOptions(self, options)
+
   private.expandClass(self, class)
   if not self.class_template then
     -- path to current file
@@ -1492,6 +1493,28 @@ function private:makeLibFile(lib_name, list)
   local path = self.output_directory .. lub.Dir.sep .. openname .. '.cpp'
   lub.writeall(path, res, true)
 end
+
+function private:parseOptions(options)
+  if not options then return end
+
+  self.options = options
+  if options.header_base then
+    if type(options.header_base) == 'string' then
+      options.header_base = {options.header_base}
+    end
+    self.header_base = {}
+    for i, base in ipairs(options.header_base) do
+      self.header_base[i] = '^'..private.escapePatternInPath(lub.absolutizePath(base))..'/(.*)$'
+    end
+  end
+  self.extra_headers = {}
+  private.parseExtraHeadersList(self, nil, options.extra_headers)
+
+  if options.custom_bindings then
+    self:parseCustomBindings(options.custom_bindings)
+  end
+end
+  
 
 function private:parseExtraHeadersList(base, list)
   if not list then
