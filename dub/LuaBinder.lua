@@ -110,7 +110,7 @@ function lib.new(options)
     extra_headers   = {},
     custom_bindings = {},
   }
-  self.header_base = {'^'..lfs.currentdir()..'/(.*)$'}
+  self.header_base = {'^'..private.escapePatternInPath(lfs.currentdir())..'/(.*)$'}
   return setmetatable(self, lib)
 end
 
@@ -1602,5 +1602,14 @@ function private:expandClass(class)
 end
 
 private.makeType = dub.MemoryStorage.makeType
+
+-- When a path contains '-' or other special characters, escape them to form a
+-- valid matching pattern.
+function private.escapePatternInPath(path)
+  local p = gsub(path, '[%(%)%.%%%+%-%*%?%[%^%$%]]', function(x)
+    return '%'..x
+  end)
+  return p
+end
 
 return lib
