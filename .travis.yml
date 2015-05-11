@@ -2,33 +2,20 @@ language: erlang
 
 # Try using multiple Lua Implementations
 env:
-  - LUA="lua5.1" LUA_VERSION='5.1'
-  - LUA="lua5.2" LUA_VERSION='5.2'
-  - LUA="lua5.3" LUA_VERSION='5.3'
-  # Wee need to install lua5.1 or luarocks won't build
-  - LUA="luajit" LUA_VERSION='5.1'
-  # - TOOL="gcc"                  # Use native compiler (GCC usually)
-  # - TOOL="clang"                # Use clang
-  # - TOOL="i686-w64-mingw32"     # 32bit MinGW
-  # - TOOL="x86_64-w64-mingw32"   # 64bit MinGW
-
-#compiler:
-  # FIXME: compile on Windows by setting compile TOOL for luarocks
-#  - gcc
-#  - clang
-  # 32bit MinGW
-  # - i686-w64-mingw32
-#  - i686-w64-mingw32-g++ 
-  # 64bit MinGW
+  - LUA_VERSION='5.1' LUA="lua5.1"
+  - LUA_VERSION='5.1' LUA="luajit" # Wee need to install lua5.1 or luarocks won't build
+  - LUA_VERSION='5.2' LUA="lua5.2"
+  - LUA_VERSION='5.3' LUA="lua"
 
 branches:
   only:
     - master
 
 install:
-  - sudo apt-get install lua$LUA_VERSION liblua$LUA_VERSION-dev
-  - sudo apt-get --no-install-recommends install doxygen
+  - test "$LUA_VERSION" = "5.3" || sudo apt-get install lua$LUA_VERSION liblua$LUA_VERSION-dev
   - test "$LUA" = "luajit" && git clone http://luajit.org/git/luajit-2.0.git && cd luajit-2.0/ && sudo make install && cd .. || true
+  - test "$LUA_VERSION" = "5.3" && wget http://www.lua.org/ftp/lua-5.3.0.tar.gz && tar xzf lua-5.3.0.tar.gz && cd lua-5.3.0 && make linux && sudo make install && cd .. || true
+  - sudo apt-get --no-install-recommends install doxygen
   - git clone git://github.com/keplerproject/luarocks.git
   - cd luarocks
   - ./configure --lua-version=$LUA_VERSION --versioned-rocks-dir
@@ -42,7 +29,7 @@ install:
 
 # Run tests
 script:
-  - $LUA -v && $LUA test/all.lua linux
+  - $LUA -v && $LUA test/all.lua
 
 notifications:
   recipients:

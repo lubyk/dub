@@ -178,7 +178,7 @@ end
 -- + (flags):          List of extra compiler flags.
 -- + (compiler):       List of compiler flags. Default is `self.COMPILER`.
 -- + (compiler_flags): List of compiler flags. Default is
---                     `self.COMPILER_FLAGS[PLAT]`
+--                     `self.COMPILER_FLAGS[lub.plat()]`
 -- + (verbose):        Print build commands if `true`.
 function lib:build(options)
   local work_dir = options.work_dir or lfs.currentdir()
