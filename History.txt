@@ -1,4 +1,4 @@
-== 2.2.2
+== 2.2.2 2015-05-11
 
   * Compatibility with lua 5.3.
   * Fixed 'header_base' when paths contain lua pattern characters (Thanks Hendrik Muhs).
