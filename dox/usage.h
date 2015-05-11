@@ -1,4 +1,9 @@
 /**
+ *
+ * WARING: THIS IS OLD DOCUMENTATION. We keep it here until we have merged all
+ * content in source code comments.
+ *
+ *
  * @page dub_usage Dub Usage
  *
  * @section custom_bindings Custom Class, Function, and Attribute Bindings
