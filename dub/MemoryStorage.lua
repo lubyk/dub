@@ -724,7 +724,12 @@ function parse:typedef(elem, header)
     location    = private.makeLocation(self.db, elem, header),
     header_path = find(elem, 'location').file,
   }
-  typ.ctype.create_name = typ.name .. ' '
+  if not typ.ctype then
+    local loc = find(elem, 'location') or {}
+    dub.warn(3, "ERROR: Could not find type for '%s' in (%s:%i).", typ.name, find(elem, 'location').file, loc.file, loc.line)
+  else
+    typ.ctype.create_name = typ.name .. ' '
+  end
   return typ
 end
     

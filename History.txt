@@ -1,3 +1,7 @@
+== 2.2.3 2015-06-26
+
+  * Display warning instead of crash in case of missing ctype.
+
 == 2.2.2 2015-05-11
 
   * Compatibility with lua 5.3.

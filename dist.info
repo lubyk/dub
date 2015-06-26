@@ -1,5 +1,5 @@
 name = "dub"
-version = "2.2.2"
+version = "2.2.3"
 
 desc = "Lua binding generator from C/C++ code (uses Doxygen to parse C++ comments)."
 author = "Gaspard Bucher"
