@@ -65,7 +65,7 @@ local private = {}
 lib.private = private
 
 -- Current version of 'dub' respecting [semantic versioning](http://semver.org).
-lib.VERSION = '2.2.3'
+lib.VERSION = '2.2.4'
 
 lib.DEPENDS = { -- doc
   -- Compatible with Lua 5.1 to 5.3 and LuaJIT

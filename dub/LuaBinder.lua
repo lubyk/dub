@@ -31,6 +31,7 @@ local lib     = lub.class('dub.LuaBinder', {
     size_t       = 'integer',
     int          = 'integer',
     uint         = 'integer',
+    unsigned     = 'integer',
     uint8        = 'integer',
     uint16       = 'integer',
     uint32       = 'integer',

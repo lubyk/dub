@@ -30,11 +30,12 @@ public:
     map_.insert(Pair(key, value));
   }
 
-  /** Change this method's name in the bindings.
+  /** Change this method's name in the bindings and ensure 'unsigned' is seen as
+   * an alias for unsigned int.
    *
    * @dub name: bar
    */
-  int foo(int x) {
+  unsigned foo(int x) {
     return x;
   }
   
