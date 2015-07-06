@@ -65,7 +65,7 @@ local private = {}
 lib.private = private
 
 -- Current version of 'dub' respecting [semantic versioning](http://semver.org).
-lib.VERSION = '2.2.4'
+lib.VERSION = '2.2.5'
 
 lib.DEPENDS = { -- doc
   -- Compatible with Lua 5.1 to 5.3 and LuaJIT
@@ -499,6 +499,7 @@ lib.BUILD = {
   As time passes, the undocummented feature list below will shrink. Until then,
   it's better having an idea what Dub does.
 
+  * custom name for lua parameter (set with `dub.LuaBinder { L = 'L_lua' }`).
   * pseudo-attributes read/write by calling getter/setter methods.
   * custom read/write attributes (with void *userdata helper, union handling)
   * public static attributes read/write

@@ -131,6 +131,7 @@ function should.listMemberMethods()
     'value',
     'add',
     'mul',
+    'lmet',
     'testA',
     'testB',
     'addAll',

@@ -13,6 +13,11 @@ local PLAT    = lub.plat()
 
 local pairs, ipairs, format,        gsub,        insert,       sub,        len = 
       pairs, ipairs, string.format, string.gsub, table.insert, string.sub, string.len
+
+-- This is a lib global that is changed during runtime to self.L
+-- We use this 'global' to avoid changing TYPE_TO_CHECK API (push, pull, cast).
+local LNAME = 'L'
+
 local lib     = lub.class('dub.LuaBinder', {
   SELF = 'self',
   -- By default, we try to access userdata in field 'super'. This is not
@@ -58,12 +63,12 @@ local lib     = lub.class('dub.LuaBinder', {
       type   = 'std::string',
       -- Get value from Lua.
       pull   = function(name, position, prefix)
-        return format('size_t %s_sz_;\nconst char *%s = %schecklstring(L, %i, &%s_sz_);',
+        return format('size_t %s_sz_;\nconst char *%s = %schecklstring('..LNAME..', %i, &%s_sz_);',
                       name, name, prefix, position, name)
       end,
       -- Push value in Lua
       push   = function(name)
-        return format('lua_pushlstring(L, %s.data(), %s.length());', name, name)
+        return format('lua_pushlstring('..LNAME..', %s.data(), %s.length());', name, name)
       end,
       -- Cast value
       cast   = function(name)
@@ -105,12 +110,17 @@ lib.COMPILER_FLAGS.win32 = lib.COMPILER_FLAGS.unix
 local private = {}
 
 --=============================================== dub.LuaBinder()
+-- `options` is optional but may contain the following fields:
+--  + (L):            Name to use for lua parameter in bindings in case 'L'
+--                    clashes with existing parameter names.
 function lib.new(options)
   local self = {
     options         = options or {},
     extra_headers   = {},
     custom_bindings = {},
   }
+  self.L = self.options.L or 'L'
+
   self.header_base = {'^'..private.escapePatternInPath(lfs.currentdir())..'/(.*)$'}
   return setmetatable(self, lib)
 end
@@ -283,7 +293,7 @@ function lib:functionBody(parent, method)
   local res = ''
 
   if method.dtor then
-    res = res .. format('DubUserdata *userdata = ((DubUserdata*)dub::checksdata_d(L, 1, "%s"));\n', self:libName(parent))
+    res = res .. format('DubUserdata *userdata = ((DubUserdata*)dub::checksdata_d('..self.L..', 1, "%s"));\n', self:libName(parent))
     if custom and custom.body then
       res = res .. custom.body
     else
@@ -322,11 +332,11 @@ function lib:functionBody(parent, method)
     elseif method.overloaded then
       local tree, need_top = self:decisionTree(method.overloaded)
       if need_top then
-        res = res .. 'int top__ = lua_gettop(L);\n'
+        res = res .. 'int top__ = lua_gettop('..self.L..');\n'
       end
       res = res .. private.expandTree(self, tree, parent, param_delta, '')
     elseif method.has_defaults then
-      res = res .. 'int top__ = lua_gettop(L);\n'
+      res = res .. 'int top__ = lua_gettop('..self.L..');\n'
       local last, first = #method.params_list, method.first_default - 1
       for i=last, first, -1 do
         if i ~= last then
@@ -372,7 +382,7 @@ function private:callWithParams(class, method, param_delta, indent, custom, max_
       -- C array attribute set
       local i_name = method.params_list[1].name
       res = res .. 'self->' .. method.name .. '[' .. i_name .. '-1] = '
-      res = res .. private.paramForCall(method.params_list[2]) .. ';\n'
+      res = res .. private.paramForCall(self, method.params_list[2]) .. ';\n'
       res = res .. 'return 0;'
     else
       local call = private.doCall(self, class, method, max_arg)
@@ -387,7 +397,7 @@ function private:detectType(pos, type_name)
   if k then
     return format('type__ == %s', k), false
   else
-    return format('dub::issdata(L, %i, "%s", type__)', pos, type_name), true
+    return format('dub::issdata('..self.L..', %i, "%s", type__)', pos, type_name), true
   end
 end
 
@@ -411,7 +421,7 @@ function private:expandTreeByType(tree, class, param_delta, indent, max_arg)
     return private.expandTreeByType(self, tree.map[keys[1]], class, param_delta, indent, max_arg)
   end
 
-  res = res .. format('int type__ = lua_type(L, %i);\n', param_delta + pos)
+  res = res .. format('int type__ = lua_type('..self.L..', %i);\n', param_delta + pos)
   local ptr_for_pos = tree.ptr_for_pos
   if not ptr_for_pos then
     ptr_for_pos = {}
@@ -760,7 +770,7 @@ function lib:toStringBody(class)
     if type(args) == 'table' then
       args = lub.join(args, ', ')
     end
-    res = res .. format("lua_pushfstring(L, \"%s: %%p (%s)\", %s, %s);\n",
+    res = res .. format("lua_pushfstring("..self.L..", \"%s: %%p (%s)\", %s, %s);\n",
                         self:libName(class),
                         class.dub.string_format,
                         self.SELF,
@@ -768,9 +778,9 @@ function lib:toStringBody(class)
   else
     local fmt
     if class.dub.destroy == 'free' then
-      fmt = "lua_pushfstring(L, \"%s: %%p (full)\", %s);\n"
+      fmt = "lua_pushfstring("..self.L..", \"%s: %%p (full)\", %s);\n"
     else
-      fmt = "lua_pushfstring(L, \"%s: %%p\", %s);\n"
+      fmt = "lua_pushfstring("..self.L..", \"%s: %%p\", %s);\n"
     end
     res = res .. format(fmt, self:libName(class), self.SELF)
   end
@@ -793,7 +803,7 @@ end
 -- 'super'.
 function private.getSelf(self, class, method, need_mt)
   local nmt
-  local fmt = '%s%s = *((%s*)%s(L, 1, "%s"%s));\n'
+  local fmt = '%s%s = *((%s*)%s('..self.L..', 1, "%s"%s));\n'
   if need_mt then
     -- Type accessor should leave metatable on stack.
     nmt = ', true'
@@ -806,10 +816,10 @@ end
 --- Prepare a variable with a function parameter.
 function private:getParamVar(method, param, delta)
   if param.ctype.create_name == 'lua_State *' then
-    if param.name == 'L' then
+    if param.name == self.L then
       return ''
     else
-      return "lua_State * ".. param.name .. ' = L;\n'
+      return "lua_State * ".. param.name .. ' = '.. self.L ..';\n'
     end
   end
   local p = private.getParam(self, method, param, delta)
@@ -877,27 +887,29 @@ function private:getParam(method, param, delta)
   if lua.type == 'userdata' then
     -- userdata
     type_method = self:customTypeAccessor(method)
-    return format('*((%s*)%s(L, %i, "%s"))',
+    return format('*((%s*)%s('..self.L..', %i, "%s"))',
       rtype.create_name, type_method, param.position + delta, lua.mt_name)
   else
     -- native lua type
     local prefix = private.checkPrefix(self, method)
     if lua.pull then
       -- special accessor
+      LNAME = self.L
       return lua.pull(param.name, param.position + delta, prefix)
     elseif rtype.cast then
-      return format('(%s)%scheck%s(L, %i)', rtype.cast, prefix, lua.check, param.position + delta)
+      return format('(%s)%scheck%s('..self.L..', %i)', rtype.cast, prefix, lua.check, param.position + delta)
     else
-      return format('%scheck%s(L, %i)', prefix, lua.check, param.position + delta)
+      return format('%scheck%s('..self.L..', %i)', prefix, lua.check, param.position + delta)
     end
   end
 end
 
-function private.paramForCall(param)
+function private:paramForCall(param)
   local lua = param.lua
   local res = ''
   if lua.cast then
     -- Special accessor
+    LNAME = self.L
     res = res .. lua.cast(param.name)
   elseif lua.type == 'userdata' then
     -- custom type
@@ -937,7 +949,7 @@ function private:doCall(parent, method, max_arg)
       else
         first = false
       end
-      res = res .. private.paramForCall(param)
+      res = res .. private.paramForCall(self, param)
     end
     res = res .. ')'
   end
@@ -973,6 +985,7 @@ function private:pushValue(method, value, return_value)
   local lua = return_value.lua
   local ctype = return_value
   if lua.push then
+    LNAME = self.L
     res = lua.push(value)
   elseif lua.type == 'userdata' then
     -- resolved value
@@ -988,35 +1001,35 @@ function private:pushValue(method, value, return_value)
         if ctype.const then
           if self.options.read_const_member == 'copy' then
             -- copy
-            res = format('dub::pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
+            res = format('dub::pushudata('..self.L..', new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
           else
             -- cast
-            res = format('dub::pushudata(L, const_cast<%s*>(&%s), "%s", false);', rtype.name, value, lua.mt_name)
+            res = format('dub::pushudata('..self.L..', const_cast<%s*>(&%s), "%s", false);', rtype.name, value, lua.mt_name)
           end
         else
-          res = format('dub::pushudata(L, &%s, "%s", false);', value, lua.mt_name)
+          res = format('dub::pushudata('..self.L..', &%s, "%s", false);', value, lua.mt_name)
         end
       elseif return_value.ref then
         -- Return value is a reference.
         if ctype.const then
           if self.options.read_const_member == 'copy' then
             -- copy
-            res = format('dub::pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
+            res = format('dub::pushudata('..self.L..', new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
           else
             -- cast
-            res = format('dub::pushudata(L, const_cast<%s*>(&%s), "%s", false);', rtype.name, value, lua.mt_name)
+            res = format('dub::pushudata('..self.L..', const_cast<%s*>(&%s), "%s", false);', rtype.name, value, lua.mt_name)
           end
         else
           -- not const ref
-          res = format('dub::pushudata(L, &%s, "%s", false);', value, lua.mt_name)
+          res = format('dub::pushudata('..self.L..', &%s, "%s", false);', value, lua.mt_name)
         end
       else
         -- Return by value.
         if method.parent.dub and method.parent.dub.destroy == 'free' then
-          res = format('dub::pushfulldata<%s>(L, %s, "%s");', rtype.name, value, lua.mt_name)
+          res = format('dub::pushfulldata<%s>('..self.L..', %s, "%s");', rtype.name, value, lua.mt_name)
         else
           -- Allocate on the heap.
-          res = format('dub::pushudata(L, new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
+          res = format('dub::pushudata('..self.L..', new %s(%s), "%s", true);', rtype.name, value, lua.mt_name)
         end
       end
     else
@@ -1039,27 +1052,27 @@ function private:pushValue(method, value, return_value)
         assert(not custom_push, format("Types with @dub 'push' setting should not be passed as const types (%s).", method:fullname()))
         if self.options.read_const_member == 'copy' then
           -- copy
-          res = res .. format('%s(L, new %s(*retval__), "%s", true);',
+          res = res .. format('%s('..self.L..', new %s(*retval__), "%s", true);',
                               push_method, rtype.name, lua.mt_name)
         else
           -- cast
-          res = res .. format('%s(L, const_cast<%s*>(retval__), "%s", false);',
+          res = res .. format('%s('..self.L..', const_cast<%s*>(retval__), "%s", false);',
                               push_method, rtype.name, lua.mt_name)
         end
       else
         -- We should only GC in constructor.
         if method.ctor or (method.dub and method.dub.gc) then
-          res = res .. format('%s(L, retval__, "%s", true);',
+          res = res .. format('%s('..self.L..', retval__, "%s", true);',
                               push_method, lua.mt_name)
         else
-          res = res .. format('%s(L, retval__, "%s", false);',
+          res = res .. format('%s('..self.L..', retval__, "%s", false);',
                               push_method, lua.mt_name)
         end
       end
     end
   else
     -- native type
-    res = format('lua_push%s(L, %s);', lua.type, value)
+    res = format('lua_push%s('..self.L..', %s);', lua.type, value)
   end
   if string.match(res, '^return ') then
     return res
@@ -1111,6 +1124,7 @@ function private:setAttrBody(class, method, attr, delta)
   if type(lua.cast) == 'function' then
     -- TODO: move this into getParam ?
     res = res .. p
+    LNAME = self.L
     p = lua.cast(name)
   elseif lua.type == 'userdata' then
     -- custom type
@@ -1118,7 +1132,7 @@ function private:setAttrBody(class, method, attr, delta)
       p = '*' .. p
     else
       -- protect from gc
-      res = res .. format('dub::protect(L, 1, %i, "%s");\n', param.position + delta, param.name)
+      res = res .. format('dub::protect('..self.L..', 1, %i, "%s");\n', param.position + delta, param.name)
     end
   else
     -- native type
@@ -1185,7 +1199,7 @@ function private:switch(class, method, delta, bfunc, iterator)
   param.lua = self:luaType(class, param.ctype)
   if method.index_op then
     -- operator[]
-    res = res .. format('if (lua_type(L, %i) != LUA_TSTRING) {\n', delta + 1)
+    res = res .. format('if (lua_type('..self.L..', %i) != LUA_TSTRING) {\n', delta + 1)
     method.index_op.name = 'operator[]'
     res = res .. '  ' .. private.callWithParams(self, class, method.index_op, delta, '  ') .. '\n'
     res = res .. '}\n'
@@ -1200,18 +1214,18 @@ function private:switch(class, method, delta, bfunc, iterator)
   if method.is_get_attr then
     res = res .. '// <self> "key" <mt>\n'
     res = res .. '// rawget(mt, key)\n'
-    res = res .. 'lua_pushvalue(L, 2);\n'
+    res = res .. 'lua_pushvalue('..self.L..', 2);\n'
     res = res .. '// <self> "key" <mt> "key"\n'
-    res = res .. 'lua_rawget(L, -2);\n'
-    res = res .. 'if (!lua_isnil(L, -1)) {\n'
+    res = res .. 'lua_rawget('..self.L..', -2);\n'
+    res = res .. 'if (!lua_isnil('..self.L..', -1)) {\n'
     res = res .. '  // Found method.\n'
     res = res .. '  return 1;\n'
     res = res .. '} else {\n'
     res = res .. '  // Not in mt = attribute access.\n'
-    res = res .. '  lua_pop(L, 2);\n'
+    res = res .. '  lua_pop('..self.L..', 2);\n'
     res = res .. '}\n'
   elseif method.is_cast then
-    res = res .. 'void **retval__ = (void**)lua_newuserdata(L, sizeof(void*));\n'
+    res = res .. 'void **retval__ = (void**)lua_newuserdata('..self.L..', sizeof(void*));\n'
   end
 
   local filter
@@ -1267,11 +1281,11 @@ function private:switch(class, method, delta, bfunc, iterator)
     if custom.set_suffix then
       res = res .. custom.set_suffix
     else
-      res = res .. 'if (lua_istable(L, 1)) {\n'
+      res = res .. 'if (lua_istable('..self.L..', 1)) {\n'
       -- <tbl> <'key'> <value>
-      res = res .. '  lua_rawset(L, 1);\n'
+      res = res .. '  lua_rawset('..self.L..', 1);\n'
       res = res .. '} else {\n'
-      res = res .. '  luaL_error(L, KEY_EXCEPTION_MSG, key);\n'
+      res = res .. '  luaL_error('..self.L..', KEY_EXCEPTION_MSG, key);\n'
       res = res .. '}\n'
       -- If <self> is a table, write there
     end
@@ -1326,7 +1340,7 @@ function private:openOne(classes, i, res)
   if not class then return end
 
   local nclas = classes[i + 1]
-  insert(res, 'luaopen_'..self:openName(class)..'(L);')
+  insert(res, 'luaopen_'..self:openName(class)..'('..self.L..');')
 
   local name  = self:libName(class)
   local nname = nclas and self:libName(nclas)
@@ -1336,7 +1350,7 @@ function private:openOne(classes, i, res)
     index = private.openOne(self, classes, index, res)
   end
   insert(res, '// <'..name..'>')
-  insert(res, 'lua_setfield(L, -2, "'.. (class.dub.register or self:name(class)) ..'");')
+  insert(res, 'lua_setfield('..self.L..', -2, "'.. (class.dub.register or self:name(class)) ..'");')
   insert(res, '')
   return index
 end

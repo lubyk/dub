@@ -12,6 +12,7 @@
  *   * char/ const char* types
  *   * private and public ctor
  *   * neverThrows
+ *   * parameter named L
  * 
  * @dub ignore: shouldBeIgnored, publicButInternal
  */
@@ -59,6 +60,12 @@ public:
 
   double mul() {
     return 0;
+  }
+
+  /** Method with parameter named L.
+   */
+  double lmet(double L) {
+    return L + 2;
   }
 
   /** Overloaded method that can be decided by arg size.

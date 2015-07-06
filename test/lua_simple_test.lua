@@ -13,20 +13,20 @@ local should = lut.Test('dub.LuaBinder - simple', {coverage = false})
 local Simple, Map, SubMap, reg
 
 local dub = require 'dub'
-local binder = dub.LuaBinder()
+local binder = dub.LuaBinder {L = 'Ls'} -- custom 'L' state name.
 local custom_bindings = {
   Map = {
     -- DO NOT THROW HERE !!
     set_suffix = [[
 // <self> "key" value
-const char *s = luaL_checkstring(L, -1);
+const char *s = luaL_checkstring(Ls, -1);
 self->setVal(key, s);
 ]],
     get_suffix = [[
 // <self> "key"
 std::string v;
 if (self->getVal(key, &v)) {
-lua_pushlstring(L, v.data(), v.length());
+lua_pushlstring(Ls, v.data(), v.length());
 return 1;
 }
 ]],
@@ -131,7 +131,7 @@ function should.useArgCountWhenDefaults()
   local Simple = ins:find('Simple')
   local met = Simple:method('add')
   local res = binder:functionBody(Simple, met)
-  assertMatch('lua_gettop%(L%)', res)
+  assertMatch('lua_gettop%(Ls%)', res)
 end
 
 function should.properlyBindStructParam()

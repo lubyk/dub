@@ -19,7 +19,7 @@ using namespace {{class:namespace().name}};
 /** {{method:nameWithArgs()}}
  * {{method.location}}
  */
-static int {{class.name}}_{{method.cname}}(lua_State *L) {
+static int {{class.name}}_{{method.cname}}(lua_State *{{self.L}}) {
 {% if method:neverThrows() then %}
 
   {| self:functionBody(class, method) |}
@@ -27,11 +27,11 @@ static int {{class.name}}_{{method.cname}}(lua_State *L) {
   try {
     {| self:functionBody(class, method) |}
   } catch (std::exception &e) {
-    lua_pushfstring(L, "{{self:bindName(method)}}: %s", e.what());
+    lua_pushfstring({{self.L}}, "{{self:bindName(method)}}: %s", e.what());
   } catch (...) {
-    lua_pushfstring(L, "{{self:bindName(method)}}: Unknown exception");
+    lua_pushfstring({{self.L}}, "{{self:bindName(method)}}: Unknown exception");
   }
-  return dub::error(L);
+  return dub::error({{self.L}});
 {% end %}
 }
 
@@ -40,7 +40,7 @@ static int {{class.name}}_{{method.cname}}(lua_State *L) {
 {% if not class:method('__tostring') then %}
 
 // --=============================================== __tostring
-static int {{class.name}}___tostring(lua_State *L) {
+static int {{class.name}}___tostring(lua_State *{{self.L}}) {
   {| self:toStringBody(class) |}
   return 1;
 }
@@ -69,20 +69,20 @@ static const struct dub::const_Reg {{class.name}}_const[] = {
 };
 {% end %}
 
-DUB_EXPORT int luaopen_{{self:openName(class)}}(lua_State *L)
+DUB_EXPORT int luaopen_{{self:openName(class)}}(lua_State *{{self.L}})
 {
   // Create the metatable which will contain all the member methods
-  luaL_newmetatable(L, "{{self:libName(class)}}");
+  luaL_newmetatable({{self.L}}, "{{self:libName(class)}}");
   // <mt>
 {% if class.has_constants then %}
   // register class constants
-  dub::register_const(L, {{class.name}}_const);
+  dub::register_const({{self.L}}, {{class.name}}_const);
 {% end %}
 
   // register member methods
-  dub::fregister(L, {{ class.name }}_member_methods);
+  dub::fregister({{self.L}}, {{ class.name }}_member_methods);
   // setup meta-table
-  dub::setup(L, "{{self:libName(class)}}");
+  dub::setup({{self.L}}, "{{self:libName(class)}}");
   // <mt>
   return 1;
 }

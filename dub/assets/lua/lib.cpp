@@ -17,7 +17,7 @@ using namespace {{namespace.name}};
 
 extern "C" {
 {% for _, class in ipairs(classes) do %}
-int luaopen_{{self:openName(class)}}(lua_State *L);
+int luaopen_{{self:openName(class)}}(lua_State *{{self.L}});
 {% end %}
 }
 
@@ -25,7 +25,7 @@ int luaopen_{{self:openName(class)}}(lua_State *L);
 /** {{method:nameWithArgs()}}
  * {{method.location}}
  */
-static int {{string.gsub(method:fullcname(), '::', '_')}}(lua_State *L) {
+static int {{string.gsub(method:fullcname(), '::', '_')}}(lua_State *{{self.L}}) {
 {% if method:neverThrows() then %}
 
   {| self:functionBody(method) |}
@@ -33,11 +33,11 @@ static int {{string.gsub(method:fullcname(), '::', '_')}}(lua_State *L) {
   try {
     {| self:functionBody(method) |}
   } catch (std::exception &e) {
-    lua_pushfstring(L, "{{self:libName(method)}}: %s", e.what());
+    lua_pushfstring({{self.L}}, "{{self:libName(method)}}: %s", e.what());
   } catch (...) {
-    lua_pushfstring(L, "{{self:libName(method)}}: Unknown exception");
+    lua_pushfstring({{self.L}}, "{{self:libName(method)}}: Unknown exception");
   }
-  return lua_error(L);
+  return lua_error({{self.L}});
 {% end %}
 }
 
@@ -66,14 +66,14 @@ static const struct dub::const_Reg {{lib_name}}_const[] = {
 };
 {% end %}
 
-DUB_EXPORT int luaopen_{{self.options.luaopen or lib_name}}(lua_State *L) {
-  lua_newtable(L);
+DUB_EXPORT int luaopen_{{self.options.luaopen or lib_name}}(lua_State *{{self.L}}) {
+  lua_newtable({{self.L}});
   // <lib>
 {% if lib.has_constants then %}
   // register global constants
-  dub::register_const(L, {{lib_name}}_const);
+  dub::register_const({{self.L}}, {{lib_name}}_const);
 {% end %}
-  dub::fregister(L, {{lib_name}}_functions);
+  dub::fregister({{self.L}}, {{lib_name}}_functions);
   // <lib>
 
   {{ self:openClasses(classes) }}

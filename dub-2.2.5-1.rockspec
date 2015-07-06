@@ -1,8 +1,8 @@
 package = "dub"
-version = "2.2.4-1"
+version = "2.2.5-1"
 source = {
   url = 'git://github.com/lubyk/dub',
-  tag = 'REL-2.2.4',
+  tag = 'REL-2.2.5',
   dir = 'dub',
 }
 description = {
