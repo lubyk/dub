@@ -8,7 +8,7 @@
 local lub     = require 'lub'
 local dub     = require 'dub'
 local xml     = require 'xml'
-local pairs, ipairs, format,        gsub,        match,        insert  = 
+local pairs, ipairs, format,        gsub,        match,        insert  =
       pairs, ipairs, string.format, string.gsub, string.match, table.insert
 local lib     = lub.class 'dub.MemoryStorage'
 local private = {}
@@ -50,8 +50,10 @@ function lib:parse(xml_dir, not_lazy, ignore_list)
   local xml_headers = self.xml_headers
   local dir = lub.Dir(xml_dir)
   -- Parse header (.h) content first
-  for file in dir:glob('_8h.xml') do
-    insert(xml_headers, {path = file, dir = xml_dir})
+  for _, ext in ipairs({'h', 'H', 'hh', 'hxx', 'hpp', 'h++'}) do
+    for file in dir:glob('_8' .. ext .. '.xml') do
+      insert(xml_headers, {path = file, dir = xml_dir})
+    end
   end
   -- Parse namespace content
   for file in dir:glob('namespace.*.xml') do
@@ -227,7 +229,7 @@ function lib:constants(parent)
           end
         end
       end
-    end                                   
+    end
   end)
   return function()
     local ok, name, scope = coroutine.resume(co)
@@ -413,7 +415,7 @@ end
 function private:parseHeaders(name)
   local cache = self.cache
   if self.parsed_headers then
-    return cache[name] 
+    return cache[name]
   end
   local elem
   -- Look in all unparsed headers
@@ -430,7 +432,7 @@ end
 
 local parser = xml.Parser(xml.Parser.TrimWhitespace)
 
---- Parse a header definition and return element 
+--- Parse a header definition and return element
 -- identified by 'name' if found. 'self' can be the db or a dub.Class.
 function parse:header(header, not_lazy)
   header.parsed = true
@@ -587,7 +589,7 @@ end
 
 function parse:sectiondef(elem, header)
   local kind = elem.kind
-  if kind == 'public-func' or 
+  if kind == 'public-func' or
      -- methods
      kind == 'enum' or
      -- global enum
@@ -714,7 +716,7 @@ end
 function parse:typedef(elem, header)
   local typ = {
     type        = 'dub.Typedef',
-    parent      = self, 
+    parent      = self,
     db          = self.db or self,
     name        = find(elem, 'name')[1],
     ctype       = parse.type(elem),
@@ -732,7 +734,7 @@ function parse:typedef(elem, header)
   end
   return typ
 end
-    
+
 parse['function'] = function(self, elem, header)
   local name = find(elem, 'name')[1]
   if self.is_class then
@@ -1020,7 +1022,7 @@ function lib.makeSpecialMethods(class, custom_bindings)
   else
     custom_bindings = {}
   end
-    
+
   if private.needsCast(class.db, class) then
     private.makeCast(class)
   end
@@ -1088,13 +1090,13 @@ function private:makeAttrArrayMethods(attr)
         name     = 'i',
         position = 1,
         ctype    = lib.makeType('size_t'),
-      }, 
+      },
       {
         type     = 'dub.Param',
         name     = 'v',
         position = 2,
         ctype    = attr.ctype,
-      }, 
+      },
     },
     return_value  = nil,
     definition    = 'Write ' .. name,
@@ -1244,7 +1246,7 @@ function parse.opt(elem)
 end
 
 -- function lib:find(scope, name)
---   return self:findByFullname(name) or 
+--   return self:findByFullname(name) or
 --   self:findByFullname(elem.parent:fullname() .. '::' .. name)
 -- end
 
