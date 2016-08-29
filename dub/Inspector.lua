@@ -24,6 +24,8 @@ local private = {}
 -- + (PREDEFINED)  : Defines to use by Doxygen during parsing (usually to remove
 --                   unwanted clutter from "ATTRIBUTE_ALIGNED16" or
 --                   "SIMD_FORCE_INLINE" kind of macros.
+-- + (EXCLUDE_PATTERNS) : Doxygen option to exclude files and/or directories.
+-- + (FILE_PATTERNS) : Doxygen option for header file name patterns such as `*.h *.hpp`.
 -- + (doc_dir)     : Directory to store generated xml and html.
 -- + (ignore)      : List of root level classes or functions to ignore.
 function lib.new(opts)
