@@ -50,7 +50,7 @@ function lib:parse(xml_dir, not_lazy, ignore_list)
   local xml_headers = self.xml_headers
   local dir = lub.Dir(xml_dir)
   -- Parse header (.h) content first
-  for _, ext in ipairs({'h', 'H', 'hh', 'hxx', 'hpp', 'h++'}) do
+  for _, ext in ipairs({'h', '_h', 'hh', 'hxx', 'hpp', 'h++'}) do
     for file in dir:glob('_8' .. ext .. '.xml') do
       insert(xml_headers, {path = file, dir = xml_dir})
     end
