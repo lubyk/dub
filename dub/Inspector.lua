@@ -12,7 +12,7 @@ local lib     = lub.class 'dub.Inspector'
 local private = {}
 
 
--- Create a new inspector by providing sources to scan. All upercase fields in 
+-- Create a new inspector by providing sources to scan. All upercase fields in
 -- `opts` correspond to options used by Doxygen. The `opts` table can
 -- contain the following keys (keys in parenthesis are optional):
 --
@@ -74,6 +74,44 @@ function private:parse(opts)
   end
   assert(opts and opts.INPUT, "Missing 'INPUT' field")
 
+  if not opts.FILE_PATTERNS then
+    opts.FILE_PATTERNS = [[
+      *.c \
+      *.cc \
+      *.cxx \
+      *.cpp \
+      *.c++ \
+      *.d \
+      *.java \
+      *.ii \
+      *.ixx \
+      *.ipp \
+      *.i++ \
+      *.inl \
+      *.h \
+      *.H \
+      *.hh \
+      *.hxx \
+      *.hpp \
+      *.h++ \
+      *.idl \
+      *.odl \
+      *.cs \
+      *.php \
+      *.php3 \
+      *.inc \
+      *.m \
+      *.mm \
+      *.dox \
+      *.py \
+      *.f90 \
+      *.f \
+      *.for \
+      *.vhd \
+      *.vhdl
+    ]]
+  end
+
   if opts.html then
     opts.GENERATE_HTML = 'YES'
     opts.keep_xml = true
@@ -105,6 +143,14 @@ function private:parse(opts)
     local doxytemplate = lub.Template {path = lub.path('|assets/Doxyfile')}
     if type(opts.INPUT) == 'table' then
       opts.INPUT = lub.join(opts.INPUT, ' ')
+    end
+    if not opts.EXCLUDE_PATTERNS then
+      opts.EXCLUDE_PATTERNS = ''
+    elseif type(opts.EXCLUDE_PATTERNS) == 'table' then
+      opts.EXCLUDE_PATTERNS = lub.join(opts.EXCLUDE_PATTERNS, ' ')
+    end
+    if type(opts.FILE_PATTERNS) == 'table' then
+      opts.FILE_PATTERNS = lub.join(opts.FILE_PATTERNS, ' ')
     end
     if type(opts.PREDEFINED) == 'table' then
       opts.PREDEFINED = lub.join(opts.PREDEFINED, ' \\\n                         ')
